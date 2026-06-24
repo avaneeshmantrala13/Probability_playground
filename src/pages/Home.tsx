@@ -5,6 +5,7 @@ import { useProgress } from "../context/ProgressContext";
 import { isLessonUnlocked } from "../lib/mastery";
 import { Brand } from "../components/Brand";
 import { ChevronRightIcon } from "../components/icons";
+import { FallingCards } from "../components/home/FallingCards";
 
 export function Home() {
   const { user } = useAuth();
@@ -35,7 +36,9 @@ export function Home() {
       : "Start learning";
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <>
+      <FallingCards />
+      <div className="relative z-10 mx-auto max-w-3xl">
       <section className="pp-card relative overflow-hidden">
         {/* Subtle, theme-aware color wash blending the primary purple with the
             complementary teal accent. Very low intensity so text stays crisp. */}
@@ -96,6 +99,7 @@ export function Home() {
           <div className="mt-1 text-sm text-secondary">lessons mastered</div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

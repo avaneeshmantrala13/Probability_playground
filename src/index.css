@@ -258,6 +258,76 @@
     animation-delay: var(--pp-confetti-delay, 0s);
   }
 
+  /* Decorative home-page background: playing cards drifting slowly down the
+     screen. The whole layer is subtle (and muted further in dark mode so it
+     never glares) and sits BEHIND the page content. */
+  @keyframes pp-card-fall {
+    0% {
+      transform: translate3d(0, -22vh, 0) rotate(var(--pp-card-rot-start, 0deg));
+    }
+    50% {
+      transform: translate3d(var(--pp-card-sway, 0px), 50vh, 0)
+        rotate(var(--pp-card-rot-mid, 0deg));
+    }
+    100% {
+      transform: translate3d(0, 118vh, 0) rotate(var(--pp-card-rot-end, 0deg));
+    }
+  }
+
+  .pp-falling-cards-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .dark .pp-falling-cards-layer {
+    opacity: 0.28;
+  }
+
+  .pp-falling-card {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #fdfdfb;
+    border: 1px solid #d8d8d8;
+    box-shadow: 0 6px 14px rgb(0 0 0 / 0.12);
+    font-family: Inter, system-ui, sans-serif;
+    will-change: transform;
+    transform: translate3d(0, -22vh, 0);
+    animation: pp-card-fall var(--pp-card-dur, 20s) linear infinite;
+    animation-delay: var(--pp-card-delay, 0s);
+  }
+
+  .pp-falling-card-corner {
+    position: absolute;
+    top: 6%;
+    left: 9%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    font-weight: 800;
+    font-size: clamp(10px, 26%, 18px);
+  }
+
+  .pp-falling-card-corner-suit {
+    margin-top: 2px;
+    font-weight: 600;
+    font-size: 0.8em;
+  }
+
+  .pp-falling-card-pip {
+    font-size: clamp(20px, 56%, 42px);
+    line-height: 1;
+    opacity: 0.92;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .pp-anim-die-roll,
     .pp-anim-pop,
@@ -268,6 +338,10 @@
     }
 
     .pp-confetti-piece {
+      display: none;
+    }
+
+    .pp-falling-cards-layer {
       display: none;
     }
   }
