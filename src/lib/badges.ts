@@ -69,7 +69,7 @@ const LESSON_BADGE_META: Record<
     title: "Building Momentum",
     description: "Pass Lesson 2.",
     icon: RocketIcon,
-    gradient: ["#22d3ee", "#0891b2"],
+    gradient: ["#22d3ee", "#0d9488"],
   },
   lesson_3: {
     title: "Halfway Hero",
