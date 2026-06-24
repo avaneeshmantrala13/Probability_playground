@@ -36,12 +36,18 @@ export function Home() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <section className="pp-card overflow-hidden">
-        <div className="flex flex-col items-start gap-5 p-7 sm:p-9">
+      <section className="pp-card relative overflow-hidden">
+        {/* Subtle, theme-aware color wash blending the primary purple with the
+            complementary teal accent. Very low intensity so text stays crisp. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/[0.08] via-transparent to-accent-2/[0.08]"
+        />
+        <div className="relative flex flex-col items-start gap-5 p-7 sm:p-9">
           <Brand size={44} />
 
           <div>
-            <h1 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+            <h1 className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-2xl font-extrabold tracking-tight text-transparent sm:text-3xl">
               Hi {name}, learn probability by doing.
             </h1>
             <p className="mt-3 max-w-xl text-secondary">
@@ -83,7 +89,7 @@ export function Home() {
           <div className="mt-1 text-sm text-secondary">day streak</div>
         </div>
         <div className="pp-card p-5 text-center">
-          <div className="text-3xl font-bold text-accent">
+          <div className="text-3xl font-bold text-accent-2">
             {completedCount}
             <span className="text-xl text-muted">/{TOTAL_LESSONS}</span>
           </div>

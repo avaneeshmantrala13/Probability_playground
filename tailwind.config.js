@@ -18,6 +18,8 @@ export default {
         accent: "rgb(var(--color-accent) / <alpha-value>)",
         "accent-hover": "rgb(var(--color-accent-hover) / <alpha-value>)",
         "accent-contrast": "rgb(var(--color-accent-contrast) / <alpha-value>)",
+        "accent-2": "rgb(var(--color-accent-2) / <alpha-value>)",
+        "accent-2-hover": "rgb(var(--color-accent-2-hover) / <alpha-value>)",
         success: "rgb(var(--color-success) / <alpha-value>)",
         "success-soft": "rgb(var(--color-success-soft) / <alpha-value>)",
         danger: "rgb(var(--color-danger) / <alpha-value>)",

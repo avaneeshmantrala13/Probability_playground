@@ -20,6 +20,11 @@
     --color-accent-hover: 67 56 202;
     --color-accent-contrast: 255 255 255;
 
+    /* Complementary secondary accent (teal) used sparingly alongside the
+       primary purple for gradients, highlights, and accents. */
+    --color-accent-2: 13 148 136;
+    --color-accent-2-hover: 15 118 110;
+
     --color-success: 22 163 74;
     --color-success-soft: 220 252 231;
     --color-danger: 220 38 38;
@@ -48,6 +53,9 @@
     --color-accent: 129 124 255;
     --color-accent-hover: 153 149 255;
     --color-accent-contrast: 17 18 28;
+
+    --color-accent-2: 45 212 191;
+    --color-accent-2-hover: 94 234 212;
 
     --color-success: 52 211 153;
     --color-success-soft: 6 59 46;
