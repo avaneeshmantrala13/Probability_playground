@@ -56,7 +56,7 @@ const ProgressContext = createContext<ProgressContextValue | undefined>(undefine
 const SAVE_DEBOUNCE_MS = 700;
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [progress, setProgress] = useState<CourseProgress>(emptyProgress);
   const [loading, setLoading] = useState(true);
 
@@ -68,6 +68,15 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   // Hydrate on sign-in; reset on sign-out. Also bumps the daily streak.
   useEffect(() => {
     let cancelled = false;
+    // Wait for Firebase auth to resolve before reporting a loaded state.
+    // Otherwise, on a reload, this effect would briefly run with user === null
+    // and flip loading=false against empty progress; consumers (LessonPlayer,
+    // useLessonTimer) would then hydrate a fresh attempt and ignore the real
+    // progress once it arrives, resetting an in-progress lesson and its timer.
+    if (authLoading) {
+      setLoading(true);
+      return;
+    }
     if (!user) {
       uidRef.current = null;
       setProgress(emptyProgress());
@@ -100,7 +109,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [user]);
+  }, [user, authLoading]);
 
   const scheduleSave = useCallback(() => {
     const uid = uidRef.current;
