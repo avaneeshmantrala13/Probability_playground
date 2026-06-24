@@ -56,6 +56,9 @@ export function LessonPlayer() {
 
     const attempt = progress.activeAttempt;
     if (
+      // A mastered lesson is being redone/reviewed: always start clean so the
+      // previous (checked) answers don't reveal the solutions on re-entry.
+      !alreadyMastered &&
       attempt &&
       attempt.lessonId === lesson.lessonId &&
       attempt.answers.length === total
@@ -82,7 +85,7 @@ export function LessonPlayer() {
     }
     setResult(null);
     hydratedFor.current = lesson.lessonId;
-  }, [lesson, loading, progress, total, setPosition, saveAttempt]);
+  }, [lesson, loading, progress, total, alreadyMastered, setPosition, saveAttempt]);
 
   // Persist position when the student changes question.
   useEffect(() => {
@@ -172,6 +175,23 @@ export function LessonPlayer() {
     saveAttempt(lesson.lessonId, newRound, fresh);
   }
 
+  function restart() {
+    if (!lesson) return;
+    if (
+      !window.confirm(
+        "Restart this lesson from the first question? Your current answers will be cleared.",
+      )
+    )
+      return;
+    const fresh = freshAnswers(total);
+    setAnswers(fresh);
+    setIndex(0);
+    setResult(null);
+    setPhase("quiz");
+    setPosition(lesson.lessonId, 0);
+    saveAttempt(lesson.lessonId, round, fresh);
+  }
+
   if (phase === "results" && result) {
     return result.passed ? (
       <LessonCleared lesson={lesson} result={result} previouslyEarned={earnedBefore} />
@@ -193,20 +213,29 @@ export function LessonPlayer() {
           <Link to="/lessons" className="text-sm font-medium text-secondary hover:text-primary">
             &larr; All lessons
           </Link>
-          <span
-            className={[
-              "rounded-full px-2.5 py-1 text-xs font-medium",
-              isRemediation
-                ? "bg-accent/15 text-accent"
-                : "bg-surface-muted text-secondary",
-            ].join(" ")}
-          >
-            {isRemediation
-              ? `Practice round ${round}`
-              : current && index < total
-                ? `Lesson ${lesson.order}`
-                : ""}
-          </span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={restart}
+              className="rounded-full px-2.5 py-1 text-xs font-medium text-secondary hover:bg-surface-muted hover:text-primary"
+            >
+              Restart
+            </button>
+            <span
+              className={[
+                "rounded-full px-2.5 py-1 text-xs font-medium",
+                isRemediation
+                  ? "bg-accent/15 text-accent"
+                  : "bg-surface-muted text-secondary",
+              ].join(" ")}
+            >
+              {isRemediation
+                ? `Practice round ${round}`
+                : current && index < total
+                  ? `Lesson ${lesson.order}`
+                  : ""}
+            </span>
+          </div>
         </div>
         <h1 className="text-xl font-bold text-primary">{lesson.title}</h1>
         {isRemediation && (
