@@ -63,19 +63,19 @@ const LESSON_BADGE_META: Record<
     title: "First Steps",
     description: "Pass your first lesson.",
     icon: SproutIcon,
-    gradient: ["#34d399", "#059669"],
+    gradient: ["#39ff14", "#15a32e"],
   },
   lesson_2: {
     title: "Building Momentum",
     description: "Pass Lesson 2.",
     icon: RocketIcon,
-    gradient: ["#38bdf8", "#2563eb"],
+    gradient: ["#22d3ee", "#0891b2"],
   },
   lesson_3: {
     title: "Halfway Hero",
     description: "Pass Lesson 3.",
     icon: FlagIcon,
-    gradient: ["#a78bfa", "#7c3aed"],
+    gradient: ["#c4b5fd", "#8b5cf6"],
   },
   lesson_4: {
     title: "Four Down",
