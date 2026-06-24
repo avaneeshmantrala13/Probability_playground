@@ -32,4 +32,3 @@ if (isFirebaseConfigured) {
 export const auth = authInstance as Auth;
 export const db = dbInstance as Firestore;
 export const googleProvider = new GoogleAuthProvider();
-export { app };

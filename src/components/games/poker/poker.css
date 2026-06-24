@@ -1,0 +1,122 @@
+/* Poker Scenario game — scoped styles. All keyframes/classes are prefixed
+   "poker-" to avoid colliding with global utilities. Animations are GPU-friendly
+   (transform/opacity only) and disabled under prefers-reduced-motion. */
+
+.poker-felt {
+  background:
+    radial-gradient(
+      ellipse 60% 70% at 50% 42%,
+      rgb(34 130 86) 0%,
+      rgb(22 101 64) 55%,
+      rgb(14 78 50) 100%
+    );
+  box-shadow:
+    inset 0 0 60px rgb(0 0 0 / 0.35),
+    inset 0 6px 18px rgb(255 255 255 / 0.06);
+}
+
+/* Wooden rail around the felt. */
+.poker-rail {
+  background: linear-gradient(160deg, rgb(94 61 39) 0%, rgb(63 39 24) 100%);
+  box-shadow:
+    0 10px 30px rgb(0 0 0 / 0.35),
+    inset 0 2px 4px rgb(255 255 255 / 0.12);
+}
+
+/* Staggered deal-in for visible cards. */
+@keyframes poker-deal {
+  0% {
+    opacity: 0;
+    transform: translateY(-34px) rotateY(78deg) scale(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(3px) rotateY(-6deg) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateY(0) scale(1);
+  }
+}
+
+.poker-card-deal {
+  transform-style: preserve-3d;
+  animation: poker-deal 0.55s cubic-bezier(0.22, 0.8, 0.26, 1) both;
+}
+
+/* Gentle idle bob for the NPC avatars. */
+@keyframes poker-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.poker-bob {
+  animation: poker-bob 3.4s ease-in-out infinite;
+}
+
+/* Soft sway for NPC card fans. */
+@keyframes poker-sway {
+  0%,
+  100% {
+    transform: rotate(-1.6deg);
+  }
+  50% {
+    transform: rotate(1.6deg);
+  }
+}
+
+.poker-sway {
+  transform-origin: bottom center;
+  animation: poker-sway 4.2s ease-in-out infinite;
+}
+
+/* Chip shimmer. */
+@keyframes poker-shimmer {
+  0%,
+  100% {
+    opacity: 0.82;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.18);
+  }
+}
+
+.poker-shimmer {
+  animation: poker-shimmer 2.6s ease-in-out infinite;
+}
+
+/* Result badge pop. */
+@keyframes poker-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.poker-pop {
+  animation: poker-pop 0.32s cubic-bezier(0.22, 0.8, 0.26, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poker-card-deal,
+  .poker-bob,
+  .poker-sway,
+  .poker-shimmer,
+  .poker-pop {
+    animation: none !important;
+  }
+}

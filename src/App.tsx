@@ -11,6 +11,10 @@ import { Home } from "./pages/Home";
 import { Lessons } from "./pages/Lessons";
 import { LessonPlayer } from "./pages/LessonPlayer";
 import { Settings } from "./pages/Settings";
+import { Playground } from "./pages/Playground";
+import { Badges } from "./pages/Badges";
+import { PokerScenario } from "./pages/games/PokerScenario";
+import { MontyHall } from "./pages/games/MontyHall";
 
 /** Wraps a page in auth protection + the app chrome. */
 function Protected({ children }: { children: ReactNode }) {
@@ -35,6 +39,10 @@ export function App() {
       <Route path="/" element={<Protected><Home /></Protected>} />
       <Route path="/lessons" element={<Protected><Lessons /></Protected>} />
       <Route path="/lessons/:lessonId" element={<Protected><LessonPlayer /></Protected>} />
+      <Route path="/playground" element={<Protected><Playground /></Protected>} />
+      <Route path="/badges" element={<Protected><Badges /></Protected>} />
+      <Route path="/games/poker" element={<Protected><PokerScenario /></Protected>} />
+      <Route path="/games/monty-hall" element={<Protected><MontyHall /></Protected>} />
       <Route path="/settings" element={<Protected><Settings /></Protected>} />
 
       <Route path="*" element={<Navigate to="/" replace />} />

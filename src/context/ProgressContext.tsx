@@ -19,6 +19,7 @@ import {
   type ActiveAttempt,
   type AttemptAnswer,
   type CourseProgress,
+  type LessonMastery,
 } from "../lib/progress";
 import { isPassing, scoreToPercent } from "../lib/mastery";
 
@@ -46,6 +47,7 @@ interface ProgressContextValue {
     round: number,
     correct: number,
     total: number,
+    elapsedMs?: number,
   ) => AttemptResult;
 }
 
@@ -174,26 +176,49 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   }, [update]);
 
   const completeAttempt = useCallback(
-    (lessonId: string, round: number, correct: number, total: number): AttemptResult => {
+    (
+      lessonId: string,
+      round: number,
+      correct: number,
+      total: number,
+      elapsedMs?: number,
+    ): AttemptResult => {
       const scorePercent = scoreToPercent(correct, total);
       const passed = isPassing(correct, total);
 
       update((prev) => {
         const existing = prev.lessonMastery[lessonId];
-        const mastery = {
+        const mastery: LessonMastery = {
           bestScore: Math.max(existing?.bestScore ?? 0, scorePercent),
           attempts: (existing?.attempts ?? 0) + 1,
           passed: (existing?.passed ?? false) || passed,
         };
+        // Record the best (minimum) finishing time only for passing attempts;
+        // otherwise carry forward any previously recorded best time.
+        const prevBest = existing?.bestTimeMs;
+        if (passed && elapsedMs != null && elapsedMs > 0) {
+          mastery.bestTimeMs =
+            prevBest != null ? Math.min(prevBest, elapsedMs) : elapsedMs;
+        } else if (prevBest != null) {
+          mastery.bestTimeMs = prevBest;
+        }
+
         const completedLessons =
           passed && !prev.completedLessons.includes(lessonId)
             ? [...prev.completedLessons, lessonId]
             : prev.completedLessons;
+
+        // A passed lesson ends timing; a failed attempt keeps accruing so the
+        // remediation round continues the same stopwatch.
+        const lessonTimers = { ...prev.lessonTimers };
+        if (passed) delete lessonTimers[lessonId];
+
         return {
           ...prev,
           lessonMastery: { ...prev.lessonMastery, [lessonId]: mastery },
           completedLessons,
           activeAttempt: null,
+          lessonTimers,
         };
       });
 

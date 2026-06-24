@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LESSONS, TOTAL_LESSONS } from "../content";
+import type { Lesson } from "../content/types";
 import { useProgress } from "../context/ProgressContext";
 import { isLessonUnlocked } from "../lib/mastery";
 import { ProgressBar } from "../components/lesson/ProgressBar";
+import { IntroModal } from "../components/lesson/IntroModal";
 import { BookIcon, CheckIcon, ChevronRightIcon, LockIcon } from "../components/icons";
 
 export function Lessons() {
   const { progress } = useProgress();
   const completedCount = progress.completedLessons.length;
+  const [introLesson, setIntroLesson] = useState<Lesson | null>(null);
 
   return (
     <div>
@@ -75,6 +79,19 @@ export function Lessons() {
                   {unlocked && <ChevronRightIcon size={16} />}
                 </span>
               </div>
+              {unlocked && lesson.intro && lesson.intro.length > 0 && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIntroLesson(lesson);
+                  }}
+                  className="mt-3 self-start text-xs font-medium text-secondary hover:text-primary hover:underline"
+                >
+                  Read intro
+                </button>
+              )}
             </>
           );
 
@@ -102,6 +119,10 @@ export function Lessons() {
           );
         })}
       </div>
+
+      {introLesson && (
+        <IntroModal lesson={introLesson} onClose={() => setIntroLesson(null)} />
+      )}
     </div>
   );
 }

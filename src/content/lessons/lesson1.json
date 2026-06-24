@@ -83,14 +83,14 @@
     {
       "id": "l1_q3",
       "kind": "standard",
-      "concept": "probability_intuition",
+      "concept": "coin_sample_space",
       "simulation": { "type": "coin_flip" },
-      "question": "Run the coin-flip experiment a few separate times, each with only 20 flips. What best describes the experimental probability of heads (heads \u00f7 flips) you record each run?",
+      "question": "Before running the coin-flip simulation, list every possible result of a single flip. The complete set of outcomes is:",
       "options": [
-        "It is exactly 0.5 every single run",
-        "It varies from run to run, usually near but not exactly 0.5",
-        "It is always greater than 0.5",
-        "It cannot be calculated from an experiment"
+        "Just heads",
+        "Heads or tails",
+        "Heads, tails, or landing on its edge",
+        "The numbers 1 through 6"
       ],
       "correctAnswer": 1,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
@@ -98,27 +98,22 @@
         {
           "id": "l1_q3_r1",
           "simulation": { "type": "coin_flip" },
-          "question": "You flip a coin 20 times and compute heads \u00f7 20. If you reset and run another 20 flips, the new experimental probability will most likely be:",
-          "options": [
-            "exactly the same value",
-            "usually close to 0.5 but possibly different",
-            "always 0",
-            "always 1"
-          ],
+          "question": "How many different outcomes can a single coin flip land on in the simulation?",
+          "options": ["1", "2", "3", "6"],
           "correctAnswer": 1,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q3_r2",
           "simulation": { "type": "coin_flip" },
-          "question": "Two students each flip a coin 30 times and find the experimental probability of heads from their own data. Their two results are most likely to be:",
+          "question": "In the coin-flip simulation, the two bars you build up are labeled:",
           "options": [
-            "identical to each other",
-            "both exactly 0.5",
-            "slightly different from each other",
-            "one equal to 0 and the other equal to 1"
+            "1 and 2",
+            "Heads and tails",
+            "Odd and even",
+            "Win and lose"
           ],
-          "correctAnswer": 2,
+          "correctAnswer": 1,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
       ]
@@ -126,27 +121,42 @@
     {
       "id": "l1_q4",
       "kind": "standard",
-      "concept": "relative_frequency",
-      "simulation": { "type": "dice" },
-      "question": "You roll a die 60 times. To find the relative frequency of rolling a 3, you divide the number of 3s by what?",
-      "options": ["6", "60 (the total rolls)", "3", "10"],
-      "correctAnswer": 1,
+      "concept": "experimental_probability_meaning",
+      "simulation": { "type": "coin_flip" },
+      "question": "You run the coin-flip simulation for 20 flips, get 9 heads, and compute 9/20 = 0.45. What does this 0.45 represent?",
+      "options": [
+        "The experimental probability of heads measured from this run",
+        "Proof the coin is broken because it is not exactly 0.5",
+        "The total number of heads you flipped",
+        "An impossible value because it is not a whole number"
+      ],
+      "correctAnswer": 0,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
           "id": "l1_q4_r1",
-          "simulation": { "type": "dice" },
-          "question": "After 40 rolls, the relative frequency of rolling a 5 equals the count of 5s divided by:",
-          "options": ["5", "40", "6", "8"],
-          "correctAnswer": 1,
+          "simulation": { "type": "coin_flip" },
+          "question": "After 50 flips you count 24 heads and compute 24/50 = 0.48. The number 0.48 is:",
+          "options": [
+            "the experimental probability of heads from these flips",
+            "the number of heads you got",
+            "a mistake, since the result must always be 0.5",
+            "the number of flips you made"
+          ],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q4_r2",
           "simulation": { "type": "dice" },
-          "question": "Relative frequency of an outcome is the number of times it happened divided by the:",
-          "options": ["number of faces", "total number of trials", "outcome value", "number 6"],
-          "correctAnswer": 1,
+          "question": "You roll a die 30 times and a 4 comes up 7 times. Computing 7/30 gives you:",
+          "options": [
+            "the experimental probability of rolling a 4 in this run",
+            "the number of faces on the die",
+            "the count of 4s you rolled",
+            "an impossible result"
+          ],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
       ]
@@ -154,26 +164,36 @@
     {
       "id": "l1_q5",
       "kind": "standard",
-      "concept": "experimental_probability",
-      "simulation": { "type": "coin_flip" },
-      "question": "In 50 flips of a coin you record 30 heads. What is the experimental probability of heads for this data?",
-      "options": ["30", "0.6", "0.5", "20"],
-      "correctAnswer": 1,
+      "concept": "comparing_observed_frequencies",
+      "simulation": { "type": "dice" },
+      "question": "In a run of the dice simulation you count 22 ones and 14 twos. Based on this experiment, which outcome occurred more often?",
+      "options": [
+        "Rolling a 1",
+        "Rolling a 2",
+        "They occurred exactly the same number of times",
+        "There is no way to tell from the counts"
+      ],
+      "correctAnswer": 0,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
           "id": "l1_q5_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "Out of 20 flips you get 8 heads. The experimental probability of heads is:",
-          "options": ["8", "0.4", "0.5", "12"],
-          "correctAnswer": 1,
+          "simulation": { "type": "dice" },
+          "question": "In the dice simulation, the bar for 5 is taller than the bar for 3. So far, which number has come up more often?",
+          "options": ["5", "3", "They are tied", "It cannot be determined"],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q5_r2",
           "simulation": { "type": "coin_flip" },
-          "question": "You flip a coin 100 times and see 45 heads. Experimental probability of heads equals:",
-          "options": ["0.45", "45", "0.5", "0.55"],
+          "question": "After a run of flips you recorded 38 heads and 30 tails. Which outcome happened more often in this run?",
+          "options": [
+            "Heads",
+            "Tails",
+            "They happened equally often",
+            "It is impossible to say"
+          ],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
@@ -182,26 +202,41 @@
     {
       "id": "l1_q6",
       "kind": "standard",
-      "concept": "outcomes",
-      "simulation": { "type": "dice" },
-      "question": "Which of these is a possible outcome of rolling one standard die?",
-      "options": ["0", "7", "4", "6.5"],
-      "correctAnswer": 2,
+      "concept": "observed_proportion_behavior",
+      "simulation": { "type": "coin_flip" },
+      "question": "Watch the running fraction of heads as the coin-flip simulation adds more and more flips. What does this fraction typically do?",
+      "options": [
+        "Swings around a lot at first, then settles near a steady value",
+        "Stays locked at exactly 0.5 from the very first flip",
+        "Keeps climbing higher without ever stopping",
+        "Becomes more wildly jumpy the more flips you add"
+      ],
+      "correctAnswer": 0,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
           "id": "l1_q6_r1",
-          "simulation": { "type": "dice" },
-          "question": "Which number can NOT appear when you roll one standard die?",
-          "options": ["2", "5", "6", "9"],
-          "correctAnswer": 3,
+          "simulation": { "type": "coin_flip" },
+          "question": "In the first few flips the fraction of heads jumps around (such as 1.0, then 0.5, then 0.67). As you keep flipping, this jumping around tends to:",
+          "options": [
+            "get smaller as the fraction settles down",
+            "get bigger and bigger",
+            "never change at all",
+            "stop the simulation"
+          ],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q6_r2",
           "simulation": { "type": "dice" },
-          "question": "A valid result of rolling a single die is:",
-          "options": ["1", "0", "8", "3.5"],
+          "question": "In the dice simulation the six bars look very uneven after just a few rolls. After many rolls they tend to:",
+          "options": [
+            "become roughly even in height",
+            "all drop to zero",
+            "get more and more uneven",
+            "merge into a single bar"
+          ],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
@@ -210,26 +245,26 @@
     {
       "id": "l1_q7",
       "kind": "standard",
-      "concept": "probability_intuition",
+      "concept": "experimental_probability",
       "simulation": { "type": "coin_flip" },
-      "question": "An event that is impossible has a probability of:",
-      "options": ["0", "0.5", "1", "100"],
+      "question": "In 50 flips of a coin you record 30 heads. What is the experimental probability of heads for this data?",
+      "options": ["0.6", "0.5", "30", "0.3"],
       "correctAnswer": 0,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
           "id": "l1_q7_r1",
           "simulation": { "type": "coin_flip" },
-          "question": "An event that is certain to happen has a probability of:",
-          "options": ["0", "0.5", "1", "10"],
-          "correctAnswer": 2,
+          "question": "Out of 20 flips you get 8 heads. The experimental probability of heads is:",
+          "options": ["0.4", "0.5", "8", "0.8"],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q7_r2",
           "simulation": { "type": "dice" },
-          "question": "Probabilities always fall between which two values?",
-          "options": ["0 and 1", "1 and 6", "0 and 100", "-1 and 1"],
+          "question": "You roll a die 40 times and get a 3 a total of 6 times. The experimental probability of rolling a 3 is:",
+          "options": ["0.15", "0.6", "6", "0.3"],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
@@ -238,42 +273,32 @@
     {
       "id": "l1_q8",
       "kind": "standard",
-      "concept": "random_variation",
+      "concept": "relative_frequency",
       "simulation": { "type": "dice" },
-      "question": "You roll a die 6 times and do not get each face exactly once. The best explanation is:",
+      "question": "To find the relative frequency of an outcome in an experiment, you divide the number of times it happened by:",
       "options": [
-        "The die must be unfair",
-        "Small samples show random variation",
-        "You rolled it incorrectly",
-        "This outcome is impossible"
+        "the total number of trials",
+        "the number of faces on the die",
+        "the value of the outcome",
+        "the number 6"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
           "id": "l1_q8_r1",
           "simulation": { "type": "dice" },
-          "question": "In 12 rolls of a fair die, the number 4 shows up three times. This is best described as:",
-          "options": [
-            "proof the die is loaded",
-            "normal random variation in a small sample",
-            "a mistake in counting",
-            "an impossible event"
-          ],
-          "correctAnswer": 1,
+          "question": "After 60 rolls, the relative frequency of rolling a 5 equals the count of 5s divided by:",
+          "options": ["60", "5", "6", "12"],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q8_r2",
           "simulation": { "type": "coin_flip" },
-          "question": "Why might 10 coin flips give 7 heads even with a fair coin?",
-          "options": [
-            "The coin is broken",
-            "Random variation is larger in small samples",
-            "Heads is naturally more likely",
-            "The result must be wrong"
-          ],
-          "correctAnswer": 1,
+          "question": "The relative frequency of heads after 100 flips is the number of heads divided by:",
+          "options": ["100", "2", "50", "the number of tails"],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
       ]
@@ -281,27 +306,27 @@
     {
       "id": "l1_q9",
       "kind": "challenge",
-      "concept": "long_run_frequency",
+      "concept": "expected_count",
       "simulation": { "type": "coin_flip" },
-      "question": "Which number of flips will most reliably give a proportion of heads close to 0.5?",
-      "options": ["2 flips", "10 flips", "50 flips", "1000 flips"],
-      "correctAnswer": 3,
+      "question": "If you flip a fair coin 200 times, the number of heads is most likely to be close to:",
+      "options": ["50", "100", "150", "200"],
+      "correctAnswer": 1,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
           "id": "l1_q9_r1",
           "simulation": { "type": "coin_flip" },
-          "question": "To estimate the true chance of heads most accurately, you should flip the coin:",
-          "options": ["as few times as possible", "exactly twice", "a very large number of times", "once"],
-          "correctAnswer": 2,
+          "question": "Flipping a fair coin 80 times, the number of heads should be around:",
+          "options": ["20", "40", "60", "80"],
+          "correctAnswer": 1,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q9_r2",
           "simulation": { "type": "dice" },
-          "question": "Which experiment gives the most trustworthy estimate of the chance of rolling a 6?",
-          "options": ["6 rolls", "20 rolls", "100 rolls", "600 rolls"],
-          "correctAnswer": 3,
+          "question": "Rolling a fair die 60 times, the number of times you would expect to see a 2 is closest to:",
+          "options": ["6", "10", "30", "60"],
+          "correctAnswer": 1,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
       ]
@@ -309,27 +334,32 @@
     {
       "id": "l1_q10",
       "kind": "challenge",
-      "concept": "relative_frequency",
-      "simulation": { "type": "dice" },
-      "question": "A die rolled 100 times lands on 5 a total of 18 times. The experimental probability of rolling a 5 is closest to:",
-      "options": ["0.05", "0.18", "0.50", "0.83"],
-      "correctAnswer": 1,
+      "concept": "sample_size_variation",
+      "simulation": { "type": "coin_flip" },
+      "question": "In which experiment are you MOST likely to see a proportion of heads far from 0.5 (such as 0.7 or higher)?",
+      "options": ["10 flips", "100 flips", "1000 flips", "5000 flips"],
+      "correctAnswer": 0,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
           "id": "l1_q10_r1",
           "simulation": { "type": "dice" },
-          "question": "In 200 rolls a die shows 2 exactly 40 times. The experimental probability of a 2 is:",
-          "options": ["0.02", "0.20", "0.40", "0.50"],
-          "correctAnswer": 1,
+          "question": "A far-from-expected result, like rolling a 6 on half of your rolls, is most likely to happen with only:",
+          "options": ["6 rolls", "60 rolls", "600 rolls", "6000 rolls"],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l1_q10_r2",
           "simulation": { "type": "coin_flip" },
-          "question": "Out of 80 flips, heads appears 36 times. The experimental probability of heads is closest to:",
-          "options": ["0.36", "0.45", "0.55", "0.80"],
-          "correctAnswer": 1,
+          "question": "Compared with small samples, larger samples tend to give a proportion of heads that is:",
+          "options": [
+            "closer to the true probability",
+            "further from the true probability",
+            "always exactly 0.5",
+            "completely unpredictable"
+          ],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
       ]

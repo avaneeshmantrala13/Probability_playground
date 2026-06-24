@@ -11,6 +11,8 @@ interface QuestionCardProps {
   getOptionState?: (index: number) => OptionState;
   /** Disable option selection (e.g. after the answer is checked). */
   locked?: boolean;
+  /** Optional indicator (e.g. difficulty) shown in the question's top corner. */
+  badge?: ReactNode;
   /** Feedback / explanation content rendered below the options. */
   footer?: ReactNode;
 }
@@ -21,6 +23,7 @@ export function QuestionCard({
   onSelect,
   getOptionState,
   locked,
+  badge,
   footer,
 }: QuestionCardProps) {
   const resolveState = (index: number): OptionState => {
@@ -37,6 +40,7 @@ export function QuestionCard({
       )}
 
       <div className="p-5 sm:p-6">
+        {badge && <div className="mb-3 flex justify-end">{badge}</div>}
         <h2 className="text-lg font-semibold leading-snug text-primary sm:text-xl">
           {question.question}
         </h2>

@@ -12,14 +12,14 @@
     {
       "id": "l6_q1",
       "kind": "standard",
-      "concept": "center_mean",
+      "concept": "mean_definition",
       "simulation": { "type": "distribution_builder", "shape": "normal" },
       "question": "How do you calculate the mean of a data set?",
       "options": [
         "Add all the values and divide by how many there are",
-        "Pick the middle value",
+        "Pick the middle value once the data is ordered",
         "Pick the most common value",
-        "Subtract the smallest from the largest"
+        "Subtract the smallest value from the largest"
       ],
       "correctAnswer": 0,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
@@ -45,14 +45,14 @@
     {
       "id": "l6_q2",
       "kind": "standard",
-      "concept": "center_median",
+      "concept": "median_definition",
       "simulation": { "type": "distribution_builder", "shape": "normal" },
       "question": "What is the median of a data set?",
       "options": [
-        "The average of all values",
+        "The average of all the values",
         "The middle value when the data is put in order",
         "The most frequent value",
-        "The difference between largest and smallest"
+        "The difference between the largest and smallest"
       ],
       "correctAnswer": 1,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
@@ -61,15 +61,15 @@
           "id": "l6_q2_r1",
           "simulation": { "type": "distribution_builder", "shape": "normal" },
           "question": "Before finding the median, you must first:",
-          "options": ["add all the values", "sort the values in order", "find the largest", "double each value"],
-          "correctAnswer": 1,
+          "options": ["sort the values in order", "add all the values", "find the largest", "double each value"],
+          "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l6_q2_r2",
           "simulation": { "type": "distribution_builder", "shape": "normal" },
           "question": "The median splits an ordered data set so that half the values are:",
-          "options": ["above it and half below it", "all equal to it", "all larger", "removed"],
+          "options": ["above it and half below it", "all equal to it", "all larger than it", "removed"],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
@@ -78,7 +78,40 @@
     {
       "id": "l6_q3",
       "kind": "standard",
-      "concept": "center_mean",
+      "concept": "mode_definition",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "What is the mode of a data set?",
+      "options": [
+        "The value that occurs most often",
+        "The average of all the values",
+        "The middle value when ordered",
+        "The largest value in the set"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q3_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "In the data 2, 3, 3, 3, 7, 9, which value is the mode?",
+          "options": ["3", "7", "9", "2"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q3_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The mode is the value that appears:",
+          "options": ["most frequently", "in the middle", "only once", "first"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q4",
+      "kind": "standard",
+      "concept": "compute_mean",
       "simulation": { "type": "distribution_builder", "shape": "uniform" },
       "question": "What is the mean of the data set 2, 4, 6, 8, 10?",
       "options": ["5", "6", "8", "30"],
@@ -86,7 +119,7 @@
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
-          "id": "l6_q3_r1",
+          "id": "l6_q4_r1",
           "simulation": { "type": "distribution_builder", "shape": "uniform" },
           "question": "The mean of 1, 2, 3, 4, 5 is:",
           "options": ["3", "5", "15", "2.5"],
@@ -94,7 +127,7 @@
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
-          "id": "l6_q3_r2",
+          "id": "l6_q4_r2",
           "simulation": { "type": "distribution_builder", "shape": "uniform" },
           "question": "The mean of 10, 20, 30 is:",
           "options": ["20", "30", "60", "15"],
@@ -104,9 +137,9 @@
       ]
     },
     {
-      "id": "l6_q4",
+      "id": "l6_q5",
       "kind": "standard",
-      "concept": "center_median",
+      "concept": "compute_median_odd",
       "simulation": { "type": "distribution_builder", "shape": "normal" },
       "question": "What is the median of the data set 3, 7, 9, 12, 20?",
       "options": ["7", "9", "10.2", "12"],
@@ -114,7 +147,7 @@
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
-          "id": "l6_q4_r1",
+          "id": "l6_q5_r1",
           "simulation": { "type": "distribution_builder", "shape": "normal" },
           "question": "The median of 1, 5, 8, 10, 14 (already in order) is the middle value:",
           "options": ["5", "8", "10", "7.6"],
@@ -122,44 +155,11 @@
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
-          "id": "l6_q4_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
-          "question": "For 5 ordered values, the median is which position?",
-          "options": ["the 1st", "the 3rd (middle)", "the 5th", "the average of 2nd and 4th"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
-        }
-      ]
-    },
-    {
-      "id": "l6_q5",
-      "kind": "standard",
-      "concept": "outliers",
-      "simulation": { "type": "distribution_builder", "shape": "skewed" },
-      "question": "What is an outlier?",
-      "options": [
-        "A value that is typical of the data",
-        "A value that is far away from most of the other values",
-        "Always the median",
-        "Always the mean"
-      ],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
-      "remediation": [
-        {
-          "id": "l6_q5_r1",
-          "simulation": { "type": "distribution_builder", "shape": "skewed" },
-          "question": "In the data 4, 5, 6, 5, 40, which value is an outlier?",
-          "options": ["4", "5", "6", "40"],
-          "correctAnswer": 3,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
-        },
-        {
           "id": "l6_q5_r2",
-          "simulation": { "type": "distribution_builder", "shape": "skewed" },
-          "question": "An outlier is best described as a data point that is:",
-          "options": ["unusually far from the rest", "exactly the average", "the most common", "always zero"],
-          "correctAnswer": 0,
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "For 5 ordered values, the median is found at which position?",
+          "options": ["the 1st", "the 3rd (middle)", "the 5th", "the average of the 2nd and 4th"],
+          "correctAnswer": 1,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
       ]
@@ -167,68 +167,7 @@
     {
       "id": "l6_q6",
       "kind": "standard",
-      "concept": "outliers",
-      "simulation": { "type": "distribution_builder", "shape": "skewed" },
-      "question": "Adding one very large outlier to a data set affects the mean in what way compared with the median?",
-      "options": [
-        "It affects the mean more than the median",
-        "It affects the median more than the mean",
-        "It affects them equally",
-        "It affects neither"
-      ],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
-      "remediation": [
-        {
-          "id": "l6_q6_r1",
-          "simulation": { "type": "distribution_builder", "shape": "skewed" },
-          "question": "A single extreme value will pull which measure toward itself the most?",
-          "options": ["the mean", "the median", "the range only", "nothing"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
-        },
-        {
-          "id": "l6_q6_r2",
-          "simulation": { "type": "distribution_builder", "shape": "skewed" },
-          "question": "Because it uses every value, the mean is ___ sensitive to outliers than the median.",
-          "options": ["more", "less", "equally", "never"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
-        }
-      ]
-    },
-    {
-      "id": "l6_q7",
-      "kind": "standard",
-      "concept": "distribution_shape",
-      "simulation": { "type": "distribution_builder", "shape": "skewed" },
-      "question": "A distribution where most values cluster on the left with a long tail stretching to the right is called:",
-      "options": ["right-skewed", "left-skewed", "symmetric", "uniform"],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
-      "remediation": [
-        {
-          "id": "l6_q7_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
-          "question": "A bell-shaped distribution that looks the same on both sides is called:",
-          "options": ["symmetric", "right-skewed", "left-skewed", "random"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
-        },
-        {
-          "id": "l6_q7_r2",
-          "simulation": { "type": "distribution_builder", "shape": "uniform" },
-          "question": "A distribution where every value is about equally likely (a flat histogram) is called:",
-          "options": ["uniform", "skewed", "bell-shaped", "normal"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
-        }
-      ]
-    },
-    {
-      "id": "l6_q8",
-      "kind": "standard",
-      "concept": "spread",
+      "concept": "range_spread",
       "simulation": { "type": "distribution_builder", "shape": "uniform" },
       "question": "How do you find the range of a data set?",
       "options": [
@@ -241,7 +180,7 @@
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
       "remediation": [
         {
-          "id": "l6_q8_r1",
+          "id": "l6_q6_r1",
           "simulation": { "type": "distribution_builder", "shape": "uniform" },
           "question": "The range of the data 4, 9, 15 is 15 - 4 =",
           "options": ["11", "9", "15", "4"],
@@ -249,7 +188,7 @@
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
-          "id": "l6_q8_r2",
+          "id": "l6_q6_r2",
           "simulation": { "type": "distribution_builder", "shape": "uniform" },
           "question": "The range is a measure of how ___ the data is.",
           "options": ["spread out", "centered", "frequent", "average"],
@@ -259,9 +198,70 @@
       ]
     },
     {
+      "id": "l6_q7",
+      "kind": "standard",
+      "concept": "histogram_reading",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "On a histogram, the tallest bar represents the value or interval that:",
+      "options": [
+        "occurs most often in the data",
+        "has the largest numerical value",
+        "is equal to the mean",
+        "occurs least often in the data"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q7_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "On a histogram, the height of each bar shows:",
+          "options": ["how many data values fall in that interval", "the largest value", "the average", "the range"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q7_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "A very short bar on a histogram means that interval contains:",
+          "options": ["few data values", "the most data values", "the median", "the mean"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q8",
+      "kind": "standard",
+      "concept": "distribution_shape",
+      "simulation": { "type": "distribution_builder", "shape": "skewed" },
+      "question": "A distribution where most values cluster on the left with a long tail stretching to the right is called:",
+      "options": ["right-skewed", "left-skewed", "symmetric", "uniform"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q8_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "A bell-shaped distribution that looks about the same on both sides is called:",
+          "options": ["symmetric", "right-skewed", "left-skewed", "random"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q8_r2",
+          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "question": "A distribution where every value is about equally likely (a flat histogram) is called:",
+          "options": ["uniform", "skewed", "bell-shaped", "normal"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
       "id": "l6_q9",
       "kind": "challenge",
-      "concept": "center_median",
+      "concept": "compute_median_even",
       "simulation": { "type": "distribution_builder", "shape": "normal" },
       "question": "What is the median of the data set 4, 8, 10, 10, 12, 16?",
       "options": ["9", "10", "11", "12"],
@@ -271,16 +271,16 @@
         {
           "id": "l6_q9_r1",
           "simulation": { "type": "distribution_builder", "shape": "normal" },
-          "question": "With an even number of ordered values, the median is the average of the two middle values. For 6 and 10 that average is:",
-          "options": ["8", "6", "10", "16"],
+          "question": "With an even number of ordered values, the median is the average of the two middle values. The median of 2, 4, 6, 8 is the average of 4 and 6, which is:",
+          "options": ["5", "4", "6", "8"],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         },
         {
           "id": "l6_q9_r2",
           "simulation": { "type": "distribution_builder", "shape": "normal" },
-          "question": "The median of 2, 4, 6, 8 (four values) is the average of 4 and 6, which is:",
-          "options": ["5", "4", "6", "8"],
+          "question": "The median of the six ordered values 1, 3, 5, 9, 11, 13 is the average of the two middle values, 5 and 9, which is:",
+          "options": ["7", "5", "9", "6"],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
@@ -289,9 +289,9 @@
     {
       "id": "l6_q10",
       "kind": "challenge",
-      "concept": "center_robust",
+      "concept": "outlier_robustness",
       "simulation": { "type": "distribution_builder", "shape": "skewed" },
-      "question": "Which measure of center is more resistant to (less affected by) outliers?",
+      "question": "A data set gains one extremely large outlier. Which measure of center is LESS affected by it?",
       "options": ["The mean", "The median", "The range", "The maximum"],
       "correctAnswer": 1,
       "explanations": { "A": "", "B": "", "C": "", "D": "" },
@@ -299,7 +299,7 @@
         {
           "id": "l6_q10_r1",
           "simulation": { "type": "distribution_builder", "shape": "skewed" },
-          "question": "For very skewed data with extreme values, the better summary of the typical value is usually the:",
+          "question": "For very skewed data with a few extreme values, the better summary of the typical value is usually the:",
           "options": ["median", "mean", "range", "largest value"],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
@@ -307,8 +307,8 @@
         {
           "id": "l6_q10_r2",
           "simulation": { "type": "distribution_builder", "shape": "skewed" },
-          "question": "Income data often has a few very high values. Which center is least distorted by them?",
-          "options": ["the median", "the mean", "the sum", "the maximum"],
+          "question": "Adding one huge value to a data set will pull which measure toward itself the most?",
+          "options": ["the mean", "the median", "the mode", "nothing changes"],
           "correctAnswer": 0,
           "explanations": { "A": "", "B": "", "C": "", "D": "" }
         }
