@@ -32,10 +32,10 @@ export function LessonPlayer() {
   const lesson = getLesson(lessonId);
   const { progress, loading, setPosition, saveAttempt, completeAttempt } =
     useProgress();
-  // A lesson that's already mastered is being redone/reviewed: there's no time
-  // or badge left to earn, so the timer is frozen (it neither runs nor saves).
+  // A lesson that's already mastered can be redone/reviewed. The timer still
+  // counts up so a faster redo can improve the recorded best time and badges.
   const alreadyMastered = Boolean(progress.lessonMastery[lessonId]?.passed);
-  const timer = useLessonTimer(lessonId, !alreadyMastered);
+  const timer = useLessonTimer(lessonId);
 
   const total = lesson?.questions.length ?? 0;
 
@@ -150,9 +150,9 @@ export function LessonPlayer() {
       (acc, q, i) => acc + (answers[i]?.selected === q.correctAnswer ? 1 : 0),
       0,
     );
-    // Reviewing an already-mastered lesson must not affect the recorded best
-    // time, so we hand completeAttempt no elapsed value in that case.
-    const elapsedMs = alreadyMastered ? undefined : timer.getElapsedMs();
+    // Always record elapsed time; completeAttempt only updates the best time
+    // when the attempt passed and elapsedMs > 0, so redos can still improve it.
+    const elapsedMs = timer.getElapsedMs();
     setEarnedBefore(earnedBadgeIds(progress));
     const res = completeAttempt(lesson.lessonId, round, correct, total, elapsedMs);
     // Passing ends timing for this lesson; a failed attempt keeps the clock
@@ -246,8 +246,8 @@ export function LessonPlayer() {
         )}
         {alreadyMastered && !isRemediation && (
           <p className="mt-1 text-sm text-secondary">
-            You've already mastered this lesson — redo it as much as you like. The
-            timer is paused since your best time and badges are already saved.
+            You've already mastered this lesson — feel free to redo it any time.
+            Your best time and badges are saved.
           </p>
         )}
         {lesson.intro && lesson.intro.length > 0 && (
@@ -263,20 +263,14 @@ export function LessonPlayer() {
           <div className="flex-1">
             <ProgressBar current={index + 1} total={total} label="Question" />
           </div>
-          {alreadyMastered ? (
-            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-secondary">
-              Review
-            </span>
-          ) : (
-            <span
-              className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums text-secondary"
-              aria-label="Time on this lesson"
-              title="Time on this lesson"
-            >
-              <ClockIcon size={14} />
-              {formatDuration(timer.elapsedMs)}
-            </span>
-          )}
+          <span
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums text-secondary"
+            aria-label="Time on this lesson"
+            title="Time on this lesson"
+          >
+            <ClockIcon size={14} />
+            {formatDuration(timer.elapsedMs)}
+          </span>
         </div>
       </div>
 
