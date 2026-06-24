@@ -1,0 +1,318 @@
+{
+  "lessonId": "lesson_6",
+  "order": 6,
+  "title": "Introductory Statistics",
+  "subtitle": "Center, spread, distributions, and outliers",
+  "topics": ["Mean", "Median", "Histograms", "Distributions", "Outliers"],
+  "intro": [
+    "This lesson summarizes data instead of single events. You'll measure the center with the mean (add the values and divide by how many there are) and the median (the middle value once the data is sorted), and you'll measure spread with the range (largest minus smallest).",
+    "You'll also read the shape of a distribution from its histogram \u2014 symmetric, uniform, or skewed \u2014 and see how outliers (values far from the rest) pull the mean toward themselves much more than the median, which is why the median is often the more resistant measure of center."
+  ],
+  "questions": [
+    {
+      "id": "l6_q1",
+      "kind": "standard",
+      "concept": "center_mean",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "How do you calculate the mean of a data set?",
+      "options": [
+        "Add all the values and divide by how many there are",
+        "Pick the middle value",
+        "Pick the most common value",
+        "Subtract the smallest from the largest"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q1_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The mean is also commonly called the:",
+          "options": ["average", "middle", "mode", "range"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q1_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "To find the mean of 5 numbers you add them and then divide by:",
+          "options": ["5", "2", "1", "the largest value"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q2",
+      "kind": "standard",
+      "concept": "center_median",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "What is the median of a data set?",
+      "options": [
+        "The average of all values",
+        "The middle value when the data is put in order",
+        "The most frequent value",
+        "The difference between largest and smallest"
+      ],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q2_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "Before finding the median, you must first:",
+          "options": ["add all the values", "sort the values in order", "find the largest", "double each value"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q2_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The median splits an ordered data set so that half the values are:",
+          "options": ["above it and half below it", "all equal to it", "all larger", "removed"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q3",
+      "kind": "standard",
+      "concept": "center_mean",
+      "simulation": { "type": "distribution_builder", "shape": "uniform" },
+      "question": "What is the mean of the data set 2, 4, 6, 8, 10?",
+      "options": ["5", "6", "8", "30"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q3_r1",
+          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "question": "The mean of 1, 2, 3, 4, 5 is:",
+          "options": ["3", "5", "15", "2.5"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q3_r2",
+          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "question": "The mean of 10, 20, 30 is:",
+          "options": ["20", "30", "60", "15"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q4",
+      "kind": "standard",
+      "concept": "center_median",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "What is the median of the data set 3, 7, 9, 12, 20?",
+      "options": ["7", "9", "10.2", "12"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q4_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The median of 1, 5, 8, 10, 14 (already in order) is the middle value:",
+          "options": ["5", "8", "10", "7.6"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q4_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "For 5 ordered values, the median is which position?",
+          "options": ["the 1st", "the 3rd (middle)", "the 5th", "the average of 2nd and 4th"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q5",
+      "kind": "standard",
+      "concept": "outliers",
+      "simulation": { "type": "distribution_builder", "shape": "skewed" },
+      "question": "What is an outlier?",
+      "options": [
+        "A value that is typical of the data",
+        "A value that is far away from most of the other values",
+        "Always the median",
+        "Always the mean"
+      ],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q5_r1",
+          "simulation": { "type": "distribution_builder", "shape": "skewed" },
+          "question": "In the data 4, 5, 6, 5, 40, which value is an outlier?",
+          "options": ["4", "5", "6", "40"],
+          "correctAnswer": 3,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q5_r2",
+          "simulation": { "type": "distribution_builder", "shape": "skewed" },
+          "question": "An outlier is best described as a data point that is:",
+          "options": ["unusually far from the rest", "exactly the average", "the most common", "always zero"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q6",
+      "kind": "standard",
+      "concept": "outliers",
+      "simulation": { "type": "distribution_builder", "shape": "skewed" },
+      "question": "Adding one very large outlier to a data set affects the mean in what way compared with the median?",
+      "options": [
+        "It affects the mean more than the median",
+        "It affects the median more than the mean",
+        "It affects them equally",
+        "It affects neither"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q6_r1",
+          "simulation": { "type": "distribution_builder", "shape": "skewed" },
+          "question": "A single extreme value will pull which measure toward itself the most?",
+          "options": ["the mean", "the median", "the range only", "nothing"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q6_r2",
+          "simulation": { "type": "distribution_builder", "shape": "skewed" },
+          "question": "Because it uses every value, the mean is ___ sensitive to outliers than the median.",
+          "options": ["more", "less", "equally", "never"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q7",
+      "kind": "standard",
+      "concept": "distribution_shape",
+      "simulation": { "type": "distribution_builder", "shape": "skewed" },
+      "question": "A distribution where most values cluster on the left with a long tail stretching to the right is called:",
+      "options": ["right-skewed", "left-skewed", "symmetric", "uniform"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q7_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "A bell-shaped distribution that looks the same on both sides is called:",
+          "options": ["symmetric", "right-skewed", "left-skewed", "random"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q7_r2",
+          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "question": "A distribution where every value is about equally likely (a flat histogram) is called:",
+          "options": ["uniform", "skewed", "bell-shaped", "normal"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q8",
+      "kind": "standard",
+      "concept": "spread",
+      "simulation": { "type": "distribution_builder", "shape": "uniform" },
+      "question": "How do you find the range of a data set?",
+      "options": [
+        "Subtract the smallest value from the largest value",
+        "Add all the values together",
+        "Take the middle value",
+        "Count how many values there are"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q8_r1",
+          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "question": "The range of the data 4, 9, 15 is 15 - 4 =",
+          "options": ["11", "9", "15", "4"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q8_r2",
+          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "question": "The range is a measure of how ___ the data is.",
+          "options": ["spread out", "centered", "frequent", "average"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q9",
+      "kind": "challenge",
+      "concept": "center_median",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "What is the median of the data set 4, 8, 10, 10, 12, 16?",
+      "options": ["9", "10", "11", "12"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q9_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "With an even number of ordered values, the median is the average of the two middle values. For 6 and 10 that average is:",
+          "options": ["8", "6", "10", "16"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q9_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The median of 2, 4, 6, 8 (four values) is the average of 4 and 6, which is:",
+          "options": ["5", "4", "6", "8"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l6_q10",
+      "kind": "challenge",
+      "concept": "center_robust",
+      "simulation": { "type": "distribution_builder", "shape": "skewed" },
+      "question": "Which measure of center is more resistant to (less affected by) outliers?",
+      "options": ["The mean", "The median", "The range", "The maximum"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l6_q10_r1",
+          "simulation": { "type": "distribution_builder", "shape": "skewed" },
+          "question": "For very skewed data with extreme values, the better summary of the typical value is usually the:",
+          "options": ["median", "mean", "range", "largest value"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l6_q10_r2",
+          "simulation": { "type": "distribution_builder", "shape": "skewed" },
+          "question": "Income data often has a few very high values. Which center is least distorted by them?",
+          "options": ["the median", "the mean", "the sum", "the maximum"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "lessonId": "lesson_2",
+  "order": 2,
+  "title": "Theoretical Probability",
+  "subtitle": "Favorable outcomes, total outcomes, and simple probability",
+  "topics": ["Favorable outcomes", "Total outcomes", "Simple probability"],
+  "intro": [
+    "Here you'll compute probabilities by reasoning, not by running trials. For equally likely outcomes, the theoretical probability of an event is the number of favorable outcomes divided by the total number of possible outcomes.",
+    "You'll practice this with dice and spinners, find the probability of an event NOT happening using complements (the two add up to 1), and compare two events to decide which is more likely."
+  ],
+  "questions": [
+    {
+      "id": "l2_q1",
+      "kind": "standard",
+      "concept": "simple_probability",
+      "simulation": { "type": "dice" },
+      "question": "On one roll of a fair die, what is the theoretical probability of rolling a 4?",
+      "options": ["1/6", "1/4", "1/3", "1/2"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q1_r1",
+          "simulation": { "type": "dice" },
+          "question": "There is one '2' among six equally likely faces. The probability of rolling a 2 is:",
+          "options": ["1/2", "1/3", "1/6", "2/6"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q1_r2",
+          "simulation": { "type": "dice" },
+          "question": "Probability equals favorable outcomes over total outcomes. For rolling a 5 on a die that is:",
+          "options": ["5/6", "1/6", "1/5", "6/1"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q2",
+      "kind": "standard",
+      "concept": "favorable_outcomes",
+      "simulation": { "type": "dice" },
+      "question": "What is the probability of rolling an even number on a fair die?",
+      "options": ["1/6", "1/3", "1/2", "2/3"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q2_r1",
+          "simulation": { "type": "dice" },
+          "question": "The odd numbers on a die are 1, 3, and 5. The probability of rolling an odd number is:",
+          "options": ["1/6", "1/3", "1/2", "5/6"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q2_r2",
+          "simulation": { "type": "dice" },
+          "question": "How many even faces (2, 4, 6) are on a standard die out of six faces, as a probability?",
+          "options": ["2/6", "3/6", "4/6", "1/6"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q3",
+      "kind": "standard",
+      "concept": "simple_probability",
+      "simulation": { "type": "spinner", "sectors": 4 },
+      "question": "A spinner is divided into 4 equal sectors. What is the probability of landing on one particular sector?",
+      "options": ["1/2", "1/3", "1/4", "1/8"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q3_r1",
+          "simulation": { "type": "spinner", "sectors": 2 },
+          "question": "A spinner has 2 equal sectors. The probability of landing on a chosen sector is:",
+          "options": ["1/2", "1/4", "2/2", "1/3"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q3_r2",
+          "simulation": { "type": "spinner", "sectors": 8 },
+          "question": "A spinner has 8 equal sectors. The probability of landing on a single chosen sector is:",
+          "options": ["1/4", "1/8", "1/2", "1/16"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q4",
+      "kind": "standard",
+      "concept": "complements",
+      "simulation": { "type": "dice" },
+      "question": "What is the probability of NOT rolling a 6 on a fair die?",
+      "options": ["1/6", "5/6", "1/2", "1"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q4_r1",
+          "simulation": { "type": "dice" },
+          "question": "The probability of rolling a 1 is 1/6. The probability of NOT rolling a 1 is:",
+          "options": ["1/6", "2/6", "5/6", "6/6"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q4_r2",
+          "simulation": { "type": "spinner", "sectors": 4 },
+          "question": "On a 4-sector spinner, the probability of NOT landing on a specific sector is:",
+          "options": ["1/4", "2/4", "3/4", "4/4"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q5",
+      "kind": "standard",
+      "concept": "comparing_probabilities",
+      "simulation": { "type": "dice" },
+      "question": "On one die, which is more likely: rolling a number greater than 4, or rolling an even number?",
+      "options": [
+        "Greater than 4 is more likely",
+        "Even is more likely",
+        "They are equally likely",
+        "It cannot be determined"
+      ],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q5_r1",
+          "simulation": { "type": "dice" },
+          "question": "On one die, which is more likely: rolling a 1, or rolling an odd number?",
+          "options": ["Rolling a 1", "Rolling an odd number", "Equally likely", "Cannot tell"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q5_r2",
+          "simulation": { "type": "dice" },
+          "question": "Compare rolling a number less than 3 (1 or 2) versus rolling a number greater than 3 (4, 5, 6).",
+          "options": [
+            "Less than 3 is more likely",
+            "Greater than 3 is more likely",
+            "Equally likely",
+            "Both are impossible"
+          ],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q6",
+      "kind": "standard",
+      "concept": "favorable_outcomes",
+      "simulation": { "type": "spinner", "sectors": 8 },
+      "question": "A spinner has 8 equal sectors and 3 of them are red. What is the probability of landing on red?",
+      "options": ["3/8", "1/8", "5/8", "1/3"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q6_r1",
+          "simulation": { "type": "spinner", "sectors": 4 },
+          "question": "A spinner has 4 equal sectors and 1 is blue. The probability of landing on blue is:",
+          "options": ["1/4", "3/4", "1/2", "4/1"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q6_r2",
+          "simulation": { "type": "spinner", "sectors": 6 },
+          "question": "A spinner has 6 equal sectors and 4 are green. The probability of landing on green is:",
+          "options": ["4/6", "2/6", "1/6", "6/4"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q7",
+      "kind": "standard",
+      "concept": "complements",
+      "simulation": { "type": "dice" },
+      "question": "For any event, the probability that it happens plus the probability that it does not happen equals:",
+      "options": ["0", "0.5", "1", "2"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q7_r1",
+          "simulation": { "type": "spinner", "sectors": 4 },
+          "question": "If the probability of landing on red is 0.3, what is the probability of NOT landing on red?",
+          "options": ["0.3", "0.5", "0.7", "1.3"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q7_r2",
+          "simulation": { "type": "dice" },
+          "question": "The probability of an event is 1/4. Its complement (not happening) has probability:",
+          "options": ["1/4", "2/4", "3/4", "4/4"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q8",
+      "kind": "standard",
+      "concept": "simple_probability",
+      "simulation": { "type": "spinner", "sectors": 5 },
+      "question": "A spinner has 5 equal sectors numbered 1 to 5. What is the probability of landing on the sector labeled 2?",
+      "options": ["1/2", "1/5", "2/5", "1/10"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q8_r1",
+          "simulation": { "type": "spinner", "sectors": 3 },
+          "question": "A spinner has 3 equal sectors numbered 1 to 3. The probability of landing on 1 is:",
+          "options": ["1/2", "1/3", "2/3", "1/6"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q8_r2",
+          "simulation": { "type": "spinner", "sectors": 6 },
+          "question": "A spinner has 6 equal sectors numbered 1 to 6. The probability of landing on 3 is:",
+          "options": ["1/3", "1/6", "3/6", "1/2"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q9",
+      "kind": "challenge",
+      "concept": "favorable_outcomes",
+      "simulation": { "type": "dice" },
+      "question": "What is the probability of rolling a multiple of 3 on a fair die?",
+      "options": ["1/6", "1/3", "1/2", "2/3"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q9_r1",
+          "simulation": { "type": "dice" },
+          "question": "Which faces of a die are multiples of 3? Use that to find the probability of rolling a multiple of 3.",
+          "options": ["1/6 (just 3)", "1/3 (3 and 6)", "1/2", "2/3"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q9_r2",
+          "simulation": { "type": "dice" },
+          "question": "What is the probability of rolling a multiple of 2 (an even number) on a die?",
+          "options": ["1/6", "1/3", "1/2", "2/3"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l2_q10",
+      "kind": "challenge",
+      "concept": "comparing_probabilities",
+      "simulation": { "type": "spinner", "sectors": 6 },
+      "question": "Spinner A has 4 equal sectors with 1 red. Spinner B has 6 equal sectors with 2 red. Which spinner gives a higher chance of red?",
+      "options": ["Spinner A", "Spinner B", "They are equal", "Cannot be determined"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l2_q10_r1",
+          "simulation": { "type": "spinner", "sectors": 4 },
+          "question": "Spinner A: 2 red out of 4 sectors. Spinner B: 2 red out of 8 sectors. Which has the higher chance of red?",
+          "options": ["Spinner A", "Spinner B", "Equal", "Cannot tell"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l2_q10_r2",
+          "simulation": { "type": "spinner", "sectors": 5 },
+          "question": "Spinner A: 1 red of 5 sectors (1/5). Spinner B: 1 red of 4 sectors (1/4). Which has the higher chance of red?",
+          "options": ["Spinner A", "Spinner B", "Equal", "Cannot tell"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    }
+  ]
+}

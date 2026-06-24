@@ -1,0 +1,332 @@
+{
+  "lessonId": "lesson_3",
+  "order": 3,
+  "title": "Experimental vs Theoretical Probability",
+  "subtitle": "Comparing experiments and the law of large numbers",
+  "topics": [
+    "Experimental probability",
+    "Theoretical probability",
+    "Law of large numbers"
+  ],
+  "intro": [
+    "This lesson connects the two ideas you've met so far: theoretical probability (what the math predicts) and experimental probability (what you actually observe when you run trials). They rarely match exactly, especially in small samples, and that gap is normal random variation \u2014 not a broken coin or a wrong theory.",
+    "The key principle is the law of large numbers: as the number of trials grows, the experimental probability tends to settle close to the theoretical value. That's why a larger sample gives a more reliable estimate of the true probability."
+  ],
+  "questions": [
+    {
+      "id": "l3_q1",
+      "kind": "standard",
+      "concept": "theoretical_vs_experimental",
+      "simulation": { "type": "experimental_probability", "probability": 0.5 },
+      "question": "The theoretical probability of heads is 0.5, but your experiment gives 0.46. Why can the experimental value differ from the theoretical value?",
+      "options": [
+        "The theory must be wrong",
+        "Random chance in a finite number of trials",
+        "The coin is definitely biased",
+        "Experiments cannot measure probability"
+      ],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q1_r1",
+          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "question": "Your experiment gives 0.53 for heads while theory says 0.5. The difference is best explained by:",
+          "options": ["a broken coin", "normal random variation", "a calculation error", "an impossible result"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q1_r2",
+          "simulation": { "type": "dice" },
+          "question": "Theoretical P(rolling a 6) is about 0.167, but your data shows 0.20. This gap is mainly caused by:",
+          "options": ["chance variation in the trials", "the die being square", "rolling too gently", "a wrong theory"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q2",
+      "kind": "standard",
+      "concept": "law_of_large_numbers",
+      "simulation": { "type": "experimental_probability", "probability": 0.5 },
+      "question": "As the number of trials increases, the experimental probability tends to:",
+      "options": [
+        "move away from the theoretical probability",
+        "get closer to the theoretical probability",
+        "stay exactly at 0",
+        "have no relationship to theory"
+      ],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q2_r1",
+          "simulation": { "type": "coin_flip" },
+          "question": "Running more and more coin flips makes the proportion of heads:",
+          "options": ["settle near 0.5", "swing wildly forever", "reach exactly 1", "drop to 0"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q2_r2",
+          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "question": "With a very large number of trials, the experimental result is expected to be:",
+          "options": ["close to the theoretical value", "far from the theoretical value", "always exactly equal", "random and meaningless"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q3",
+      "kind": "standard",
+      "concept": "theoretical_probability",
+      "simulation": { "type": "dice" },
+      "question": "What is the theoretical probability of rolling a 1 on a fair die, as a decimal (rounded)?",
+      "options": ["0.167", "0.5", "0.1", "0.6"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q3_r1",
+          "simulation": { "type": "dice" },
+          "question": "1/6 written as a decimal (rounded to three places) is about:",
+          "options": ["0.167", "0.500", "0.060", "0.600"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q3_r2",
+          "simulation": { "type": "coin_flip" },
+          "question": "The theoretical probability of heads, as a decimal, is:",
+          "options": ["0.50", "0.17", "0.25", "1.00"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q4",
+      "kind": "standard",
+      "concept": "sample_size",
+      "simulation": { "type": "experimental_probability", "probability": 0.5 },
+      "question": "Which experiment gives a more reliable estimate of the true probability?",
+      "options": ["20 trials", "500 trials", "They are equally reliable", "Fewer trials are always better"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q4_r1",
+          "simulation": { "type": "coin_flip" },
+          "question": "To best estimate the chance of heads, is it better to flip 15 times or 400 times?",
+          "options": ["15 times", "400 times", "No difference", "Neither works"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q4_r2",
+          "simulation": { "type": "dice" },
+          "question": "A larger number of rolls generally makes your probability estimate:",
+          "options": ["more reliable", "less reliable", "always exactly correct", "unchanged"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q5",
+      "kind": "standard",
+      "concept": "theoretical_vs_experimental",
+      "simulation": { "type": "coin_flip" },
+      "question": "In 10 flips you get 3 heads (experimental probability 0.3), but theory says 0.5. What is the best explanation?",
+      "options": [
+        "The coin is broken",
+        "Small samples vary a lot from the theoretical value",
+        "The theoretical value is wrong",
+        "Heads is impossible"
+      ],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q5_r1",
+          "simulation": { "type": "coin_flip" },
+          "question": "8 flips give 6 heads (0.75). Compared with the theoretical 0.5, this large gap is mostly because:",
+          "options": ["the sample is small", "the coin is loaded", "theory is wrong", "heads is guaranteed"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q5_r2",
+          "simulation": { "type": "dice" },
+          "question": "In 12 rolls you never roll a 6. The most reasonable explanation is:",
+          "options": ["small-sample chance", "the die has no 6", "6 is impossible", "you rolled wrong"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q6",
+      "kind": "standard",
+      "concept": "law_of_large_numbers",
+      "simulation": { "type": "dice" },
+      "question": "A die rolled 600 times lands on each face about 100 times. This best illustrates:",
+      "options": [
+        "the law of large numbers",
+        "a biased die",
+        "an impossible event",
+        "the complement rule"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q6_r1",
+          "simulation": { "type": "coin_flip" },
+          "question": "After 1000 flips the proportion of heads is very near 0.5. This is an example of:",
+          "options": ["the law of large numbers", "bias", "the complement rule", "an impossible result"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q6_r2",
+          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "question": "The idea that many trials make experimental results approach theory is called:",
+          "options": ["the law of large numbers", "the law of averages of one trial", "the complement rule", "random bias"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q7",
+      "kind": "standard",
+      "concept": "law_of_large_numbers",
+      "simulation": { "type": "experimental_probability", "probability": 0.3 },
+      "question": "The law of large numbers says that with more trials, the experimental probability:",
+      "options": [
+        "gets closer to the theoretical probability",
+        "gets further from the theoretical probability",
+        "stays at 0",
+        "doubles each time"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q7_r1",
+          "simulation": { "type": "experimental_probability", "probability": 0.3 },
+          "question": "More trials cause the running proportion to:",
+          "options": ["approach the true probability", "move away from it", "freeze at the start value", "become negative"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q7_r2",
+          "simulation": { "type": "coin_flip" },
+          "question": "The law of large numbers is about what happens when the number of trials is:",
+          "options": ["very large", "exactly one", "exactly two", "zero"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q8",
+      "kind": "standard",
+      "concept": "sample_size",
+      "simulation": { "type": "coin_flip" },
+      "question": "Why is flipping a coin 1000 times better than 10 times for estimating the probability of heads?",
+      "options": [
+        "More trials reduce the effect of random variation",
+        "Fewer trials are always more accurate",
+        "There is no difference",
+        "10 flips always gives exactly 5 heads"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q8_r1",
+          "simulation": { "type": "dice" },
+          "question": "Rolling a die 300 times instead of 6 times gives a better estimate because:",
+          "options": ["random ups and downs average out", "6 rolls is illegal", "fewer rolls are better", "it changes the die"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q8_r2",
+          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "question": "A bigger sample size mainly helps by:",
+          "options": ["reducing random variation in the estimate", "changing the true probability", "making the event certain", "removing all randomness"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q9",
+      "kind": "challenge",
+      "concept": "theoretical_vs_experimental",
+      "simulation": { "type": "experimental_probability", "probability": 0.25 },
+      "question": "The theoretical probability is 0.25. After 1000 trials the experimental probability is 0.247. The tiny difference is due to:",
+      "options": [
+        "random variation",
+        "a flaw in the theory",
+        "too many trials",
+        "a measurement that is impossible"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q9_r1",
+          "simulation": { "type": "experimental_probability", "probability": 0.25 },
+          "question": "An experiment lands very close to the theoretical 0.25 but not exactly. This is:",
+          "options": ["expected random variation", "proof theory is wrong", "a calculation mistake", "impossible"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q9_r2",
+          "simulation": { "type": "experimental_probability", "probability": 0.2 },
+          "question": "Theory says 0.20; a large experiment gives 0.205. The best description of this gap is:",
+          "options": ["small random variation", "the theory failed", "the trials were faked", "an impossible outcome"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l3_q10",
+      "kind": "challenge",
+      "concept": "sample_size",
+      "simulation": { "type": "dice" },
+      "question": "Two students estimate the probability of rolling a 6. Student A used 30 rolls; Student B used 300 rolls. Whose estimate is likely more reliable?",
+      "options": ["Student A", "Student B", "They are equally reliable", "Cannot be determined"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l3_q10_r1",
+          "simulation": { "type": "coin_flip" },
+          "question": "Student A flipped 25 times; Student B flipped 250 times. Whose estimate of P(heads) is more trustworthy?",
+          "options": ["Student A", "Student B", "Equally trustworthy", "Cannot tell"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l3_q10_r2",
+          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "question": "Which result should you trust more: one from 50 trials or one from 800 trials?",
+          "options": ["50 trials", "800 trials", "Either one", "Neither"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    }
+  ]
+}

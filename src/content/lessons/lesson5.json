@@ -1,0 +1,298 @@
+{
+  "lessonId": "lesson_5",
+  "order": 5,
+  "title": "Conditional Probability Foundations",
+  "subtitle": "Restricted sample spaces and basic conditional probability",
+  "topics": ["Restricted sample spaces", "Basic conditional probability"],
+  "intro": [
+    "Conditional probability is the chance of an event given that you already know something else has happened. That extra information shrinks the set of possibilities to a restricted sample space \u2014 for example, once you know a card is red, only 26 cards remain in play.",
+    "You'll work with bags of marbles and a deck of cards, paying close attention to whether a draw is made with replacement (probabilities stay the same) or without replacement (the totals shrink, so later probabilities change). For two draws without replacement, multiply the first probability by the updated second probability."
+  ],
+  "questions": [
+    {
+      "id": "l5_q1",
+      "kind": "standard",
+      "concept": "simple_probability",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "A bag holds 5 red, 3 blue, and 2 green marbles (10 total). What is the probability of drawing a red marble?",
+      "options": ["5/3", "1/2", "1/5", "3/10"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q1_r1",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "A bag has 4 red and 6 blue marbles (10 total). What is the probability of drawing red?",
+          "options": ["4/10", "6/10", "4/6", "1/4"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q1_r2",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "A bag has 2 red and 8 blue marbles. The probability of drawing red is:",
+          "options": ["2/10", "8/10", "2/8", "1/2"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q2",
+      "kind": "standard",
+      "concept": "simple_probability",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "From the bag of 5 red, 3 blue, and 2 green marbles, what is the probability of drawing a blue marble?",
+      "options": ["3/10", "1/3", "3/7", "1/10"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q2_r1",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "From the same bag (5 red, 3 blue, 2 green), the probability of drawing green is:",
+          "options": ["2/10", "1/2", "2/8", "3/10"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q2_r2",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "A bag has 1 red, 4 blue, 5 green (10 total). The probability of drawing blue is:",
+          "options": ["4/10", "1/4", "5/10", "1/10"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q3",
+      "kind": "standard",
+      "concept": "conditional_probability",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "From a bag of 5 red, 3 blue, 2 green, you draw a green marble and do NOT put it back. What is the probability the next draw is red?",
+      "options": ["1/2", "5/10", "5/9", "4/9"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q3_r1",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "A bag has 4 red and 6 blue (10 total). You draw a blue and keep it out. The probability the next draw is red is now:",
+          "options": ["4/10", "4/9", "3/9", "6/9"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q3_r2",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "After removing one marble from a bag of 10, how many marbles remain for the next draw?",
+          "options": ["10", "9", "11", "8"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q4",
+      "kind": "standard",
+      "concept": "restricted_sample_space",
+      "simulation": { "type": "card_marble", "mode": "cards" },
+      "question": "You draw a card from a standard deck and are told it is red. Given that, what is the probability it is a heart?",
+      "options": ["1/2", "1/4", "1/13", "13/52"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q4_r1",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Red cards are hearts and diamonds (26 total, 13 each). Given a card is red, the probability it is a diamond is:",
+          "options": ["1/2", "1/4", "1/13", "1/26"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q4_r2",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Given a card is black (clubs or spades, 26 cards), the probability it is a club is:",
+          "options": ["1/2", "1/4", "1/13", "13/52"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q5",
+      "kind": "standard",
+      "concept": "conditional_probability",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "A bag has 4 red and 6 blue marbles. You draw a red and keep it out. What is the probability the next draw is also red?",
+      "options": ["4/9", "3/10", "1/2", "1/3"],
+      "correctAnswer": 3,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q5_r1",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "After drawing and removing one red marble from 4 red and 6 blue, how many red remain out of 9?",
+          "options": ["4 of 9", "3 of 9", "4 of 10", "3 of 10"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q5_r2",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "3 reds remain out of 9 total marbles. As a fraction, the probability of red is:",
+          "options": ["3/9 = 1/3", "3/10", "1/2", "9/3"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q6",
+      "kind": "standard",
+      "concept": "conditional_probability",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "Conditional probability is the probability of an event given that:",
+      "options": [
+        "another event has already occurred",
+        "nothing has happened yet",
+        "the event is impossible",
+        "a long time has passed"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q6_r1",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "When you are told some information before computing a probability, you are finding a:",
+          "options": ["conditional probability", "theoretical certainty", "complement", "sample size"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q6_r2",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Knowing a card is red shrinks the set of possible cards. This smaller set is called the:",
+          "options": ["restricted sample space", "full deck", "complement", "frequency"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q7",
+      "kind": "standard",
+      "concept": "restricted_sample_space",
+      "simulation": { "type": "card_marble", "mode": "cards" },
+      "question": "You are told the drawn card is a face card (Jack, Queen, or King = 12 cards). What is the probability it is a King?",
+      "options": ["4/52", "1/13", "1/3", "1/4"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q7_r1",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "There are 12 face cards and 4 are Queens. Given a face card, the probability it is a Queen is:",
+          "options": ["4/52", "1/3", "1/13", "1/12"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q7_r2",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Given a card is a face card (12 cards), the probability it is a Jack (4 of them) is:",
+          "options": ["1/4", "1/3", "1/13", "4/52"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q8",
+      "kind": "standard",
+      "concept": "conditional_probability",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "A bag has 5 red and 5 blue marbles. You draw a red and put it BACK. What is the probability the next draw is red?",
+      "options": ["1/2", "4/9", "5/9", "0"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q8_r1",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "When you replace a marble after drawing it, the probabilities for the next draw are:",
+          "options": ["unchanged", "always smaller", "always larger", "zero"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q8_r2",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "A bag has 3 red and 7 blue. Drawing WITH replacement, the chance of red is always:",
+          "options": ["3/10", "3/9", "2/9", "7/10"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q9",
+      "kind": "challenge",
+      "concept": "conditional_probability",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "A bag has 3 red and 2 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": ["9/25", "3/10", "6/10", "1/2"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q9_r1",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "P(first red) = 3/5 and then P(second red) = 2/4. Multiplying gives:",
+          "options": ["3/10", "5/9", "6/9", "1/2"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q9_r2",
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "A bag has 2 red and 3 blue. Drawing two without replacement, P(both red) = 2/5 x 1/4 =",
+          "options": ["1/10", "2/9", "4/25", "1/5"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l5_q10",
+      "kind": "challenge",
+      "concept": "restricted_sample_space",
+      "simulation": { "type": "card_marble", "mode": "cards" },
+      "question": "You are told a drawn card is a heart (13 hearts). What is the probability it is the Ace of Hearts?",
+      "options": ["1/52", "1/4", "13/52", "1/13"],
+      "correctAnswer": 3,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l5_q10_r1",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Given a card is a spade (13 spades), the probability it is the Ace of Spades is:",
+          "options": ["1/52", "1/13", "1/4", "13/52"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l5_q10_r2",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Within a single suit there are 13 cards. Given the suit, the chance of one specific card is:",
+          "options": ["1/13", "1/4", "1/52", "13/52"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    }
+  ]
+}

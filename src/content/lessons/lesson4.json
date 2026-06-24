@@ -1,0 +1,298 @@
+{
+  "lessonId": "lesson_4",
+  "order": 4,
+  "title": "Compound Events",
+  "subtitle": "Two-step experiments and independent events",
+  "topics": ["Two-step experiments", "Independent events"],
+  "intro": [
+    "Compound events combine more than one action, like flipping two coins or rolling two dice. To find their probabilities, first list the full sample space: with two coins there are 2 \u00d7 2 = 4 outcomes, and with two dice there are 6 \u00d7 6 = 36 ordered outcomes.",
+    "These actions are independent \u2014 the first result doesn't change the second \u2014 so you can multiply individual probabilities. You'll count favorable outcomes for events like \"exactly one head,\" \"at least one head,\" or a particular dice sum, and see why some sums (like 7) are far more likely than others."
+  ],
+  "questions": [
+    {
+      "id": "l4_q1",
+      "kind": "standard",
+      "concept": "multiple_outcomes",
+      "simulation": { "type": "two_coin" },
+      "question": "When you flip two coins, how many possible outcomes are there (counting HH, HT, TH, TT)?",
+      "options": ["2", "3", "4", "8"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q1_r1",
+          "simulation": { "type": "two_coin" },
+          "question": "List the outcomes of flipping two coins. How many are there?",
+          "options": ["2", "4", "6", "8"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q1_r2",
+          "simulation": { "type": "two_coin" },
+          "question": "Each coin has 2 results, so two coins together have how many combined outcomes?",
+          "options": ["2 + 2 = 4", "2 x 2 = 4", "2 + 1 = 3", "2 x 4 = 8"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q2",
+      "kind": "standard",
+      "concept": "combined_events",
+      "simulation": { "type": "two_coin" },
+      "question": "What is the probability of getting two heads (HH) when flipping two fair coins?",
+      "options": ["1/2", "1/4", "1/3", "1/8"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q2_r1",
+          "simulation": { "type": "two_coin" },
+          "question": "Out of the 4 equally likely outcomes of two coins, how many are HH, as a probability?",
+          "options": ["1/4", "2/4", "1/2", "1/8"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q2_r2",
+          "simulation": { "type": "two_coin" },
+          "question": "What is the probability of getting two tails (TT) with two coins?",
+          "options": ["1/2", "1/3", "1/4", "3/4"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q3",
+      "kind": "standard",
+      "concept": "multiple_outcomes",
+      "simulation": { "type": "two_dice" },
+      "question": "When you roll two dice, how many total ordered outcomes are possible?",
+      "options": ["12", "18", "36", "6"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q3_r1",
+          "simulation": { "type": "two_dice" },
+          "question": "Each die has 6 faces. Two dice together have how many ordered outcomes?",
+          "options": ["12", "36", "6", "66"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q3_r2",
+          "simulation": { "type": "two_dice" },
+          "question": "To count outcomes for two dice you compute 6 x 6, which equals:",
+          "options": ["12", "30", "36", "42"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q4",
+      "kind": "standard",
+      "concept": "combined_events",
+      "simulation": { "type": "two_coin" },
+      "question": "What is the probability of getting exactly one head when flipping two coins?",
+      "options": ["1/4", "1/2", "1/3", "3/4"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q4_r1",
+          "simulation": { "type": "two_coin" },
+          "question": "Which outcomes have exactly one head? Using HT and TH out of 4, the probability is:",
+          "options": ["1/4", "2/4", "3/4", "4/4"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q4_r2",
+          "simulation": { "type": "two_coin" },
+          "question": "What is the probability of getting exactly one tail with two coins?",
+          "options": ["1/4", "1/2", "1/3", "2/3"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q5",
+      "kind": "standard",
+      "concept": "combined_events",
+      "simulation": { "type": "two_dice" },
+      "question": "What is the probability that the sum of two dice equals 7?",
+      "options": ["1/6", "1/12", "1/9", "7/36"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q5_r1",
+          "simulation": { "type": "two_dice" },
+          "question": "There are 6 ways to roll a sum of 7 out of 36 outcomes. As a fraction that is:",
+          "options": ["6/36 = 1/6", "1/36", "7/36", "1/7"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q5_r2",
+          "simulation": { "type": "two_dice" },
+          "question": "Which sum is the most likely when rolling two dice, and therefore has probability 1/6?",
+          "options": ["2", "7", "11", "12"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q6",
+      "kind": "standard",
+      "concept": "independent_events",
+      "simulation": { "type": "two_coin" },
+      "question": "You flip two coins. Does the result of the first coin change the probability for the second coin?",
+      "options": [
+        "No — the coins are independent",
+        "Yes — the first changes the second",
+        "Only if the first is heads",
+        "It cannot be determined"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q6_r1",
+          "simulation": { "type": "two_coin" },
+          "question": "Two coin flips are independent. This means the second flip's probability of heads is:",
+          "options": ["still 1/2", "now 1", "now 0", "now 1/4"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q6_r2",
+          "simulation": { "type": "two_dice" },
+          "question": "Rolling two dice: does the first die's result affect the second die?",
+          "options": ["No, they are independent", "Yes, always", "Only on a 6", "Cannot tell"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q7",
+      "kind": "standard",
+      "concept": "combined_events",
+      "simulation": { "type": "two_dice" },
+      "question": "What is the probability that the sum of two dice equals 2?",
+      "options": ["1/36", "1/6", "1/12", "2/36"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q7_r1",
+          "simulation": { "type": "two_dice" },
+          "question": "Only one outcome (1 and 1) gives a sum of 2, out of 36. The probability is:",
+          "options": ["1/36", "2/36", "1/6", "1/12"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q7_r2",
+          "simulation": { "type": "two_dice" },
+          "question": "What is the probability that two dice sum to 12 (only 6 and 6)?",
+          "options": ["1/36", "1/12", "1/6", "2/36"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q8",
+      "kind": "standard",
+      "concept": "combined_events",
+      "simulation": { "type": "two_coin" },
+      "question": "What is the probability of getting at least one head when flipping two coins?",
+      "options": ["1/4", "1/2", "3/4", "1"],
+      "correctAnswer": 2,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q8_r1",
+          "simulation": { "type": "two_coin" },
+          "question": "Three of the four outcomes (HH, HT, TH) contain at least one head. The probability is:",
+          "options": ["1/4", "2/4", "3/4", "4/4"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q8_r2",
+          "simulation": { "type": "two_coin" },
+          "question": "What is the probability of getting at least one tail with two coins?",
+          "options": ["1/4", "1/2", "3/4", "1"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q9",
+      "kind": "challenge",
+      "concept": "combined_events",
+      "simulation": { "type": "two_dice" },
+      "question": "When rolling two dice, which sum is the most likely to occur?",
+      "options": ["6", "7", "8", "12"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q9_r1",
+          "simulation": { "type": "two_dice" },
+          "question": "Which of these sums can be made in the most different ways with two dice?",
+          "options": ["2", "5", "7", "11"],
+          "correctAnswer": 2,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q9_r2",
+          "simulation": { "type": "two_dice" },
+          "question": "Which sum is LEAST likely when rolling two dice?",
+          "options": ["7", "6", "8", "12"],
+          "correctAnswer": 3,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l4_q10",
+      "kind": "challenge",
+      "concept": "independent_events",
+      "simulation": { "type": "two_coin" },
+      "question": "What is the probability of flipping heads twice in a row with a fair coin?",
+      "options": ["1/2", "1/4", "3/4", "1"],
+      "correctAnswer": 1,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l4_q10_r1",
+          "simulation": { "type": "two_coin" },
+          "question": "For independent events you multiply probabilities. P(heads) x P(heads) = 1/2 x 1/2 =",
+          "options": ["1/2", "1/4", "1", "2/4"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l4_q10_r2",
+          "simulation": { "type": "two_dice" },
+          "question": "What is the probability of rolling a 6 on both of two dice? (1/6 x 1/6)",
+          "options": ["1/12", "1/36", "1/6", "2/6"],
+          "correctAnswer": 1,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    }
+  ]
+}
