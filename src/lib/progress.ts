@@ -26,6 +26,8 @@ export interface LessonMastery {
   bestScore: number;
   attempts: number;
   passed: boolean;
+  /** Fastest finishing time (ms) for a PASSED attempt; powers speed badges. */
+  bestTimeMs?: number;
 }
 
 export interface CourseProgress {
@@ -36,6 +38,8 @@ export interface CourseProgress {
   streak: number;
   lastActiveDate: string | null;
   activeAttempt: ActiveAttempt | null;
+  /** Accrued elapsed time (ms) for each lesson's in-progress attempt. */
+  lessonTimers?: Record<string, number>;
 }
 
 export function emptyProgress(): CourseProgress {
@@ -47,6 +51,7 @@ export function emptyProgress(): CourseProgress {
     streak: 0,
     lastActiveDate: null,
     activeAttempt: null,
+    lessonTimers: {},
   };
 }
 

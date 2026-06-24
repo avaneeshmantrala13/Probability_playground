@@ -83,4 +83,3 @@ export interface RenderableQuestion {
 }
 
 export const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
-export type OptionLetter = (typeof OPTION_LETTERS)[number];

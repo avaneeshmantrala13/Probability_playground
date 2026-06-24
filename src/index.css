@@ -191,11 +191,76 @@
     animation: pp-drop-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
+  /* Celebration: backdrop fade, dialog pop-in, and falling confetti. */
+  @keyframes pp-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pp-dialog-pop {
+    0% {
+      transform: translateY(8px) scale(0.94);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(0) scale(1.02);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pp-confetti-fall {
+    0% {
+      transform: translate3d(0, -12vh, 0) rotate(0deg);
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(var(--pp-confetti-x, 0), 112vh, 0)
+        rotate(var(--pp-confetti-rot, 540deg));
+      opacity: 1;
+    }
+  }
+
+  .pp-anim-fade-in {
+    animation: pp-fade-in 0.25s ease-out;
+  }
+
+  .pp-anim-dialog-pop {
+    animation: pp-dialog-pop 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .pp-confetti-piece {
+    position: absolute;
+    top: 0;
+    width: 8px;
+    height: 14px;
+    border-radius: 2px;
+    will-change: transform, opacity;
+    animation: pp-confetti-fall var(--pp-confetti-dur, 2.8s) linear forwards;
+    animation-delay: var(--pp-confetti-delay, 0s);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .pp-anim-die-roll,
     .pp-anim-pop,
-    .pp-anim-drop {
+    .pp-anim-drop,
+    .pp-anim-fade-in,
+    .pp-anim-dialog-pop {
       animation: none;
+    }
+
+    .pp-confetti-piece {
+      display: none;
     }
   }
 }

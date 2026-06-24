@@ -1,5 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
-import { BookIcon, HomeIcon, SettingsIcon } from "../icons";
+import { BookIcon, DiceIcon, HomeIcon, SettingsIcon, TrophyIcon } from "../icons";
 
 export interface NavItem {
   to: string;
@@ -12,5 +12,7 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { to: "/", label: "Home", icon: HomeIcon },
   { to: "/lessons", label: "Lessons", icon: BookIcon, matchPrefix: true },
+  { to: "/playground", label: "Playground", icon: DiceIcon, matchPrefix: true },
+  { to: "/badges", label: "Badges", icon: TrophyIcon, matchPrefix: true },
   { to: "/settings", label: "Settings", icon: SettingsIcon },
 ];

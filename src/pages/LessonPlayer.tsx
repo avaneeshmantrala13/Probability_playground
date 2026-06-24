@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { getLesson, getNextLesson } from "../content";
+import { getLesson } from "../content";
 import type { Lesson } from "../content/types";
 import { useProgress, type AttemptResult } from "../context/ProgressContext";
 import type { AttemptAnswer } from "../lib/progress";
@@ -13,9 +13,15 @@ import {
 import { QuestionCard } from "../components/lesson/QuestionCard";
 import { ProgressBar } from "../components/lesson/ProgressBar";
 import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
+import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
+import { LessonCleared } from "../components/lesson/LessonCleared";
+import { IntroModal } from "../components/lesson/IntroModal";
 import type { OptionState } from "../components/lesson/OptionButton";
-import { ChevronRightIcon } from "../components/icons";
+import { ChevronRightIcon, ClockIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
+import { useLessonTimer } from "../hooks/useLessonTimer";
+import { formatDuration } from "../lib/time";
+import { earnedBadgeIds } from "../lib/badges";
 
 function freshAnswers(count: number): AttemptAnswer[] {
   return Array.from({ length: count }, () => ({ selected: null, checked: false }));
@@ -26,6 +32,10 @@ export function LessonPlayer() {
   const lesson = getLesson(lessonId);
   const { progress, loading, setPosition, saveAttempt, completeAttempt } =
     useProgress();
+  // A lesson that's already mastered is being redone/reviewed: there's no time
+  // or badge left to earn, so the timer is frozen (it neither runs nor saves).
+  const alreadyMastered = Boolean(progress.lessonMastery[lessonId]?.passed);
+  const timer = useLessonTimer(lessonId, !alreadyMastered);
 
   const total = lesson?.questions.length ?? 0;
 
@@ -34,6 +44,8 @@ export function LessonPlayer() {
   const [answers, setAnswers] = useState<AttemptAnswer[]>(() => freshAnswers(total));
   const [phase, setPhase] = useState<"intro" | "quiz" | "results">("quiz");
   const [result, setResult] = useState<AttemptResult | null>(null);
+  const [showIntroModal, setShowIntroModal] = useState(false);
+  const [earnedBefore, setEarnedBefore] = useState<Set<string>>(() => new Set());
   const hydratedFor = useRef<string | null>(null);
 
   // Resume / initialize the attempt once progress has loaded.
@@ -135,7 +147,14 @@ export function LessonPlayer() {
       (acc, q, i) => acc + (answers[i]?.selected === q.correctAnswer ? 1 : 0),
       0,
     );
-    const res = completeAttempt(lesson.lessonId, round, correct, total);
+    // Reviewing an already-mastered lesson must not affect the recorded best
+    // time, so we hand completeAttempt no elapsed value in that case.
+    const elapsedMs = alreadyMastered ? undefined : timer.getElapsedMs();
+    setEarnedBefore(earnedBadgeIds(progress));
+    const res = completeAttempt(lesson.lessonId, round, correct, total, elapsedMs);
+    // Passing ends timing for this lesson; a failed attempt keeps the clock
+    // running into the next remediation round.
+    if (res.passed) timer.stop();
     setResult(res);
     setPhase("results");
   }
@@ -154,7 +173,11 @@ export function LessonPlayer() {
   }
 
   if (phase === "results" && result) {
-    return <ResultsView lesson={lesson} result={result} onRetry={retry} />;
+    return result.passed ? (
+      <LessonCleared lesson={lesson} result={result} previouslyEarned={earnedBefore} />
+    ) : (
+      <ResultsView result={result} onRetry={retry} />
+    );
   }
 
   if (phase === "intro" && lesson.intro && lesson.intro.length > 0) {
@@ -192,8 +215,39 @@ export function LessonPlayer() {
             {Math.round(PASS_THRESHOLD * 100)}% to unlock the next lesson.
           </p>
         )}
-        <div className="mt-3">
-          <ProgressBar current={index + 1} total={total} label="Question" />
+        {alreadyMastered && !isRemediation && (
+          <p className="mt-1 text-sm text-secondary">
+            You've already mastered this lesson — redo it as much as you like. The
+            timer is paused since your best time and badges are already saved.
+          </p>
+        )}
+        {lesson.intro && lesson.intro.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setShowIntroModal(true)}
+            className="mt-2 text-sm font-medium text-accent hover:underline"
+          >
+            Review lesson intro
+          </button>
+        )}
+        <div className="mt-3 flex items-center gap-3">
+          <div className="flex-1">
+            <ProgressBar current={index + 1} total={total} label="Question" />
+          </div>
+          {alreadyMastered ? (
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-secondary">
+              Review
+            </span>
+          ) : (
+            <span
+              className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums text-secondary"
+              aria-label="Time on this lesson"
+              title="Time on this lesson"
+            >
+              <ClockIcon size={14} />
+              {formatDuration(timer.elapsedMs)}
+            </span>
+          )}
         </div>
       </div>
 
@@ -203,6 +257,7 @@ export function LessonPlayer() {
         onSelect={select}
         getOptionState={getOptionState}
         locked={checked}
+        badge={<DifficultyBadge index={index} questionNumber={index + 1} />}
         footer={
           checked && selected !== null ? (
             <FeedbackPanel
@@ -249,6 +304,10 @@ export function LessonPlayer() {
           </button>
         )}
       </div>
+
+      {showIntroModal && (
+        <IntroModal lesson={lesson} onClose={() => setShowIntroModal(false)} />
+      )}
     </div>
   );
 }
@@ -303,63 +362,34 @@ function IntroView({
 }
 
 function ResultsView({
-  lesson,
   result,
   onRetry,
 }: {
-  lesson: Lesson;
   result: AttemptResult;
   onRetry: () => void;
 }) {
-  const next = getNextLesson(lesson.lessonId);
   const passMark = Math.round(PASS_THRESHOLD * 100);
 
   return (
     <div className="mx-auto max-w-md text-center">
       <div className="pp-card p-8">
-        <div
-          className={[
-            "mx-auto flex h-20 w-20 items-center justify-center rounded-full text-3xl font-extrabold",
-            result.passed ? "bg-success-soft text-success" : "bg-danger-soft text-danger",
-          ].join(" ")}
-        >
+        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-danger-soft text-3xl font-extrabold text-danger">
           {result.scorePercent}%
         </div>
 
-        <h1 className="mt-5 text-xl font-bold text-primary">
-          {result.passed ? "Lesson mastered!" : "Keep practicing"}
-        </h1>
+        <h1 className="mt-5 text-xl font-bold text-primary">Keep practicing</h1>
         <p className="mt-2 text-secondary">
           You answered {result.correct} of {result.total} correctly.
         </p>
-
-        {result.passed ? (
-          <p className="mt-1 text-sm text-secondary">
-            {next ? `${next.title} is now unlocked.` : "You finished the course!"}
-          </p>
-        ) : (
-          <p className="mt-1 text-sm text-secondary">
-            You need {passMark}% to unlock the next lesson. Try a fresh set of
-            practice questions on the same ideas.
-          </p>
-        )}
+        <p className="mt-1 text-sm text-secondary">
+          You need {passMark}% to unlock the next lesson. Try a fresh set of
+          practice questions on the same ideas.
+        </p>
 
         <div className="mt-6 flex flex-col gap-3">
-          {result.passed ? (
-            next ? (
-              <Link to={`/lessons/${next.lessonId}`} className="pp-btn-primary">
-                Start {next.title}
-              </Link>
-            ) : (
-              <Link to="/lessons" className="pp-btn-primary">
-                Back to lessons
-              </Link>
-            )
-          ) : (
-            <button type="button" className="pp-btn-primary" onClick={onRetry}>
-              Practice again
-            </button>
-          )}
+          <button type="button" className="pp-btn-primary" onClick={onRetry}>
+            Practice again
+          </button>
           <Link to="/lessons" className="pp-btn-secondary">
             All lessons
           </Link>

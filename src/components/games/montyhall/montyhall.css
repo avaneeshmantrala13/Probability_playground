@@ -1,0 +1,146 @@
+/* Monty Hall scene animations. All names are prefixed "mh-" to avoid global
+   collisions, and every effect is transform/opacity only for cheap GPU work. */
+
+@keyframes mh-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes mh-arm-wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-16deg);
+  }
+}
+
+@keyframes mh-bubble-in {
+  0% {
+    transform: scale(0.7) translateY(6px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes mh-pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes mh-confetti-fall {
+  0% {
+    transform: translate3d(0, -14px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--mh-x, 0), 160px, 0) rotate(var(--mh-r, 360deg));
+    opacity: 0;
+  }
+}
+
+@keyframes mh-sparkle {
+  0%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes mh-nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.mh-host-body {
+  animation: mh-bob 3.2s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+.mh-host-arm {
+  animation: mh-arm-wave 2.4s ease-in-out infinite;
+  transform-origin: 78% 30%;
+}
+
+.mh-bubble {
+  animation: mh-bubble-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.mh-pop {
+  animation: mh-pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.mh-sparkle {
+  animation: mh-sparkle 1.4s ease-in-out infinite;
+}
+
+.mh-confetti-piece {
+  animation: mh-confetti-fall 1.15s ease-in forwards;
+}
+
+.mh-nudge {
+  animation: mh-nudge 1.6s ease-in-out infinite;
+}
+
+/* The door panel swings open on its hinge. The transition drives the motion;
+   the open state is toggled by adding .mh-door-open. */
+.mh-door-panel {
+  transform-origin: left center;
+  transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.2, 1);
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.mh-door-open {
+  transform: rotateY(-105deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mh-host-body,
+  .mh-host-arm,
+  .mh-bubble,
+  .mh-pop,
+  .mh-sparkle,
+  .mh-confetti-piece,
+  .mh-nudge {
+    animation: none !important;
+  }
+  .mh-door-panel {
+    transition: none !important;
+  }
+}
