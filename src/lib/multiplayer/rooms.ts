@@ -14,6 +14,7 @@ import {
   type Unsubscribe,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import { stripUndefined } from "../firestore/sanitize";
 import type { GameState } from "../poker/types";
 import type { TableTier } from "../tokens";
 import { MAX_PLAYERS } from "./constants";
@@ -313,7 +314,7 @@ export async function startRoomGame(
 ): Promise<void> {
   await updateDoc(doc(db, "pokerRooms", roomId), {
     status: "playing",
-    gameState,
+    gameState: stripUndefined(gameState),
     actionSeq: 0,
     updatedAt: serverTimestamp(),
   });
@@ -325,7 +326,7 @@ export async function updateRoomGameState(
   actionSeq: number,
 ): Promise<void> {
   await updateDoc(doc(db, "pokerRooms", roomId), {
-    gameState,
+    gameState: stripUndefined(gameState),
     actionSeq,
     updatedAt: serverTimestamp(),
   });
