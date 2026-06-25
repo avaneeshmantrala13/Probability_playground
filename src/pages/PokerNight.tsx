@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useRef, useState } from "react";
+import { Suspense, lazy, useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useProgress } from "../context/ProgressContext";
@@ -122,9 +122,9 @@ function PokerNightUnlocked() {
     setSeat(null);
   };
 
-  const handleMpJoined = (roomId: string, tier: TableTier, buyIn: number) => {
+  const handleMpJoined = useCallback((roomId: string, tier: TableTier, buyIn: number) => {
     setMpSession({ roomId, tier, buyIn, key: Date.now() });
-  };
+  }, []);
 
   return (
     <div className="mx-auto max-w-5xl">
@@ -419,16 +419,16 @@ function MultiplayerSession({
 
   mySeatIndexRef.current = game.mySeatIndex;
 
-  const { room, state, legal, isHumanTurn, humanEquity, thinking, speeches, expressions, act, dealNext, mySeatIndex } = game;
+  const { room, state, legal, isHumanTurn, humanEquity, thinking, speeches, expressions, act, dealNext, mySeatIndex, isHost, seatKnown } = game;
   const handComplete = state.stage === "complete";
-  const myStack = state.seats[mySeatIndex]?.stack ?? 0;
+  const myStack = seatKnown ? (state.seats[mySeatIndex]?.stack ?? 0) : 0;
 
   const handleLeave = () => {
     addTokens(myStack);
     onLeave();
   };
 
-  if (!room) {
+  if (!room || !room.gameState || !seatKnown) {
     return <p className="text-muted">Connecting to table…</p>;
   }
 
@@ -463,7 +463,7 @@ function MultiplayerSession({
         {user && <TableChat roomId={roomId} uid={user.uid} room={room} />}
       </div>
       {handComplete ? (
-        <HandResultBanner state={state} canDeal onNext={dealNext} />
+        <HandResultBanner state={state} canDeal={isHost} onNext={dealNext} />
       ) : (
         <ActionBar
           state={state}
@@ -472,6 +472,7 @@ function MultiplayerSession({
           humanEquity={humanEquity}
           thinking={thinking}
           onAction={act}
+          humanSeatIndex={mySeatIndex}
         />
       )}
     </div>

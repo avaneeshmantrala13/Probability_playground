@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useProgress } from "../../context/ProgressContext";
 import {
@@ -55,13 +55,19 @@ export function MultiplayerLobby({ bankroll, onJoined, onLeave }: MultiplayerLob
   const displayName =
     user?.displayName ?? user?.email?.split("@")[0] ?? "Player";
 
+  const joinedRef = useRef(false);
+  const onJoinedStable = useCallback(onJoined, [onJoined]);
+
   useEffect(() => {
     if (!roomId) return;
     return subscribeToRoom(roomId, (r) => {
       setRoom(r);
-      if (r && r.status === "playing") onJoined(roomId, tier, buyIn);
+      if (r && r.status === "playing" && !joinedRef.current) {
+        joinedRef.current = true;
+        onJoinedStable(roomId, tier, buyIn);
+      }
     });
-  }, [roomId, tier, buyIn, onJoined]);
+  }, [roomId, tier, buyIn, onJoinedStable]);
 
   // Public matchmaking pool watcher.
   useEffect(() => {

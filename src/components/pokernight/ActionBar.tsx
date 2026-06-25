@@ -8,6 +8,8 @@ interface ActionBarProps {
   humanEquity: number | null;
   thinking: boolean;
   onAction: (action: Action) => void;
+  /** Local human seat index (default 0 for single-player). */
+  humanSeatIndex?: number;
 }
 
 function clamp(x: number, lo: number, hi: number): number {
@@ -21,8 +23,9 @@ export function ActionBar({
   humanEquity,
   thinking,
   onAction,
+  humanSeatIndex = 0,
 }: ActionBarProps) {
-  const human = state.seats[0];
+  const human = state.seats[humanSeatIndex] ?? state.seats[0];
   const canBetOrRaise = legal.canBet || legal.canRaise;
   const min = legal.minRaiseTo;
   const max = legal.maxRaiseTo;

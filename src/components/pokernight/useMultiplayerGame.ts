@@ -34,13 +34,27 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
   const { roomId, uid, tier, buyIn, reduced, onHandEnd } = opts;
   const [room, setRoom] = useState<PokerRoom | null>(null);
   const actionSeqRef = useRef(0);
+  const gameStateRef = useRef<GameState | null>(null);
   const isHost = room?.hostUid === uid;
   const myPlayer = room?.players[uid];
-  const mySeatIndex = myPlayer?.seatIndex ?? 0;
+  /** Never default joiners to seat 0 — that breaks first-hand turn detection. */
+  const mySeatIndex = myPlayer?.seatIndex;
+  const seatKnown = mySeatIndex != null;
 
   useEffect(() => {
     return subscribeToRoom(roomId, setRoom);
   }, [roomId]);
+
+  // Keep host actionSeq in sync when mounting mid-hand or after resync.
+  useEffect(() => {
+    if (room?.actionSeq != null) {
+      actionSeqRef.current = room.actionSeq;
+    }
+  }, [room?.actionSeq]);
+
+  useEffect(() => {
+    gameStateRef.current = room?.gameState ?? null;
+  }, [room?.gameState]);
 
   const config: GameConfig = useMemo(
     () => ({
@@ -61,13 +75,13 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     [isHost, roomId],
   );
 
-  // Host: apply remote player actions.
+  // Host: apply remote player actions (read latest gameState from ref — not a stale closure).
   useEffect(() => {
-    if (!isHost || !room?.gameState || room.status !== "playing") return;
+    if (!isHost || room?.status !== "playing") return;
 
     const onAction = async (docId: string, doc: PlayerActionDoc) => {
       if (doc.applied) return;
-      const current = room.gameState;
+      const current = gameStateRef.current;
       if (!current || current.toAct !== doc.seatIndex) return;
       const next = applyAction(current, doc.action as Action);
       actionSeqRef.current += 1;
@@ -76,12 +90,12 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     };
 
     return subscribeToPlayerActions(roomId, onAction);
-  }, [isHost, room?.gameState, room?.status, roomId]);
+  }, [isHost, room?.status, roomId]);
 
   const filteredState = useMemo(() => {
-    if (!room?.gameState) return null;
+    if (!room?.gameState || !seatKnown) return null;
     return filterGameStateForViewer(room.gameState, mySeatIndex);
-  }, [room?.gameState, mySeatIndex]);
+  }, [room?.gameState, mySeatIndex, seatKnown]);
 
   const personas = useMemo(() => pickPersonas(Math.max(1, 6 - (room ? Object.values(room.players).filter((p) => p.active).length : 1))), [room]);
 
@@ -91,8 +105,9 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     humanStack: buyIn,
     personas,
     reduced,
-    humanSeatIndex: mySeatIndex,
+    humanSeatIndex: mySeatIndex ?? 0,
     externalState: room?.gameState ?? null,
+    waitForExternal: !isHost,
     driveBots: isHost,
     botDelayMs: reduced ? [90, 90] : [200, 700],
     onStateChange: isHost ? handleHostStateChange : undefined,
@@ -105,20 +120,29 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
         hostGame.act(action);
         return;
       }
-      if (!room?.gameState || room.gameState.toAct !== mySeatIndex) return;
+      if (
+        !seatKnown ||
+        !room?.gameState ||
+        room.gameState.toAct !== mySeatIndex
+      ) {
+        return;
+      }
       await submitPlayerAction(roomId, uid, mySeatIndex, action, room.actionSeq + 1);
     },
-    [isHost, hostGame, room, roomId, uid, mySeatIndex],
+    [isHost, hostGame, room, roomId, uid, mySeatIndex, seatKnown],
   );
 
   const displayState = useMemo(() => {
     const raw = isHost ? hostGame.state : (filteredState ?? hostGame.state);
     if (!raw) return hostGame.state;
+    if (!seatKnown) return raw;
     return filterGameStateForViewer(raw, mySeatIndex);
-  }, [isHost, hostGame.state, filteredState, mySeatIndex]);
+  }, [isHost, hostGame.state, filteredState, mySeatIndex, seatKnown]);
   const displayLegal = useMemo(() => legalActions(displayState), [displayState]);
   const isHumanTurn =
-    displayState.stage !== "complete" && displayState.toAct === mySeatIndex;
+    seatKnown &&
+    displayState.stage !== "complete" &&
+    displayState.toAct === mySeatIndex;
 
   const thinking =
     hostGame.thinking ||
@@ -130,12 +154,13 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
   return {
     room,
     isHost,
-    mySeatIndex,
+    mySeatIndex: mySeatIndex ?? 0,
     myPlayer,
+    seatKnown,
     state: displayState,
     legal: displayLegal,
     isHumanTurn,
-    humanSeat: displayState.seats[mySeatIndex],
+    humanSeat: seatKnown ? displayState.seats[mySeatIndex] : undefined,
     humanEquity: isHumanTurn ? hostGame.humanEquity : null,
     thinking,
     speeches: hostGame.speeches,
