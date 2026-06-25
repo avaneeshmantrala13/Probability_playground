@@ -10,13 +10,25 @@
 .pn-scene {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 74vh;
+  /* Taller frame so top/side seats + speech bubbles stay inside the viewport. */
+  aspect-ratio: 16 / 12;
+  max-height: 86vh;
   border-radius: 18px;
   overflow: hidden;
   isolation: isolate;
   background: #14100c;
   box-shadow: 0 24px 60px rgb(0 0 0 / 0.5);
+}
+/* Full rings (5+ opponents): zoom the stage out slightly so every seat + bubble fits. */
+.pn-scene-ring-full .pn-camera {
+  transform: scale(0.94);
+  transform-origin: 50% 68%;
+}
+.pn-scene-ring-full .pn-cam-up {
+  transform: translateY(4.5%) scale(0.95);
+}
+.pn-scene-ring-full .pn-cam-down {
+  transform: translateY(-6.5%) scale(1.01);
 }
 
 /* One CONTINUOUS warm gradient spans the whole room (wall -> floor) so there's
@@ -466,9 +478,12 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  z-index: 5;
+  /* Above the standing dealer (z-index 8) so community cards stay visible when
+     the dealer sweeps an arm toward the board on deal / flop-turn-river reveal. */
+  z-index: 10;
   transform: translate(-50%, -50%);
   text-align: center;
+  pointer-events: none;
 }
 .pn-board {
   display: flex;
@@ -565,13 +580,29 @@
   gap: 0.18rem;
 }
 
-/* bet chips pushed out in front of the player */
-.pn-seat-bet {
+/* bet chips on the felt — pushed toward the pot from each seat */
+.pn-felt-bet {
   position: absolute;
   left: 50%;
-  bottom: -14px;
-  transform: translateX(-50%);
-  z-index: 4;
+  top: 50%;
+  z-index: 6;
+  transform: translate(calc(-50% + var(--pn-bet-x, 0px)), calc(-50% + var(--pn-bet-y, 0px)));
+  pointer-events: none;
+}
+.pn-felt-bet .pn-chip {
+  font-size: 0.78rem;
+  padding: 0.18rem 0.65rem;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.45);
+}
+.pn-felt-bet-total {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0.82;
+  color: #e5e7eb;
+  letter-spacing: 0.02em;
 }
 
 /* nameplate under the figure */
@@ -937,7 +968,7 @@
   z-index: 20;
   margin-bottom: 8px;
   width: max-content;
-  max-width: 15rem;
+  max-width: min(15rem, 42vw);
   padding: 0.5rem 0.85rem;
   border-radius: 1rem;
   font-size: 0.95rem;
@@ -960,6 +991,19 @@
   border: 8px solid transparent;
   border-top-color: var(--pn-speech-accent);
 }
+/* Top/side seats: bubble below the figure so it isn't clipped by the scene edge. */
+.pn-speech-below {
+  bottom: auto;
+  top: 100%;
+  margin-bottom: 0;
+  margin-top: 6px;
+}
+.pn-speech-below::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: var(--pn-speech-accent);
+}
 
 /* =============================== standing dealer =============================== */
 
@@ -967,10 +1011,8 @@
   position: absolute;
   top: 0.5%;
   left: 50%;
-  /* ABOVE the player seats (z-index 7) so the standing dealer is always fully
-     visible — its head, suited torso, hands and shuffle/deal never get hidden
-     behind a back player; at most the dealer slightly overlaps a back seat's
-     shoulder, which reads naturally (the dealer stands in front of the rail). */
+  /* Above player seats (7) but BELOW community cards (10) so deal/reveal arm
+     sweeps never cover the board; torso still reads in front of back seats. */
   z-index: 8;
   display: flex;
   flex-direction: column;
