@@ -27,6 +27,8 @@ export interface UsePokerGameOpts {
   humanSeatIndex?: number;
   /** External state driver — when set, hook mirrors this instead of local bot loop. */
   externalState?: GameState | null;
+  /** Skip local game bootstrap until `externalState` arrives (multiplayer joiner). */
+  waitForExternal?: boolean;
   /** Run the bot loop even when `externalState` is set (multiplayer host). */
   driveBots?: boolean;
   /** Bot think delay range in ms — defaults to ~480–1000 single-player. */
@@ -164,6 +166,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     reduced,
     humanSeatIndex = DEFAULT_HUMAN_SEAT,
     externalState,
+    waitForExternal = false,
     driveBots = false,
     botDelayMs,
     onStateChange,
@@ -171,9 +174,28 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   } = opts;
   const HUMAN_SEAT = humanSeatIndex;
 
-  const [state, setState] = useState<GameState>(() =>
-    externalState ?? startHand(createGame({ config, humanName, humanStack, personas })),
-  );
+  const [state, setState] = useState<GameState>(() => {
+    if (externalState) return externalState;
+    if (waitForExternal) {
+      return {
+        seats: [],
+        config,
+        button: 0,
+        board: [],
+        deck: [],
+        stage: "complete",
+        currentBet: 0,
+        minRaise: config.bigBlind,
+        toAct: null,
+        lastAggressor: null,
+        pot: 0,
+        handNumber: 0,
+        result: null,
+        log: [],
+      };
+    }
+    return startHand(createGame({ config, humanName, humanStack, personas }));
+  });
   const [thinking, setThinking] = useState(false);
   const [humanEquity, setHumanEquity] = useState<number | null>(null);
   const [speeches, setSpeeches] = useState<Record<number, Speech>>({});
@@ -204,7 +226,14 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
 
   // --------- drive bot turns automatically with a small think delay ---------
   useEffect(() => {
-    if (externalState != null && !driveBots) return;
+    if (waitForExternal && externalState == null) {
+      setThinking(false);
+      return;
+    }
+    if (externalState != null && !driveBots) {
+      setThinking(false);
+      return;
+    }
     if (state.stage === "complete" || state.toAct == null) {
       setThinking(false);
       return;
@@ -236,7 +265,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       onStateChange?.(next);
     }, delay);
     return () => clearTimeout(timer);
-  }, [state, reduced, pushSpeech, externalState, driveBots, botDelayMs, onStateChange]);
+  }, [state, reduced, pushSpeech, externalState, waitForExternal, driveBots, botDelayMs, onStateChange]);
 
   // ----------------- report each completed hand exactly once -----------------
   useEffect(() => {

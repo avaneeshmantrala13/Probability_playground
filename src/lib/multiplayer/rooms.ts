@@ -378,11 +378,11 @@ export function subscribeToPlayerActions(
   onAction: (id: string, action: PlayerActionDoc) => void,
 ): Unsubscribe {
   return onSnapshot(collection(db, "pokerRooms", roomId, "playerActions"), (snap) => {
-    snap.docChanges().forEach((change) => {
-      if (change.type === "added") {
+    for (const change of snap.docChanges()) {
+      if (change.type === "added" || change.type === "modified") {
         onAction(change.doc.id, change.doc.data() as PlayerActionDoc);
       }
-    });
+    }
   });
 }
 
