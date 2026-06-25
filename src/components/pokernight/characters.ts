@@ -68,6 +68,12 @@ export interface CharacterLook {
   accessory: Accessory;
   /** Optional freckles dusting (e.g. Lucky). */
   freckles?: boolean;
+  /**
+   * Fabric material, 0 = matte (cotton/knit) → 1 = glossy (satin/silk). Drives
+   * how strong the sheen highlight on the clothing reads, so personas feel like
+   * they're wearing different materials. Defaults to ~0.4 when omitted.
+   */
+  sheen?: number;
 }
 
 /** The human ("You") — a neutral, friendly hero look. */
@@ -114,6 +120,7 @@ export const DEALER_LOOK: CharacterLook = {
   build: "average",
   posture: "upright",
   accessory: "bowtie",
+  sheen: 0.9,
 };
 
 /** Per-persona looks, keyed by persona id. */
@@ -161,6 +168,7 @@ const LOOKS: Record<string, CharacterLook> = {
     build: "broad",
     posture: "lean",
     accessory: "chain",
+    sheen: 0.2,
   },
   // Nova — precise mathematician: slim, upright, glasses, neat tie.
   nova: {
@@ -183,6 +191,7 @@ const LOOKS: Record<string, CharacterLook> = {
     build: "slim",
     posture: "upright",
     accessory: "tie",
+    sheen: 0.5,
   },
   // Lucky — freckled, grinning gambler under a green flat cap, hoop earring.
   lucky: {
@@ -228,6 +237,7 @@ const LOOKS: Record<string, CharacterLook> = {
     build: "broad",
     posture: "relaxed",
     accessory: "tie",
+    sheen: 0.85,
   },
   // River — serene, long-haired, calm under pressure, soft beard & scarf.
   river: {

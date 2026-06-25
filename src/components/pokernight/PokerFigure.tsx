@@ -49,6 +49,8 @@ function PokerFigureImpl({
   const raw = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const outfitG = `pn-outfit-${raw}`;
   const sleeveHi = `pn-sleevehi-${raw}`;
+  const rimW = `pn-rimw-${raw}`;
+  const sheen = look.sheen ?? 0.4;
 
   const sw = SHOULDER[look.build];
   const base = sw + 10;
@@ -74,17 +76,26 @@ function PokerFigureImpl({
       style={{
         ["--pn-fig-accent" as string]: look.accent,
         opacity: dimmed ? 0.62 : 1,
+        // desync the idle body sway between seats
+        animationDelay: `${-((seatIndex % 5) * 1.7)}s`,
       }}
     >
       <defs>
-        <linearGradient id={outfitG} x1="0.15" y1="0" x2="0.8" y2="1">
+        <linearGradient id={outfitG} x1="0.2" y1="0" x2="0.78" y2="1">
           <stop offset="0" stopColor={look.outfit} />
           <stop offset="1" stopColor={look.outfit} />
         </linearGradient>
-        <radialGradient id={sleeveHi} cx="0.5" cy="0.2" r="0.9">
-          <stop offset="0" stopColor="#ffffff" stopOpacity="0.16" />
+        {/* material sheen — stronger for satin/silk personas, faint for matte */}
+        <radialGradient id={sleeveHi} cx="0.42" cy="0.16" r="0.95">
+          <stop offset="0" stopColor="#ffffff" stopOpacity={0.1 + sheen * 0.34} />
+          <stop offset="0.6" stopColor="#ffffff" stopOpacity={sheen * 0.06} />
           <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
         </radialGradient>
+        {/* warm casino rim light down the right side */}
+        <linearGradient id={rimW} x1="1" y1="0" x2="0.4" y2="0.5">
+          <stop offset="0" stopColor="#ffd9a0" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#ffd9a0" stopOpacity="0" />
+        </linearGradient>
       </defs>
 
       {/* chair back behind the player */}
@@ -150,6 +161,21 @@ function PokerFigureImpl({
       <path d={`M ${CX - sw + 6} ${shoulderY + 3} Q ${CX - sw - 2} ${shoulderY + 18} ${CX - base + 6} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
       <path d={`M ${CX + sw - 6} ${shoulderY + 3} Q ${CX + sw + 2} ${shoulderY + 18} ${CX + base - 6} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
 
+      {/* fabric folds draping from the collar and shoulders */}
+      <g fill="none" stroke="#000" opacity="0.12" strokeLinecap="round">
+        <path d={`M ${CX - 8} ${shoulderY + 22} Q ${CX - 12} ${shoulderY + 70} ${CX - 10} 168`} strokeWidth="1.5" />
+        <path d={`M ${CX + 8} ${shoulderY + 22} Q ${CX + 12} ${shoulderY + 70} ${CX + 10} 168`} strokeWidth="1.5" />
+        <path d={`M ${CX - sw + 12} ${shoulderY + 16} Q ${CX - base + 18} 128 ${CX - base + 22} 166`} strokeWidth="1.2" />
+        <path d={`M ${CX + sw - 12} ${shoulderY + 16} Q ${CX + base - 18} 128 ${CX + base - 22} 166`} strokeWidth="1.2" />
+      </g>
+      {/* ambient occlusion where the arms tuck into the torso */}
+      <path d={`M ${CX - sw + 1} ${shoulderY + 5} Q ${CX - sw - 7} ${shoulderY + 20} ${CX - sw + 3} ${shoulderY + 33} Q ${CX - sw + 7} ${shoulderY + 18} ${CX - sw + 1} ${shoulderY + 5} Z`} fill="#000" opacity="0.16" />
+      <path d={`M ${CX + sw - 1} ${shoulderY + 5} Q ${CX + sw + 7} ${shoulderY + 20} ${CX + sw - 3} ${shoulderY + 33} Q ${CX + sw - 7} ${shoulderY + 18} ${CX + sw - 1} ${shoulderY + 5} Z`} fill="#000" opacity="0.16" />
+      {/* warm casino rim light catching the right shoulder + arm */}
+      <path d={`M ${CX + sw - 1} ${shoulderY + 2} C ${CX + sw + 3} ${shoulderY + 16} ${CX + base - 3} 130 ${CX + base - 4} 166`} fill="none" stroke={`url(#${rimW})`} strokeWidth="2.4" strokeLinecap="round" />
+      {/* upper-chest material sheen (intensity set by the persona's fabric) */}
+      <ellipse cx={CX - 9} cy={shoulderY + 30} rx="15" ry="22" fill={`url(#${sleeveHi})`} />
+
       <Accessory look={look} shoulderY={shoulderY} />
 
       {/* hands holding cards */}
@@ -174,7 +200,7 @@ function PokerFigureImpl({
           so the head sits dead-center on the neck. The inner .pn-fig-head only
           carries the breathe bob, which now composes on top of this positioning. */}
       <g transform={`translate(${CX - 48} -3) scale(0.96)`}>
-        <g className="pn-fig-head">
+        <g className="pn-fig-head" style={{ animationDelay: `${-((seatIndex % 5) * 1.3)}s` }}>
           <Head
             look={look}
             blink={!reduced}
