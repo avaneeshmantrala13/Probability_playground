@@ -78,13 +78,22 @@ function PlayerSeatImpl({
   const look = getLook(seat.persona, seat.isHuman);
   const bubble = useBubble(speech);
 
-  // Body orientation: turn the figure to face the table centre (inward 3/4 view).
-  // Left-of-centre seats face screen-right, right seats face screen-left; side
-  // seats (further from centre) turn more. Dead-centre seats stay near-frontal.
+  // Body orientation as a function of the seat's ANGLE around the felt ellipse
+  // (camera/player at bottom-centre). Each opponent's torso is turned to sit
+  // TANGENT to the rim — shoulders facing the table centre — instead of posing at
+  // the camera. `hx` is how far the seat is to the side (-1 far-left .. +1 far-
+  // right) and `near` is how close it sits to the camera (0 far/top .. 1 near).
+  // Lateral + near seats turn the hardest (toward profile, ~up to 72°); far/top-
+  // centre seats stay near-frontal because they're across the felt looking back.
   const leftPct = parseFloat(position.left);
-  const fromCenter = Number.isFinite(leftPct) ? leftPct - 50 : 0;
-  const side = fromCenter === 0 ? 0 : fromCenter < 0 ? -1 : 1;
-  const yaw = Math.max(-22, Math.min(22, -fromCenter * 0.42));
+  const topPct = parseFloat(position.top);
+  const hx = Number.isFinite(leftPct) ? (leftPct - 50) / 43 : 0;
+  const near = Number.isFinite(topPct) ? Math.max(0, Math.min(1, (topPct - 28) / 30)) : 0.5;
+  const side = hx === 0 ? 0 : hx < 0 ? -1 : 1;
+  const bodyYaw = Math.max(-72, Math.min(72, -hx * 78 * (0.78 + 0.22 * near)));
+  // The head yaws BACK ~60% of the body turn so a seated player still shows ~3/4
+  // of their face across the table (we can read the expression + gaze).
+  const headYaw = -bodyYaw * 0.6;
 
   // Live gaze (eyes + subtle head lean). Hook is called unconditionally; the
   // hero path below simply ignores it. Inert under reduced motion / fixed override.
@@ -198,7 +207,10 @@ function PlayerSeatImpl({
 
       <div
         className={`pn-figure-wrap ${isWinner && !reduced ? "pn-winner" : ""}`}
-        style={{ ["--pn-yaw" as string]: `${yaw}deg` }}
+        style={{
+          ["--pn-yaw" as string]: `${bodyYaw}deg`,
+          ["--pn-head-yaw" as string]: `${headYaw}deg`,
+        }}
       >
         <PokerFigure
           look={look}

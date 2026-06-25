@@ -445,11 +445,14 @@
   position: relative;
   width: 100%;
   border-radius: 1rem;
-  /* inward 3/4 orientation: turn each opponent to face the table centre so the
-     ring reads with real depth instead of a row of figures facing the camera.
-     `--pn-yaw` is set per seat (sign + magnitude from its arc position). */
-  transform: perspective(560px) rotateY(var(--pn-yaw, 0deg));
-  transform-style: preserve-3d;
+  /* TANGENT seating: turn each opponent's body to face the table centre so the
+     ring reads like a real round table, not a row of figures at the camera.
+     `--pn-yaw` is set per seat from its angle around the felt (lateral/near seats
+     turn hardest, toward profile; far/top-centre seats stay near-frontal). The
+     figure is flattened to a single rotated plane (no preserve-3d) so the head's
+     own counter-turn composes predictably on top. */
+  transform: perspective(540px) rotateY(var(--pn-yaw, 0deg));
+  transform-origin: 50% 72%;
   transition: transform 0.5s cubic-bezier(0.33, 0, 0.2, 1);
 }
 /* soft contact shadow that grounds the figure on the felt */
@@ -592,6 +595,15 @@
 }
 .pn-posture-lean.pn-figure-idle .pn-fig-head {
   animation-duration: 4.1s;
+}
+/* head counter-turn: yaw the head back toward the camera so a body turned tangent
+   to the table still shows ~3/4 of its face. Self-contained perspective renders a
+   real dimensional turn without parent preserve-3d. */
+.pn-fig-headturn {
+  transform-box: fill-box;
+  transform-origin: 50% 56%;
+  transform: perspective(300px) rotateY(var(--pn-head-yaw, 0deg));
+  transition: transform 0.5s cubic-bezier(0.33, 0, 0.2, 1);
 }
 /* gaze: glide the eyes (and a subtle head lean) toward the current look target */
 .pn-fig-gaze {
@@ -993,7 +1005,9 @@
     animation: none !important;
   }
   .pn-server { opacity: 0; }
-  /* static inward poses + neutral gaze, no animated darting */
+  /* static tangent poses + neutral gaze, no animated darting */
+  .pn-figure-wrap,
+  .pn-fig-headturn,
   .pn-fig-gaze,
   .pn-eye-iris {
     transition: none !important;
