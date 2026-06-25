@@ -91,7 +91,9 @@ function PokerFigureImpl({
   const phys = PHYS[look.build] ?? PHYS.average;
   const shoulderY = SHOULDER_Y[look.posture];
   const armW = phys.arm;
-  const handHalf = 17;
+  // hands spread a touch on wider builds (still symmetric about CX so the centred
+  // hole cards stay between/in front of them and remain aligned)
+  const handHalf = 15 + Math.round(phys.ww * 0.12);
   const hlx = CX - handHalf;
   const hrx = CX + handHalf;
 
@@ -145,9 +147,15 @@ function PokerFigureImpl({
   const nearH = hw(phys.hip, -f);
   const sideW = phys.sw * 0.5 * at; // width of the revealed side plane
 
-  // arm shoulder anchors follow the (foreshortened) shoulders; hands stay forward
-  const aLx = hw(phys.sw - 9, -1);
-  const aRx = hw(phys.sw - 9, 1);
+  // Arms anchor to the build's shoulders and hug the body's OUTER side (waist
+  // edge) before resting the hands forward at centre — so on wide builds the arms
+  // ride the wider silhouette instead of cutting across the belly, and on narrow
+  // builds they stay tucked in. Both ends are sign-aware so the arms follow the
+  // turned/foreshortened silhouette (near arm wider, far arm compressed).
+  const aLx = hw(phys.sw - 6, -1);
+  const aRx = hw(phys.sw - 6, 1);
+  const armL = `M ${aLx} ${shoulderY + 10} C ${xSL - 2} ${shoulderY + 40} ${xWL + 2} ${yH - 22} ${hlx} 153`;
+  const armR = `M ${aRx} ${shoulderY + 10} C ${xSR + 2} ${shoulderY + 40} ${xWR - 2} ${yH - 22} ${hrx} 153`;
   // chair width tracks the hips
   const chairHalf = phys.hip + 13;
   // shoulder-cap radii: near cap reads larger than the receding far cap
@@ -235,15 +243,17 @@ function PokerFigureImpl({
       />
       <path d={`M ${CX - 8} 61 L ${CX + 8} 61 L ${CX + 8} 65 C ${CX + 3} 68 ${CX - 3} 68 ${CX - 8} 65 Z`} fill={look.skinShade} opacity="0.4" />
 
-      {/* arms / sleeves resting forward on the felt — rounded tubes anchored to the
-          (foreshortened) shoulders; base stroke + upper sheen + underside shadow */}
+      {/* arms / sleeves: anchored to the build's shoulders, hugging the body's
+          outer side, then resting the hands forward at centre. Rounded tubes —
+          base stroke + underside core shadow + upper sheen ridge — so they stay
+          3D and never bury inside the torso on wide builds */}
       <g className="pn-fig-arms" fill="none" strokeLinecap="round">
-        <path d={`M ${aLx} ${shoulderY + 10} Q ${aLx - 11} 134 ${hlx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
-        <path d={`M ${aRx} ${shoulderY + 10} Q ${aRx + 11} 134 ${hrx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
-        <path d={`M ${aLx + 1} ${shoulderY + 13} Q ${aLx - 8} 135 ${hlx + 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
-        <path d={`M ${aRx - 1} ${shoulderY + 13} Q ${aRx + 8} 135 ${hrx - 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
-        <path d={`M ${aLx - 2} ${shoulderY + 9} Q ${aLx - 13} 132 ${hlx - 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
-        <path d={`M ${aRx + 2} ${shoulderY + 9} Q ${aRx + 13} 132 ${hrx + 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
+        <path d={armL} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        <path d={armR} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        <path d={armL} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" transform="translate(0 1.6)" />
+        <path d={armR} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" transform="translate(0 1.6)" />
+        <path d={armL} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} transform="translate(0 -1.3)" />
+        <path d={armR} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} transform="translate(0 -1.3)" />
       </g>
 
       {/* ---- rounded, foreshortened torso silhouette (curved sides, tapered waist,
