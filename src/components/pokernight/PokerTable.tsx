@@ -3,46 +3,53 @@ import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { GameState } from "../../lib/poker";
 import { PlayingCard } from "./PlayingCard";
 import { PlayerSeat } from "./PlayerSeat";
+import { Dealer } from "./Dealer";
+import type { Speech } from "./usePokerGame";
 
 interface PokerTableProps {
   state: GameState;
   deck: DeckSkin;
   theme: TableTheme;
   reduced: boolean;
+  speeches: Record<number, Speech>;
 }
 
 type Pos = { top: string; left: string };
 
-/** Seat layouts (index 0 is the human, anchored at the bottom). */
+/**
+ * First-person seat layouts: index 0 is the human, anchored front-and-center at
+ * the BOTTOM. Opponents fan around the upper oval arc, leaving the top-center
+ * clear for the dealer (who sits "across" the table from the player).
+ */
 const LAYOUTS: Record<number, Pos[]> = {
   2: [
     { top: "86%", left: "50%" },
-    { top: "12%", left: "50%" },
+    { top: "24%", left: "50%" },
   ],
   3: [
     { top: "86%", left: "50%" },
-    { top: "20%", left: "20%" },
-    { top: "20%", left: "80%" },
+    { top: "32%", left: "16%" },
+    { top: "32%", left: "84%" },
   ],
   4: [
-    { top: "86%", left: "50%" },
-    { top: "50%", left: "8%" },
-    { top: "12%", left: "50%" },
-    { top: "50%", left: "92%" },
+    { top: "87%", left: "50%" },
+    { top: "54%", left: "8%" },
+    { top: "22%", left: "50%" },
+    { top: "54%", left: "92%" },
   ],
   5: [
     { top: "88%", left: "50%" },
     { top: "58%", left: "7%" },
-    { top: "16%", left: "26%" },
-    { top: "16%", left: "74%" },
+    { top: "22%", left: "27%" },
+    { top: "22%", left: "73%" },
     { top: "58%", left: "93%" },
   ],
   6: [
     { top: "88%", left: "50%" },
     { top: "60%", left: "6%" },
-    { top: "16%", left: "22%" },
-    { top: "11%", left: "50%" },
-    { top: "16%", left: "78%" },
+    { top: "27%", left: "22%" },
+    { top: "18%", left: "50%" },
+    { top: "27%", left: "78%" },
     { top: "60%", left: "94%" },
   ],
 };
@@ -51,7 +58,7 @@ function layoutFor(n: number): Pos[] {
   return LAYOUTS[n] ?? LAYOUTS[6];
 }
 
-export function PokerTable({ state, deck, theme, reduced }: PokerTableProps) {
+export function PokerTable({ state, deck, theme, reduced, speeches }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
 
@@ -81,11 +88,14 @@ export function PokerTable({ state, deck, theme, reduced }: PokerTableProps) {
     ["--pn-glow" as string]: theme.glow,
   };
 
-  const dealAnim = reduced ? "" : "pn-anim-deal";
+  const flipAnim = reduced ? "" : "pn-anim-flip";
 
   return (
     <div className="pn-table-wrap" style={feltVars}>
       <div className="pn-felt" />
+
+      {/* dealer sits across the table, top-center */}
+      <Dealer state={state} theme={theme} reduced={reduced} />
 
       {/* center: community cards + pot */}
       <div className="absolute left-1/2 top-1/2 z-[5] -translate-x-1/2 -translate-y-1/2 text-center">
@@ -96,13 +106,21 @@ export function PokerTable({ state, deck, theme, reduced }: PokerTableProps) {
             </span>
           ) : (
             state.board.map((c, i) => (
+              // Cards are keyed per hand+slot, so the one-shot flip animation
+              // only fires for a card the first time it mounts (i.e. exactly
+              // when the dealer reveals that street). The flop's three cards
+              // mount together and stagger; the lone turn/river card flips now.
               <PlayingCard
                 key={`${state.handNumber}-board-${i}-${c}`}
                 card={c}
                 deck={deck}
                 size="md"
-                animClass={dealAnim}
-                style={reduced ? undefined : { animationDelay: `${i * 60}ms` }}
+                animClass={flipAnim}
+                style={
+                  !reduced && state.board.length === 3
+                    ? { animationDelay: `${i * 110}ms` }
+                    : undefined
+                }
               />
             ))
           )}
@@ -134,7 +152,9 @@ export function PokerTable({ state, deck, theme, reduced }: PokerTableProps) {
           isWinner={winners.has(seat.index)}
           reveal={reveal}
           reduced={reduced}
+          isHero={seat.isHuman}
           dealKey={state.handNumber}
+          speech={speeches[seat.index]}
         />
       ))}
     </div>

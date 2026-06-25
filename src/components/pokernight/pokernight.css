@@ -35,7 +35,46 @@
 .pn-seat {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: clamp(78px, 14vw, 132px);
+  width: clamp(104px, 16vw, 158px);
+  z-index: 7;
+}
+
+.pn-seat-hero {
+  width: clamp(176px, 28vw, 268px);
+  z-index: 9;
+}
+
+.pn-seat-card {
+  position: relative;
+}
+
+.pn-seat-hero .pn-seat-card {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--pn-glow) 50%, transparent);
+}
+
+/* ----------------------------- characters ----------------------------- */
+
+.pn-avatar {
+  display: block;
+  flex: none;
+  border-radius: 50%;
+  will-change: transform, filter;
+  transform: translateZ(0);
+}
+
+.pn-avatar-active {
+  filter: drop-shadow(0 0 5px var(--pn-av-accent));
+  animation: pn-av-bob 1.7s ease-in-out infinite;
+}
+
+@keyframes pn-av-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
 }
 
 /* ----------------------------- cards ----------------------------- */
@@ -52,6 +91,8 @@
   background: #fdfdfb;
   border: 1px solid #cfcfcf;
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.28);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .pn-card-face {
@@ -206,9 +247,12 @@
 
 .pn-anim-deal {
   animation: pn-deal 0.34s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  will-change: transform, opacity;
 }
 .pn-anim-flip {
-  animation: pn-flip-in 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation: pn-flip-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  transform-origin: center;
+  will-change: transform, opacity;
 }
 .pn-anim-pot-bump {
   animation: pn-pot-bump 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -224,13 +268,161 @@
   border-radius: 1rem;
 }
 
+/* ----------------------------- speech bubbles ----------------------------- */
+
+.pn-speech {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  z-index: 20;
+  margin-bottom: 8px;
+  width: max-content;
+  max-width: 11rem;
+  padding: 0.3rem 0.62rem;
+  border-radius: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.18;
+  color: #0b1220;
+  background: color-mix(in srgb, var(--pn-speech-accent) 16%, #ffffff);
+  border: 2px solid var(--pn-speech-accent);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.38);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.pn-speech::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--pn-speech-accent);
+}
+
+/* ----------------------------- dealer ----------------------------- */
+
+.pn-dealer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -44%);
+  pointer-events: none;
+}
+
+.pn-dealer-stage {
+  position: relative;
+}
+
+.pn-dealer-name {
+  margin-top: 2px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.pn-dealer-say {
+  position: absolute;
+  top: -4px;
+  left: 100%;
+  margin-left: 4px;
+  width: max-content;
+  max-width: 9rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.7rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #f8fafc;
+  background: rgb(2 6 23 / 0.82);
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+/* riffling deck the dealer works between hands */
+.pn-deck-stack {
+  position: absolute;
+  right: -16px;
+  bottom: 4px;
+  width: 16px;
+  height: 22px;
+}
+
+.pn-deck-slab {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #f1f1f6 0%, #c3c3cf 100%);
+  border: 1px solid #8b8b99;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.45);
+}
+.pn-deck-slab-b {
+  transform: translate(1.6px, -1.6px);
+}
+.pn-deck-slab-c {
+  transform: translate(3.2px, -3.2px);
+}
+
+.pn-deck-shuffle .pn-deck-slab-a {
+  animation: pn-riffle-a 0.28s ease-in-out infinite;
+}
+.pn-deck-shuffle .pn-deck-slab-b {
+  animation: pn-riffle-b 0.28s ease-in-out infinite;
+}
+.pn-deck-shuffle .pn-deck-slab-c {
+  animation: pn-riffle-c 0.28s ease-in-out infinite;
+}
+
+@keyframes pn-riffle-a {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+  50% {
+    transform: translate(-7px, -1px) rotate(-9deg);
+  }
+}
+@keyframes pn-riffle-b {
+  0%,
+  100% {
+    transform: translate(1.6px, -1.6px) rotate(0);
+  }
+  50% {
+    transform: translate(1.6px, -4px) rotate(3deg);
+  }
+}
+@keyframes pn-riffle-c {
+  0%,
+  100% {
+    transform: translate(3.2px, -3.2px) rotate(0);
+  }
+  50% {
+    transform: translate(9px, -2px) rotate(9deg);
+  }
+}
+
+.pn-dealer-busy .pn-avatar {
+  animation: pn-av-bob 0.9s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pn-anim-deal,
   .pn-anim-flip,
   .pn-anim-pot-bump,
   .pn-anim-chip,
   .pn-anim-bubble,
-  .pn-winner {
+  .pn-winner,
+  .pn-avatar-active,
+  .pn-dealer-busy .pn-avatar,
+  .pn-deck-shuffle .pn-deck-slab-a,
+  .pn-deck-shuffle .pn-deck-slab-b,
+  .pn-deck-shuffle .pn-deck-slab-c {
     animation: none !important;
   }
 }

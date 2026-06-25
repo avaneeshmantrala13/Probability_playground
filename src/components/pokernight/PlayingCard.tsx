@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { type CSSProperties, memo } from "react";
 import type { DeckSkin } from "../../lib/cosmetics";
 import { displayRank, isRedCard, suitSymbol } from "../../lib/poker";
 
@@ -18,7 +18,7 @@ const SIZE: Record<NonNullable<PlayingCardProps["size"]>, string> = {
   lg: "h-16 w-12 text-base",
 };
 
-export function PlayingCard({
+function PlayingCardImpl({
   card,
   faceDown,
   deck,
@@ -58,3 +58,5 @@ export function PlayingCard({
     </span>
   );
 }
+
+export const PlayingCard = memo(PlayingCardImpl);
