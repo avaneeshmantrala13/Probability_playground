@@ -7,6 +7,7 @@ import { Dealer } from "./Dealer";
 import { CasinoRoom } from "./CasinoRoom";
 import type { Expression } from "./characters";
 import type { Speech } from "./usePokerGame";
+import type { GazeOverride } from "./useGaze";
 import "./pokernight.css";
 
 interface PokerTableProps {
@@ -16,6 +17,8 @@ interface PokerTableProps {
   reduced: boolean;
   speeches: Record<number, Speech>;
   expressions: Record<number, Expression>;
+  /** Harness-only: force a fixed gaze target across all seats for screenshots. */
+  gazeOverride?: GazeOverride;
 }
 
 type Pos = { top: string; left: string; scale?: number };
@@ -67,7 +70,7 @@ function layoutFor(n: number): Pos[] {
   return LAYOUTS[n] ?? LAYOUTS[6];
 }
 
-export function PokerTable({ state, deck, theme, reduced, speeches, expressions }: PokerTableProps) {
+export function PokerTable({ state, deck, theme, reduced, speeches, expressions, gazeOverride }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
 
@@ -202,6 +205,8 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions 
             dealKey={state.handNumber}
             speech={speeches[seat.index]}
             expression={expressions[seat.index] ?? "idle"}
+            boardLen={state.board.length}
+            gazeOverride={gazeOverride}
           />
         ))}
       </div>

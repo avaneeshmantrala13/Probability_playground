@@ -5,6 +5,7 @@ import { getLook, type Expression } from "./characters";
 import { PlayingCard } from "./PlayingCard";
 import { PokerFigure } from "./PokerFigure";
 import type { Speech } from "./usePokerGame";
+import { useGaze, type GazeOverride } from "./useGaze";
 
 interface PlayerSeatProps {
   seat: Seat;
@@ -25,6 +26,10 @@ interface PlayerSeatProps {
   speech?: Speech;
   /** Live, game-driven facial expression for this seat. */
   expression: Expression;
+  /** Community-card count; an increase briefly pulls gazes to the board. */
+  boardLen: number;
+  /** Harness-only: force a fixed gaze target for screenshots. */
+  gazeOverride?: GazeOverride;
 }
 
 /** How long an action speech bubble stays up (calmer reading pace). */
@@ -63,6 +68,8 @@ function PlayerSeatImpl({
   dealKey,
   speech,
   expression,
+  boardLen,
+  gazeOverride,
 }: PlayerSeatProps) {
   const folded = seat.status === "folded";
   const out = seat.status === "out";
@@ -70,6 +77,25 @@ function PlayerSeatImpl({
   const dealAnim = reduced ? "" : "pn-anim-deal";
   const look = getLook(seat.persona, seat.isHuman);
   const bubble = useBubble(speech);
+
+  // Body orientation: turn the figure to face the table centre (inward 3/4 view).
+  // Left-of-centre seats face screen-right, right seats face screen-left; side
+  // seats (further from centre) turn more. Dead-centre seats stay near-frontal.
+  const leftPct = parseFloat(position.left);
+  const fromCenter = Number.isFinite(leftPct) ? leftPct - 50 : 0;
+  const side = fromCenter === 0 ? 0 : fromCenter < 0 ? -1 : 1;
+  const yaw = Math.max(-22, Math.min(22, -fromCenter * 0.42));
+
+  // Live gaze (eyes + subtle head lean). Hook is called unconditionally; the
+  // hero path below simply ignores it. Inert under reduced motion / fixed override.
+  const gaze = useGaze({
+    seatIndex: seat.index,
+    reduced,
+    side,
+    boardLen,
+    talking: !!bubble && !out,
+    override: gazeOverride,
+  });
 
   const wrapStyle: CSSProperties = {
     top: position.top,
@@ -170,7 +196,10 @@ function PlayerSeatImpl({
         </div>
       )}
 
-      <div className={`pn-figure-wrap ${isWinner && !reduced ? "pn-winner" : ""}`}>
+      <div
+        className={`pn-figure-wrap ${isWinner && !reduced ? "pn-winner" : ""}`}
+        style={{ ["--pn-yaw" as string]: `${yaw}deg` }}
+      >
         <PokerFigure
           look={look}
           active={isToAct}
@@ -178,6 +207,7 @@ function PlayerSeatImpl({
           reduced={reduced}
           talking={!!bubble && !out}
           expression={expression}
+          gaze={gaze}
           seatIndex={seat.index}
           title={seat.name}
         />

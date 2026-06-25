@@ -25,6 +25,7 @@ import { getDeckSkin, getTableTheme } from "./lib/cosmetics";
 import { PokerTable } from "./components/pokernight/PokerTable";
 import type { Expression } from "./components/pokernight/characters";
 import type { Speech } from "./components/pokernight/usePokerGame";
+import type { GazeOverride } from "./components/pokernight/useGaze";
 import "./index.css";
 
 const CONFIG: GameConfig = {
@@ -79,6 +80,7 @@ function PokerPreview() {
   const [speechText, setSpeechText] = useState(LINES[0]);
   const [speechTick, setSpeechTick] = useState(1);
   const [autoTalk, setAutoTalk] = useState(true);
+  const [gazeOverride, setGazeOverride] = useState<GazeOverride>("auto");
 
   // The opponent seat indices (everyone but the human at seat 0).
   const oppIndexes = useMemo(
@@ -161,11 +163,23 @@ function PokerPreview() {
             {e}
           </button>
         ))}
+        <span style={{ width: 1, background: "#334155", margin: "0 4px" }} />
+        <span style={{ alignSelf: "center", fontSize: 12, opacity: 0.7 }}>Gaze:</span>
+        {(["auto", "cards", "board", "player"] as GazeOverride[]).map((g) => (
+          <button
+            key={g}
+            onClick={() => setGazeOverride(g)}
+            style={gazeOverride === g ? btnOn : btn}
+            data-gaze={g}
+          >
+            {g}
+          </button>
+        ))}
       </div>
 
       <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 8 }}>
         Board: {stageForBoard(boardCount)} ({boardCount} cards) · Expression: {expr} ·
-        Speaking seat: {speakIdx}
+        Speaking seat: {speakIdx} · Gaze: {gazeOverride}
       </div>
 
       <PokerTable
@@ -175,6 +189,7 @@ function PokerPreview() {
         reduced={false}
         speeches={speeches}
         expressions={expressions}
+        gazeOverride={gazeOverride}
       />
     </div>
   );
