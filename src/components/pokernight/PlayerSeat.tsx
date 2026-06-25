@@ -27,8 +27,8 @@ interface PlayerSeatProps {
   expression: Expression;
 }
 
-/** How long an action speech bubble stays up. */
-const SPEECH_MS = 2200;
+/** How long an action speech bubble stays up (calmer reading pace). */
+const SPEECH_MS = 3600;
 
 function useBubble(speech: Speech | undefined): string {
   const [bubble, setBubble] = useState<string>("");

@@ -164,8 +164,8 @@ function PokerFigureImpl({
         <rect x={hrx - 1} y={147} width="11" height="5" rx="2.5" fill={look.outfitTrim} opacity="0.9" />
       </g>
 
-      {/* head — centered on the neck (head art center x=50; 70 - 0.96*50 = 22) */}
-      <g className="pn-fig-head" transform="translate(22 -3) scale(0.96)">
+      {/* head — centered on the neck, nudged right so it reads dead-center */}
+      <g className="pn-fig-head" transform="translate(24.5 -3) scale(0.96)">
         <Head
           look={look}
           blink={!reduced}
