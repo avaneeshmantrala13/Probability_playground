@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useProgress } from "../context/ProgressContext";
 import {
@@ -15,14 +15,18 @@ import {
 } from "../lib/poker";
 import { useReducedMotion } from "../components/pokernight/useReducedMotion";
 import { usePokerGame } from "../components/pokernight/usePokerGame";
-import { PokerTable } from "../components/pokernight/PokerTable";
 import { ActionBar } from "../components/pokernight/ActionBar";
 import { Lobby } from "../components/pokernight/Lobby";
 import { LockedScreen } from "../components/pokernight/LockedScreen";
 import { BrokePanel } from "../components/pokernight/BrokePanel";
 import { RebuyPanel } from "../components/pokernight/RebuyPanel";
 import { HandResultBanner } from "../components/pokernight/HandResultBanner";
-import "../components/pokernight/pokernight.css";
+
+// The immersive casino scene (perspective room, seated SVG figures, standing
+// dealer, all its CSS) is the only heavy piece of Poker Night. It's lazy-loaded
+// so it ships as its own chunk and never bloats the rest of the app's bundle —
+// it loads only once the player actually sits down at the in-game table.
+const PokerTable = lazy(() => import("../components/pokernight/PokerTable"));
 
 export function PokerNight() {
   const { progress, loading, seedPokerTokens } = useProgress();
@@ -244,13 +248,21 @@ function PokerSession({
         </div>
       </div>
 
-      <PokerTable
-        state={state}
-        deck={deck}
-        theme={theme}
-        reduced={reduced}
-        speeches={speeches}
-      />
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center rounded-2xl bg-black/40 py-24 text-sm text-muted">
+            Entering the casino…
+          </div>
+        }
+      >
+        <PokerTable
+          state={state}
+          deck={deck}
+          theme={theme}
+          reduced={reduced}
+          speeches={speeches}
+        />
+      </Suspense>
 
       {handComplete && phase === "busted" ? (
         <RebuyPanel

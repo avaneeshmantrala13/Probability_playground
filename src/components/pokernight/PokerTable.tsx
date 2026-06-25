@@ -5,6 +5,7 @@ import { PlayingCard } from "./PlayingCard";
 import { PlayerSeat } from "./PlayerSeat";
 import { Dealer } from "./Dealer";
 import type { Speech } from "./usePokerGame";
+import "./pokernight.css";
 
 interface PokerTableProps {
   state: GameState;
@@ -14,43 +15,44 @@ interface PokerTableProps {
   speeches: Record<number, Speech>;
 }
 
-type Pos = { top: string; left: string };
+type Pos = { top: string; left: string; scale?: number };
 
 /**
- * First-person seat layouts: index 0 is the human, anchored front-and-center at
- * the BOTTOM. Opponents fan around the upper oval arc, leaving the top-center
- * clear for the dealer (who sits "across" the table from the player).
+ * First-person, seated POV layouts. Index 0 is the human, docked front-and-center
+ * at the very bottom (the camera == the player's eyes). Opponents fan around the
+ * far/side arcs facing the player; seats farther "across" the table use a
+ * smaller `scale` so the perspective reads with real depth.
  */
 const LAYOUTS: Record<number, Pos[]> = {
   2: [
-    { top: "86%", left: "50%" },
-    { top: "24%", left: "50%" },
+    { top: "93%", left: "50%", scale: 1 },
+    { top: "34%", left: "28%", scale: 0.86 },
   ],
   3: [
-    { top: "86%", left: "50%" },
-    { top: "32%", left: "16%" },
-    { top: "32%", left: "84%" },
+    { top: "93%", left: "50%", scale: 1 },
+    { top: "33%", left: "22%", scale: 0.9 },
+    { top: "33%", left: "78%", scale: 0.9 },
   ],
   4: [
-    { top: "87%", left: "50%" },
-    { top: "54%", left: "8%" },
-    { top: "22%", left: "50%" },
-    { top: "54%", left: "92%" },
+    { top: "93%", left: "50%", scale: 1 },
+    { top: "52%", left: "12%", scale: 0.95 },
+    { top: "33%", left: "30%", scale: 0.86 },
+    { top: "33%", left: "70%", scale: 0.86 },
   ],
   5: [
-    { top: "88%", left: "50%" },
-    { top: "58%", left: "7%" },
-    { top: "22%", left: "27%" },
-    { top: "22%", left: "73%" },
-    { top: "58%", left: "93%" },
+    { top: "94%", left: "50%", scale: 1 },
+    { top: "53%", left: "9%", scale: 0.96 },
+    { top: "32%", left: "29%", scale: 0.85 },
+    { top: "32%", left: "71%", scale: 0.85 },
+    { top: "53%", left: "91%", scale: 0.96 },
   ],
   6: [
-    { top: "88%", left: "50%" },
-    { top: "60%", left: "6%" },
-    { top: "27%", left: "22%" },
-    { top: "18%", left: "50%" },
-    { top: "27%", left: "78%" },
-    { top: "60%", left: "94%" },
+    { top: "94%", left: "50%", scale: 1 },
+    { top: "54%", left: "8%", scale: 0.97 },
+    { top: "33%", left: "26%", scale: 0.86 },
+    { top: "37%", left: "50%", scale: 0.82 },
+    { top: "33%", left: "74%", scale: 0.86 },
+    { top: "54%", left: "92%", scale: 0.97 },
   ],
 };
 
@@ -68,7 +70,6 @@ export function PokerTable({ state, deck, theme, reduced, speeches }: PokerTable
     result ? result.pots.flatMap((p) => p.winners) : [],
   );
 
-  // Pot bump animation when the pot changes.
   const [potBump, setPotBump] = useState(false);
   const prevPot = useRef(state.pot);
   useEffect(() => {
@@ -82,81 +83,96 @@ export function PokerTable({ state, deck, theme, reduced, speeches }: PokerTable
     }
   }, [state.pot, reduced]);
 
-  const feltVars: CSSProperties = {
+  const sceneVars: CSSProperties = {
     ["--pn-felt" as string]: theme.felt,
     ["--pn-rail" as string]: theme.rail,
     ["--pn-glow" as string]: theme.glow,
   };
 
-  const flipAnim = reduced ? "" : "pn-anim-flip";
-
   return (
-    <div className="pn-table-wrap" style={feltVars}>
-      <div className="pn-felt" />
-
-      {/* dealer sits across the table, top-center */}
-      <Dealer state={state} theme={theme} reduced={reduced} />
-
-      {/* center: community cards + pot */}
-      <div className="absolute left-1/2 top-1/2 z-[5] -translate-x-1/2 -translate-y-1/2 text-center">
-        <div className="mb-2 flex items-center justify-center gap-1.5">
-          {state.board.length === 0 ? (
-            <span className="text-sm font-medium" style={{ color: theme.text, opacity: 0.7 }}>
-              {state.stage === "complete" ? "Hand over" : "Pre-flop"}
-            </span>
-          ) : (
-            state.board.map((c, i) => (
-              // Cards are keyed per hand+slot, so the one-shot flip animation
-              // only fires for a card the first time it mounts (i.e. exactly
-              // when the dealer reveals that street). The flop's three cards
-              // mount together and stagger; the lone turn/river card flips now.
-              <PlayingCard
-                key={`${state.handNumber}-board-${i}-${c}`}
-                card={c}
-                deck={deck}
-                size="md"
-                animClass={flipAnim}
-                style={
-                  !reduced && state.board.length === 3
-                    ? { animationDelay: `${i * 110}ms` }
-                    : undefined
-                }
-              />
-            ))
-          )}
+    <div className="pn-scene" style={sceneVars}>
+      {/* ---- casino room (depth: walls, ambient lights, carpet) ---- */}
+      <div className="pn-room" aria-hidden>
+        <div className="pn-wall" />
+        <div className="pn-ambient" />
+        <div className="pn-bg-tables">
+          <span className="pn-bg-table pn-bg-table-1" />
+          <span className="pn-bg-table pn-bg-table-2" />
+          <span className="pn-bg-lamp pn-bg-lamp-1" />
+          <span className="pn-bg-lamp pn-bg-lamp-2" />
+          <span className="pn-bg-lamp pn-bg-lamp-3" />
         </div>
-        <div
-          className={`pn-pot inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-bold ${
-            potBump ? "pn-anim-pot-bump" : ""
-          }`}
-          style={{
-            background: "rgb(0 0 0 / 0.5)",
-            color: theme.text,
-            border: `1px solid ${theme.glow}`,
-          }}
-        >
-          <span aria-hidden>💰</span>
-          Pot {state.pot.toLocaleString()}
-        </div>
+        <div className="pn-chandelier" />
+        <div className="pn-carpet" />
+        <div className="pn-vignette" />
       </div>
 
-      {state.seats.map((seat, i) => (
-        <PlayerSeat
-          key={seat.index}
-          seat={seat}
-          deck={deck}
-          theme={theme}
-          position={positions[i] ?? positions[0]}
-          isButton={seat.index === state.button && seat.status !== "out"}
-          isToAct={state.toAct === seat.index}
-          isWinner={winners.has(seat.index)}
-          reveal={reveal}
-          reduced={reduced}
-          isHero={seat.isHuman}
-          dealKey={state.handNumber}
-          speech={speeches[seat.index]}
-        />
-      ))}
+      {/* ---- 3D stage: tilted felt + players around it ---- */}
+      <div className="pn-stage">
+        <div className="pn-felt-3d" aria-hidden>
+          <div className="pn-felt-surface" />
+          <div className="pn-felt-inlay" />
+          <div className="pn-felt-spec" />
+        </div>
+
+        <Dealer state={state} theme={theme} reduced={reduced} />
+
+        {/* center: community cards + pot */}
+        <div className="pn-center">
+          <div className="pn-board">
+            {state.board.length === 0 ? (
+              <span className="pn-board-empty" style={{ color: theme.text }}>
+                {state.stage === "complete" ? "Hand over" : "Pre-flop"}
+              </span>
+            ) : (
+              state.board.map((c, i) => (
+                // Keyed per hand+slot so the one-shot flip fires only when the
+                // dealer first reveals that card (flop cards stagger; turn/river
+                // each flip as they arrive).
+                <PlayingCard
+                  key={`${state.handNumber}-board-${i}-${c}`}
+                  card={c}
+                  deck={deck}
+                  size="md"
+                  flip={!reduced}
+                  style={
+                    !reduced && state.board.length === 3
+                      ? { animationDelay: `${i * 150}ms` }
+                      : undefined
+                  }
+                />
+              ))
+            )}
+          </div>
+          <div
+            className={`pn-pot ${potBump ? "pn-anim-pot-bump" : ""}`}
+            style={{ color: theme.text, border: `1px solid ${theme.glow}` }}
+          >
+            <span aria-hidden>💰</span>
+            Pot {state.pot.toLocaleString()}
+          </div>
+        </div>
+
+        {state.seats.map((seat, i) => (
+          <PlayerSeat
+            key={seat.index}
+            seat={seat}
+            deck={deck}
+            theme={theme}
+            position={positions[i] ?? positions[0]}
+            isButton={seat.index === state.button && seat.status !== "out"}
+            isToAct={state.toAct === seat.index}
+            isWinner={winners.has(seat.index)}
+            reveal={reveal}
+            reduced={reduced}
+            isHero={seat.isHuman}
+            dealKey={state.handNumber}
+            speech={speeches[seat.index]}
+          />
+        ))}
+      </div>
     </div>
   );
 }
+
+export default PokerTable;
