@@ -21,7 +21,7 @@ function makeSeat(
     index,
     name,
     isHuman,
-    persona,
+    ...(persona !== undefined ? { persona } : {}),
     stack,
     holeCards: [],
     roundBet: 0,

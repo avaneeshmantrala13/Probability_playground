@@ -64,15 +64,13 @@ function makeSeat(
     index,
     name,
     isHuman,
-    persona,
+    ...(persona !== undefined ? { persona } : {}),
     stack,
     holeCards: [],
     roundBet: 0,
     committed: 0,
     status: stack > 0 ? "active" : "out",
     hasActed: false,
-    lastAction: undefined,
-    quip: undefined,
   };
 }
 
@@ -148,8 +146,8 @@ export function startHand(prev: GameState): GameState {
     seat.roundBet = 0;
     seat.committed = 0;
     seat.hasActed = false;
-    seat.lastAction = undefined;
-    seat.quip = undefined;
+    delete seat.lastAction;
+    delete seat.quip;
     if (!seat.isHuman && seat.stack <= 0) {
       seat.stack = s.config.botStack;
     }
