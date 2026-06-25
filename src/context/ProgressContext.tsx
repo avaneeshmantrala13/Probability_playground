@@ -76,6 +76,8 @@ interface ProgressContextValue {
   }) => void;
   /** Grant multiplayer access via daily password until expiry. */
   unlockMultiplayer: (access: MultiplayerAccess) => void;
+  /** Reload progress from Firestore (does not overwrite server with stale local state). */
+  refetchProgress: () => Promise<boolean>;
 }
 
 const ProgressContext = createContext<ProgressContextValue | undefined>(undefined);
@@ -382,6 +384,30 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [update],
   );
 
+  const refetchProgress = useCallback(async (): Promise<boolean> => {
+    const uid = uidRef.current;
+    if (!uid) return false;
+    if (saveTimer.current) {
+      clearTimeout(saveTimer.current);
+      saveTimer.current = null;
+    }
+    try {
+      const remote = await fetchProgress(uid);
+      const today = todayKey();
+      const streak = computeStreak(remote.streak, remote.lastActiveDate, today);
+      const hydrated: CourseProgress = {
+        ...remote,
+        streak,
+        lastActiveDate: today,
+      };
+      latest.current = hydrated;
+      setProgress(hydrated);
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
   const value = useMemo<ProgressContextValue>(
     () => ({
       progress,
@@ -399,6 +425,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       equipCosmetic,
       recordPokerHand,
       unlockMultiplayer,
+      refetchProgress,
     }),
     [
       progress,
@@ -416,6 +443,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       equipCosmetic,
       recordPokerHand,
       unlockMultiplayer,
+      refetchProgress,
     ],
   );
 
