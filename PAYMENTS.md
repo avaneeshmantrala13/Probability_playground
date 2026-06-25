@@ -62,6 +62,7 @@ After deploy, open your project on Vercel → **Deployments** → latest deploy 
 
 - `/api/create-checkout-session`
 - `/api/stripe-webhook`
+- `/api/verify-checkout-session`
 - `/api/verify-daily-password`
 
 If Functions is empty, the API routes did not deploy — check build logs and `vercel.json`.
@@ -119,9 +120,64 @@ Verification runs at `/api/verify-daily-password` (server-side only — secret n
 1. Open Poker Night while signed in
 2. When out of tokens, click **Buy 1,000 tokens · $0.99**
 3. Use Stripe test card: `4242 4242 4242 4242`, any future expiry, any CVC
-4. After redirect, tokens appear within a few seconds (webhook → Firestore)
+4. After redirect to `/poker?checkout=success&session_id=…`, the app verifies the session and refreshes your balance (usually within a few seconds)
 
 Check webhook delivery in Stripe Dashboard → Developers → Webhooks → your endpoint → **Recent deliveries**.
+
+---
+
+## How token crediting works
+
+1. **Stripe Checkout** completes → Stripe sends `checkout.session.completed` to `/api/stripe-webhook`
+2. Webhook (or the client fallback below) writes:
+   - `tokenPurchases/{sessionId}` — idempotency record (prevents double credit)
+   - `courseProgress/{uid}` — increments `tokens`, `peakTokens`, `lifetimeTokens`
+3. On redirect, the client calls `/api/verify-checkout-session` with `session_id` + your Firebase `uid`, then **refetches** progress from Firestore (so stale local state cannot overwrite credits)
+
+Both webhook and verify routes share the same idempotent `creditTokens` logic — safe if both run.
+
+---
+
+## Troubleshooting token crediting
+
+If payment succeeds in Stripe but tokens do not appear:
+
+| Symptom | Likely cause | Fix |
+|---------|--------------|-----|
+| Stripe webhook delivery **400 Invalid signature** | Wrong `STRIPE_WEBHOOK_SECRET` (test vs live, or CLI vs dashboard secret) | Copy signing secret from the exact endpoint URL you deployed; redeploy Vercel |
+| Webhook delivery **503** | Missing `STRIPE_SECRET_KEY` or `STRIPE_WEBHOOK_SECRET` | Set both in Vercel Production + Preview, redeploy |
+| Webhook delivery **500** with Firebase error | `FIREBASE_SERVICE_ACCOUNT_JSON` missing or malformed | Regenerate service account key; paste **entire JSON on one line** in Vercel; redeploy |
+| Webhook **200** but no tokens in Firestore | Check Vercel function logs for `[stripe-webhook]` — may show missing `metadata.uid` | Ensure checkout was created while signed in (uid sent to `/api/create-checkout-session`) |
+| Webhook never arrives | Endpoint URL wrong, or app not deployed | Confirm `https://YOUR-DOMAIN/api/stripe-webhook` in Stripe; event = `checkout.session.completed` only |
+| Tokens in Firestore but UI stale | Client had old balance cached | Fixed: redirect now calls verify + `refetchProgress`. Hard-refresh if on an old deploy |
+
+### Vercel runtime logs (what to look for)
+
+Open **Deployments → latest → Functions → Logs**, filter around purchase time:
+
+| Log prefix | Meaning |
+|------------|---------|
+| `[stripe-webhook] checkout credited` | Webhook credited tokens successfully |
+| `[stripe-webhook] creditTokens failed` | Firestore/Admin error — check service account JSON and project |
+| `[stripe-webhook] signature verification failed` | Wrong webhook secret |
+| `[verify-checkout-session] credit failed` | Client fallback failed — same Firebase/env checks |
+| `[firebase-admin] FIREBASE_SERVICE_ACCOUNT_JSON is invalid JSON` | Re-paste service account as single-line JSON |
+
+### Stripe webhook deliveries (what to look for)
+
+In **Developers → Webhooks → your endpoint → Recent deliveries** for `checkout.session.completed`:
+
+- **200** + response `{"received":true}` — webhook ran OK; check Firestore `courseProgress/{your-uid}` and `tokenPurchases/{sessionId}`
+- **400** — signature mismatch → fix `STRIPE_WEBHOOK_SECRET`
+- **500** — crediting failed → open delivery **Response** body and match to Vercel logs above; Stripe will retry
+
+### Manual recovery
+
+If a payment completed but crediting failed, note the Checkout **Session ID** (`cs_…`) from Stripe, then after fixing env vars redeploy and visit:
+
+`/poker?checkout=success&session_id=cs_…`
+
+The verify route is idempotent — it will credit once without double-charging.
 
 ---
 
@@ -156,7 +212,8 @@ curl -sS -X POST "https://YOUR-DOMAIN.vercel.app/api/create-checkout-session" \
 | Route | Method | Purpose |
 |-------|--------|---------|
 | `/api/create-checkout-session` | POST | Creates Stripe Checkout session |
-| `/api/stripe-webhook` | POST | Credits tokens after payment |
+| `/api/stripe-webhook` | POST | Credits tokens after payment (primary) |
+| `/api/verify-checkout-session` | POST | Verifies paid session + credits tokens (client fallback, idempotent) |
 | `/api/verify-daily-password` | POST | Validates daily multiplayer password |
 
 ---

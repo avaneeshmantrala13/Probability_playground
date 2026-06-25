@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useProgress } from "../context/ProgressContext";
+import { completeCheckoutReturn } from "../lib/payments/checkoutReturn";
 import {
   isPokerNightUnlocked,
   lessonsRemainingForPoker,
@@ -59,19 +60,57 @@ export function PokerNight() {
 export default PokerNight;
 
 function PokerNightUnlocked() {
-  const { progress, addTokens, spendTokens } = useProgress();
-  const [searchParams] = useSearchParams();
+  const { user } = useAuth();
+  const { progress, addTokens, spendTokens, refetchProgress } = useProgress();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [mode, setMode] = useState<Mode>("single");
   const [mpGatePassed, setMpGatePassed] = useState(() => isMultiplayerUnlocked(progress));
   const [seat, setSeat] = useState<{ tier: TableTier; buyIn: number; key: number } | null>(null);
   const [mpSession, setMpSession] = useState<MpSession | null>(null);
   const [checkoutMsg, setCheckoutMsg] = useState("");
+  const checkoutHandled = useRef<string | null>(null);
 
   useEffect(() => {
     const checkout = searchParams.get("checkout");
-    if (checkout === "success") setCheckoutMsg("Payment successful — tokens will appear shortly.");
-    if (checkout === "cancel") setCheckoutMsg("Checkout cancelled.");
-  }, [searchParams]);
+    const sessionId = searchParams.get("session_id");
+
+    if (checkout === "cancel") {
+      setCheckoutMsg("Checkout cancelled.");
+      return;
+    }
+
+    if (checkout !== "success" || !sessionId || !user) return;
+    if (checkoutHandled.current === sessionId) return;
+    checkoutHandled.current = sessionId;
+
+    let cancelled = false;
+    setCheckoutMsg("Payment successful — crediting tokens…");
+
+    void (async () => {
+      const result = await completeCheckoutReturn(sessionId);
+      if (cancelled) return;
+
+      if (result.ok) {
+        await refetchProgress();
+        if (cancelled) return;
+        setCheckoutMsg(
+          result.credited
+            ? `+${result.tokenAmount.toLocaleString()} tokens added to your bankroll!`
+            : `Your ${result.tokenAmount.toLocaleString()} tokens are ready.`,
+        );
+      } else {
+        await refetchProgress();
+        if (cancelled) return;
+        setCheckoutMsg(result.error);
+      }
+
+      setSearchParams({}, { replace: true });
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [searchParams, user, refetchProgress, setSearchParams]);
 
   const handleSit = (tier: TableTier, buyIn: number) => {
     if (!spendTokens(buyIn)) return;
