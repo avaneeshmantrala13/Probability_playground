@@ -204,18 +204,22 @@ function PokerFigureImpl({
           carries the breathe bob, which now composes on top of this positioning. */}
       <g transform={`translate(${CX - 48} -3) scale(0.96)`}>
         <g className="pn-fig-head" style={{ animationDelay: `${-((seatIndex % 5) * 1.3)}s` }}>
-          {/* gaze head-lean: a subtle follow toward the look target. Plain group
-              with a CSS-property transform so it glides (.pn-fig-gaze) and composes
-              cleanly on top of the breathe bob without disturbing the centering. */}
-          <g className="pn-fig-gaze" style={{ transform: `translate(${gaze.hx}px, ${gaze.hy}px)` }}>
-            <Head
-              look={look}
-              blink={!reduced}
-              talking={talking && !reduced}
-              expression={expression}
-              blinkDelay={blinkDelay}
-              gaze={{ dx: gaze.ex, dy: gaze.ey }}
-            />
+          {/* head counter-turn: when the body is turned tangent to the table, the
+              head yaws back partway (via --pn-head-yaw on the wrap) so the face
+              stays ~3/4 visible. Self-contained `perspective()` so the 3D turn
+              renders without relying on parent preserve-3d. */}
+          <g className="pn-fig-headturn">
+            {/* gaze head-lean: a subtle follow toward the look target. */}
+            <g className="pn-fig-gaze" style={{ transform: `translate(${gaze.hx}px, ${gaze.hy}px)` }}>
+              <Head
+                look={look}
+                blink={!reduced}
+                talking={talking && !reduced}
+                expression={expression}
+                blinkDelay={blinkDelay}
+                gaze={{ dx: gaze.ex, dy: gaze.ey }}
+              />
+            </g>
           </g>
         </g>
       </g>
