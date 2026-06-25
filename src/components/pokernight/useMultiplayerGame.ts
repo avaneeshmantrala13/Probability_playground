@@ -92,7 +92,9 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     personas,
     reduced,
     humanSeatIndex: mySeatIndex,
-    externalState: isHost && room?.gameState ? room.gameState : null,
+    externalState: room?.gameState ?? null,
+    driveBots: isHost,
+    botDelayMs: reduced ? [90, 90] : [200, 700],
     onStateChange: isHost ? handleHostStateChange : undefined,
     onHandEnd,
   });
@@ -109,10 +111,21 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     [isHost, hostGame, room, roomId, uid, mySeatIndex],
   );
 
-  const displayState = isHost ? hostGame.state : (filteredState ?? hostGame.state);
+  const displayState = useMemo(() => {
+    const raw = isHost ? hostGame.state : (filteredState ?? hostGame.state);
+    if (!raw) return hostGame.state;
+    return filterGameStateForViewer(raw, mySeatIndex);
+  }, [isHost, hostGame.state, filteredState, mySeatIndex]);
   const displayLegal = useMemo(() => legalActions(displayState), [displayState]);
   const isHumanTurn =
     displayState.stage !== "complete" && displayState.toAct === mySeatIndex;
+
+  const thinking =
+    hostGame.thinking ||
+    (!isHost &&
+      displayState.stage !== "complete" &&
+      displayState.toAct != null &&
+      displayState.toAct !== mySeatIndex);
 
   return {
     room,
@@ -124,7 +137,7 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     isHumanTurn,
     humanSeat: displayState.seats[mySeatIndex],
     humanEquity: isHumanTurn ? hostGame.humanEquity : null,
-    thinking: hostGame.thinking,
+    thinking,
     speeches: hostGame.speeches,
     expressions: hostGame.expressions,
     act,

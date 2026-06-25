@@ -27,6 +27,10 @@ export interface UsePokerGameOpts {
   humanSeatIndex?: number;
   /** External state driver — when set, hook mirrors this instead of local bot loop. */
   externalState?: GameState | null;
+  /** Run the bot loop even when `externalState` is set (multiplayer host). */
+  driveBots?: boolean;
+  /** Bot think delay range in ms — defaults to ~480–1000 single-player. */
+  botDelayMs?: [number, number];
   onStateChange?: (state: GameState) => void;
   onHandEnd?: (info: { result: HandResult; humanStack: number }) => void;
 }
@@ -160,6 +164,8 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     reduced,
     humanSeatIndex = DEFAULT_HUMAN_SEAT,
     externalState,
+    driveBots = false,
+    botDelayMs,
     onStateChange,
     onHandEnd,
   } = opts;
@@ -198,18 +204,21 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
 
   // --------- drive bot turns automatically with a small think delay ---------
   useEffect(() => {
-    if (externalState != null) return;
+    if (externalState != null && !driveBots) return;
     if (state.stage === "complete" || state.toAct == null) {
       setThinking(false);
       return;
     }
-    if (state.toAct === HUMAN_SEAT) {
+    const actor = state.seats[state.toAct];
+    if (!actor || actor.isHuman) {
       setThinking(false);
       return;
     }
     setThinking(true);
     const seatIndex = state.toAct;
-    const delay = reduced ? 90 : 480 + Math.random() * 520;
+    const [minDelay, maxDelay] =
+      botDelayMs ?? (reduced ? [90, 90] : [480, 1000]);
+    const delay = minDelay + Math.random() * (maxDelay - minDelay);
     // The Monte-Carlo equity for the decision runs INSIDE this timeout, i.e.
     // after the "thinking…" animation has already painted, so the table stays
     // smooth and the UI thread is never blocked while it's a bot's turn.
@@ -227,7 +236,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       onStateChange?.(next);
     }, delay);
     return () => clearTimeout(timer);
-  }, [state, reduced, pushSpeech, externalState, onStateChange]);
+  }, [state, reduced, pushSpeech, externalState, driveBots, botDelayMs, onStateChange]);
 
   // ----------------- report each completed hand exactly once -----------------
   useEffect(() => {

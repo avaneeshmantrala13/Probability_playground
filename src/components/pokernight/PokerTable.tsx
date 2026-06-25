@@ -17,6 +17,8 @@ interface PokerTableProps {
   reduced: boolean;
   speeches: Record<number, Speech>;
   expressions: Record<number, Expression>;
+  /** Local viewer seat — hides other humans' hole cards in multiplayer. */
+  viewerSeatIndex?: number;
   /** Harness-only: force a fixed gaze target across all seats for screenshots. */
   gazeOverride?: GazeOverride;
 }
@@ -70,7 +72,7 @@ function layoutFor(n: number): Pos[] {
   return LAYOUTS[n] ?? LAYOUTS[6];
 }
 
-export function PokerTable({ state, deck, theme, reduced, speeches, expressions, gazeOverride }: PokerTableProps) {
+export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
 
@@ -201,7 +203,12 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
             isWinner={winners.has(seat.index)}
             reveal={reveal}
             reduced={reduced}
-            isHero={seat.isHuman}
+            isHero={
+              viewerSeatIndex !== undefined
+                ? seat.index === viewerSeatIndex
+                : seat.isHuman
+            }
+            viewerSeatIndex={viewerSeatIndex}
             dealKey={state.handNumber}
             speech={speeches[seat.index]}
             expression={expressions[seat.index] ?? "idle"}
