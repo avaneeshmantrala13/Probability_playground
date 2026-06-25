@@ -1,0 +1,64 @@
+/* Polished, self-contained styling for the Comeback Challenge quiz. All motion
+   is short, transform/opacity based, and disabled under reduced-motion. */
+
+@keyframes cb-option-pop {
+  0% {
+    transform: scale(0.985);
+  }
+  60% {
+    transform: scale(1.012);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes cb-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes cb-rise {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cb-option-correct {
+  animation: cb-option-pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cb-option-wrong {
+  animation: cb-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.cb-feedback {
+  animation: cb-rise 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-option-correct,
+  .cb-option-wrong,
+  .cb-feedback {
+    animation: none;
+  }
+}

@@ -30,6 +30,41 @@ export interface LessonMastery {
   bestTimeMs?: number;
 }
 
+/** Currently equipped cosmetic ids, one per category. */
+export interface EquippedCosmetics {
+  deckSkin: string;
+  tableTheme: string;
+  accentTheme: string;
+}
+
+/** Cosmetic categories the player can unlock + equip with poker tokens. */
+export type CosmeticCategory = keyof EquippedCosmetics;
+
+/** Lifetime poker performance stats (drives some milestone badges). */
+export interface PokerStats {
+  handsPlayed: number;
+  handsWon: number;
+  biggestPot: number;
+  bustCount: number;
+}
+
+/** The default (free) cosmetics every player owns + starts equipped with. */
+export const DEFAULT_EQUIPPED: EquippedCosmetics = {
+  deckSkin: "deck-classic",
+  tableTheme: "table-classic-green",
+  accentTheme: "accent-default",
+};
+
+export const DEFAULT_OWNED_COSMETICS: string[] = [
+  "deck-classic",
+  "table-classic-green",
+  "accent-default",
+];
+
+export function emptyPokerStats(): PokerStats {
+  return { handsPlayed: 0, handsWon: 0, biggestPot: 0, bustCount: 0 };
+}
+
 export interface CourseProgress {
   currentLesson: string | null;
   currentQuestion: number;
@@ -40,6 +75,22 @@ export interface CourseProgress {
   activeAttempt: ActiveAttempt | null;
   /** Accrued elapsed time (ms) for each lesson's in-progress attempt. */
   lessonTimers?: Record<string, number>;
+
+  // ----- Poker capstone token economy (unlocked after all lessons) -----
+  /** Current chip/token balance. */
+  tokens?: number;
+  /** Whether the one-time starting stake has been granted. */
+  pokerSeeded?: boolean;
+  /** Highest balance ever reached (powers "reach N tokens" milestone badges). */
+  peakTokens?: number;
+  /** Total tokens ever earned across the lifetime of the account. */
+  lifetimeTokens?: number;
+  /** Cosmetic ids the player has unlocked. */
+  ownedCosmetics?: string[];
+  /** Currently equipped cosmetics by category. */
+  equipped?: EquippedCosmetics;
+  /** Lifetime poker stats. */
+  pokerStats?: PokerStats;
 }
 
 export function emptyProgress(): CourseProgress {
@@ -52,6 +103,13 @@ export function emptyProgress(): CourseProgress {
     lastActiveDate: null,
     activeAttempt: null,
     lessonTimers: {},
+    tokens: 0,
+    pokerSeeded: false,
+    peakTokens: 0,
+    lifetimeTokens: 0,
+    ownedCosmetics: [...DEFAULT_OWNED_COSMETICS],
+    equipped: { ...DEFAULT_EQUIPPED },
+    pokerStats: emptyPokerStats(),
   };
 }
 

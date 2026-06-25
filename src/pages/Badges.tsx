@@ -8,13 +8,20 @@ import {
 } from "../lib/badges";
 import { CheckIcon, FlameIcon, LockIcon } from "../components/icons";
 
-const CATEGORY_ORDER: BadgeCategory[] = ["lesson", "game", "streak", "speed"];
+const CATEGORY_ORDER: BadgeCategory[] = [
+  "lesson",
+  "game",
+  "streak",
+  "speed",
+  "token",
+];
 
 const CATEGORY_LABELS: Record<BadgeCategory, string> = {
   lesson: "Lessons",
   game: "Games",
   streak: "Streaks",
   speed: "Speed",
+  token: "Casino",
 };
 
 export function Badges() {
