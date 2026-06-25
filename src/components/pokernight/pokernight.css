@@ -19,37 +19,52 @@
   box-shadow: 0 24px 60px rgb(0 0 0 / 0.5);
 }
 
+/* One CONTINUOUS warm gradient spans the whole room (wall -> floor) so there's
+   never a hard horizontal seam; the wall and carpet layers sit on top of this
+   and fade into it at their edges. */
 .pn-room {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: linear-gradient(
+    180deg,
+    #4a2c16 0%,
+    #3a2312 26%,
+    #2c1a0f 48%,
+    #321419 66%,
+    #2b1014 84%,
+    #1d0a0c 100%
+  );
 }
 
-/* warm back wall with wood paneling + a gold dado line */
+/* warm back wall with wood paneling; its bottom dissolves into the room
+   gradient (masked) so the wall-to-floor transition is seamless */
 .pn-wall {
   position: absolute;
-  inset: 0 0 26% 0;
+  inset: 0 0 30% 0;
   background:
-    linear-gradient(180deg, #523018 0%, #3f2613 40%, #2c1a0f 78%, #20130b 100%);
+    linear-gradient(180deg, #57341a 0%, #422816 42%, #301d11 82%, #2a1810 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
 }
 .pn-wall::before {
   /* warm horizon glow where the wall meets the floor */
   content: "";
   position: absolute;
   inset: auto 0 0 0;
-  height: 40%;
+  height: 45%;
   background:
-    radial-gradient(120% 100% at 50% 100%, rgb(255 184 110 / 0.18), transparent 70%);
+    radial-gradient(120% 100% at 50% 100%, rgb(255 184 110 / 0.16), transparent 72%);
 }
 .pn-wall::after {
+  /* subtle wood paneling only (no hard dado line — that was the seam) */
   content: "";
   position: absolute;
   inset: 0;
   background-image:
     repeating-linear-gradient(90deg, rgb(255 220 170 / 0.05) 0 2px, transparent 2px 84px),
     repeating-linear-gradient(90deg, rgb(0 0 0 / 0.16) 82px 84px, transparent 84px 84px);
-  border-bottom: 2px solid rgb(212 175 110 / 0.35);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 /* soft amber ambient pool from the ceiling light + warm side wash */
@@ -244,12 +259,15 @@
   50% { transform: translateY(-1.6px); }
 }
 
-/* perspective carpet floor */
+/* perspective carpet floor — its top edge fades IN from the room gradient
+   (masked) so there's no hard line where the floor begins */
 .pn-carpet {
   position: absolute;
-  inset: 70% 0 0 0;
+  inset: 62% 0 0 0;
   background:
-    radial-gradient(120% 80% at 50% 120%, #6b1f24 0%, #4a1418 55%, #320d10 100%);
+    radial-gradient(125% 90% at 50% 125%, #5e1f25 0%, #431519 55%, #2a0d10 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 28%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 28%);
 }
 .pn-carpet::after {
   content: "";
@@ -379,7 +397,7 @@
   align-items: center;
   transform: translate(-50%, -50%) scale(var(--pn-seat-scale, 1));
   transform-origin: center;
-  width: clamp(108px, 15vw, 158px);
+  width: clamp(134px, 18.5vw, 196px);
   z-index: 7;
 }
 
@@ -563,8 +581,8 @@
 .pn-mouth-talk {
   transform-box: fill-box;
   transform-origin: 50% 28%;
-  /* slower, more natural lip-sync cadence with a brief closed beat */
-  animation: pn-talk 0.42s ease-in-out infinite;
+  /* natural lip-sync cadence with a brief closed beat */
+  animation: pn-talk 0.32s ease-in-out infinite;
   will-change: transform;
 }
 @keyframes pn-talk {
@@ -741,18 +759,18 @@
   left: 50%;
   bottom: 100%;
   z-index: 20;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   width: max-content;
-  max-width: 11rem;
-  padding: 0.3rem 0.62rem;
-  border-radius: 0.85rem;
-  font-size: 0.72rem;
+  max-width: 15rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  line-height: 1.18;
+  line-height: 1.22;
   color: #0b1220;
   background: color-mix(in srgb, var(--pn-speech-accent) 16%, #ffffff);
   border: 2px solid var(--pn-speech-accent);
-  box-shadow: 0 6px 16px rgb(0 0 0 / 0.38);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.4);
   transform: translateX(-50%);
   pointer-events: none;
   animation: pn-bubble-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -763,7 +781,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border: 6px solid transparent;
+  border: 8px solid transparent;
   border-top-color: var(--pn-speech-accent);
 }
 

@@ -164,15 +164,25 @@ function PokerFigureImpl({
         <rect x={hrx - 1} y={147} width="11" height="5" rx="2.5" fill={look.outfitTrim} opacity="0.9" />
       </g>
 
-      {/* head — centered on the neck, nudged right so it reads dead-center */}
-      <g className="pn-fig-head" transform="translate(24.5 -3) scale(0.96)">
-        <Head
-          look={look}
-          blink={!reduced}
-          talking={talking && !reduced}
-          expression={expression}
-          blinkDelay={blinkDelay}
-        />
+      {/* Head positioning lives on an OUTER, STATIC <g> (SVG transform attribute)
+          — NOT on .pn-fig-head — because the CSS `pn-breathe` animation sets the
+          `transform` property on .pn-fig-head, which would otherwise override the
+          SVG transform attribute and snap the head back to its native box (center
+          x=50) while the neck is at x=70, throwing it far to the left.
+          The head art is symmetric about x=50 in its own 100-unit box; with
+          scale 0.96 its center maps to 22 + 0.96*50 = 70 = CX (neck/torso center),
+          so the head sits dead-center on the neck. The inner .pn-fig-head only
+          carries the breathe bob, which now composes on top of this positioning. */}
+      <g transform={`translate(${CX - 48} -3) scale(0.96)`}>
+        <g className="pn-fig-head">
+          <Head
+            look={look}
+            blink={!reduced}
+            talking={talking && !reduced}
+            expression={expression}
+            blinkDelay={blinkDelay}
+          />
+        </g>
       </g>
     </svg>
   );
