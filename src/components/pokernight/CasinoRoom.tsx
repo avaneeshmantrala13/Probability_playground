@@ -36,17 +36,53 @@ function CasinoRoomImpl() {
         ))}
       </div>
 
-      {/* other gaming tables in the mid-ground, each ringed with patrons */}
-      <div className="pn-bg-tables">
-        <span className="pn-bg-table pn-bg-table-1">
-          <i className="pn-patron pn-patron-a" />
-          <i className="pn-patron pn-patron-b" />
-          <i className="pn-patron pn-patron-c" />
-        </span>
-        <span className="pn-bg-table pn-bg-table-2">
-          <i className="pn-patron pn-patron-a" />
-          <i className="pn-patron pn-patron-b" />
-        </span>
+      {/* the casino floor: several distinct gaming areas (roulette / blackjack /
+          poker ovals) at varying DEPTHS, each ringed with patron silhouettes,
+          plus standing patrons. Each area is positioned + scaled + blurred via
+          inline custom props so further areas read smaller and hazier (aerial
+          perspective). All cheap CSS; ambient sway is suppressed under reduced
+          motion. They live above the main felt's visual top so they never collide
+          with the foreground table. */}
+      <div className="pn-floor">
+        {GAMING_AREAS.map((g, i) => (
+          <span
+            key={i}
+            className={`pn-gtable pn-gtable-${g.kind}`}
+            style={{
+              left: `${g.x}%`,
+              top: `${g.y}%`,
+              ["--pn-g-scale" as string]: String(g.s),
+              ["--pn-g-blur" as string]: `${g.blur}px`,
+              ["--pn-g-dim" as string]: String(g.dim),
+              ["--pn-g-delay" as string]: `${g.delay}s`,
+            }}
+          >
+            <span className="pn-gtable-felt" />
+            {Array.from({ length: g.seats }).map((_, k) => (
+              <i
+                key={k}
+                className="pn-gpatron"
+                style={{ ["--pn-a" as string]: `${(360 / g.seats) * k + g.rot}deg`, ["--pn-pd" as string]: `${(k % 3) * 0.7}s` }}
+              />
+            ))}
+          </span>
+        ))}
+
+        {/* standing patrons milling between the gaming areas */}
+        {STANDERS.map((s, i) => (
+          <i
+            key={i}
+            className="pn-bg-stander"
+            style={{
+              left: `${s.x}%`,
+              top: `${s.y}%`,
+              ["--pn-g-scale" as string]: String(s.s),
+              ["--pn-g-blur" as string]: `${s.blur}px`,
+              ["--pn-g-delay" as string]: `${s.delay}s`,
+            }}
+          />
+        ))}
+
         <span className="pn-bg-lamp pn-bg-lamp-1" />
         <span className="pn-bg-lamp pn-bg-lamp-2" />
         <span className="pn-bg-lamp pn-bg-lamp-3" />
@@ -100,6 +136,40 @@ const SLOTS = [
   { hue: 275, delay: 1.4 },
   { hue: 12, delay: 0.45 },
   { hue: 210, delay: 1.2 },
+];
+
+type Kind = "roulette" | "blackjack" | "poker";
+
+/** Gaming areas placed across the floor at varying depth. Higher on screen (lower
+ *  y) + smaller scale + more blur = further away. Kept in the upper band so they
+ *  sit clearly behind/around the foreground felt, never poking through it. */
+const GAMING_AREAS: {
+  kind: Kind;
+  x: number;
+  y: number;
+  s: number;
+  blur: number;
+  dim: number;
+  seats: number;
+  rot: number;
+  delay: number;
+}[] = [
+  // far row (smallest, haziest)
+  { kind: "roulette", x: 30, y: 13, s: 0.6, blur: 3.4, dim: 0.5, seats: 6, rot: 10, delay: 0 },
+  { kind: "blackjack", x: 70, y: 12, s: 0.58, blur: 3.6, dim: 0.5, seats: 5, rot: 30, delay: 0.8 },
+  { kind: "poker", x: 50, y: 16, s: 0.66, blur: 3, dim: 0.46, seats: 6, rot: 0, delay: 1.4 },
+  // mid row (a touch larger / clearer)
+  { kind: "blackjack", x: 13, y: 27, s: 0.92, blur: 2, dim: 0.34, seats: 5, rot: 20, delay: 0.4 },
+  { kind: "roulette", x: 87, y: 26, s: 0.88, blur: 2.1, dim: 0.36, seats: 6, rot: -10, delay: 1.1 },
+];
+
+/** Standing/milling patron silhouettes for a populated room. */
+const STANDERS: { x: number; y: number; s: number; blur: number; delay: number }[] = [
+  { x: 41, y: 23, s: 0.7, blur: 2.4, delay: 0 },
+  { x: 60, y: 24, s: 0.78, blur: 2.2, delay: 1.2 },
+  { x: 23, y: 18, s: 0.55, blur: 3, delay: 0.6 },
+  { x: 78, y: 19, s: 0.58, blur: 3, delay: 1.8 },
+  { x: 50, y: 30, s: 1, blur: 1.6, delay: 0.9 },
 ];
 
 export const CasinoRoom = memo(CasinoRoomImpl);

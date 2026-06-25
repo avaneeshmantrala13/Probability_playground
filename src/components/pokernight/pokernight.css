@@ -105,23 +105,104 @@
     radial-gradient(closest-side, rgb(255 235 190 / 0.95), transparent 70%) 100% 0/33% 100% no-repeat;
 }
 
-/* blurred distant tables + lamps for depth */
-.pn-bg-tables {
+/* ---- casino floor: gaming areas + patrons at depth ---- */
+.pn-floor {
   position: absolute;
-  inset: 4% 0 30% 0;
-  filter: blur(7px);
-  opacity: 0.85;
+  inset: 6% 0 34% 0;
+  pointer-events: none;
 }
-.pn-bg-table {
+/* a single distant gaming area (felt + a ring of patrons), scaled/blurred for
+   aerial perspective via inline --pn-g-* props */
+.pn-gtable {
   position: absolute;
-  width: 16%;
-  height: 18%;
+  width: 15%;
+  height: 17%;
+  transform: translate(-50%, -50%) scale(var(--pn-g-scale, 1));
+  transform-origin: center;
+  filter: blur(var(--pn-g-blur, 2px)) brightness(calc(1 - var(--pn-g-dim, 0.3)));
+}
+.pn-gtable-felt {
+  position: absolute;
+  inset: 24% 0;
   border-radius: 50%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--pn-felt) 80%, #000) 60%, #1c140d);
-  box-shadow: 0 6px 14px rgb(0 0 0 / 0.5);
+  background:
+    radial-gradient(closest-side, color-mix(in srgb, var(--pn-felt) 78%, #000) 55%, #150f0a 100%);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.55), inset 0 0 14px rgb(0 0 0 / 0.5);
 }
-.pn-bg-table-1 { left: 8%; top: 34%; }
-.pn-bg-table-2 { right: 8%; top: 30%; transform: scale(0.86); }
+/* distinct felt tints per game */
+.pn-gtable-roulette .pn-gtable-felt {
+  background: radial-gradient(closest-side, #3a1416 52%, #160a08 100%);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.55), inset 0 0 14px rgb(0 0 0 / 0.5);
+}
+.pn-gtable-blackjack .pn-gtable-felt {
+  background: radial-gradient(closest-side, #123a2a 52%, #0a1810 100%);
+}
+.pn-gtable-roulette .pn-gtable-felt::after {
+  /* roulette wheel hint */
+  content: "";
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  width: 26%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #d8b25a 30%, #5a3a16 70%, #1a0f06);
+}
+/* a patron seated around the ring: rotate out to the rim, then counter-rotate
+   upright. Cheap, no per-element positioning math. */
+.pn-gpatron {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16%;
+  height: 30%;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--pn-a, 0deg))
+    translateY(-128%)
+    rotate(calc(-1 * var(--pn-a, 0deg)));
+  border-radius: 46% 46% 38% 38%;
+  background: linear-gradient(180deg, #0d0b16, #050409);
+  animation: pn-sway 5.5s ease-in-out infinite;
+  animation-delay: var(--pn-pd, 0s);
+}
+.pn-gpatron::before {
+  /* head */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 72%;
+  width: 62%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #100c1a;
+}
+/* a standing / milling patron */
+.pn-bg-stander {
+  position: absolute;
+  width: 3.4%;
+  height: 13%;
+  transform: translate(-50%, -50%) scale(var(--pn-g-scale, 1));
+  transform-origin: bottom center;
+  border-radius: 44% 44% 30% 30%;
+  background: linear-gradient(180deg, #100d1c, #050409);
+  filter: blur(var(--pn-g-blur, 2px));
+  animation: pn-stander-shift 9s ease-in-out infinite;
+  animation-delay: var(--pn-g-delay, 0s);
+}
+.pn-bg-stander::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 74%;
+  width: 58%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #130f20;
+}
 .pn-bg-lamp {
   position: absolute;
   width: 5%;
@@ -129,37 +210,21 @@
   border-radius: 50%;
   background: radial-gradient(closest-side, rgb(255 206 140 / 0.9), rgb(255 180 90 / 0.15) 70%, transparent);
 }
-.pn-bg-lamp-1 { left: 14%; top: 12%; }
-.pn-bg-lamp-2 { left: 50%; top: 6%; transform: translateX(-50%) scale(1.2); }
-.pn-bg-lamp-3 { right: 14%; top: 12%; }
+.pn-bg-lamp-1 { left: 14%; top: 4%; }
+.pn-bg-lamp-2 { left: 50%; top: 0%; transform: translateX(-50%) scale(1.2); }
+.pn-bg-lamp-3 { right: 14%; top: 4%; }
 
-/* patron silhouettes seated around the distant tables */
-.pn-patron {
-  position: absolute;
-  width: 22%;
-  height: 46%;
-  bottom: 52%;
-  border-radius: 42% 42% 32% 32%;
-  background: linear-gradient(180deg, #0b0a14, #050409);
-  transform-origin: bottom center;
-}
-.pn-patron::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 76%;
-  width: 56%;
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: #0b0a14;
-}
-.pn-patron-a { left: 4%; animation: pn-sway 5s ease-in-out infinite; }
-.pn-patron-b { left: 39%; animation: pn-sway 6s ease-in-out infinite 0.8s; }
-.pn-patron-c { right: 4%; animation: pn-sway 5.5s ease-in-out infinite 0.4s; }
 @keyframes pn-sway {
-  0%, 100% { transform: rotate(-1.6deg); }
-  50% { transform: rotate(1.6deg); }
+  0%, 100% { transform:
+    translate(-50%, -50%) rotate(var(--pn-a, 0deg)) translateY(-128%)
+    rotate(calc(-1 * var(--pn-a, 0deg))) translateX(-1px); }
+  50% { transform:
+    translate(-50%, -50%) rotate(var(--pn-a, 0deg)) translateY(-128%)
+    rotate(calc(-1 * var(--pn-a, 0deg))) translateX(1px); }
+}
+@keyframes pn-stander-shift {
+  0%, 100% { transform: translate(-50%, -50%) scale(var(--pn-g-scale, 1)); }
+  50% { transform: translate(calc(-50% + 6px), -50%) scale(var(--pn-g-scale, 1)); }
 }
 
 /* glowing row of slot machines along the back wall */
@@ -354,13 +419,16 @@
 .pn-cam-up .pn-stage { perspective-origin: 50% 15%; }
 .pn-cam-down .pn-stage { perspective-origin: 50% 64%; }
 
-/* the green felt, tilted away so the camera == the seated player's eyes */
+/* the green felt, tilted away so the camera == the seated player's eyes.
+   Sized a touch smaller and seated slightly lower so the populated casino floor
+   behind it has room to breathe; it stays on the z-1 stage above the z-0 room so
+   the background can never poke through the felt. */
 .pn-felt-3d {
   position: absolute;
   left: 50%;
-  top: 63%;
-  width: 92%;
-  height: 86%;
+  top: 65%;
+  width: 85%;
+  height: 80%;
   transform: translate(-50%, -50%) rotateX(44deg);
   transform-style: preserve-3d;
 }
@@ -995,9 +1063,8 @@
   .pn-shuffle-go .pn-shuf-left,
   .pn-shuffle-go .pn-shuf-right,
   .pn-shuffle-go .pn-shuf-bridge,
-  .pn-patron-a,
-  .pn-patron-b,
-  .pn-patron-c,
+  .pn-gpatron,
+  .pn-bg-stander,
   .pn-slot-marquee,
   .pn-slot-screen,
   .pn-server,

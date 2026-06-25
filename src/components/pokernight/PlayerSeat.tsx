@@ -94,6 +94,9 @@ function PlayerSeatImpl({
   // The head yaws BACK ~60% of the body turn so a seated player still shows ~3/4
   // of their face across the table (we can read the expression + gaze).
   const headYaw = -bodyYaw * 0.6;
+  // Normalized turn (sign = which way the body faces) drives the figure's volume
+  // shading so the rotated torso reads round, not like a flat sheared panel.
+  const turn = bodyYaw / 72;
 
   // Live gaze (eyes + subtle head lean). Hook is called unconditionally; the
   // hero path below simply ignores it. Inert under reduced motion / fixed override.
@@ -220,6 +223,7 @@ function PlayerSeatImpl({
           talking={!!bubble && !out}
           expression={expression}
           gaze={gaze}
+          turn={turn}
           seatIndex={seat.index}
           title={seat.name}
         />

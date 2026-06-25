@@ -16,6 +16,9 @@ interface PokerFigureProps {
   expression?: Expression;
   /** Live gaze offset (eyes ex/ey + subtle head lean hx/hy), head-local units. */
   gaze?: { ex: number; ey: number; hx: number; hy: number };
+  /** Normalized body turn (-1 strong screen-left .. +1 strong screen-right) so
+   *  the volume shading (core shadow / rim / side plane) follows the yaw. */
+  turn?: number;
   /** Stable per-seat number so idle motion is staggered, not synchronized. */
   seatIndex?: number;
   title?: string;
@@ -46,6 +49,7 @@ function PokerFigureImpl({
   talking = false,
   expression = "idle",
   gaze = { ex: 0, ey: 0, hx: 0, hy: 0 },
+  turn = 0,
   seatIndex = 0,
   title,
 }: PokerFigureProps) {
@@ -53,7 +57,18 @@ function PokerFigureImpl({
   const outfitG = `pn-outfit-${raw}`;
   const sleeveHi = `pn-sleevehi-${raw}`;
   const rimW = `pn-rimw-${raw}`;
+  const bodyCyl = `pn-bodycyl-${raw}`;
+  const bodyHi = `pn-bodyhi-${raw}`;
+  const shoulderHi = `pn-shldr-${raw}`;
   const sheen = look.sheen ?? 0.4;
+
+  // Turn-driven volume cues: as the torso rotates tangent to the table, deepen the
+  // far-side core shadow + side plane and brighten the near-side rim so the body
+  // reads as a rounded volume, not a flat sheared panel. `farSign`: +1 right edge
+  // recedes (left-of-centre seats), -1 left edge recedes (right seats).
+  const t = Math.max(-1, Math.min(1, turn));
+  const at = Math.abs(t);
+  const farSign = t >= 0 ? 1 : -1;
 
   const sw = SHOULDER[look.build];
   const base = sw + 10;
@@ -99,6 +114,30 @@ function PokerFigureImpl({
           <stop offset="0" stopColor="#ffd9a0" stopOpacity="0.5" />
           <stop offset="1" stopColor="#ffd9a0" stopOpacity="0" />
         </linearGradient>
+        {/* horizontal BARREL shading across the torso — dark at both edges, a lit
+            meridian left-of-centre — so the chest reads as a rounded cylinder even
+            when the figure is rotated to 3/4 (kills the flat-card look) */}
+        <linearGradient id={bodyCyl} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#000" stopOpacity="0.44" />
+          <stop offset="0.13" stopColor="#000" stopOpacity="0.15" />
+          <stop offset="0.34" stopColor="#000" stopOpacity="0" />
+          <stop offset="0.57" stopColor="#000" stopOpacity="0.06" />
+          <stop offset="0.81" stopColor="#000" stopOpacity="0.26" />
+          <stop offset="1" stopColor="#000" stopOpacity="0.5" />
+        </linearGradient>
+        {/* soft key-light band running down the chest meridian */}
+        <linearGradient id={bodyHi} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0.12" stopColor="#fff" stopOpacity="0" />
+          <stop offset="0.32" stopColor="#fff" stopOpacity={0.14 + sheen * 0.18} />
+          <stop offset="0.48" stopColor="#fff" stopOpacity="0.03" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </linearGradient>
+        {/* rounded shoulder cap highlight */}
+        <radialGradient id={shoulderHi} cx="0.4" cy="0.3" r="0.7">
+          <stop offset="0" stopColor="#fff" stopOpacity={0.22 + sheen * 0.2} />
+          <stop offset="0.6" stopColor="#fff" stopOpacity="0.05" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </radialGradient>
       </defs>
 
       {/* chair back behind the player */}
@@ -124,10 +163,18 @@ function PokerFigureImpl({
       />
       <path d={`M ${CX - 8} 61 L ${CX + 8} 61 L ${CX + 8} 65 C ${CX + 3} 68 ${CX - 3} 68 ${CX - 8} 65 Z`} fill={look.skinShade} opacity="0.4" />
 
-      {/* arms / sleeves resting forward on the felt */}
-      <g className="pn-fig-arms" stroke={`url(#${outfitG})`} strokeWidth={armW} fill="none" strokeLinecap="round">
-        <path d={`M ${lsx} ${shoulderY + 10} Q ${lsx - 11} 134 ${hlx} 153`} />
-        <path d={`M ${rsx} ${shoulderY + 10} Q ${rsx + 11} 134 ${hrx} 153`} />
+      {/* arms / sleeves resting forward on the felt — drawn as rounded tubes:
+          base stroke, an upper sheen stroke, and an underside core shadow so the
+          upper arms read cylindrical, not flat ribbons */}
+      <g className="pn-fig-arms" fill="none" strokeLinecap="round">
+        <path d={`M ${lsx} ${shoulderY + 10} Q ${lsx - 11} 134 ${hlx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        <path d={`M ${rsx} ${shoulderY + 10} Q ${rsx + 11} 134 ${hrx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        {/* underside core shadow */}
+        <path d={`M ${lsx + 1} ${shoulderY + 13} Q ${lsx - 8} 135 ${hlx + 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
+        <path d={`M ${rsx - 1} ${shoulderY + 13} Q ${rsx + 8} 135 ${hrx - 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
+        {/* upper sheen ridge */}
+        <path d={`M ${lsx - 2} ${shoulderY + 9} Q ${lsx - 13} 132 ${hlx - 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
+        <path d={`M ${rsx + 2} ${shoulderY + 9} Q ${rsx + 13} 132 ${hrx + 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
       </g>
 
       {/* torso */}
@@ -141,13 +188,58 @@ function PokerFigureImpl({
         stroke={LINE}
         strokeWidth="0.8"
       />
+      {/* barrel shading: rounded cylinder form across the chest (always on) */}
+      <path
+        d={`M ${CX - sw} ${shoulderY} C ${CX - sw - 4} ${shoulderY + 12}, ${CX - base} 126, ${CX - base} 170 L ${CX + base} 170 C ${CX + base} 126, ${CX + sw + 4} ${shoulderY + 12}, ${CX + sw} ${shoulderY} Z`}
+        fill={`url(#${bodyCyl})`}
+      />
+      <path
+        d={`M ${CX - sw} ${shoulderY} C ${CX - sw - 4} ${shoulderY + 12}, ${CX - base} 126, ${CX - base} 170 L ${CX + base} 170 C ${CX + base} 126, ${CX + sw + 4} ${shoulderY + 12}, ${CX + sw} ${shoulderY} Z`}
+        fill={`url(#${bodyHi})`}
+      />
       {/* shoulder key light + side/center form shadow */}
       <path
         d={`M ${CX - sw} ${shoulderY} C ${CX - sw - 4} ${shoulderY + 12}, ${CX - base} 126, ${CX - base} 170 L ${CX + base} 170 C ${CX + base} 126, ${CX + sw + 4} ${shoulderY + 12}, ${CX + sw} ${shoulderY} Z`}
         fill={`url(#${sleeveHi})`}
       />
       <path d={`M ${CX} ${shoulderY + 6} L ${CX} 170`} stroke="#000" strokeWidth={sw * 0.9} opacity="0.07" />
-      <path d={`M ${CX + sw - 6} ${shoulderY + 4} C ${CX + base - 6} 130 ${CX + base - 6} 150 ${CX + base - 4} 170 L ${CX + base} 170 C ${CX + base} 126 ${CX + sw + 4} ${shoulderY + 12} ${CX + sw} ${shoulderY} Z`} fill="#000" opacity="0.1" />
+      {/* rounded shoulder caps for real shoulder volume */}
+      <ellipse cx={CX - sw + 7} cy={shoulderY + 7} rx="13" ry="11" fill={`url(#${shoulderHi})`} />
+      <ellipse cx={CX + sw - 7} cy={shoulderY + 7} rx="13" ry="11" fill={`url(#${shoulderHi})`} />
+
+      {/* ---- turn-driven volume: far-side core shadow + side plane, near-side rim
+              so the rotated torso reads as a dimensional body, not a sheared card ---- */}
+      {at > 0.04 && (
+        <g>
+          {/* far-side core shadow hugging the receding edge */}
+          <path
+            d={`M ${CX + farSign * (sw - 3)} ${shoulderY + 2}
+                C ${CX + farSign * (base - 1)} 122 ${CX + farSign * (base - 1)} 150 ${CX + farSign * (base + 1)} 170
+                L ${CX + farSign * (base - 11)} 170
+                C ${CX + farSign * (base - 13)} 144 ${CX + farSign * (sw - 12)} 116 ${CX + farSign * (sw - 13)} ${shoulderY + 6} Z`}
+            fill="#000"
+            opacity={0.12 + 0.34 * at}
+          />
+          {/* thin side plane (the body's visible "thickness") on the far edge */}
+          <path
+            d={`M ${CX + farSign * (base - 1)} 168
+                C ${CX + farSign * (base - 1)} 130 ${CX + farSign * (sw - 2)} ${shoulderY + 14} ${CX + farSign * (sw - 1)} ${shoulderY + 3}
+                L ${CX + farSign * (sw - 5)} ${shoulderY + 4}
+                C ${CX + farSign * (sw - 6)} ${shoulderY + 16} ${CX + farSign * (base - 6)} 132 ${CX + farSign * (base - 6)} 168 Z`}
+            fill="#000"
+            opacity={0.32 + 0.3 * at}
+          />
+          {/* near-side warm rim catching the leading edge */}
+          <path
+            d={`M ${CX - farSign * (sw - 1)} ${shoulderY + 3} C ${CX - farSign * (base - 3)} 124 ${CX - farSign * (base - 2)} 150 ${CX - farSign * (base - 2)} 168`}
+            fill="none"
+            stroke="#ffdca6"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            opacity={0.22 + 0.4 * at}
+          />
+        </g>
+      )}
 
       {/* shirt V + collar */}
       <path d={`M ${CX - 13} ${shoulderY} L ${CX} ${shoulderY + 30} L ${CX + 13} ${shoulderY} Z`} fill={look.outfitTrim} />
