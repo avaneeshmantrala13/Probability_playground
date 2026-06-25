@@ -47,6 +47,25 @@ For local dev, copy `.env.example` to `.env` and fill in the same values.
 
 **Redeploy** after adding env vars so API routes pick them up.
 
+### Env var naming (common mistakes)
+
+| Correct (server) | Wrong | Notes |
+|------------------|-------|-------|
+| `STRIPE_SECRET_KEY` | `VITE_STRIPE_SECRET_KEY` | Secret keys must **not** use the `VITE_` prefix — Vite would expose them in the browser bundle. |
+| `STRIPE_WEBHOOK_SECRET` | `VITE_STRIPE_WEBHOOK_SECRET` | Server-only; set without `VITE_`. |
+| `VITE_STRIPE_PUBLISHABLE_KEY` | `STRIPE_PUBLISHABLE_KEY` | Publishable key **must** use `VITE_` so the client bundle can read it at build time. |
+| `FIREBASE_SERVICE_ACCOUNT_JSON` | `VITE_FIREBASE_SERVICE_ACCOUNT_JSON` | Never expose service account JSON to the client. |
+
+Enable each variable for **Production** (and Preview if you test preview URLs). Changing env vars does not affect already-built deployments until you **Redeploy**.
+
+After deploy, open your project on Vercel → **Deployments** → latest deploy → **Functions**. You should see:
+
+- `/api/create-checkout-session`
+- `/api/stripe-webhook`
+- `/api/verify-daily-password`
+
+If Functions is empty, the API routes did not deploy — check build logs and `vercel.json`.
+
 ---
 
 ## Step 4: Create the webhook endpoint
@@ -103,6 +122,32 @@ Verification runs at `/api/verify-daily-password` (server-side only — secret n
 4. After redirect, tokens appear within a few seconds (webhook → Firestore)
 
 Check webhook delivery in Stripe Dashboard → Developers → Webhooks → your endpoint → **Recent deliveries**.
+
+---
+
+## Troubleshooting checkout
+
+If **Pay $0.99** fails, the modal now shows the API error when available. Common cases:
+
+| Symptom / error | Fix |
+|-----------------|-----|
+| `STRIPE_SECRET_KEY is not set on the server` | Add `STRIPE_SECRET_KEY` (no `VITE_`) for **Production**, redeploy. |
+| `Checkout API not found (404)` | Functions tab empty → redeploy; ensure `api/` routes exist in repo and `vercel.json` lists `/api/*` rewrite **before** the SPA fallback. |
+| `returned the app page instead of JSON` | SPA rewrite is catching `/api/*`; redeploy with current `vercel.json` (API rewrite must be first). |
+| Stripe error in modal (500) | Invalid/expired `sk_test_…` key, or Stripe account issue — check Vercel function logs. |
+| Publishable key works but pay fails | Client key (`VITE_STRIPE_PUBLISHABLE_KEY`) is separate from server `STRIPE_SECRET_KEY`; both must be set and redeployed. |
+
+Quick server check (replace domain):
+
+```bash
+curl -sS -X POST "https://YOUR-DOMAIN.vercel.app/api/create-checkout-session" \
+  -H "Content-Type: application/json" \
+  -d '{"kind":"sp_tokens","tokenAmount":1000,"uid":"test"}'
+```
+
+- `503` + JSON about `STRIPE_SECRET_KEY` → env var missing on server.
+- `404` → function not deployed.
+- `400` + missing fields → API is live (expected for real checkout you must be signed in via the app).
 
 ---
 

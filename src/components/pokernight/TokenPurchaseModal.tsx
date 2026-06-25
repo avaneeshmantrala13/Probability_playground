@@ -44,13 +44,13 @@ export function TokenPurchaseModal({
     }
     setLoading(true);
     setError("");
-    const ok = await startCheckout({
+    const result = await startCheckout({
       kind,
       tokenAmount: kind === "sp_tokens" ? SP_TOKEN_PACK_AMOUNT : tokenAmount,
       roomId,
       buyIn: tokenAmount,
     });
-    if (!ok) setError("Could not start checkout. Is the API deployed with Stripe keys?");
+    if (!result.ok) setError(result.error);
     setLoading(false);
   };
 

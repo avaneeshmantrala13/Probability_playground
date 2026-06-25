@@ -5,9 +5,7 @@ import {
   SP_TOKEN_PACK_PRICE_CENTS,
   multiplayerBuyInPriceCents,
   type CheckoutKind,
-} from "../src/lib/payments/pricing";
-
-const stripeSecret = process.env.STRIPE_SECRET_KEY ?? "";
+} from "./_lib/pricing";
 
 function getOrigin(req: VercelRequest): string {
   const proto = (req.headers["x-forwarded-proto"] as string) ?? "https";
@@ -26,8 +24,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  const stripeSecret = process.env.STRIPE_SECRET_KEY?.trim() ?? "";
   if (!stripeSecret) {
-    return res.status(503).json({ error: "Stripe is not configured. See PAYMENTS.md." });
+    return res.status(503).json({
+      error:
+        "STRIPE_SECRET_KEY is not set on the server. Add it in Vercel → Settings → Environment Variables (Production + Preview, no VITE_ prefix) and redeploy.",
+    });
   }
 
   const stripe = new Stripe(stripeSecret, { apiVersion: "2024-06-20" });
@@ -79,6 +81,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ url: session.url, sessionId: session.id });
   } catch (err) {
     console.error("Stripe checkout error:", err);
-    return res.status(500).json({ error: "Failed to create checkout session" });
+    const message = err instanceof Error ? err.message : "Failed to create checkout session";
+    return res.status(500).json({ error: message });
   }
 }
