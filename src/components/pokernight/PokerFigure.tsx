@@ -35,7 +35,7 @@ const CX = 70;
 const PHYS: Record<Build, { sw: number; ww: number; hip: number; belly: number; arm: number; scale: number }> = {
   petite: { sw: 39, ww: 31, hip: 47, belly: 0.05, arm: 12, scale: 0.9 },
   slim: { sw: 43, ww: 31, hip: 50, belly: 0.05, arm: 13, scale: 0.96 },
-  average: { sw: 50, ww: 39, hip: 58, belly: 0.12, arm: 15, scale: 1 },
+  average: { sw: 50, ww: 39, hip: 46, belly: 0.12, arm: 15, scale: 1 },
   broad: { sw: 63, ww: 50, hip: 67, belly: 0.16, arm: 18, scale: 1.05 },
   heavyset: { sw: 58, ww: 60, hip: 75, belly: 0.46, arm: 17, scale: 1.06 },
 };
