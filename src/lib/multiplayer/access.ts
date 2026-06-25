@@ -1,6 +1,9 @@
 import { LESSONS } from "../../content";
 import type { CourseProgress } from "../progress";
 
+/** TEMP: set false to restore mastery / daily-password gate on multiplayer. */
+export const BYPASS_MULTIPLAYER_GATE = true;
+
 /** True when every lesson has been passed (full mastery). */
 export function hasFullMastery(progress: CourseProgress): boolean {
   return LESSONS.every((l) => Boolean(progress.lessonMastery[l.lessonId]?.passed));
@@ -30,6 +33,7 @@ export function isMultiplayerUnlocked(
   progress: CourseProgress,
   now = new Date(),
 ): boolean {
+  if (BYPASS_MULTIPLAYER_GATE) return true;
   if (hasFullMastery(progress)) return true;
   return isMultiplayerAccessValid(progress.multiplayerAccess, now);
 }

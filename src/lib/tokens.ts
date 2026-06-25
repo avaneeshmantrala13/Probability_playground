@@ -4,11 +4,15 @@ import type { CourseProgress } from "./progress";
 /** Starting stake granted once when the poker capstone is first unlocked. */
 export const STARTING_TOKENS = 1000;
 
+/** TEMP: set false to restore the all-6-lessons mastery gate on /poker. */
+export const BYPASS_POKER_NIGHT_GATE = true;
+
 /**
  * The poker capstone ("Poker Night") is the final reward: it unlocks only once
  * EVERY lesson has been passed/mastered.
  */
 export function isPokerNightUnlocked(progress: CourseProgress): boolean {
+  if (BYPASS_POKER_NIGHT_GATE) return true;
   return LESSONS.every((l) => Boolean(progress.lessonMastery[l.lessonId]?.passed));
 }
 
