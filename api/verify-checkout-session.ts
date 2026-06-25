@@ -1,6 +1,123 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { initializeApp, cert, getApps, type App } from "firebase-admin/app";
+import { getFirestore, FieldValue } from "firebase-admin/firestore";
 import Stripe from "stripe";
-import { creditTokens } from "./lib/credit-tokens";
+
+/** Firebase Admin + token crediting — inline for Vercel ESM bundling. */
+function parseServiceAccountJson(raw: string): Record<string, unknown> | null {
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+
+  const attempts = [trimmed, trimmed.replace(/^['"]|['"]$/g, "")];
+  for (const candidate of attempts) {
+    try {
+      const parsed = JSON.parse(candidate) as Record<string, unknown>;
+      if (parsed && typeof parsed.project_id === "string") return parsed;
+    } catch {
+      // try next
+    }
+  }
+  return null;
+}
+
+function getAdminApp(): App | null {
+  if (getApps().length) return getApps()[0];
+
+  const raw = process.env.FIREBASE_SERVICE_ACCOUNT_JSON?.trim() ?? "";
+  if (!raw) {
+    console.error("[firebase-admin] FIREBASE_SERVICE_ACCOUNT_JSON is not set");
+    return null;
+  }
+
+  const serviceAccount = parseServiceAccountJson(raw);
+  if (!serviceAccount) {
+    console.error(
+      "[firebase-admin] FIREBASE_SERVICE_ACCOUNT_JSON is invalid JSON — paste the full service account file as one line (see PAYMENTS.md)",
+    );
+    return null;
+  }
+
+  try {
+    return initializeApp({ credential: cert(serviceAccount as Parameters<typeof cert>[0]) });
+  } catch (err) {
+    console.error("[firebase-admin] init failed:", err);
+    return null;
+  }
+}
+
+interface CreditResult {
+  ok: true;
+  credited: boolean;
+  newBalance: number;
+  tokenAmount: number;
+}
+
+interface CreditFailure {
+  ok: false;
+  error: string;
+}
+
+type CreditOutcome = CreditResult | CreditFailure;
+
+async function creditTokens(uid: string, amount: number, sessionId: string): Promise<CreditOutcome> {
+  const app = getAdminApp();
+  if (!app) {
+    return {
+      ok: false,
+      error:
+        "Firebase Admin not configured — set FIREBASE_SERVICE_ACCOUNT_JSON in Vercel and redeploy",
+    };
+  }
+
+  const db = getFirestore(app);
+  const purchaseRef = db.collection("tokenPurchases").doc(sessionId);
+  const progressRef = db.collection("courseProgress").doc(uid);
+
+  try {
+    let credited = false;
+    let newBalance = 0;
+
+    await db.runTransaction(async (tx) => {
+      const purchaseSnap = await tx.get(purchaseRef);
+      if (purchaseSnap.exists) {
+        const progressSnap = await tx.get(progressRef);
+        newBalance = progressSnap.exists ? (progressSnap.data()?.tokens ?? 0) : 0;
+        return;
+      }
+
+      const progressSnap = await tx.get(progressRef);
+      const current = progressSnap.exists ? (progressSnap.data()?.tokens ?? 0) : 0;
+      newBalance = current + amount;
+      const peak = Math.max(progressSnap.data()?.peakTokens ?? 0, newBalance);
+      const lifetime = (progressSnap.data()?.lifetimeTokens ?? 0) + amount;
+
+      tx.set(purchaseRef, {
+        uid,
+        amount,
+        sessionId,
+        creditedAt: FieldValue.serverTimestamp(),
+      });
+      tx.set(
+        progressRef,
+        {
+          tokens: newBalance,
+          peakTokens: peak,
+          lifetimeTokens: lifetime,
+          updatedAt: FieldValue.serverTimestamp(),
+        },
+        { merge: true },
+      );
+      credited = true;
+    });
+
+    console.info("[credit-tokens]", { sessionId, uid, amount, credited, newBalance });
+    return { ok: true, credited, newBalance, tokenAmount: amount };
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Firestore transaction failed";
+    console.error("[credit-tokens] failed:", { sessionId, uid, amount, err });
+    return { ok: false, error: message };
+  }
+}
 
 /**
  * Client fallback after Stripe Checkout redirect: verifies the session is paid,

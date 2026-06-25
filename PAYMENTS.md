@@ -144,6 +144,7 @@ If payment succeeds in Stripe but tokens do not appear:
 
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
+| Webhook delivery **405** with **empty body** | `/api/stripe-webhook` serverless function did not deploy — POST fell through to the static SPA (`index.html` rejects POST). Common when `api/stripe-webhook.ts` imports `./lib/*` (Vercel ESM `ERR_MODULE_NOT_FOUND` at build/runtime). | Redeploy with inlined webhook handler (no `api/lib` imports). Confirm **Functions** tab lists `/api/stripe-webhook`, then **Resend** failed deliveries in Stripe. |
 | Stripe webhook delivery **400 Invalid signature** | Wrong `STRIPE_WEBHOOK_SECRET` (test vs live, or CLI vs dashboard secret) | Copy signing secret from the exact endpoint URL you deployed; redeploy Vercel |
 | Webhook delivery **503** | Missing `STRIPE_SECRET_KEY` or `STRIPE_WEBHOOK_SECRET` | Set both in Vercel Production + Preview, redeploy |
 | Webhook delivery **500** with Firebase error | `FIREBASE_SERVICE_ACCOUNT_JSON` missing or malformed | Regenerate service account key; paste **entire JSON on one line** in Vercel; redeploy |
@@ -168,8 +169,19 @@ Open **Deployments → latest → Functions → Logs**, filter around purchase t
 In **Developers → Webhooks → your endpoint → Recent deliveries** for `checkout.session.completed`:
 
 - **200** + response `{"received":true}` — webhook ran OK; check Firestore `courseProgress/{your-uid}` and `tokenPurchases/{sessionId}`
+- **405** + empty response — function not deployed or request hit static SPA → redeploy, verify Functions tab, then **Resend** in Stripe
 - **400** — signature mismatch → fix `STRIPE_WEBHOOK_SECRET`
 - **500** — crediting failed → open delivery **Response** body and match to Vercel logs above; Stripe will retry
+
+Quick webhook check (replace domain — expect **400** `Missing stripe-signature`, not **405**):
+
+```bash
+curl -sS -o /dev/null -w "%{http_code}\n" -X POST "https://YOUR-DOMAIN/api/stripe-webhook" \
+  -H "Content-Type: application/json" -d '{}'
+```
+
+- **405** → webhook function missing; redeploy and check build logs.
+- **400** → function is live (signature check runs next with real Stripe deliveries).
 
 ### Manual recovery
 
