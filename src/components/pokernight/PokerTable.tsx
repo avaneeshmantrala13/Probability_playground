@@ -48,23 +48,20 @@ const LAYOUTS: Record<number, Pos[]> = {
     { top: "29%", left: "69%", scale: 0.76 },
   ],
   5: [
-    { top: "98%", left: "50%", scale: 1 },
-    { top: "51%", left: "8%", scale: 0.92 },
-    { top: "28%", left: "30%", scale: 0.75 },
-    { top: "28%", left: "70%", scale: 0.75 },
-    { top: "51%", left: "92%", scale: 0.92 },
+    { top: "96%", left: "50%", scale: 1 },
+    { top: "48%", left: "11%", scale: 0.9 },
+    { top: "30%", left: "32%", scale: 0.74 },
+    { top: "30%", left: "68%", scale: 0.74 },
+    { top: "48%", left: "89%", scale: 0.9 },
   ],
-  // 5 opponents (+ hero). The top-CENTER wedge is deliberately left EMPTY so the
-  // standing dealer owns it and is never hidden behind a player: both close mid
-  // seats and both back corners are symmetric, and the odd 5th seat is shifted
-  // off-center (inner-right) rather than sitting dead-center under the dealer.
+  // 5 opponents (+ hero). Top-center wedge left empty for the standing dealer.
   6: [
-    { top: "98%", left: "50%", scale: 1 },
-    { top: "58%", left: "7%", scale: 0.97 },
-    { top: "34%", left: "25%", scale: 0.8 },
-    { top: "34%", left: "75%", scale: 0.8 },
-    { top: "28%", left: "64%", scale: 0.72 },
-    { top: "58%", left: "93%", scale: 0.97 },
+    { top: "96%", left: "50%", scale: 1 },
+    { top: "54%", left: "10%", scale: 0.94 },
+    { top: "32%", left: "28%", scale: 0.78 },
+    { top: "32%", left: "72%", scale: 0.78 },
+    { top: "30%", left: "62%", scale: 0.72 },
+    { top: "54%", left: "90%", scale: 0.94 },
   ],
 };
 
@@ -139,7 +136,10 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
   };
 
   return (
-    <div className="pn-scene" style={sceneVars}>
+    <div
+      className={`pn-scene${n >= 5 ? " pn-scene-ring-full" : ""}`}
+      style={sceneVars}
+    >
       {/* ---- busy casino room behind the table (slots, patrons, server) ---- */}
       <CasinoRoom />
 

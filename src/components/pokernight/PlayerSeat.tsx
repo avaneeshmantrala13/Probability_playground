@@ -37,6 +37,15 @@ interface PlayerSeatProps {
 /** How long an action speech bubble stays up (calmer reading pace). */
 const SPEECH_MS = 3600;
 
+/** Push a felt bet chip toward the table centre from the seat anchor. */
+function feltBetOffset(leftPct: number, topPct: number): { x: number; y: number } {
+  const dx = 50 - leftPct;
+  const dy = 50 - topPct;
+  const len = Math.hypot(dx, dy) || 1;
+  const push = 36;
+  return { x: (dx / len) * push, y: (dy / len) * push };
+}
+
 function useBubble(speech: Speech | undefined): string {
   const [bubble, setBubble] = useState<string>("");
   const lastSpeechId = useRef<number>(0);
@@ -94,6 +103,11 @@ function PlayerSeatImpl({
   // centre seats stay near-frontal because they're across the felt looking back.
   const leftPct = parseFloat(position.left);
   const topPct = parseFloat(position.top);
+  const bubbleBelow = Number.isFinite(topPct) && topPct < 42;
+  const betOffset = feltBetOffset(
+    Number.isFinite(leftPct) ? leftPct : 50,
+    Number.isFinite(topPct) ? topPct : 50,
+  );
   const hx = Number.isFinite(leftPct) ? (leftPct - 50) / 43 : 0;
   const near = Number.isFinite(topPct) ? Math.max(0, Math.min(1, (topPct - 28) / 30)) : 0.5;
   const side = hx === 0 ? 0 : hx < 0 ? -1 : 1;
@@ -177,24 +191,44 @@ function PlayerSeatImpl({
     </div>
   );
 
-  const betChip = seat.roundBet > 0 && (
-    <div className="pn-seat-bet">
-      <span className="pn-chip">
-        <span aria-hidden>🪙</span>
-        {seat.roundBet.toLocaleString()}
-      </span>
-    </div>
-  );
+  const betChip =
+    !out && (seat.roundBet > 0 || seat.committed > 0) ? (
+      <div
+        className="pn-felt-bet"
+        style={{
+          ["--pn-bet-x" as string]: `${betOffset.x}px`,
+          ["--pn-bet-y" as string]: `${betOffset.y}px`,
+        }}
+      >
+        {seat.roundBet > 0 && (
+          <span className="pn-chip">
+            <span aria-hidden>🪙</span>
+            {seat.roundBet.toLocaleString()}
+          </span>
+        )}
+        {seat.committed > seat.roundBet && (
+          <span className="pn-felt-bet-total">
+            {seat.committed.toLocaleString()} in pot
+          </span>
+        )}
+      </div>
+    ) : null;
+
+  const speechBubble =
+    bubble && !out ? (
+      <div
+        className={`pn-speech${bubbleBelow ? " pn-speech-below" : ""}`}
+        style={{ ["--pn-speech-accent" as string]: look.accent }}
+      >
+        {bubble}
+      </div>
+    ) : null;
 
   // ---- First-person hero dock (the player, seen from their own eyes) ----
   if (isHero) {
     return (
       <div className="pn-seat pn-hero-dock" style={wrapStyle}>
-        {bubble && !out && (
-          <div className="pn-speech" style={{ ["--pn-speech-accent" as string]: look.accent }}>
-            {bubble}
-          </div>
-        )}
+        {speechBubble}
         <div
           key={dealKey}
           className={`pn-hero-cards ${
@@ -213,11 +247,7 @@ function PlayerSeatImpl({
   // ---- Opponent: a full seated figure across the table ----
   return (
     <div className="pn-seat" style={wrapStyle}>
-      {bubble && !out && (
-        <div className="pn-speech" style={{ ["--pn-speech-accent" as string]: look.accent }}>
-          {bubble}
-        </div>
-      )}
+      {speechBubble}
 
       <div
         className={`pn-figure-wrap ${isWinner && !reduced ? "pn-winner" : ""}`}
@@ -240,9 +270,9 @@ function PlayerSeatImpl({
           title={seat.name}
         />
         {!out && <div className="pn-figure-cards">{holeCards}</div>}
-        {betChip}
       </div>
 
+      {betChip}
       {nameplate}
 
       {seat.lastAction && !out && (

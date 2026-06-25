@@ -100,8 +100,14 @@ function PokerPreview() {
   // Compose the view state from the live hand + harness overrides.
   const view = useMemo<GameState>(() => {
     const board = hand.deck.slice(0, boardCount);
+    const seats = hand.seats.map((s, i) => ({
+      ...s,
+      roundBet: i === 0 ? 0 : [25, 50, 0, 120, 0, 80][i] ?? 0,
+      committed: i === 0 ? 10 : [35, 50, 15, 120, 5, 80][i] ?? 0,
+    }));
     return {
       ...hand,
+      seats,
       board,
       stage: stageForBoard(boardCount),
       pot: 320,
