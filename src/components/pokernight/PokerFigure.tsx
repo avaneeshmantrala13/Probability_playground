@@ -91,11 +91,6 @@ function PokerFigureImpl({
   const phys = PHYS[look.build] ?? PHYS.average;
   const shoulderY = SHOULDER_Y[look.posture];
   const armW = phys.arm;
-  // hands spread a touch on wider builds (still symmetric about CX so the centred
-  // hole cards stay between/in front of them and remain aligned)
-  const handHalf = 15 + Math.round(phys.ww * 0.12);
-  const hlx = CX - handHalf;
-  const hrx = CX + handHalf;
 
   // ---- Foreshortened, rounded torso silhouette ----------------------------
   // The body turn is encoded in the SVG SHAPE (not only shading): the receding
@@ -147,15 +142,28 @@ function PokerFigureImpl({
   const nearH = hw(phys.hip, -f);
   const sideW = phys.sw * 0.5 * at; // width of the revealed side plane
 
-  // Arms anchor to the build's shoulders and hug the body's OUTER side (waist
-  // edge) before resting the hands forward at centre — so on wide builds the arms
-  // ride the wider silhouette instead of cutting across the belly, and on narrow
-  // builds they stay tucked in. Both ends are sign-aware so the arms follow the
-  // turned/foreshortened silhouette (near arm wider, far arm compressed).
-  const aLx = hw(phys.sw - 6, -1);
-  const aRx = hw(phys.sw - 6, 1);
-  const armL = `M ${aLx} ${shoulderY + 10} C ${xSL - 2} ${shoulderY + 40} ${xWL + 2} ${yH - 22} ${hlx} 153`;
-  const armR = `M ${aRx} ${shoulderY + 10} C ${xSR + 2} ${shoulderY + 40} ${xWR - 2} ${yH - 22} ${hrx} 153`;
+  // ---- Continuous arms: SHOULDER -> upper arm -> ELBOW -> forearm -> HAND ----
+  // Each arm is a single connected tube that starts at the build's shoulder, bends
+  // at an elbow out by the side, then the forearm angles forward+inward so both
+  // hands meet in front holding the two hole cards. All anchors are sign-aware
+  // (via hw) so under the body-turn the near arm sits wider/forward and the far
+  // arm foreshortens with the silhouette.
+  const shLx = hw(phys.sw - 4, -1); // shoulder (deltoid) anchors
+  const shRx = hw(phys.sw - 4, 1);
+  const shAy = shoulderY + 7;
+  const elLx = hw(phys.ww + 7, -1); // elbows: out at the side, mid-torso
+  const elRx = hw(phys.ww + 7, 1);
+  const elAy = shoulderY + 42;
+  const wrLx = CX - 12; // wrists meet forward at centre, where the cards are
+  const wrRx = CX + 12;
+  const wrAy = 152;
+  // two-segment (upper arm + forearm) curves passing THROUGH the elbow
+  const armL =
+    `M ${shLx} ${shAy} Q ${shLx - 3} ${(shAy + elAy) / 2} ${elLx} ${elAy} ` +
+    `Q ${(elLx + wrLx) / 2 - 2} ${elAy + 8} ${wrLx} ${wrAy}`;
+  const armR =
+    `M ${shRx} ${shAy} Q ${shRx + 3} ${(shAy + elAy) / 2} ${elRx} ${elAy} ` +
+    `Q ${(elRx + wrRx) / 2 + 2} ${elAy + 8} ${wrRx} ${wrAy}`;
   // chair width tracks the hips
   const chairHalf = phys.hip + 13;
   // shoulder-cap radii: near cap reads larger than the receding far cap
@@ -243,19 +251,6 @@ function PokerFigureImpl({
       />
       <path d={`M ${CX - 8} 61 L ${CX + 8} 61 L ${CX + 8} 65 C ${CX + 3} 68 ${CX - 3} 68 ${CX - 8} 65 Z`} fill={look.skinShade} opacity="0.4" />
 
-      {/* arms / sleeves: anchored to the build's shoulders, hugging the body's
-          outer side, then resting the hands forward at centre. Rounded tubes —
-          base stroke + underside core shadow + upper sheen ridge — so they stay
-          3D and never bury inside the torso on wide builds */}
-      <g className="pn-fig-arms" fill="none" strokeLinecap="round">
-        <path d={armL} stroke={`url(#${outfitG})`} strokeWidth={armW} />
-        <path d={armR} stroke={`url(#${outfitG})`} strokeWidth={armW} />
-        <path d={armL} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" transform="translate(0 1.6)" />
-        <path d={armR} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" transform="translate(0 1.6)" />
-        <path d={armL} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} transform="translate(0 -1.3)" />
-        <path d={armR} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} transform="translate(0 -1.3)" />
-      </g>
-
       {/* ---- rounded, foreshortened torso silhouette (curved sides, tapered waist,
               rounded shoulders) reused for the fill + all shading overlays ---- */}
       <path d={torsoD} fill={`url(#${outfitG})`} stroke={LINE} strokeWidth="0.8" />
@@ -319,16 +314,31 @@ function PokerFigureImpl({
 
       <Accessory look={look} shoulderY={shoulderY} />
 
-      {/* hands holding cards */}
-      <g className="pn-fig-hands">
-        <ellipse cx={hlx} cy={153} rx="8.5" ry="6.8" fill={look.skin} stroke={LINE} strokeWidth="0.6" />
-        <ellipse cx={hrx} cy={153} rx="8.5" ry="6.8" fill={look.skin} stroke={LINE} strokeWidth="0.6" />
-        {/* knuckle lines */}
-        <path d={`M ${hlx - 4} 151 l 0 4 M ${hlx} 150.5 l 0 5 M ${hlx + 4} 151 l 0 4`} stroke={LINE} strokeWidth="0.5" />
-        <path d={`M ${hrx - 4} 151 l 0 4 M ${hrx} 150.5 l 0 5 M ${hrx + 4} 151 l 0 4`} stroke={LINE} strokeWidth="0.5" />
-        {/* cuffs */}
-        <rect x={hlx - 10} y={147} width="11" height="5" rx="2.5" fill={look.outfitTrim} opacity="0.9" />
-        <rect x={hrx - 1} y={147} width="11" height="5" rx="2.5" fill={look.outfitTrim} opacity="0.9" />
+      {/* ---- arms + hands, drawn IN FRONT of the torso as one connected unit so
+              the limb reads continuously shoulder -> elbow -> forearm -> hand with
+              no gap, the forearms resting forward and the hands cupping the two
+              hole cards at centre ---- */}
+      <g className="pn-fig-arms" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        {/* soft contact shadow the arms cast on the torso */}
+        <path d={armL} stroke="#000" strokeWidth={armW + 3} opacity="0.12" transform="translate(1.5 2.4)" />
+        <path d={armR} stroke="#000" strokeWidth={armW + 3} opacity="0.12" transform="translate(-1.5 2.4)" />
+        {/* sleeve tube: base + underside core shadow + upper sheen ridge */}
+        <path d={armL} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        <path d={armR} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        <path d={armL} stroke="#000" strokeWidth={armW * 0.5} opacity="0.16" transform="translate(0 1.7)" />
+        <path d={armR} stroke="#000" strokeWidth={armW * 0.5} opacity="0.16" transform="translate(0 1.7)" />
+        <path d={armL} stroke="#fff" strokeWidth={armW * 0.26} opacity={0.1 + sheen * 0.14} transform="translate(0 -1.3)" />
+        <path d={armR} stroke="#fff" strokeWidth={armW * 0.26} opacity={0.1 + sheen * 0.14} transform="translate(0 -1.3)" />
+        {/* rolled cuffs at the wrists */}
+        <ellipse cx={wrLx + 4} cy={wrAy - 5} rx="6.2" ry="4" fill={look.outfitTrim} opacity="0.92" transform={`rotate(28 ${wrLx + 4} ${wrAy - 5})`} />
+        <ellipse cx={wrRx - 4} cy={wrAy - 5} rx="6.2" ry="4" fill={look.outfitTrim} opacity="0.92" transform={`rotate(-28 ${wrRx - 4} ${wrAy - 5})`} />
+      </g>
+
+      {/* hands cupping the cards: palm + thumb + fingers fanning up toward the two
+          hole cards (which rest in/against them); both hands meet in front */}
+      <g className="pn-fig-hands" stroke={LINE} strokeWidth="0.6">
+        <Hand cx={wrLx} cy={wrAy} dir={1} skin={look.skin} shade={look.skinShade} />
+        <Hand cx={wrRx} cy={wrAy} dir={-1} skin={look.skin} shade={look.skinShade} />
       </g>
 
       {/* Head positioning lives on an OUTER, STATIC <g> (SVG transform attribute)
@@ -362,6 +372,37 @@ function PokerFigureImpl({
         </g>
       </g>
     </svg>
+  );
+}
+
+/** A hand cupping the cards: palm + thumb + four fingers fanning up toward the
+ *  hole cards. `dir` mirrors it (+1 = left hand reaching right toward centre). */
+function Hand({ cx, cy, dir, skin, shade }: { cx: number; cy: number; dir: number; skin: string; shade: string }) {
+  const rot = (a: number) => `rotate(${a * dir} ${cx} ${cy})`;
+  return (
+    <g>
+      {/* palm / back of hand */}
+      <ellipse cx={cx} cy={cy} rx="7.2" ry="6.2" fill={skin} />
+      <ellipse cx={cx} cy={cy + 1.6} rx="6" ry="4" fill={shade} opacity="0.3" />
+      {/* thumb on the outer side */}
+      <ellipse
+        cx={cx - dir * 6}
+        cy={cy - 1}
+        rx="2.6"
+        ry="4"
+        fill={skin}
+        transform={`rotate(${-dir * 32} ${cx - dir * 6} ${cy - 1})`}
+      />
+      {/* four fingers fanning up toward the cards (inner ones tuck behind them) */}
+      <g fill={skin}>
+        <rect x={cx - 1.4} y={cy - 13} width="2.8" height="10" rx="1.4" transform={rot(-15)} />
+        <rect x={cx - 1.4} y={cy - 14} width="2.8" height="11" rx="1.4" transform={rot(-5)} />
+        <rect x={cx - 1.4} y={cy - 14} width="2.8" height="11" rx="1.4" transform={rot(6)} />
+        <rect x={cx - 1.4} y={cy - 12.5} width="2.8" height="9.5" rx="1.4" transform={rot(17)} />
+      </g>
+      {/* knuckle crease */}
+      <path d={`M ${cx - 4} ${cy - 3} Q ${cx} ${cy - 5} ${cx + 4} ${cy - 3}`} fill="none" stroke={shade} strokeWidth="0.5" opacity="0.5" />
+    </g>
   );
 }
 
