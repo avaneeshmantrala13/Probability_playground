@@ -74,6 +74,8 @@ If Functions is empty, the API routes did not deploy — check build logs and `v
 1. Deploy the app to Vercel first (so `/api/stripe-webhook` exists)
 2. In Stripe Dashboard → **Developers → Webhooks → Add endpoint**
 3. Endpoint URL: `https://YOUR-VERCEL-DOMAIN/api/stripe-webhook`
+
+**⚠️ Do NOT include `/poker` in the webhook URL.** `/poker` is a client-side React Router route, not an API path. A wrong URL like `…/poker/api/stripe-webhook` sends POST to the static SPA and returns **405** with an empty body. Use **`/api/stripe-webhook`** at the domain root (Checkout success/cancel redirects correctly use `/poker?checkout=…` — that is different and intentional).
 4. Events to listen for: **`checkout.session.completed`**
 5. After creating, click the endpoint and copy the **Signing secret** (`whsec_…`)
 6. Add it as `STRIPE_WEBHOOK_SECRET` in Vercel and redeploy
@@ -144,7 +146,7 @@ If payment succeeds in Stripe but tokens do not appear:
 
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
-| Webhook delivery **405** with **empty body** | `/api/stripe-webhook` serverless function did not deploy — POST fell through to the static SPA (`index.html` rejects POST). Common when `api/stripe-webhook.ts` imports `./lib/*` (Vercel ESM `ERR_MODULE_NOT_FOUND` at build/runtime). | Redeploy with inlined webhook handler (no `api/lib` imports). Confirm **Functions** tab lists `/api/stripe-webhook`, then **Resend** failed deliveries in Stripe. |
+| Webhook delivery **405** with **empty body** | Wrong endpoint URL includes `/poker` (e.g. `…/poker/api/stripe-webhook`) — POST hits the SPA, not the serverless function. Or `/api/stripe-webhook` did not deploy (POST fell through to static `index.html`). | Fix Stripe endpoint to `https://YOUR-DOMAIN/api/stripe-webhook` (**no `/poker`**). Confirm **Functions** tab lists `/api/stripe-webhook`, redeploy if needed, then **Resend** failed deliveries in Stripe. A `vercel.json` rewrite also forwards `/poker/api/*` → `/api/*` as a safety net. |
 | Stripe webhook delivery **400 Invalid signature** | Wrong `STRIPE_WEBHOOK_SECRET` (test vs live, or CLI vs dashboard secret) | Copy signing secret from the exact endpoint URL you deployed; redeploy Vercel |
 | Webhook delivery **503** | Missing `STRIPE_SECRET_KEY` or `STRIPE_WEBHOOK_SECRET` | Set both in Vercel Production + Preview, redeploy |
 | Webhook delivery **500** with Firebase error | `FIREBASE_SERVICE_ACCOUNT_JSON` missing or malformed | Regenerate service account key; paste **entire JSON on one line** in Vercel; redeploy |
