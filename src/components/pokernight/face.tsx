@@ -85,6 +85,7 @@ function HeadImpl({
   const shG = `pn-sh-${raw}`;
   const rimG = `pn-rim-${raw}`;
   const aoG = `pn-ao-${raw}`;
+  const cylG = `pn-cyl-${raw}`;
   const irisG = `pn-iris-${raw}`;
   const hairG = `pn-hair-${raw}`;
   const hairSh = `pn-hairsh-${raw}`;
@@ -123,6 +124,16 @@ function HeadImpl({
           <stop offset="0" stopColor="#23130a" stopOpacity="0.4" />
           <stop offset="1" stopColor="#23130a" stopOpacity="0" />
         </radialGradient>
+        {/* horizontal barrel shade: darkens both temples so the skull reads as a
+            rounded volume (3/4 form), with a touch more weight on the shadow side */}
+        <linearGradient id={cylG} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#23130a" stopOpacity="0.34" />
+          <stop offset="0.17" stopColor="#23130a" stopOpacity="0.1" />
+          <stop offset="0.41" stopColor="#23130a" stopOpacity="0" />
+          <stop offset="0.63" stopColor="#23130a" stopOpacity="0.05" />
+          <stop offset="0.85" stopColor="#23130a" stopOpacity="0.18" />
+          <stop offset="1" stopColor="#23130a" stopOpacity="0.36" />
+        </linearGradient>
         {/* layered iris with depth */}
         <radialGradient id={irisG} cx="0.5" cy="0.34" r="0.66">
           <stop offset="0" stopColor={look.eyeColor ?? "#6b4a2f"} />
@@ -163,6 +174,7 @@ function HeadImpl({
         stroke={LINE}
         strokeWidth="0.8"
       />
+      <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${cylG})`} />
       <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${shG})`} />
       <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${rimG})`} />
       <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${hiG})`} />

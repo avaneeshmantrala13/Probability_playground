@@ -103,9 +103,28 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
             <stop offset="0.6" stopColor="#0b1020" />
             <stop offset="1" stopColor="#070a16" />
           </linearGradient>
+          {/* horizontal barrel shade across the jacket for rounded chest volume */}
+          <linearGradient id="pn-dealer-cyl" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#000" stopOpacity="0.5" />
+            <stop offset="0.14" stopColor="#000" stopOpacity="0.16" />
+            <stop offset="0.36" stopColor="#000" stopOpacity="0" />
+            <stop offset="0.58" stopColor="#000" stopOpacity="0.06" />
+            <stop offset="0.82" stopColor="#000" stopOpacity="0.28" />
+            <stop offset="1" stopColor="#000" stopOpacity="0.54" />
+          </linearGradient>
+          <radialGradient id="pn-dealer-shldr" cx="0.4" cy="0.3" r="0.7">
+            <stop offset="0" stopColor="#5566aa" stopOpacity="0.4" />
+            <stop offset="0.6" stopColor="#5566aa" stopOpacity="0.08" />
+            <stop offset="1" stopColor="#5566aa" stopOpacity="0" />
+          </radialGradient>
         </defs>
         {/* suit jacket (gradient-shaded broadcloth) */}
         <path d="M40 70 C35 86 31 110 31 150 L109 150 C109 110 105 86 100 70 C90 64 81 62 70 62 C59 62 50 64 40 70 Z" fill="url(#pn-dealer-jacket)" />
+        {/* barrel shading -> rounded torso form (not a flat panel) */}
+        <path d="M40 70 C35 86 31 110 31 150 L109 150 C109 110 105 86 100 70 C90 64 81 62 70 62 C59 62 50 64 40 70 Z" fill="url(#pn-dealer-cyl)" />
+        {/* rounded shoulder caps */}
+        <ellipse cx="48" cy="74" rx="15" ry="11" fill="url(#pn-dealer-shldr)" />
+        <ellipse cx="92" cy="74" rx="15" ry="11" fill="url(#pn-dealer-shldr)" />
         {/* jacket shoulder sheen (upper-left key light) + deep side/center shadow */}
         <path d="M40 70 C37 80 34 96 33 112 C40 96 48 80 58 72 C50 70 44 70 40 70 Z" fill="#22304f" opacity="0.7" />
         <path d="M100 70 C105 86 109 110 109 150 L101 150 C101 112 99 90 92 74 Z" fill="#000" opacity="0.22" />
