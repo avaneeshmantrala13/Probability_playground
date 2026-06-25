@@ -144,7 +144,7 @@ export async function createFriendsRoom(
     tierId: tier.id,
     buyIn,
     status: "lobby",
-    players: { [hostUid]: makePlayer(hostUid, hostName, 0, buyIn, true) },
+    players: { [hostUid]: makePlayer(hostUid, hostName, 0, buyIn, false) },
     gameState: null,
     actionSeq: 0,
     maxSeats: MAX_PLAYERS,
