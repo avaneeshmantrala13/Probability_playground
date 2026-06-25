@@ -49,11 +49,11 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
     const t1 = window.setTimeout(() => {
       setPhase("deal");
       setSay("Dealing.");
-    }, 1000);
+    }, 1400);
     const t2 = window.setTimeout(() => {
       setPhase("idle");
       setSay("");
-    }, 1720);
+    }, 2700);
     return () => {
       window.clearTimeout(t1);
       window.clearTimeout(t2);
@@ -70,7 +70,7 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
     const t = window.setTimeout(() => {
       setPhase("idle");
       setSay("");
-    }, 760);
+    }, 1200);
     return () => window.clearTimeout(t);
   }, [state.board.length, state.stage, reduced]);
 
@@ -122,8 +122,8 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
           <rect x="108" y="117" width="11" height="15" rx="2" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1" transform="rotate(20 113 124)" />
         </g>
 
-        {/* head — centered on the dealer's neck/collar */}
-        <g className="pn-fig-head" transform="translate(22 -6) scale(0.96)">
+        {/* head — centered on the dealer's neck/collar, nudged right */}
+        <g className="pn-fig-head" transform="translate(24.5 -6) scale(0.96)">
           <Head
             look={DEALER_LOOK}
             blink={!reduced}

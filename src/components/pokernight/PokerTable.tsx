@@ -104,8 +104,8 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions 
     prevHand.current = state.handNumber;
     prevBoard.current = 0;
     setView("up"); // watch the dealer shuffle / deal toward us
-    const t1 = setTimeout(() => setView("down"), 1050); // glance down at our cards
-    const t2 = setTimeout(() => setView("center"), 2300); // settle on the table
+    const t1 = setTimeout(() => setView("down"), 1700); // glance down at our cards
+    const t2 = setTimeout(() => setView("center"), 3600); // settle on the table
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -119,7 +119,7 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions 
     prevBoard.current = state.board.length;
     if (!grew) return;
     setView("up"); // look up toward the community-card reveal
-    const t = setTimeout(() => setView("center"), 1150);
+    const t = setTimeout(() => setView("center"), 1900);
     return () => clearTimeout(t);
   }, [state.board.length, reduced]);
 
