@@ -111,8 +111,8 @@ function PlayerSeatImpl({
             faceDown={!showFaces}
             deck={deck}
             size={isHero ? "lg" : "sm"}
-            animClass={dealAnim}
-            style={reduced ? undefined : { animationDelay: `${i * 90}ms` }}
+            animClass={isHero ? "" : dealAnim}
+            style={isHero || reduced ? undefined : { animationDelay: `${i * 90}ms` }}
           />
         ))
       )}
@@ -138,7 +138,10 @@ function PlayerSeatImpl({
           </div>
         )}
         <div
-          className={`pn-hero-cards ${isWinner && !reduced ? "pn-winner" : ""}`}
+          key={dealKey}
+          className={`pn-hero-cards ${
+            !reduced && seat.holeCards.length > 0 ? "pn-anim-handin" : ""
+          } ${isWinner && !reduced ? "pn-winner" : ""}`}
           style={isToAct ? { boxShadow: `0 0 0 2px ${theme.glow}, 0 0 26px ${theme.glow}` } : {}}
         >
           {holeCards}
