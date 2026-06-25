@@ -132,8 +132,8 @@ If **Pay $0.99** fails, the modal now shows the API error when available. Common
 | Symptom / error | Fix |
 |-----------------|-----|
 | `STRIPE_SECRET_KEY is not set on the server` | Add `STRIPE_SECRET_KEY` (no `VITE_`) for **Production**, redeploy. |
-| `Checkout API not found (404)` | Functions tab empty → redeploy; ensure `api/` routes exist in repo and `vercel.json` lists `/api/*` rewrite **before** the SPA fallback. |
-| `returned the app page instead of JSON` | SPA rewrite is catching `/api/*`; redeploy with current `vercel.json` (API rewrite must be first). |
+| `Checkout API not found (404)` | Functions tab empty → redeploy; ensure `api/*.ts` handlers exist and Framework Preset is **Vite** (not static-only). |
+| `returned the app page instead of JSON` | SPA fallback is catching `/api/*`; redeploy with current `vercel.json` (`rewrites.fallback` excludes `/api/` and runs after serverless functions). |
 | Stripe error in modal (500) | Invalid/expired `sk_test_…` key, or Stripe account issue — check Vercel function logs. |
 | Publishable key works but pay fails | Client key (`VITE_STRIPE_PUBLISHABLE_KEY`) is separate from server `STRIPE_SECRET_KEY`; both must be set and redeployed. |
 
