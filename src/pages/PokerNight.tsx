@@ -457,6 +457,7 @@ function MultiplayerSession({
             reduced={reduced}
             speeches={speeches}
             expressions={expressions}
+            viewerSeatIndex={mySeatIndex}
           />
         </Suspense>
         {user && <TableChat roomId={roomId} uid={user.uid} room={room} />}

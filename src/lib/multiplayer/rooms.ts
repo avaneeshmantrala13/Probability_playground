@@ -418,19 +418,22 @@ export function filterGameStateForViewer(
   state: GameState,
   viewerSeatIndex: number,
 ): GameState {
+  const showdown =
+    state.stage === "complete" && !!state.result && !state.result.uncontested;
   return {
     ...state,
     deck: [],
-    seats: state.seats.map((s) =>
-      s.index === viewerSeatIndex
-        ? s
-        : {
-            ...s,
-            holeCards: s.holeCards.length
-              ? (["??", "??"] as typeof s.holeCards)
-              : [],
-          },
-    ),
+    seats: state.seats.map((s) => {
+      const maySee =
+        s.index === viewerSeatIndex || (showdown && s.status !== "folded");
+      if (maySee) return s;
+      return {
+        ...s,
+        holeCards: s.holeCards.length
+          ? (["??", "??"] as typeof s.holeCards)
+          : [],
+      };
+    }),
   };
 }
 

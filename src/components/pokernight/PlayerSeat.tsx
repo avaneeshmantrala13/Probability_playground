@@ -20,6 +20,8 @@ interface PlayerSeatProps {
   position: { top: string; left: string; scale?: number };
   /** The human seat is rendered as a first-person dock at the bottom. */
   isHero: boolean;
+  /** Local viewer seat — only this seat's hole cards are face-up pre-showdown. */
+  viewerSeatIndex?: number;
   /** Bumps to retrigger the deal animation on a fresh hand. */
   dealKey: number;
   /** Latest spoken line for this seat (drives the speech bubble). */
@@ -65,6 +67,7 @@ function PlayerSeatImpl({
   reduced,
   position,
   isHero,
+  viewerSeatIndex,
   dealKey,
   speech,
   expression,
@@ -73,7 +76,11 @@ function PlayerSeatImpl({
 }: PlayerSeatProps) {
   const folded = seat.status === "folded";
   const out = seat.status === "out";
-  const showFaces = seat.isHuman || reveal;
+  const isViewer =
+    viewerSeatIndex !== undefined
+      ? seat.index === viewerSeatIndex
+      : seat.isHuman;
+  const showFaces = isViewer || reveal;
   const dealAnim = reduced ? "" : "pn-anim-deal";
   const look = getLook(seat.persona, seat.isHuman);
   const bubble = useBubble(speech);
