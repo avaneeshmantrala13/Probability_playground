@@ -40,10 +40,17 @@ export function Lobby({ bankroll, onSit }: LobbyProps) {
             Buy in with tokens from your bankroll. Cash out anytime.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <span className="pp-card px-3 py-2 text-sm font-semibold text-primary">
             Bankroll: <span className="text-accent">{bankroll.toLocaleString()}</span> 🪙
           </span>
+          <button
+            type="button"
+            className="pp-btn-secondary"
+            onClick={() => setShowPurchase(true)}
+          >
+            Buy tokens · $0.99
+          </button>
           <Link to="/store" className="pp-btn-secondary">
             Visit Store
           </Link>

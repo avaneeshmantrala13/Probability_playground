@@ -290,6 +290,7 @@ function PokerSession({
         bankroll={bankroll}
         onLeave={handleLeave}
         leaveDisabled={!handComplete}
+        onBuyTokens={() => setShowPurchase(true)}
       />
 
       <Suspense
@@ -443,6 +444,7 @@ function SessionHeader({
   bankroll,
   onLeave,
   leaveDisabled,
+  onBuyTokens,
   badge,
 }: {
   tier: TableTier;
@@ -450,6 +452,7 @@ function SessionHeader({
   bankroll: number;
   onLeave: () => void;
   leaveDisabled: boolean;
+  onBuyTokens?: () => void;
   badge?: string;
 }) {
   return (
@@ -471,7 +474,12 @@ function SessionHeader({
           <span className="font-mono font-semibold">{bankroll.toLocaleString()}</span>
         </span>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
+        {onBuyTokens && (
+          <button type="button" className="pp-btn-secondary" onClick={onBuyTokens}>
+            Buy tokens · $0.99
+          </button>
+        )}
         <Link to="/store" className="pp-btn-secondary">
           Store
         </Link>
