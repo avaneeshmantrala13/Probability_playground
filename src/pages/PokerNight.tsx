@@ -9,7 +9,6 @@ import {
 } from "../lib/tokens";
 import { getDeckSkin, getTableTheme } from "../lib/cosmetics";
 import {
-  describeHand,
   pickPersonas,
   type GameConfig,
   type HandResult,
@@ -167,14 +166,20 @@ function PokerSession({
     onHandEnd: handleHandEnd,
   });
 
-  const { state, legal, isHumanTurn, humanSeat, humanEquity, thinking, act, dealNext, rebuy } =
-    game;
+  const {
+    state,
+    legal,
+    isHumanTurn,
+    humanSeat,
+    humanEquity,
+    thinking,
+    speeches,
+    act,
+    dealNext,
+    rebuy,
+  } = game;
 
   const handComplete = state.stage === "complete";
-  const humanHandDescr =
-    humanSeat.holeCards.length === 2 && state.board.length >= 3
-      ? describeHand(humanSeat.holeCards, state.board)
-      : "";
 
   const handleNext = () => {
     setPhase("playing");
@@ -239,13 +244,13 @@ function PokerSession({
         </div>
       </div>
 
-      <PokerTable state={state} deck={deck} theme={theme} reduced={reduced} />
-
-      {humanHandDescr && !handComplete && (
-        <p className="text-center text-sm text-secondary">
-          Your hand: <span className="font-semibold text-primary">{humanHandDescr}</span>
-        </p>
-      )}
+      <PokerTable
+        state={state}
+        deck={deck}
+        theme={theme}
+        reduced={reduced}
+        speeches={speeches}
+      />
 
       {handComplete && phase === "busted" ? (
         <RebuyPanel

@@ -25,6 +25,12 @@ export interface UsePokerGameOpts {
   onHandEnd?: (info: { result: HandResult; humanStack: number }) => void;
 }
 
+/** A short-lived spoken line for a seat, keyed by a monotonic id. */
+export interface Speech {
+  id: number;
+  text: string;
+}
+
 export interface PokerGameApi {
   state: GameState;
   legal: LegalActions;
@@ -33,12 +39,41 @@ export interface PokerGameApi {
   /** Live Monte-Carlo equity for the human while it's their turn (or null). */
   humanEquity: number | null;
   thinking: boolean;
+  /** Latest action speech per seat index (drives table speech bubbles). */
+  speeches: Record<number, Speech>;
   act: (action: Action) => void;
   dealNext: () => void;
   rebuy: (amount: number) => void;
 }
 
 const HUMAN_SEAT = 0;
+
+/**
+ * Turn a just-applied action into a short spoken line for the speech bubble.
+ * Bots speak their persona quip (flavor); the human gets a plain action label.
+ * An all-in is detected from the resulting seat status so it reads "All in!"
+ * regardless of whether it arrived as a bet/raise/call.
+ */
+function speechFor(action: Action, after: Seat): string {
+  const quip = action.meta?.quip;
+  if (after.status === "allin") return quip ?? "All in!";
+  switch (action.type) {
+    case "fold":
+      return quip ?? "I fold";
+    case "check":
+      return quip ?? "Check";
+    case "call":
+      return quip ?? "Call";
+    case "bet":
+      return quip ?? `Bet ${after.roundBet}`;
+    case "raise":
+      return quip ?? `Raise to ${after.roundBet}`;
+    case "allin":
+      return quip ?? "All in!";
+    default:
+      return quip ?? "";
+  }
+}
 
 export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   const { config, humanName, humanStack, personas, reduced, onHandEnd } = opts;
@@ -48,12 +83,21 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   );
   const [thinking, setThinking] = useState(false);
   const [humanEquity, setHumanEquity] = useState<number | null>(null);
+  const [speeches, setSpeeches] = useState<Record<number, Speech>>({});
 
   const stateRef = useRef(state);
   stateRef.current = state;
   const reportedHand = useRef(0);
+  const speechId = useRef(0);
   const onHandEndRef = useRef(onHandEnd);
   onHandEndRef.current = onHandEnd;
+
+  const pushSpeech = useCallback((seatIndex: number, text: string) => {
+    if (!text) return;
+    speechId.current += 1;
+    const id = speechId.current;
+    setSpeeches((prev) => ({ ...prev, [seatIndex]: { id, text } }));
+  }, []);
 
   const isHumanTurn =
     state.stage !== "complete" && state.toAct === HUMAN_SEAT;
@@ -71,14 +115,19 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     setThinking(true);
     const seatIndex = state.toAct;
     const delay = reduced ? 90 : 480 + Math.random() * 520;
+    // The Monte-Carlo equity for the decision runs INSIDE this timeout, i.e.
+    // after the "thinking…" animation has already painted, so the table stays
+    // smooth and the UI thread is never blocked while it's a bot's turn.
     const timer = setTimeout(() => {
       const cur = stateRef.current;
       if (cur.toAct !== seatIndex || cur.stage === "complete") return;
       const decision = decideBotAction(cur, seatIndex);
-      setState(applyAction(cur, decision));
+      const next = applyAction(cur, decision);
+      pushSpeech(seatIndex, speechFor(decision, next.seats[seatIndex]));
+      setState(next);
     }, delay);
     return () => clearTimeout(timer);
-  }, [state, reduced]);
+  }, [state, reduced, pushSpeech]);
 
   // ----------------- report each completed hand exactly once -----------------
   useEffect(() => {
@@ -96,6 +145,8 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   }, [state]);
 
   // ------------- live human equity readout while it's their turn -------------
+  // Deferred to a macrotask so the action bar paints instantly on the human's
+  // turn; the Monte-Carlo sample then fills the win-chance in without blocking.
   useEffect(() => {
     if (!isHumanTurn) {
       setHumanEquity(null);
@@ -106,19 +157,33 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       setHumanEquity(null);
       return;
     }
-    const opp = Math.max(1, liveOpponents(state, HUMAN_SEAT));
-    // Light sample — this is a hint, not a decision.
-    const eq = estimateEquity(human.holeCards, state.board, opp, 500).equity;
-    setHumanEquity(eq);
+    let cancelled = false;
+    const t = setTimeout(() => {
+      if (cancelled) return;
+      const opp = Math.max(1, liveOpponents(state, HUMAN_SEAT));
+      // Light sample — this is a hint, not a decision.
+      const eq = estimateEquity(human.holeCards, state.board, opp, 400).equity;
+      if (!cancelled) setHumanEquity(eq);
+    }, 0);
+    return () => {
+      cancelled = true;
+      clearTimeout(t);
+    };
   }, [isHumanTurn, state]);
 
-  const act = useCallback((action: Action) => {
-    const cur = stateRef.current;
-    if (cur.toAct !== HUMAN_SEAT || cur.stage === "complete") return;
-    setState(applyAction(cur, action));
-  }, []);
+  const act = useCallback(
+    (action: Action) => {
+      const cur = stateRef.current;
+      if (cur.toAct !== HUMAN_SEAT || cur.stage === "complete") return;
+      const next = applyAction(cur, action);
+      pushSpeech(HUMAN_SEAT, speechFor(action, next.seats[HUMAN_SEAT]));
+      setState(next);
+    },
+    [pushSpeech],
+  );
 
   const dealNext = useCallback(() => {
+    setSpeeches({});
     setState((prev) => startHand(prev));
   }, []);
 
@@ -146,6 +211,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     humanSeat,
     humanEquity,
     thinking,
+    speeches,
     act,
     dealNext,
     rebuy,

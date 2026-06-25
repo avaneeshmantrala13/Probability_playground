@@ -1,7 +1,10 @@
-import type { CSSProperties } from "react";
+import { type CSSProperties, memo, useEffect, useRef, useState } from "react";
 import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { Seat } from "../../lib/poker";
+import { getLook } from "./characters";
 import { PlayingCard } from "./PlayingCard";
+import { PokerAvatar } from "./PokerAvatar";
+import type { Speech } from "./usePokerGame";
 
 interface PlayerSeatProps {
   seat: Seat;
@@ -14,11 +17,18 @@ interface PlayerSeatProps {
   reveal: boolean;
   reduced: boolean;
   position: { top: string; left: string };
+  /** The human seat is rendered larger / front-and-center. */
+  isHero: boolean;
   /** Bumps to retrigger the deal animation on a fresh hand. */
   dealKey: number;
+  /** Latest spoken line for this seat (drives the speech bubble). */
+  speech?: Speech;
 }
 
-export function PlayerSeat({
+/** How long an action speech bubble stays up. */
+const SPEECH_MS = 2200;
+
+function PlayerSeatImpl({
   seat,
   deck,
   theme,
@@ -28,24 +38,52 @@ export function PlayerSeat({
   reveal,
   reduced,
   position,
+  isHero,
   dealKey,
+  speech,
 }: PlayerSeatProps) {
   const folded = seat.status === "folded";
   const out = seat.status === "out";
   const showFaces = seat.isHuman || reveal;
   const dealAnim = reduced ? "" : "pn-anim-deal";
+  const look = getLook(seat.persona, seat.isHuman);
+
+  // Short-lived speech bubble: shows whenever a new speech id arrives.
+  const [bubble, setBubble] = useState<string>("");
+  const lastSpeechId = useRef<number>(0);
+  useEffect(() => {
+    if (!speech || speech.id === lastSpeechId.current) return;
+    lastSpeechId.current = speech.id;
+    setBubble(speech.text);
+    const t = window.setTimeout(() => setBubble(""), SPEECH_MS);
+    return () => window.clearTimeout(t);
+  }, [speech]);
 
   const ring: CSSProperties = isToAct
     ? { boxShadow: `0 0 0 3px ${theme.glow}, 0 0 18px ${theme.glow}` }
     : {};
 
+  const cardSize = isHero ? "lg" : "sm";
+
   return (
     <div
-      className="pn-seat"
+      className={`pn-seat ${isHero ? "pn-seat-hero" : ""}`}
       style={{ top: position.top, left: position.left }}
     >
+      {/* speech bubble (above the character) */}
+      {bubble && !out && (
+        <div
+          className={`pn-speech ${reduced ? "" : "pn-anim-bubble"}`}
+          style={{
+            ["--pn-speech-accent" as string]: look.accent,
+          }}
+        >
+          {bubble}
+        </div>
+      )}
+
       <div
-        className={`rounded-2xl px-2.5 py-2 text-center transition-opacity ${
+        className={`pn-seat-card rounded-2xl px-2.5 py-2 text-center transition-opacity ${
           folded || out ? "opacity-45" : "opacity-100"
         } ${isWinner && !reduced ? "pn-winner" : ""}`}
         style={{
@@ -55,8 +93,42 @@ export function PlayerSeat({
           ...ring,
         }}
       >
+        {/* character + identity */}
+        <div className="flex items-center justify-center gap-2">
+          <PokerAvatar
+            look={look}
+            size={isHero ? 60 : 44}
+            active={isToAct}
+            dimmed={folded || out}
+            title={seat.name}
+          />
+          <div className="min-w-0 text-left">
+            <div className="flex items-center gap-1 text-sm font-semibold leading-tight">
+              <span className="max-w-[6.5rem] truncate">{seat.name}</span>
+              {isButton && (
+                <span
+                  className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-white text-[0.6rem] font-extrabold text-black"
+                  title="Dealer button"
+                >
+                  D
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-1.5 text-xs leading-tight">
+              <span className="font-mono tabular-nums opacity-90">
+                {seat.stack.toLocaleString()}
+              </span>
+              {seat.status === "allin" && (
+                <span className="rounded bg-rose-500/80 px-1 text-[0.6rem] font-bold uppercase text-white">
+                  All-in
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
         {/* hole cards */}
-        <div className="mb-1 flex items-center justify-center gap-1">
+        <div className={`mt-1.5 flex items-center justify-center gap-1 ${isHero ? "gap-1.5" : ""}`}>
           {seat.holeCards.length === 0 ? (
             <span className="opacity-40 text-xs">—</span>
           ) : (
@@ -66,37 +138,11 @@ export function PlayerSeat({
                 card={c}
                 faceDown={!showFaces}
                 deck={deck}
-                size="sm"
-                animClass={`${dealAnim}`}
-                style={reduced ? undefined : { animationDelay: `${i * 70}ms` }}
+                size={cardSize}
+                animClass={dealAnim}
+                style={reduced ? undefined : { animationDelay: `${i * 90}ms` }}
               />
             ))
-          )}
-        </div>
-
-        <div className="flex items-center justify-center gap-1.5 text-sm font-semibold">
-          <span aria-hidden className="text-base leading-none">
-            {seat.persona?.avatar ?? "🧑"}
-          </span>
-          <span className="max-w-[7rem] truncate">{seat.name}</span>
-          {isButton && (
-            <span
-              className="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-white text-[0.6rem] font-extrabold text-black"
-              title="Dealer button"
-            >
-              D
-            </span>
-          )}
-        </div>
-
-        <div className="mt-0.5 flex items-center justify-center gap-2 text-xs">
-          <span className="font-mono tabular-nums opacity-90">
-            {seat.stack.toLocaleString()}
-          </span>
-          {seat.status === "allin" && (
-            <span className="rounded bg-rose-500/80 px-1 text-[0.6rem] font-bold uppercase text-white">
-              All-in
-            </span>
           )}
         </div>
 
@@ -115,17 +161,8 @@ export function PlayerSeat({
           </div>
         )}
       </div>
-
-      {/* table-talk bubble */}
-      {seat.quip && !folded && (
-        <div
-          className={`absolute left-1/2 top-0 z-10 w-max max-w-[12rem] -translate-x-1/2 -translate-y-full rounded-xl bg-surface px-2.5 py-1.5 text-[0.7rem] text-primary shadow-card ${
-            reduced ? "" : "pn-anim-bubble"
-          }`}
-        >
-          {seat.quip}
-        </div>
-      )}
     </div>
   );
 }
+
+export const PlayerSeat = memo(PlayerSeatImpl);
