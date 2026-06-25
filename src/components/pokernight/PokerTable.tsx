@@ -49,13 +49,17 @@ const LAYOUTS: Record<number, Pos[]> = {
     { top: "28%", left: "70%", scale: 0.75 },
     { top: "51%", left: "92%", scale: 0.92 },
   ],
+  // 5 opponents (+ hero). The top-CENTER wedge is deliberately left EMPTY so the
+  // standing dealer owns it and is never hidden behind a player: both close mid
+  // seats and both back corners are symmetric, and the odd 5th seat is shifted
+  // off-center (inner-right) rather than sitting dead-center under the dealer.
   6: [
     { top: "98%", left: "50%", scale: 1 },
-    { top: "52%", left: "7%", scale: 0.93 },
-    { top: "30%", left: "25%", scale: 0.76 },
-    { top: "26%", left: "50%", scale: 0.72 },
-    { top: "30%", left: "75%", scale: 0.76 },
-    { top: "52%", left: "93%", scale: 0.93 },
+    { top: "58%", left: "7%", scale: 0.97 },
+    { top: "34%", left: "25%", scale: 0.8 },
+    { top: "34%", left: "75%", scale: 0.8 },
+    { top: "28%", left: "64%", scale: 0.72 },
+    { top: "58%", left: "93%", scale: 0.97 },
   ],
 };
 
