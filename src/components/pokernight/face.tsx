@@ -35,8 +35,18 @@ const LINE = "rgb(35 22 14 / 0.34)";
 
 type BrowMode = "rest" | "think" | "worried" | "cocky" | "up" | "sad";
 type EyeMode = "rest" | "up" | "wide" | "narrow" | "happy" | "down";
-type MouthMode = "rest" | "press" | "oh" | "smirk" | "beam" | "frown";
+type MouthMode = "neutral" | "rest" | "press" | "oh" | "smirk" | "beam" | "frown";
 
+/**
+ * Maps a game emotion to a distinct brow / eye / mouth shape. Each expression is
+ * pushed to read clearly at on-screen figure size:
+ *   idle      relaxed neutral mouth + calm resting brows (NOT a grin)
+ *   think     brows furrowed together + eyes glancing up & aside + pursed mouth
+ *   concerned raised inner brows + widened eyes + slightly open frown
+ *   smug      one cocked brow + narrowed eyes + asymmetric smirk
+ *   happy     lifted brows + closed "^ ^" eyes + open beaming smile
+ *   sad       inner-up brows + downcast eyes + frown
+ */
 function modesFor(expr: Expression): {
   brow: BrowMode;
   eye: EyeMode;
@@ -55,7 +65,7 @@ function modesFor(expr: Expression): {
       return { brow: "sad", eye: "down", mouth: "frown" };
     case "idle":
     default:
-      return { brow: "rest", eye: "rest", mouth: "rest" };
+      return { brow: "rest", eye: "rest", mouth: "neutral" };
   }
 }
 
@@ -288,14 +298,17 @@ function Eyes({
   let dx = 0;
   let dy = 0;
   let topLid = 0; // skin cover height from the top (droop / squint)
-  if (mode === "up") dy = -1.3;
-  else if (mode === "wide") {
-    whiteRx += 0.5;
-    whiteRy += 0.8;
+  if (mode === "up") {
+    // thinking: glance up AND off to the side
+    dy = -1.4;
+    dx = 1.5;
+  } else if (mode === "wide") {
+    whiteRx += 0.7;
+    whiteRy += 1.1;
   } else if (mode === "narrow") {
-    whiteRy = 2.3;
-    dx = 0.6;
-    topLid = 1.6;
+    whiteRy = 1.9;
+    dx = 0.7;
+    topLid = 2.2;
   } else if (mode === "down") {
     whiteRy = 3;
     dy = 1.3;
@@ -360,27 +373,29 @@ function Brows({ look, mode }: { look: CharacterLook; mode: BrowMode }) {
   const W = 2.8;
   switch (mode) {
     case "think":
-      // one brow cocked up (pensive)
+      // furrowed: both brows pulled DOWN and TOGETHER toward the nose, plus a
+      // vertical crease between them (concentration)
       return (
         <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
-          <path d="M34 38 Q40 33 47 36.5" />
-          <path d="M54 38 L65 38.5" />
+          <path d="M35 38 Q41 40.2 47 40.6" />
+          <path d="M65 38 Q59 40.2 53 40.6" />
+          <path d="M49.4 38.8 Q50 41.6 50.6 38.8" strokeWidth="1.2" opacity="0.6" />
         </g>
       );
     case "worried":
-      // inner ends lifted (anxious)
+      // inner ends sharply lifted (anxious)
       return (
         <g stroke={stroke} strokeWidth={W} strokeLinecap="round">
-          <line x1="35" y1="40" x2="46" y2="36" />
-          <line x1="65" y1="40" x2="54" y2="36" />
+          <line x1="35" y1="41" x2="46" y2="35.5" />
+          <line x1="65" y1="41" x2="54" y2="35.5" />
         </g>
       );
     case "cocky":
-      // one sharp raised brow, the other low (smug)
+      // one brow sharply arched up, the other flat & low (smug)
       return (
         <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
-          <line x1="35" y1="40" x2="46" y2="39.5" />
-          <path d="M54 38 Q60 33.5 66 36" />
+          <line x1="34" y1="40.5" x2="46" y2="40" />
+          <path d="M53 39 Q59 32.8 67 36" />
         </g>
       );
     case "up":
@@ -468,19 +483,27 @@ function Mouth({ look, mode, talking }: { look: CharacterLook; mode: MouthMode; 
         <path d="M41 60 Q50 53 59 60" fill="none" stroke={stroke} strokeWidth="2.6" strokeLinecap="round" />
       );
     case "smirk":
+      // asymmetric: left corner low, right corner pulled sharply up
       return (
-        <path d="M42 57 Q52 60.5 60 53.5" fill="none" stroke={stroke} strokeWidth="2.6" strokeLinecap="round" />
+        <path d="M41 57.6 Q50 60 58 53.8" fill="none" stroke={stroke} strokeWidth="2.7" strokeLinecap="round" />
       );
     case "oh":
+      // concerned: a slight downturned frown that's a touch open
       return (
         <g>
-          <ellipse cx="50" cy="57.5" rx="3.4" ry="3.8" fill="#5b2310" />
-          <ellipse cx="50" cy="56" rx="2.8" ry="1.1" fill="#fff" opacity="0.85" />
+          <path d="M42 56.4 Q50 61.6 58 56.4" fill="none" stroke={stroke} strokeWidth="2.4" strokeLinecap="round" />
+          <ellipse cx="50" cy="58.6" rx="2.5" ry="2.2" fill="#5b2310" opacity="0.9" />
         </g>
       );
     case "press":
+      // thinking: short, tight, pursed line (no smile)
       return (
-        <path d="M42 56.5 Q50 58.5 58 56" fill="none" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M45 57 L55 56.6" fill="none" stroke={stroke} strokeWidth="2.9" strokeLinecap="round" />
+      );
+    case "neutral":
+      // idle: relaxed, almost-straight resting mouth — deliberately NOT a grin
+      return (
+        <path d="M43.5 56.9 Q50 57.7 56.5 56.9" fill="none" stroke={stroke} strokeWidth="2.4" strokeLinecap="round" />
       );
     case "rest":
     default:

@@ -397,7 +397,7 @@
   align-items: center;
   transform: translate(-50%, -50%) scale(var(--pn-seat-scale, 1));
   transform-origin: center;
-  width: clamp(134px, 18.5vw, 196px);
+  width: clamp(146px, 20vw, 214px);
   z-index: 7;
 }
 
@@ -789,9 +789,13 @@
 
 .pn-dealer {
   position: absolute;
-  top: 1%;
+  top: 0.5%;
   left: 50%;
-  z-index: 6;
+  /* ABOVE the player seats (z-index 7) so the standing dealer is always fully
+     visible — its head, suited torso, hands and shuffle/deal never get hidden
+     behind a back player; at most the dealer slightly overlaps a back seat's
+     shoulder, which reads naturally (the dealer stands in front of the rail). */
+  z-index: 8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -799,7 +803,7 @@
   pointer-events: none;
 }
 .pn-dealer-fig {
-  width: clamp(120px, 17vw, 188px);
+  width: clamp(132px, 18.5vw, 206px);
   height: auto;
   overflow: visible;
   filter: drop-shadow(0 12px 12px rgb(0 0 0 / 0.5));
