@@ -178,6 +178,7 @@ function PokerSession({
     humanEquity,
     thinking,
     speeches,
+    expressions,
     act,
     dealNext,
     rebuy,
@@ -261,6 +262,7 @@ function PokerSession({
           theme={theme}
           reduced={reduced}
           speeches={speeches}
+          expressions={expressions}
         />
       </Suspense>
 

@@ -118,6 +118,129 @@
 .pn-bg-lamp-2 { left: 50%; top: 6%; transform: translateX(-50%) scale(1.2); }
 .pn-bg-lamp-3 { right: 14%; top: 12%; }
 
+/* patron silhouettes seated around the distant tables */
+.pn-patron {
+  position: absolute;
+  width: 22%;
+  height: 46%;
+  bottom: 52%;
+  border-radius: 42% 42% 32% 32%;
+  background: linear-gradient(180deg, #0b0a14, #050409);
+  transform-origin: bottom center;
+}
+.pn-patron::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 76%;
+  width: 56%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #0b0a14;
+}
+.pn-patron-a { left: 4%; animation: pn-sway 5s ease-in-out infinite; }
+.pn-patron-b { left: 39%; animation: pn-sway 6s ease-in-out infinite 0.8s; }
+.pn-patron-c { right: 4%; animation: pn-sway 5.5s ease-in-out infinite 0.4s; }
+@keyframes pn-sway {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(1.6deg); }
+}
+
+/* glowing row of slot machines along the back wall */
+.pn-slots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6.5%;
+  height: 16%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.3%;
+  padding: 0 6%;
+  filter: blur(0.6px);
+  opacity: 0.92;
+}
+.pn-slot {
+  position: relative;
+  width: 7.4%;
+  height: 100%;
+  border-radius: 5px 5px 2px 2px;
+  background: linear-gradient(180deg, #2b2130 0%, #181019 100%);
+  box-shadow: 0 5px 12px rgb(0 0 0 / 0.55);
+}
+.pn-slot-marquee {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 4%;
+  height: 20%;
+  border-radius: 3px;
+  background: hsl(var(--pn-slot-hue, 40) 92% 62%);
+  box-shadow: 0 0 10px 2px hsl(var(--pn-slot-hue, 40) 95% 62% / 0.85);
+  animation: pn-slot-flash 1.9s ease-in-out infinite;
+  animation-delay: var(--pn-slot-delay, 0s);
+}
+.pn-slot-screen {
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  top: 30%;
+  height: 44%;
+  border-radius: 2px;
+  background: radial-gradient(circle at 50% 38%, hsl(var(--pn-slot-hue, 40) 85% 58%), hsl(var(--pn-slot-hue, 40) 70% 22%));
+  box-shadow: inset 0 0 6px rgb(0 0 0 / 0.6);
+  animation: pn-slot-screen 2.6s ease-in-out infinite;
+  animation-delay: var(--pn-slot-delay, 0s);
+}
+.pn-slot-base {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 16%;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(180deg, #241a22, #100a0e);
+}
+@keyframes pn-slot-flash {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes pn-slot-screen {
+  0%, 100% { filter: brightness(0.8); }
+  50% { filter: brightness(1.3); }
+}
+
+/* a cocktail server drifting across the floor with a tray of drinks */
+.pn-server {
+  position: absolute;
+  left: -10%;
+  bottom: 24%;
+  width: 6.5%;
+  opacity: 0.9;
+  filter: drop-shadow(0 6px 8px rgb(0 0 0 / 0.5)) brightness(0.9);
+  animation: pn-server-walk 30s linear infinite;
+  will-change: transform, opacity;
+}
+.pn-server-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: pn-server-bob 0.85s ease-in-out infinite;
+}
+@keyframes pn-server-walk {
+  0% { transform: translateX(0); opacity: 0; }
+  5% { opacity: 0.9; }
+  47% { opacity: 0.9; }
+  52% { transform: translateX(1750%); opacity: 0; }
+  100% { transform: translateX(1750%); opacity: 0; }
+}
+@keyframes pn-server-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
 /* perspective carpet floor */
 .pn-carpet {
   position: absolute;
@@ -402,6 +525,19 @@
 @keyframes pn-blink-lid {
   0%, 93%, 100% { transform: scaleY(0); }
   95%, 97% { transform: scaleY(1); }
+}
+
+/* idle eye motion: the pupils dart a hair now and then so faces aren't frozen */
+.pn-eyes-live {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pn-eye-dart 7s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes pn-eye-dart {
+  0%, 42%, 100% { transform: translateX(0); }
+  48%, 60% { transform: translateX(0.9px); }
+  68%, 82% { transform: translateX(-0.9px); }
 }
 
 /* talking mouth: the open-mouth group cycles open/closed while a line is up */
@@ -715,13 +851,22 @@
   .pn-figure-idle .pn-fig-head,
   .pn-dealer-busy .pn-fig-head,
   .pn-blink rect,
+  .pn-eyes-live,
   .pn-mouth-talk,
   .pn-dealer-arm-go,
   .pn-shuffle-go .pn-shuf-left,
   .pn-shuffle-go .pn-shuf-right,
-  .pn-shuffle-go .pn-shuf-bridge {
+  .pn-shuffle-go .pn-shuf-bridge,
+  .pn-patron-a,
+  .pn-patron-b,
+  .pn-patron-c,
+  .pn-slot-marquee,
+  .pn-slot-screen,
+  .pn-server,
+  .pn-server-svg {
     animation: none !important;
   }
+  .pn-server { opacity: 0; }
   .pn-camera,
   .pn-stage {
     transition: none !important;

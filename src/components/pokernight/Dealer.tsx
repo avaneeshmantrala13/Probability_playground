@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef, useState } from "react";
 import type { TableTheme } from "../../lib/cosmetics";
 import type { GameState } from "../../lib/poker";
-import { DEALER_LOOK } from "./characters";
+import { DEALER_LOOK, type Expression } from "./characters";
 import { Head } from "./face";
 
 interface DealerProps {
@@ -78,6 +78,10 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
   const reaching = phase === "deal" || phase === "reveal";
   const shuffling = phase === "shuffle";
   const talking = (phase === "shuffle" || phase === "deal") && !reduced;
+  // The dealer emotes too: focused while shuffling, pleased on a reveal, and a
+  // clever resting smirk (DEALER_LOOK baseline) otherwise.
+  const dealerExpr: Expression =
+    phase === "shuffle" ? "think" : phase === "reveal" ? "happy" : "idle";
 
   return (
     <div className="pn-dealer" aria-hidden={false}>
@@ -118,9 +122,15 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
           <rect x="108" y="117" width="11" height="15" rx="2" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1" transform="rotate(20 113 124)" />
         </g>
 
-        {/* head */}
+        {/* head — centered on the dealer's neck/collar */}
         <g className="pn-fig-head" transform="translate(22 -6) scale(0.96)">
-          <Head look={DEALER_LOOK} blink={!reduced} talking={talking} blinkDelay={0.4} />
+          <Head
+            look={DEALER_LOOK}
+            blink={!reduced}
+            talking={talking}
+            expression={dealerExpr}
+            blinkDelay={0.4}
+          />
         </g>
 
         {/* riffle / bridge shuffle in the dealer's hands (centered) */}

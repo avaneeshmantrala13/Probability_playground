@@ -1,5 +1,5 @@
 import { memo, useId } from "react";
-import type { Build, CharacterLook, Posture } from "./characters";
+import type { Build, CharacterLook, Expression, Posture } from "./characters";
 import { Head } from "./face";
 
 interface PokerFigureProps {
@@ -12,6 +12,8 @@ interface PokerFigureProps {
   reduced?: boolean;
   /** Animate the mouth while this player has an active line/bubble. */
   talking?: boolean;
+  /** Game-driven facial expression. */
+  expression?: Expression;
   /** Stable per-seat number so idle motion is staggered, not synchronized. */
   seatIndex?: number;
   title?: string;
@@ -40,6 +42,7 @@ function PokerFigureImpl({
   dimmed = false,
   reduced = false,
   talking = false,
+  expression = "idle",
   seatIndex = 0,
   title,
 }: PokerFigureProps) {
@@ -137,19 +140,39 @@ function PokerFigureImpl({
       <path d={`M ${CX - 13} ${shoulderY - 1} L ${CX - 4} ${shoulderY + 13} L ${CX} ${shoulderY + 6} Z`} fill={look.outfit} stroke={LINE} strokeWidth="0.6" />
       <path d={`M ${CX + 13} ${shoulderY - 1} L ${CX + 4} ${shoulderY + 13} L ${CX} ${shoulderY + 6} Z`} fill={look.outfit} stroke={LINE} strokeWidth="0.6" />
 
+      {/* placket + buttons for a tailored look */}
+      <path d={`M ${CX} ${shoulderY + 18} L ${CX} 168`} stroke={look.outfitTrim} strokeWidth="1.4" opacity="0.45" />
+      <g fill={look.outfitTrim} opacity="0.85">
+        <circle cx={CX} cy={shoulderY + 40} r="1.7" />
+        <circle cx={CX} cy={shoulderY + 60} r="1.7" />
+      </g>
+      {/* shoulder seams */}
+      <path d={`M ${CX - sw + 6} ${shoulderY + 3} Q ${CX - sw - 2} ${shoulderY + 18} ${CX - base + 6} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
+      <path d={`M ${CX + sw - 6} ${shoulderY + 3} Q ${CX + sw + 2} ${shoulderY + 18} ${CX + base - 6} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
+
       <Accessory look={look} shoulderY={shoulderY} />
 
       {/* hands holding cards */}
       <g className="pn-fig-hands">
         <ellipse cx={hlx} cy={153} rx="8.5" ry="6.8" fill={look.skin} stroke={LINE} strokeWidth="0.6" />
         <ellipse cx={hrx} cy={153} rx="8.5" ry="6.8" fill={look.skin} stroke={LINE} strokeWidth="0.6" />
+        {/* knuckle lines */}
+        <path d={`M ${hlx - 4} 151 l 0 4 M ${hlx} 150.5 l 0 5 M ${hlx + 4} 151 l 0 4`} stroke={LINE} strokeWidth="0.5" />
+        <path d={`M ${hrx - 4} 151 l 0 4 M ${hrx} 150.5 l 0 5 M ${hrx + 4} 151 l 0 4`} stroke={LINE} strokeWidth="0.5" />
+        {/* cuffs */}
         <rect x={hlx - 10} y={147} width="11" height="5" rx="2.5" fill={look.outfitTrim} opacity="0.9" />
         <rect x={hrx - 1} y={147} width="11" height="5" rx="2.5" fill={look.outfitTrim} opacity="0.9" />
       </g>
 
-      {/* head — seated cleanly on the neck */}
-      <g className="pn-fig-head" transform="translate(24 1) scale(0.92)">
-        <Head look={look} blink={!reduced} talking={talking && !reduced} blinkDelay={blinkDelay} />
+      {/* head — centered on the neck (head art center x=50; 70 - 0.96*50 = 22) */}
+      <g className="pn-fig-head" transform="translate(22 -3) scale(0.96)">
+        <Head
+          look={look}
+          blink={!reduced}
+          talking={talking && !reduced}
+          expression={expression}
+          blinkDelay={blinkDelay}
+        />
       </g>
     </svg>
   );

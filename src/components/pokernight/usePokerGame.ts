@@ -15,6 +15,7 @@ import {
   type Persona,
   type Seat,
 } from "../../lib/poker";
+import type { Expression } from "./characters";
 
 export interface UsePokerGameOpts {
   config: GameConfig;
@@ -41,6 +42,8 @@ export interface PokerGameApi {
   thinking: boolean;
   /** Latest action speech per seat index (drives table speech bubbles). */
   speeches: Record<number, Speech>;
+  /** Live, game-driven facial expression per seat index. */
+  expressions: Record<number, Expression>;
   act: (action: Action) => void;
   dealNext: () => void;
   rebuy: (amount: number) => void;
@@ -75,6 +78,73 @@ function speechFor(action: Action, after: Seat): string {
   }
 }
 
+/**
+ * The lasting "mood" a seat carries AFTER it acts (until it acts again or the
+ * hand ends): confident after betting/raising, rattled after a big call, glum
+ * after folding. Checks read as calm/idle.
+ */
+function reactionFor(action: Action, after: Seat): Expression {
+  if (after.status === "allin") return "smug";
+  switch (action.type) {
+    case "bet":
+    case "raise":
+    case "allin":
+      return "smug";
+    case "fold":
+      return "sad";
+    case "call":
+      return "concerned";
+    case "check":
+    default:
+      return "idle";
+  }
+}
+
+/**
+ * Resolve every seat's live expression purely from current state + stored
+ * reactions, so faces always match what's happening:
+ *   - showdown/end: winners beam, players who lost chips look gutted
+ *   - the seat to act ponders (and looks worried facing a big bet)
+ *   - folded seats stay glum; everyone else keeps their last-action mood
+ * Pure + cheap (memoized by the caller); the human seat is included but its
+ * face isn't drawn in the first-person dock.
+ */
+function deriveExpressions(
+  state: GameState,
+  reactions: Record<number, Expression>,
+): Record<number, Expression> {
+  const out: Record<number, Expression> = {};
+  const result = state.stage === "complete" ? state.result : null;
+  for (const seat of state.seats) {
+    const i = seat.index;
+    if (seat.status === "out") {
+      out[i] = "idle";
+      continue;
+    }
+    if (result) {
+      const net = result.netBySeat[i] ?? 0;
+      if (net > 0) out[i] = "happy";
+      else if (net < 0) out[i] = "sad";
+      else out[i] = seat.status === "folded" ? "sad" : "idle";
+      continue;
+    }
+    if (seat.status === "folded") {
+      out[i] = "sad";
+      continue;
+    }
+    if (state.toAct === i) {
+      const toCall = state.currentBet - seat.roundBet;
+      const bigBet =
+        toCall >= state.config.bigBlind * 3 ||
+        (seat.stack > 0 && toCall >= seat.stack * 0.35);
+      out[i] = bigBet ? "concerned" : "think";
+      continue;
+    }
+    out[i] = reactions[i] ?? "idle";
+  }
+  return out;
+}
+
 export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   const { config, humanName, humanStack, personas, reduced, onHandEnd } = opts;
 
@@ -84,6 +154,8 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   const [thinking, setThinking] = useState(false);
   const [humanEquity, setHumanEquity] = useState<number | null>(null);
   const [speeches, setSpeeches] = useState<Record<number, Speech>>({});
+  // Lasting per-seat mood from each player's most recent action this hand.
+  const [reactions, setReactions] = useState<Record<number, Expression>>({});
 
   const stateRef = useRef(state);
   stateRef.current = state;
@@ -124,6 +196,10 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       const decision = decideBotAction(cur, seatIndex);
       const next = applyAction(cur, decision);
       pushSpeech(seatIndex, speechFor(decision, next.seats[seatIndex]));
+      setReactions((prev) => ({
+        ...prev,
+        [seatIndex]: reactionFor(decision, next.seats[seatIndex]),
+      }));
       setState(next);
     }, delay);
     return () => clearTimeout(timer);
@@ -177,6 +253,10 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       if (cur.toAct !== HUMAN_SEAT || cur.stage === "complete") return;
       const next = applyAction(cur, action);
       pushSpeech(HUMAN_SEAT, speechFor(action, next.seats[HUMAN_SEAT]));
+      setReactions((prev) => ({
+        ...prev,
+        [HUMAN_SEAT]: reactionFor(action, next.seats[HUMAN_SEAT]),
+      }));
       setState(next);
     },
     [pushSpeech],
@@ -184,6 +264,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
 
   const dealNext = useCallback(() => {
     setSpeeches({});
+    setReactions({});
     setState((prev) => startHand(prev));
   }, []);
 
@@ -203,6 +284,10 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
 
   const legal = useMemo(() => legalActions(state), [state]);
   const humanSeat = state.seats[HUMAN_SEAT];
+  const expressions = useMemo(
+    () => deriveExpressions(state, reactions),
+    [state, reactions],
+  );
 
   return {
     state,
@@ -212,6 +297,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     humanEquity,
     thinking,
     speeches,
+    expressions,
     act,
     dealNext,
     rebuy,

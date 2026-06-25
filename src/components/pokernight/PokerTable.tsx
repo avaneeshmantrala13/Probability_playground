@@ -4,6 +4,8 @@ import type { GameState } from "../../lib/poker";
 import { PlayingCard } from "./PlayingCard";
 import { PlayerSeat } from "./PlayerSeat";
 import { Dealer } from "./Dealer";
+import { CasinoRoom } from "./CasinoRoom";
+import type { Expression } from "./characters";
 import type { Speech } from "./usePokerGame";
 import "./pokernight.css";
 
@@ -13,6 +15,7 @@ interface PokerTableProps {
   theme: TableTheme;
   reduced: boolean;
   speeches: Record<number, Speech>;
+  expressions: Record<number, Expression>;
 }
 
 type Pos = { top: string; left: string; scale?: number };
@@ -60,7 +63,7 @@ function layoutFor(n: number): Pos[] {
   return LAYOUTS[n] ?? LAYOUTS[6];
 }
 
-export function PokerTable({ state, deck, theme, reduced, speeches }: PokerTableProps) {
+export function PokerTable({ state, deck, theme, reduced, speeches, expressions }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
 
@@ -128,21 +131,8 @@ export function PokerTable({ state, deck, theme, reduced, speeches }: PokerTable
 
   return (
     <div className="pn-scene" style={sceneVars}>
-      {/* ---- casino room (depth: walls, ambient lights, carpet) ---- */}
-      <div className="pn-room" aria-hidden>
-        <div className="pn-wall" />
-        <div className="pn-ambient" />
-        <div className="pn-bg-tables">
-          <span className="pn-bg-table pn-bg-table-1" />
-          <span className="pn-bg-table pn-bg-table-2" />
-          <span className="pn-bg-lamp pn-bg-lamp-1" />
-          <span className="pn-bg-lamp pn-bg-lamp-2" />
-          <span className="pn-bg-lamp pn-bg-lamp-3" />
-        </div>
-        <div className="pn-chandelier" />
-        <div className="pn-carpet" />
-        <div className="pn-vignette" />
-      </div>
+      {/* ---- busy casino room behind the table (slots, patrons, server) ---- */}
+      <CasinoRoom />
 
       {/* ---- first-person camera (head-turn pan/tilt) wraps the 3D stage ---- */}
       <div className={`pn-camera pn-cam-${reduced ? "center" : view}`}>
@@ -207,6 +197,7 @@ export function PokerTable({ state, deck, theme, reduced, speeches }: PokerTable
             isHero={seat.isHuman}
             dealKey={state.handNumber}
             speech={speeches[seat.index]}
+            expression={expressions[seat.index] ?? "idle"}
           />
         ))}
       </div>

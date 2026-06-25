@@ -1,7 +1,7 @@
 import { type CSSProperties, memo, useEffect, useRef, useState } from "react";
 import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { Seat } from "../../lib/poker";
-import { getLook } from "./characters";
+import { getLook, type Expression } from "./characters";
 import { PlayingCard } from "./PlayingCard";
 import { PokerFigure } from "./PokerFigure";
 import type { Speech } from "./usePokerGame";
@@ -23,6 +23,8 @@ interface PlayerSeatProps {
   dealKey: number;
   /** Latest spoken line for this seat (drives the speech bubble). */
   speech?: Speech;
+  /** Live, game-driven facial expression for this seat. */
+  expression: Expression;
 }
 
 /** How long an action speech bubble stays up. */
@@ -54,6 +56,7 @@ function PlayerSeatImpl({
   isHero,
   dealKey,
   speech,
+  expression,
 }: PlayerSeatProps) {
   const folded = seat.status === "folded";
   const out = seat.status === "out";
@@ -168,6 +171,7 @@ function PlayerSeatImpl({
           dimmed={folded || out}
           reduced={reduced}
           talking={!!bubble && !out}
+          expression={expression}
           seatIndex={seat.index}
           title={seat.name}
         />
