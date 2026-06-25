@@ -11,6 +11,8 @@ import {
 import { useAuth } from "./AuthContext";
 import {
   computeStreak,
+  DEFAULT_EQUIPPED,
+  emptyPokerStats,
   emptyProgress,
   fetchProgress,
   recordLessonAttempt,
@@ -18,10 +20,12 @@ import {
   todayKey,
   type ActiveAttempt,
   type AttemptAnswer,
+  type CosmeticCategory,
   type CourseProgress,
   type LessonMastery,
 } from "../lib/progress";
 import { isPassing, scoreToPercent } from "../lib/mastery";
+import { STARTING_TOKENS } from "../lib/tokens";
 
 export interface AttemptResult {
   correct: number;
@@ -49,6 +53,26 @@ interface ProgressContextValue {
     total: number,
     elapsedMs?: number,
   ) => AttemptResult;
+
+  // ----- Poker capstone token economy -----
+  /** Add tokens to the balance (updates peak + lifetime). */
+  addTokens: (amount: number) => void;
+  /** Spend tokens. Returns false (and does nothing) if the balance is too low. */
+  spendTokens: (amount: number) => boolean;
+  /** Set the balance to an absolute value (used to reconcile a poker stack). */
+  setTokens: (amount: number) => void;
+  /** Grant the one-time starting stake if it hasn't been granted yet. */
+  seedPokerTokens: () => void;
+  /** Buy a cosmetic by id at the given price. Returns false if unaffordable. */
+  purchaseCosmetic: (id: string, price: number) => boolean;
+  /** Equip an owned cosmetic in its category. */
+  equipCosmetic: (category: CosmeticCategory, id: string) => void;
+  /** Record a finished poker hand for lifetime stats. */
+  recordPokerHand: (opts: {
+    won: boolean;
+    potSize: number;
+    busted?: boolean;
+  }) => void;
 }
 
 const ProgressContext = createContext<ProgressContextValue | undefined>(undefined);
@@ -248,6 +272,106 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [update],
   );
 
+  const addTokens = useCallback(
+    (amount: number) => {
+      if (amount <= 0) return;
+      update((prev) => {
+        const tokens = (prev.tokens ?? 0) + amount;
+        return {
+          ...prev,
+          tokens,
+          peakTokens: Math.max(prev.peakTokens ?? 0, tokens),
+          lifetimeTokens: (prev.lifetimeTokens ?? 0) + amount,
+        };
+      });
+    },
+    [update],
+  );
+
+  const spendTokens = useCallback(
+    (amount: number): boolean => {
+      if (amount <= 0) return true;
+      if ((latest.current.tokens ?? 0) < amount) return false;
+      update((prev) => ({ ...prev, tokens: (prev.tokens ?? 0) - amount }));
+      return true;
+    },
+    [update],
+  );
+
+  const setTokens = useCallback(
+    (amount: number) => {
+      const next = Math.max(0, Math.floor(amount));
+      update((prev) => {
+        const gained = Math.max(0, next - (prev.tokens ?? 0));
+        return {
+          ...prev,
+          tokens: next,
+          peakTokens: Math.max(prev.peakTokens ?? 0, next),
+          lifetimeTokens: (prev.lifetimeTokens ?? 0) + gained,
+        };
+      });
+    },
+    [update],
+  );
+
+  const seedPokerTokens = useCallback(() => {
+    if (latest.current.pokerSeeded) return;
+    update((prev) => {
+      if (prev.pokerSeeded) return prev;
+      const tokens = Math.max(prev.tokens ?? 0, STARTING_TOKENS);
+      return {
+        ...prev,
+        tokens,
+        pokerSeeded: true,
+        peakTokens: Math.max(prev.peakTokens ?? 0, tokens),
+        lifetimeTokens: (prev.lifetimeTokens ?? 0) + tokens,
+      };
+    });
+  }, [update]);
+
+  const purchaseCosmetic = useCallback(
+    (id: string, price: number): boolean => {
+      const p = latest.current;
+      if ((p.ownedCosmetics ?? []).includes(id)) return true;
+      if ((p.tokens ?? 0) < price) return false;
+      update((prev) => ({
+        ...prev,
+        tokens: (prev.tokens ?? 0) - price,
+        ownedCosmetics: [...(prev.ownedCosmetics ?? []), id],
+      }));
+      return true;
+    },
+    [update],
+  );
+
+  const equipCosmetic = useCallback(
+    (category: CosmeticCategory, id: string) => {
+      update((prev) => ({
+        ...prev,
+        equipped: { ...(prev.equipped ?? DEFAULT_EQUIPPED), [category]: id },
+      }));
+    },
+    [update],
+  );
+
+  const recordPokerHand = useCallback(
+    (opts: { won: boolean; potSize: number; busted?: boolean }) => {
+      update((prev) => {
+        const s = prev.pokerStats ?? emptyPokerStats();
+        return {
+          ...prev,
+          pokerStats: {
+            handsPlayed: s.handsPlayed + 1,
+            handsWon: s.handsWon + (opts.won ? 1 : 0),
+            biggestPot: Math.max(s.biggestPot, opts.potSize),
+            bustCount: s.bustCount + (opts.busted ? 1 : 0),
+          },
+        };
+      });
+    },
+    [update],
+  );
+
   const value = useMemo<ProgressContextValue>(
     () => ({
       progress,
@@ -257,8 +381,30 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       saveAttempt,
       clearActiveAttempt,
       completeAttempt,
+      addTokens,
+      spendTokens,
+      setTokens,
+      seedPokerTokens,
+      purchaseCosmetic,
+      equipCosmetic,
+      recordPokerHand,
     }),
-    [progress, loading, update, setPosition, saveAttempt, clearActiveAttempt, completeAttempt],
+    [
+      progress,
+      loading,
+      update,
+      setPosition,
+      saveAttempt,
+      clearActiveAttempt,
+      completeAttempt,
+      addTokens,
+      spendTokens,
+      setTokens,
+      seedPokerTokens,
+      purchaseCosmetic,
+      equipCosmetic,
+      recordPokerHand,
+    ],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

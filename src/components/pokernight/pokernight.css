@@ -1,0 +1,236 @@
+/* Poker Night animations & table styling.
+   Keyframes live here (NOT index.css). All motion is short, GPU-friendly, and
+   fully suppressed under prefers-reduced-motion so nothing essential depends on
+   it. Colors come from equipped cosmetics via inline CSS custom properties. */
+
+.pn-table-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 70vh;
+}
+
+.pn-felt {
+  position: absolute;
+  inset: 0;
+  border-radius: 46% / 50%;
+  background: var(--pn-felt);
+  border: clamp(8px, 2.2vw, 20px) solid var(--pn-rail);
+  box-shadow:
+    inset 0 0 60px rgb(0 0 0 / 0.45),
+    0 18px 40px rgb(0 0 0 / 0.4);
+  overflow: hidden;
+}
+
+.pn-felt::after {
+  /* Soft inner glow tinted by the table theme. */
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 46% / 50%;
+  box-shadow: inset 0 0 50px color-mix(in srgb, var(--pn-glow) 40%, transparent);
+  pointer-events: none;
+}
+
+.pn-seat {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: clamp(78px, 14vw, 132px);
+}
+
+/* ----------------------------- cards ----------------------------- */
+
+.pn-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+  background: #fdfdfb;
+  border: 1px solid #cfcfcf;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.28);
+}
+
+.pn-card-face {
+  flex-direction: column;
+}
+
+.pn-card-rank {
+  font-size: 1.05em;
+}
+.pn-card-suit {
+  font-size: 0.9em;
+}
+
+.pn-card-red {
+  color: #c81e2b;
+}
+.pn-card-black {
+  color: #16181d;
+}
+
+.pn-card-back {
+  background: var(--pn-deck-bg);
+  border: 1px solid var(--pn-deck-border);
+  color: var(--pn-deck-ink);
+  overflow: hidden;
+}
+
+.pn-card-back-emblem {
+  font-size: 1.1em;
+  opacity: 0.85;
+}
+
+/* Deck-back patterns (driven by the equipped deck skin's `pattern`). */
+.pn-pat-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--pn-deck-ink) 22%, transparent) 0 6px,
+    transparent 6px 12px
+  );
+}
+.pn-pat-dots {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--pn-deck-ink) 30%, transparent) 1.4px,
+    transparent 1.6px
+  );
+  background-size: 9px 9px;
+}
+.pn-pat-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--pn-deck-ink) 22%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--pn-deck-ink) 22%, transparent) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+.pn-pat-waves {
+  background-image: repeating-radial-gradient(
+    circle at 50% 0,
+    color-mix(in srgb, var(--pn-deck-ink) 22%, transparent) 0 4px,
+    transparent 4px 9px
+  );
+}
+.pn-pat-stars .pn-card-back-emblem {
+  text-shadow: 0 0 6px color-mix(in srgb, var(--pn-deck-ink) 70%, transparent);
+}
+
+/* ----------------------------- chips / pot ----------------------------- */
+
+.pn-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 9999px;
+  padding: 0.1rem 0.55rem;
+  font-weight: 700;
+  font-size: 0.72rem;
+  background: rgb(0 0 0 / 0.45);
+  color: #fff;
+  border: 1px solid color-mix(in srgb, var(--pn-glow) 60%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.pn-pot {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----------------------------- animations ----------------------------- */
+
+@keyframes pn-deal {
+  from {
+    transform: translateY(-160%) rotate(-12deg) scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pn-flip-in {
+  from {
+    transform: rotateY(90deg) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pn-pot-bump {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pn-chip-to-pot {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-22px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pn-bubble-in {
+  from {
+    transform: translateY(6px) scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pn-winner-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--pn-glow) 70%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--pn-glow) 0%, transparent);
+  }
+}
+
+.pn-anim-deal {
+  animation: pn-deal 0.34s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+.pn-anim-flip {
+  animation: pn-flip-in 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+.pn-anim-pot-bump {
+  animation: pn-pot-bump 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.pn-anim-chip {
+  animation: pn-chip-to-pot 0.45s ease-in forwards;
+}
+.pn-anim-bubble {
+  animation: pn-bubble-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.pn-winner {
+  animation: pn-winner-glow 1.1s ease-out 2;
+  border-radius: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pn-anim-deal,
+  .pn-anim-flip,
+  .pn-anim-pot-bump,
+  .pn-anim-chip,
+  .pn-anim-bubble,
+  .pn-winner {
+    animation: none !important;
+  }
+}

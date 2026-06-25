@@ -15,10 +15,22 @@ import {
   TargetIcon,
   ZapIcon,
 } from "../components/icons";
+import {
+  AceCardIcon,
+  ChipIcon,
+  CoinStackIcon,
+  DiamondIcon,
+  GemIcon,
+  JackpotIcon,
+  PhoenixIcon,
+  VaultIcon,
+} from "../components/badges/tokenIcons";
 import { GAMES } from "./games";
+import { TOKEN_MILESTONES, peakTokens } from "./tokens";
+import { emptyPokerStats } from "./progress";
 import type { CourseProgress } from "./progress";
 
-export type BadgeCategory = "lesson" | "game" | "streak" | "speed";
+export type BadgeCategory = "lesson" | "game" | "streak" | "speed" | "token";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
 
@@ -107,6 +119,63 @@ const lessonBadges: Badge[] = LESSON_IDS.map((lessonId) => ({
   earned: (progress) => lessonPassed(lessonId, progress),
 }));
 
+/** Per-milestone icon + gradient, keyed by the shared TOKEN_MILESTONES id. */
+const TOKEN_BADGE_META: Record<
+  string,
+  { icon: IconComponent; gradient: [string, string] }
+> = {
+  "tok-2k": { icon: ChipIcon, gradient: ["#fcd34d", "#d97706"] },
+  "tok-5k": { icon: CoinStackIcon, gradient: ["#fde047", "#ca8a04"] },
+  "tok-10k": { icon: DiamondIcon, gradient: ["#67e8f9", "#0891b2"] },
+  "tok-25k": { icon: GemIcon, gradient: ["#f0abfc", "#a21caf"] },
+  "tok-50k": { icon: VaultIcon, gradient: ["#a5f3fc", "#2563eb"] },
+  "tok-100k": { icon: JackpotIcon, gradient: ["#fef08a", "#f59e0b"] },
+};
+
+const DEFAULT_TOKEN_META: { icon: IconComponent; gradient: [string, string] } = {
+  icon: ChipIcon,
+  gradient: ["#fcd34d", "#d97706"],
+};
+
+const tokenMilestoneBadges: Badge[] = TOKEN_MILESTONES.map((milestone) => {
+  const meta = TOKEN_BADGE_META[milestone.id] ?? DEFAULT_TOKEN_META;
+  return {
+    id: `token-${milestone.id}`,
+    title: milestone.title,
+    description: milestone.description,
+    category: "token",
+    icon: meta.icon,
+    gradient: meta.gradient,
+    earned: (progress) => peakTokens(progress) >= milestone.threshold,
+  };
+});
+
+/** Read poker stats defensively (older accounts may not have them). */
+function pokerStatsOf(progress: CourseProgress) {
+  return progress.pokerStats ?? emptyPokerStats();
+}
+
+const pokerStatBadges: Badge[] = [
+  {
+    id: "poker-first-pot",
+    title: "First Pot",
+    description: "Win your very first poker hand.",
+    category: "token",
+    icon: AceCardIcon,
+    gradient: ["#34d399", "#059669"],
+    earned: (progress) => pokerStatsOf(progress).handsWon >= 1,
+  },
+  {
+    id: "poker-comeback-kid",
+    title: "Comeback Kid",
+    description: "Recover after going bust at least once.",
+    category: "token",
+    icon: PhoenixIcon,
+    gradient: ["#fb7185", "#db2777"],
+    earned: (progress) => pokerStatsOf(progress).bustCount >= 1,
+  },
+];
+
 export const BADGES: Badge[] = [
   ...lessonBadges,
   {
@@ -181,6 +250,8 @@ export const BADGES: Badge[] = [
     gradient: ["#e879f9", "#c026d3"],
     earned: (progress) => anyLessonUnder(progress, 5 * 60_000),
   },
+  ...tokenMilestoneBadges,
+  ...pokerStatBadges,
 ];
 
 export function isEarned(badge: Badge, progress: CourseProgress): boolean {

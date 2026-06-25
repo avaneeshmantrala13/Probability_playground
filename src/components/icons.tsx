@@ -206,6 +206,13 @@ export const CalendarIcon = (p: IconProps) => (
   </svg>
 );
 
+export const StoreIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M3 9 4.5 4h15L21 9M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9M3 9h18M3 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0" />
+    <path d="M9 21v-5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5" />
+  </svg>
+);
+
 export const CrownIcon = (p: IconProps) => (
   <svg {...base(p)}>
     <path d="M4 18h16M5 18l-1.5-9 5 4 3.5-6 3.5 6 5-4L19 18z" />
