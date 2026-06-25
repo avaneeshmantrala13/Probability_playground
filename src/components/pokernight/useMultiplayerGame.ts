@@ -7,12 +7,10 @@ import {
   type GameState,
   type HandResult,
 } from "../../lib/poker";
-import { createMultiplayerGame } from "../../lib/poker/multiplayer";
 import { pickPersonas } from "../../lib/poker";
 import {
   filterGameStateForViewer,
   markActionApplied,
-  startRoomGame,
   submitPlayerAction,
   subscribeToPlayerActions,
   subscribeToRoom,
@@ -36,7 +34,6 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
   const { roomId, uid, tier, buyIn, reduced, onHandEnd } = opts;
   const [room, setRoom] = useState<PokerRoom | null>(null);
   const actionSeqRef = useRef(0);
-  const startedRef = useRef(false);
   const isHost = room?.hostUid === uid;
   const myPlayer = room?.players[uid];
   const mySeatIndex = myPlayer?.seatIndex ?? 0;
@@ -54,23 +51,6 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     }),
     [tier, buyIn],
   );
-
-  // Host: start game when all active players are ready.
-  useEffect(() => {
-    if (!isHost || !room || room.status !== "lobby" || startedRef.current) return;
-    const active = Object.values(room.players).filter((p) => p.active);
-    if (active.length === 0) return;
-    if (!active.every((p) => p.ready)) return;
-
-    startedRef.current = true;
-    const humans = active.map((p) => ({
-      seatIndex: p.seatIndex,
-      name: p.name,
-      stack: p.stack,
-    }));
-    const gameState = createMultiplayerGame(config, humans);
-    void startRoomGame(roomId, gameState);
-  }, [isHost, room, config, roomId]);
 
   const handleHostStateChange = useCallback(
     (state: GameState) => {

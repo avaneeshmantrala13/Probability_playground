@@ -19,6 +19,7 @@ import { PUBLIC_MATCH_MIN_PLAYERS, PUBLIC_MATCH_START_DELAY_MS } from "../../lib
 import { TABLE_TIERS, type TableTier } from "../../lib/tokens";
 import { formatUsd, multiplayerBuyInPriceCents } from "../../lib/payments/pricing";
 import { TokenPurchaseModal } from "./TokenPurchaseModal";
+import { useHostRoomStart } from "./useHostRoomStart";
 
 type Tab = "friends" | "public";
 
@@ -162,6 +163,14 @@ export function MultiplayerLobby({ bankroll, onJoined, onLeave }: MultiplayerLob
     onLeave();
   };
 
+  const hostStart = useHostRoomStart({
+    roomId: roomId ?? "",
+    uid: user?.uid ?? "",
+    tier,
+    buyIn,
+    room: roomId && room?.status === "lobby" ? room : null,
+  });
+
   if (roomId && room?.status === "lobby") {
     const players = Object.values(room.players).filter((p) => p.active);
     const me = user ? room.players[user.uid] : undefined;
@@ -211,10 +220,29 @@ export function MultiplayerLobby({ bankroll, onJoined, onLeave }: MultiplayerLob
               </button>
             </div>
           )}
-          {user?.uid === room.hostUid && (
-            <p className="mt-3 text-xs text-muted">
-              Game starts when all players are ready.
-            </p>
+          {hostStart.isHost && (
+            <div className="mt-3 space-y-2">
+              {hostStart.allReady ? (
+                hostStart.starting ? (
+                  <p className="text-xs text-muted">Starting game…</p>
+                ) : (
+                  <button
+                    type="button"
+                    className="pp-btn-primary"
+                    onClick={hostStart.startGameManually}
+                  >
+                    Start game
+                  </button>
+                )
+              ) : (
+                <p className="text-xs text-muted">
+                  Game starts when all players are ready.
+                </p>
+              )}
+              {hostStart.startError && (
+                <p className="text-xs text-danger">{hostStart.startError}</p>
+              )}
+            </div>
           )}
         </div>
       </div>
