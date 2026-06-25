@@ -34,7 +34,13 @@ function useBubble(speech: Speech | undefined): string {
   const [bubble, setBubble] = useState<string>("");
   const lastSpeechId = useRef<number>(0);
   useEffect(() => {
-    if (!speech || speech.id === lastSpeechId.current) return;
+    // No speech (e.g. a fresh hand cleared them): drop the bubble immediately so
+    // the talking flag — derived from `bubble` — stops the lip-sync in sync.
+    if (!speech) {
+      setBubble("");
+      return;
+    }
+    if (speech.id === lastSpeechId.current) return;
     lastSpeechId.current = speech.id;
     setBubble(speech.text);
     const t = window.setTimeout(() => setBubble(""), SPEECH_MS);

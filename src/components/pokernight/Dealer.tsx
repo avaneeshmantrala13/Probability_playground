@@ -77,7 +77,9 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
   const active = phase !== "idle";
   const reaching = phase === "deal" || phase === "reveal";
   const shuffling = phase === "shuffle";
-  const talking = (phase === "shuffle" || phase === "deal") && !reduced;
+  // Mouth moves exactly while the dealer's speech bubble (`say`) is visible, and
+  // stops the instant it clears — keeping lip-sync in sync with the bubble.
+  const talking = !!say && !reduced;
   // The dealer emotes too: focused while shuffling, pleased on a reveal, and a
   // clever resting smirk (DEALER_LOOK baseline) otherwise.
   const dealerExpr: Expression =
@@ -122,15 +124,21 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
           <rect x="108" y="117" width="11" height="15" rx="2" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1" transform="rotate(20 113 124)" />
         </g>
 
-        {/* head — centered on the dealer's neck/collar, nudged right */}
-        <g className="pn-fig-head" transform="translate(24.5 -6) scale(0.96)">
-          <Head
-            look={DEALER_LOOK}
-            blink={!reduced}
-            talking={talking}
-            expression={dealerExpr}
-            blinkDelay={0.4}
-          />
+        {/* Head positioning on an OUTER static <g> so the busy `pn-breathe`
+            animation on .pn-fig-head can't override the SVG transform and shove
+            the head off the neck. Head art center x=50; with scale 0.96 that maps
+            to 22 + 0.96*50 = 70 = the dealer's neck/collar center (paths run
+            58..82). The inner .pn-fig-head only carries the breathe bob. */}
+        <g transform="translate(22 -6) scale(0.96)">
+          <g className="pn-fig-head">
+            <Head
+              look={DEALER_LOOK}
+              blink={!reduced}
+              talking={talking}
+              expression={dealerExpr}
+              blinkDelay={0.4}
+            />
+          </g>
         </g>
 
         {/* riffle / bridge shuffle in the dealer's hands (centered) */}
