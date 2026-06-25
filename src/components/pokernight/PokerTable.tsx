@@ -69,6 +69,16 @@ function layoutFor(n: number): Pos[] {
   return LAYOUTS[n] ?? LAYOUTS[6];
 }
 
+/** Map a seat's engine index to a layout slot rotated for the local viewer. */
+function layoutSlotForSeat(
+  seatIndex: number,
+  viewerSeatIndex: number | undefined,
+  seatCount: number,
+): number {
+  if (viewerSeatIndex === undefined) return seatIndex;
+  return (seatIndex - viewerSeatIndex + seatCount) % seatCount;
+}
+
 export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
@@ -191,13 +201,15 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
           </div>
         </div>
 
-        {state.seats.map((seat, i) => (
+        {state.seats.map((seat) => {
+          const slot = layoutSlotForSeat(seat.index, viewerSeatIndex, n);
+          return (
           <PlayerSeat
             key={seat.index}
             seat={seat}
             deck={deck}
             theme={theme}
-            position={positions[i] ?? positions[0]}
+            position={positions[slot] ?? positions[0]}
             isButton={seat.index === state.button && seat.status !== "out"}
             isToAct={state.toAct === seat.index}
             isWinner={winners.has(seat.index)}
@@ -215,7 +227,8 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
             boardLen={state.board.length}
             gazeOverride={gazeOverride}
           />
-        ))}
+          );
+        })}
       </div>
       </div>
     </div>
