@@ -14,6 +14,8 @@ interface PokerFigureProps {
   talking?: boolean;
   /** Game-driven facial expression. */
   expression?: Expression;
+  /** Live gaze offset (eyes ex/ey + subtle head lean hx/hy), head-local units. */
+  gaze?: { ex: number; ey: number; hx: number; hy: number };
   /** Stable per-seat number so idle motion is staggered, not synchronized. */
   seatIndex?: number;
   title?: string;
@@ -43,6 +45,7 @@ function PokerFigureImpl({
   reduced = false,
   talking = false,
   expression = "idle",
+  gaze = { ex: 0, ey: 0, hx: 0, hy: 0 },
   seatIndex = 0,
   title,
 }: PokerFigureProps) {
@@ -201,13 +204,19 @@ function PokerFigureImpl({
           carries the breathe bob, which now composes on top of this positioning. */}
       <g transform={`translate(${CX - 48} -3) scale(0.96)`}>
         <g className="pn-fig-head" style={{ animationDelay: `${-((seatIndex % 5) * 1.3)}s` }}>
-          <Head
-            look={look}
-            blink={!reduced}
-            talking={talking && !reduced}
-            expression={expression}
-            blinkDelay={blinkDelay}
-          />
+          {/* gaze head-lean: a subtle follow toward the look target. Plain group
+              with a CSS-property transform so it glides (.pn-fig-gaze) and composes
+              cleanly on top of the breathe bob without disturbing the centering. */}
+          <g className="pn-fig-gaze" style={{ transform: `translate(${gaze.hx}px, ${gaze.hy}px)` }}>
+            <Head
+              look={look}
+              blink={!reduced}
+              talking={talking && !reduced}
+              expression={expression}
+              blinkDelay={blinkDelay}
+              gaze={{ dx: gaze.ex, dy: gaze.ey }}
+            />
+          </g>
         </g>
       </g>
     </svg>

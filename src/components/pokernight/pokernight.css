@@ -445,6 +445,12 @@
   position: relative;
   width: 100%;
   border-radius: 1rem;
+  /* inward 3/4 orientation: turn each opponent to face the table centre so the
+     ring reads with real depth instead of a row of figures facing the camera.
+     `--pn-yaw` is set per seat (sign + magnitude from its arc position). */
+  transform: perspective(560px) rotateY(var(--pn-yaw, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.33, 0, 0.2, 1);
 }
 /* soft contact shadow that grounds the figure on the felt */
 .pn-figure-wrap::after {
@@ -586,6 +592,15 @@
 }
 .pn-posture-lean.pn-figure-idle .pn-fig-head {
   animation-duration: 4.1s;
+}
+/* gaze: glide the eyes (and a subtle head lean) toward the current look target */
+.pn-fig-gaze {
+  transition: transform 0.6s cubic-bezier(0.33, 0, 0.2, 1);
+  will-change: transform;
+}
+.pn-eye-iris {
+  transition: transform 0.55s cubic-bezier(0.33, 0, 0.2, 1);
+  will-change: transform;
 }
 /* gentle breathing with an organic head micro-movement (not a simple sine) */
 @keyframes pn-breathe {
@@ -978,6 +993,11 @@
     animation: none !important;
   }
   .pn-server { opacity: 0; }
+  /* static inward poses + neutral gaze, no animated darting */
+  .pn-fig-gaze,
+  .pn-eye-iris {
+    transition: none !important;
+  }
   .pn-camera,
   .pn-stage {
     transition: none !important;

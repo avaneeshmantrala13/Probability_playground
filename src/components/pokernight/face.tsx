@@ -29,6 +29,8 @@ interface HeadProps {
   expression?: Expression;
   /** Stagger so figures don't blink / glance in unison (seconds). */
   blinkDelay?: number;
+  /** Where the eyes are looking, head-local units (gaze system). */
+  gaze?: { dx: number; dy: number };
 }
 
 const LINE = "rgb(35 22 14 / 0.34)";
@@ -75,6 +77,7 @@ function HeadImpl({
   talking = false,
   expression = "idle",
   blinkDelay = 0,
+  gaze = { dx: 0, dy: 0 },
 }: HeadProps) {
   const raw = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const skinG = `pn-skin-${raw}`;
@@ -187,7 +190,7 @@ function HeadImpl({
 
       <Hair look={look} grad={`url(#${hairG})`} sheenGrad={`url(#${hairSh})`} />
       <FacialHairMark look={look} />
-      <Eyes look={look} mode={m.eye} blink={blink} blinkDelay={blinkDelay} expression={expression} irisId={irisG} />
+      <Eyes look={look} mode={m.eye} blink={blink} blinkDelay={blinkDelay} gaze={gaze} irisId={irisG} />
       <Brows look={look} mode={m.brow} />
       <Mouth look={look} mode={m.mouth} talking={talking} />
       <Hat look={look} />
@@ -334,14 +337,14 @@ function Eyes({
   mode,
   blink,
   blinkDelay,
-  expression,
+  gaze,
   irisId,
 }: {
   look: CharacterLook;
   mode: EyeMode;
   blink: boolean;
   blinkDelay: number;
-  expression: Expression;
+  gaze: { dx: number; dy: number };
   irisId: string;
 }) {
   // Cool shades persona: eyes hidden behind lenses — emotion reads via brows/mouth.
@@ -392,7 +395,9 @@ function Eyes({
   }
   const irisR = focused ? 2.4 : 2.8;
 
-  const liveClass = expression === "idle" || expression === "think" ? "pn-eyes-live" : "";
+  // expression offset + live gaze, clamped so the iris always stays on the sclera
+  const tx = Math.max(-2.2, Math.min(2.2, dx + gaze.dx));
+  const ty = Math.max(-2.4, Math.min(2.4, dy + gaze.dy));
 
   const lashTop = 46 - whiteRy + 0.3;
   return (
@@ -407,9 +412,9 @@ function Eyes({
       <path d="M36.4 46.7 Q39 48.3 44.4 47.5" fill="none" stroke="#cab6a6" strokeWidth="0.5" opacity="0.5" />
       <path d="M55.6 47.5 Q61 48.3 63.6 46.7" fill="none" stroke="#cab6a6" strokeWidth="0.5" opacity="0.5" />
 
-      {/* layered iris + pupil + dual catchlights (darts subtly while idle) */}
-      <g className={liveClass} style={liveClass ? { animationDelay: `${blinkDelay}s` } : undefined}>
-        <g transform={`translate(${dx} ${dy})`}>
+      {/* layered iris + pupil + dual catchlights; glides toward the gaze target */}
+      <g className="pn-eye-iris" style={{ transform: `translate(${tx}px, ${ty}px)` }}>
+        <g>
           <circle cx="41" cy="46.2" r={irisR} fill={`url(#${irisId})`} />
           <circle cx="59" cy="46.2" r={irisR} fill={`url(#${irisId})`} />
           <circle cx="41" cy="46.2" r={irisR} fill="none" stroke="#1b110a" strokeWidth="0.5" opacity="0.55" />
