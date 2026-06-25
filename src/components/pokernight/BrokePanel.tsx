@@ -1,8 +1,9 @@
 interface BrokePanelProps {
   onComeback: () => void;
+  onBuyTokens?: () => void;
 }
 
-export function BrokePanel({ onComeback }: BrokePanelProps) {
+export function BrokePanel({ onComeback, onBuyTokens }: BrokePanelProps) {
   return (
     <div className="mx-auto max-w-xl">
       <div className="pp-card p-8 text-center">
@@ -16,10 +17,15 @@ export function BrokePanel({ onComeback }: BrokePanelProps) {
           Your bankroll is empty and you can't cover the lowest buy-in. Don't
           sweat it — there's a way back to the felt.
         </p>
-        <div className="mt-6">
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center">
           <button type="button" className="pp-btn-primary" onClick={onComeback}>
             Find a comeback
           </button>
+          {onBuyTokens && (
+            <button type="button" className="pp-btn-secondary" onClick={onBuyTokens}>
+              Buy 1,000 tokens · $0.99
+            </button>
+          )}
         </div>
       </div>
     </div>

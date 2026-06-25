@@ -3,12 +3,18 @@ import { useProgress } from "../context/ProgressContext";
 import type { CosmeticCategory } from "../lib/progress";
 import {
   ACCENT_THEMES,
+  AVATAR_ACCESSORIES,
+  CHIP_STYLES,
   DECK_SKINS,
   TABLE_THEMES,
+  WIN_ANIMATIONS,
 } from "../lib/cosmetics";
 import { CosmeticCard } from "../components/store/CosmeticCard";
 import {
   AccentPreview,
+  AccessoryPreview,
+  AnimationPreview,
+  ChipPreview,
   DeckPreview,
   TablePreview,
 } from "../components/store/CosmeticPreviews";
@@ -19,7 +25,10 @@ type TabId = CosmeticCategory;
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "deckSkin", label: "Card Decks" },
-  { id: "tableTheme", label: "Table Themes" },
+  { id: "tableTheme", label: "Table Felts" },
+  { id: "chipStyle", label: "Chip Styles" },
+  { id: "avatarAccessory", label: "Avatar Gear" },
+  { id: "animation", label: "Win Animations" },
   { id: "accentTheme", label: "Accent Themes" },
 ];
 
@@ -44,8 +53,8 @@ export function Store() {
               Store
             </h1>
             <p className="mt-2 max-w-xl text-secondary">
-              Spend the tokens you win at the poker table on card decks, table
-              themes, and app-wide accent colors. Buy once, equip any time.
+              Premium decks, felts, chips, avatar gear, win animations, and accent
+              colors — your token sink for the high-stakes lifestyle.
             </p>
           </div>
           <span className="pp-card inline-flex items-center gap-2 px-4 py-2.5 text-base font-bold text-primary">
@@ -70,7 +79,7 @@ export function Store() {
                 aria-selected={active}
                 onClick={() => setTab(t.id)}
                 className={[
-                  "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
+                  "rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
                   active
                     ? "bg-surface text-accent shadow-card"
                     : "text-secondary hover:text-primary",
@@ -113,6 +122,54 @@ export function Store() {
               preview={<TablePreview theme={theme} />}
               onBuy={() => purchaseCosmetic(theme.id, theme.price)}
               onEquip={() => equipCosmetic("tableTheme", theme.id)}
+            />
+          ))}
+
+        {tab === "chipStyle" &&
+          CHIP_STYLES.map((chip) => (
+            <CosmeticCard
+              key={chip.id}
+              name={chip.name}
+              description={chip.description}
+              price={chip.price}
+              owned={isOwned(chip.id)}
+              equipped={isEquipped("chipStyle", chip.id)}
+              affordable={tokens >= chip.price}
+              preview={<ChipPreview chip={chip} />}
+              onBuy={() => purchaseCosmetic(chip.id, chip.price)}
+              onEquip={() => equipCosmetic("chipStyle", chip.id)}
+            />
+          ))}
+
+        {tab === "avatarAccessory" &&
+          AVATAR_ACCESSORIES.map((acc) => (
+            <CosmeticCard
+              key={acc.id}
+              name={acc.name}
+              description={acc.description}
+              price={acc.price}
+              owned={isOwned(acc.id)}
+              equipped={isEquipped("avatarAccessory", acc.id)}
+              affordable={tokens >= acc.price}
+              preview={<AccessoryPreview accessory={acc} />}
+              onBuy={() => purchaseCosmetic(acc.id, acc.price)}
+              onEquip={() => equipCosmetic("avatarAccessory", acc.id)}
+            />
+          ))}
+
+        {tab === "animation" &&
+          WIN_ANIMATIONS.map((anim) => (
+            <CosmeticCard
+              key={anim.id}
+              name={anim.name}
+              description={anim.description}
+              price={anim.price}
+              owned={isOwned(anim.id)}
+              equipped={isEquipped("animation", anim.id)}
+              affordable={tokens >= anim.price}
+              preview={<AnimationPreview animation={anim} />}
+              onBuy={() => purchaseCosmetic(anim.id, anim.price)}
+              onEquip={() => equipCosmetic("animation", anim.id)}
             />
           ))}
 

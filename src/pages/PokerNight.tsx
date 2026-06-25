@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import { useProgress } from "../context/ProgressContext";
 import {
   isPokerNightUnlocked,
@@ -8,6 +9,7 @@ import {
   type TableTier,
 } from "../lib/tokens";
 import { getDeckSkin, getTableTheme } from "../lib/cosmetics";
+import { isMultiplayerUnlocked } from "../lib/multiplayer/access";
 import {
   pickPersonas,
   type GameConfig,
@@ -15,23 +17,26 @@ import {
 } from "../lib/poker";
 import { useReducedMotion } from "../components/pokernight/useReducedMotion";
 import { usePokerGame } from "../components/pokernight/usePokerGame";
+import { useMultiplayerGame } from "../components/pokernight/useMultiplayerGame";
 import { ActionBar } from "../components/pokernight/ActionBar";
 import { Lobby } from "../components/pokernight/Lobby";
 import { LockedScreen } from "../components/pokernight/LockedScreen";
 import { BrokePanel } from "../components/pokernight/BrokePanel";
 import { RebuyPanel } from "../components/pokernight/RebuyPanel";
 import { HandResultBanner } from "../components/pokernight/HandResultBanner";
+import { MultiplayerGate } from "../components/pokernight/MultiplayerGate";
+import { MultiplayerLobby } from "../components/pokernight/MultiplayerLobby";
+import { TableChat } from "../components/pokernight/TableChat";
+import { TokenPurchaseModal } from "../components/pokernight/TokenPurchaseModal";
 
-// The immersive casino scene (perspective room, seated SVG figures, standing
-// dealer, all its CSS) is the only heavy piece of Poker Night. It's lazy-loaded
-// so it ships as its own chunk and never bloats the rest of the app's bundle —
-// it loads only once the player actually sits down at the in-game table.
 const PokerTable = lazy(() => import("../components/pokernight/PokerTable"));
+
+type Mode = "single" | "multiplayer";
+type MpSession = { roomId: string; tier: TableTier; buyIn: number; key: number };
 
 export function PokerNight() {
   const { progress, loading, seedPokerTokens } = useProgress();
 
-  // Grant the one-time starting stake as soon as the capstone is available.
   useEffect(() => {
     if (!loading && isPokerNightUnlocked(progress)) seedPokerTokens();
   }, [loading, progress, seedPokerTokens]);
@@ -55,9 +60,18 @@ export default PokerNight;
 
 function PokerNightUnlocked() {
   const { progress, addTokens, spendTokens } = useProgress();
-  const [seat, setSeat] = useState<{ tier: TableTier; buyIn: number; key: number } | null>(
-    null,
-  );
+  const [searchParams] = useSearchParams();
+  const [mode, setMode] = useState<Mode>("single");
+  const [mpGatePassed, setMpGatePassed] = useState(() => isMultiplayerUnlocked(progress));
+  const [seat, setSeat] = useState<{ tier: TableTier; buyIn: number; key: number } | null>(null);
+  const [mpSession, setMpSession] = useState<MpSession | null>(null);
+  const [checkoutMsg, setCheckoutMsg] = useState("");
+
+  useEffect(() => {
+    const checkout = searchParams.get("checkout");
+    if (checkout === "success") setCheckoutMsg("Payment successful — tokens will appear shortly.");
+    if (checkout === "cancel") setCheckoutMsg("Checkout cancelled.");
+  }, [searchParams]);
 
   const handleSit = (tier: TableTier, buyIn: number) => {
     if (!spendTokens(buyIn)) return;
@@ -69,6 +83,10 @@ function PokerNightUnlocked() {
     setSeat(null);
   };
 
+  const handleMpJoined = (roomId: string, tier: TableTier, buyIn: number) => {
+    setMpSession({ roomId, tier, buyIn, key: Date.now() });
+  };
+
   return (
     <div className="mx-auto max-w-5xl">
       <header className="mb-5">
@@ -76,23 +94,67 @@ function PokerNightUnlocked() {
           Poker Night
         </h1>
         <p className="mt-1 max-w-2xl text-secondary">
-          Your capstone reward. Put your probability skills to the test against
-          math-driven bots in no-limit Texas Hold'em.
+          Single-player bots or multiplayer with friends and public matchmaking.
         </p>
+        {checkoutMsg && (
+          <p className="mt-2 text-sm font-medium text-accent">{checkoutMsg}</p>
+        )}
       </header>
 
-      {seat ? (
-        <PokerSession
-          key={seat.key}
-          tier={seat.tier}
-          buyIn={seat.buyIn}
+      <div className="mb-4 inline-flex gap-1 rounded-xl bg-surface-muted p-1">
+        <button
+          type="button"
+          onClick={() => setMode("single")}
+          className={`rounded-lg px-4 py-2 text-sm font-semibold ${
+            mode === "single" ? "bg-surface text-accent shadow-card" : "text-secondary"
+          }`}
+        >
+          Single player
+        </button>
+        <button
+          type="button"
+          onClick={() => setMode("multiplayer")}
+          className={`rounded-lg px-4 py-2 text-sm font-semibold ${
+            mode === "multiplayer" ? "bg-surface text-accent shadow-card" : "text-secondary"
+          }`}
+        >
+          Multiplayer
+        </button>
+      </div>
+
+      {mode === "single" ? (
+        seat ? (
+          <PokerSession
+            key={seat.key}
+            tier={seat.tier}
+            buyIn={seat.buyIn}
+            bankroll={progress.tokens ?? 0}
+            onCashOut={handleCashOut}
+            deckSkinId={progress.equipped?.deckSkin ?? "deck-classic"}
+            tableThemeId={progress.equipped?.tableTheme ?? "table-classic-green"}
+          />
+        ) : (
+          <Lobby bankroll={progress.tokens ?? 0} onSit={handleSit} />
+        )
+      ) : mpSession ? (
+        <MultiplayerSession
+          key={mpSession.key}
+          roomId={mpSession.roomId}
+          tier={mpSession.tier}
+          buyIn={mpSession.buyIn}
           bankroll={progress.tokens ?? 0}
-          onCashOut={handleCashOut}
+          onLeave={() => setMpSession(null)}
           deckSkinId={progress.equipped?.deckSkin ?? "deck-classic"}
           tableThemeId={progress.equipped?.tableTheme ?? "table-classic-green"}
         />
+      ) : !mpGatePassed ? (
+        <MultiplayerGate onUnlocked={() => setMpGatePassed(true)} />
       ) : (
-        <Lobby bankroll={progress.tokens ?? 0} onSit={handleSit} />
+        <MultiplayerLobby
+          bankroll={progress.tokens ?? 0}
+          onJoined={handleMpJoined}
+          onLeave={() => setMode("single")}
+        />
       )}
     </div>
   );
@@ -125,6 +187,7 @@ function PokerSession({
   const theme = getTableTheme(tableThemeId);
 
   const [phase, setPhase] = useState<Phase>("playing");
+  const [showPurchase, setShowPurchase] = useState(false);
   const bankrollRef = useRef(bankroll);
   bankrollRef.current = bankroll;
 
@@ -135,7 +198,6 @@ function PokerSession({
     botStack: Math.max(tier.minBuyIn, Math.min(tier.maxBuyIn, buyIn)),
   };
 
-  // Personas are picked once for the lifetime of this session.
   const personasRef = useRef(pickPersonas(tier.opponents));
 
   const handleHandEnd = (info: { result: HandResult; humanStack: number }) => {
@@ -151,7 +213,6 @@ function PokerSession({
       if (bank < TABLE_TIERS[0].minBuyIn) {
         setPhase("broke");
       } else if (bank < tier.minBuyIn) {
-        // Can't rebuy this table — cash out the (empty) stack and head back.
         onCashOut(0);
       } else {
         setPhase("busted");
@@ -192,7 +253,10 @@ function PokerSession({
   };
 
   const handleRebuy = (amount: number) => {
-    if (!spendTokens(amount)) return;
+    if (!spendTokens(amount)) {
+      setShowPurchase(true);
+      return;
+    }
     rebuy(amount);
     setPhase("playing");
     dealNext();
@@ -203,51 +267,30 @@ function PokerSession({
   };
 
   const handleComeback = () => {
-    // Cash out whatever's left (likely 0), then route to the comeback flow.
     if (humanSeat.stack > 0) addTokens(humanSeat.stack);
     navigate("/comeback");
   };
 
   if (phase === "broke") {
-    return <BrokePanel onComeback={handleComeback} />;
+    return (
+      <>
+        <BrokePanel onComeback={handleComeback} onBuyTokens={() => setShowPurchase(true)} />
+        {showPurchase && (
+          <TokenPurchaseModal kind="sp_tokens" onClose={() => setShowPurchase(false)} />
+        )}
+      </>
+    );
   }
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2 text-sm">
-          <span className="pp-card px-3 py-1.5 font-semibold text-primary">
-            {tier.name}
-          </span>
-          <span className="pp-card px-3 py-1.5 text-secondary">
-            Blinds {tier.smallBlind}/{tier.bigBlind}
-          </span>
-          <span className="pp-card px-3 py-1.5 text-primary">
-            Stack:{" "}
-            <span className="font-mono font-semibold text-accent">
-              {humanSeat.stack.toLocaleString()}
-            </span>
-          </span>
-          <span className="pp-card px-3 py-1.5 text-primary">
-            Bankroll:{" "}
-            <span className="font-mono font-semibold">{bankroll.toLocaleString()}</span>
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Link to="/store" className="pp-btn-secondary">
-            Store
-          </Link>
-          <button
-            type="button"
-            className="pp-btn-secondary"
-            onClick={handleLeave}
-            disabled={!handComplete}
-            title={handComplete ? "Cash out and leave" : "You can leave between hands"}
-          >
-            Leave table
-          </button>
-        </div>
-      </div>
+      <SessionHeader
+        tier={tier}
+        stack={humanSeat.stack}
+        bankroll={bankroll}
+        onLeave={handleLeave}
+        leaveDisabled={!handComplete}
+      />
 
       <Suspense
         fallback={
@@ -285,6 +328,162 @@ function PokerSession({
           onAction={act}
         />
       )}
+
+      {showPurchase && (
+        <TokenPurchaseModal kind="sp_tokens" onClose={() => setShowPurchase(false)} />
+      )}
+    </div>
+  );
+}
+
+interface MultiplayerSessionProps {
+  roomId: string;
+  tier: TableTier;
+  buyIn: number;
+  bankroll: number;
+  onLeave: () => void;
+  deckSkinId: string;
+  tableThemeId: string;
+}
+
+function MultiplayerSession({
+  roomId,
+  tier,
+  buyIn,
+  bankroll,
+  onLeave,
+  deckSkinId,
+  tableThemeId,
+}: MultiplayerSessionProps) {
+  const { user } = useAuth();
+  const reduced = useReducedMotion();
+  const { recordPokerHand, addTokens } = useProgress();
+  const deck = getDeckSkin(deckSkinId);
+  const theme = getTableTheme(tableThemeId);
+  const mySeatIndexRef = useRef(0);
+
+  const game = useMultiplayerGame({
+    roomId,
+    uid: user!.uid,
+    tier,
+    buyIn,
+    reduced,
+    onHandEnd: ({ result, humanStack }) => {
+      recordPokerHand({
+        won: (result.netBySeat[mySeatIndexRef.current] ?? 0) > 0,
+        potSize: result.totalPot,
+        busted: humanStack === 0,
+      });
+    },
+  });
+
+  mySeatIndexRef.current = game.mySeatIndex;
+
+  const { room, state, legal, isHumanTurn, humanEquity, thinking, speeches, expressions, act, dealNext, mySeatIndex } = game;
+  const handComplete = state.stage === "complete";
+  const myStack = state.seats[mySeatIndex]?.stack ?? 0;
+
+  const handleLeave = () => {
+    addTokens(myStack);
+    onLeave();
+  };
+
+  if (!room) {
+    return <p className="text-muted">Connecting to table…</p>;
+  }
+
+  return (
+    <div className="space-y-4">
+      <SessionHeader
+        tier={tier}
+        stack={myStack}
+        bankroll={bankroll}
+        onLeave={handleLeave}
+        leaveDisabled={!handComplete}
+        badge="Multiplayer"
+      />
+      <div className="grid gap-4 lg:grid-cols-[1fr_240px]">
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center rounded-2xl bg-black/40 py-24 text-sm text-muted">
+              Entering the casino…
+            </div>
+          }
+        >
+          <PokerTable
+            state={state}
+            deck={deck}
+            theme={theme}
+            reduced={reduced}
+            speeches={speeches}
+            expressions={expressions}
+          />
+        </Suspense>
+        {user && <TableChat roomId={roomId} uid={user.uid} room={room} />}
+      </div>
+      {handComplete ? (
+        <HandResultBanner state={state} canDeal onNext={dealNext} />
+      ) : (
+        <ActionBar
+          state={state}
+          legal={legal}
+          enabled={isHumanTurn}
+          humanEquity={humanEquity}
+          thinking={thinking}
+          onAction={act}
+        />
+      )}
+    </div>
+  );
+}
+
+function SessionHeader({
+  tier,
+  stack,
+  bankroll,
+  onLeave,
+  leaveDisabled,
+  badge,
+}: {
+  tier: TableTier;
+  stack: number;
+  bankroll: number;
+  onLeave: () => void;
+  leaveDisabled: boolean;
+  badge?: string;
+}) {
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center gap-2 text-sm">
+        {badge && (
+          <span className="pp-card px-3 py-1.5 font-semibold text-accent">{badge}</span>
+        )}
+        <span className="pp-card px-3 py-1.5 font-semibold text-primary">{tier.name}</span>
+        <span className="pp-card px-3 py-1.5 text-secondary">
+          Blinds {tier.smallBlind}/{tier.bigBlind}
+        </span>
+        <span className="pp-card px-3 py-1.5 text-primary">
+          Stack:{" "}
+          <span className="font-mono font-semibold text-accent">{stack.toLocaleString()}</span>
+        </span>
+        <span className="pp-card px-3 py-1.5 text-primary">
+          Bankroll:{" "}
+          <span className="font-mono font-semibold">{bankroll.toLocaleString()}</span>
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <Link to="/store" className="pp-btn-secondary">
+          Store
+        </Link>
+        <button
+          type="button"
+          className="pp-btn-secondary"
+          onClick={onLeave}
+          disabled={leaveDisabled}
+        >
+          Leave table
+        </button>
+      </div>
     </div>
   );
 }

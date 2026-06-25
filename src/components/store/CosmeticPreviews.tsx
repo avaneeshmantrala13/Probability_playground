@@ -1,6 +1,13 @@
 import type { CSSProperties } from "react";
 import { SpadeIcon } from "../icons";
-import type { AccentTheme, DeckSkin, TableTheme } from "../../lib/cosmetics";
+import type {
+  AccentTheme,
+  AvatarAccessory,
+  ChipStyle,
+  DeckSkin,
+  TableTheme,
+  WinAnimation,
+} from "../../lib/cosmetics";
 
 /** Mini card-back preview rendering the skin's surface, border, ink + pattern. */
 export function DeckPreview({ skin }: { skin: DeckSkin }) {
@@ -72,6 +79,45 @@ export function AccentPreview({ theme }: { theme: AccentTheme }) {
     >
       <div className="flex-1" style={{ background: a }} />
       <div className="flex-1" style={{ background: b }} />
+    </div>
+  );
+}
+
+export function ChipPreview({ chip }: { chip: ChipStyle }) {
+  return (
+    <div
+      className="flex h-28 w-28 items-center justify-center rounded-full border-4 shadow-lg"
+      style={{ background: chip.face, borderColor: chip.edge }}
+      role="img"
+      aria-label={`${chip.name} chip`}
+    >
+      <span className="text-sm font-bold" style={{ color: chip.edge }}>
+        {chip.label}
+      </span>
+    </div>
+  );
+}
+
+export function AccessoryPreview({ accessory }: { accessory: AvatarAccessory }) {
+  return (
+    <div
+      className="flex h-28 w-28 items-center justify-center rounded-full bg-surface-muted text-4xl"
+      role="img"
+      aria-label={`${accessory.name} accessory`}
+    >
+      {accessory.emoji || "—"}
+    </div>
+  );
+}
+
+export function AnimationPreview({ animation }: { animation: WinAnimation }) {
+  return (
+    <div
+      className={`flex h-28 w-full items-center justify-center rounded-2xl bg-surface-muted ${animation.cssClass}`}
+      role="img"
+      aria-label={`${animation.name} animation`}
+    >
+      <span className="text-sm font-semibold text-secondary">Win!</span>
     </div>
   );
 }
