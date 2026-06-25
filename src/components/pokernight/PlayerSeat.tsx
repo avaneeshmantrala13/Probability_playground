@@ -3,7 +3,7 @@ import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { Seat } from "../../lib/poker";
 import { getLook } from "./characters";
 import { PlayingCard } from "./PlayingCard";
-import { PokerAvatar } from "./PokerAvatar";
+import { PokerFigure } from "./PokerFigure";
 import type { Speech } from "./usePokerGame";
 
 interface PlayerSeatProps {
@@ -16,8 +16,8 @@ interface PlayerSeatProps {
   /** Reveal a bot's hole cards (showdown). */
   reveal: boolean;
   reduced: boolean;
-  position: { top: string; left: string };
-  /** The human seat is rendered larger / front-and-center. */
+  position: { top: string; left: string; scale?: number };
+  /** The human seat is rendered as a first-person dock at the bottom. */
   isHero: boolean;
   /** Bumps to retrigger the deal animation on a fresh hand. */
   dealKey: number;
@@ -27,6 +27,19 @@ interface PlayerSeatProps {
 
 /** How long an action speech bubble stays up. */
 const SPEECH_MS = 2200;
+
+function useBubble(speech: Speech | undefined): string {
+  const [bubble, setBubble] = useState<string>("");
+  const lastSpeechId = useRef<number>(0);
+  useEffect(() => {
+    if (!speech || speech.id === lastSpeechId.current) return;
+    lastSpeechId.current = speech.id;
+    setBubble(speech.text);
+    const t = window.setTimeout(() => setBubble(""), SPEECH_MS);
+    return () => window.clearTimeout(t);
+  }, [speech]);
+  return bubble;
+}
 
 function PlayerSeatImpl({
   seat,
@@ -47,120 +60,123 @@ function PlayerSeatImpl({
   const showFaces = seat.isHuman || reveal;
   const dealAnim = reduced ? "" : "pn-anim-deal";
   const look = getLook(seat.persona, seat.isHuman);
+  const bubble = useBubble(speech);
 
-  // Short-lived speech bubble: shows whenever a new speech id arrives.
-  const [bubble, setBubble] = useState<string>("");
-  const lastSpeechId = useRef<number>(0);
-  useEffect(() => {
-    if (!speech || speech.id === lastSpeechId.current) return;
-    lastSpeechId.current = speech.id;
-    setBubble(speech.text);
-    const t = window.setTimeout(() => setBubble(""), SPEECH_MS);
-    return () => window.clearTimeout(t);
-  }, [speech]);
+  const wrapStyle: CSSProperties = {
+    top: position.top,
+    left: position.left,
+    ["--pn-seat-scale" as string]: String(position.scale ?? 1),
+  };
 
-  const ring: CSSProperties = isToAct
-    ? { boxShadow: `0 0 0 3px ${theme.glow}, 0 0 18px ${theme.glow}` }
-    : {};
-
-  const cardSize = isHero ? "lg" : "sm";
-
-  return (
+  const nameplate = (
     <div
-      className={`pn-seat ${isHero ? "pn-seat-hero" : ""}`}
-      style={{ top: position.top, left: position.left }}
+      className={`pn-nameplate ${isToAct ? "pn-nameplate-active" : ""} ${
+        folded || out ? "opacity-50" : ""
+      }`}
+      style={{
+        color: theme.text,
+        ...(isToAct ? { boxShadow: `0 0 0 2px ${theme.glow}, 0 0 16px ${theme.glow}` } : {}),
+      }}
     >
-      {/* speech bubble (above the character) */}
-      {bubble && !out && (
+      <span className="flex items-center gap-1">
+        <span className="max-w-[7rem] truncate font-semibold">{seat.name}</span>
+        {isButton && (
+          <span className="pn-dealer-btn" title="Dealer button">
+            D
+          </span>
+        )}
+      </span>
+      <span className="flex items-center gap-1.5">
+        <span className="font-mono tabular-nums opacity-90">
+          {seat.stack.toLocaleString()}
+        </span>
+        {seat.status === "allin" && (
+          <span className="rounded bg-rose-500/80 px-1 text-[0.58rem] font-bold uppercase text-white">
+            All-in
+          </span>
+        )}
+      </span>
+    </div>
+  );
+
+  const holeCards = (
+    <div className={`pn-hole ${isHero ? "pn-hole-hero" : ""}`}>
+      {seat.holeCards.length === 0 ? (
+        <span className="opacity-40 text-xs">—</span>
+      ) : (
+        seat.holeCards.map((c, i) => (
+          <PlayingCard
+            key={`${dealKey}-${i}-${c}`}
+            card={c}
+            faceDown={!showFaces}
+            deck={deck}
+            size={isHero ? "lg" : "sm"}
+            animClass={dealAnim}
+            style={reduced ? undefined : { animationDelay: `${i * 90}ms` }}
+          />
+        ))
+      )}
+    </div>
+  );
+
+  const betChip = seat.roundBet > 0 && (
+    <div className="pn-seat-bet">
+      <span className="pn-chip">
+        <span aria-hidden>🪙</span>
+        {seat.roundBet.toLocaleString()}
+      </span>
+    </div>
+  );
+
+  // ---- First-person hero dock (the player, seen from their own eyes) ----
+  if (isHero) {
+    return (
+      <div className="pn-seat pn-hero-dock" style={wrapStyle}>
+        {bubble && !out && (
+          <div className="pn-speech" style={{ ["--pn-speech-accent" as string]: look.accent }}>
+            {bubble}
+          </div>
+        )}
         <div
-          className={`pn-speech ${reduced ? "" : "pn-anim-bubble"}`}
-          style={{
-            ["--pn-speech-accent" as string]: look.accent,
-          }}
+          className={`pn-hero-cards ${isWinner && !reduced ? "pn-winner" : ""}`}
+          style={isToAct ? { boxShadow: `0 0 0 2px ${theme.glow}, 0 0 26px ${theme.glow}` } : {}}
         >
+          {holeCards}
+        </div>
+        {nameplate}
+        {betChip}
+      </div>
+    );
+  }
+
+  // ---- Opponent: a full seated figure across the table ----
+  return (
+    <div className="pn-seat" style={wrapStyle}>
+      {bubble && !out && (
+        <div className="pn-speech" style={{ ["--pn-speech-accent" as string]: look.accent }}>
           {bubble}
         </div>
       )}
 
-      <div
-        className={`pn-seat-card rounded-2xl px-2.5 py-2 text-center transition-opacity ${
-          folded || out ? "opacity-45" : "opacity-100"
-        } ${isWinner && !reduced ? "pn-winner" : ""}`}
-        style={{
-          background: "rgb(0 0 0 / 0.34)",
-          backdropFilter: "blur(3px)",
-          color: theme.text,
-          ...ring,
-        }}
-      >
-        {/* character + identity */}
-        <div className="flex items-center justify-center gap-2">
-          <PokerAvatar
-            look={look}
-            size={isHero ? 60 : 44}
-            active={isToAct}
-            dimmed={folded || out}
-            title={seat.name}
-          />
-          <div className="min-w-0 text-left">
-            <div className="flex items-center gap-1 text-sm font-semibold leading-tight">
-              <span className="max-w-[6.5rem] truncate">{seat.name}</span>
-              {isButton && (
-                <span
-                  className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-white text-[0.6rem] font-extrabold text-black"
-                  title="Dealer button"
-                >
-                  D
-                </span>
-              )}
-            </div>
-            <div className="flex items-center gap-1.5 text-xs leading-tight">
-              <span className="font-mono tabular-nums opacity-90">
-                {seat.stack.toLocaleString()}
-              </span>
-              {seat.status === "allin" && (
-                <span className="rounded bg-rose-500/80 px-1 text-[0.6rem] font-bold uppercase text-white">
-                  All-in
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* hole cards */}
-        <div className={`mt-1.5 flex items-center justify-center gap-1 ${isHero ? "gap-1.5" : ""}`}>
-          {seat.holeCards.length === 0 ? (
-            <span className="opacity-40 text-xs">—</span>
-          ) : (
-            seat.holeCards.map((c, i) => (
-              <PlayingCard
-                key={`${dealKey}-${i}-${c}`}
-                card={c}
-                faceDown={!showFaces}
-                deck={deck}
-                size={cardSize}
-                animClass={dealAnim}
-                style={reduced ? undefined : { animationDelay: `${i * 90}ms` }}
-              />
-            ))
-          )}
-        </div>
-
-        {seat.lastAction && !out && (
-          <div className="mt-0.5 text-[0.62rem] uppercase tracking-wide opacity-70">
-            {seat.lastAction}
-          </div>
-        )}
-
-        {seat.roundBet > 0 && (
-          <div className="mt-1 flex justify-center">
-            <span className="pn-chip">
-              <span aria-hidden>🪙</span>
-              {seat.roundBet.toLocaleString()}
-            </span>
-          </div>
-        )}
+      <div className={`pn-figure-wrap ${isWinner && !reduced ? "pn-winner" : ""}`}>
+        <PokerFigure
+          look={look}
+          active={isToAct}
+          dimmed={folded || out}
+          reduced={reduced}
+          talking={!!bubble && !out}
+          seatIndex={seat.index}
+          title={seat.name}
+        />
+        {!out && <div className="pn-figure-cards">{holeCards}</div>}
+        {betChip}
       </div>
+
+      {nameplate}
+
+      {seat.lastAction && !out && (
+        <div className="pn-last-action">{seat.lastAction}</div>
+      )}
     </div>
   );
 }

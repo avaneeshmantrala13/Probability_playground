@@ -6,14 +6,23 @@ import type { Persona } from "../../lib/poker";
  * These looks are pure presentation data (no runtime API/LLM calls). Each one is
  * keyed to a persona id from `src/lib/poker/personalities.ts` so an opponent's
  * appearance matches their playing personality. The shapes are drawn
- * parametrically by `PokerAvatar.tsx`.
+ * parametrically by `face.tsx` (head + features) and `PokerFigure.tsx`
+ * (seated full body), so every player reads as a distinct, real-looking person.
  */
 
-export type HairStyle = "short" | "slick" | "long" | "buzz" | "bald" | "tuft";
-export type HatStyle = "top" | "cap" | "visor" | "headband" | "none";
+export type HairStyle = "short" | "slick" | "long" | "buzz" | "bald" | "tuft" | "afro";
+export type HatStyle = "top" | "cap" | "visor" | "headband" | "fedora" | "none";
 export type EyeStyle = "normal" | "shades" | "glasses" | "focused";
 export type BrowStyle = "angry" | "calm" | "raised" | "neutral";
 export type MouthStyle = "smile" | "smirk" | "grin" | "flat" | "tough" | "open";
+/** Facial hair adds a lot of person-to-person variety. */
+export type FacialHair = "none" | "stubble" | "mustache" | "goatee" | "beard" | "fullbeard";
+/** Body build drives torso/shoulder width on the seated figure. */
+export type Build = "slim" | "average" | "broad";
+/** Seated posture nudges shoulder height / lean so figures don't look cloned. */
+export type Posture = "lean" | "upright" | "relaxed";
+/** A small accessory at the neck/ear for extra individuality. */
+export type Accessory = "none" | "tie" | "bowtie" | "scarf" | "chain" | "earring";
 
 export interface CharacterLook {
   /** Face skin tone. */
@@ -27,12 +36,18 @@ export interface CharacterLook {
   eyes: EyeStyle;
   brow: BrowStyle;
   mouth: MouthStyle;
+  facialHair: FacialHair;
   /** Shirt / outfit fill. */
   outfit: string;
   /** Collar / tie / trim accent on the outfit. */
   outfitTrim: string;
   /** Ring + glow accent that frames the whole character. */
   accent: string;
+  build: Build;
+  posture: Posture;
+  accessory: Accessory;
+  /** Optional freckles dusting (e.g. Lucky). */
+  freckles?: boolean;
 }
 
 /** The human ("You") — a neutral, friendly hero look. */
@@ -46,30 +61,38 @@ export const HUMAN_LOOK: CharacterLook = {
   eyes: "normal",
   brow: "neutral",
   mouth: "smile",
+  facialHair: "none",
   outfit: "#2563eb",
   outfitTrim: "#bfdbfe",
   accent: "#60a5fa",
+  build: "average",
+  posture: "upright",
+  accessory: "none",
 };
 
-/** The non-playing croupier at the top of the table. */
+/** The non-playing croupier — sharp, clever, attentive house dealer in a suit. */
 export const DEALER_LOOK: CharacterLook = {
-  skin: "#f0c9a0",
-  skinShade: "#dba778",
-  hair: "#2b2b33",
+  skin: "#d9ae82",
+  skinShade: "#bd8d5f",
+  hair: "#1c1c24",
   hairStyle: "slick",
-  hat: "visor",
+  hat: "none",
   hatColor: "#0f766e",
-  eyes: "normal",
-  brow: "calm",
-  mouth: "smile",
-  outfit: "#0f172a",
-  outfitTrim: "#e2e8f0",
+  eyes: "glasses",
+  brow: "raised",
+  mouth: "smirk",
+  facialHair: "none",
+  outfit: "#0b1020",
+  outfitTrim: "#f1f5f9",
   accent: "#38bdf8",
+  build: "average",
+  posture: "upright",
+  accessory: "bowtie",
 };
 
 /** Per-persona looks, keyed by persona id. */
 const LOOKS: Record<string, CharacterLook> = {
-  // Dot — warm, theatrical host in a magician's top hat.
+  // Dot — warm, theatrical host in a magician's top hat & bowtie.
   "dealer-dot": {
     skin: "#f3cba3",
     skinShade: "#e0ab78",
@@ -80,26 +103,34 @@ const LOOKS: Record<string, CharacterLook> = {
     eyes: "normal",
     brow: "raised",
     mouth: "grin",
+    facialHair: "mustache",
     outfit: "#6d28d9",
     outfitTrim: "#f5d0fe",
     accent: "#c084fc",
+    build: "average",
+    posture: "upright",
+    accessory: "bowtie",
   },
-  // Rocky — aggressive brawler with a red headband and a tough scowl.
+  // Rocky — aggressive brawler: broad, leaning in, red headband, gold chain.
   rocky: {
-    skin: "#d79a6a",
-    skinShade: "#bd7f50",
-    hair: "#1c140e",
+    skin: "#a96f44",
+    skinShade: "#8d5a35",
+    hair: "#150f0a",
     hairStyle: "buzz",
     hat: "headband",
     hatColor: "#dc2626",
     eyes: "focused",
     brow: "angry",
     mouth: "tough",
+    facialHair: "goatee",
     outfit: "#b91c1c",
     outfitTrim: "#fca5a5",
     accent: "#f87171",
+    build: "broad",
+    posture: "lean",
+    accessory: "chain",
   },
-  // Nova — precise mathematician in studious glasses.
+  // Nova — precise mathematician: slim, upright, glasses, neat tie.
   nova: {
     skin: "#e7be98",
     skinShade: "#cfa178",
@@ -110,11 +141,15 @@ const LOOKS: Record<string, CharacterLook> = {
     eyes: "glasses",
     brow: "calm",
     mouth: "flat",
+    facialHair: "none",
     outfit: "#0f766e",
     outfitTrim: "#99f6e4",
     accent: "#2dd4bf",
+    build: "slim",
+    posture: "upright",
+    accessory: "tie",
   },
-  // Lucky — freckled, grinning gambler under a green flat cap.
+  // Lucky — freckled, grinning gambler under a green flat cap, hoop earring.
   lucky: {
     skin: "#f0c19b",
     skinShade: "#d9a472",
@@ -125,26 +160,35 @@ const LOOKS: Record<string, CharacterLook> = {
     eyes: "normal",
     brow: "raised",
     mouth: "grin",
+    facialHair: "stubble",
     outfit: "#16a34a",
     outfitTrim: "#bbf7d0",
     accent: "#4ade80",
+    build: "average",
+    posture: "relaxed",
+    accessory: "earring",
+    freckles: true,
   },
-  // Sterling ("shark") — slick high-roller in dark shades.
+  // Sterling ("shark") — deep-skinned slick high-roller in dark shades & suit.
   shark: {
-    skin: "#dcae84",
-    skinShade: "#c2925f",
-    hair: "#15171c",
+    skin: "#7c5230",
+    skinShade: "#653f22",
+    hair: "#100f14",
     hairStyle: "slick",
     hat: "none",
     hatColor: "#000",
     eyes: "shades",
     brow: "neutral",
     mouth: "smirk",
+    facialHair: "goatee",
     outfit: "#1f2937",
-    outfitTrim: "#94a3b8",
+    outfitTrim: "#cbd5e1",
     accent: "#38bdf8",
+    build: "broad",
+    posture: "relaxed",
+    accessory: "tie",
   },
-  // River — serene, long-haired, calm under pressure.
+  // River — serene, long-haired, calm under pressure, soft beard & scarf.
   river: {
     skin: "#e9c4a0",
     skinShade: "#d2a87f",
@@ -155,9 +199,13 @@ const LOOKS: Record<string, CharacterLook> = {
     eyes: "normal",
     brow: "calm",
     mouth: "smile",
+    facialHair: "beard",
     outfit: "#0369a1",
     outfitTrim: "#bae6fd",
     accent: "#38bdf8",
+    build: "slim",
+    posture: "relaxed",
+    accessory: "scarf",
   },
 };
 
@@ -171,9 +219,13 @@ const FALLBACK: CharacterLook = {
   eyes: "normal",
   brow: "neutral",
   mouth: "smile",
+  facialHair: "none",
   outfit: "#475569",
   outfitTrim: "#cbd5e1",
   accent: "#94a3b8",
+  build: "average",
+  posture: "upright",
+  accessory: "none",
 };
 
 /** Resolve the look for a seat's persona (human/unknown -> sensible defaults). */
