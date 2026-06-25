@@ -3,7 +3,7 @@ import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { Seat } from "../../lib/poker";
 import { getLook, type Expression } from "./characters";
 import { PlayingCard } from "./PlayingCard";
-import { PokerFigure } from "./PokerFigure";
+import { PokerFigure, figureScale } from "./PokerFigure";
 import type { Speech } from "./usePokerGame";
 import { useGaze, type GazeOverride } from "./useGaze";
 
@@ -90,13 +90,17 @@ function PlayerSeatImpl({
   const hx = Number.isFinite(leftPct) ? (leftPct - 50) / 43 : 0;
   const near = Number.isFinite(topPct) ? Math.max(0, Math.min(1, (topPct - 28) / 30)) : 0.5;
   const side = hx === 0 ? 0 : hx < 0 ? -1 : 1;
-  const bodyYaw = Math.max(-72, Math.min(72, -hx * 78 * (0.78 + 0.22 * near)));
-  // The head yaws BACK ~60% of the body turn so a seated player still shows ~3/4
-  // of their face across the table (we can read the expression + gaze).
-  const headYaw = -bodyYaw * 0.6;
-  // Normalized turn (sign = which way the body faces) drives the figure's volume
-  // shading so the rotated torso reads round, not like a flat sheared panel.
-  const turn = bodyYaw / 72;
+  // `turn` (-1..1) is the body's angle around the ring. It now mainly drives the
+  // SVG torso SILHOUETTE (foreshortening + side contour) so the body reads as a
+  // rounded volume turned in space. The CSS rotateY is kept GENTLE on top (the
+  // shape carries the turn) to add a little plane-depth without shearing a slab.
+  const turn = Math.max(-1, Math.min(1, -hx * (0.82 + 0.18 * near)));
+  const bodyYaw = turn * 32;
+  // The head yaws BACK ~half the body turn so a seated player still shows ~3/4 of
+  // their face across the table (we can read the expression + gaze).
+  const headYaw = -bodyYaw * 0.5;
+  // Distinct per-persona overall scale (heavyset/broad larger, petite smaller).
+  const figScale = figureScale(look.build);
 
   // Live gaze (eyes + subtle head lean). Hook is called unconditionally; the
   // hero path below simply ignores it. Inert under reduced motion / fixed override.
@@ -213,6 +217,7 @@ function PlayerSeatImpl({
         style={{
           ["--pn-yaw" as string]: `${bodyYaw}deg`,
           ["--pn-head-yaw" as string]: `${headYaw}deg`,
+          ["--pn-fig-scale" as string]: String(figScale),
         }}
       >
         <PokerFigure

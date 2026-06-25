@@ -519,8 +519,8 @@
      turn hardest, toward profile; far/top-centre seats stay near-frontal). The
      figure is flattened to a single rotated plane (no preserve-3d) so the head's
      own counter-turn composes predictably on top. */
-  transform: perspective(540px) rotateY(var(--pn-yaw, 0deg));
-  transform-origin: 50% 72%;
+  transform: perspective(540px) rotateY(var(--pn-yaw, 0deg)) scale(var(--pn-fig-scale, 1));
+  transform-origin: 50% 80%;
   transition: transform 0.5s cubic-bezier(0.33, 0, 0.2, 1);
 }
 /* soft contact shadow that grounds the figure on the felt */
@@ -681,6 +681,26 @@
 .pn-eye-iris {
   transition: transform 0.55s cubic-bezier(0.33, 0, 0.2, 1);
   will-change: transform;
+}
+
+/* cigar smoke: an occasional puff that drifts up and fades (GPU transform/opacity).
+   Invisible at rest; one puff every ~6.5s. Forced frequent in the harness via an
+   ancestor .pn-puff-force, and fully disabled under reduced motion. */
+.pn-cigar-smoke {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  opacity: 0;
+  animation: pn-puff 6.5s ease-out infinite;
+  will-change: transform, opacity;
+}
+.pn-puff-force .pn-cigar-smoke {
+  animation-duration: 2.2s;
+}
+@keyframes pn-puff {
+  0% { opacity: 0; transform: translateY(2px) scale(0.55); }
+  10% { opacity: 0.65; }
+  55% { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-22px) scale(1.5); }
 }
 /* gentle breathing with an organic head micro-movement (not a simple sine) */
 @keyframes pn-breathe {
@@ -1065,6 +1085,7 @@
   .pn-shuffle-go .pn-shuf-bridge,
   .pn-gpatron,
   .pn-bg-stander,
+  .pn-cigar-smoke,
   .pn-slot-marquee,
   .pn-slot-screen,
   .pn-server,

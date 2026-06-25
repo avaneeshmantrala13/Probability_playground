@@ -31,8 +31,9 @@ export type BrowStyle = "angry" | "calm" | "raised" | "neutral";
 export type MouthStyle = "smile" | "smirk" | "grin" | "flat" | "tough" | "open";
 /** Facial hair adds a lot of person-to-person variety. */
 export type FacialHair = "none" | "stubble" | "mustache" | "goatee" | "beard" | "fullbeard";
-/** Body build drives torso/shoulder width on the seated figure. */
-export type Build = "slim" | "average" | "broad";
+/** Body build drives torso/shoulder width, waist taper + overall scale on the
+ *  seated figure, so personas have visibly distinct physiques. */
+export type Build = "petite" | "slim" | "average" | "broad" | "heavyset";
 /** Seated posture nudges shoulder height / lean so figures don't look cloned. */
 export type Posture = "lean" | "upright" | "relaxed";
 /** A small accessory at the neck/ear for extra individuality. */
@@ -74,6 +75,10 @@ export interface CharacterLook {
    * they're wearing different materials. Defaults to ~0.4 when omitted.
    */
   sheen?: number;
+  /** Classy gentleman's monocle over one eye (with a thin retaining chain). */
+  monocle?: boolean;
+  /** A lit cigar at the corner of the mouth (drifts an occasional smoke puff). */
+  cigar?: boolean;
 }
 
 /** The human ("You") — a neutral, friendly hero look. */
@@ -125,7 +130,8 @@ export const DEALER_LOOK: CharacterLook = {
 
 /** Per-persona looks, keyed by persona id. */
 const LOOKS: Record<string, CharacterLook> = {
-  // Dot — warm, theatrical host in a magician's top hat & bowtie.
+  // Dot — warm, theatrical host: a round, jolly showman in a magician's top hat &
+  // bowtie, with a distinguished monocle and a lit cigar.
   "dealer-dot": {
     skin: "#f3cba3",
     skinLight: "#ffe2bd",
@@ -143,9 +149,12 @@ const LOOKS: Record<string, CharacterLook> = {
     outfit: "#6d28d9",
     outfitTrim: "#f5d0fe",
     accent: "#c084fc",
-    build: "average",
+    build: "heavyset",
     posture: "upright",
     accessory: "bowtie",
+    sheen: 0.6,
+    monocle: true,
+    cigar: true,
   },
   // Rocky — aggressive brawler: broad, leaning in, red headband, gold chain.
   rocky: {
@@ -211,7 +220,7 @@ const LOOKS: Record<string, CharacterLook> = {
     outfit: "#16a34a",
     outfitTrim: "#bbf7d0",
     accent: "#4ade80",
-    build: "average",
+    build: "petite",
     posture: "relaxed",
     accessory: "earring",
     freckles: true,
@@ -234,7 +243,7 @@ const LOOKS: Record<string, CharacterLook> = {
     outfit: "#1f2937",
     outfitTrim: "#cbd5e1",
     accent: "#38bdf8",
-    build: "broad",
+    build: "average",
     posture: "relaxed",
     accessory: "tie",
     sheen: 0.85,

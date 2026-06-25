@@ -26,11 +26,29 @@ interface PokerFigureProps {
 
 const CX = 70;
 
-const SHOULDER: Record<Build, number> = { slim: 42, average: 50, broad: 60 };
+/**
+ * Per-build physique: half shoulder width (sw), half waist width (ww, the taper),
+ * half hip width (hip, seated base), a front belly-bulge factor, the upper-arm
+ * stroke width, and an overall figure scale. Drives a visibly different silhouette
+ * per persona (burly / lanky / round / average / petite).
+ */
+const PHYS: Record<Build, { sw: number; ww: number; hip: number; belly: number; arm: number; scale: number }> = {
+  petite: { sw: 39, ww: 31, hip: 47, belly: 0.05, arm: 12, scale: 0.9 },
+  slim: { sw: 43, ww: 31, hip: 50, belly: 0.05, arm: 13, scale: 0.96 },
+  average: { sw: 50, ww: 39, hip: 58, belly: 0.12, arm: 15, scale: 1 },
+  broad: { sw: 63, ww: 50, hip: 67, belly: 0.16, arm: 18, scale: 1.05 },
+  heavyset: { sw: 58, ww: 60, hip: 75, belly: 0.46, arm: 17, scale: 1.06 },
+};
 /** Posture nudges how high the shoulders sit. */
 const SHOULDER_Y: Record<Posture, number> = { lean: 72, upright: 70, relaxed: 74 };
 
 const LINE = "rgb(20 12 6 / 0.28)";
+
+/** Overall seated scale for a build (so the whole seat — figure + its cards —
+ *  can be scaled together by PlayerSeat, keeping cards aligned on the hands). */
+export function figureScale(build: Build): number {
+  return (PHYS[build] ?? PHYS.average).scale;
+}
 
 /**
  * A seated, individually-styled poker player drawn entirely in SVG: the shared
@@ -70,16 +88,70 @@ function PokerFigureImpl({
   const at = Math.abs(t);
   const farSign = t >= 0 ? 1 : -1;
 
-  const sw = SHOULDER[look.build];
-  const base = sw + 10;
+  const phys = PHYS[look.build] ?? PHYS.average;
   const shoulderY = SHOULDER_Y[look.posture];
-
-  const armW = look.build === "broad" ? 18 : look.build === "slim" ? 13 : 15;
+  const armW = phys.arm;
   const handHalf = 17;
-  const lsx = CX - sw + 9;
-  const rsx = CX + sw - 9;
   const hlx = CX - handHalf;
   const hrx = CX + handHalf;
+
+  // ---- Foreshortened, rounded torso silhouette ----------------------------
+  // The body turn is encoded in the SVG SHAPE (not only shading): the receding
+  // (far) side is compressed and the near side gets a touch of perspective gain,
+  // so the OUTLINE itself reads as a rounded torso seen at an angle rather than a
+  // flat rotated slab. `f` is the receding side (+1 = right recedes).
+  const f = farSign;
+  const fore = 1 - 0.42 * at; // receding-side horizontal compression
+  const nearK = 1 + 0.05 * at; // near-side perspective enlargement
+  // signed half-width -> absolute x, compressing whichever side is receding
+  const hw = (halfW: number, s: number) => CX + s * halfW * (s === f ? fore : nearK);
+  // the chest mass drifts toward the near side as the body turns away
+  const chestCx = CX - f * phys.sw * 0.1 * at;
+
+  const yS = shoulderY; // shoulder line
+  const yC = shoulderY + 22; // chest (widest)
+  const yW = shoulderY + 52; // waist (taper)
+  const yH = 170; // hip / table cut
+
+  const xSL = hw(phys.sw, -1);
+  const xSR = hw(phys.sw, 1);
+  const chestW = phys.sw * (1 + phys.belly * 0.25);
+  const xCL = hw(chestW, -1);
+  const xCR = hw(chestW, 1);
+  const xWL = hw(phys.ww, -1);
+  const xWR = hw(phys.ww, 1);
+  const xHL = hw(phys.hip, -1);
+  const xHR = hw(phys.hip, 1);
+
+  // one smooth, rounded, asymmetric outline (curved sides, tapered waist, rounded
+  // shoulders over the neck) reused for the fill + every shading overlay
+  const torsoD =
+    `M ${xSL} ${yS} ` +
+    `C ${xCL} ${yC} ${xWL} ${yW - 8} ${xWL} ${yW} ` +
+    `C ${xWL} ${yW + 12} ${xHL} ${yH - 26} ${xHL} ${yH} ` +
+    `L ${xHR} ${yH} ` +
+    `C ${xHR} ${yH - 26} ${xWR} ${yW + 12} ${xWR} ${yW} ` +
+    `C ${xWR} ${yW - 8} ${xCR} ${yC} ${xSR} ${yS} ` +
+    `C ${chestCx + (xSR - chestCx) * 0.4} ${yS - 8} ${chestCx + (xSL - chestCx) * 0.4} ${yS - 8} ${xSL} ${yS} Z`;
+
+  // receding-side + near-side contour points (sign-aware: the receding side is the
+  // one with s === f). Used so the side plane / rim land on the correct edge.
+  const recS = hw(phys.sw, f);
+  const recW = hw(phys.ww, f);
+  const recH = hw(phys.hip, f);
+  const nearS = hw(phys.sw, -f);
+  const nearC = hw(chestW, -f);
+  const nearW = hw(phys.ww, -f);
+  const nearH = hw(phys.hip, -f);
+  const sideW = phys.sw * 0.5 * at; // width of the revealed side plane
+
+  // arm shoulder anchors follow the (foreshortened) shoulders; hands stay forward
+  const aLx = hw(phys.sw - 9, -1);
+  const aRx = hw(phys.sw - 9, 1);
+  // chair width tracks the hips
+  const chairHalf = phys.hip + 13;
+  // shoulder-cap radii: near cap reads larger than the receding far cap
+  const capRx = (s: number) => 12.5 * (s === f ? fore : nearK);
 
   const blinkDelay = 1.4 + (seatIndex % 5) * 1.27;
 
@@ -142,134 +214,98 @@ function PokerFigureImpl({
 
       {/* chair back behind the player */}
       <path
-        d={`M ${CX - base - 13} 170 L ${CX - base - 13} 94 Q ${CX} 76 ${
-          CX + base + 13
-        } 94 L ${CX + base + 13} 170 Z`}
+        d={`M ${CX - chairHalf} 170 L ${CX - chairHalf} 94 Q ${CX} 76 ${
+          CX + chairHalf
+        } 94 L ${CX + chairHalf} 170 Z`}
         fill="#241a12"
         opacity="0.5"
       />
       <path
-        d={`M ${CX - base - 13} 108 Q ${CX} 90 ${CX + base + 13} 108`}
+        d={`M ${CX - chairHalf} 108 Q ${CX} 90 ${CX + chairHalf} 108`}
         fill="none"
         stroke="#3a2a1c"
         strokeWidth="4"
         opacity="0.6"
       />
 
-      {/* neck — connects the head cleanly to the shoulders */}
+      {/* neck — stays centred at CX so the head (also centred at CX) sits on it */}
       <path
         d={`M ${CX - 8} 60 L ${CX + 8} 60 L ${CX + 10} ${shoulderY + 2} L ${CX - 10} ${shoulderY + 2} Z`}
         fill={look.skin}
       />
       <path d={`M ${CX - 8} 61 L ${CX + 8} 61 L ${CX + 8} 65 C ${CX + 3} 68 ${CX - 3} 68 ${CX - 8} 65 Z`} fill={look.skinShade} opacity="0.4" />
 
-      {/* arms / sleeves resting forward on the felt — drawn as rounded tubes:
-          base stroke, an upper sheen stroke, and an underside core shadow so the
-          upper arms read cylindrical, not flat ribbons */}
+      {/* arms / sleeves resting forward on the felt — rounded tubes anchored to the
+          (foreshortened) shoulders; base stroke + upper sheen + underside shadow */}
       <g className="pn-fig-arms" fill="none" strokeLinecap="round">
-        <path d={`M ${lsx} ${shoulderY + 10} Q ${lsx - 11} 134 ${hlx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
-        <path d={`M ${rsx} ${shoulderY + 10} Q ${rsx + 11} 134 ${hrx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
-        {/* underside core shadow */}
-        <path d={`M ${lsx + 1} ${shoulderY + 13} Q ${lsx - 8} 135 ${hlx + 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
-        <path d={`M ${rsx - 1} ${shoulderY + 13} Q ${rsx + 8} 135 ${hrx - 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
-        {/* upper sheen ridge */}
-        <path d={`M ${lsx - 2} ${shoulderY + 9} Q ${lsx - 13} 132 ${hlx - 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
-        <path d={`M ${rsx + 2} ${shoulderY + 9} Q ${rsx + 13} 132 ${hrx + 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
+        <path d={`M ${aLx} ${shoulderY + 10} Q ${aLx - 11} 134 ${hlx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        <path d={`M ${aRx} ${shoulderY + 10} Q ${aRx + 11} 134 ${hrx} 153`} stroke={`url(#${outfitG})`} strokeWidth={armW} />
+        <path d={`M ${aLx + 1} ${shoulderY + 13} Q ${aLx - 8} 135 ${hlx + 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
+        <path d={`M ${aRx - 1} ${shoulderY + 13} Q ${aRx + 8} 135 ${hrx - 2} 155`} stroke="#000" strokeWidth={armW * 0.5} opacity="0.18" />
+        <path d={`M ${aLx - 2} ${shoulderY + 9} Q ${aLx - 13} 132 ${hlx - 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
+        <path d={`M ${aRx + 2} ${shoulderY + 9} Q ${aRx + 13} 132 ${hrx + 2} 151`} stroke="#fff" strokeWidth={armW * 0.28} opacity={0.1 + sheen * 0.14} />
       </g>
 
-      {/* torso */}
-      <path
-        d={`M ${CX - sw} ${shoulderY} C ${CX - sw - 4} ${shoulderY + 12}, ${
-          CX - base
-        } 126, ${CX - base} 170 L ${CX + base} 170 C ${CX + base} 126, ${
-          CX + sw + 4
-        } ${shoulderY + 12}, ${CX + sw} ${shoulderY} Z`}
-        fill={`url(#${outfitG})`}
-        stroke={LINE}
-        strokeWidth="0.8"
-      />
-      {/* barrel shading: rounded cylinder form across the chest (always on) */}
-      <path
-        d={`M ${CX - sw} ${shoulderY} C ${CX - sw - 4} ${shoulderY + 12}, ${CX - base} 126, ${CX - base} 170 L ${CX + base} 170 C ${CX + base} 126, ${CX + sw + 4} ${shoulderY + 12}, ${CX + sw} ${shoulderY} Z`}
-        fill={`url(#${bodyCyl})`}
-      />
-      <path
-        d={`M ${CX - sw} ${shoulderY} C ${CX - sw - 4} ${shoulderY + 12}, ${CX - base} 126, ${CX - base} 170 L ${CX + base} 170 C ${CX + base} 126, ${CX + sw + 4} ${shoulderY + 12}, ${CX + sw} ${shoulderY} Z`}
-        fill={`url(#${bodyHi})`}
-      />
-      {/* shoulder key light + side/center form shadow */}
-      <path
-        d={`M ${CX - sw} ${shoulderY} C ${CX - sw - 4} ${shoulderY + 12}, ${CX - base} 126, ${CX - base} 170 L ${CX + base} 170 C ${CX + base} 126, ${CX + sw + 4} ${shoulderY + 12}, ${CX + sw} ${shoulderY} Z`}
-        fill={`url(#${sleeveHi})`}
-      />
-      <path d={`M ${CX} ${shoulderY + 6} L ${CX} 170`} stroke="#000" strokeWidth={sw * 0.9} opacity="0.07" />
-      {/* rounded shoulder caps for real shoulder volume */}
-      <ellipse cx={CX - sw + 7} cy={shoulderY + 7} rx="13" ry="11" fill={`url(#${shoulderHi})`} />
-      <ellipse cx={CX + sw - 7} cy={shoulderY + 7} rx="13" ry="11" fill={`url(#${shoulderHi})`} />
+      {/* ---- rounded, foreshortened torso silhouette (curved sides, tapered waist,
+              rounded shoulders) reused for the fill + all shading overlays ---- */}
+      <path d={torsoD} fill={`url(#${outfitG})`} stroke={LINE} strokeWidth="0.8" />
+      <path d={torsoD} fill={`url(#${bodyCyl})`} />
+      <path d={torsoD} fill={`url(#${bodyHi})`} />
+      <path d={torsoD} fill={`url(#${sleeveHi})`} />
+      {/* chest meridian core shadow, drifting with the chest centre */}
+      <path d={`M ${chestCx} ${shoulderY + 6} L ${chestCx} 170`} stroke="#000" strokeWidth={phys.ww * 0.8} opacity="0.07" />
 
-      {/* ---- turn-driven volume: far-side core shadow + side plane, near-side rim
-              so the rotated torso reads as a dimensional body, not a sheared card ---- */}
-      {at > 0.04 && (
-        <g>
-          {/* far-side core shadow hugging the receding edge */}
-          <path
-            d={`M ${CX + farSign * (sw - 3)} ${shoulderY + 2}
-                C ${CX + farSign * (base - 1)} 122 ${CX + farSign * (base - 1)} 150 ${CX + farSign * (base + 1)} 170
-                L ${CX + farSign * (base - 11)} 170
-                C ${CX + farSign * (base - 13)} 144 ${CX + farSign * (sw - 12)} 116 ${CX + farSign * (sw - 13)} ${shoulderY + 6} Z`}
-            fill="#000"
-            opacity={0.12 + 0.34 * at}
-          />
-          {/* thin side plane (the body's visible "thickness") on the far edge */}
-          <path
-            d={`M ${CX + farSign * (base - 1)} 168
-                C ${CX + farSign * (base - 1)} 130 ${CX + farSign * (sw - 2)} ${shoulderY + 14} ${CX + farSign * (sw - 1)} ${shoulderY + 3}
-                L ${CX + farSign * (sw - 5)} ${shoulderY + 4}
-                C ${CX + farSign * (sw - 6)} ${shoulderY + 16} ${CX + farSign * (base - 6)} 132 ${CX + farSign * (base - 6)} 168 Z`}
-            fill="#000"
-            opacity={0.32 + 0.3 * at}
-          />
-          {/* near-side warm rim catching the leading edge */}
-          <path
-            d={`M ${CX - farSign * (sw - 1)} ${shoulderY + 3} C ${CX - farSign * (base - 3)} 124 ${CX - farSign * (base - 2)} 150 ${CX - farSign * (base - 2)} 168`}
-            fill="none"
-            stroke="#ffdca6"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            opacity={0.22 + 0.4 * at}
-          />
-        </g>
+      {/* belly volume highlight for a round (heavyset) build */}
+      {phys.belly > 0.3 && (
+        <ellipse cx={chestCx} cy={shoulderY + 58} rx={phys.ww * 0.72} ry="26" fill={`url(#${sleeveHi})`} />
       )}
 
-      {/* shirt V + collar */}
-      <path d={`M ${CX - 13} ${shoulderY} L ${CX} ${shoulderY + 30} L ${CX + 13} ${shoulderY} Z`} fill={look.outfitTrim} />
-      <path d={`M ${CX - 13} ${shoulderY - 1} L ${CX - 4} ${shoulderY + 13} L ${CX} ${shoulderY + 6} Z`} fill={look.outfit} stroke={LINE} strokeWidth="0.6" />
-      <path d={`M ${CX + 13} ${shoulderY - 1} L ${CX + 4} ${shoulderY + 13} L ${CX} ${shoulderY + 6} Z`} fill={look.outfit} stroke={LINE} strokeWidth="0.6" />
+      {/* rounded shoulder caps (near cap larger than the receding far cap) */}
+      <ellipse cx={hw(phys.sw - 6, -1)} cy={yS + 6} rx={capRx(-1)} ry="11" fill={`url(#${shoulderHi})`} />
+      <ellipse cx={hw(phys.sw - 6, 1)} cy={yS + 6} rx={capRx(1)} ry="11" fill={`url(#${shoulderHi})`} />
+
+      {/* ---- turn-driven volume: a curved SIDE plane on the RECEDING edge (darker
+              fabric wrapping toward the back) so the outline reads as a body turned
+              in space, not a flat slab ---- */}
+      {at > 0.04 && (
+        <path
+          d={`M ${recS} ${yS} Q ${recW} ${yW} ${recH} ${yH}
+              L ${recH - f * sideW} ${yH}
+              Q ${recW - f * sideW} ${yW} ${recS - f * sideW} ${yS} Z`}
+          fill="#000"
+          opacity={0.26 + 0.3 * at}
+        />
+      )}
+
+      {/* shirt V + collar (anchored to the drifting chest centre) */}
+      <path d={`M ${chestCx - 13} ${shoulderY} L ${chestCx} ${shoulderY + 30} L ${chestCx + 13} ${shoulderY} Z`} fill={look.outfitTrim} />
+      <path d={`M ${chestCx - 13} ${shoulderY - 1} L ${chestCx - 4} ${shoulderY + 13} L ${chestCx} ${shoulderY + 6} Z`} fill={look.outfit} stroke={LINE} strokeWidth="0.6" />
+      <path d={`M ${chestCx + 13} ${shoulderY - 1} L ${chestCx + 4} ${shoulderY + 13} L ${chestCx} ${shoulderY + 6} Z`} fill={look.outfit} stroke={LINE} strokeWidth="0.6" />
 
       {/* placket + buttons for a tailored look */}
-      <path d={`M ${CX} ${shoulderY + 18} L ${CX} 168`} stroke={look.outfitTrim} strokeWidth="1.4" opacity="0.45" />
+      <path d={`M ${chestCx} ${shoulderY + 18} L ${chestCx} 168`} stroke={look.outfitTrim} strokeWidth="1.4" opacity="0.45" />
       <g fill={look.outfitTrim} opacity="0.85">
-        <circle cx={CX} cy={shoulderY + 40} r="1.7" />
-        <circle cx={CX} cy={shoulderY + 60} r="1.7" />
+        <circle cx={chestCx} cy={shoulderY + 40} r="1.7" />
+        <circle cx={chestCx} cy={shoulderY + 60} r="1.7" />
       </g>
-      {/* shoulder seams */}
-      <path d={`M ${CX - sw + 6} ${shoulderY + 3} Q ${CX - sw - 2} ${shoulderY + 18} ${CX - base + 6} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
-      <path d={`M ${CX + sw - 6} ${shoulderY + 3} Q ${CX + sw + 2} ${shoulderY + 18} ${CX + base - 6} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
+      {/* shoulder seams following the new shoulder line */}
+      <path d={`M ${hw(phys.sw - 6, -1)} ${shoulderY + 3} Q ${xSL - f * 2} ${shoulderY + 18} ${xWL} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
+      <path d={`M ${hw(phys.sw - 6, 1)} ${shoulderY + 3} Q ${xSR + f * 2} ${shoulderY + 18} ${xWR} ${shoulderY + 48}`} fill="none" stroke="#000" strokeWidth="1" opacity="0.12" />
 
       {/* fabric folds draping from the collar and shoulders */}
       <g fill="none" stroke="#000" opacity="0.12" strokeLinecap="round">
-        <path d={`M ${CX - 8} ${shoulderY + 22} Q ${CX - 12} ${shoulderY + 70} ${CX - 10} 168`} strokeWidth="1.5" />
-        <path d={`M ${CX + 8} ${shoulderY + 22} Q ${CX + 12} ${shoulderY + 70} ${CX + 10} 168`} strokeWidth="1.5" />
-        <path d={`M ${CX - sw + 12} ${shoulderY + 16} Q ${CX - base + 18} 128 ${CX - base + 22} 166`} strokeWidth="1.2" />
-        <path d={`M ${CX + sw - 12} ${shoulderY + 16} Q ${CX + base - 18} 128 ${CX + base - 22} 166`} strokeWidth="1.2" />
+        <path d={`M ${chestCx - 8} ${shoulderY + 22} Q ${chestCx - 12} ${shoulderY + 70} ${chestCx - 10} 168`} strokeWidth="1.5" />
+        <path d={`M ${chestCx + 8} ${shoulderY + 22} Q ${chestCx + 12} ${shoulderY + 70} ${chestCx + 10} 168`} strokeWidth="1.5" />
+        <path d={`M ${xWL + 6} ${shoulderY + 16} Q ${xHL + 4} 128 ${xHL + 8} 166`} strokeWidth="1.2" />
+        <path d={`M ${xWR - 6} ${shoulderY + 16} Q ${xHR - 4} 128 ${xHR - 8} 166`} strokeWidth="1.2" />
       </g>
       {/* ambient occlusion where the arms tuck into the torso */}
-      <path d={`M ${CX - sw + 1} ${shoulderY + 5} Q ${CX - sw - 7} ${shoulderY + 20} ${CX - sw + 3} ${shoulderY + 33} Q ${CX - sw + 7} ${shoulderY + 18} ${CX - sw + 1} ${shoulderY + 5} Z`} fill="#000" opacity="0.16" />
-      <path d={`M ${CX + sw - 1} ${shoulderY + 5} Q ${CX + sw + 7} ${shoulderY + 20} ${CX + sw - 3} ${shoulderY + 33} Q ${CX + sw - 7} ${shoulderY + 18} ${CX + sw - 1} ${shoulderY + 5} Z`} fill="#000" opacity="0.16" />
-      {/* warm casino rim light catching the right shoulder + arm */}
-      <path d={`M ${CX + sw - 1} ${shoulderY + 2} C ${CX + sw + 3} ${shoulderY + 16} ${CX + base - 3} 130 ${CX + base - 4} 166`} fill="none" stroke={`url(#${rimW})`} strokeWidth="2.4" strokeLinecap="round" />
+      <path d={`M ${xSL + 1} ${shoulderY + 5} Q ${xSL - 7} ${shoulderY + 20} ${xSL + 3} ${shoulderY + 33} Q ${xSL + 7} ${shoulderY + 18} ${xSL + 1} ${shoulderY + 5} Z`} fill="#000" opacity="0.16" />
+      <path d={`M ${xSR - 1} ${shoulderY + 5} Q ${xSR + 7} ${shoulderY + 20} ${xSR - 3} ${shoulderY + 33} Q ${xSR - 7} ${shoulderY + 18} ${xSR - 1} ${shoulderY + 5} Z`} fill="#000" opacity="0.16" />
+      {/* warm casino rim catching the NEAR (leading) edge of the turned torso */}
+      <path d={`M ${nearS} ${shoulderY + 2} C ${nearC} ${yC} ${nearW} ${yW} ${nearH} 166`} fill="none" stroke={`url(#${rimW})`} strokeWidth="2.4" strokeLinecap="round" />
       {/* upper-chest material sheen (intensity set by the persona's fabric) */}
-      <ellipse cx={CX - 9} cy={shoulderY + 30} rx="15" ry="22" fill={`url(#${sleeveHi})`} />
+      <ellipse cx={chestCx - 9} cy={shoulderY + 30} rx="15" ry="22" fill={`url(#${sleeveHi})`} />
 
       <Accessory look={look} shoulderY={shoulderY} />
 
