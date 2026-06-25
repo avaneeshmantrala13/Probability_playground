@@ -30,11 +30,16 @@ export interface LessonMastery {
   bestTimeMs?: number;
 }
 
+import type { MultiplayerAccess } from "./multiplayer/access";
+
 /** Currently equipped cosmetic ids, one per category. */
 export interface EquippedCosmetics {
   deckSkin: string;
   tableTheme: string;
   accentTheme: string;
+  chipStyle: string;
+  avatarAccessory: string;
+  animation: string;
 }
 
 /** Cosmetic categories the player can unlock + equip with poker tokens. */
@@ -53,12 +58,18 @@ export const DEFAULT_EQUIPPED: EquippedCosmetics = {
   deckSkin: "deck-classic",
   tableTheme: "table-classic-green",
   accentTheme: "accent-default",
+  chipStyle: "chip-classic",
+  avatarAccessory: "acc-none",
+  animation: "anim-none",
 };
 
 export const DEFAULT_OWNED_COSMETICS: string[] = [
   "deck-classic",
   "table-classic-green",
   "accent-default",
+  "chip-classic",
+  "acc-none",
+  "anim-none",
 ];
 
 export function emptyPokerStats(): PokerStats {
@@ -91,6 +102,8 @@ export interface CourseProgress {
   equipped?: EquippedCosmetics;
   /** Lifetime poker stats. */
   pokerStats?: PokerStats;
+  /** Daily-password multiplayer unlock (expires at next UTC midnight). */
+  multiplayerAccess?: MultiplayerAccess;
 }
 
 export function emptyProgress(): CourseProgress {

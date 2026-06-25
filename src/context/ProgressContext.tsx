@@ -26,6 +26,7 @@ import {
 } from "../lib/progress";
 import { isPassing, scoreToPercent } from "../lib/mastery";
 import { STARTING_TOKENS } from "../lib/tokens";
+import type { MultiplayerAccess } from "../lib/multiplayer/access";
 
 export interface AttemptResult {
   correct: number;
@@ -73,6 +74,8 @@ interface ProgressContextValue {
     potSize: number;
     busted?: boolean;
   }) => void;
+  /** Grant multiplayer access via daily password until expiry. */
+  unlockMultiplayer: (access: MultiplayerAccess) => void;
 }
 
 const ProgressContext = createContext<ProgressContextValue | undefined>(undefined);
@@ -372,6 +375,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [update],
   );
 
+  const unlockMultiplayer = useCallback(
+    (access: MultiplayerAccess) => {
+      update((prev) => ({ ...prev, multiplayerAccess: access }));
+    },
+    [update],
+  );
+
   const value = useMemo<ProgressContextValue>(
     () => ({
       progress,
@@ -388,6 +398,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       purchaseCosmetic,
       equipCosmetic,
       recordPokerHand,
+      unlockMultiplayer,
     }),
     [
       progress,
@@ -404,6 +415,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       purchaseCosmetic,
       equipCosmetic,
       recordPokerHand,
+      unlockMultiplayer,
     ],
   );
 

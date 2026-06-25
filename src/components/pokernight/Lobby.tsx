@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TABLE_TIERS, type TableTier } from "../../lib/tokens";
+import { TokenPurchaseModal } from "./TokenPurchaseModal";
 
 interface LobbyProps {
   bankroll: number;
@@ -12,6 +13,7 @@ function clamp(x: number, lo: number, hi: number): number {
 }
 
 export function Lobby({ bankroll, onSit }: LobbyProps) {
+  const [showPurchase, setShowPurchase] = useState(false);
   const affordableDefault =
     TABLE_TIERS.find((t) => bankroll >= t.minBuyIn) ?? TABLE_TIERS[0];
   const [selectedId, setSelectedId] = useState(affordableDefault.id);
@@ -117,13 +119,32 @@ export function Lobby({ bankroll, onSit }: LobbyProps) {
           type="button"
           className="pp-btn-primary w-full"
           disabled={!canAfford}
-          onClick={() => onSit(tier, buyIn)}
+          onClick={() => {
+            if (!canAfford) {
+              setShowPurchase(true);
+              return;
+            }
+            onSit(tier, buyIn);
+          }}
         >
           {canAfford
             ? `Sit at ${tier.name} for ${buyIn.toLocaleString()}`
-            : `Can't afford ${tier.name}`}
+            : `Buy tokens to play · $0.99`}
         </button>
+        {!canAfford && (
+          <button
+            type="button"
+            className="pp-btn-secondary w-full text-sm"
+            onClick={() => setShowPurchase(true)}
+          >
+            Buy 1,000 tokens for $0.99
+          </button>
+        )}
       </div>
+
+      {showPurchase && (
+        <TokenPurchaseModal kind="sp_tokens" onClose={() => setShowPurchase(false)} />
+      )}
     </div>
   );
 }

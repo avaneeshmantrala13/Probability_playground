@@ -66,7 +66,35 @@ export interface AccentTheme extends CosmeticBase {
   dark: AccentVars;
 }
 
-export type Cosmetic = DeckSkin | TableTheme | AccentTheme;
+export interface ChipStyle extends CosmeticBase {
+  category: "chipStyle";
+  /** CSS gradient for chip face. */
+  face: string;
+  edge: string;
+  label: string;
+}
+
+export interface AvatarAccessory extends CosmeticBase {
+  category: "avatarAccessory";
+  /** Emoji or short label shown on avatar. */
+  emoji: string;
+  /** CSS color accent for the accessory badge. */
+  color: string;
+}
+
+export interface WinAnimation extends CosmeticBase {
+  category: "animation";
+  /** CSS class name applied on big wins. */
+  cssClass: string;
+}
+
+export type Cosmetic =
+  | DeckSkin
+  | TableTheme
+  | AccentTheme
+  | ChipStyle
+  | AvatarAccessory
+  | WinAnimation;
 
 // ----------------------------- Deck skins -----------------------------
 
@@ -138,6 +166,39 @@ export const DECK_SKINS: DeckSkin[] = [
     ink: "#5b4708",
     pattern: "dots",
   },
+  {
+    id: "deck-holographic",
+    category: "deckSkin",
+    name: "Holographic Prism",
+    description: "Iridescent foil that shifts as you tilt the cards.",
+    price: 8500,
+    background: "linear-gradient(135deg, #a855f7 0%, #06b6d4 50%, #ec4899 100%)",
+    border: "#faf5ff",
+    ink: "#ffffff",
+    pattern: "waves",
+  },
+  {
+    id: "deck-carbon",
+    category: "deckSkin",
+    name: "Carbon Fiber",
+    description: "Stealth matte weave for the serious grinder.",
+    price: 12000,
+    background: "repeating-linear-gradient(45deg, #1a1a1a 0, #1a1a1a 2px, #2d2d2d 2px, #2d2d2d 4px)",
+    border: "#525252",
+    ink: "#d4d4d4",
+    pattern: "grid",
+  },
+  {
+    id: "deck-aurora",
+    category: "deckSkin",
+    name: "Northern Aurora",
+    description: "Shifting green-violet lights across the back.",
+    price: 18000,
+    background: "linear-gradient(160deg, #064e3b 0%, #4c1d95 40%, #0ea5e9 100%)",
+    border: "#99f6e4",
+    ink: "#ecfdf5",
+    pattern: "stars",
+  },
 ];
 
 // ---------------------------- Table themes ----------------------------
@@ -208,6 +269,39 @@ export const TABLE_THEMES: TableTheme[] = [
     rail: "#a8870f",
     glow: "#fde68a",
     text: "#ecfdf5",
+  },
+  {
+    id: "table-monte-carlo",
+    category: "tableTheme",
+    name: "Monte Carlo",
+    description: "Burgundy felt with champagne-gold rail.",
+    price: 9000,
+    felt: "radial-gradient(ellipse at center, #881337 0%, #4c0519 60%, #1f0309 100%)",
+    rail: "#ca8a04",
+    glow: "#fde68a",
+    text: "#fff1f2",
+  },
+  {
+    id: "table-arctic",
+    category: "tableTheme",
+    name: "Arctic Ice",
+    description: "Frost-blue felt under cool white LEDs.",
+    price: 14000,
+    felt: "radial-gradient(ellipse at center, #0ea5e9 0%, #0369a1 55%, #0c4a6e 100%)",
+    rail: "#e0f2fe",
+    glow: "#7dd3fc",
+    text: "#f0f9ff",
+  },
+  {
+    id: "table-inferno",
+    category: "tableTheme",
+    name: "Inferno Pit",
+    description: "Lava-orange glow for high-volatility sessions.",
+    price: 22000,
+    felt: "radial-gradient(ellipse at center, #ea580c 0%, #9a3412 55%, #431407 100%)",
+    rail: "#292524",
+    glow: "#fb923c",
+    text: "#fff7ed",
   },
 ];
 
@@ -346,12 +440,227 @@ export const ACCENT_THEMES: AccentTheme[] = [
       accent2Hover: "134 239 172",
     },
   },
+  {
+    id: "accent-midnight",
+    category: "accentTheme",
+    name: "Midnight Sapphire",
+    description: "Deep navy with electric blue highlights.",
+    price: 3500,
+    swatch: ["#1e3a8a", "#38bdf8"],
+    light: {
+      accent: "30 58 138",
+      accentHover: "29 78 216",
+      accentContrast: "255 255 255",
+      accent2: "56 189 248",
+      accent2Hover: "14 165 233",
+    },
+    dark: {
+      accent: "96 165 250",
+      accentHover: "147 197 253",
+      accentContrast: "8 12 30",
+      accent2: "125 211 252",
+      accent2Hover: "186 230 253",
+    },
+  },
+  {
+    id: "accent-chrome",
+    category: "accentTheme",
+    name: "Chrome Rose",
+    description: "Metallic pink-silver for the fashion-forward.",
+    price: 7500,
+    swatch: ["#db2777", "#94a3b8"],
+    light: {
+      accent: "219 39 119",
+      accentHover: "190 24 93",
+      accentContrast: "255 255 255",
+      accent2: "100 116 139",
+      accent2Hover: "71 85 105",
+    },
+    dark: {
+      accent: "244 114 182",
+      accentHover: "249 168 212",
+      accentContrast: "20 8 16",
+      accent2: "148 163 184",
+      accent2Hover: "203 213 225",
+    },
+  },
+];
+
+// ----------------------------- Chip styles -----------------------------
+
+export const CHIP_STYLES: ChipStyle[] = [
+  {
+    id: "chip-classic",
+    category: "chipStyle",
+    name: "Casino Classic",
+    description: "Red-white-blue edge spots.",
+    price: 0,
+    face: "linear-gradient(135deg, #dc2626 0%, #991b1b 100%)",
+    edge: "#ffffff",
+    label: "100",
+  },
+  {
+    id: "chip-platinum",
+    category: "chipStyle",
+    name: "Platinum Stack",
+    description: "Cool silver with holographic edge.",
+    price: 2500,
+    face: "linear-gradient(135deg, #e2e8f0 0%, #64748b 100%)",
+    edge: "#cbd5e1",
+    label: "500",
+  },
+  {
+    id: "chip-obsidian",
+    category: "chipStyle",
+    name: "Obsidian High-Stakes",
+    description: "Matte black with gold inlay.",
+    price: 8000,
+    face: "linear-gradient(135deg, #18181b 0%, #09090b 100%)",
+    edge: "#eab308",
+    label: "1K",
+  },
+  {
+    id: "chip-crystal",
+    category: "chipStyle",
+    name: "Crystal Prism",
+    description: "Translucent cyan facets.",
+    price: 15000,
+    face: "linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #164e63 100%)",
+    edge: "#a5f3fc",
+    label: "5K",
+  },
+  {
+    id: "chip-inferno",
+    category: "chipStyle",
+    name: "Inferno Mega",
+    description: "Molten orange core with ember sparks.",
+    price: 28000,
+    face: "radial-gradient(circle, #fb923c 0%, #ea580c 40%, #7c2d12 100%)",
+    edge: "#fef3c7",
+    label: "25K",
+  },
+];
+
+// --------------------------- Avatar accessories ---------------------------
+
+export const AVATAR_ACCESSORIES: AvatarAccessory[] = [
+  {
+    id: "acc-none",
+    category: "avatarAccessory",
+    name: "None",
+    description: "Clean look, no accessory.",
+    price: 0,
+    emoji: "",
+    color: "transparent",
+  },
+  {
+    id: "acc-shades",
+    category: "avatarAccessory",
+    name: "Cool Shades",
+    description: "Never let them see you sweat.",
+    price: 1200,
+    emoji: "🕶️",
+    color: "#1e293b",
+  },
+  {
+    id: "acc-crown",
+    category: "avatarAccessory",
+    name: "Table Crown",
+    description: "Rule the felt.",
+    price: 4500,
+    emoji: "👑",
+    color: "#eab308",
+  },
+  {
+    id: "acc-headphones",
+    category: "avatarAccessory",
+    name: "Focus Headphones",
+    description: "Block the table talk, crush the math.",
+    price: 3000,
+    emoji: "🎧",
+    color: "#6366f1",
+  },
+  {
+    id: "acc-cigar",
+    category: "avatarAccessory",
+    name: "Victory Cigar",
+    description: "Celebrate every river hit.",
+    price: 6500,
+    emoji: "🎩",
+    color: "#78350f",
+  },
+  {
+    id: "acc-halo",
+    category: "avatarAccessory",
+    name: "Probability Halo",
+    description: "Blessed by Bayes himself.",
+    price: 12000,
+    emoji: "✨",
+    color: "#a855f7",
+  },
+  {
+    id: "acc-dragon",
+    category: "avatarAccessory",
+    name: "Dragon Companion",
+    description: "A tiny luck dragon on your shoulder.",
+    price: 25000,
+    emoji: "🐉",
+    color: "#dc2626",
+  },
+];
+
+// ----------------------------- Win animations -----------------------------
+
+export const WIN_ANIMATIONS: WinAnimation[] = [
+  {
+    id: "anim-none",
+    category: "animation",
+    name: "Standard",
+    description: "Classic chip slide, no frills.",
+    price: 0,
+    cssClass: "",
+  },
+  {
+    id: "anim-confetti",
+    category: "animation",
+    name: "Confetti Burst",
+    description: "Rainbow confetti on big pots.",
+    price: 4000,
+    cssClass: "pp-win-confetti",
+  },
+  {
+    id: "anim-fireworks",
+    category: "animation",
+    name: "Fireworks Show",
+    description: "Explosive celebration for monster wins.",
+    price: 9000,
+    cssClass: "pp-win-fireworks",
+  },
+  {
+    id: "anim-gold-rain",
+    category: "animation",
+    name: "Gold Rain",
+    description: "Golden particles shower the table.",
+    price: 16000,
+    cssClass: "pp-win-gold-rain",
+  },
+  {
+    id: "anim-neon-pulse",
+    category: "animation",
+    name: "Neon Pulse",
+    description: "Electric table glow on victory.",
+    price: 30000,
+    cssClass: "pp-win-neon-pulse",
+  },
 ];
 
 export const ALL_COSMETICS: Cosmetic[] = [
   ...DECK_SKINS,
   ...TABLE_THEMES,
   ...ACCENT_THEMES,
+  ...CHIP_STYLES,
+  ...AVATAR_ACCESSORIES,
+  ...WIN_ANIMATIONS,
 ];
 
 export function getCosmetic(id: string): Cosmetic | undefined {
@@ -368,6 +677,18 @@ export function getTableTheme(id: string): TableTheme {
 
 export function getAccentTheme(id: string): AccentTheme {
   return ACCENT_THEMES.find((a) => a.id === id) ?? ACCENT_THEMES[0];
+}
+
+export function getChipStyle(id: string): ChipStyle {
+  return CHIP_STYLES.find((c) => c.id === id) ?? CHIP_STYLES[0];
+}
+
+export function getAvatarAccessory(id: string): AvatarAccessory {
+  return AVATAR_ACCESSORIES.find((a) => a.id === id) ?? AVATAR_ACCESSORIES[0];
+}
+
+export function getWinAnimation(id: string): WinAnimation {
+  return WIN_ANIMATIONS.find((a) => a.id === id) ?? WIN_ANIMATIONS[0];
 }
 
 export function cosmeticsByCategory(category: CosmeticCategory): Cosmetic[] {

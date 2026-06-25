@@ -23,6 +23,11 @@ export interface UsePokerGameOpts {
   humanStack: number;
   personas: Persona[];
   reduced: boolean;
+  /** Seat index of the local human (default 0). */
+  humanSeatIndex?: number;
+  /** External state driver — when set, hook mirrors this instead of local bot loop. */
+  externalState?: GameState | null;
+  onStateChange?: (state: GameState) => void;
   onHandEnd?: (info: { result: HandResult; humanStack: number }) => void;
 }
 
@@ -49,7 +54,8 @@ export interface PokerGameApi {
   rebuy: (amount: number) => void;
 }
 
-const HUMAN_SEAT = 0;
+// Default human seat for single-player mode.
+const DEFAULT_HUMAN_SEAT = 0;
 
 /**
  * Turn a just-applied action into a short spoken line for the speech bubble.
@@ -146,10 +152,21 @@ function deriveExpressions(
 }
 
 export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
-  const { config, humanName, humanStack, personas, reduced, onHandEnd } = opts;
+  const {
+    config,
+    humanName,
+    humanStack,
+    personas,
+    reduced,
+    humanSeatIndex = DEFAULT_HUMAN_SEAT,
+    externalState,
+    onStateChange,
+    onHandEnd,
+  } = opts;
+  const HUMAN_SEAT = humanSeatIndex;
 
   const [state, setState] = useState<GameState>(() =>
-    startHand(createGame({ config, humanName, humanStack, personas })),
+    externalState ?? startHand(createGame({ config, humanName, humanStack, personas })),
   );
   const [thinking, setThinking] = useState(false);
   const [humanEquity, setHumanEquity] = useState<number | null>(null);
@@ -159,6 +176,11 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
 
   const stateRef = useRef(state);
   stateRef.current = state;
+
+  // Mirror external multiplayer state from Firestore.
+  useEffect(() => {
+    if (externalState) setState(externalState);
+  }, [externalState]);
   const reportedHand = useRef(0);
   const speechId = useRef(0);
   const onHandEndRef = useRef(onHandEnd);
@@ -176,6 +198,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
 
   // --------- drive bot turns automatically with a small think delay ---------
   useEffect(() => {
+    if (externalState != null) return;
     if (state.stage === "complete" || state.toAct == null) {
       setThinking(false);
       return;
@@ -201,9 +224,10 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
         [seatIndex]: reactionFor(decision, next.seats[seatIndex]),
       }));
       setState(next);
+      onStateChange?.(next);
     }, delay);
     return () => clearTimeout(timer);
-  }, [state, reduced, pushSpeech]);
+  }, [state, reduced, pushSpeech, externalState, onStateChange]);
 
   // ----------------- report each completed hand exactly once -----------------
   useEffect(() => {
@@ -258,15 +282,20 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
         [HUMAN_SEAT]: reactionFor(action, next.seats[HUMAN_SEAT]),
       }));
       setState(next);
+      onStateChange?.(next);
     },
-    [pushSpeech],
+    [pushSpeech, onStateChange, HUMAN_SEAT],
   );
 
   const dealNext = useCallback(() => {
     setSpeeches({});
     setReactions({});
-    setState((prev) => startHand(prev));
-  }, []);
+    setState((prev) => {
+      const next = startHand(prev);
+      onStateChange?.(next);
+      return next;
+    });
+  }, [onStateChange]);
 
   const rebuy = useCallback((amount: number) => {
     setState((prev) => {

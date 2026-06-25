@@ -18,3 +18,4 @@ export * from "./equity";
 export * from "./personalities";
 export * from "./engine";
 export * from "./bot";
+export * from "./multiplayer";

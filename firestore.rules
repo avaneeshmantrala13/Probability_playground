@@ -10,10 +10,17 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == uid;
     }
 
-    // Username -> email lookup. Readable by anyone so a username can be
-    // resolved to an email at the login screen (before authentication).
-    // A mapping may only be created (never overwritten) and must point at the
-    // creating user. This is the Spark-plan-safe alternative to Cloud Functions.
+    function isRoomMember(roomId) {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/pokerRooms/$(roomId))
+        && get(/databases/$(database)/documents/pokerRooms/$(roomId)).data.players[request.auth.uid].active == true;
+    }
+
+    function isRoomHost(roomId) {
+      return isSignedIn()
+        && get(/databases/$(database)/documents/pokerRooms/$(roomId)).data.hostUid == request.auth.uid;
+    }
+
     match /usernameMappings/{username} {
       allow read: if true;
       allow create: if isSignedIn()
@@ -21,24 +28,78 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
-    // A user's profile document.
     match /users/{uid} {
       allow read, write: if isOwner(uid);
     }
 
-    // Theme + preferences.
     match /settings/{uid} {
       allow read, write: if isOwner(uid);
     }
 
-    // Course progress (current lesson/question, mastery, completed lessons).
     match /courseProgress/{uid} {
       allow read, write: if isOwner(uid);
     }
 
-    // Per-attempt history, stored under the owning user.
     match /lessonAttempts/{uid}/attempts/{attemptId} {
       allow read, write: if isOwner(uid);
+    }
+
+    // Token purchases are written only by the Stripe webhook (Admin SDK).
+    match /tokenPurchases/{sessionId} {
+      allow read: if isSignedIn() && resource.data.uid == request.auth.uid;
+      allow write: if false;
+    }
+
+    // Room code lookup for joining friends games.
+    match /roomCodes/{code} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn()
+        && request.resource.data.hostUid == request.auth.uid;
+      allow update: if isSignedIn()
+        && resource.data.hostUid == request.auth.uid;
+      allow delete: if false;
+    }
+
+    // Multiplayer poker rooms (max 6 players).
+    match /pokerRooms/{roomId} {
+      allow read: if isSignedIn()
+        && (resource.data.roomType == 'public'
+          || request.auth.uid in resource.data.players);
+      allow create: if isSignedIn()
+        && request.resource.data.hostUid == request.auth.uid
+        && request.resource.data.maxSeats <= 6;
+      allow update: if isSignedIn()
+        && (isRoomHost(roomId)
+          || (request.auth.uid in resource.data.players
+            && request.resource.data.diff(resource.data).affectedKeys()
+              .hasOnly(['players', 'updatedAt'])
+            || request.resource.data.diff(resource.data).affectedKeys()
+              .hasOnly(['players'])));
+      allow delete: if isSignedIn() && isRoomHost(roomId);
+
+      match /playerActions/{actionId} {
+        allow read: if isRoomMember(roomId);
+        allow create: if isRoomMember(roomId)
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.applied == false;
+        allow update: if isRoomHost(roomId);
+        allow delete: if false;
+      }
+
+      match /chat/{messageId} {
+        allow read: if isRoomMember(roomId);
+        allow create: if isRoomMember(roomId)
+          && request.resource.data.uid == request.auth.uid
+          && get(/databases/$(database)/documents/pokerRooms/$(roomId)).data.players[request.auth.uid].chatEnabled == true;
+        allow update, delete: if false;
+      }
+    }
+
+    // Public matchmaking queue entries (one doc per user).
+    match /matchmakingQueue/{uid} {
+      allow read: if isSignedIn();
+      allow create, update: if isOwner(uid);
+      allow delete: if isOwner(uid);
     }
   }
 }
