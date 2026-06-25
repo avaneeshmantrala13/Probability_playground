@@ -1,66 +1,110 @@
 import { memo, useId } from "react";
-import type { CharacterLook } from "./characters";
+import type { CharacterLook, Expression } from "./characters";
 
 /**
  * Shared, parametric FACE primitives for Poker Night characters.
  *
  * Everything from the neck up is drawn here in a normalized 100x100 box (head
- * centered around cx=50, cy=43). Both the round seat avatar and the full seated
+ * centered on cx=50, cy≈43). Both the round seat avatar and the full seated
  * `PokerFigure` embed `<Head>` so a persona looks identical whether shown as a
  * bust or a body.
  *
- * Art direction: a polished, modern animated look — soft gradient skin shading,
- * an upper-left key light, a lower-right form shadow, clean dark linework, and
- * expressive features. 100% original SVG (no images, no copyrighted assets, no
- * network). All optional motion (blink, talking) is cheap transform/opacity CSS,
- * suppressed under reduced motion.
+ * Art direction: a polished, hand-drawn animated look — soft gradient skin with
+ * an upper-left key light + lower-right form shadow, clean dark linework, layered
+ * hair, and EXPRESSIVE, game-driven features. The `expression` prop reshapes the
+ * brows, eyes and mouth in real time (think / concerned / smug / happy / sad),
+ * while `idle` falls back to the persona's resting brow + mouth. `talking`
+ * overlays a lip-sync mouth. 100% original SVG (no images, no copyrighted
+ * assets, no network); all motion is cheap transform/opacity CSS, suppressed
+ * under reduced motion.
  */
 
 interface HeadProps {
   look: CharacterLook;
-  /** Enable the occasional idle blink (suppressed under reduced motion). */
+  /** Enable the occasional idle blink + eye motion (off under reduced motion). */
   blink?: boolean;
   /** Animate the mouth as if talking (while a line/bubble is active). */
   talking?: boolean;
-  /** Stagger so figures don't blink in unison (seconds). */
+  /** Game-driven emotion. */
+  expression?: Expression;
+  /** Stagger so figures don't blink / glance in unison (seconds). */
   blinkDelay?: number;
 }
 
 const LINE = "rgb(35 22 14 / 0.34)";
 
-function HeadImpl({ look, blink = false, talking = false, blinkDelay = 0 }: HeadProps) {
+type BrowMode = "rest" | "think" | "worried" | "cocky" | "up" | "sad";
+type EyeMode = "rest" | "up" | "wide" | "narrow" | "happy" | "down";
+type MouthMode = "rest" | "press" | "oh" | "smirk" | "beam" | "frown";
+
+function modesFor(expr: Expression): {
+  brow: BrowMode;
+  eye: EyeMode;
+  mouth: MouthMode;
+} {
+  switch (expr) {
+    case "think":
+      return { brow: "think", eye: "up", mouth: "press" };
+    case "concerned":
+      return { brow: "worried", eye: "wide", mouth: "oh" };
+    case "smug":
+      return { brow: "cocky", eye: "narrow", mouth: "smirk" };
+    case "happy":
+      return { brow: "up", eye: "happy", mouth: "beam" };
+    case "sad":
+      return { brow: "sad", eye: "down", mouth: "frown" };
+    case "idle":
+    default:
+      return { brow: "rest", eye: "rest", mouth: "rest" };
+  }
+}
+
+function HeadImpl({
+  look,
+  blink = false,
+  talking = false,
+  expression = "idle",
+  blinkDelay = 0,
+}: HeadProps) {
   const raw = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const skinG = `pn-skin-${raw}`;
   const hiG = `pn-hi-${raw}`;
   const shG = `pn-sh-${raw}`;
   const hairG = `pn-hair-${raw}`;
+  const hairSh = `pn-hairsh-${raw}`;
+
+  const m = modesFor(expression);
 
   return (
     <g>
       <defs>
-        <linearGradient id={skinG} x1="0" y1="0" x2="0.25" y2="1">
-          <stop offset="0" stopColor={look.skin} />
-          <stop offset="0.62" stopColor={look.skin} />
+        <linearGradient id={skinG} x1="0.2" y1="0.05" x2="0.7" y2="1">
+          <stop offset="0" stopColor={look.skinLight ?? look.skin} />
+          <stop offset="0.5" stopColor={look.skin} />
           <stop offset="1" stopColor={look.skinShade} />
         </linearGradient>
-        <radialGradient id={hiG} cx="0.36" cy="0.28" r="0.62">
-          <stop offset="0" stopColor="#ffffff" stopOpacity="0.34" />
-          <stop offset="0.55" stopColor="#ffffff" stopOpacity="0.06" />
+        <radialGradient id={hiG} cx="0.36" cy="0.26" r="0.6">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.4" />
+          <stop offset="0.55" stopColor="#ffffff" stopOpacity="0.07" />
           <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
         </radialGradient>
-        <radialGradient id={shG} cx="0.7" cy="0.78" r="0.6">
-          <stop offset="0" stopColor="#2a160a" stopOpacity="0.32" />
+        <radialGradient id={shG} cx="0.72" cy="0.8" r="0.62">
+          <stop offset="0" stopColor="#2a160a" stopOpacity="0.34" />
           <stop offset="1" stopColor="#2a160a" stopOpacity="0" />
         </radialGradient>
         <linearGradient id={hairG} x1="0.2" y1="0" x2="0.7" y2="1">
-          <stop offset="0" stopColor={look.hair} />
+          <stop offset="0" stopColor={look.hairLight ?? look.hair} />
           <stop offset="1" stopColor={look.hair} />
+        </linearGradient>
+        <linearGradient id={hairSh} x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.18" />
+          <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
       </defs>
 
       {/* neck */}
       <path d="M43 58 L57 58 L57 72 C57 76 53 78 50 78 C47 78 43 76 43 72 Z" fill={`url(#${skinG})`} />
-      <path d="M43 58 L57 58 L57 64 C53 67 47 67 43 64 Z" fill="#2a160a" opacity="0.18" />
+      <path d="M43 58 L57 58 L57 64 C53 67 47 67 43 64 Z" fill={look.skinShade} opacity="0.5" />
 
       {/* ears (+ optional earring) */}
       <ellipse cx="28.5" cy="46" rx="4.6" ry="5.4" fill={`url(#${skinG})`} stroke={LINE} strokeWidth="0.6" />
@@ -81,23 +125,26 @@ function HeadImpl({ look, blink = false, talking = false, blinkDelay = 0 }: Head
         stroke={LINE}
         strokeWidth="0.8"
       />
-      {/* form shadow (lower-right) + key light (upper-left) */}
       <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${shG})`} />
       <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${hiG})`} />
+      {/* forehead specular + jaw cheek planes for structure */}
+      <ellipse cx="44" cy="30" rx="9" ry="5" fill="#fff" opacity="0.1" />
+      <path d="M33 47 Q37 60 50 64 Q44 58 41 47 Z" fill={look.skinShade} opacity="0.22" />
       {/* cheek blush */}
       <ellipse cx="37.5" cy="52" rx="4" ry="2.5" fill="#e8736b" opacity="0.16" />
       <ellipse cx="62.5" cy="52" rx="4" ry="2.5" fill="#e8736b" opacity="0.16" />
-      {/* nose */}
+      {/* nose with soft bridge highlight */}
+      <path d="M50 41 L50 50" stroke="#fff" strokeWidth="1.2" opacity="0.18" strokeLinecap="round" />
       <path d="M50 43 C48 49 46.4 51.6 47.4 53.2 C48.6 54.4 51.4 54.4 52.6 53.2 C53.6 51.6 52 49 50 43 Z" fill={look.skinShade} opacity="0.5" />
       <path d="M47.6 52.6 Q50 54 52.4 52.6" fill="none" stroke={LINE} strokeWidth="0.7" />
 
       {look.freckles && <Freckles />}
 
-      <Hair look={look} grad={`url(#${hairG})`} />
+      <Hair look={look} grad={`url(#${hairG})`} sheenGrad={`url(#${hairSh})`} />
       <FacialHairMark look={look} />
-      <Eyes look={look} blink={blink} blinkDelay={blinkDelay} />
-      <Brows look={look} />
-      <Mouth look={look} talking={talking} />
+      <Eyes look={look} mode={m.eye} blink={blink} blinkDelay={blinkDelay} expression={expression} />
+      <Brows look={look} mode={m.brow} />
+      <Mouth look={look} mode={m.mouth} talking={talking} />
       <Hat look={look} />
     </g>
   );
@@ -116,23 +163,22 @@ function Freckles() {
   );
 }
 
-function Hair({ look, grad }: { look: CharacterLook; grad: string }) {
-  const sheen = "rgb(255 255 255 / 0.14)";
+function Hair({ look, grad, sheenGrad }: { look: CharacterLook; grad: string; sheenGrad: string }) {
   switch (look.hairStyle) {
     case "bald":
-      return <path d="M33 33 Q50 25 67 33 Q50 30 33 33 Z" fill={sheen} />;
+      return <path d="M33 33 Q50 25 67 33 Q50 30 33 33 Z" fill="#fff" opacity="0.14" />;
     case "buzz":
       return (
         <g>
           <path d="M28 39 C30 23 41 17 50 17 C59 17 70 23 72 39 C65 29 57 26 50 26 C43 26 35 29 28 39 Z" fill={grad} />
-          <path d="M33 30 Q44 23 55 26" fill="none" stroke={sheen} strokeWidth="2" strokeLinecap="round" />
+          <path d="M30 38 C33 26 41 21 50 21 C59 21 67 26 70 38" fill="none" stroke={sheenGrad} strokeWidth="3" strokeLinecap="round" />
         </g>
       );
     case "slick":
       return (
         <g>
           <path d="M27 41 C27 21 39 14 50 14 C61 14 73 21 73 41 C73 32 65 22 50 22 C39 22 31 30 27 41 Z" fill={grad} />
-          <path d="M34 24 Q46 17 58 21" fill="none" stroke={sheen} strokeWidth="2.4" strokeLinecap="round" />
+          <path d="M31 34 C33 23 41 18 51 18 C61 18 69 24 71 34" fill="none" stroke={sheenGrad} strokeWidth="3.4" strokeLinecap="round" />
         </g>
       );
     case "long":
@@ -140,13 +186,14 @@ function Hair({ look, grad }: { look: CharacterLook; grad: string }) {
         <g>
           <path d="M25 64 C22 38 30 15 50 15 C70 15 78 38 75 64 L67 64 C71 42 65 24 50 24 C35 24 29 42 33 64 Z" fill={grad} />
           <path d="M28 40 C30 20 41 14 50 14 C59 14 70 20 72 40 C64 28 57 25 50 25 C43 25 36 28 28 40 Z" fill={grad} />
-          <path d="M33 22 Q47 15 59 20" fill="none" stroke={sheen} strokeWidth="2.2" strokeLinecap="round" />
+          <path d="M33 22 C42 16 58 16 67 22" fill="none" stroke={sheenGrad} strokeWidth="3" strokeLinecap="round" />
         </g>
       );
     case "afro":
       return (
         <g>
           <path d="M27 35 C18 33 21 16 34 14 C36 6 50 5 56 11 C71 9 82 21 73 34 C82 38 75 50 68 44 C66 30 58 26 50 26 C42 26 34 30 32 44 C24 50 18 38 27 35 Z" fill={grad} />
+          <circle cx="38" cy="20" r="6" fill={sheenGrad} />
         </g>
       );
     case "tuft":
@@ -160,7 +207,7 @@ function Hair({ look, grad }: { look: CharacterLook; grad: string }) {
       return (
         <g>
           <path d="M28 40 C28 22 40 15 50 15 C60 15 72 22 72 40 C65 29 58 26 50 26 C42 26 35 29 28 40 Z" fill={grad} />
-          <path d="M34 25 Q46 18 58 22" fill="none" stroke={sheen} strokeWidth="2.2" strokeLinecap="round" />
+          <path d="M32 33 C35 24 42 19 51 19 C60 19 67 25 70 33" fill="none" stroke={sheenGrad} strokeWidth="3" strokeLinecap="round" />
         </g>
       );
   }
@@ -200,13 +247,18 @@ function FacialHairMark({ look }: { look: CharacterLook }) {
 
 function Eyes({
   look,
+  mode,
   blink,
   blinkDelay,
+  expression,
 }: {
   look: CharacterLook;
+  mode: EyeMode;
   blink: boolean;
   blinkDelay: number;
+  expression: Expression;
 }) {
+  // Cool shades persona: eyes hidden behind lenses — emotion reads via brows/mouth.
   if (look.eyes === "shades") {
     return (
       <g>
@@ -219,38 +271,70 @@ function Eyes({
     );
   }
 
-  const focused = look.eyes === "focused";
-  const irisR = focused ? 2.4 : 2.9;
-  const whiteRx = focused ? 4.1 : 4.7;
-  const lids = blink ? (
-    <g className="pn-blink" fill={look.skin} style={{ animationDelay: `${blinkDelay}s` }}>
-      <rect x="35" y="40.5" width="11.5" height="7" rx="3.5" />
-      <rect x="53.5" y="40.5" width="11.5" height="7" rx="3.5" />
-    </g>
-  ) : null;
+  // Happy: closed upward "^ ^" arcs — overrides round eyeballs.
+  if (mode === "happy") {
+    return (
+      <g fill="none" stroke="#2a1c12" strokeWidth="2.4" strokeLinecap="round">
+        <path d="M36 47 Q40.5 42.5 45 47" />
+        <path d="M55 47 Q59.5 42.5 64 47" />
+      </g>
+    );
+  }
 
-  const eyeballs = (
+  const focused = look.eyes === "focused";
+  // openness + pupil offset per emotion
+  let whiteRx = focused ? 4.1 : 4.6;
+  let whiteRy = focused ? 2.7 : 3.4;
+  let dx = 0;
+  let dy = 0;
+  let topLid = 0; // skin cover height from the top (droop / squint)
+  if (mode === "up") dy = -1.3;
+  else if (mode === "wide") {
+    whiteRx += 0.5;
+    whiteRy += 0.8;
+  } else if (mode === "narrow") {
+    whiteRy = 2.3;
+    dx = 0.6;
+    topLid = 1.6;
+  } else if (mode === "down") {
+    whiteRy = 3;
+    dy = 1.3;
+    topLid = 1.4;
+  }
+  const irisR = focused ? 2.4 : 2.8;
+
+  const liveClass = expression === "idle" || expression === "think" ? "pn-eyes-live" : "";
+
+  return (
     <g>
-      {/* whites with soft socket shadow */}
-      <ellipse cx="40.5" cy="46" rx={whiteRx} ry="3.5" fill="#fbfdff" />
-      <ellipse cx="59.5" cy="46" rx={whiteRx} ry="3.5" fill="#fbfdff" />
+      {/* whites + socket line */}
+      <ellipse cx="40.5" cy="46" rx={whiteRx} ry={whiteRy} fill="#fbfdff" />
+      <ellipse cx="59.5" cy="46" rx={whiteRx} ry={whiteRy} fill="#fbfdff" />
       <path d="M36 44 Q40.5 42 45 44" fill="none" stroke={LINE} strokeWidth="0.8" />
       <path d="M55 44 Q59.5 42 64 44" fill="none" stroke={LINE} strokeWidth="0.8" />
-      {/* iris + pupil + catchlight */}
-      <circle cx="41" cy="46.2" r={irisR} fill="#5b3a26" />
-      <circle cx="59" cy="46.2" r={irisR} fill="#5b3a26" />
-      <circle cx="41" cy="46.2" r={irisR * 0.5} fill="#14161d" />
-      <circle cx="59" cy="46.2" r={irisR * 0.5} fill="#14161d" />
-      <circle cx="42" cy="45" r="0.95" fill="#fff" opacity="0.95" />
-      <circle cx="60" cy="45" r="0.95" fill="#fff" opacity="0.95" />
-    </g>
-  );
 
-  if (look.eyes === "glasses") {
-    return (
-      <g>
-        {eyeballs}
-        {lids}
+      {/* iris + pupil + catchlight (a group that subtly darts while idle) */}
+      <g className={liveClass} style={liveClass ? { animationDelay: `${blinkDelay}s` } : undefined}>
+        <g transform={`translate(${dx} ${dy})`}>
+          <circle cx="41" cy="46.2" r={irisR} fill={look.eyeColor ?? "#5b3a26"} />
+          <circle cx="59" cy="46.2" r={irisR} fill={look.eyeColor ?? "#5b3a26"} />
+          <circle cx="41" cy="46.2" r={irisR * 0.5} fill="#14161d" />
+          <circle cx="59" cy="46.2" r={irisR * 0.5} fill="#14161d" />
+          <circle cx="42" cy="45" r="0.95" fill="#fff" opacity="0.95" />
+          <circle cx="60" cy="45" r="0.95" fill="#fff" opacity="0.95" />
+        </g>
+      </g>
+
+      {/* squint / droop lids */}
+      {topLid > 0 && (
+        <g fill={look.skin}>
+          <rect x={40.5 - whiteRx} y={46 - whiteRy - 0.3} width={whiteRx * 2} height={topLid + 0.3} />
+          <rect x={59.5 - whiteRx} y={46 - whiteRy - 0.3} width={whiteRx * 2} height={topLid + 0.3} />
+        </g>
+      )}
+
+      {/* glasses frames overlay for the studious persona */}
+      {look.eyes === "glasses" && (
         <g fill="none" stroke="#1f2937" strokeWidth="2">
           <rect x="34" y="40" width="14" height="12" rx="4.5" />
           <rect x="52" y="40" width="14" height="12" rx="4.5" />
@@ -258,20 +342,70 @@ function Eyes({
           <line x1="34" y1="44" x2="29" y2="43" />
           <line x1="66" y1="44" x2="71" y2="43" />
         </g>
-      </g>
-    );
-  }
+      )}
 
-  return (
-    <g>
-      {eyeballs}
-      {lids}
+      {/* occasional blink (lids drawn skin-colored, scaleY-animated in CSS) */}
+      {blink && (
+        <g className="pn-blink" fill={look.skin} style={{ animationDelay: `${blinkDelay}s` }}>
+          <rect x="35" y="40.5" width="11.5" height="7" rx="3.5" />
+          <rect x="53.5" y="40.5" width="11.5" height="7" rx="3.5" />
+        </g>
+      )}
     </g>
   );
 }
 
-function Brows({ look }: { look: CharacterLook }) {
-  const stroke = look.hair;
+function Brows({ look, mode }: { look: CharacterLook; mode: BrowMode }) {
+  const stroke = look.hairLight ?? look.hair;
+  const W = 2.8;
+  switch (mode) {
+    case "think":
+      // one brow cocked up (pensive)
+      return (
+        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
+          <path d="M34 38 Q40 33 47 36.5" />
+          <path d="M54 38 L65 38.5" />
+        </g>
+      );
+    case "worried":
+      // inner ends lifted (anxious)
+      return (
+        <g stroke={stroke} strokeWidth={W} strokeLinecap="round">
+          <line x1="35" y1="40" x2="46" y2="36" />
+          <line x1="65" y1="40" x2="54" y2="36" />
+        </g>
+      );
+    case "cocky":
+      // one sharp raised brow, the other low (smug)
+      return (
+        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
+          <line x1="35" y1="40" x2="46" y2="39.5" />
+          <path d="M54 38 Q60 33.5 66 36" />
+        </g>
+      );
+    case "up":
+      return (
+        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
+          <path d="M34 37.5 Q41 33.5 47 37" />
+          <path d="M53 37 Q59 33.5 66 37.5" />
+        </g>
+      );
+    case "sad":
+      // inner ends sharply up, outer drooping (crestfallen)
+      return (
+        <g stroke={stroke} strokeWidth={W} strokeLinecap="round">
+          <line x1="34" y1="41.5" x2="46" y2="36.5" />
+          <line x1="66" y1="41.5" x2="54" y2="36.5" />
+        </g>
+      );
+    case "rest":
+    default:
+      return <RestBrows look={look} stroke={stroke} />;
+  }
+}
+
+function RestBrows({ look, stroke }: { look: CharacterLook; stroke: string }) {
+  const W = 2.7;
   switch (look.brow) {
     case "angry":
       return (
@@ -282,7 +416,7 @@ function Brows({ look }: { look: CharacterLook }) {
       );
     case "raised":
       return (
-        <g stroke={stroke} strokeWidth="2.7" strokeLinecap="round" fill="none">
+        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
           <path d="M34 38 Q41 34 47 37.5" />
           <path d="M53 37.5 Q59 34 66 38" />
         </g>
@@ -297,7 +431,7 @@ function Brows({ look }: { look: CharacterLook }) {
     case "neutral":
     default:
       return (
-        <g stroke={stroke} strokeWidth="2.7" strokeLinecap="round">
+        <g stroke={stroke} strokeWidth={W} strokeLinecap="round">
           <line x1="35" y1="38.5" x2="46" y2="37.5" />
           <line x1="54" y1="37.5" x2="65" y2="38.5" />
         </g>
@@ -305,11 +439,10 @@ function Brows({ look }: { look: CharacterLook }) {
   }
 }
 
-function Mouth({ look, talking }: { look: CharacterLook; talking: boolean }) {
+function Mouth({ look, mode, talking }: { look: CharacterLook; mode: MouthMode; talking: boolean }) {
   const stroke = "#7c2d12";
 
-  // While talking, an animated open mouth cycles over the resting expression so
-  // the character clearly reads as speaking. Pure CSS scaleY — very cheap.
+  // Talking lip-sync overlays whatever the resting expression is.
   if (talking) {
     return (
       <g className="pn-mouth-talk">
@@ -320,6 +453,42 @@ function Mouth({ look, talking }: { look: CharacterLook; talking: boolean }) {
     );
   }
 
+  switch (mode) {
+    case "beam":
+      // big happy open smile with teeth
+      return (
+        <g>
+          <path d="M39 54 Q50 67 61 54 Q50 60 39 54 Z" fill="#5b2310" />
+          <path d="M41 55 Q50 58.5 59 55 Q50 57.5 41 55 Z" fill="#fff" />
+          <ellipse cx="50" cy="62" rx="4" ry="2" fill="#d4626a" opacity="0.85" />
+        </g>
+      );
+    case "frown":
+      return (
+        <path d="M41 60 Q50 53 59 60" fill="none" stroke={stroke} strokeWidth="2.6" strokeLinecap="round" />
+      );
+    case "smirk":
+      return (
+        <path d="M42 57 Q52 60.5 60 53.5" fill="none" stroke={stroke} strokeWidth="2.6" strokeLinecap="round" />
+      );
+    case "oh":
+      return (
+        <g>
+          <ellipse cx="50" cy="57.5" rx="3.4" ry="3.8" fill="#5b2310" />
+          <ellipse cx="50" cy="56" rx="2.8" ry="1.1" fill="#fff" opacity="0.85" />
+        </g>
+      );
+    case "press":
+      return (
+        <path d="M42 56.5 Q50 58.5 58 56" fill="none" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" />
+      );
+    case "rest":
+    default:
+      return <RestMouth look={look} stroke={stroke} />;
+  }
+}
+
+function RestMouth({ look, stroke }: { look: CharacterLook; stroke: string }) {
   switch (look.mouth) {
     case "grin":
       return (
@@ -333,13 +502,9 @@ function Mouth({ look, talking }: { look: CharacterLook; talking: boolean }) {
         <path d="M42 57 Q52 60.5 60 53.5" fill="none" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" />
       );
     case "tough":
-      return (
-        <line x1="42" y1="57" x2="58" y2="57" stroke={stroke} strokeWidth="3" strokeLinecap="round" />
-      );
+      return <line x1="42" y1="57" x2="58" y2="57" stroke={stroke} strokeWidth="3" strokeLinecap="round" />;
     case "flat":
-      return (
-        <line x1="43" y1="56.5" x2="57" y2="56.5" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" />
-      );
+      return <line x1="43" y1="56.5" x2="57" y2="56.5" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" />;
     case "open":
       return (
         <g>

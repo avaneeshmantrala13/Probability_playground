@@ -10,6 +10,20 @@ import type { Persona } from "../../lib/poker";
  * (seated full body), so every player reads as a distinct, real-looking person.
  */
 
+/**
+ * A live emotional state driven by the game (not a fixed persona trait). The
+ * face renders brows/eyes/mouth differently per expression so characters look
+ * like they're reacting in real time. `idle` falls back to the persona's resting
+ * brow/mouth.
+ */
+export type Expression =
+  | "idle"
+  | "think"
+  | "concerned"
+  | "smug"
+  | "happy"
+  | "sad";
+
 export type HairStyle = "short" | "slick" | "long" | "buzz" | "bald" | "tuft" | "afro";
 export type HatStyle = "top" | "cap" | "visor" | "headband" | "fedora" | "none";
 export type EyeStyle = "normal" | "shades" | "glasses" | "focused";
@@ -25,11 +39,17 @@ export type Posture = "lean" | "upright" | "relaxed";
 export type Accessory = "none" | "tie" | "bowtie" | "scarf" | "chain" | "earring";
 
 export interface CharacterLook {
-  /** Face skin tone. */
+  /** Face skin tone (mid). */
   skin: string;
+  /** Lit highlight tone for the upper-left key light (optional). */
+  skinLight?: string;
   /** Subtle shading tone for the jaw/cheek. */
   skinShade: string;
   hair: string;
+  /** Lit hair highlight tone (optional). */
+  hairLight?: string;
+  /** Iris color (optional; defaults to brown). */
+  eyeColor?: string;
   hairStyle: HairStyle;
   hat: HatStyle;
   hatColor: string;
@@ -53,8 +73,11 @@ export interface CharacterLook {
 /** The human ("You") — a neutral, friendly hero look. */
 export const HUMAN_LOOK: CharacterLook = {
   skin: "#e8b98f",
-  skinShade: "#d29a6c",
+  skinLight: "#f6d3ac",
+  skinShade: "#cf9568",
   hair: "#3b2a20",
+  hairLight: "#5a4031",
+  eyeColor: "#6b4a2f",
   hairStyle: "short",
   hat: "none",
   hatColor: "#000",
@@ -73,8 +96,11 @@ export const HUMAN_LOOK: CharacterLook = {
 /** The non-playing croupier — sharp, clever, attentive house dealer in a suit. */
 export const DEALER_LOOK: CharacterLook = {
   skin: "#d9ae82",
-  skinShade: "#bd8d5f",
+  skinLight: "#ecc89c",
+  skinShade: "#b9874f",
   hair: "#1c1c24",
+  hairLight: "#33323f",
+  eyeColor: "#3d4f63",
   hairStyle: "slick",
   hat: "none",
   hatColor: "#0f766e",
@@ -95,8 +121,11 @@ const LOOKS: Record<string, CharacterLook> = {
   // Dot — warm, theatrical host in a magician's top hat & bowtie.
   "dealer-dot": {
     skin: "#f3cba3",
-    skinShade: "#e0ab78",
+    skinLight: "#ffe2bd",
+    skinShade: "#dca36f",
     hair: "#241c2b",
+    hairLight: "#3d3147",
+    eyeColor: "#5b3b6b",
     hairStyle: "short",
     hat: "top",
     hatColor: "#3b2155",
@@ -114,8 +143,11 @@ const LOOKS: Record<string, CharacterLook> = {
   // Rocky — aggressive brawler: broad, leaning in, red headband, gold chain.
   rocky: {
     skin: "#a96f44",
-    skinShade: "#8d5a35",
+    skinLight: "#c98a59",
+    skinShade: "#82532f",
     hair: "#150f0a",
+    hairLight: "#2c2018",
+    eyeColor: "#3b2415",
     hairStyle: "buzz",
     hat: "headband",
     hatColor: "#dc2626",
@@ -133,8 +165,11 @@ const LOOKS: Record<string, CharacterLook> = {
   // Nova — precise mathematician: slim, upright, glasses, neat tie.
   nova: {
     skin: "#e7be98",
-    skinShade: "#cfa178",
+    skinLight: "#f7d6b3",
+    skinShade: "#c89a70",
     hair: "#0f172a",
+    hairLight: "#27324a",
+    eyeColor: "#2f4858",
     hairStyle: "slick",
     hat: "none",
     hatColor: "#000",
@@ -152,8 +187,11 @@ const LOOKS: Record<string, CharacterLook> = {
   // Lucky — freckled, grinning gambler under a green flat cap, hoop earring.
   lucky: {
     skin: "#f0c19b",
-    skinShade: "#d9a472",
+    skinLight: "#ffdab4",
+    skinShade: "#d49b66",
     hair: "#b45309",
+    hairLight: "#d97718",
+    eyeColor: "#4a7c59",
     hairStyle: "tuft",
     hat: "cap",
     hatColor: "#15803d",
@@ -172,8 +210,11 @@ const LOOKS: Record<string, CharacterLook> = {
   // Sterling ("shark") — deep-skinned slick high-roller in dark shades & suit.
   shark: {
     skin: "#7c5230",
-    skinShade: "#653f22",
+    skinLight: "#9a6c44",
+    skinShade: "#5c3a1e",
     hair: "#100f14",
+    hairLight: "#262430",
+    eyeColor: "#2a1c12",
     hairStyle: "slick",
     hat: "none",
     hatColor: "#000",
@@ -191,8 +232,11 @@ const LOOKS: Record<string, CharacterLook> = {
   // River — serene, long-haired, calm under pressure, soft beard & scarf.
   river: {
     skin: "#e9c4a0",
-    skinShade: "#d2a87f",
+    skinLight: "#f8dabb",
+    skinShade: "#cfa478",
     hair: "#1e3a5f",
+    hairLight: "#2f547f",
+    eyeColor: "#36607a",
     hairStyle: "long",
     hat: "none",
     hatColor: "#000",
