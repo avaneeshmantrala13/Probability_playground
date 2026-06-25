@@ -93,17 +93,43 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
         role="img"
         aria-label="The dealer"
       >
-        {/* suit jacket */}
-        <path d="M40 70 C35 86 31 110 31 150 L109 150 C109 110 105 86 100 70 C90 64 81 62 70 62 C59 62 50 64 40 70 Z" fill="#0b1020" />
-        {/* jacket shoulder sheen (upper-left key light) + center seam shadow */}
-        <path d="M40 70 C37 80 34 96 33 112 C40 96 48 80 58 72 C50 70 44 70 40 70 Z" fill="#1b2440" opacity="0.7" />
-        <path d="M70 102 L70 150" stroke="#000" strokeWidth="10" opacity="0.18" />
-        {/* white dress shirt */}
+        <defs>
+          <linearGradient id="pn-dealer-rim" x1="1" y1="0" x2="0.5" y2="0.4">
+            <stop offset="0" stopColor="#ffd9a0" stopOpacity="0.5" />
+            <stop offset="1" stopColor="#ffd9a0" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="pn-dealer-jacket" x1="0.2" y1="0" x2="0.85" y2="1">
+            <stop offset="0" stopColor="#141a30" />
+            <stop offset="0.6" stopColor="#0b1020" />
+            <stop offset="1" stopColor="#070a16" />
+          </linearGradient>
+        </defs>
+        {/* suit jacket (gradient-shaded broadcloth) */}
+        <path d="M40 70 C35 86 31 110 31 150 L109 150 C109 110 105 86 100 70 C90 64 81 62 70 62 C59 62 50 64 40 70 Z" fill="url(#pn-dealer-jacket)" />
+        {/* jacket shoulder sheen (upper-left key light) + deep side/center shadow */}
+        <path d="M40 70 C37 80 34 96 33 112 C40 96 48 80 58 72 C50 70 44 70 40 70 Z" fill="#22304f" opacity="0.7" />
+        <path d="M100 70 C105 86 109 110 109 150 L101 150 C101 112 99 90 92 74 Z" fill="#000" opacity="0.22" />
+        <path d="M70 102 L70 150" stroke="#000" strokeWidth="10" opacity="0.2" />
+        {/* fabric folds falling from the shoulders */}
+        <g fill="none" stroke="#000" opacity="0.16" strokeLinecap="round">
+          <path d="M49 78 C45 102 45 128 48 150" strokeWidth="2" />
+          <path d="M91 78 C95 102 95 128 92 150" strokeWidth="2" />
+          <path d="M60 98 C58 118 58 136 60 150" strokeWidth="1.3" />
+          <path d="M80 98 C82 118 82 136 80 150" strokeWidth="1.3" />
+        </g>
+        {/* warm casino rim down the right edge of the jacket */}
+        <path d="M99 72 C104 88 108 112 108 150" fill="none" stroke="url(#pn-dealer-rim)" strokeWidth="2.6" strokeLinecap="round" />
+        {/* white dress shirt + soft fold */}
         <path d="M58 66 L70 102 L82 66 C78 63 74 62 70 62 C66 62 62 63 58 66 Z" fill="#f1f5f9" />
         <path d="M58 66 L70 102 L70 64 C66 62 62 63 58 66 Z" fill="#dbe2ea" opacity="0.8" />
-        {/* satin lapels */}
+        <path d="M70 70 L70 100" stroke="#c7d2dd" strokeWidth="0.8" opacity="0.6" />
+        {/* collar ambient occlusion under the bowtie */}
+        <path d="M62 64 Q70 70 78 64 L78 67 Q70 72 62 67 Z" fill="#000" opacity="0.22" />
+        {/* satin lapels with a lit edge for depth */}
         <path d="M58 66 L65 88 L70 76 Z" fill="#161d33" />
         <path d="M82 66 L75 88 L70 76 Z" fill="#161d33" />
+        <path d="M58 66 L65 88" stroke="#36446a" strokeWidth="1" opacity="0.85" strokeLinecap="round" />
+        <path d="M82 66 L75 88" stroke="#36446a" strokeWidth="1" opacity="0.85" strokeLinecap="round" />
         {/* bowtie */}
         <g fill={theme.glow}>
           <path d="M70 70 L58 65 L58 77 Z" />

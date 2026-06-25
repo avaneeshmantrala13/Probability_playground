@@ -81,6 +81,10 @@ function CasinoRoomImpl() {
         </svg>
       </div>
 
+      {/* out-of-focus light orbs + warm depth haze over the far room */}
+      <div className="pn-bokeh" />
+      <div className="pn-haze" />
+
       <div className="pn-carpet" />
       <div className="pn-vignette" />
     </div>

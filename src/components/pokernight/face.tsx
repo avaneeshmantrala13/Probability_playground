@@ -1,5 +1,5 @@
 import { memo, useId } from "react";
-import type { CharacterLook, Expression } from "./characters";
+import type { BrowStyle, CharacterLook, Expression } from "./characters";
 
 /**
  * Shared, parametric FACE primitives for Poker Night characters.
@@ -80,6 +80,9 @@ function HeadImpl({
   const skinG = `pn-skin-${raw}`;
   const hiG = `pn-hi-${raw}`;
   const shG = `pn-sh-${raw}`;
+  const rimG = `pn-rim-${raw}`;
+  const aoG = `pn-ao-${raw}`;
+  const irisG = `pn-iris-${raw}`;
   const hairG = `pn-hair-${raw}`;
   const hairSh = `pn-hairsh-${raw}`;
 
@@ -88,26 +91,48 @@ function HeadImpl({
   return (
     <g>
       <defs>
-        <linearGradient id={skinG} x1="0.2" y1="0.05" x2="0.7" y2="1">
+        <linearGradient id={skinG} x1="0.18" y1="0.04" x2="0.74" y2="1">
           <stop offset="0" stopColor={look.skinLight ?? look.skin} />
-          <stop offset="0.5" stopColor={look.skin} />
+          <stop offset="0.45" stopColor={look.skin} />
+          <stop offset="0.85" stopColor={look.skinShade} />
           <stop offset="1" stopColor={look.skinShade} />
         </linearGradient>
-        <radialGradient id={hiG} cx="0.36" cy="0.26" r="0.6">
-          <stop offset="0" stopColor="#ffffff" stopOpacity="0.4" />
-          <stop offset="0.55" stopColor="#ffffff" stopOpacity="0.07" />
+        {/* upper-left key light */}
+        <radialGradient id={hiG} cx="0.36" cy="0.24" r="0.62">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.5" />
+          <stop offset="0.5" stopColor="#ffffff" stopOpacity="0.1" />
           <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
         </radialGradient>
-        <radialGradient id={shG} cx="0.72" cy="0.8" r="0.62">
-          <stop offset="0" stopColor="#2a160a" stopOpacity="0.34" />
+        {/* lower-right form shadow */}
+        <radialGradient id={shG} cx="0.74" cy="0.82" r="0.66">
+          <stop offset="0" stopColor="#2a160a" stopOpacity="0.42" />
+          <stop offset="0.7" stopColor="#2a160a" stopOpacity="0.08" />
           <stop offset="1" stopColor="#2a160a" stopOpacity="0" />
+        </radialGradient>
+        {/* warm casino rim light along the right contour */}
+        <linearGradient id={rimG} x1="1" y1="0.18" x2="0.5" y2="0.72">
+          <stop offset="0" stopColor="#ffdca6" stopOpacity="0.62" />
+          <stop offset="0.42" stopColor="#ffbe7e" stopOpacity="0.12" />
+          <stop offset="1" stopColor="#ffbe7e" stopOpacity="0" />
+        </linearGradient>
+        {/* soft ambient occlusion (under the chin, into the neck) */}
+        <radialGradient id={aoG} cx="0.5" cy="0.18" r="0.85">
+          <stop offset="0" stopColor="#23130a" stopOpacity="0.4" />
+          <stop offset="1" stopColor="#23130a" stopOpacity="0" />
+        </radialGradient>
+        {/* layered iris with depth */}
+        <radialGradient id={irisG} cx="0.5" cy="0.34" r="0.66">
+          <stop offset="0" stopColor={look.eyeColor ?? "#6b4a2f"} />
+          <stop offset="0.58" stopColor={look.eyeColor ?? "#6b4a2f"} />
+          <stop offset="1" stopColor="#1b110a" />
         </radialGradient>
         <linearGradient id={hairG} x1="0.2" y1="0" x2="0.7" y2="1">
           <stop offset="0" stopColor={look.hairLight ?? look.hair} />
+          <stop offset="0.55" stopColor={look.hair} />
           <stop offset="1" stopColor={look.hair} />
         </linearGradient>
         <linearGradient id={hairSh} x1="0.5" y1="0" x2="0.5" y2="1">
-          <stop offset="0" stopColor="#ffffff" stopOpacity="0.18" />
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.24" />
           <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
       </defs>
@@ -128,7 +153,7 @@ function HeadImpl({
         </>
       )}
 
-      {/* head */}
+      {/* head base + sculpted form (key light, form shadow, warm rim) */}
       <path
         d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z"
         fill={`url(#${skinG})`}
@@ -136,23 +161,33 @@ function HeadImpl({
         strokeWidth="0.8"
       />
       <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${shG})`} />
+      <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${rimG})`} />
       <path d="M29 41 C29 26 38 19 50 19 C62 19 71 26 71 41 C71 55 63 67 50 67 C37 67 29 55 29 41 Z" fill={`url(#${hiG})`} />
-      {/* forehead specular + jaw cheek planes for structure */}
-      <ellipse cx="44" cy="30" rx="9" ry="5" fill="#fff" opacity="0.1" />
-      <path d="M33 47 Q37 60 50 64 Q44 58 41 47 Z" fill={look.skinShade} opacity="0.22" />
+      {/* forehead + cheekbone highlights; jaw + temple shadow planes */}
+      <ellipse cx="43" cy="29.5" rx="9.5" ry="5" fill="#fff" opacity="0.12" />
+      <ellipse cx="38.5" cy="45.5" rx="5.2" ry="3.1" fill="#fff" opacity="0.08" />
+      <path d="M33 46 Q36 60 50 65 Q44 58 41 47 Z" fill={look.skinShade} opacity="0.26" />
+      <path d="M67 46 Q64 60 50 65 Q56 58 59 47 Z" fill={look.skinShade} opacity="0.32" />
+      <path d="M30 36 Q33 30 37 28 Q33 35 33 44 Z" fill={look.skinShade} opacity="0.16" />
+      <path d="M70 36 Q67 30 63 28 Q67 35 67 44 Z" fill={look.skinShade} opacity="0.22" />
       {/* cheek blush */}
       <ellipse cx="37.5" cy="52" rx="4" ry="2.5" fill="#e8736b" opacity="0.16" />
       <ellipse cx="62.5" cy="52" rx="4" ry="2.5" fill="#e8736b" opacity="0.16" />
-      {/* nose with soft bridge highlight */}
-      <path d="M50 41 L50 50" stroke="#fff" strokeWidth="1.2" opacity="0.18" strokeLinecap="round" />
+      {/* nose: bridge highlight, form shadow, tip highlight, nostrils */}
+      <path d="M50 40 L50 50" stroke="#fff" strokeWidth="1.3" opacity="0.2" strokeLinecap="round" />
       <path d="M50 43 C48 49 46.4 51.6 47.4 53.2 C48.6 54.4 51.4 54.4 52.6 53.2 C53.6 51.6 52 49 50 43 Z" fill={look.skinShade} opacity="0.5" />
-      <path d="M47.6 52.6 Q50 54 52.4 52.6" fill="none" stroke={LINE} strokeWidth="0.7" />
+      <ellipse cx="49.6" cy="51.3" rx="1.5" ry="1.1" fill="#fff" opacity="0.2" />
+      <ellipse cx="47.8" cy="53.1" rx="0.95" ry="0.7" fill="#2a160a" opacity="0.34" />
+      <ellipse cx="52.2" cy="53.1" rx="0.95" ry="0.7" fill="#2a160a" opacity="0.34" />
+      <path d="M47.6 52.8 Q50 54.2 52.4 52.8" fill="none" stroke={LINE} strokeWidth="0.7" />
+      {/* under-chin ambient occlusion onto the neck */}
+      <ellipse cx="50" cy="68.4" rx="8.6" ry="2.8" fill={`url(#${aoG})`} />
 
       {look.freckles && <Freckles />}
 
       <Hair look={look} grad={`url(#${hairG})`} sheenGrad={`url(#${hairSh})`} />
       <FacialHairMark look={look} />
-      <Eyes look={look} mode={m.eye} blink={blink} blinkDelay={blinkDelay} expression={expression} />
+      <Eyes look={look} mode={m.eye} blink={blink} blinkDelay={blinkDelay} expression={expression} irisId={irisG} />
       <Brows look={look} mode={m.brow} />
       <Mouth look={look} mode={m.mouth} talking={talking} />
       <Hat look={look} />
@@ -174,21 +209,41 @@ function Freckles() {
 }
 
 function Hair({ look, grad, sheenGrad }: { look: CharacterLook; grad: string; sheenGrad: string }) {
+  // Thin dark inner-edge for a believable hairline + soft contact shadow on the
+  // forehead where the hair sits.
+  const hl = look.hair;
+  const strand = "rgb(255 255 255 / 0.16)";
   switch (look.hairStyle) {
     case "bald":
-      return <path d="M33 33 Q50 25 67 33 Q50 30 33 33 Z" fill="#fff" opacity="0.14" />;
+      return (
+        <g>
+          <ellipse cx="46" cy="28" rx="10" ry="5.5" fill="#fff" opacity="0.16" />
+          <path d="M33 33 Q50 24 67 33" fill="none" stroke="#fff" opacity="0.08" strokeWidth="2" />
+        </g>
+      );
     case "buzz":
       return (
         <g>
           <path d="M28 39 C30 23 41 17 50 17 C59 17 70 23 72 39 C65 29 57 26 50 26 C43 26 35 29 28 39 Z" fill={grad} />
+          <path d="M28 39 C35 29 43 26 50 26 C57 26 65 29 72 39" fill="none" stroke={hl} strokeWidth="0.8" opacity="0.4" />
           <path d="M30 38 C33 26 41 21 50 21 C59 21 67 26 70 38" fill="none" stroke={sheenGrad} strokeWidth="3" strokeLinecap="round" />
+          <g stroke={strand} strokeWidth="0.7" fill="none" opacity="0.7">
+            <path d="M38 22 L36 30" /><path d="M50 19 L50 27" /><path d="M62 22 L64 30" />
+          </g>
         </g>
       );
     case "slick":
       return (
         <g>
           <path d="M27 41 C27 21 39 14 50 14 C61 14 73 21 73 41 C73 32 65 22 50 22 C39 22 31 30 27 41 Z" fill={grad} />
-          <path d="M31 34 C33 23 41 18 51 18 C61 18 69 24 71 34" fill="none" stroke={sheenGrad} strokeWidth="3.4" strokeLinecap="round" />
+          <path d="M31 34 C33 23 41 18 51 18 C61 18 69 24 71 34" fill="none" stroke={sheenGrad} strokeWidth="3.6" strokeLinecap="round" />
+          {/* combed strand grouping */}
+          <g stroke={strand} strokeWidth="0.9" fill="none" opacity="0.8" strokeLinecap="round">
+            <path d="M33 33 C36 24 44 19 52 19" />
+            <path d="M37 36 C40 27 47 22 55 21" />
+            <path d="M44 38 C48 29 55 24 63 24" />
+          </g>
+          <path d="M27 41 C31 30 39 22 50 22 C61 22 69 30 73 41" fill="none" stroke={hl} strokeWidth="0.8" opacity="0.35" />
         </g>
       );
     case "long":
@@ -196,20 +251,33 @@ function Hair({ look, grad, sheenGrad }: { look: CharacterLook; grad: string; sh
         <g>
           <path d="M25 64 C22 38 30 15 50 15 C70 15 78 38 75 64 L67 64 C71 42 65 24 50 24 C35 24 29 42 33 64 Z" fill={grad} />
           <path d="M28 40 C30 20 41 14 50 14 C59 14 70 20 72 40 C64 28 57 25 50 25 C43 25 36 28 28 40 Z" fill={grad} />
-          <path d="M33 22 C42 16 58 16 67 22" fill="none" stroke={sheenGrad} strokeWidth="3" strokeLinecap="round" />
+          {/* flowing strands down the sides */}
+          <g stroke={strand} strokeWidth="0.9" fill="none" opacity="0.7" strokeLinecap="round">
+            <path d="M29 30 C27 42 28 54 31 63" />
+            <path d="M71 30 C73 42 72 54 69 63" />
+            <path d="M33 22 C42 16 58 16 67 22" />
+          </g>
+          <path d="M26 60 C24 44 30 26 50 25 C70 26 76 44 74 60" fill="none" stroke={hl} strokeWidth="0.8" opacity="0.3" />
         </g>
       );
     case "afro":
       return (
         <g>
           <path d="M27 35 C18 33 21 16 34 14 C36 6 50 5 56 11 C71 9 82 21 73 34 C82 38 75 50 68 44 C66 30 58 26 50 26 C42 26 34 30 32 44 C24 50 18 38 27 35 Z" fill={grad} />
-          <circle cx="38" cy="20" r="6" fill={sheenGrad} />
+          <g fill={strand} opacity="0.6">
+            <circle cx="38" cy="20" r="5" /><circle cx="55" cy="16" r="4" /><circle cx="28" cy="30" r="3.4" /><circle cx="70" cy="26" r="3.4" />
+          </g>
         </g>
       );
     case "tuft":
       return (
         <g>
           <path d="M28 38 C29 23 40 16 50 16 C60 16 71 23 72 38 C66 30 60 32 57 25 C55 32 49 32 47 26 C44 33 38 32 35 26 C33 32 30 35 28 38 Z" fill={grad} />
+          <g stroke={strand} strokeWidth="0.9" fill="none" opacity="0.75" strokeLinecap="round">
+            <path d="M36 30 C36 24 40 20 44 19" />
+            <path d="M50 30 C49 23 51 20 53 19" />
+            <path d="M62 30 C63 24 60 21 57 20" />
+          </g>
         </g>
       );
     case "short":
@@ -218,6 +286,12 @@ function Hair({ look, grad, sheenGrad }: { look: CharacterLook; grad: string; sh
         <g>
           <path d="M28 40 C28 22 40 15 50 15 C60 15 72 22 72 40 C65 29 58 26 50 26 C42 26 35 29 28 40 Z" fill={grad} />
           <path d="M32 33 C35 24 42 19 51 19 C60 19 67 25 70 33" fill="none" stroke={sheenGrad} strokeWidth="3" strokeLinecap="round" />
+          <g stroke={strand} strokeWidth="0.85" fill="none" opacity="0.78" strokeLinecap="round">
+            <path d="M33 34 C36 26 43 21 51 21" />
+            <path d="M40 37 C44 29 51 24 60 25" />
+            <path d="M48 38 C52 31 59 27 67 29" />
+          </g>
+          <path d="M28 40 C32 30 40 26 50 26 C60 26 68 30 72 40" fill="none" stroke={hl} strokeWidth="0.8" opacity="0.35" />
         </g>
       );
   }
@@ -261,12 +335,14 @@ function Eyes({
   blink,
   blinkDelay,
   expression,
+  irisId,
 }: {
   look: CharacterLook;
   mode: EyeMode;
   blink: boolean;
   blinkDelay: number;
   expression: Expression;
+  irisId: string;
 }) {
   // Cool shades persona: eyes hidden behind lenses — emotion reads via brows/mouth.
   if (look.eyes === "shades") {
@@ -318,25 +394,40 @@ function Eyes({
 
   const liveClass = expression === "idle" || expression === "think" ? "pn-eyes-live" : "";
 
+  const lashTop = 46 - whiteRy + 0.3;
   return (
     <g>
-      {/* whites + socket line */}
+      {/* soft eye-socket shadow under the brow for depth */}
+      <ellipse cx="40.5" cy="44.7" rx={whiteRx + 1} ry={whiteRy + 1.2} fill={look.skinShade} opacity="0.2" />
+      <ellipse cx="59.5" cy="44.7" rx={whiteRx + 1} ry={whiteRy + 1.2} fill={look.skinShade} opacity="0.2" />
+
+      {/* whites + inner-corner shading */}
       <ellipse cx="40.5" cy="46" rx={whiteRx} ry={whiteRy} fill="#fbfdff" />
       <ellipse cx="59.5" cy="46" rx={whiteRx} ry={whiteRy} fill="#fbfdff" />
-      <path d="M36 44 Q40.5 42 45 44" fill="none" stroke={LINE} strokeWidth="0.8" />
-      <path d="M55 44 Q59.5 42 64 44" fill="none" stroke={LINE} strokeWidth="0.8" />
+      <path d="M36.4 46.7 Q39 48.3 44.4 47.5" fill="none" stroke="#cab6a6" strokeWidth="0.5" opacity="0.5" />
+      <path d="M55.6 47.5 Q61 48.3 63.6 46.7" fill="none" stroke="#cab6a6" strokeWidth="0.5" opacity="0.5" />
 
-      {/* iris + pupil + catchlight (a group that subtly darts while idle) */}
+      {/* layered iris + pupil + dual catchlights (darts subtly while idle) */}
       <g className={liveClass} style={liveClass ? { animationDelay: `${blinkDelay}s` } : undefined}>
         <g transform={`translate(${dx} ${dy})`}>
-          <circle cx="41" cy="46.2" r={irisR} fill={look.eyeColor ?? "#5b3a26"} />
-          <circle cx="59" cy="46.2" r={irisR} fill={look.eyeColor ?? "#5b3a26"} />
-          <circle cx="41" cy="46.2" r={irisR * 0.5} fill="#14161d" />
-          <circle cx="59" cy="46.2" r={irisR * 0.5} fill="#14161d" />
-          <circle cx="42" cy="45" r="0.95" fill="#fff" opacity="0.95" />
-          <circle cx="60" cy="45" r="0.95" fill="#fff" opacity="0.95" />
+          <circle cx="41" cy="46.2" r={irisR} fill={`url(#${irisId})`} />
+          <circle cx="59" cy="46.2" r={irisR} fill={`url(#${irisId})`} />
+          <circle cx="41" cy="46.2" r={irisR} fill="none" stroke="#1b110a" strokeWidth="0.5" opacity="0.55" />
+          <circle cx="59" cy="46.2" r={irisR} fill="none" stroke="#1b110a" strokeWidth="0.5" opacity="0.55" />
+          <circle cx="41" cy="46.4" r={irisR * 0.46} fill="#120c08" />
+          <circle cx="59" cy="46.4" r={irisR * 0.46} fill="#120c08" />
+          <circle cx="42.1" cy="44.9" r="1" fill="#fff" opacity="0.95" />
+          <circle cx="60.1" cy="44.9" r="1" fill="#fff" opacity="0.95" />
+          <circle cx="40.1" cy="46.9" r="0.5" fill="#fff" opacity="0.55" />
+          <circle cx="58.1" cy="46.9" r="0.5" fill="#fff" opacity="0.55" />
         </g>
       </g>
+
+      {/* upper lid / lash line (weight) + soft lower lid */}
+      <path d={`M${40.5 - whiteRx - 0.4} ${lashTop} Q40.5 ${lashTop - whiteRy * 0.5} ${40.5 + whiteRx + 0.4} ${lashTop}`} fill="none" stroke="#241810" strokeWidth="1.2" strokeLinecap="round" />
+      <path d={`M${59.5 - whiteRx - 0.4} ${lashTop} Q59.5 ${lashTop - whiteRy * 0.5} ${59.5 + whiteRx + 0.4} ${lashTop}`} fill="none" stroke="#241810" strokeWidth="1.2" strokeLinecap="round" />
+      <path d={`M${40.5 - whiteRx + 0.7} ${46 + whiteRy - 0.1} Q40.5 ${46 + whiteRy + 0.7} ${40.5 + whiteRx - 0.7} ${46 + whiteRy - 0.1}`} fill="none" stroke={look.skinShade} strokeWidth="0.7" opacity="0.7" />
+      <path d={`M${59.5 - whiteRx + 0.7} ${46 + whiteRy - 0.1} Q59.5 ${46 + whiteRy + 0.7} ${59.5 + whiteRx - 0.7} ${46 + whiteRy - 0.1}`} fill="none" stroke={look.skinShade} strokeWidth="0.7" opacity="0.7" />
 
       {/* squint / droop lids */}
       {topLid > 0 && (
@@ -368,89 +459,59 @@ function Eyes({
   );
 }
 
+/**
+ * Brows are rendered as two stacked strokes — a thick dark base plus a thin
+ * lighter stroke on top — so they read with weight and a hair-like sheen rather
+ * than a flat line. Shapes are data-driven per emotion (and per resting style).
+ */
 function Brows({ look, mode }: { look: CharacterLook; mode: BrowMode }) {
-  const stroke = look.hairLight ?? look.hair;
-  const W = 2.8;
+  const dark = look.hair;
+  const lite = look.hairLight ?? look.hair;
+  const ds = browShapes(mode, look.brow);
+  return (
+    <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+      {ds.map((d, i) => (
+        <g key={i}>
+          <path d={d} stroke={dark} strokeWidth="3.5" />
+          <path d={d} stroke={lite} strokeWidth="1.4" opacity="0.85" />
+        </g>
+      ))}
+      {mode === "think" && (
+        <path d="M49.4 38.8 Q50 41.8 50.6 38.8" stroke={dark} strokeWidth="1.1" opacity="0.5" fill="none" />
+      )}
+    </g>
+  );
+}
+
+function browShapes(mode: BrowMode, rest: BrowStyle): string[] {
   switch (mode) {
     case "think":
-      // furrowed: both brows pulled DOWN and TOGETHER toward the nose, plus a
-      // vertical crease between them (concentration)
-      return (
-        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
-          <path d="M35 38 Q41 40.2 47 40.6" />
-          <path d="M65 38 Q59 40.2 53 40.6" />
-          <path d="M49.4 38.8 Q50 41.6 50.6 38.8" strokeWidth="1.2" opacity="0.6" />
-        </g>
-      );
+      return ["M35 38 Q41 40.2 47 40.6", "M65 38 Q59 40.2 53 40.6"];
     case "worried":
-      // inner ends sharply lifted (anxious)
-      return (
-        <g stroke={stroke} strokeWidth={W} strokeLinecap="round">
-          <line x1="35" y1="41" x2="46" y2="35.5" />
-          <line x1="65" y1="41" x2="54" y2="35.5" />
-        </g>
-      );
+      return ["M35 41 L46 35.5", "M65 41 L54 35.5"];
     case "cocky":
-      // one brow sharply arched up, the other flat & low (smug)
-      return (
-        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
-          <line x1="34" y1="40.5" x2="46" y2="40" />
-          <path d="M53 39 Q59 32.8 67 36" />
-        </g>
-      );
+      return ["M34 40.5 L46 40", "M53 39 Q59 32.8 67 36"];
     case "up":
-      return (
-        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
-          <path d="M34 37.5 Q41 33.5 47 37" />
-          <path d="M53 37 Q59 33.5 66 37.5" />
-        </g>
-      );
+      return ["M34 37.5 Q41 33.5 47 37", "M53 37 Q59 33.5 66 37.5"];
     case "sad":
-      // inner ends sharply up, outer drooping (crestfallen)
-      return (
-        <g stroke={stroke} strokeWidth={W} strokeLinecap="round">
-          <line x1="34" y1="41.5" x2="46" y2="36.5" />
-          <line x1="66" y1="41.5" x2="54" y2="36.5" />
-        </g>
-      );
+      return ["M34 41.5 L46 36.5", "M66 41.5 L54 36.5"];
     case "rest":
     default:
-      return <RestBrows look={look} stroke={stroke} />;
+      return restBrowShapes(rest);
   }
 }
 
-function RestBrows({ look, stroke }: { look: CharacterLook; stroke: string }) {
-  const W = 2.7;
-  switch (look.brow) {
+function restBrowShapes(brow: BrowStyle): string[] {
+  switch (brow) {
     case "angry":
-      return (
-        <g stroke={stroke} strokeWidth="3" strokeLinecap="round">
-          <line x1="34" y1="37.5" x2="46" y2="41.5" />
-          <line x1="66" y1="37.5" x2="54" y2="41.5" />
-        </g>
-      );
+      return ["M34 37.5 L46 41.5", "M66 37.5 L54 41.5"];
     case "raised":
-      return (
-        <g stroke={stroke} strokeWidth={W} strokeLinecap="round" fill="none">
-          <path d="M34 38 Q41 34 47 37.5" />
-          <path d="M53 37.5 Q59 34 66 38" />
-        </g>
-      );
+      return ["M34 38 Q41 34 47 37.5", "M53 37.5 Q59 34 66 38"];
     case "calm":
-      return (
-        <g stroke={stroke} strokeWidth="2.5" strokeLinecap="round">
-          <line x1="35" y1="38.5" x2="46" y2="38.5" />
-          <line x1="54" y1="38.5" x2="65" y2="38.5" />
-        </g>
-      );
+      return ["M35 38.5 L46 38.5", "M54 38.5 L65 38.5"];
     case "neutral":
     default:
-      return (
-        <g stroke={stroke} strokeWidth={W} strokeLinecap="round">
-          <line x1="35" y1="38.5" x2="46" y2="37.5" />
-          <line x1="54" y1="37.5" x2="65" y2="38.5" />
-        </g>
-      );
+      return ["M35 38.5 L46 37.5", "M54 37.5 L65 38.5"];
   }
 }
 
