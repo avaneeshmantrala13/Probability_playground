@@ -89,8 +89,12 @@ function DealerImpl({ state, theme, reduced }: DealerProps) {
       >
         {/* suit jacket */}
         <path d="M40 70 C35 86 31 110 31 150 L109 150 C109 110 105 86 100 70 C90 64 81 62 70 62 C59 62 50 64 40 70 Z" fill="#0b1020" />
+        {/* jacket shoulder sheen (upper-left key light) + center seam shadow */}
+        <path d="M40 70 C37 80 34 96 33 112 C40 96 48 80 58 72 C50 70 44 70 40 70 Z" fill="#1b2440" opacity="0.7" />
+        <path d="M70 102 L70 150" stroke="#000" strokeWidth="10" opacity="0.18" />
         {/* white dress shirt */}
         <path d="M58 66 L70 102 L82 66 C78 63 74 62 70 62 C66 62 62 63 58 66 Z" fill="#f1f5f9" />
+        <path d="M58 66 L70 102 L70 64 C66 62 62 63 58 66 Z" fill="#dbe2ea" opacity="0.8" />
         {/* satin lapels */}
         <path d="M58 66 L65 88 L70 76 Z" fill="#161d33" />
         <path d="M82 66 L75 88 L70 76 Z" fill="#161d33" />
