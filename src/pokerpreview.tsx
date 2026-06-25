@@ -81,6 +81,7 @@ function PokerPreview() {
   const [speechTick, setSpeechTick] = useState(1);
   const [autoTalk, setAutoTalk] = useState(true);
   const [gazeOverride, setGazeOverride] = useState<GazeOverride>("auto");
+  const [puffForce, setPuffForce] = useState(false);
 
   // The opponent seat indices (everyone but the human at seat 0).
   const oppIndexes = useMemo(
@@ -152,6 +153,9 @@ function PokerPreview() {
         <button onClick={() => setAutoTalk((v) => !v)} style={autoTalk ? btnOn : btn}>
           Auto-talk: {autoTalk ? "on" : "off"}
         </button>
+        <button onClick={() => setPuffForce((v) => !v)} style={puffForce ? btnOn : btn}>
+          Cigar puff: {puffForce ? "fast" : "auto"}
+        </button>
         <span style={{ width: 1, background: "#334155", margin: "0 4px" }} />
         {EXPRESSIONS.map((e) => (
           <button
@@ -182,15 +186,17 @@ function PokerPreview() {
         Speaking seat: {speakIdx} · Gaze: {gazeOverride}
       </div>
 
-      <PokerTable
-        state={view}
-        deck={deck}
-        theme={theme}
-        reduced={false}
-        speeches={speeches}
-        expressions={expressions}
-        gazeOverride={gazeOverride}
-      />
+      <div className={puffForce ? "pn-puff-force" : undefined}>
+        <PokerTable
+          state={view}
+          deck={deck}
+          theme={theme}
+          reduced={false}
+          speeches={speeches}
+          expressions={expressions}
+          gazeOverride={gazeOverride}
+        />
+      </div>
     </div>
   );
 }

@@ -205,7 +205,50 @@ function HeadImpl({
       <Eyes look={look} mode={m.eye} blink={blink} blinkDelay={blinkDelay} gaze={gaze} irisId={irisG} />
       <Brows look={look} mode={m.brow} />
       <Mouth look={look} mode={m.mouth} talking={talking} />
+      {look.cigar && <Cigar />}
+      {look.monocle && <Monocle />}
       <Hat look={look} />
+    </g>
+  );
+}
+
+/** A classy gentleman's monocle over the right eye, with a thin retaining chain. */
+function Monocle() {
+  return (
+    <g>
+      <circle cx="60" cy="45" r="7.4" fill="#bfe7ff" opacity="0.12" />
+      <circle cx="60" cy="45" r="7.4" fill="none" stroke="#caa45a" strokeWidth="1.8" />
+      <circle cx="60" cy="45" r="7.4" fill="none" stroke="#fff3cf" strokeWidth="0.6" opacity="0.7" />
+      {/* glass glint */}
+      <path d="M56 42 Q59 40.5 62 42" fill="none" stroke="#ffffff" strokeWidth="1" opacity="0.6" strokeLinecap="round" />
+      {/* chain down toward the lapel */}
+      <path d="M60 52.4 Q63 60 66 67" fill="none" stroke="#caa45a" strokeWidth="0.8" opacity="0.8" />
+    </g>
+  );
+}
+
+/** A lit cigar at the corner of the mouth + a periodic drifting smoke puff. The
+ *  smoke animation (.pn-cigar-smoke) is GPU transform/opacity and fully gated off
+ *  under prefers-reduced-motion. */
+function Cigar() {
+  return (
+    <g>
+      {/* cigar body angling out from the right mouth corner */}
+      <g transform="rotate(-12 58 60)">
+        <rect x="57" y="57.6" width="20" height="4.6" rx="2.3" fill="#6b4524" />
+        <rect x="57" y="57.6" width="20" height="1.7" rx="0.9" fill="#8a5d33" opacity="0.8" />
+        <rect x="58" y="57.6" width="3.2" height="4.6" rx="1" fill="#caa45a" opacity="0.85" />
+        {/* ash + glowing ember at the tip */}
+        <rect x="76.4" y="57.8" width="3.4" height="4.2" rx="1.4" fill="#c9c4bb" />
+        <ellipse cx="77" cy="59.9" rx="1.7" ry="2" fill="#ff7a2a" />
+        <ellipse cx="77" cy="59.9" rx="0.9" ry="1.1" fill="#ffd27a" />
+      </g>
+      {/* drifting smoke puff rising from the ember */}
+      <g className="pn-cigar-smoke">
+        <circle cx="80" cy="52" r="2.2" fill="#e9eef5" opacity="0.5" />
+        <circle cx="82" cy="47" r="3" fill="#e9eef5" opacity="0.4" />
+        <circle cx="80.5" cy="42" r="3.6" fill="#e9eef5" opacity="0.3" />
+      </g>
     </g>
   );
 }
