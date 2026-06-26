@@ -9,6 +9,8 @@ import type { GameState } from "./types";
 /** Which reveal moment a quiz gate guards. */
 export type QuizGateId = "hole" | "flop" | "turn" | "river";
 
+export const QUIZ_GATE_ORDER: QuizGateId[] = ["hole", "flop", "turn", "river"];
+
 export const QUIZ_GATE_TIMEOUT_MS = 10_000;
 
 export const QUIZ_GATE_LABELS: Record<QuizGateId, string> = {
@@ -62,6 +64,47 @@ export function pickQuizQuestion(
   if (!usedIds.has(preferred.id)) return preferred;
   const fresh = shuffle(pool.filter((q) => !usedIds.has(q.id)));
   return shuffleOptions(fresh[0] ?? pool[handNumber % pool.length]);
+}
+
+export function isGateMomentReached(
+  state: GameState,
+  gate: QuizGateId,
+  viewerSeatIndex: number,
+): boolean {
+  if (state.stage === "complete" && !state.result) return false;
+  const viewer = state.seats[viewerSeatIndex];
+  if (!viewer || viewer.status === "out") return false;
+
+  switch (gate) {
+    case "hole":
+      return viewer.holeCards.length >= 2;
+    case "flop":
+      return state.board.length >= 3;
+    case "turn":
+      return state.board.length >= 4;
+    case "river":
+      return state.board.length >= 5;
+  }
+}
+
+export function isGateResolved(status: QuizGateStatus | undefined): boolean {
+  return status !== undefined && status !== "pending";
+}
+
+/** Next gate to show — strict hole → flop → turn → river, one at a time. */
+export function getNextQuizGate(
+  state: GameState,
+  viewerSeatIndex: number,
+  results: QuizGateResults,
+): QuizGateId | null {
+  for (const gate of QUIZ_GATE_ORDER) {
+    const status = results[gate];
+    if (status === "pending") return gate;
+    if (isGateResolved(status)) continue;
+    if (isGateMomentReached(state, gate, viewerSeatIndex)) return gate;
+    return null;
+  }
+  return null;
 }
 
 export function detectQuizGate(

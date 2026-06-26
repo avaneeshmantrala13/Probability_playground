@@ -407,6 +407,7 @@ function PokerSession({
 
       {quizGates.activeGate && (
         <QuizGateModal
+          key={`${state.handNumber}-${quizGates.activeGate.gate}`}
           gate={quizGates.activeGate.gate}
           question={quizGates.activeGate.question}
           onResolve={quizGates.resolveGate}
@@ -537,6 +538,7 @@ function MultiplayerSession({
       </div>
       {quizGates.activeGate && (
         <QuizGateModal
+          key={`${state.handNumber}-${quizGates.activeGate.gate}`}
           gate={quizGates.activeGate.gate}
           question={quizGates.activeGate.question}
           onResolve={quizGates.resolveGate}
