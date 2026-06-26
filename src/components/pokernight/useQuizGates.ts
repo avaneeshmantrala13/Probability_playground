@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useQuizDifficulty } from "../../context/QuizDifficultyContext";
 import {
   detectQuizGate,
   pickQuizQuestion,
@@ -24,6 +25,7 @@ export interface UseQuizGatesOpts {
 
 export function useQuizGates(opts: UseQuizGatesOpts) {
   const { state, viewerSeatIndex, enabled, lives = 0, onConsumeLife } = opts;
+  const { difficulty } = useQuizDifficulty();
   const [results, setResults] = useState<QuizGateResults>({});
   const [activeGate, setActiveGate] = useState<ActiveQuizGate | null>(null);
   const prevStateRef = useRef<GameState | null>(null);
@@ -66,11 +68,16 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
     const gate = detectQuizGate(prevStateRef.current, state, viewerSeatIndex);
     prevStateRef.current = state;
     if (!gate || resultsRef.current[gate] !== undefined) return;
-    const question = pickQuizQuestion(state.handNumber, gate, usedQuestionIds.current);
+    const question = pickQuizQuestion(
+      state.handNumber,
+      gate,
+      usedQuestionIds.current,
+      difficulty,
+    );
     usedQuestionIds.current.add(question.id);
     setResults((prev) => ({ ...prev, [gate]: "pending" }));
     setActiveGate({ gate, question });
-  }, [state, viewerSeatIndex, enabled]);
+  }, [state, viewerSeatIndex, enabled, difficulty]);
 
   return { results, activeGate, resolveGate };
 }
