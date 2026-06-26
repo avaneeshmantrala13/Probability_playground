@@ -530,6 +530,7 @@ function MultiplayerSession({
             expressions={expressions}
             viewerSeatIndex={mySeatIndex}
             quizGateResults={quizGates.results}
+            multiplayer
           />
         </Suspense>
         {user && <TableChat roomId={roomId} uid={user.uid} room={room} />}

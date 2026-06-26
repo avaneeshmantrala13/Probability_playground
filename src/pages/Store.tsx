@@ -6,6 +6,7 @@ import {
   AVATAR_ACCESSORIES,
   CHIP_STYLES,
   DECK_SKINS,
+  PLAYER_OUTFITS,
   TABLE_THEMES,
   WIN_ANIMATIONS,
 } from "../lib/cosmetics";
@@ -16,6 +17,7 @@ import {
   AnimationPreview,
   ChipPreview,
   DeckPreview,
+  OutfitPreview,
   TablePreview,
 } from "../components/store/CosmeticPreviews";
 import { TokenIcon } from "../components/store/TokenIcon";
@@ -26,6 +28,7 @@ type TabId = CosmeticCategory;
 const TABS: { id: TabId; label: string }[] = [
   { id: "deckSkin", label: "Card Decks" },
   { id: "tableTheme", label: "Table Felts" },
+  { id: "playerOutfit", label: "Table Outfits" },
   { id: "chipStyle", label: "Chip Styles" },
   { id: "avatarAccessory", label: "Avatar Gear" },
   { id: "animation", label: "Win Animations" },
@@ -53,8 +56,8 @@ export function Store() {
               Store
             </h1>
             <p className="mt-2 max-w-xl text-secondary">
-              Premium decks, felts, chips, avatar gear, win animations, and accent
-              colors — your token sink for the high-stakes lifestyle.
+              Premium decks, felts, table outfits, chips, avatar gear, win animations,
+              and accent colors — your token sink for the high-stakes lifestyle.
             </p>
           </div>
           <span className="pp-card inline-flex items-center gap-2 px-4 py-2.5 text-base font-bold text-primary">
@@ -122,6 +125,22 @@ export function Store() {
               preview={<TablePreview theme={theme} />}
               onBuy={() => purchaseCosmetic(theme.id, theme.price)}
               onEquip={() => equipCosmetic("tableTheme", theme.id)}
+            />
+          ))}
+
+        {tab === "playerOutfit" &&
+          PLAYER_OUTFITS.map((outfit) => (
+            <CosmeticCard
+              key={outfit.id}
+              name={outfit.name}
+              description={outfit.description}
+              price={outfit.price}
+              owned={isOwned(outfit.id)}
+              equipped={isEquipped("playerOutfit", outfit.id)}
+              affordable={tokens >= outfit.price}
+              preview={<OutfitPreview outfit={outfit} />}
+              onBuy={() => purchaseCosmetic(outfit.id, outfit.price)}
+              onEquip={() => equipCosmetic("playerOutfit", outfit.id)}
             />
           ))}
 

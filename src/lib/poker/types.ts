@@ -97,6 +97,7 @@ export interface Seat {
   lastAction?: string;
   /** Optional table-talk bubble text (cleared as play moves on). */
   quip?: string;
+  characterId?: string;
 }
 
 /** A (side) pot and the seat indices eligible to win it. */

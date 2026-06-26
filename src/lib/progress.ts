@@ -42,6 +42,7 @@ export interface EquippedCosmetics {
   chipStyle: string;
   avatarAccessory: string;
   animation: string;
+  playerOutfit: string;
 }
 
 /** Cosmetic categories the player can unlock + equip with poker tokens. */
@@ -63,6 +64,7 @@ export const DEFAULT_EQUIPPED: EquippedCosmetics = {
   chipStyle: "chip-classic",
   avatarAccessory: "acc-none",
   animation: "anim-none",
+  playerOutfit: "outfit-default",
 };
 
 export const DEFAULT_OWNED_COSMETICS: string[] = [
@@ -72,6 +74,7 @@ export const DEFAULT_OWNED_COSMETICS: string[] = [
   "chip-classic",
   "acc-none",
   "anim-none",
+  "outfit-default",
 ];
 
 export function emptyPokerStats(): PokerStats {

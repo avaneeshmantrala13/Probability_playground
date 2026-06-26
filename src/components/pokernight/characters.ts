@@ -1,4 +1,5 @@
 import type { Persona } from "../../lib/poker";
+import { getCharacterLook } from "../../lib/characters";
 
 /**
  * Visual "character" definitions for Poker Night — 100% client-side CSS/SVG.
@@ -292,8 +293,19 @@ const FALLBACK: CharacterLook = {
 };
 
 /** Resolve the look for a seat's persona (human/unknown -> sensible defaults). */
-export function getLook(persona?: Persona, isHuman?: boolean): CharacterLook {
-  if (isHuman) return HUMAN_LOOK;
+export function getLook(
+  persona?: Persona,
+  isHuman?: boolean,
+  characterId?: string,
+  multiplayerHuman?: boolean,
+): CharacterLook {
+  if (isHuman) {
+    if (multiplayerHuman && characterId) {
+      const mpLook = getCharacterLook(characterId);
+      if (mpLook) return mpLook;
+    }
+    if (!multiplayerHuman) return HUMAN_LOOK;
+  }
   if (persona && LOOKS[persona.id]) return LOOKS[persona.id];
   return FALLBACK;
 }

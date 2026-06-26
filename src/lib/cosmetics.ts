@@ -1,4 +1,6 @@
 import type { CosmeticCategory } from "./progress";
+import { STORE_OUTFITS } from "./characters";
+import type { CharacterTier } from "./characters";
 
 /**
  * Cosmetic catalog for the poker token economy. This is DATA ONLY (no React) so
@@ -88,13 +90,21 @@ export interface WinAnimation extends CosmeticBase {
   cssClass: string;
 }
 
+export interface PlayerOutfit extends CosmeticBase {
+  category: "playerOutfit";
+  characterId: string;
+  tier: CharacterTier;
+  swatch: [string, string];
+}
+
 export type Cosmetic =
   | DeckSkin
   | TableTheme
   | AccentTheme
   | ChipStyle
   | AvatarAccessory
-  | WinAnimation;
+  | WinAnimation
+  | PlayerOutfit;
 
 // ----------------------------- Deck skins -----------------------------
 
@@ -654,6 +664,29 @@ export const WIN_ANIMATIONS: WinAnimation[] = [
   },
 ];
 
+export const PLAYER_OUTFITS: PlayerOutfit[] = [
+  {
+    id: "outfit-default",
+    category: "playerOutfit",
+    name: "Default Suit",
+    description: "Auto-assigned colored suit per seat — free for every multiplayer player.",
+    price: 0,
+    characterId: "outfit-default",
+    tier: "basic",
+    swatch: ["#2563eb", "#60a5fa"],
+  },
+  ...STORE_OUTFITS.map((c) => ({
+    id: c.id,
+    category: "playerOutfit" as const,
+    name: c.name,
+    description: c.description,
+    price: c.price,
+    characterId: c.id,
+    tier: c.tier,
+    swatch: [c.look.outfit, c.look.accent] as [string, string],
+  })),
+];
+
 export const ALL_COSMETICS: Cosmetic[] = [
   ...DECK_SKINS,
   ...TABLE_THEMES,
@@ -661,6 +694,7 @@ export const ALL_COSMETICS: Cosmetic[] = [
   ...CHIP_STYLES,
   ...AVATAR_ACCESSORIES,
   ...WIN_ANIMATIONS,
+  ...PLAYER_OUTFITS,
 ];
 
 export function getCosmetic(id: string): Cosmetic | undefined {
@@ -689,6 +723,10 @@ export function getAvatarAccessory(id: string): AvatarAccessory {
 
 export function getWinAnimation(id: string): WinAnimation {
   return WIN_ANIMATIONS.find((a) => a.id === id) ?? WIN_ANIMATIONS[0];
+}
+
+export function getPlayerOutfit(id: string): PlayerOutfit {
+  return PLAYER_OUTFITS.find((o) => o.id === id) ?? PLAYER_OUTFITS[0];
 }
 
 export function cosmeticsByCategory(category: CosmeticCategory): Cosmetic[] {

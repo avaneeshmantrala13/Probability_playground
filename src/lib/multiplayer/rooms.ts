@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { stripUndefined } from "../firestore/sanitize";
+import { assignDefaultCharacterId, getCharacter } from "../characters";
 import type { GameState } from "../poker/types";
 import type { TableTier } from "../tokens";
 import { MAX_PLAYERS } from "./constants";
@@ -32,6 +33,7 @@ export interface RoomPlayer {
   active: boolean;
   /** Per-player chat toggle — when false, player cannot send or receive chat. */
   chatEnabled: boolean;
+  characterId: string;
 }
 
 export interface ChatMessage {
@@ -75,6 +77,7 @@ export interface MatchmakingEntry {
   status: "waiting" | "matched";
   roomId: string | null;
   joinedAt: number;
+  characterId?: string;
 }
 
 const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -103,6 +106,7 @@ function makePlayer(
   seatIndex: number,
   buyIn: number,
   ready: boolean,
+  characterId?: string,
 ): RoomPlayer {
   return {
     uid,
@@ -113,6 +117,10 @@ function makePlayer(
     stack: buyIn,
     active: true,
     chatEnabled: true,
+    characterId:
+      characterId && getCharacter(characterId) && getCharacter(characterId)!.price > 0
+        ? characterId
+        : assignDefaultCharacterId(uid, seatIndex),
   };
 }
 
@@ -128,6 +136,7 @@ export async function createFriendsRoom(
   hostName: string,
   tier: TableTier,
   buyIn: number,
+  characterId?: string,
 ): Promise<{ roomId: string; code: string }> {
   const roomId = doc(collection(db, "pokerRooms")).id;
   let code = randomCode();
@@ -144,7 +153,7 @@ export async function createFriendsRoom(
     tierId: tier.id,
     buyIn,
     status: "lobby",
-    players: { [hostUid]: makePlayer(hostUid, hostName, 0, buyIn, false) },
+    players: { [hostUid]: makePlayer(hostUid, hostName, 0, buyIn, false, characterId) },
     gameState: null,
     actionSeq: 0,
     maxSeats: MAX_PLAYERS,
@@ -168,6 +177,7 @@ export async function createPublicRoom(
   hostName: string,
   tier: TableTier,
   buyIn: number,
+  characterId?: string,
 ): Promise<{ roomId: string; code: string }> {
   const roomId = doc(collection(db, "pokerRooms")).id;
   const code = randomCode();
@@ -179,7 +189,7 @@ export async function createPublicRoom(
     tierId: tier.id,
     buyIn,
     status: "lobby",
-    players: { [hostUid]: makePlayer(hostUid, hostName, 0, buyIn, false) },
+    players: { [hostUid]: makePlayer(hostUid, hostName, 0, buyIn, false, characterId) },
     gameState: null,
     actionSeq: 0,
     maxSeats: MAX_PLAYERS,
@@ -199,6 +209,7 @@ export async function joinRoomByCode(
   code: string,
   uid: string,
   name: string,
+  characterId?: string,
 ): Promise<{ roomId: string; room: PokerRoom }> {
   const normalized = code.trim().toUpperCase();
   const codeSnap = await getDoc(doc(db, "roomCodes", normalized));
@@ -216,7 +227,7 @@ export async function joinRoomByCode(
     if (seated.length >= room.maxSeats) throw new Error("Room is full (max 6 players).");
 
     const seatIndex = nextSeatIndex(seated);
-    const player = makePlayer(uid, name, seatIndex, room.buyIn, false);
+    const player = makePlayer(uid, name, seatIndex, room.buyIn, false, characterId);
     tx.update(roomRef, {
       [`players.${uid}`]: player,
       updatedAt: serverTimestamp(),
@@ -235,6 +246,7 @@ export async function joinPublicRoom(
   roomId: string,
   uid: string,
   name: string,
+  characterId?: string,
 ): Promise<void> {
   const roomRef = doc(db, "pokerRooms", roomId);
   await runTransaction(db, async (tx) => {
@@ -249,7 +261,7 @@ export async function joinPublicRoom(
 
     const seatIndex = nextSeatIndex(seated);
     tx.update(roomRef, {
-      [`players.${uid}`]: makePlayer(uid, name, seatIndex, room.buyIn, false),
+      [`players.${uid}`]: makePlayer(uid, name, seatIndex, room.buyIn, false, characterId),
       updatedAt: serverTimestamp(),
     });
   });
@@ -444,6 +456,7 @@ export async function enterMatchmakingQueue(
   name: string,
   tierId: string,
   buyIn: number,
+  characterId?: string,
 ): Promise<void> {
   await setDoc(doc(db, "matchmakingQueue", uid), {
     uid,
@@ -453,6 +466,7 @@ export async function enterMatchmakingQueue(
     status: "waiting",
     roomId: null,
     joinedAt: Date.now(),
+    ...(characterId ? { characterId } : {}),
   });
 }
 
@@ -501,9 +515,16 @@ export async function tryMatchPublicTable(
   const hostUid = waitingUids[0];
   const hostEntry = await getDoc(doc(db, "matchmakingQueue", hostUid));
   if (!hostEntry.exists()) return null;
-  const hostName = (hostEntry.data() as MatchmakingEntry).name;
+  const hostData = hostEntry.data() as MatchmakingEntry;
+  const hostName = hostData.name;
 
-  const { roomId } = await createPublicRoom(hostUid, hostName, tier, buyIn);
+  const { roomId } = await createPublicRoom(
+    hostUid,
+    hostName,
+    tier,
+    buyIn,
+    hostData.characterId,
+  );
 
   await runTransaction(db, async (tx) => {
     const roomRef = doc(db, "pokerRooms", roomId);
@@ -518,7 +539,14 @@ export async function tryMatchPublicTable(
       const seated = activePlayers(roomSnap.data() as Omit<PokerRoom, "id">);
       const seatIndex = nextSeatIndex(seated);
       tx.update(roomRef, {
-        [`players.${uid}`]: makePlayer(uid, entry.name, seatIndex, buyIn, false),
+        [`players.${uid}`]: makePlayer(
+          uid,
+          entry.name,
+          seatIndex,
+          buyIn,
+          false,
+          entry.characterId,
+        ),
       });
     }
 
@@ -554,13 +582,14 @@ export async function matchmakePublic(
   name: string,
   tier: TableTier,
   buyIn: number,
+  characterId?: string,
 ): Promise<{ roomId: string; matched: boolean }> {
   const existing = await findOpenPublicRoom(tier.id);
   if (existing) {
-    await joinPublicRoom(existing, uid, name);
+    await joinPublicRoom(existing, uid, name, characterId);
     return { roomId: existing, matched: true };
   }
 
-  await enterMatchmakingQueue(uid, name, tier.id, buyIn);
+  await enterMatchmakingQueue(uid, name, tier.id, buyIn, characterId);
   return { roomId: "", matched: false };
 }
