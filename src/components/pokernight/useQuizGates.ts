@@ -30,6 +30,7 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
   const [activeGate, setActiveGate] = useState<ActiveQuizGate | null>(null);
   const prevStateRef = useRef<GameState | null>(null);
   const handRef = useRef(state.handNumber);
+  const resultsHandRef = useRef(state.handNumber);
   const usedQuestionIds = useRef<Set<string>>(new Set());
   const resultsRef = useRef(results);
   resultsRef.current = results;
@@ -37,7 +38,11 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
   useEffect(() => {
     if (state.handNumber === handRef.current) return;
     handRef.current = state.handNumber;
+    resultsHandRef.current = state.handNumber;
     usedQuestionIds.current = new Set();
+    // Clear synchronously so the gate-detection effect in the same commit
+    // does not treat the previous hand's hole/flop/turn/river results as current.
+    resultsRef.current = {};
     setResults({});
     setActiveGate(null);
     prevStateRef.current = null;
@@ -51,7 +56,11 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
         const passed =
           selectedIndex !== null && selectedIndex === question.correctIndex;
         if (!passed && lives > 0) onConsumeLife?.();
-        setResults((prev) => ({ ...prev, [gate]: { passed, selectedIndex } }));
+        setResults((prev) => {
+          const next = { ...prev, [gate]: { passed, selectedIndex } };
+          resultsRef.current = next;
+          return next;
+        });
         return null;
       });
     },
@@ -67,7 +76,9 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
     }
     const gate = detectQuizGate(prevStateRef.current, state, viewerSeatIndex);
     prevStateRef.current = state;
-    if (!gate || resultsRef.current[gate] !== undefined) return;
+    const handResults =
+      resultsHandRef.current === state.handNumber ? resultsRef.current : {};
+    if (!gate || handResults[gate] !== undefined) return;
     const question = pickQuizQuestion(
       state.handNumber,
       gate,
@@ -75,7 +86,10 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
       difficulty,
     );
     usedQuestionIds.current.add(question.id);
-    setResults((prev) => ({ ...prev, [gate]: "pending" }));
+    const pending = { ...handResults, [gate]: "pending" as const };
+    resultsHandRef.current = state.handNumber;
+    resultsRef.current = pending;
+    setResults(pending);
     setActiveGate({ gate, question });
   }, [state, viewerSeatIndex, enabled, difficulty]);
 
