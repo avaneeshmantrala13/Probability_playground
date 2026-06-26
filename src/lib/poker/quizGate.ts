@@ -13,6 +13,9 @@ export const QUIZ_GATE_ORDER: QuizGateId[] = ["hole", "flop", "turn", "river"];
 
 export const QUIZ_GATE_TIMEOUT_MS = 10_000;
 
+/** How long to show correct/wrong feedback before resolving the gate. */
+export const QUIZ_GATE_FEEDBACK_MS = 3_000;
+
 export const QUIZ_GATE_LABELS: Record<QuizGateId, string> = {
   hole: "Hole cards",
   flop: "Flop",
