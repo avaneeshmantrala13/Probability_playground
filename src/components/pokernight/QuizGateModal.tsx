@@ -9,7 +9,7 @@ import {
 interface QuizGateModalProps {
   gate: QuizGateId;
   question: ServedQuestion;
-  onResolve: (selectedIndex: number | null) => void;
+  onResolve: (gate: QuizGateId, selectedIndex: number | null) => void;
 }
 
 export function QuizGateModal({ gate, question, onResolve }: QuizGateModalProps) {
@@ -21,9 +21,9 @@ export function QuizGateModal({ gate, question, onResolve }: QuizGateModalProps)
     (index: number | null) => {
       if (resolvedRef.current) return;
       resolvedRef.current = true;
-      onResolve(index);
+      onResolve(gate, index);
     },
-    [onResolve],
+    [gate, onResolve],
   );
 
   useEffect(() => {
