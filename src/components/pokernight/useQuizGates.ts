@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useQuizDifficulty } from "../../context/QuizDifficultyContext";
+import { useProgress } from "../../context/ProgressContext";
 import {
   getNextQuizGate,
   pickQuizQuestion,
@@ -26,6 +27,7 @@ export interface UseQuizGatesOpts {
 export function useQuizGates(opts: UseQuizGatesOpts) {
   const { state, viewerSeatIndex, enabled, lives = 0, onConsumeLife } = opts;
   const { difficulty } = useQuizDifficulty();
+  const { recordCorrectAnswer } = useProgress();
   const [results, setResults] = useState<QuizGateResults>({});
   const [activeGate, setActiveGate] = useState<ActiveQuizGate | null>(null);
   const handRef = useRef(state.handNumber);
@@ -53,6 +55,7 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
         const { gate, question } = current;
         const passed =
           selectedIndex !== null && selectedIndex === question.correctIndex;
+        if (passed) recordCorrectAnswer();
         if (!passed && lives > 0) onConsumeLife?.();
         setResults((prev) => {
           const next = { ...prev, [gate]: { passed, selectedIndex } };
@@ -62,7 +65,7 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
         return null;
       });
     },
-    [lives, onConsumeLife],
+    [lives, onConsumeLife, recordCorrectAnswer],
   );
 
   useEffect(() => {

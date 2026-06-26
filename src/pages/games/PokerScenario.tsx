@@ -64,6 +64,7 @@ function CrossIcon({ size = 18 }: { size?: number }) {
 }
 
 function PokerScenarioGame() {
+  const { recordCorrectAnswer } = useProgress();
   const [order, setOrder] = useState<number[]>(shuffleOrder);
   const [pointer, setPointer] = useState(0);
   const [dealKey, setDealKey] = useState(0);
@@ -93,6 +94,7 @@ function PokerScenarioGame() {
       setMc(monteCarlo(known, scenario.predicate, MC_DRAWS));
       setAnswered((a) => a + 1);
       if (index === scenario.correct) {
+        recordCorrectAnswer();
         setScore((prev) => {
           const next = prev + 1;
           if (next > best) {
@@ -103,7 +105,7 @@ function PokerScenarioGame() {
         });
       }
     },
-    [selected, known, scenario, best],
+    [selected, known, scenario, best, recordCorrectAnswer],
   );
 
   const handleNext = useCallback(() => {

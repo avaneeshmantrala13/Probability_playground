@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import type { ServedQuestion } from "../../lib/comeback";
+import { useProgress } from "../../context/ProgressContext";
 import { CheckIcon, XIcon } from "../icons";
 import "./comeback.css";
 
@@ -16,6 +17,7 @@ interface ComebackQuizProps {
  * tally via `onComplete`.
  */
 export function ComebackQuiz({ questions, onComplete }: ComebackQuizProps) {
+  const { recordCorrectAnswer } = useProgress();
   const total = questions.length;
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -35,6 +37,7 @@ export function ComebackQuiz({ questions, onComplete }: ComebackQuizProps) {
     if (selected === null || checked) return;
     setChecked(true);
     if (selected === question.correctIndex) {
+      recordCorrectAnswer();
       setCorrectCount((c) => c + 1);
     }
   }
