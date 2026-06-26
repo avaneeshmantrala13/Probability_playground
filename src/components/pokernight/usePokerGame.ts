@@ -58,6 +58,7 @@ export interface PokerGameApi {
   act: (action: Action) => void;
   dealNext: () => void;
   rebuy: (amount: number) => void;
+  humanSeatIndex: number;
 }
 
 // Default human seat for single-player mode.
@@ -368,5 +369,6 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     act,
     dealNext,
     rebuy,
+    humanSeatIndex: HUMAN_SEAT,
   };
 }

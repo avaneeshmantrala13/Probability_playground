@@ -29,6 +29,8 @@ import { MultiplayerGate } from "../components/pokernight/MultiplayerGate";
 import { MultiplayerLobby } from "../components/pokernight/MultiplayerLobby";
 import { TableChat } from "../components/pokernight/TableChat";
 import { TokenPurchaseModal } from "../components/pokernight/TokenPurchaseModal";
+import { useQuizGates } from "../components/pokernight/useQuizGates";
+import { QuizGateModal } from "../components/pokernight/QuizGateModal";
 
 const PokerTable = lazy(() => import("../components/pokernight/PokerTable"));
 
@@ -282,7 +284,14 @@ function PokerSession({
     act,
     dealNext,
     rebuy,
+    humanSeatIndex,
   } = game;
+
+  const quizGates = useQuizGates({
+    state,
+    viewerSeatIndex: humanSeatIndex,
+    enabled: phase === "playing",
+  });
 
   const handComplete = state.stage === "complete";
 
@@ -346,8 +355,17 @@ function PokerSession({
           reduced={reduced}
           speeches={speeches}
           expressions={expressions}
+          quizGateResults={quizGates.results}
         />
       </Suspense>
+
+      {quizGates.activeGate && (
+        <QuizGateModal
+          gate={quizGates.activeGate.gate}
+          question={quizGates.activeGate.question}
+          onResolve={quizGates.resolveGate}
+        />
+      )}
 
       {handComplete && phase === "busted" ? (
         <RebuyPanel
@@ -419,7 +437,14 @@ function MultiplayerSession({
 
   mySeatIndexRef.current = game.mySeatIndex;
 
-  const { room, state, legal, isHumanTurn, humanEquity, thinking, speeches, expressions, act, dealNext, mySeatIndex, isHost, seatKnown } = game;
+  const { room, state, legal, isHumanTurn, humanEquity, thinking, speeches, expressions, act, dealNext, mySeatIndex, isHost, seatKnown, humanSeatIndex } = game;
+
+  const quizGates = useQuizGates({
+    state,
+    viewerSeatIndex: humanSeatIndex,
+    enabled: seatKnown && !!room?.gameState,
+  });
+
   const handComplete = state.stage === "complete";
   const myStack = seatKnown ? (state.seats[mySeatIndex]?.stack ?? 0) : 0;
 
@@ -458,10 +483,18 @@ function MultiplayerSession({
             speeches={speeches}
             expressions={expressions}
             viewerSeatIndex={mySeatIndex}
+            quizGateResults={quizGates.results}
           />
         </Suspense>
         {user && <TableChat roomId={roomId} uid={user.uid} room={room} />}
       </div>
+      {quizGates.activeGate && (
+        <QuizGateModal
+          gate={quizGates.activeGate.gate}
+          question={quizGates.activeGate.question}
+          onResolve={quizGates.resolveGate}
+        />
+      )}
       {handComplete ? (
         <HandResultBanner state={state} canDeal={isHost} onNext={dealNext} />
       ) : (

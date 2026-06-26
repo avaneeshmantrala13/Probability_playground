@@ -1,6 +1,8 @@
 import { type CSSProperties, memo, useEffect, useRef, useState } from "react";
 import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { Seat } from "../../lib/poker";
+import type { QuizGateResults } from "../../lib/poker/quizGate";
+import { canSeeHoleCards } from "../../lib/poker/quizGate";
 import { getLook, type Expression } from "./characters";
 import { PlayingCard } from "./PlayingCard";
 import { PokerFigure, figureScale } from "./PokerFigure";
@@ -32,6 +34,7 @@ interface PlayerSeatProps {
   boardLen: number;
   /** Harness-only: force a fixed gaze target for screenshots. */
   gazeOverride?: GazeOverride;
+  quizGateResults?: QuizGateResults;
 }
 
 /** How long an action speech bubble stays up (calmer reading pace). */
@@ -82,6 +85,7 @@ function PlayerSeatImpl({
   expression,
   boardLen,
   gazeOverride,
+  quizGateResults,
 }: PlayerSeatProps) {
   const folded = seat.status === "folded";
   const out = seat.status === "out";
@@ -90,6 +94,7 @@ function PlayerSeatImpl({
       ? seat.index === viewerSeatIndex
       : seat.isHuman;
   const showFaces = isViewer || reveal;
+  const holeGateOk = !isViewer || !quizGateResults || canSeeHoleCards(quizGateResults);
   const dealAnim = reduced ? "" : "pn-anim-deal";
   const look = getLook(seat.persona, seat.isHuman);
   const bubble = useBubble(speech);
@@ -181,6 +186,7 @@ function PlayerSeatImpl({
             key={`${dealKey}-${i}-${c}`}
             card={c}
             faceDown={!showFaces}
+            masked={showFaces && isViewer && !holeGateOk}
             deck={deck}
             size={isHero ? "lg" : "sm"}
             animClass={isHero ? "" : dealAnim}
