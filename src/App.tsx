@@ -13,6 +13,7 @@ import { LessonPlayer } from "./pages/LessonPlayer";
 import { Settings } from "./pages/Settings";
 import { Playground } from "./pages/Playground";
 import { Badges } from "./pages/Badges";
+import { Calendar } from "./pages/Calendar";
 import { PokerScenario } from "./pages/games/PokerScenario";
 import { MontyHall } from "./pages/games/MontyHall";
 import { PokerNight } from "./pages/PokerNight";
@@ -46,6 +47,7 @@ export function App() {
         <Route path="/lessons" element={<Protected><Lessons /></Protected>} />
         <Route path="/lessons/:lessonId" element={<Protected><LessonPlayer /></Protected>} />
         <Route path="/playground" element={<Protected><Playground /></Protected>} />
+        <Route path="/calendar" element={<Protected><Calendar /></Protected>} />
         <Route path="/badges" element={<Protected><Badges /></Protected>} />
         <Route path="/store" element={<Protected><Store /></Protected>} />
         <Route path="/poker" element={<Protected><PokerNight /></Protected>} />
