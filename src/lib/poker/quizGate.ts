@@ -1,7 +1,8 @@
-import { shuffle, type ComebackQuestion, type ServedQuestion } from "../comeback";
+import { shuffle, type ServedQuestion } from "../comeback";
 import {
   DEFAULT_QUIZ_DIFFICULTY,
   getQuizQuestionPool,
+  type PokerQuizQuestion,
   type QuizDifficulty,
 } from "./quizQuestions";
 import type { GameState } from "./types";
@@ -31,7 +32,7 @@ export interface QuizGateAnswer {
 export type QuizGateStatus = QuizGateAnswer | "pending";
 export type QuizGateResults = Partial<Record<QuizGateId, QuizGateStatus>>;
 
-function shuffleOptions(q: ComebackQuestion): ServedQuestion {
+function shuffleOptions(q: PokerQuizQuestion): ServedQuestion {
   const correctValue = q.options[q.correctIndex];
   const options = shuffle(q.options);
   return {
@@ -44,7 +45,7 @@ function shuffleOptions(q: ComebackQuestion): ServedQuestion {
 }
 
 function pickFromPool(
-  pool: ComebackQuestion[],
+  pool: PokerQuizQuestion[],
   handNumber: number,
   gate: QuizGateId,
 ): ServedQuestion {
