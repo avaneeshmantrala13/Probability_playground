@@ -34,6 +34,7 @@ export function Leaderboard() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!user) return;
     let cancelled = false;
     setLoading(true);
     setError(null);
@@ -41,8 +42,14 @@ export function Leaderboard() {
       .then((rows) => {
         if (!cancelled) setEntries(rows);
       })
-      .catch(() => {
-        if (!cancelled) setError("Could not load the leaderboard. Try again in a moment.");
+      .catch((err: unknown) => {
+        if (!cancelled) {
+          setError(
+            err instanceof Error
+              ? err.message
+              : "Could not load the leaderboard. Try again in a moment.",
+          );
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -50,7 +57,7 @@ export function Leaderboard() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [user]);
 
   const ranked = useMemo(() => sortLeaderboard(entries, sort), [entries, sort]);
 
@@ -112,7 +119,30 @@ export function Leaderboard() {
       {loading ? (
         <p className="text-muted">Loading rankings…</p>
       ) : error ? (
-        <p className="text-danger">{error}</p>
+        <div className="pp-card p-6 text-center">
+          <p className="text-danger">{error}</p>
+          <button
+            type="button"
+            className="pp-btn-secondary mt-4"
+            onClick={() => {
+              if (!user) return;
+              setLoading(true);
+              setError(null);
+              fetchLeaderboard()
+                .then(setEntries)
+                .catch((err: unknown) =>
+                  setError(
+                    err instanceof Error
+                      ? err.message
+                      : "Could not load the leaderboard. Try again in a moment.",
+                  ),
+                )
+                .finally(() => setLoading(false));
+            }}
+          >
+            Try again
+          </button>
+        </div>
       ) : ranked.length === 0 ? (
         <div className="pp-card p-8 text-center">
           <p className="text-secondary">

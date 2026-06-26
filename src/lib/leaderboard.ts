@@ -5,7 +5,7 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { db } from "./firebase";
+import { auth, db } from "./firebase";
 import type { CourseProgress } from "./progress";
 
 export type LeaderboardSort = "tokens" | "streak" | "problems";
@@ -46,8 +46,33 @@ export function sortLeaderboard(
 }
 
 export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
-  const snap = await getDocs(collection(db, "leaderboard"));
-  return snap.docs.map((d) => entryFromDoc(d.id, d.data()));
+  const user = auth.currentUser;
+  if (!user) throw new Error("Not signed in");
+
+  const token = await user.getIdToken();
+  const res = await fetch("/api/leaderboard", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (res.ok) {
+    const data = (await res.json()) as { entries?: LeaderboardEntry[] };
+    return data.entries ?? [];
+  }
+
+  // Local dev without Vercel API — fall back to direct Firestore if rules allow.
+  if (res.status === 404) {
+    const snap = await getDocs(collection(db, "leaderboard"));
+    return snap.docs.map((d) => entryFromDoc(d.id, d.data()));
+  }
+
+  let message = "Could not load the leaderboard.";
+  try {
+    const body = (await res.json()) as { error?: string };
+    if (body.error) message = body.error;
+  } catch {
+    // ignore parse errors
+  }
+  throw new Error(message);
 }
 
 /** Denormalized public stats for ranking — written by the owning user only. */
