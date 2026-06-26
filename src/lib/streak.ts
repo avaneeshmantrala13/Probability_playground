@@ -185,15 +185,22 @@ function sortedUnique(dates: string[]): string[] {
   return [...new Set(dates.filter((d) => DATE_RE.test(d)))].sort();
 }
 
-export function deriveLoginDates(progress: ProgressWithStreak): string[] {
+export function deriveLoginDates(progress: ProgressWithStreak, today = todayKey()): string[] {
   const fromHistory = Object.values(progress.loginHistory ?? {})
     .filter((d) => d.loggedIn)
     .map((d) => d.date);
-  if (fromHistory.length > 0) return sortedUnique(fromHistory);
+  const fromWindow = deriveStreakWindowDates(progress, today);
+  return sortedUnique([...fromHistory, ...fromWindow]);
+}
 
-  const anchor = progress.lastActiveDate ?? todayKey();
+/** Consecutive login dates ending on lastActiveDate (or today) from the live streak count. */
+export function deriveStreakWindowDates(
+  progress: ProgressWithStreak,
+  today = todayKey(),
+): string[] {
   const streak = Math.max(0, progress.streak);
   if (streak === 0) return [];
+  const anchor = progress.lastActiveDate ?? today;
   const dates: string[] = [];
   for (let i = streak - 1; i >= 0; i--) {
     dates.push(shiftDate(anchor, -i));
@@ -201,10 +208,37 @@ export function deriveLoginDates(progress: ProgressWithStreak): string[] {
   return dates;
 }
 
+/**
+ * Fill loginHistory for each day in the current streak window. Needed when the
+ * streak predates loginHistory (e.g. calendar added after streak started).
+ */
+export function backfillStreakHistory(
+  history: Record<string, StreakDay>,
+  streak: number,
+  anchor: string,
+): Record<string, StreakDay> {
+  if (streak <= 0) return history;
+  const next = { ...history };
+  for (let i = streak - 1; i >= 0; i--) {
+    const date = shiftDate(anchor, -i);
+    const streakCountOnDay = streak - i;
+    const existing = next[date];
+    if (existing?.loggedIn && (existing.streakCount ?? 0) >= streakCountOnDay) continue;
+    next[date] = {
+      ...existing,
+      date,
+      loggedIn: true,
+      streakCount: streakCountOnDay,
+      rewardType: existing?.rewardType ?? "none",
+    };
+  }
+  return next;
+}
+
 function isActiveOn(progress: ProgressWithStreak, date: string, loginSet: Set<string>): boolean {
+  if (loginSet.has(date)) return true;
   const record = progress.loginHistory?.[date];
-  if (record != null) return record.loggedIn;
-  return loginSet.has(date);
+  return record?.loggedIn ?? false;
 }
 
 function tokensForDay(progress: ProgressWithStreak, date: string): { earned: number; lost: number } {
@@ -277,7 +311,7 @@ export function buildStreakSnapshot(progress: ProgressWithStreak): StreakSnapsho
       badgeIds: badgeIdsForDay(progress, date),
       tokensEarned: tokens.earned,
       tokensLost: tokens.lost,
-      streakOnDay: historyDay?.streakCount ?? (active ? streakEndingOn(date, loginDates) : 0),
+      streakOnDay: active ? streakEndingOn(date, loginDates) : (historyDay?.streakCount ?? 0),
       longestStreakThroughDay: longestStreakThrough(date, sortedLogins),
     });
   }
@@ -303,7 +337,7 @@ export function getDaySummary(
     badgeIds: badgeIdsForDay(progress, date),
     tokensEarned: tokens.earned,
     tokensLost: tokens.lost,
-    streakOnDay: historyDay?.streakCount ?? (active ? streakEndingOn(date, snapshot.loginDates) : 0),
+    streakOnDay: active ? streakEndingOn(date, snapshot.loginDates) : (historyDay?.streakCount ?? 0),
     longestStreakThroughDay: longestStreakThrough(date, sortedLogins),
   };
 }

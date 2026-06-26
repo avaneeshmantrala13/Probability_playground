@@ -1,6 +1,7 @@
 import { computeStreak, todayKey, type CourseProgress } from "../progress";
 import {
   EMPTY_CHEST_STATS,
+  backfillStreakHistory,
   isNewStreakDay,
   type PendingChest,
   type StreakDay,
@@ -26,7 +27,11 @@ export function processLoginRewards(
     ...remote,
     streak,
     lastActiveDate: today,
-    loginHistory: { ...(remote.loginHistory ?? {}) },
+    loginHistory: backfillStreakHistory(
+      { ...(remote.loginHistory ?? {}) },
+      streak,
+      today,
+    ),
     chestStats: remote.chestStats ?? { ...EMPTY_CHEST_STATS },
     chestBadgesEarned: [...(remote.chestBadgesEarned ?? [])],
     freePlayMinutesRemaining: remote.freePlayMinutesRemaining ?? 0,
