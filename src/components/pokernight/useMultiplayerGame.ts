@@ -168,5 +168,6 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     act,
     dealNext: hostGame.dealNext,
     rebuy: hostGame.rebuy,
+    humanSeatIndex: hostGame.humanSeatIndex,
   };
 }
