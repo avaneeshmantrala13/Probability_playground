@@ -29,6 +29,7 @@ import { MultiplayerGate } from "../components/pokernight/MultiplayerGate";
 import { MultiplayerLobby } from "../components/pokernight/MultiplayerLobby";
 import { TableChat } from "../components/pokernight/TableChat";
 import { TokenPurchaseModal } from "../components/pokernight/TokenPurchaseModal";
+import { FreePlayBanner } from "../components/dailyRewards/FreePlayBanner";
 import { useQuizGates } from "../components/pokernight/useQuizGates";
 import { QuizGateModal } from "../components/pokernight/QuizGateModal";
 
@@ -63,11 +64,23 @@ export default PokerNight;
 
 function PokerNightUnlocked() {
   const { user } = useAuth();
-  const { progress, addTokens, spendTokens, refetchProgress } = useProgress();
+  const {
+    progress,
+    addTokens,
+    spendTokens,
+    refetchProgress,
+    freePlayMinutesRemaining,
+    tickFreePlayMinutes,
+  } = useProgress();
   const [searchParams, setSearchParams] = useSearchParams();
   const [mode, setMode] = useState<Mode>("single");
   const [mpGatePassed, setMpGatePassed] = useState(() => isMultiplayerUnlocked(progress));
-  const [seat, setSeat] = useState<{ tier: TableTier; buyIn: number; key: number } | null>(null);
+  const [seat, setSeat] = useState<{
+    tier: TableTier;
+    buyIn: number;
+    key: number;
+    freePlay?: boolean;
+  } | null>(null);
   const [mpSession, setMpSession] = useState<MpSession | null>(null);
   const [checkoutMsg, setCheckoutMsg] = useState("");
   const checkoutHandled = useRef<string | null>(null);
@@ -115,6 +128,10 @@ function PokerNightUnlocked() {
   }, [searchParams, user, refetchProgress, setSearchParams]);
 
   const handleSit = (tier: TableTier, buyIn: number) => {
+    if (freePlayMinutesRemaining > 0) {
+      setSeat({ tier, buyIn: tier.minBuyIn, key: Date.now(), freePlay: true });
+      return;
+    }
     if (!spendTokens(buyIn)) return;
     setSeat({ tier, buyIn, key: Date.now() });
   };
@@ -141,6 +158,11 @@ function PokerNightUnlocked() {
           <p className="mt-2 text-sm font-medium text-accent">{checkoutMsg}</p>
         )}
       </header>
+
+      <FreePlayBanner
+        minutesRemaining={freePlayMinutesRemaining}
+        streakDay={progress.streak}
+      />
 
       <div className="mb-4 inline-flex gap-1 rounded-xl bg-surface-muted p-1">
         <button
@@ -170,7 +192,11 @@ function PokerNightUnlocked() {
             tier={seat.tier}
             buyIn={seat.buyIn}
             bankroll={progress.tokens ?? 0}
+            freePlay={seat.freePlay ?? false}
+            freePlayMinutesRemaining={freePlayMinutesRemaining}
+            tickFreePlayMinutes={tickFreePlayMinutes}
             onCashOut={handleCashOut}
+            onFreePlayExpired={() => setSeat(null)}
             deckSkinId={progress.equipped?.deckSkin ?? "deck-classic"}
             tableThemeId={progress.equipped?.tableTheme ?? "table-classic-green"}
           />
@@ -205,7 +231,11 @@ interface PokerSessionProps {
   tier: TableTier;
   buyIn: number;
   bankroll: number;
+  freePlay?: boolean;
+  freePlayMinutesRemaining?: number;
+  tickFreePlayMinutes?: (minutes: number) => void;
   onCashOut: (finalStack: number) => void;
+  onFreePlayExpired?: () => void;
   deckSkinId: string;
   tableThemeId: string;
 }
@@ -216,13 +246,29 @@ function PokerSession({
   tier,
   buyIn,
   bankroll,
+  freePlay = false,
+  freePlayMinutesRemaining = 0,
+  tickFreePlayMinutes,
   onCashOut,
+  onFreePlayExpired,
   deckSkinId,
   tableThemeId,
 }: PokerSessionProps) {
   const navigate = useNavigate();
   const reduced = useReducedMotion();
   const { recordPokerHand, spendTokens, addTokens } = useProgress();
+
+  useEffect(() => {
+    if (!freePlay || !tickFreePlayMinutes) return;
+    const id = window.setInterval(() => tickFreePlayMinutes(1), 60_000);
+    return () => clearInterval(id);
+  }, [freePlay, tickFreePlayMinutes]);
+
+  useEffect(() => {
+    if (freePlay && freePlayMinutesRemaining <= 0) {
+      onFreePlayExpired?.();
+    }
+  }, [freePlay, freePlayMinutesRemaining, onFreePlayExpired]);
 
   const deck = getDeckSkin(deckSkinId);
   const theme = getTableTheme(tableThemeId);

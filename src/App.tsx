@@ -20,12 +20,15 @@ import { PokerNight } from "./pages/PokerNight";
 import { Store } from "./pages/Store";
 import { Comeback } from "./pages/Comeback";
 import { AccentThemeApplier } from "./components/store/AccentThemeApplier";
+import { DailyRewardsGate } from "./components/dailyRewards/DailyRewardsGate";
 
 /** Wraps a page in auth protection + the app chrome. */
 function Protected({ children }: { children: ReactNode }) {
   return (
     <ProtectedRoute>
-      <AppShell>{children}</AppShell>
+      <DailyRewardsGate>
+        <AppShell>{children}</AppShell>
+      </DailyRewardsGate>
     </ProtectedRoute>
   );
 }

@@ -6,10 +6,11 @@ import { isLessonUnlocked } from "../lib/mastery";
 import { Brand } from "../components/Brand";
 import { ChevronRightIcon } from "../components/icons";
 import { FallingCards } from "../components/home/FallingCards";
+import { FreePlayBanner } from "../components/dailyRewards/FreePlayBanner";
 
 export function Home() {
   const { user } = useAuth();
-  const { progress } = useProgress();
+  const { progress, freePlayMinutesRemaining } = useProgress();
   const name = user?.displayName ?? user?.email?.split("@")[0] ?? "Learner";
 
   // Where the "continue" button should go: the in-progress lesson if any,
@@ -39,6 +40,10 @@ export function Home() {
     <>
       <FallingCards />
       <div className="relative z-10 mx-auto max-w-3xl">
+      <FreePlayBanner
+        minutesRemaining={freePlayMinutesRemaining}
+        streakDay={progress.streak}
+      />
       <section className="pp-card relative overflow-hidden">
         {/* Subtle, theme-aware color wash blending the primary purple with the
             complementary teal accent. Very low intensity so text stays crisp. */}

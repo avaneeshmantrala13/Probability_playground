@@ -29,6 +29,7 @@ import { GAMES } from "./games";
 import { TOKEN_MILESTONES, peakTokens } from "./tokens";
 import { emptyPokerStats } from "./progress";
 import type { CourseProgress } from "./progress";
+import { CHEST_BADGE_META, CHEST_BADGE_POOL } from "./dailyRewards/badges";
 
 export type BadgeCategory = "lesson" | "game" | "streak" | "speed" | "token";
 
@@ -155,6 +156,50 @@ function pokerStatsOf(progress: CourseProgress) {
   return progress.pokerStats ?? emptyPokerStats();
 }
 
+function hasChestBadge(progress: CourseProgress, badgeId: string): boolean {
+  return (progress.chestBadgesEarned ?? []).includes(badgeId);
+}
+
+const chestExclusiveBadges: Badge[] = CHEST_BADGE_POOL.map((id) => ({
+  id,
+  title: CHEST_BADGE_META[id].title,
+  description: CHEST_BADGE_META[id].description,
+  category: "streak" as const,
+  icon: GemIcon,
+  gradient: CHEST_BADGE_META[id].gradient,
+  earned: (progress: CourseProgress) => hasChestBadge(progress, id),
+}));
+
+const chestMilestoneBadges: Badge[] = [
+  {
+    id: "chest-first-open",
+    title: "First Chest",
+    description: "Open your first daily treasure chest.",
+    category: "streak",
+    icon: JackpotIcon,
+    gradient: ["#fcd34d", "#ca8a04"],
+    earned: (progress) => (progress.chestStats?.opened ?? 0) >= 1,
+  },
+  {
+    id: "chest-hoarder",
+    title: "Chest Hoarder",
+    description: "Open 5 daily treasure chests.",
+    category: "streak",
+    icon: JackpotIcon,
+    gradient: ["#a78bfa", "#7c3aed"],
+    earned: (progress) => (progress.chestStats?.opened ?? 0) >= 5,
+  },
+  {
+    id: "chest-diamond",
+    title: "Diamond Chest",
+    description: "Roll a level-10 diamond chest.",
+    category: "streak",
+    icon: DiamondIcon,
+    gradient: ["#B9F2FF", "#38BDF8"],
+    earned: (progress) => (progress.chestStats?.bestLevel ?? 0) >= 10,
+  },
+];
+
 const pokerStatBadges: Badge[] = [
   {
     id: "poker-first-pot",
@@ -251,6 +296,8 @@ export const BADGES: Badge[] = [
     earned: (progress) => anyLessonUnder(progress, 5 * 60_000),
   },
   ...tokenMilestoneBadges,
+  ...chestExclusiveBadges,
+  ...chestMilestoneBadges,
   ...pokerStatBadges,
 ];
 
