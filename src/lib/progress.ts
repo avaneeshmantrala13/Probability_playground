@@ -31,6 +31,8 @@ export interface LessonMastery {
 }
 
 import type { MultiplayerAccess } from "./multiplayer/access";
+import type { ChestStats, PendingChest, StreakDay } from "./streak";
+import { EMPTY_CHEST_STATS } from "./streak";
 
 /** Currently equipped cosmetic ids, one per category. */
 export interface EquippedCosmetics {
@@ -104,6 +106,26 @@ export interface CourseProgress {
   pokerStats?: PokerStats;
   /** Daily-password multiplayer unlock (expires at next UTC midnight). */
   multiplayerAccess?: MultiplayerAccess;
+
+  // ----- Daily login streak rewards (see src/lib/streak.ts for schema) -----
+  /** Free poker-table minutes remaining (granted on streak days 1–2). */
+  freePlayMinutesRemaining?: number;
+  /** Quiz wrong-answer forgiveness count (consumed by quiz agents). */
+  quizLives?: number;
+  /** YYYY-MM-DD when daily login rewards were last processed. */
+  lastLoginRewardDate?: string | null;
+  /** Unopened treasure chest for the current streak day (day 3+). */
+  pendingChest?: PendingChest | null;
+  /** Per-day login + reward snapshot for the calendar heat-map. */
+  loginHistory?: Record<string, StreakDay>;
+  /** Badge ids earned exclusively from treasure chests. */
+  chestBadgesEarned?: string[];
+  /** Lifetime chest-open counters. */
+  chestStats?: ChestStats;
+  /** Legacy/alternate per-day badge ids (calendar reads either source). */
+  badgesByDay?: Record<string, string[]>;
+  /** Legacy/alternate per-day token deltas. */
+  tokensByDay?: Record<string, { earned: number; lost: number }>;
 }
 
 export function emptyProgress(): CourseProgress {
@@ -123,6 +145,13 @@ export function emptyProgress(): CourseProgress {
     ownedCosmetics: [...DEFAULT_OWNED_COSMETICS],
     equipped: { ...DEFAULT_EQUIPPED },
     pokerStats: emptyPokerStats(),
+    freePlayMinutesRemaining: 0,
+    quizLives: 0,
+    lastLoginRewardDate: null,
+    pendingChest: null,
+    loginHistory: {},
+    chestBadgesEarned: [],
+    chestStats: { ...EMPTY_CHEST_STATS },
   };
 }
 
