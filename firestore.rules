@@ -63,6 +63,18 @@ service cloud.firestore {
       allow read, write: if isOwner(uid);
     }
 
+    // Public ranking stats — each player writes only their own row.
+    match /leaderboard/{uid} {
+      allow read: if isSignedIn();
+      allow create, update: if isOwner(uid)
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.username is string
+        && request.resource.data.lifetimeTokens is number
+        && request.resource.data.streak is number
+        && request.resource.data.problemsCorrect is number;
+      allow delete: if false;
+    }
+
     match /lessonAttempts/{uid}/attempts/{attemptId} {
       allow read, write: if isOwner(uid);
     }

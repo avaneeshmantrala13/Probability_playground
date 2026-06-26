@@ -1,13 +1,21 @@
 import { useState } from "react";
 import { OptionButton, type OptionState } from "../../lesson/OptionButton";
+import { useProgress } from "../../../context/ProgressContext";
 import { CheckMark, CrossMark } from "./scene/glyphs";
 
 const OPTIONS = ["1/3", "1/2", "2/3", "3/4"];
 const CORRECT = 2;
 
 export function Reflection() {
+  const { recordCorrectAnswer } = useProgress();
   const [selected, setSelected] = useState<number | null>(null);
   const answered = selected !== null;
+
+  function choose(index: number) {
+    if (answered) return;
+    setSelected(index);
+    if (index === CORRECT) recordCorrectAnswer();
+  }
 
   function stateFor(index: number): OptionState {
     if (!answered) return "idle";
@@ -33,7 +41,7 @@ export function Reflection() {
             label={label}
             state={stateFor(i)}
             disabled={answered}
-            onSelect={setSelected}
+            onSelect={choose}
           />
         ))}
       </div>

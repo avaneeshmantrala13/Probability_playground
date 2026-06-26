@@ -101,6 +101,8 @@ export interface CourseProgress {
   peakTokens?: number;
   /** Total tokens ever earned across the lifetime of the account. */
   lifetimeTokens?: number;
+  /** Lifetime count of correctly answered problems (lessons, poker quizzes, games). */
+  problemsCorrect?: number;
   /** Cosmetic ids the player has unlocked. */
   ownedCosmetics?: string[];
   /** Currently equipped cosmetics by category. */
@@ -145,6 +147,7 @@ export function emptyProgress(): CourseProgress {
     pokerSeeded: false,
     peakTokens: 0,
     lifetimeTokens: 0,
+    problemsCorrect: 0,
     ownedCosmetics: [...DEFAULT_OWNED_COSMETICS],
     equipped: { ...DEFAULT_EQUIPPED },
     pokerStats: emptyPokerStats(),

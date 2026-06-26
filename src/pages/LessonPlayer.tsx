@@ -30,7 +30,7 @@ function freshAnswers(count: number): AttemptAnswer[] {
 export function LessonPlayer() {
   const { lessonId = "" } = useParams();
   const lesson = getLesson(lessonId);
-  const { progress, loading, setPosition, saveAttempt, completeAttempt } =
+  const { progress, loading, setPosition, saveAttempt, completeAttempt, recordCorrectAnswer } =
     useProgress();
   // A lesson that's already mastered can be redone/reviewed. The timer still
   // counts up so a faster redo can improve the recorded best time and badges.
@@ -130,6 +130,7 @@ export function LessonPlayer() {
   function check() {
     if (selected === null) return;
     update({ checked: true });
+    if (selected === correctIndex) recordCorrectAnswer();
   }
 
   const correctIndex = current.correctAnswer;

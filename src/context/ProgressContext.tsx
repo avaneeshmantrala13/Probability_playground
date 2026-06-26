@@ -24,6 +24,7 @@ import {
   type LessonMastery,
 } from "../lib/progress";
 import { applyChestReward, processLoginRewards } from "../lib/dailyRewards";
+import { syncLeaderboardEntry } from "../lib/leaderboard";
 import { recordDayTokens } from "../lib/streak";
 import { isPassing, scoreToPercent } from "../lib/mastery";
 import { STARTING_TOKENS } from "../lib/tokens";
@@ -77,6 +78,8 @@ interface ProgressContextValue {
   }) => void;
   /** Grant multiplayer access via daily password until expiry. */
   unlockMultiplayer: (access: MultiplayerAccess) => void;
+  /** Record one correctly answered problem (lessons, poker quizzes, games). */
+  recordCorrectAnswer: () => void;
   /** Reload progress from Firestore (does not overwrite server with stale local state). */
   refetchProgress: () => Promise<boolean>;
   claimPendingChest: () => void;
@@ -99,6 +102,17 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const latest = useRef<CourseProgress>(progress);
   latest.current = progress;
+
+  const username =
+    user?.displayName ?? user?.email?.split("@")[0] ?? "Learner";
+
+  const persistProgress = useCallback(
+    (uid: string, snapshot: CourseProgress) => {
+      void saveProgress(uid, snapshot).catch(() => undefined);
+      void syncLeaderboardEntry(uid, username, snapshot).catch(() => undefined);
+    },
+    [username],
+  );
 
   // Hydrate on sign-in; reset on sign-out. Also bumps the daily streak.
   useEffect(() => {
@@ -126,7 +140,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         if (!cancelled) {
           uidRef.current = user.uid;
           setProgress(hydrated);
-          void saveProgress(user.uid, hydrated).catch(() => undefined);
+          void persistProgress(user.uid, hydrated);
         }
       } catch {
         if (!cancelled) setProgress(emptyProgress());
@@ -137,7 +151,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [user, authLoading]);
+  }, [user, authLoading, persistProgress]);
 
   const scheduleSave = useCallback(() => {
     const uid = uidRef.current;
@@ -145,9 +159,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
       saveTimer.current = null;
-      void saveProgress(uid, latest.current).catch(() => undefined);
+      void persistProgress(uid, latest.current);
     }, SAVE_DEBOUNCE_MS);
-  }, []);
+  }, [persistProgress]);
 
   // Immediately persist the latest snapshot if a debounced save is pending.
   // Nulling the timer first makes this idempotent, so overlapping unload/hide
@@ -157,8 +171,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     if (!uid || !saveTimer.current) return;
     clearTimeout(saveTimer.current);
     saveTimer.current = null;
-    void saveProgress(uid, latest.current).catch(() => undefined);
-  }, []);
+    void persistProgress(uid, latest.current);
+  }, [persistProgress]);
 
   // Flush pending progress on any signal that the tab may be going away.
   // 'beforeunload' is unreliable on mobile and during Vite HMR reloads, so we
@@ -451,6 +465,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [update],
   );
 
+  const recordCorrectAnswer = useCallback(() => {
+    update((prev) => ({
+      ...prev,
+      problemsCorrect: (prev.problemsCorrect ?? 0) + 1,
+    }));
+  }, [update]);
+
   const value = useMemo<ProgressContextValue>(
     () => ({
       progress,
@@ -467,6 +488,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       purchaseCosmetic,
       equipCosmetic,
       recordPokerHand,
+      recordCorrectAnswer,
       unlockMultiplayer,
       refetchProgress,
       claimPendingChest,
@@ -490,6 +512,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       purchaseCosmetic,
       equipCosmetic,
       recordPokerHand,
+      recordCorrectAnswer,
       unlockMultiplayer,
       refetchProgress,
       claimPendingChest,

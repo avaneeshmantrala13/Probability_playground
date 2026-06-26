@@ -19,6 +19,7 @@ import { MontyHall } from "./pages/games/MontyHall";
 import { PokerNight } from "./pages/PokerNight";
 import { Store } from "./pages/Store";
 import { Comeback } from "./pages/Comeback";
+import { Leaderboard } from "./pages/Leaderboard";
 import { AccentThemeApplier } from "./components/store/AccentThemeApplier";
 import { DailyRewardsGate } from "./components/dailyRewards/DailyRewardsGate";
 
@@ -52,6 +53,7 @@ export function App() {
         <Route path="/playground" element={<Protected><Playground /></Protected>} />
         <Route path="/calendar" element={<Protected><Calendar /></Protected>} />
         <Route path="/badges" element={<Protected><Badges /></Protected>} />
+        <Route path="/leaderboard" element={<Protected><Leaderboard /></Protected>} />
         <Route path="/store" element={<Protected><Store /></Protected>} />
         <Route path="/poker" element={<Protected><PokerNight /></Protected>} />
         <Route path="/comeback" element={<Protected><Comeback /></Protected>} />
