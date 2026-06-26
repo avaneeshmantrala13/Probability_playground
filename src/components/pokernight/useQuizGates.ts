@@ -89,3 +89,13 @@ export function useQuizGates(opts: UseQuizGatesOpts) {
 }
 
 export { QUIZ_GATE_TIMEOUT_MS };
+
+/** Hold the last table snapshot while a quiz modal is open so the scene stays still. */
+export function useQuizFrozenTableState(
+  state: GameState,
+  quizOpen: boolean,
+): GameState {
+  const frozenRef = useRef(state);
+  if (!quizOpen) frozenRef.current = state;
+  return quizOpen ? frozenRef.current : state;
+}

@@ -30,7 +30,7 @@ import { MultiplayerLobby } from "../components/pokernight/MultiplayerLobby";
 import { TableChat } from "../components/pokernight/TableChat";
 import { TokenPurchaseModal } from "../components/pokernight/TokenPurchaseModal";
 import { FreePlayBanner } from "../components/dailyRewards/FreePlayBanner";
-import { useQuizGates } from "../components/pokernight/useQuizGates";
+import { useQuizGates, useQuizFrozenTableState } from "../components/pokernight/useQuizGates";
 import { QuizGateModal } from "../components/pokernight/QuizGateModal";
 
 const PokerTable = lazy(() => import("../components/pokernight/PokerTable"));
@@ -298,6 +298,7 @@ function PokerSession({
   };
 
   const personasRef = useRef(pickPersonas(tier.opponents));
+  const [pauseForQuiz, setPauseForQuiz] = useState(false);
 
   const handleHandEnd = (info: { result: HandResult; humanStack: number }) => {
     const won = (info.result.netBySeat[0] ?? 0) > 0;
@@ -327,6 +328,7 @@ function PokerSession({
     humanStack: buyIn,
     personas: personasRef.current,
     reduced,
+    pauseGame: pauseForQuiz,
     onHandEnd: handleHandEnd,
   });
 
@@ -349,6 +351,12 @@ function PokerSession({
     viewerSeatIndex: humanSeatIndex,
     enabled: phase === "playing",
   });
+
+  useEffect(() => {
+    setPauseForQuiz(!!quizGates.activeGate);
+  }, [quizGates.activeGate]);
+
+  const tableState = useQuizFrozenTableState(state, !!quizGates.activeGate);
 
   const handComplete = state.stage === "complete";
 
@@ -407,15 +415,15 @@ function PokerSession({
             </div>
           }
         >
-          <PokerTable
-            state={state}
-            deck={deck}
-            theme={theme}
-            reduced={reduced}
-            speeches={speeches}
-            expressions={expressions}
-            quizGateResults={quizGates.results}
-          />
+        <PokerTable
+          state={tableState}
+          deck={deck}
+          theme={theme}
+          reduced={reduced}
+          speeches={quizGates.activeGate ? {} : speeches}
+          expressions={quizGates.activeGate ? {} : expressions}
+          quizGateResults={quizGates.results}
+        />
         </Suspense>
       </div>
 
@@ -433,8 +441,8 @@ function PokerSession({
           <ActionBar
             state={state}
             legal={legal}
-            enabled={isHumanTurn}
-            thinking={thinking}
+          enabled={isHumanTurn && !quizGates.activeGate}
+          thinking={thinking && !quizGates.activeGate}
             onAction={act}
           />
         )}
@@ -481,6 +489,7 @@ function MultiplayerSession({
   const deck = getDeckSkin(deckSkinId);
   const theme = getTableTheme(tableThemeId);
   const mySeatIndexRef = useRef(0);
+  const [pauseForQuiz, setPauseForQuiz] = useState(false);
 
   const game = useMultiplayerGame({
     roomId,
@@ -488,6 +497,7 @@ function MultiplayerSession({
     tier,
     buyIn,
     reduced,
+    pauseGame: pauseForQuiz,
     onHandEnd: ({ result, humanStack }) => {
       recordPokerHand({
         won: (result.netBySeat[mySeatIndexRef.current] ?? 0) > 0,
@@ -506,6 +516,12 @@ function MultiplayerSession({
     viewerSeatIndex: humanSeatIndex,
     enabled: seatKnown && !!room?.gameState,
   });
+
+  useEffect(() => {
+    setPauseForQuiz(!!quizGates.activeGate);
+  }, [quizGates.activeGate]);
+
+  const tableState = useQuizFrozenTableState(state, !!quizGates.activeGate);
 
   const handComplete = state.stage === "complete";
   const myStack = seatKnown ? (state.seats[mySeatIndex]?.stack ?? 0) : 0;
@@ -540,12 +556,12 @@ function MultiplayerSession({
             }
           >
             <PokerTable
-              state={state}
+              state={tableState}
               deck={deck}
               theme={theme}
               reduced={reduced}
-              speeches={speeches}
-              expressions={expressions}
+              speeches={quizGates.activeGate ? {} : speeches}
+              expressions={quizGates.activeGate ? {} : expressions}
               viewerSeatIndex={mySeatIndex}
               quizGateResults={quizGates.results}
               multiplayer
@@ -568,8 +584,8 @@ function MultiplayerSession({
           <ActionBar
             state={state}
             legal={legal}
-            enabled={isHumanTurn}
-            thinking={thinking}
+          enabled={isHumanTurn && !quizGates.activeGate}
+          thinking={thinking && !quizGates.activeGate}
             onAction={act}
             humanSeatIndex={mySeatIndex}
           />
