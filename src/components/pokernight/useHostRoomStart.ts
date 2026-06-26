@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { GameConfig } from "../../lib/poker";
 import { createMultiplayerGame } from "../../lib/poker/multiplayer";
 import { startRoomGame, type PokerRoom } from "../../lib/multiplayer/rooms";
+import { assignDefaultCharacterId } from "../../lib/characters";
 import type { TableTier } from "../../lib/tokens";
 
 export interface UseHostRoomStartOpts {
@@ -52,6 +53,7 @@ export function useHostRoomStart(opts: UseHostRoomStartOpts) {
         seatIndex: p.seatIndex,
         name: p.name,
         stack: p.stack,
+        characterId: p.characterId ?? assignDefaultCharacterId(p.uid, p.seatIndex),
       }));
       const gameState = createMultiplayerGame(config, humans);
       await startRoomGame(roomId, gameState);

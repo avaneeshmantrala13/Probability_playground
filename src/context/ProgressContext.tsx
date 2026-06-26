@@ -10,7 +10,6 @@ import {
 } from "react";
 import { useAuth } from "./AuthContext";
 import {
-  computeStreak,
   DEFAULT_EQUIPPED,
   emptyPokerStats,
   emptyProgress,
@@ -24,6 +23,8 @@ import {
   type CourseProgress,
   type LessonMastery,
 } from "../lib/progress";
+import { applyChestReward, processLoginRewards } from "../lib/dailyRewards";
+import { recordDayTokens } from "../lib/streak";
 import { isPassing, scoreToPercent } from "../lib/mastery";
 import { STARTING_TOKENS } from "../lib/tokens";
 import type { MultiplayerAccess } from "../lib/multiplayer/access";
@@ -78,6 +79,11 @@ interface ProgressContextValue {
   unlockMultiplayer: (access: MultiplayerAccess) => void;
   /** Reload progress from Firestore (does not overwrite server with stale local state). */
   refetchProgress: () => Promise<boolean>;
+  claimPendingChest: () => void;
+  consumeQuizLife: () => boolean;
+  tickFreePlayMinutes: (minutes: number) => void;
+  quizLives: number;
+  freePlayMinutesRemaining: number;
 }
 
 const ProgressContext = createContext<ProgressContextValue | undefined>(undefined);
@@ -116,17 +122,10 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     (async () => {
       try {
         const remote = await fetchProgress(user.uid);
-        const today = todayKey();
-        const streak = computeStreak(remote.streak, remote.lastActiveDate, today);
-        const hydrated: CourseProgress = {
-          ...remote,
-          streak,
-          lastActiveDate: today,
-        };
+        const { progress: hydrated } = processLoginRewards(remote);
         if (!cancelled) {
           uidRef.current = user.uid;
           setProgress(hydrated);
-          // Persist the streak/date bump immediately.
           void saveProgress(user.uid, hydrated).catch(() => undefined);
         }
       } catch {
@@ -282,11 +281,18 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       if (amount <= 0) return;
       update((prev) => {
         const tokens = (prev.tokens ?? 0) + amount;
+        const today = todayKey();
         return {
           ...prev,
           tokens,
           peakTokens: Math.max(prev.peakTokens ?? 0, tokens),
           lifetimeTokens: (prev.lifetimeTokens ?? 0) + amount,
+          loginHistory: recordDayTokens(
+            prev.loginHistory ?? {},
+            today,
+            { earned: amount },
+            prev.streak,
+          ),
         };
       });
     },
@@ -297,7 +303,19 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     (amount: number): boolean => {
       if (amount <= 0) return true;
       if ((latest.current.tokens ?? 0) < amount) return false;
-      update((prev) => ({ ...prev, tokens: (prev.tokens ?? 0) - amount }));
+      update((prev) => {
+        const today = todayKey();
+        return {
+          ...prev,
+          tokens: (prev.tokens ?? 0) - amount,
+          loginHistory: recordDayTokens(
+            prev.loginHistory ?? {},
+            today,
+            { lost: amount },
+            prev.streak,
+          ),
+        };
+      });
       return true;
     },
     [update],
@@ -393,13 +411,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }
     try {
       const remote = await fetchProgress(uid);
-      const today = todayKey();
-      const streak = computeStreak(remote.streak, remote.lastActiveDate, today);
-      const hydrated: CourseProgress = {
-        ...remote,
-        streak,
-        lastActiveDate: today,
-      };
+      const { progress: hydrated } = processLoginRewards(remote);
       latest.current = hydrated;
       setProgress(hydrated);
       return true;
@@ -407,6 +419,37 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       return false;
     }
   }, []);
+
+  const claimPendingChest = useCallback(() => {
+    if (!latest.current.pendingChest) return;
+    update((prev) => {
+      if (!prev.pendingChest) return prev;
+      return applyChestReward(prev, prev.pendingChest).progress;
+    });
+  }, [update]);
+
+  const consumeQuizLife = useCallback((): boolean => {
+    if ((latest.current.quizLives ?? 0) < 1) return false;
+    update((prev) => ({
+      ...prev,
+      quizLives: Math.max(0, (prev.quizLives ?? 0) - 1),
+    }));
+    return true;
+  }, [update]);
+
+  const tickFreePlayMinutes = useCallback(
+    (minutes: number) => {
+      if (minutes <= 0) return;
+      update((prev) => ({
+        ...prev,
+        freePlayMinutesRemaining: Math.max(
+          0,
+          (prev.freePlayMinutesRemaining ?? 0) - minutes,
+        ),
+      }));
+    },
+    [update],
+  );
 
   const value = useMemo<ProgressContextValue>(
     () => ({
@@ -426,6 +469,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       recordPokerHand,
       unlockMultiplayer,
       refetchProgress,
+      claimPendingChest,
+      consumeQuizLife,
+      tickFreePlayMinutes,
+      quizLives: progress.quizLives ?? 0,
+      freePlayMinutesRemaining: progress.freePlayMinutesRemaining ?? 0,
     }),
     [
       progress,
@@ -444,6 +492,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       recordPokerHand,
       unlockMultiplayer,
       refetchProgress,
+      claimPendingChest,
+      consumeQuizLife,
+      tickFreePlayMinutes,
     ],
   );
 
