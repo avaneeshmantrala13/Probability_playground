@@ -7,6 +7,7 @@ import { signOut } from "../../lib/auth";
 import { useThemeSync } from "../../hooks/useThemeSync";
 import { useQuizDifficultySync } from "../../hooks/useQuizDifficultySync";
 import { CloseIcon, LogOutIcon, MenuIcon } from "../icons";
+import { FallingCards } from "../home/FallingCards";
 import { NAV_ITEMS } from "./navItems";
 
 function navLinkClass(isActive: boolean): string {
@@ -33,7 +34,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   const displayName = user?.displayName ?? user?.email ?? "Learner";
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="relative flex min-h-screen flex-col">
+      <FallingCards />
       <header className="sticky top-0 z-30 border-b border-subtle bg-surface/85 backdrop-blur">
         <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-4 px-4 sm:px-6">
           <div className="flex items-center gap-6">
@@ -107,11 +109,11 @@ export function AppShell({ children }: { children: ReactNode }) {
         )}
       </header>
 
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:px-6 sm:py-10">
+      <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:px-6 sm:py-10">
         {children}
       </main>
 
-      <footer className="border-t border-subtle py-6">
+      <footer className="relative z-10 border-t border-subtle py-6">
         <div className="mx-auto w-full max-w-5xl px-4 text-center text-xs text-muted sm:px-6">
           Probability Playground &middot; Learn by doing
         </div>
