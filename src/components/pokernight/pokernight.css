@@ -10,19 +10,111 @@
 .pn-scene {
   position: relative;
   width: 100%;
-  /* Taller frame so top/side seats + speech bubbles stay inside the viewport. */
-  aspect-ratio: 16 / 12;
-  max-height: 86vh;
+  aspect-ratio: 16 / 10.5;
+  max-height: min(70vh, 720px);
   border-radius: 18px;
   overflow: hidden;
   isolation: isolate;
   background: #14100c;
   box-shadow: 0 24px 60px rgb(0 0 0 / 0.5);
 }
-/* Full rings (5+ opponents): zoom the stage out slightly so every seat + bubble fits. */
+/* Full rings (5+ opponents): zoom the stage out so every seat + bubble fits. */
 .pn-scene-ring-full .pn-camera {
-  transform: scale(0.94);
+  transform: scale(0.88);
   transform-origin: 50% 68%;
+}
+
+/* =========================== viewport-fit session =========================== */
+/* When seated at a table, the scene fills remaining viewport — no page scroll. */
+
+html.pn-immersive,
+html.pn-immersive body {
+  overflow: hidden;
+  height: 100%;
+}
+
+html.pn-immersive main {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+html.pn-immersive footer {
+  display: none;
+}
+
+.pn-viewport-session {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 4rem - 0.5rem - env(safe-area-inset-bottom, 0px));
+  max-height: calc(100dvh - 4rem - 0.5rem - env(safe-area-inset-bottom, 0px));
+  overflow: hidden;
+  gap: 0.375rem;
+}
+
+.pn-viewport-main {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pn-viewport-main.pn-viewport-main--with-chat {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .pn-viewport-main.pn-viewport-main--with-chat {
+    grid-template-columns: 1fr minmax(0, 11rem);
+    gap: 0.5rem;
+  }
+}
+
+.pn-viewport-table {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pn-viewport-main .pn-scene,
+.pn-viewport-table .pn-scene {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  height: 100%;
+  aspect-ratio: unset;
+  width: 100%;
+}
+
+.pn-viewport-session .pn-scene-ring-full .pn-camera {
+  transform: scale(0.86);
+  transform-origin: 50% 68%;
+}
+
+.pn-viewport-session .pn-session-header .pp-card {
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.pn-viewport-session .pn-session-header .pp-btn-secondary {
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+}
+
+.pn-viewport-controls .pp-card {
+  padding: 0.625rem 0.75rem;
+}
+
+.pn-viewport-controls .pp-card.space-y-3 {
+  gap: 0.5rem;
+}
+
+.pn-viewport-controls .pp-card.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0;
 }
 .pn-scene-ring-full .pn-cam-up {
   transform: translateY(4.5%) scale(0.95);
@@ -647,7 +739,7 @@
 /* =============================== hero dock =============================== */
 
 .pn-hero-dock {
-  width: clamp(200px, 32vw, 320px);
+  width: clamp(168px, 28vw, 280px);
   z-index: 9;
 }
 .pn-hero-cards {

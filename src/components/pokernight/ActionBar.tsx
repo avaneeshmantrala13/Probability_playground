@@ -5,7 +5,6 @@ interface ActionBarProps {
   state: GameState;
   legal: LegalActions;
   enabled: boolean;
-  humanEquity: number | null;
   thinking: boolean;
   onAction: (action: Action) => void;
   /** Local human seat index (default 0 for single-player). */
@@ -20,7 +19,6 @@ export function ActionBar({
   state,
   legal,
   enabled,
-  humanEquity,
   thinking,
   onAction,
   humanSeatIndex = 0,
@@ -65,17 +63,7 @@ export function ActionBar({
 
   return (
     <div className="pp-card space-y-3 p-4">
-      <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
-        <span className="font-semibold text-primary">Your move</span>
-        {humanEquity != null && (
-          <span className="text-secondary">
-            Win chance:{" "}
-            <span className="font-semibold text-accent">
-              {(humanEquity * 100).toFixed(0)}%
-            </span>
-          </span>
-        )}
-      </div>
+      <p className="text-sm font-semibold text-primary">Your move</p>
 
       <div className="flex flex-wrap gap-2">
         {legal.canFold && (
