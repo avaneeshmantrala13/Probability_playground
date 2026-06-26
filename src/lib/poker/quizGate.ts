@@ -1,9 +1,9 @@
+import { shuffle, type ComebackQuestion, type ServedQuestion } from "../comeback";
 import {
-  COMEBACK_QUESTIONS,
-  shuffle,
-  type ComebackQuestion,
-  type ServedQuestion,
-} from "../comeback";
+  DEFAULT_QUIZ_DIFFICULTY,
+  getQuizQuestionPool,
+  type QuizDifficulty,
+} from "./quizQuestions";
 import type { GameState } from "./types";
 
 /** Which reveal moment a quiz gate guards. */
@@ -38,9 +38,13 @@ function shuffleOptions(q: ComebackQuestion): ServedQuestion {
   };
 }
 
-function pickFromPool(handNumber: number, gate: QuizGateId): ServedQuestion {
+function pickFromPool(
+  pool: ComebackQuestion[],
+  handNumber: number,
+  gate: QuizGateId,
+): ServedQuestion {
   const gateOffset = { hole: 0, flop: 1, turn: 2, river: 3 }[gate];
-  const q = COMEBACK_QUESTIONS[(handNumber * 4 + gateOffset) % COMEBACK_QUESTIONS.length];
+  const q = pool[(handNumber * 4 + gateOffset) % pool.length];
   return shuffleOptions(q);
 }
 
@@ -48,11 +52,16 @@ export function pickQuizQuestion(
   handNumber: number,
   gate: QuizGateId,
   usedIds: Set<string> = new Set(),
+  difficulty: QuizDifficulty = DEFAULT_QUIZ_DIFFICULTY,
 ): ServedQuestion {
-  const preferred = pickFromPool(handNumber, gate);
+  const pool = getQuizQuestionPool(difficulty);
+  if (pool.length === 0) {
+    throw new Error(`No quiz questions available for difficulty "${difficulty}"`);
+  }
+  const preferred = pickFromPool(pool, handNumber, gate);
   if (!usedIds.has(preferred.id)) return preferred;
-  const fresh = shuffle(COMEBACK_QUESTIONS.filter((q) => !usedIds.has(q.id)));
-  return shuffleOptions(fresh[0] ?? COMEBACK_QUESTIONS[handNumber % COMEBACK_QUESTIONS.length]);
+  const fresh = shuffle(pool.filter((q) => !usedIds.has(q.id)));
+  return shuffleOptions(fresh[0] ?? pool[handNumber % pool.length]);
 }
 
 export function detectQuizGate(

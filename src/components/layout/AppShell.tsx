@@ -5,6 +5,7 @@ import { ThemeToggle } from "../ThemeToggle";
 import { useAuth } from "../../context/AuthContext";
 import { signOut } from "../../lib/auth";
 import { useThemeSync } from "../../hooks/useThemeSync";
+import { useQuizDifficultySync } from "../../hooks/useQuizDifficultySync";
 import { CloseIcon, LogOutIcon, MenuIcon } from "../icons";
 import { NAV_ITEMS } from "./navItems";
 
@@ -22,6 +23,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   useThemeSync();
+  useQuizDifficultySync();
 
   // Close the mobile menu whenever the route changes.
   useEffect(() => {

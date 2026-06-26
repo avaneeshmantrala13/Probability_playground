@@ -20,3 +20,4 @@ export * from "./engine";
 export * from "./bot";
 export * from "./multiplayer";
 export * from "./quizGate";
+export * from "./quizQuestions";
