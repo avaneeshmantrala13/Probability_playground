@@ -5,9 +5,13 @@ import type {
   AvatarAccessory,
   ChipStyle,
   DeckSkin,
+  PlayerOutfit,
   TableTheme,
   WinAnimation,
 } from "../../lib/cosmetics";
+import { PokerFigure } from "../pokernight/PokerFigure";
+import { getCharacterLook } from "../../lib/characters";
+import type { CharacterLook } from "../pokernight/characters";
 
 /** Mini card-back preview rendering the skin's surface, border, ink + pattern. */
 export function DeckPreview({ skin }: { skin: DeckSkin }) {
@@ -118,6 +122,60 @@ export function AnimationPreview({ animation }: { animation: WinAnimation }) {
       aria-label={`${animation.name} animation`}
     >
       <span className="text-sm font-semibold text-secondary">Win!</span>
+    </div>
+  );
+}
+
+const TIER_LABEL: Record<PlayerOutfit["tier"], string> = {
+  basic: "Default",
+  casual: "Casual",
+  sharp: "Sharp",
+  luxury: "Luxury",
+  legend: "Legend",
+};
+
+const DEFAULT_PREVIEW_LOOK: CharacterLook = {
+  skin: "#e8b98f",
+  skinShade: "#cf9568",
+  hair: "#3b2a20",
+  hairStyle: "short",
+  hat: "none",
+  hatColor: "#000",
+  eyes: "normal",
+  brow: "neutral",
+  mouth: "smile",
+  facialHair: "none",
+  outfit: "#2563eb",
+  outfitTrim: "#bfdbfe",
+  accent: "#60a5fa",
+  build: "average",
+  posture: "upright",
+  accessory: "none",
+};
+
+export function OutfitPreview({ outfit }: { outfit: PlayerOutfit }) {
+  const look =
+    outfit.characterId === "outfit-default"
+      ? { ...DEFAULT_PREVIEW_LOOK, outfit: outfit.swatch[0], accent: outfit.swatch[1] }
+      : getCharacterLook(outfit.characterId);
+
+  if (!look) {
+    return (
+      <div className="flex h-28 w-full overflow-hidden rounded-2xl border border-subtle" role="img" aria-label={`${outfit.name} outfit`}>
+        <div className="flex-1" style={{ background: outfit.swatch[0] }} />
+        <div className="flex-1" style={{ background: outfit.swatch[1] }} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative flex h-28 w-full items-end justify-center overflow-hidden rounded-2xl bg-surface-muted" role="img" aria-label={`${outfit.name} outfit`}>
+      <span className="absolute left-2 top-2 rounded-full bg-black/50 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-white">
+        {TIER_LABEL[outfit.tier]}
+      </span>
+      <div className="h-[7.5rem] w-[5.5rem] origin-bottom scale-[0.72]">
+        <PokerFigure look={look} reduced seatIndex={0} />
+      </div>
     </div>
   );
 }

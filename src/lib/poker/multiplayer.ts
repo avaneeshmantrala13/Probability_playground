@@ -8,6 +8,7 @@ export interface MultiplayerHuman {
   seatIndex: number;
   name: string;
   stack: number;
+  characterId: string;
 }
 
 function makeSeat(
@@ -16,12 +17,14 @@ function makeSeat(
   isHuman: boolean,
   stack: number,
   persona?: Persona,
+  characterId?: string,
 ): Seat {
   return {
     index,
     name,
     isHuman,
     ...(persona !== undefined ? { persona } : {}),
+    ...(characterId !== undefined ? { characterId } : {}),
     stack,
     holeCards: [],
     roundBet: 0,
@@ -44,7 +47,7 @@ export function createMultiplayerGame(
   for (let i = 0; i < MAX_PLAYERS; i++) {
     const human = humans.find((h) => h.seatIndex === i);
     if (human) {
-      seats.push(makeSeat(i, human.name, true, human.stack));
+      seats.push(makeSeat(i, human.name, true, human.stack, undefined, human.characterId));
     } else if (personaIdx < personas.length) {
       seats.push(makeSeat(i, personas[personaIdx].name, false, config.botStack, personas[personaIdx]));
       personaIdx++;

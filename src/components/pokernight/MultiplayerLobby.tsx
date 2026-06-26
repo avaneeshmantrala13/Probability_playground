@@ -16,6 +16,7 @@ import {
   type PokerRoom,
 } from "../../lib/multiplayer/rooms";
 import { PUBLIC_MATCH_MIN_PLAYERS, PUBLIC_MATCH_START_DELAY_MS } from "../../lib/multiplayer/constants";
+import { preferredJoinCharacterId } from "../../lib/characters";
 import { TABLE_TIERS, type TableTier } from "../../lib/tokens";
 import { formatUsd, multiplayerBuyInPriceCents } from "../../lib/payments/pricing";
 import { TokenPurchaseModal } from "./TokenPurchaseModal";
@@ -35,7 +36,7 @@ function clamp(x: number, lo: number, hi: number): number {
 
 export function MultiplayerLobby({ bankroll, onJoined, onLeave }: MultiplayerLobbyProps) {
   const { user } = useAuth();
-  const { spendTokens } = useProgress();
+  const { spendTokens, progress } = useProgress();
   const [tab, setTab] = useState<Tab>("friends");
   const [selectedId, setSelectedId] = useState(TABLE_TIERS[0].id);
   const tier = TABLE_TIERS.find((t) => t.id === selectedId) ?? TABLE_TIERS[0];
@@ -54,6 +55,12 @@ export function MultiplayerLobby({ bankroll, onJoined, onLeave }: MultiplayerLob
 
   const displayName =
     user?.displayName ?? user?.email?.split("@")[0] ?? "Player";
+
+  const joinCharacterId = () =>
+    preferredJoinCharacterId(
+      progress.equipped?.playerOutfit,
+      progress.ownedCosmetics ?? [],
+    );
 
   const joinedRef = useRef(false);
   const onJoinedStable = useCallback(onJoined, [onJoined]);
@@ -126,21 +133,38 @@ export function MultiplayerLobby({ bankroll, onJoined, onLeave }: MultiplayerLob
   const handleCreateFriends = () =>
     payAndSit(async () => {
       if (!user) return;
-      const { roomId: id } = await createFriendsRoom(user.uid, displayName, tier, buyIn);
+      const { roomId: id } = await createFriendsRoom(
+        user.uid,
+        displayName,
+        tier,
+        buyIn,
+        joinCharacterId(),
+      );
       setRoomId(id);
     });
 
   const handleJoinFriends = () =>
     payAndSit(async () => {
       if (!user) return;
-      const { roomId: id } = await joinRoomByCode(joinCode, user.uid, displayName);
+      const { roomId: id } = await joinRoomByCode(
+        joinCode,
+        user.uid,
+        displayName,
+        joinCharacterId(),
+      );
       setRoomId(id);
     });
 
   const handleFindPublic = () =>
     payAndSit(async () => {
       if (!user) return;
-      const { roomId: id, matched } = await matchmakePublic(user.uid, displayName, tier, buyIn);
+      const { roomId: id, matched } = await matchmakePublic(
+        user.uid,
+        displayName,
+        tier,
+        buyIn,
+        joinCharacterId(),
+      );
       if (matched) setRoomId(id);
       else setMatching(true);
     });

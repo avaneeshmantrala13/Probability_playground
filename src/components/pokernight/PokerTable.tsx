@@ -24,6 +24,7 @@ interface PokerTableProps {
   /** Harness-only: force a fixed gaze target across all seats for screenshots. */
   gazeOverride?: GazeOverride;
   quizGateResults?: QuizGateResults;
+  multiplayer?: boolean;
 }
 
 type Pos = { top: string; left: string; scale?: number };
@@ -82,7 +83,7 @@ function layoutSlotForSeat(
   return (seatIndex - viewerSeatIndex + seatCount) % seatCount;
 }
 
-export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride, quizGateResults }: PokerTableProps) {
+export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride, quizGateResults, multiplayer = false }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
 
@@ -231,6 +232,7 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
             boardLen={state.board.length}
             gazeOverride={gazeOverride}
             quizGateResults={quizGateResults}
+            multiplayer={multiplayer}
           />
           );
         })}
