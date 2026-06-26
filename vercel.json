@@ -9,6 +9,9 @@
     },
     "api/verify-checkout-session.ts": {
       "maxDuration": 30
+    },
+    "api/leaderboard.ts": {
+      "maxDuration": 30
     }
   },
   "rewrites": [
