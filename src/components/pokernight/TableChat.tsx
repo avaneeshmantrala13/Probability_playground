@@ -11,9 +11,10 @@ interface TableChatProps {
   roomId: string;
   uid: string;
   room: PokerRoom;
+  className?: string;
 }
 
-export function TableChat({ roomId, uid, room }: TableChatProps) {
+export function TableChat({ roomId, uid, room, className }: TableChatProps) {
   const me = room.players[uid];
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [draft, setDraft] = useState("");
@@ -42,16 +43,16 @@ export function TableChat({ roomId, uid, room }: TableChatProps) {
   };
 
   return (
-    <div className="pp-card flex flex-col p-3">
-      <div className="mb-2 flex items-center justify-between">
-        <span className="text-sm font-semibold text-primary">Table chat</span>
+    <div className={["pp-card flex min-h-0 flex-col p-2", className].filter(Boolean).join(" ")}>
+      <div className="mb-1.5 flex shrink-0 items-center justify-between">
+        <span className="text-xs font-semibold text-primary">Table chat</span>
         <button type="button" className="text-xs text-accent" onClick={handleToggle}>
           {chatEnabled ? "Turn off" : "Turn on"}
         </button>
       </div>
       {chatEnabled ? (
         <>
-          <div className="max-h-32 space-y-1 overflow-y-auto text-sm">
+          <div className="min-h-0 flex-1 space-y-1 overflow-y-auto text-xs">
             {messages.length === 0 && (
               <p className="text-muted">No messages yet.</p>
             )}
@@ -63,7 +64,7 @@ export function TableChat({ roomId, uid, room }: TableChatProps) {
             ))}
             <div ref={bottomRef} />
           </div>
-          <form onSubmit={handleSend} className="mt-2 flex gap-2">
+          <form onSubmit={handleSend} className="mt-1.5 flex shrink-0 gap-1.5">
             <input
               type="text"
               className="pp-input flex-1 text-sm"

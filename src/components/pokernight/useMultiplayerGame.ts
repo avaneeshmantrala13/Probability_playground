@@ -161,7 +161,6 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     legal: displayLegal,
     isHumanTurn,
     humanSeat: seatKnown ? displayState.seats[mySeatIndex] : undefined,
-    humanEquity: isHumanTurn ? hostGame.humanEquity : null,
     thinking,
     speeches: hostGame.speeches,
     expressions: hostGame.expressions,

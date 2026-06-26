@@ -145,45 +145,57 @@ function PokerNightUnlocked() {
     setMpSession({ roomId, tier, buyIn, key: Date.now() });
   }, []);
 
+  const inTableSession = seat != null || mpSession != null;
+
+  useEffect(() => {
+    if (!inTableSession) return;
+    document.documentElement.classList.add("pn-immersive");
+    return () => document.documentElement.classList.remove("pn-immersive");
+  }, [inTableSession]);
+
   return (
     <div className="mx-auto max-w-5xl">
-      <header className="mb-5">
-        <h1 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
-          Poker Night
-        </h1>
-        <p className="mt-1 max-w-2xl text-secondary">
-          Single-player bots or multiplayer with friends and public matchmaking.
-        </p>
-        {checkoutMsg && (
-          <p className="mt-2 text-sm font-medium text-accent">{checkoutMsg}</p>
-        )}
-      </header>
+      {!inTableSession && (
+        <>
+          <header className="mb-5">
+            <h1 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+              Poker Night
+            </h1>
+            <p className="mt-1 max-w-2xl text-secondary">
+              Single-player bots or multiplayer with friends and public matchmaking.
+            </p>
+            {checkoutMsg && (
+              <p className="mt-2 text-sm font-medium text-accent">{checkoutMsg}</p>
+            )}
+          </header>
 
-      <FreePlayBanner
-        minutesRemaining={freePlayMinutesRemaining}
-        streakDay={progress.streak}
-      />
+          <FreePlayBanner
+            minutesRemaining={freePlayMinutesRemaining}
+            streakDay={progress.streak}
+          />
 
-      <div className="mb-4 inline-flex gap-1 rounded-xl bg-surface-muted p-1">
-        <button
-          type="button"
-          onClick={() => setMode("single")}
-          className={`rounded-lg px-4 py-2 text-sm font-semibold ${
-            mode === "single" ? "bg-surface text-accent shadow-card" : "text-secondary"
-          }`}
-        >
-          Single player
-        </button>
-        <button
-          type="button"
-          onClick={() => setMode("multiplayer")}
-          className={`rounded-lg px-4 py-2 text-sm font-semibold ${
-            mode === "multiplayer" ? "bg-surface text-accent shadow-card" : "text-secondary"
-          }`}
-        >
-          Multiplayer
-        </button>
-      </div>
+          <div className="mb-4 inline-flex gap-1 rounded-xl bg-surface-muted p-1">
+            <button
+              type="button"
+              onClick={() => setMode("single")}
+              className={`rounded-lg px-4 py-2 text-sm font-semibold ${
+                mode === "single" ? "bg-surface text-accent shadow-card" : "text-secondary"
+              }`}
+            >
+              Single player
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode("multiplayer")}
+              className={`rounded-lg px-4 py-2 text-sm font-semibold ${
+                mode === "multiplayer" ? "bg-surface text-accent shadow-card" : "text-secondary"
+              }`}
+            >
+              Multiplayer
+            </button>
+          </div>
+        </>
+      )}
 
       {mode === "single" ? (
         seat ? (
@@ -323,7 +335,6 @@ function PokerSession({
     legal,
     isHumanTurn,
     humanSeat,
-    humanEquity,
     thinking,
     speeches,
     expressions,
@@ -377,8 +388,9 @@ function PokerSession({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="pn-viewport-session">
       <SessionHeader
+        className="pn-session-header shrink-0"
         tier={tier}
         stack={humanSeat.stack}
         bankroll={bankroll}
@@ -387,23 +399,46 @@ function PokerSession({
         onBuyTokens={() => setShowPurchase(true)}
       />
 
-      <Suspense
-        fallback={
-          <div className="flex items-center justify-center rounded-2xl bg-black/40 py-24 text-sm text-muted">
-            Entering the casino…
-          </div>
-        }
-      >
-        <PokerTable
-          state={state}
-          deck={deck}
-          theme={theme}
-          reduced={reduced}
-          speeches={speeches}
-          expressions={expressions}
-          quizGateResults={quizGates.results}
-        />
-      </Suspense>
+      <div className="pn-viewport-main">
+        <Suspense
+          fallback={
+            <div className="flex flex-1 items-center justify-center rounded-2xl bg-black/40 text-sm text-muted">
+              Entering the casino…
+            </div>
+          }
+        >
+          <PokerTable
+            state={state}
+            deck={deck}
+            theme={theme}
+            reduced={reduced}
+            speeches={speeches}
+            expressions={expressions}
+            quizGateResults={quizGates.results}
+          />
+        </Suspense>
+      </div>
+
+      <div className="pn-viewport-controls shrink-0">
+        {handComplete && phase === "busted" ? (
+          <RebuyPanel
+            tier={tier}
+            bankroll={bankroll}
+            onRebuy={handleRebuy}
+            onLeave={handleLeave}
+          />
+        ) : handComplete ? (
+          <HandResultBanner state={state} canDeal onNext={handleNext} />
+        ) : (
+          <ActionBar
+            state={state}
+            legal={legal}
+            enabled={isHumanTurn}
+            thinking={thinking}
+            onAction={act}
+          />
+        )}
+      </div>
 
       {quizGates.activeGate && (
         <QuizGateModal
@@ -411,26 +446,6 @@ function PokerSession({
           gate={quizGates.activeGate.gate}
           question={quizGates.activeGate.question}
           onResolve={quizGates.resolveGate}
-        />
-      )}
-
-      {handComplete && phase === "busted" ? (
-        <RebuyPanel
-          tier={tier}
-          bankroll={bankroll}
-          onRebuy={handleRebuy}
-          onLeave={handleLeave}
-        />
-      ) : handComplete ? (
-        <HandResultBanner state={state} canDeal onNext={handleNext} />
-      ) : (
-        <ActionBar
-          state={state}
-          legal={legal}
-          enabled={isHumanTurn}
-          humanEquity={humanEquity}
-          thinking={thinking}
-          onAction={act}
         />
       )}
 
@@ -484,7 +499,7 @@ function MultiplayerSession({
 
   mySeatIndexRef.current = game.mySeatIndex;
 
-  const { room, state, legal, isHumanTurn, humanEquity, thinking, speeches, expressions, act, dealNext, mySeatIndex, isHost, seatKnown, humanSeatIndex } = game;
+  const { room, state, legal, isHumanTurn, thinking, speeches, expressions, act, dealNext, mySeatIndex, isHost, seatKnown, humanSeatIndex } = game;
 
   const quizGates = useQuizGates({
     state,
@@ -505,8 +520,9 @@ function MultiplayerSession({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="pn-viewport-session">
       <SessionHeader
+        className="pn-session-header shrink-0"
         tier={tier}
         stack={myStack}
         bankroll={bankroll}
@@ -514,27 +530,50 @@ function MultiplayerSession({
         leaveDisabled={!handComplete}
         badge="Multiplayer"
       />
-      <div className="grid gap-4 lg:grid-cols-[1fr_240px]">
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center rounded-2xl bg-black/40 py-24 text-sm text-muted">
-              Entering the casino…
-            </div>
-          }
-        >
-          <PokerTable
-            state={state}
-            deck={deck}
-            theme={theme}
-            reduced={reduced}
-            speeches={speeches}
-            expressions={expressions}
-            viewerSeatIndex={mySeatIndex}
-            quizGateResults={quizGates.results}
-            multiplayer
+      <div className="pn-viewport-main pn-viewport-main--with-chat">
+        <div className="pn-viewport-table">
+          <Suspense
+            fallback={
+              <div className="flex flex-1 items-center justify-center rounded-2xl bg-black/40 text-sm text-muted">
+                Entering the casino…
+              </div>
+            }
+          >
+            <PokerTable
+              state={state}
+              deck={deck}
+              theme={theme}
+              reduced={reduced}
+              speeches={speeches}
+              expressions={expressions}
+              viewerSeatIndex={mySeatIndex}
+              quizGateResults={quizGates.results}
+              multiplayer
+            />
+          </Suspense>
+        </div>
+        {user && (
+          <TableChat
+            className="hidden min-h-0 overflow-hidden lg:flex lg:flex-col"
+            roomId={roomId}
+            uid={user.uid}
+            room={room}
           />
-        </Suspense>
-        {user && <TableChat roomId={roomId} uid={user.uid} room={room} />}
+        )}
+      </div>
+      <div className="pn-viewport-controls shrink-0">
+        {handComplete ? (
+          <HandResultBanner state={state} canDeal={isHost} onNext={dealNext} />
+        ) : (
+          <ActionBar
+            state={state}
+            legal={legal}
+            enabled={isHumanTurn}
+            thinking={thinking}
+            onAction={act}
+            humanSeatIndex={mySeatIndex}
+          />
+        )}
       </div>
       {quizGates.activeGate && (
         <QuizGateModal
@@ -542,19 +581,6 @@ function MultiplayerSession({
           gate={quizGates.activeGate.gate}
           question={quizGates.activeGate.question}
           onResolve={quizGates.resolveGate}
-        />
-      )}
-      {handComplete ? (
-        <HandResultBanner state={state} canDeal={isHost} onNext={dealNext} />
-      ) : (
-        <ActionBar
-          state={state}
-          legal={legal}
-          enabled={isHumanTurn}
-          humanEquity={humanEquity}
-          thinking={thinking}
-          onAction={act}
-          humanSeatIndex={mySeatIndex}
         />
       )}
     </div>
@@ -569,6 +595,7 @@ function SessionHeader({
   leaveDisabled,
   onBuyTokens,
   badge,
+  className,
 }: {
   tier: TableTier;
   stack: number;
@@ -577,9 +604,10 @@ function SessionHeader({
   leaveDisabled: boolean;
   onBuyTokens?: () => void;
   badge?: string;
+  className?: string;
 }) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3">
+    <div className={["flex flex-wrap items-center justify-between gap-2", className].filter(Boolean).join(" ")}>
       <div className="flex flex-wrap items-center gap-2 text-sm">
         {badge && (
           <span className="pp-card px-3 py-1.5 font-semibold text-accent">{badge}</span>

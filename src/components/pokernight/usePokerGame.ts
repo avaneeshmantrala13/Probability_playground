@@ -3,9 +3,7 @@ import {
   applyAction,
   createGame,
   decideBotAction,
-  estimateEquity,
   legalActions,
-  liveOpponents,
   startHand,
   type Action,
   type GameConfig,
@@ -48,8 +46,6 @@ export interface PokerGameApi {
   legal: LegalActions;
   isHumanTurn: boolean;
   humanSeat: Seat;
-  /** Live Monte-Carlo equity for the human while it's their turn (or null). */
-  humanEquity: number | null;
   thinking: boolean;
   /** Latest action speech per seat index (drives table speech bubbles). */
   speeches: Record<number, Speech>;
@@ -198,7 +194,6 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     return startHand(createGame({ config, humanName, humanStack, personas }));
   });
   const [thinking, setThinking] = useState(false);
-  const [humanEquity, setHumanEquity] = useState<number | null>(null);
   const [speeches, setSpeeches] = useState<Record<number, Speech>>({});
   // Lasting per-seat mood from each player's most recent action this hand.
   const [reactions, setReactions] = useState<Record<number, Expression>>({});
@@ -283,33 +278,6 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     }
   }, [state]);
 
-  // ------------- live human equity readout while it's their turn -------------
-  // Deferred to a macrotask so the action bar paints instantly on the human's
-  // turn; the Monte-Carlo sample then fills the win-chance in without blocking.
-  useEffect(() => {
-    if (!isHumanTurn) {
-      setHumanEquity(null);
-      return;
-    }
-    const human = state.seats[HUMAN_SEAT];
-    if (human.holeCards.length !== 2) {
-      setHumanEquity(null);
-      return;
-    }
-    let cancelled = false;
-    const t = setTimeout(() => {
-      if (cancelled) return;
-      const opp = Math.max(1, liveOpponents(state, HUMAN_SEAT));
-      // Light sample — this is a hint, not a decision.
-      const eq = estimateEquity(human.holeCards, state.board, opp, 400).equity;
-      if (!cancelled) setHumanEquity(eq);
-    }, 0);
-    return () => {
-      cancelled = true;
-      clearTimeout(t);
-    };
-  }, [isHumanTurn, state]);
-
   const act = useCallback(
     (action: Action) => {
       const cur = stateRef.current;
@@ -362,7 +330,6 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     legal,
     isHumanTurn,
     humanSeat,
-    humanEquity,
     thinking,
     speeches,
     expressions,
