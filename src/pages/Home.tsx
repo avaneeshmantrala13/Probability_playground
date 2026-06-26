@@ -5,7 +5,6 @@ import { useProgress } from "../context/ProgressContext";
 import { isLessonUnlocked } from "../lib/mastery";
 import { Brand } from "../components/Brand";
 import { ChevronRightIcon } from "../components/icons";
-import { FallingCards } from "../components/home/FallingCards";
 import { FreePlayBanner } from "../components/dailyRewards/FreePlayBanner";
 
 export function Home() {
@@ -37,9 +36,7 @@ export function Home() {
       : "Start learning";
 
   return (
-    <>
-      <FallingCards />
-      <div className="relative z-10 mx-auto max-w-3xl">
+    <div className="mx-auto max-w-3xl">
       <FreePlayBanner
         minutesRemaining={freePlayMinutesRemaining}
         streakDay={progress.streak}
@@ -104,7 +101,6 @@ export function Home() {
           <div className="mt-1 text-sm text-secondary">lessons mastered</div>
         </div>
       </div>
-      </div>
-    </>
+    </div>
   );
 }

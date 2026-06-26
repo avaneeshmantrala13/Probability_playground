@@ -36,7 +36,7 @@ function pick<T>(arr: readonly T[]): T {
 }
 
 /**
- * Decorative, GPU-friendly background layer for the home page: a handful of
+ * Decorative, GPU-friendly app-wide background layer: a handful of
  * randomly generated playing cards drifting slowly down the screen. Rendered as
  * a fixed, full-viewport, pointer-events-none / aria-hidden layer that sits
  * BEHIND the page content (low z-index); the opaque `pp-card` panels naturally
