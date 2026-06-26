@@ -31,6 +31,8 @@ export interface UsePokerGameOpts {
   driveBots?: boolean;
   /** Bot think delay range in ms — defaults to ~480–1000 single-player. */
   botDelayMs?: [number, number];
+  /** When true, bots wait (no think timer / actions) — e.g. during a quiz gate modal. */
+  pauseGame?: boolean;
   onStateChange?: (state: GameState) => void;
   onHandEnd?: (info: { result: HandResult; humanStack: number }) => void;
 }
@@ -166,6 +168,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     waitForExternal = false,
     driveBots = false,
     botDelayMs,
+    pauseGame = false,
     onStateChange,
     onHandEnd,
   } = opts;
@@ -222,6 +225,10 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
 
   // --------- drive bot turns automatically with a small think delay ---------
   useEffect(() => {
+    if (pauseGame) {
+      setThinking(false);
+      return;
+    }
     if (waitForExternal && externalState == null) {
       setThinking(false);
       return;
@@ -261,7 +268,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       onStateChange?.(next);
     }, delay);
     return () => clearTimeout(timer);
-  }, [state, reduced, pushSpeech, externalState, waitForExternal, driveBots, botDelayMs, onStateChange]);
+  }, [state, reduced, pushSpeech, externalState, waitForExternal, driveBots, botDelayMs, pauseGame, onStateChange]);
 
   // ----------------- report each completed hand exactly once -----------------
   useEffect(() => {
