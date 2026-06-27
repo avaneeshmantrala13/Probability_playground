@@ -53,6 +53,19 @@ export function looksLikeEmail(value: string): boolean {
   return value.includes("@");
 }
 
+export function isAuthError(err: unknown): err is AuthError {
+  return err instanceof AuthError;
+}
+
+/** Map any thrown value to a user-facing auth message. */
+export function authErrorMessage(err: unknown, fallback = "Unable to sign in."): string {
+  if (isAuthError(err)) return err.message;
+  if (err && typeof err === "object" && "code" in err) {
+    return mapFirebaseError(err).message;
+  }
+  return fallback;
+}
+
 export function consumeStoredAuthError(): string | null {
   if (typeof window === "undefined") return null;
   const message = sessionStorage.getItem(AUTH_ERROR_KEY);
@@ -127,16 +140,9 @@ async function provisionGoogleUser(user: User): Promise<void> {
   await setDoc(doc(db, "settings", user.uid), { theme: "system" }, { merge: true });
 }
 
-/** Popups hang on the Firebase handler in many production browsers — use redirect. */
-function preferGoogleRedirect(): boolean {
-  if (typeof window === "undefined") return false;
-  const host = window.location.hostname;
-  return host !== "localhost" && host !== "127.0.0.1";
-}
-
 /**
  * Call once on app load to finish a Google redirect sign-in, if any.
- * Must run before relying on auth state after a redirect return.
+ * Only needed when popup was blocked and we fell back to redirect.
  */
 export async function handleGoogleRedirectResult(): Promise<User | null> {
   try {
@@ -201,12 +207,8 @@ export async function signInWithIdentifier(
   }
 }
 
+/** Popup sign-in (worked reliably pre-revamp). Redirect only if popup is blocked. */
 export async function signInWithGoogle(): Promise<User> {
-  if (preferGoogleRedirect()) {
-    await signInWithRedirect(auth, googleProvider);
-    throw new AuthError("redirect", "Redirecting to Google…");
-  }
-
   try {
     const cred = await signInWithPopup(auth, googleProvider);
     await provisionGoogleUser(cred.user);
@@ -214,8 +216,13 @@ export async function signInWithGoogle(): Promise<User> {
   } catch (err) {
     const code = (err as { code?: string })?.code ?? "";
     if (code === "auth/popup-blocked") {
-      await signInWithRedirect(auth, googleProvider);
-      throw new AuthError("redirect", "Redirecting to Google…");
+      try {
+        await signInWithRedirect(auth, googleProvider);
+        throw new AuthError("redirect", "Redirecting to Google…");
+      } catch (redirectErr) {
+        if (isAuthError(redirectErr) && redirectErr.code === "redirect") throw redirectErr;
+        throw mapFirebaseError(redirectErr);
+      }
     }
     throw mapFirebaseError(err);
   }

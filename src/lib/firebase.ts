@@ -1,5 +1,12 @@
 import { initializeApp, type FirebaseApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, type Auth } from "firebase/auth";
+import {
+  browserLocalPersistence,
+  browserPopupRedirectResolver,
+  getAuth,
+  GoogleAuthProvider,
+  initializeAuth,
+  type Auth,
+} from "firebase/auth";
 import { getFirestore, type Firestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -25,7 +32,15 @@ let dbInstance: Firestore | undefined;
 
 if (isFirebaseConfigured) {
   app = initializeApp(firebaseConfig);
-  authInstance = getAuth(app);
+  try {
+    authInstance = initializeAuth(app, {
+      persistence: browserLocalPersistence,
+      popupRedirectResolver: browserPopupRedirectResolver,
+    });
+  } catch {
+    // Hot reload / duplicate init — fall back to the existing Auth instance.
+    authInstance = getAuth(app);
+  }
   dbInstance = getFirestore(app);
 }
 
