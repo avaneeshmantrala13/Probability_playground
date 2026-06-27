@@ -84,9 +84,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const secret = process.env.ADMIN_RESET_SECRET?.trim();
+  const secret =
+    process.env.ADMIN_RESET_SECRET?.trim() ||
+    process.env.ADMIN_RESET_SECRET_KEY?.trim();
   if (!secret) {
-    return res.status(503).json({ error: "ADMIN_RESET_SECRET is not configured." });
+    return res.status(503).json({
+      error: "ADMIN_RESET_SECRET (or ADMIN_RESET_SECRET_KEY) is not configured.",
+    });
   }
 
   const provided =
