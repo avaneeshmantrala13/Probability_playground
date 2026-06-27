@@ -3,17 +3,28 @@
   "order": 7,
   "title": "Variance, Covariance & LLN",
   "subtitle": "Spread, joint movement, and convergence in the limit",
-  "topics": ["Variance", "Standard deviation", "Covariance", "Correlation", "Law of large numbers"],
+  "topics": [
+    "Variance",
+    "Standard deviation",
+    "Covariance",
+    "Correlation",
+    "Law of large numbers"
+  ],
   "intro": [
     "Variance measures how far a random variable tends to spread around its mean: low variance means outcomes cluster tightly; high variance means wide swings. The standard deviation is the square root of the variance and shares the same units as the original variable, which makes it easier to interpret in practice.",
-    "Covariance captures whether two variables move together (positive), move in opposite directions (negative), or show no linear relationship (zero). Correlation rescales covariance to a number between -1 and 1. The law of large numbers (LLN) says that as you repeat independent trials, the sample average converges to the true expected value — the foundation of Monte Carlo methods and statistical estimation in quant interviews."
+    "Covariance captures whether two variables move together (positive), move in opposite directions (negative), or show no linear relationship (zero). Correlation rescales covariance to a number between -1 and 1. The law of large numbers (LLN) says that as you repeat independent trials, the sample average converges to the true expected value — the foundation of Monte Carlo methods and statistical estimation in quant interviews.",
+    "Variance and the law of large numbers bridge classroom probability and real quant work: risk is spread, portfolios combine covariances, and Monte Carlo averages converge because sample means stabilize. Stat 110 pairs Var(X) computations with the LLN story—repeat independent trials and noise in the average shrinks. Interviewers love asking whether diversification lowers portfolio variance or why a simulation with 10 draws looks noisy but 10,000 draws does not.",
+    "Variance and the law of large numbers bridge classroom probability and real quant work: risk is spread, portfolios combine covariances, and Monte Carlo averages converge because sample means stabilize. Stat 110 pairs Var(X) computations with the LLN story—repeat independent trials and noise in the average shrinks. Interviewers love asking whether diversification lowers portfolio variance or why a simulation with 10 draws looks noisy but 10,000 draws does not."
   ],
   "questions": [
     {
       "id": "l7_q1",
       "kind": "standard",
       "concept": "variance_definition",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "Which formula correctly defines the variance Var(X) of a random variable X with mean μ?",
       "options": [
         "E[(X − μ)²]",
@@ -22,23 +33,54 @@
         "E[X²] − E[X]"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q1_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "Variance measures how far values tend to spread from the:",
-          "options": ["mean", "median", "maximum", "mode"],
+          "options": [
+            "mean",
+            "median",
+            "maximum",
+            "mode"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q1_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "A distribution with very little spread around its center has:",
-          "options": ["low variance", "high variance", "infinite variance", "negative variance"],
+          "options": [
+            "low variance",
+            "high variance",
+            "infinite variance",
+            "negative variance"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -46,7 +88,10 @@
       "id": "l7_q2",
       "kind": "standard",
       "concept": "variance_identity",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "Which identity is always true for any random variable X?",
       "options": [
         "Var(X) = E[X²] − (E[X])²",
@@ -55,23 +100,54 @@
         "Var(X) = E[X] − E[X²]"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q2_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "The computational shortcut Var(X) = E[X²] − (E[X])² is often called the:",
-          "options": ["computational formula for variance", "covariance formula", "Bayes rule", "LLN"],
+          "options": [
+            "computational formula for variance",
+            "covariance formula",
+            "Bayes rule",
+            "LLN"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q2_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "If E[X] = 3 and E[X²] = 13, then Var(X) equals:",
-          "options": ["4", "10", "16", "9"],
+          "options": [
+            "4",
+            "10",
+            "16",
+            "9"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -79,27 +155,66 @@
       "id": "l7_q3",
       "kind": "standard",
       "concept": "std_dev_units",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "If a stock return is measured in percent, its standard deviation is also measured in:",
-      "options": ["percent", "percent squared", "dimensionless only", "dollars"],
+      "options": [
+        "percent",
+        "percent squared",
+        "dimensionless only",
+        "dollars"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q3_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "Standard deviation is defined as the ___ of the variance.",
-          "options": ["square root", "square", "reciprocal", "logarithm"],
+          "options": [
+            "square root",
+            "square",
+            "reciprocal",
+            "logarithm"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q3_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "If Var(X) = 9, then the standard deviation SD(X) equals:",
-          "options": ["3", "9", "81", "1.5"],
+          "options": [
+            "3",
+            "9",
+            "81",
+            "1.5"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -107,27 +222,66 @@
       "id": "l7_q4",
       "kind": "standard",
       "concept": "variance_constant",
-      "simulation": { "type": "distribution_builder", "shape": "uniform" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "uniform"
+      },
       "question": "If X is a constant (always equal to c), what is Var(X)?",
-      "options": ["0", "c", "c²", "1"],
+      "options": [
+        "0",
+        "c",
+        "c²",
+        "1"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q4_r1",
-          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "uniform"
+          },
           "question": "A random variable with no randomness at all has variance equal to:",
-          "options": ["0", "1", "its mean", "its mean squared"],
+          "options": [
+            "0",
+            "1",
+            "its mean",
+            "its mean squared"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q4_r2",
-          "simulation": { "type": "distribution_builder", "shape": "uniform" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "uniform"
+          },
           "question": "If every outcome of X is exactly 7, then SD(X) equals:",
-          "options": ["0", "7", "49", "1"],
+          "options": [
+            "0",
+            "7",
+            "49",
+            "1"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -135,7 +289,10 @@
       "id": "l7_q5",
       "kind": "standard",
       "concept": "covariance_sign",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "If Cov(X, Y) > 0, which statement best describes the relationship between X and Y?",
       "options": [
         "They tend to increase together",
@@ -144,23 +301,54 @@
         "Y is a constant"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q5_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "Positive covariance means that when X is above its mean, Y tends to be:",
-          "options": ["above its mean", "below its mean", "exactly zero", "constant"],
+          "options": [
+            "above its mean",
+            "below its mean",
+            "exactly zero",
+            "constant"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q5_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "If Cov(X, Y) < 0, then X and Y tend to move in:",
-          "options": ["opposite directions", "the same direction", "no pattern at all", "perfect lockstep"],
+          "options": [
+            "opposite directions",
+            "the same direction",
+            "no pattern at all",
+            "perfect lockstep"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -168,27 +356,63 @@
       "id": "l7_q6",
       "kind": "standard",
       "concept": "independence_covariance",
-      "simulation": { "type": "two_coin" },
+      "simulation": {
+        "type": "two_coin"
+      },
       "question": "If X and Y are independent random variables, what must Cov(X, Y) equal?",
-      "options": ["0", "1", "Var(X)", "Var(Y)"],
+      "options": [
+        "0",
+        "1",
+        "Var(X)",
+        "Var(Y)"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q6_r1",
-          "simulation": { "type": "two_coin" },
+          "simulation": {
+            "type": "two_coin"
+          },
           "question": "Independence implies that knowing X gives you no information about Y. Their covariance is:",
-          "options": ["0", "always positive", "always negative", "equal to E[X]E[Y]"],
+          "options": [
+            "0",
+            "always positive",
+            "always negative",
+            "equal to E[X]E[Y]"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q6_r2",
-          "simulation": { "type": "two_dice" },
+          "simulation": {
+            "type": "two_dice"
+          },
           "question": "Two fair dice rolls are independent. The covariance between the two results is:",
-          "options": ["0", "1", "3.5", "7"],
+          "options": [
+            "0",
+            "1",
+            "3.5",
+            "7"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -196,27 +420,66 @@
       "id": "l7_q7",
       "kind": "standard",
       "concept": "correlation_bounds",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "The correlation coefficient ρ(X, Y) always lies in which interval?",
-      "options": ["[−1, 1]", "[0, 1]", "[−∞, ∞]", "[0, ∞]"],
+      "options": [
+        "[−1, 1]",
+        "[0, 1]",
+        "[−∞, ∞]",
+        "[0, ∞]"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q7_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "Correlation is defined as Cov(X, Y) divided by:",
-          "options": ["SD(X) × SD(Y)", "Var(X) + Var(Y)", "E[X] × E[Y]", "SD(X) + SD(Y)"],
+          "options": [
+            "SD(X) × SD(Y)",
+            "Var(X) + Var(Y)",
+            "E[X] × E[Y]",
+            "SD(X) + SD(Y)"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q7_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "A correlation of +1 means the two variables have a:",
-          "options": ["perfect positive linear relationship", "no relationship", "perfect negative relationship", "nonlinear only relationship"],
+          "options": [
+            "perfect positive linear relationship",
+            "no relationship",
+            "perfect negative relationship",
+            "nonlinear only relationship"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -224,7 +487,10 @@
       "id": "l7_q8",
       "kind": "standard",
       "concept": "lln_convergence",
-      "simulation": { "type": "experimental_probability", "probability": 0.5 },
+      "simulation": {
+        "type": "experimental_probability",
+        "probability": 0.5
+      },
       "question": "The weak law of large numbers states that as n → ∞, the sample mean X̄ₙ converges to:",
       "options": [
         "E[X]",
@@ -233,23 +499,53 @@
         "the sample maximum"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q8_r1",
-          "simulation": { "type": "coin_flip" },
+          "simulation": {
+            "type": "coin_flip"
+          },
           "question": "As you flip a fair coin more and more times, the fraction of heads converges to:",
-          "options": ["0.5", "0", "1", "a random value each time"],
+          "options": [
+            "0.5",
+            "0",
+            "1",
+            "a random value each time"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q8_r2",
-          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "simulation": {
+            "type": "experimental_probability",
+            "probability": 0.5
+          },
           "question": "The LLN explains why Monte Carlo estimates improve as you:",
-          "options": ["increase the number of simulations", "decrease the number of simulations", "ignore randomness", "use only one trial"],
+          "options": [
+            "increase the number of simulations",
+            "decrease the number of simulations",
+            "ignore randomness",
+            "use only one trial"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -257,27 +553,66 @@
       "id": "l7_q9",
       "kind": "challenge",
       "concept": "variance_sum_independent",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "If X and Y are independent with Var(X) = 4 and Var(Y) = 9, what is Var(X + Y)?",
-      "options": ["13", "5", "36", "6.5"],
+      "options": [
+        "13",
+        "5",
+        "36",
+        "6.5"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q9_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "For independent X and Y, variances of sums add: Var(X + Y) = Var(X) + Var(Y). If Var(X) = 2 and Var(Y) = 3, then Var(X + Y) =",
-          "options": ["5", "1", "6", "2.5"],
+          "options": [
+            "5",
+            "1",
+            "6",
+            "2.5"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q9_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "If X and Y are independent, Cov(X, Y) = 0, so Var(X + Y) = Var(X) + Var(Y) + 2·Cov(X,Y) simplifies to:",
-          "options": ["Var(X) + Var(Y)", "Var(X) − Var(Y)", "Var(X) × Var(Y)", "0"],
+          "options": [
+            "Var(X) + Var(Y)",
+            "Var(X) − Var(Y)",
+            "Var(X) × Var(Y)",
+            "0"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -285,27 +620,184 @@
       "id": "l7_q10",
       "kind": "challenge",
       "concept": "portfolio_variance",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "Two assets each have variance 0.04 and correlation ρ = 0.5. For an equal-weight portfolio (50% each), the portfolio variance is 0.04 + 0.04 + 2(0.5)(0.2)(0.2)(0.5) = ?",
-      "options": ["0.06", "0.04", "0.08", "0.10"],
+      "options": [
+        "0.06",
+        "0.04",
+        "0.08",
+        "0.10"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l7_q10_r1",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "For two assets with equal weights w = 0.5, portfolio variance includes a cross term 2w²·Cov. If Cov = 0 (independent), portfolio variance with equal weights and equal variances σ² each is:",
-          "options": ["σ²/2", "σ²", "2σ²", "0"],
+          "options": [
+            "σ²/2",
+            "σ²",
+            "2σ²",
+            "0"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l7_q10_r2",
-          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "simulation": {
+            "type": "distribution_builder",
+            "shape": "normal"
+          },
           "question": "Diversification reduces portfolio risk when asset returns have correlation:",
-          "options": ["less than 1", "equal to 1", "greater than 1", "exactly −1 only"],
+          "options": [
+            "less than 1",
+            "equal to 1",
+            "greater than 1",
+            "exactly −1 only"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "l7_q11",
+      "kind": "challenge",
+      "concept": "variance_bernoulli",
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
+      "question": "Let X be Bernoulli(p) with p = 0.25. What is Var(X)?",
+      "options": [
+        "0.1875",
+        "0.25",
+        "0.75",
+        "0.0625"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = p(1−p) = 0.25(0.75) = 0.1875.",
+        "B": "0.25 is p itself, not the variance.",
+        "C": "0.75 is 1 − p, the failure probability.",
+        "D": "0.0625 equals p² = (0.25)², not p(1−p)."
+      },
+      "remediation": [
+        {
+          "id": "l7_q11_r1",
+          "question": "For Bernoulli(p), Var(X) equals:",
+          "options": [
+            "p(1−p)",
+            "p²",
+            "1 − p",
+            "p"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Standard Bernoulli variance formula.",
+            "B": "p² is not the variance of a Bernoulli trial.",
+            "C": "1 − p is the failure probability, not variance.",
+            "D": "p is the mean, not the variance."
+          }
+        },
+        {
+          "id": "l7_q11_r2",
+          "question": "Bernoulli(p = 0.5) has variance:",
+          "options": [
+            "0.25",
+            "0.5",
+            "0",
+            "1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. p(1−p) = 0.5(0.5) = 0.25.",
+            "B": "0.5 is the mean, not variance.",
+            "C": "0 would mean no randomness, but a fair coin flip varies.",
+            "D": "1 exceeds the maximum Bernoulli variance of 0.25 at p = 0.5."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l7_q12",
+      "kind": "challenge",
+      "concept": "lln_sample_mean",
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
+      "question": "X₁, …, Xₙ are i.i.d. with mean μ and finite variance. As n grows, the sample mean X̄ₙ satisfies:",
+      "options": [
+        "X̄ₙ converges to μ (law of large numbers)",
+        "Var(X̄ₙ) stays constant in n",
+        "X̄ₙ always equals μ for any finite n",
+        "X̄ₙ diverges to infinity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The LLN says sample averages stabilize around the true mean as n increases.",
+        "B": "Var(X̄ₙ) = σ²/n shrinks as n grows, it does not stay constant.",
+        "C": "For finite n, random fluctuation remains; equality holds only in the limit.",
+        "D": "Averages of bounded-mean variables do not diverge under the LLN assumptions."
+      },
+      "remediation": [
+        {
+          "id": "l7_q12_r1",
+          "question": "If Var(X) = σ² and X̄ₙ is the mean of n i.i.d. copies, Var(X̄ₙ) equals:",
+          "options": [
+            "σ²/n",
+            "σ²",
+            "nσ²",
+            "σ/√n"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Averaging divides variance by n.",
+            "B": "σ² is the variance of one observation, not the mean.",
+            "C": "nσ² multiplies instead of divides.",
+            "D": "σ/√n is the standard error, not the variance."
+          }
+        },
+        {
+          "id": "l7_q12_r2",
+          "question": "Monte Carlo pricing averages many simulated payoffs because the LLN guarantees:",
+          "options": [
+            "The sample average approximates the true expected payoff",
+            "Each simulation equals the exact price",
+            "Variance increases with more simulations",
+            "Independence is unnecessary"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. More independent draws make the sample mean a better estimate of E[payoff].",
+            "B": "Individual simulations vary; only the average stabilizes.",
+            "C": "More simulations reduce variance of the estimate, not increase it.",
+            "D": "Independence (or appropriate ergodicity) is essential for the LLN logic."
+          }
         }
       ]
     }
@@ -314,74 +806,177 @@
     {
       "id": "l7_p1",
       "concept": "variance_definition",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "Variance is always:",
-      "options": ["non-negative", "negative", "zero", "equal to the mean"],
+      "options": [
+        "non-negative",
+        "negative",
+        "zero",
+        "equal to the mean"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l7_p2",
       "concept": "std_dev_units",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "If Var(X) = 25, then SD(X) =",
-      "options": ["5", "25", "625", "12.5"],
+      "options": [
+        "5",
+        "25",
+        "625",
+        "12.5"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l7_p3",
       "concept": "variance_constant",
-      "simulation": { "type": "distribution_builder", "shape": "uniform" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "uniform"
+      },
       "question": "Var(c) for a constant c equals:",
-      "options": ["0", "c", "c²", "1"],
+      "options": [
+        "0",
+        "c",
+        "c²",
+        "1"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l7_p4",
       "concept": "covariance_sign",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "Negative covariance means X and Y tend to:",
-      "options": ["move in opposite directions", "move together", "be independent", "be equal"],
+      "options": [
+        "move in opposite directions",
+        "move together",
+        "be independent",
+        "be equal"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l7_p5",
       "concept": "independence_covariance",
-      "simulation": { "type": "two_coin" },
+      "simulation": {
+        "type": "two_coin"
+      },
       "question": "Independent random variables have covariance:",
-      "options": ["0", "1", "Var(X)", "E[XY]"],
+      "options": [
+        "0",
+        "1",
+        "Var(X)",
+        "E[XY]"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l7_p6",
       "concept": "correlation_bounds",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "Correlation ρ always satisfies:",
-      "options": ["−1 ≤ ρ ≤ 1", "0 ≤ ρ ≤ 1", "ρ ≥ 0", "ρ = 0"],
+      "options": [
+        "−1 ≤ ρ ≤ 1",
+        "0 ≤ ρ ≤ 1",
+        "ρ ≥ 0",
+        "ρ = 0"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l7_p7",
       "concept": "lln_convergence",
-      "simulation": { "type": "experimental_probability", "probability": 0.5 },
+      "simulation": {
+        "type": "experimental_probability",
+        "probability": 0.5
+      },
       "question": "The sample mean converges to the population mean by the:",
-      "options": ["law of large numbers", "central limit theorem only", "Bayes theorem", "Markov property"],
+      "options": [
+        "law of large numbers",
+        "central limit theorem only",
+        "Bayes theorem",
+        "Markov property"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l7_p8",
       "concept": "variance_sum_independent",
-      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "simulation": {
+        "type": "distribution_builder",
+        "shape": "normal"
+      },
       "question": "If X and Y are independent, Var(X + Y) =",
-      "options": ["Var(X) + Var(Y)", "Var(X) − Var(Y)", "Var(X) × Var(Y)", "0"],
+      "options": [
+        "Var(X) + Var(Y)",
+        "Var(X) − Var(Y)",
+        "Var(X) × Var(Y)",
+        "0"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     }
   ]
 }

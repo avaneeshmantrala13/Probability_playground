@@ -12,7 +12,9 @@
   "intro": [
     "A continuation bet (c-bet) is when the preflop aggressor bets the flop. It leverages range advantage and fold equity — opponents who flat-called preflop often miss low and medium boards.",
     "Board texture describes how coordinated or dry the flop is. Wet boards (flush draws, straight draws, paired cards) connect with more ranges and demand careful sizing and frequency. Dry boards favor small c-bets with high frequency.",
-    "Every postflop bet is either for value (wanting calls from worse) or as a bluff (wanting folds from better). Mixed strategies use both — and the best players choose sizes and frequencies that keep opponents guessing while exploiting board and range factors."
+    "Every postflop bet is either for value (wanting calls from worse) or as a bluff (wanting folds from better). Mixed strategies use both — and the best players choose sizes and frequencies that keep opponents guessing while exploiting board and range factors.",
+    "Postflop strategy balances range advantage, board texture, and bet sizing. On dry flops like K♠ 7♥ 2♦, the preflop raiser can c-bet small with high frequency because the board misses most calling ranges. Wet flops like J♠ T♠ 9♣ demand selective c-betting and larger sizes with strong hands and draws. Double-barreling (betting turn after flop c-bet) works best when scare cards favor your range or when you hold equity. GTO mixes value and bluffs at each frequency; exploitative players fire extra barrels when opponents fold too much to pressure.",
+    "Postflop strategy balances range advantage, board texture, and bet sizing. On dry flops like K♠ 7♥ 2♦, the preflop raiser can c-bet small with high frequency because the board misses most calling ranges. Wet flops like J♠ T♠ 9♣ demand selective c-betting and larger sizes with strong hands and draws. Double-barreling (betting turn after flop c-bet) works best when scare cards favor your range or when you hold equity. GTO mixes value and bluffs at each frequency; exploitative players fire extra barrels when opponents fold too much to pressure."
   ],
   "questions": [
     {
@@ -561,6 +563,116 @@
             "B": "Caller has some aces but wider weak hands.",
             "C": "Dry, not wet.",
             "D": "Both players contest pot."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pf_q11",
+      "kind": "challenge",
+      "concept": "dry_cbet",
+      "question": "You open UTG in six-max; only the BB calls. Flop: A♣ 8♦ 3♠ (rainbow, dry). As the preflop raiser, the solver-favored approach is usually:",
+      "options": [
+        "Small c-bet at high frequency — your range hits this board well",
+        "Never bet the flop",
+        "Always check and give up",
+        "Overbet pot only with air"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — dry ace-high boards favor the raiser; small frequent c-bets exploit BB's capped, missed range.",
+        "B": "Checking entire range wastes range advantage.",
+        "C": "Giving up always is exploitable.",
+        "D": "Overbetting only air is -EV; mix sizes and hands."
+      },
+      "remediation": [
+        {
+          "id": "pt_pf_q11_r1",
+          "question": "Dry flop means:",
+          "options": [
+            "Uncoordinated — few draws, misses many hands",
+            "Four flush cards",
+            "Always paired",
+            "Only straights possible"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — A-8-3 rainbow is dry.",
+            "B": "Four flush is wet.",
+            "C": "Dry flops are often unpaired.",
+            "D": "Dry means few straight draws."
+          }
+        },
+        {
+          "id": "pt_pf_q11_r2",
+          "question": "Range advantage on A-high dry flop usually favors:",
+          "options": [
+            "Preflop raiser",
+            "Big blind caller only",
+            "Neither player",
+            "Folded players"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — raiser has more aces and strong hands in range.",
+            "B": "BB range is capped and misses often.",
+            "C": "Advantage exists for raiser.",
+            "D": "Folded players are out."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pf_q12",
+      "kind": "challenge",
+      "concept": "wet_board",
+      "question": "You c-bet flop and get called. Turn brings a third spade on J♠ T♠ 4♠ 2♠. Your bluff with no spade becomes harder because:",
+      "options": [
+        "The board completes many flush draws in villain's calling range",
+        "Flush draws never call flops",
+        "Board texture is irrelevant",
+        "Villain always folds turns"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — wet, completing turns reduce fold equity; many callers now have a flush.",
+        "B": "Flush draws frequently call flop c-bets.",
+        "C": "Texture directly affects fold equity.",
+        "D": "Villain often continues with made flushes."
+      },
+      "remediation": [
+        {
+          "id": "pt_pf_q12_r1",
+          "question": "Wet board connects with:",
+          "options": [
+            "More hands in both ranges — draws and made hands",
+            "No hands",
+            "Only high card",
+            "Folded cards"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — coordinated boards hit calling ranges.",
+            "B": "Many hands connect.",
+            "C": "Pairs, straights, flushes possible.",
+            "D": "Folded cards don't play."
+          }
+        },
+        {
+          "id": "pt_pf_q12_r2",
+          "question": "When a scare card completes draws, bluff fold equity often:",
+          "options": [
+            "Decreases",
+            "Always increases",
+            "Stays 100%",
+            "Is illegal"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — opponents continue more with made hands.",
+            "B": "Completing draws hurts pure bluffs.",
+            "C": "Fold equity is never guaranteed.",
+            "D": "Bluffing is legal with correct sizing."
           }
         }
       ]

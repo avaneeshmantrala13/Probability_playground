@@ -3,10 +3,18 @@
   "order": 9,
   "title": "Game Theory & Strategic Thinking",
   "subtitle": "Nash equilibrium, mixed strategies, and auction intuition",
-  "topics": ["Nash equilibrium", "Dominant strategies", "Mixed strategies", "Zero-sum games", "Mechanism design"],
+  "topics": [
+    "Nash equilibrium",
+    "Dominant strategies",
+    "Mixed strategies",
+    "Zero-sum games",
+    "Mechanism design"
+  ],
   "intro": [
     "Game theory models strategic interaction: each player chooses an action knowing that others are doing the same, and payoffs depend on everyone's choices. In quant and trading interviews you'll see games in market making, bidding, and adversarial scenarios where your best move depends on what others do.",
-    "A Nash equilibrium is a profile of strategies where no player can improve their payoff by unilaterally changing their move. Sometimes the equilibrium involves mixed strategies — randomizing over actions with specific probabilities so opponents cannot exploit a predictable pattern. Recognizing dominant strategies, prisoner's dilemmas, and zero-sum structure is essential for quick interview reasoning."
+    "A Nash equilibrium is a profile of strategies where no player can improve their payoff by unilaterally changing their move. Sometimes the equilibrium involves mixed strategies — randomizing over actions with specific probabilities so opponents cannot exploit a predictable pattern. Recognizing dominant strategies, prisoner's dilemmas, and zero-sum structure is essential for quick interview reasoning.",
+    "Game theory models markets where your payoff depends on others' choices—auctions, bidding wars, and adversarial market making all fit. Quant interviews rarely ask you to solve a general game in full, but they do test Nash equilibrium, mixed strategies, and whether a game is zero-sum. Recognize when a dominant strategy exists, when randomization is optimal, and when bid shading beats bidding your true value.",
+    "Game theory models markets where your payoff depends on others' choices—auctions, bidding wars, and adversarial market making all fit. Quant interviews rarely ask you to solve a general game in full, but they do test Nash equilibrium, mixed strategies, and whether a game is zero-sum. Recognize when a dominant strategy exists, when randomization is optimal, and when bid shading beats bidding your true value."
   ],
   "questions": [
     {
@@ -21,21 +29,46 @@
         "players cooperate to maximize total payoff"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q1_r1",
           "question": "At a Nash equilibrium, each player's strategy is a best response to:",
-          "options": ["the others' strategies", "nothing", "random noise", "the highest payoff always"],
+          "options": [
+            "the others' strategies",
+            "nothing",
+            "random noise",
+            "the highest payoff always"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q1_r2",
           "question": "If you can improve your payoff by switching your move alone, the current profile is:",
-          "options": ["not a Nash equilibrium", "a Nash equilibrium", "always optimal", "a dominant strategy"],
+          "options": [
+            "not a Nash equilibrium",
+            "a Nash equilibrium",
+            "always optimal",
+            "a dominant strategy"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -51,21 +84,46 @@
         "it requires randomization"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q2_r1",
           "question": "If one action beats all others no matter what opponents choose, it is:",
-          "options": ["dominant", "mixed", "Pareto optimal only", "zero-sum"],
+          "options": [
+            "dominant",
+            "mixed",
+            "Pareto optimal only",
+            "zero-sum"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q2_r2",
           "question": "When a player has a strictly dominant strategy, rational play should:",
-          "options": ["always choose it", "never choose it", "randomize uniformly", "copy the opponent"],
+          "options": [
+            "always choose it",
+            "never choose it",
+            "randomize uniformly",
+            "copy the opponent"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -74,23 +132,53 @@
       "kind": "standard",
       "concept": "zero_sum",
       "question": "In a two-player zero-sum game, the sum of payoffs for any outcome is:",
-      "options": ["constant (often zero)", "always positive", "always negative", "random"],
+      "options": [
+        "constant (often zero)",
+        "always positive",
+        "always negative",
+        "random"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q3_r1",
           "question": "Zero-sum means one player's gain equals the other's:",
-          "options": ["loss", "gain", "random payoff", "cooperation"],
+          "options": [
+            "loss",
+            "gain",
+            "random payoff",
+            "cooperation"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q3_r2",
           "question": "Poker heads-up for fixed stakes is often modeled as:",
-          "options": ["zero-sum", "always cooperative", "not strategic", "infinite sum"],
+          "options": [
+            "zero-sum",
+            "always cooperative",
+            "not strategic",
+            "infinite sum"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -106,21 +194,46 @@
         "no equilibrium exists"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q4_r1",
           "question": "In prisoner's dilemma, defect is a dominant strategy because:",
-          "options": ["it pays more regardless of the other's choice", "cooperation always pays more", "payoffs are equal", "the game has no strategy"],
+          "options": [
+            "it pays more regardless of the other's choice",
+            "cooperation always pays more",
+            "payoffs are equal",
+            "the game has no strategy"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q4_r2",
           "question": "Both players cooperating would be better for both, but Nash equilibrium can still be:",
-          "options": ["both defecting", "both cooperating always", "random only", "no play"],
+          "options": [
+            "both defecting",
+            "both cooperating always",
+            "random only",
+            "no play"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -128,27 +241,63 @@
       "id": "l9_q5",
       "kind": "standard",
       "concept": "mixed_strategy",
-      "simulation": { "type": "coin_flip" },
+      "simulation": {
+        "type": "coin_flip"
+      },
       "question": "In matching pennies, the unique Nash equilibrium has each player choosing heads with probability:",
-      "options": ["1/2", "1", "0", "1/4"],
+      "options": [
+        "1/2",
+        "1",
+        "0",
+        "1/4"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q5_r1",
-          "simulation": { "type": "coin_flip" },
+          "simulation": {
+            "type": "coin_flip"
+          },
           "question": "A mixed strategy means a player:",
-          "options": ["randomizes over actions with specific probabilities", "always plays the same action", "never randomizes", "copies the opponent exactly"],
+          "options": [
+            "randomizes over actions with specific probabilities",
+            "always plays the same action",
+            "never randomizes",
+            "copies the opponent exactly"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q5_r2",
-          "simulation": { "type": "coin_flip" },
+          "simulation": {
+            "type": "coin_flip"
+          },
           "question": "In matching pennies, if you always play heads, your opponent can exploit you by always playing:",
-          "options": ["tails", "heads", "random", "nothing"],
+          "options": [
+            "tails",
+            "heads",
+            "random",
+            "nothing"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -164,21 +313,46 @@
         "randomization is impossible"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q6_r1",
           "question": "If one mixed action had higher expected payoff, a rational player would:",
-          "options": ["play it with probability 1", "never play it", "randomize uniformly", "quit the game"],
+          "options": [
+            "play it with probability 1",
+            "never play it",
+            "randomize uniformly",
+            "quit the game"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q6_r2",
           "question": "The indifference condition is used to solve for:",
-          "options": ["mixing probabilities", "sample size", "variance", "confidence intervals"],
+          "options": [
+            "mixing probabilities",
+            "sample size",
+            "variance",
+            "confidence intervals"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -194,21 +368,46 @@
         "maximizing the opponent's payoff"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q7_r1",
           "question": "Backward induction starts analyzing the game from:",
-          "options": ["the last decision nodes", "the first move only", "random nodes", "payoffs of zero"],
+          "options": [
+            "the last decision nodes",
+            "the first move only",
+            "random nodes",
+            "payoffs of zero"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q7_r2",
           "question": "A subgame perfect equilibrium rules out:",
-          "options": ["non-credible threats", "all Nash equilibria", "rational play", "mixed strategies"],
+          "options": [
+            "non-credible threats",
+            "all Nash equilibria",
+            "rational play",
+            "mixed strategies"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -224,21 +423,46 @@
         "the average of all bids"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q8_r1",
           "question": "In a second-price (Vickrey) auction, the winner pays:",
-          "options": ["the second-highest bid", "their own bid", "zero", "double their bid"],
+          "options": [
+            "the second-highest bid",
+            "their own bid",
+            "zero",
+            "double their bid"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q8_r2",
           "question": "Bidding your true value is a dominant strategy in a:",
-          "options": ["second-price auction", "first-price auction always", "lottery", "zero-sum game only"],
+          "options": [
+            "second-price auction",
+            "first-price auction always",
+            "lottery",
+            "zero-sum game only"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -246,27 +470,63 @@
       "id": "l9_q9",
       "kind": "challenge",
       "concept": "matching_pennies_payoff",
-      "simulation": { "type": "coin_flip" },
+      "simulation": {
+        "type": "coin_flip"
+      },
       "question": "In matching pennies, Row wins if both match (HH or TT), Column wins if they differ (HT or TH). This game is:",
-      "options": ["zero-sum", "always cooperative", "dominated by one strategy", "not strategic"],
+      "options": [
+        "zero-sum",
+        "always cooperative",
+        "dominated by one strategy",
+        "not strategic"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q9_r1",
-          "simulation": { "type": "coin_flip" },
+          "simulation": {
+            "type": "coin_flip"
+          },
           "question": "Matching pennies has no pure-strategy Nash equilibrium because:",
-          "options": ["either player wants to mismatch the other's predictable choice", "payoffs are always equal", "both always match", "there is only one action"],
+          "options": [
+            "either player wants to mismatch the other's predictable choice",
+            "payoffs are always equal",
+            "both always match",
+            "there is only one action"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q9_r2",
-          "simulation": { "type": "coin_flip" },
+          "simulation": {
+            "type": "coin_flip"
+          },
           "question": "The expected payoff in the mixed equilibrium of matching pennies is:",
-          "options": ["0 for each player", "1 for Row", "1 for Column", "always positive"],
+          "options": [
+            "0 for each player",
+            "1 for Row",
+            "1 for Column",
+            "always positive"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -282,21 +542,159 @@
         "never bid"
       ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l9_q10_r1",
           "question": "Bid shading reduces the risk of:",
-          "options": ["winning while overpaying", "ever winning", "participating", "observing others' values"],
+          "options": [
+            "winning while overpaying",
+            "ever winning",
+            "participating",
+            "observing others' values"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l9_q10_r2",
           "question": "If everyone bids true value in a first-price auction, you might win when:",
-          "options": ["your value barely exceeds others' bids, leaving no surplus", "you always lose", "payoffs are zero-sum only", "the auction is second-price"],
+          "options": [
+            "your value barely exceeds others' bids, leaving no surplus",
+            "you always lose",
+            "payoffs are zero-sum only",
+            "the auction is second-price"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "l9_q11",
+      "kind": "challenge",
+      "concept": "mixed_strategy_equilibrium",
+      "simulation": {
+        "type": "coin_flip"
+      },
+      "question": "In matching pennies, Row wins if both players show the same side (HH or TT); Column wins if they differ. In the unique mixed-strategy Nash equilibrium, each player randomizes:",
+      "options": [
+        "50% heads, 50% tails",
+        "Always heads",
+        "75% heads, 25% tails",
+        "100% tails"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Equal mixing makes the opponent indifferent between heads and tails, which is required for a mixed equilibrium.",
+        "B": "Always heads is exploitable—Column would always play tails.",
+        "C": "Unequal mixing lets the opponent exploit the predictable bias.",
+        "D": "Any pure strategy is a best response target for the other player."
+      },
+      "remediation": [
+        {
+          "id": "l9_q11_r1",
+          "question": "Why must a player randomize in matching pennies?",
+          "options": [
+            "Any predictable pattern can be exploited by the opponent",
+            "Payoffs are always equal",
+            "The game has a dominant pure strategy",
+            "Mixed strategies are never optimal"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Pure strategies lose against a best-responding opponent.",
+            "B": "Payoffs differ by outcome; that is why strategy matters.",
+            "C": "There is no dominant pure strategy in matching pennies.",
+            "D": "Mixed strategies are essential here."
+          }
+        },
+        {
+          "id": "l9_q11_r2",
+          "question": "In the mixed equilibrium of matching pennies, each player's expected payoff is:",
+          "options": [
+            "0",
+            "1",
+            "−1",
+            "0.5"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Symmetric zero-sum mixing gives each player zero expected value.",
+            "B": "1 would mean Row always wins in expectation.",
+            "C": "−1 would mean Row always loses in expectation.",
+            "D": "0.5 is not the equilibrium expected payoff here."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l9_q12",
+      "kind": "challenge",
+      "concept": "prisoners_dilemma",
+      "question": "Two traders choose Cooperate or Defect. Mutual cooperation yields (3, 3); mutual defection (1, 1); one defects alone (5, 0). Which is true?",
+      "options": [
+        "Defect is a dominant strategy for both players",
+        "Cooperate is a dominant strategy for both players",
+        "There is no Nash equilibrium",
+        "The game is not simultaneous"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Defect gives a higher payoff regardless of the other's action, so both defect in the unique Nash equilibrium.",
+        "B": "Cooperate is never better when the other defects (0 vs 1).",
+        "C": "(Defect, Defect) is a Nash equilibrium.",
+        "D": "The game is a standard simultaneous-move payoff matrix."
+      },
+      "remediation": [
+        {
+          "id": "l9_q12_r1",
+          "question": "A dominant strategy is one that:",
+          "options": [
+            "Is best regardless of what the other player does",
+            "Is best only if the other cooperates",
+            "Requires randomization",
+            "Never exists in finite games"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Dominance is defined against all opponent actions.",
+            "B": "Conditional superiority is not dominance.",
+            "C": "Dominant strategies are pure by definition here.",
+            "D": "Many finite games have dominant strategies."
+          }
+        },
+        {
+          "id": "l9_q12_r2",
+          "question": "In the prisoners' dilemma, the Nash equilibrium outcome is:",
+          "options": [
+            "Pareto dominated by mutual cooperation",
+            "Pareto optimal",
+            "The same as mutual cooperation",
+            "Undefined"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Both would prefer (3,3) over (1,1), but defection is individually rational.",
+            "B": "(1,1) is not Pareto optimal since cooperation improves both.",
+            "C": "Equilibrium is mutual defection, not cooperation.",
+            "D": "The equilibrium is well defined."
+          }
         }
       ]
     }
@@ -306,66 +704,148 @@
       "id": "l9_p1",
       "concept": "nash_definition",
       "question": "Nash equilibrium: no player gains by:",
-      "options": ["unilateral deviation", "cooperating", "randomizing", "observing payoffs"],
+      "options": [
+        "unilateral deviation",
+        "cooperating",
+        "randomizing",
+        "observing payoffs"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l9_p2",
       "concept": "dominant_strategy",
       "question": "A dominant strategy is best:",
-      "options": ["regardless of others' moves", "only if others cooperate", "never", "only in mixed equilibrium"],
+      "options": [
+        "regardless of others' moves",
+        "only if others cooperate",
+        "never",
+        "only in mixed equilibrium"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l9_p3",
       "concept": "zero_sum",
       "question": "Zero-sum: one player's gain is the other's:",
-      "options": ["loss", "gain", "random payoff", "cooperation"],
+      "options": [
+        "loss",
+        "gain",
+        "random payoff",
+        "cooperation"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l9_p4",
       "concept": "prisoners_dilemma",
       "question": "Prisoner's dilemma Nash equilibrium is:",
-      "options": ["both defect", "both cooperate", "one of each", "no equilibrium"],
+      "options": [
+        "both defect",
+        "both cooperate",
+        "one of each",
+        "no equilibrium"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l9_p5",
       "concept": "mixed_strategy",
-      "simulation": { "type": "coin_flip" },
+      "simulation": {
+        "type": "coin_flip"
+      },
       "question": "Matching pennies equilibrium mixes heads at:",
-      "options": ["1/2", "1", "0", "1/4"],
+      "options": [
+        "1/2",
+        "1",
+        "0",
+        "1/4"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l9_p6",
       "concept": "indifference_principle",
       "question": "Mixed equilibrium requires equal expected payoff across:",
-      "options": ["mixed actions", "all players", "zero-sum games only", "cooperative moves"],
+      "options": [
+        "mixed actions",
+        "all players",
+        "zero-sum games only",
+        "cooperative moves"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l9_p7",
       "concept": "sequential_games",
       "question": "Sequential games are solved by:",
-      "options": ["backward induction", "always defect", "random play", "ignoring later moves"],
+      "options": [
+        "backward induction",
+        "always defect",
+        "random play",
+        "ignoring later moves"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     },
     {
       "id": "l9_p8",
       "concept": "auction_first_price",
       "question": "First-price auction: winner pays:",
-      "options": ["own bid", "second-highest bid", "nothing", "average bid"],
+      "options": [
+        "own bid",
+        "second-highest bid",
+        "nothing",
+        "average bid"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      }
     }
   ]
 }

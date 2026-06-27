@@ -1,0 +1,828 @@
+[
+  {
+    "lessonId": "pt_fundamentals",
+    "introAppend": [
+      "Every hand you play sits inside a larger framework: Game Theory Optimal (GTO) strategies aim to be unexploitable by mixing correct frequencies, while exploitative play deviates when opponents leak chips through predictable folds, calls, or sizings. You do not need solver software to benefit — simply knowing that each street has a pot size, a stack-to-pot ratio (SPR), and an action order lets you ask the right question: am I getting the right price to continue, and does my position let me control the pot? Fundamentals are not just rules; they are the scaffolding for every pot-odds calculation and range decision that follows."
+    ],
+    "appendQuestions": [
+      {
+        "id": "pt_f1_q11",
+        "kind": "challenge",
+        "concept": "spr_decisions",
+        "question": "$1/$2 cash game. Effective stacks are $200. Three players see a flop; the pot is $18 after preflop action. SPR (stack-to-pot ratio) is roughly:",
+        "options": [
+          "~11",
+          "~2",
+          "~100",
+          "~0.5"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — $200 effective / $18 pot ≈ 11. High SPR means more postflop streets and implied odds matter.",
+          "B": "~2 would mean a much larger pot relative to stacks (e.g. $100 pot on $200 stacks).",
+          "C": "~100 would require a tiny pot, not $18.",
+          "D": "~0.5 would mean the pot is twice the remaining stack — a committed spot."
+        },
+        "remediation": [
+          {
+            "id": "pt_f1_q11_r1",
+            "question": "SPR = effective stack ÷ pot. Stack $150, pot $30. SPR is:",
+            "options": [
+              "5",
+              "0.2",
+              "180",
+              "50"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 150 ÷ 30 = 5.",
+              "B": "0.2 inverts the ratio.",
+              "C": "180 adds instead of divides.",
+              "D": "50 is not 150/30."
+            }
+          },
+          {
+            "id": "pt_f1_q11_r2",
+            "question": "Low SPR (near 1–3) usually means:",
+            "options": [
+              "Players are more committed — fewer streets to maneuver",
+              "Infinite implied odds",
+              "Blinds never matter",
+              "Only preflop action matters"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — small SPR often leads to all-in decisions quickly.",
+              "B": "Low SPR limits room for future bets.",
+              "C": "Blinds still set the structure.",
+              "D": "Postflop still matters, just with less stack behind."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_f1_q12",
+        "kind": "challenge",
+        "concept": "action_order",
+        "question": "Six-max: UTG opens, MP calls, BTN calls, SB folds, BB checks. On the flop, who acts first?",
+        "options": [
+          "BB",
+          "BTN",
+          "UTG",
+          "MP"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — postflop action starts with the first active player left of the button: the BB.",
+          "B": "BTN acts last among remaining players, not first.",
+          "C": "UTG is early but BB is left of button and acts first postflop.",
+          "D": "MP acts after BB on the flop."
+        },
+        "remediation": [
+          {
+            "id": "pt_f1_q12_r1",
+            "question": "Postflop, the first player to act is:",
+            "options": [
+              "First active seat left of the button",
+              "Always the button",
+              "Always UTG",
+              "The dealer"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — action starts left of button (often BB or SB if still in).",
+              "B": "Button acts last postflop.",
+              "C": "UTG is not always first postflop.",
+              "D": "Dealer doesn't play."
+            }
+          },
+          {
+            "id": "pt_f1_q12_r2",
+            "question": "Preflop, the first player to act (excluding forced blinds) is typically:",
+            "options": [
+              "UTG",
+              "The button",
+              "The big blind",
+              "The dealer"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — UTG acts first preflop in standard order.",
+              "B": "Button acts last preflop.",
+              "C": "BB acts last preflop when unopened.",
+              "D": "Dealer doesn't bet."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "pt_hand_rankings",
+    "introAppend": [
+      "Hand rankings are not just a memorization chart — they determine whether you are value betting, bluff-catching, or folding to aggression. In solver-backed play, nut hands (the best possible holding on a board) get bet and raised aggressively, while second-best made hands face reverse implied odds and thin value decisions. Kickers break ties on paired boards; playing the board splits pots. Recognizing when your full house loses to a higher boat, or when your flush is dominated, is the difference between a +EV call and a stack-dumping mistake."
+    ],
+    "appendQuestions": [
+      {
+        "id": "pt_hr_q11",
+        "kind": "challenge",
+        "concept": "counterfeited",
+        "question": "You hold A♦ T♦. Board runs out A♠ T♠ T♣ 4♥ 4♦. Your best five-card hand is:",
+        "options": [
+          "Full house, tens full of fours",
+          "Two pair, aces and tens",
+          "Four of a kind, tens",
+          "Full house, fours full of tens"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — T-T-T-4-4 (tens full of fours). Your ace is a kicker only; the board pairs counterfeited your two pair.",
+          "B": "Two pair was true on the turn, but the river paired the board — full house is best now.",
+          "C": "You only have three tens, not four.",
+          "D": "Fours full of tens would need four fours; you have two fours on board."
+        },
+        "remediation": [
+          {
+            "id": "pt_hr_q11_r1",
+            "question": "Board T-T-4-4-x with hole cards A-T makes:",
+            "options": [
+              "Full house (tens full)",
+              "Two pair only",
+              "Quads",
+              "High card"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — three tens and two fours on board = full house.",
+              "B": "Board pairing upgrades beyond two pair.",
+              "C": "Only three tens available.",
+              "D": "Full house beats high card."
+            }
+          },
+          {
+            "id": "pt_hr_q11_r2",
+            "question": "When the board pairs on the river, your two pair can:",
+            "options": [
+              "Become counterfeited — board may make a better hand for everyone",
+              "Always improve to quads",
+              "Never change rank",
+              "Beat any full house"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — paired boards can counterfeit hole-card pairs.",
+              "B": "Quads need four of a rank.",
+              "C": "Rank can change when board pairs.",
+              "D": "Full house beats two pair."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_hr_q12",
+        "kind": "challenge",
+        "concept": "nut_flush",
+        "question": "Board: K♠ 7♠ 2♠ 9♥ 3♦. Player A holds A♠ Q♣. Player B holds Q♠ J♠. Who wins?",
+        "options": [
+          "Player A — nut flush (A high)",
+          "Player B — higher spade in hand",
+          "Split pot",
+          "Player B — straight flush draw completed"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — A♠ makes the nut flush; Q♠ J♠ is a weaker flush.",
+          "B": "Both have a flush; A-high beats Q-high.",
+          "C": "Different flush ranks — no split.",
+          "D": "No straight flush on this board."
+        },
+        "remediation": [
+          {
+            "id": "pt_hr_q12_r1",
+            "question": "Three spades on board. A♠ in hand vs Q♠ in hand — winner has:",
+            "options": [
+              "Ace-high flush",
+              "Queen-high flush",
+              "Split",
+              "Straight"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — highest spade in the five-card hand wins.",
+              "B": "Q-high loses to A-high flush.",
+              "C": "Different ranks don't split.",
+              "D": "Both have flushes, not straights."
+            }
+          },
+          {
+            "id": "pt_hr_q12_r2",
+            "question": "The nut flush on a three-suited board is:",
+            "options": [
+              "The highest card of that suit among all possible hands",
+              "Any flush",
+              "Two pair",
+              "The lowest flush"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — nuts = best possible hand on that board.",
+              "B": "Any flush can lose to a higher flush.",
+              "C": "Flush beats two pair.",
+              "D": "Nuts is the best, not the worst."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "pt_position",
+    "introAppend": [
+      "Position is leverage. In GTO preflop charts, the button opens roughly twice as wide as under-the-gun because every postflop street you act last — controlling pot size, floating with equity, and stealing dead money on later streets. Out of position (OOP), you pay an information tax: you bet without knowing whether opponents will raise, and you check without knowing whether a free card costs you the pot. Exploitative players widen steals on the cutoff and button against tight blinds, while solver models defend the big blind wider than most live players because pot odds and closing action justify it."
+    ],
+    "appendQuestions": [
+      {
+        "id": "pt_pos_q11",
+        "kind": "challenge",
+        "concept": "btn_steal",
+        "question": "Folded to you on the button in a six-max $1/$2 game. SB and BB both fold ~70% to a 2.5bb open. Stealing is +EV primarily because:",
+        "options": [
+          "You win the blinds often without seeing a flop, and act last when called",
+          "You always have the best hand",
+          "Blinds must call any raise",
+          "UTG already acted"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — fold equity on the blinds plus positional advantage postflop makes wide BTN opens profitable.",
+          "B": "You open many hands; not always best.",
+          "C": "Blinds can fold; they are not forced to call.",
+          "D": "UTG folding is unrelated to BTN steal EV."
+        },
+        "remediation": [
+          {
+            "id": "pt_pos_q11_r1",
+            "question": "Late-position steal attempts rely heavily on:",
+            "options": [
+              "Fold equity from blinds",
+              "Always showing down the nuts",
+              "Checking every hand",
+              "Posting extra blinds"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — winning uncontested pots is the primary win path.",
+              "B": "Steals include many non-nut hands.",
+              "C": "Open-raising, not checking.",
+              "D": "Blinds are posted by others."
+            }
+          },
+          {
+            "id": "pt_pos_q11_r2",
+            "question": "When your BTN steal gets called, your main postflop edge is:",
+            "options": [
+              "Acting last on every street",
+              "Acting first",
+              "Seeing hole cards first",
+              "Skipping the flop"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — in-position play is the structural advantage.",
+              "B": "First to act is OOP.",
+              "C": "Deal order isn't the strategic edge.",
+              "D": "Flop always comes if hand continues."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_pos_q12",
+        "kind": "challenge",
+        "concept": "squeeze_ip",
+        "question": "UTG opens, two callers, you are on the BTN with A♣ 5♣. A squeeze (3-bet) is attractive here mainly because:",
+        "options": [
+          "Fold equity against multiple players plus position if called",
+          "You block every strong hand",
+          "Squeezes must always be called",
+          "UTG always folds aces"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — dead money from callers plus IP postflop makes light squeezes viable; A5s has blockers and playability.",
+          "B": "Blockers help but don't block everything.",
+          "C": "Squeeze is a raise — others may fold or call.",
+          "D": "Strong UTG ranges sometimes continue vs squeezes."
+        },
+        "remediation": [
+          {
+            "id": "pt_pos_q12_r1",
+            "question": "A squeeze targets:",
+            "options": [
+              "Dead money from an open and callers",
+              "Only the river",
+              "Folded hands",
+              "The dealer's chips"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — re-raise after open + callers to take the pot preflop.",
+              "B": "Squeeze is preflop.",
+              "C": "Folded players are out.",
+              "D": "Dealer doesn't play."
+            }
+          },
+          {
+            "id": "pt_pos_q12_r2",
+            "question": "Squeezing from the button vs early open + callers, if called you usually:",
+            "options": [
+              "Have position postflop",
+              "Are out of position",
+              "Cannot c-bet",
+              "Must check-fold every flop"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — BTN acts last postflop vs blinds and typical callers.",
+              "B": "BTN is in position.",
+              "C": "IP c-bets are common.",
+              "D": "Many flops allow continuation."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "pt_pot_odds",
+    "introAppend": [
+      "Pot odds and minimum defense frequency (MDF) are two sides of the same coin: pot odds tell the caller what equity they need; MDF tells the defender how often they must continue so a bluff cannot auto-profit. On the river, a half-pot bet requires roughly 25% equity to call but also implies the defender should continue about 67% of the time to prevent pure bluffs from printing money. GTO players balance value and bluffs at each sizing; exploitative players attack when opponents fold too much or call too light. The math is simple — the discipline is applying it under pressure."
+    ],
+    "appendQuestions": [
+      {
+        "id": "pt_po_q11",
+        "kind": "challenge",
+        "concept": "mdf_half_pot",
+        "question": "River pot is $120. Villain bets $60 (half pot). MDF — the minimum fraction of your range you must continue with to prevent bluffs from auto-profiting — is approximately:",
+        "options": [
+          "67%",
+          "33%",
+          "50%",
+          "25%"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — MDF = pot / (pot + bet) = 120 / 180 ≈ 67%.",
+          "B": "33% is bet/(pot+bet), not MDF.",
+          "C": "50% is not MDF for half-pot.",
+          "D": "25% is the breakeven equity needed to call, not MDF."
+        },
+        "remediation": [
+          {
+            "id": "pt_po_q11_r1",
+            "question": "Pot $100, bet $50. MDF ≈",
+            "options": [
+              "67%",
+              "50%",
+              "33%",
+              "100%"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 100/150 ≈ 67%.",
+              "B": "50% is not MDF here.",
+              "C": "33% is the call equity threshold.",
+              "D": "100% over-defends."
+            }
+          },
+          {
+            "id": "pt_po_q11_r2",
+            "question": "MDF formula uses:",
+            "options": [
+              "pot / (pot + bet)",
+              "bet / pot only",
+              "stack / pot",
+              "Always 50%"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — standard MDF calculation.",
+              "B": "Incomplete formula.",
+              "C": "Stack is separate from MDF.",
+              "D": "MDF varies with bet size."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_po_q12",
+        "kind": "challenge",
+        "concept": "implied_odds_set",
+        "question": "$1/$2, 100bb stacks. UTG opens $6, you call on the BTN with 5♠ 5♥ (set mine). You need implied odds because:",
+        "options": [
+          "You flop a set ~12% of the time but can win a large pot when you do",
+          "You have 50% equity preflop",
+          "Small pairs always win without hitting",
+          "Pot odds alone justify any call preflop"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — raw preflop equity is low; profit comes from stacking opponent when you flop a set (deep stacks help).",
+          "B": "Pocket fives vs UTG open is well below 50%.",
+          "C": "Missing the set means often folding postflop.",
+          "D": "Direct pot odds rarely justify set mines without implied odds."
+        },
+        "remediation": [
+          {
+            "id": "pt_po_q12_r1",
+            "question": "Set mining is profitable mainly when:",
+            "options": [
+              "Stacks are deep enough to win big on a set",
+              "Stacks are 10bb",
+              "You never hit the flop",
+              "Opponent never has an overpair"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — shallow stacks kill implied odds.",
+              "B": "10bb stacks limit implied odds.",
+              "C": "You hit ~12% on flop.",
+              "D": "Overpairs still exist; implied odds matter when you flop."
+            }
+          },
+          {
+            "id": "pt_po_q12_r2",
+            "question": "Approximate flop set rate with a pocket pair:",
+            "options": [
+              "~12%",
+              "~50%",
+              "~2%",
+              "~35%"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — roughly 1 in 8 flops.",
+              "B": "50% is far too high.",
+              "C": "2% is too low.",
+              "D": "35% is closer to a flush draw by river."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "pt_ranges",
+    "introAppend": [
+      "Range thinking replaces 'I put him on ace-king' with 'his line is consistent with AK, AQ, pocket jacks, and some bluffs.' Polarized ranges on the river contain nuts and air — few medium hands bet large. Capped ranges cannot contain the nuts (e.g., a caller who just called three streets rarely has the absolute best hand). Range advantage on a flop like K♠ 7♦ 2♣ favors the preflop raiser; nut advantage asks who holds KK, AK, and 77 more often. Exploitative adjustments widen bluffs when opponents overfold and tighten when they hero-call too much."
+    ],
+    "appendQuestions": [
+      {
+        "id": "pt_rng_q11",
+        "kind": "challenge",
+        "concept": "polarized_river",
+        "question": "BTN opens, BB calls. Check-check flop. BB checks, BTN bets small turn, BB calls. BB checks river. BTN overbets 1.5× pot. This sizing most likely represents:",
+        "options": [
+          "A polarized range — very strong value or bluffs, few medium hands",
+          "Only medium-strength hands",
+          "Always a bluff",
+          "Only weak high-card hands"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — large river bets are typically polarized; medium hands prefer smaller sizings or checks.",
+          "B": "Medium hands rarely overbet 1.5× pot for thin value.",
+          "C": "Overbets include value hands too.",
+          "D": "Pure air is part of polarized range, not the only component."
+        },
+        "remediation": [
+          {
+            "id": "pt_rng_q11_r1",
+            "question": "Polarized betting range means:",
+            "options": [
+              "Strong hands and bluffs — not many middling hands",
+              "Only nuts",
+              "Only bluffs",
+              "Random hands equally"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — polarized = two poles, strong and weak.",
+              "B": "Includes bluffs too.",
+              "C": "Includes value too.",
+              "D": "Not random — structured by strategy."
+            }
+          },
+          {
+            "id": "pt_rng_q11_r2",
+            "question": "Merged betting range includes:",
+            "options": [
+              "Strong, medium, and some weak hands at smaller sizings",
+              "Only bluffs",
+              "No value hands",
+              "Only river shoves"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — merged ranges bet a wider mix at smaller sizes.",
+              "B": "Merged includes value.",
+              "C": "Value hands are present.",
+              "D": "Merged often uses smaller bets."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_rng_q12",
+        "kind": "challenge",
+        "concept": "capped_range",
+        "question": "Villain flat-called preflop, called flop and turn, and now faces a river overbet. Their range is often described as 'capped' because:",
+        "options": [
+          "They rarely slow-played the nuts — calling lines seldom contain the absolute best hands",
+          "They always have the nuts",
+          "Capped means unlimited strength",
+          "They must have folded preflop"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — passive call-call-call lines rarely include slow-played nutted hands; strong hands often raise earlier.",
+          "B": "Capped means upper bound on strength, not nuts.",
+          "C": "Capped limits maximum strength, not unlimited.",
+          "D": "They called every street — still in the hand."
+        },
+        "remediation": [
+          {
+            "id": "pt_rng_q12_r1",
+            "question": "A capped range:",
+            "options": [
+              "Unlikely to contain the nuts",
+              "Always contains quads",
+              "Has no bluffs",
+              "Cannot call"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — capped = maximum strength is limited.",
+              "B": "Quads would uncap the range.",
+              "C": "Capped refers to value ceiling; bluffs may still exist.",
+              "D": "Capped ranges can still call."
+            }
+          },
+          {
+            "id": "pt_rng_q12_r2",
+            "question": "Uncapped range means:",
+            "options": [
+              "Can still contain the nuts",
+              "Cannot bet",
+              "Only high card",
+              "Always folded"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — uncapped = nuts still possible.",
+              "B": "Uncapped ranges bet and raise.",
+              "C": "Can contain strong made hands.",
+              "D": "Uncapped refers to strength, not fold status."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "pt_postflop",
+    "introAppend": [
+      "Postflop strategy balances range advantage, board texture, and bet sizing. On dry flops like K♠ 7♥ 2♦, the preflop raiser can c-bet small with high frequency because the board misses most calling ranges. Wet flops like J♠ T♠ 9♣ demand selective c-betting and larger sizes with strong hands and draws. Double-barreling (betting turn after flop c-bet) works best when scare cards favor your range or when you hold equity. GTO mixes value and bluffs at each frequency; exploitative players fire extra barrels when opponents fold too much to pressure."
+    ],
+    "appendQuestions": [
+      {
+        "id": "pt_pf_q11",
+        "kind": "challenge",
+        "concept": "dry_cbet",
+        "question": "You open UTG in six-max; only the BB calls. Flop: A♣ 8♦ 3♠ (rainbow, dry). As the preflop raiser, the solver-favored approach is usually:",
+        "options": [
+          "Small c-bet at high frequency — your range hits this board well",
+          "Never bet the flop",
+          "Always check and give up",
+          "Overbet pot only with air"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — dry ace-high boards favor the raiser; small frequent c-bets exploit BB's capped, missed range.",
+          "B": "Checking entire range wastes range advantage.",
+          "C": "Giving up always is exploitable.",
+          "D": "Overbetting only air is -EV; mix sizes and hands."
+        },
+        "remediation": [
+          {
+            "id": "pt_pf_q11_r1",
+            "question": "Dry flop means:",
+            "options": [
+              "Uncoordinated — few draws, misses many hands",
+              "Four flush cards",
+              "Always paired",
+              "Only straights possible"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — A-8-3 rainbow is dry.",
+              "B": "Four flush is wet.",
+              "C": "Dry flops are often unpaired.",
+              "D": "Dry means few straight draws."
+            }
+          },
+          {
+            "id": "pt_pf_q11_r2",
+            "question": "Range advantage on A-high dry flop usually favors:",
+            "options": [
+              "Preflop raiser",
+              "Big blind caller only",
+              "Neither player",
+              "Folded players"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — raiser has more aces and strong hands in range.",
+              "B": "BB range is capped and misses often.",
+              "C": "Advantage exists for raiser.",
+              "D": "Folded players are out."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_pf_q12",
+        "kind": "challenge",
+        "concept": "wet_board",
+        "question": "You c-bet flop and get called. Turn brings a third spade on J♠ T♠ 4♠ 2♠. Your bluff with no spade becomes harder because:",
+        "options": [
+          "The board completes many flush draws in villain's calling range",
+          "Flush draws never call flops",
+          "Board texture is irrelevant",
+          "Villain always folds turns"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — wet, completing turns reduce fold equity; many callers now have a flush.",
+          "B": "Flush draws frequently call flop c-bets.",
+          "C": "Texture directly affects fold equity.",
+          "D": "Villain often continues with made flushes."
+        },
+        "remediation": [
+          {
+            "id": "pt_pf_q12_r1",
+            "question": "Wet board connects with:",
+            "options": [
+              "More hands in both ranges — draws and made hands",
+              "No hands",
+              "Only high card",
+              "Folded cards"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — coordinated boards hit calling ranges.",
+              "B": "Many hands connect.",
+              "C": "Pairs, straights, flushes possible.",
+              "D": "Folded cards don't play."
+            }
+          },
+          {
+            "id": "pt_pf_q12_r2",
+            "question": "When a scare card completes draws, bluff fold equity often:",
+            "options": [
+              "Decreases",
+              "Always increases",
+              "Stays 100%",
+              "Is illegal"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — opponents continue more with made hands.",
+              "B": "Completing draws hurts pure bluffs.",
+              "C": "Fold equity is never guaranteed.",
+              "D": "Bluffing is legal with correct sizing."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "pt_bluffing",
+    "introAppend": [
+      "Bluffing is not chaos — it is ratio math tied to bet sizing. A half-pot bluff needs to work only ~33% of the time to break even (risking 1 to win 2). Solver outputs pair value bets with bluffs at ratios that make opponents indifferent with MDF. Semi-bluffs add equity when called — flush draws and open-enders are the best bluff candidates because they win when opponents fold and improve when called. Blockers matter: holding the A♠ on a three-spade board reduces combos of nut flushes in villain's range, making bluffs more credible."
+    ],
+    "appendQuestions": [
+      {
+        "id": "pt_bl_q11",
+        "kind": "challenge",
+        "concept": "bluff_ratio",
+        "question": "You bet $40 into an $80 pot on the river as a pure bluff (zero equity if called). Break-even fold frequency for villain is:",
+        "options": [
+          "33% — you risk $40 to win $120 total",
+          "50%",
+          "67%",
+          "10%"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — need folds 40/(40+80) = 33% of the time; bluff succeeds when villain folds more than that.",
+          "B": "50% would be pot-sized bet math.",
+          "C": "67% is MDF for defender, not bluff breakeven.",
+          "D": "10% is far too low — bluffs would rarely need to work."
+        },
+        "remediation": [
+          {
+            "id": "pt_bl_q11_r1",
+            "question": "Half-pot bluff ($50 into $100) needs villain to fold:",
+            "options": [
+              "~33%",
+              "~50%",
+              "~67%",
+              "~100%"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 50/(50+100) = 33%.",
+              "B": "50% is even-money.",
+              "C": "67% is MDF for half-pot defense.",
+              "D": "100% fold is ideal but not required for breakeven."
+            }
+          },
+          {
+            "id": "pt_bl_q11_r2",
+            "question": "Bluff breakeven fold % = bet / (bet + pot). Bigger bet relative to pot:",
+            "options": [
+              "Requires fewer folds to break even",
+              "Requires more folds",
+              "Requires zero folds",
+              "Is always -EV"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — larger bets need lower fold % to break even (but risk more chips).",
+              "B": "Larger bets need fewer folds, not more.",
+              "C": "Some folds always needed for pure bluffs.",
+              "D": "Bluffs can be +EV with enough folds."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_bl_q12",
+        "kind": "challenge",
+        "concept": "blocker_bluff",
+        "question": "River board: Q♠ J♠ 7♠ 3♥ 2♣. You hold A♠ 5♦ (missed draw, no pair). Bluffing is more credible than holding 8♣ 4♦ because:",
+        "options": [
+          "A♠ blocks nut flush combos — villain is less likely to have the ace-high flush",
+          "8♣ blocks more straights",
+          "Blockers never matter",
+          "A♠ guarantees you win if called"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — holding A♠ removes nut flush combos from villain's range, increasing fold equity.",
+          "B": "8♣ doesn't block flushes on this board.",
+          "C": "Blockers are a core bluff-selection tool.",
+          "D": "If called with air, you still lose unless villain folds."
+        },
+        "remediation": [
+          {
+            "id": "pt_bl_q12_r1",
+            "question": "Good bluff candidates often have:",
+            "options": [
+              "Blockers to villain's calling range",
+              "No relation to board",
+              "Only pairs",
+              "The nuts"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — blockers reduce strong hands opponent can hold.",
+              "B": "Blockers tie bluffs to board structure.",
+              "C": "Pairs often want showdown, not bluff.",
+              "D": "Nuts want value, not bluff."
+            }
+          },
+          {
+            "id": "pt_bl_q12_r2",
+            "question": "Holding the nut blocker (e.g. A♠ on three-spade board) when bluffing:",
+            "options": [
+              "Makes villain less likely to have the nuts",
+              "Guarantees a call",
+              "Is illegal",
+              "Means you have a flush"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — fewer nut combos in villain's range.",
+              "B": "Blockers increase fold equity, not call rate.",
+              "C": "Blocker bluffs are standard.",
+              "D": "One spade isn't a flush unless four on board match."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

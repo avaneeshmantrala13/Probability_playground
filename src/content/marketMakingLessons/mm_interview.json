@@ -3,12 +3,24 @@
   "order": 6,
   "title": "Interview Scenario Puzzles",
   "subtitle": "Multi-step quoting under game pressure",
-  "topics": ["Dice games", "Card draws", "Multi-outcome EV", "Integrated quoting"],
+  "topics": [
+    "Dice games",
+    "Card draws",
+    "Multi-outcome EV",
+    "Integrated quoting",
+    "Integrated scenarios",
+    "Live game flow",
+    "Verbal reasoning"
+  ],
   "intro": [
     "Prop-trading interviews often run live market-making games: a moderator describes a payoff, traders shout quotes, and information arrives in stages. Success combines fast fair-value math, disciplined two-sided quotes, inventory awareness, and calm updates when the picture changes.",
     "Classic setups include rolling dice for sums or products, drawing cards with rank-based payoffs, and flipping multiple coins where results are revealed one at a time. None of these require memorizing proprietary materials — just probability, expected value, and good quoting habits.",
     "This capstone lesson mixes integrated scenarios: compute fair, choose spread, react to clues, and recognize when a counterparty's trade tells you something about your quote. Treat each question like a compressed game round.",
-    "Finish this track and you are ready to practice in Learn Mode and Play Mode with the same vocabulary and instincts."
+    "Finish this track and you are ready to practice in Learn Mode and Play Mode with the same vocabulary and instincts.",
+    "Capstone rounds compress everything: compute fair from a verbal spec, choose spread width given volatility and your confidence, update after public clues, and skew when fills pile on one side. Interviewers watch whether you speak your reasoning aloud while adjusting — silence with a wrong quote is worse than a slow correct one.",
+    "Treat each scenario as a live game tick: state fair, state bid and ask, and when the moderator announces news, pause fills mentally, recompute conditional fair, then replace your quote entirely. The winners are rarely the fastest mental calculators alone — they are the ones who keep quotes coherent under pressure.",
+    "Capstone rounds compress everything: compute fair from a verbal spec, choose spread width given volatility and your confidence, update after public clues, and skew when fills pile on one side. Interviewers watch whether you speak your reasoning aloud while adjusting — silence with a wrong quote is worse than a slow correct one.",
+    "Treat each scenario as a live game tick: state fair, state bid and ask, and when the moderator announces news, pause fills mentally, recompute conditional fair, then replace your quote entirely. The winners are rarely the fastest mental calculators alone — they are the ones who keep quotes coherent under pressure."
   ],
   "questions": [
     {
@@ -16,7 +28,12 @@
       "kind": "standard",
       "concept": "dice_product",
       "question": "Two fair dice rolled. Contract pays the product of the two faces (1–6 each). Fair value is closest to:",
-      "options": ["7", "12.25", "18", "36"],
+      "options": [
+        "7",
+        "12.25",
+        "18",
+        "36"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "Seven is the expected sum, not product.",
@@ -28,7 +45,12 @@
         {
           "id": "mm_int_q1_r1",
           "question": "E[X×Y] for independent X,Y equals:",
-          "options": ["E[X]+E[Y]", "E[X]×E[Y]", "E[X]/E[Y]", "Max(X,Y)"],
+          "options": [
+            "E[X]+E[Y]",
+            "E[X]×E[Y]",
+            "E[X]/E[Y]",
+            "Max(X,Y)"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Sum rule.",
@@ -40,7 +62,12 @@
         {
           "id": "mm_int_q1_r2",
           "question": "Single die E[face] = 3.5. Product of two independent dice EV ≈",
-          "options": ["7", "10", "12.25", "3.5"],
+          "options": [
+            "7",
+            "10",
+            "12.25",
+            "3.5"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Sum EV.",
@@ -56,7 +83,12 @@
       "kind": "standard",
       "concept": "integrated_quote",
       "question": "Fair value computed as 12. Spread policy: 2 wide, centered on fair. Best integer quote:",
-      "options": ["11 at 13", "12 at 14", "10 at 14", "11 at 12"],
+      "options": [
+        "11 at 13",
+        "12 at 14",
+        "10 at 14",
+        "11 at 12"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. Midpoint 12, spread 2 → 11 at 13.",
@@ -68,7 +100,12 @@
         {
           "id": "mm_int_q2_r1",
           "question": "Fair 20, spread 4, integer centered quote:",
-          "options": ["18 at 22", "19 at 21", "20 at 24", "16 at 24"],
+          "options": [
+            "18 at 22",
+            "19 at 21",
+            "20 at 24",
+            "16 at 24"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — mid 20, width 4.",
@@ -101,7 +138,12 @@
       "kind": "standard",
       "concept": "card_ev",
       "question": "Draw one card from 52. Pay $10 if red, $0 if black. Fair value:",
-      "options": ["$2.50", "$5", "$10", "$26"],
+      "options": [
+        "$2.50",
+        "$5",
+        "$10",
+        "$26"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "Quarter deck is red incorrectly.",
@@ -113,7 +155,12 @@
         {
           "id": "mm_int_q3_r1",
           "question": "P(red) in standard deck:",
-          "options": ["1/4", "1/3", "1/2", "2/3"],
+          "options": [
+            "1/4",
+            "1/3",
+            "1/2",
+            "2/3"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Too low.",
@@ -125,7 +172,12 @@
         {
           "id": "mm_int_q3_r2",
           "question": "$20 if red else $0. Fair value:",
-          "options": ["$5", "$10", "$20", "$40"],
+          "options": [
+            "$5",
+            "$10",
+            "$20",
+            "$40"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Half of correct.",
@@ -196,7 +248,12 @@
       "kind": "standard",
       "concept": "multi_clue",
       "question": "Three fair coins (0/1). Pay sum. Coin 1 = 1, Coin 2 = 1, Coin 3 still hidden. Fair value:",
-      "options": ["1", "2", "2.5", "3"],
+      "options": [
+        "1",
+        "2",
+        "2.5",
+        "3"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "One coin.",
@@ -208,7 +265,12 @@
         {
           "id": "mm_int_q5_r1",
           "question": "Two coins show 1, one hidden. Expected sum:",
-          "options": ["1.5", "2", "2.5", "3"],
+          "options": [
+            "1.5",
+            "2",
+            "2.5",
+            "3"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Too low.",
@@ -220,7 +282,12 @@
         {
           "id": "mm_int_q5_r2",
           "question": "Each hidden fair 0/1 coin adds to EV:",
-          "options": ["0", "0.5", "1", "2"],
+          "options": [
+            "0",
+            "0.5",
+            "1",
+            "2"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Can be 1.",
@@ -282,6 +349,226 @@
             "B": "You want fair trading at fair+spread.",
             "C": "Separate issue.",
             "D": "Separate issue."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_exp_q1",
+      "kind": "standard",
+      "concept": "integrated_dice_quote",
+      "question": "Game: sum of two fair dice, fair = 7. You are flat. Uncertainty is moderate. Best initial two-sided quote?",
+      "options": [
+        "6 at 8 (spread 2, centered on 7)",
+        "7 at 7 (zero spread)",
+        "4 at 10 (wide but off-center low)",
+        "6 at 12 (wide and off-center high)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Symmetric spread 2 around fair 7 is the textbook opening quote in mock games.",
+        "B": "Zero spread earns no compensation and is atypical in practice rounds.",
+        "C": "Off-center low invites sellers to hit a bid above their updated view after clues.",
+        "D": "Off-center high skews long unnecessarily when flat."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_exp_q1_r1",
+          "question": "Fair 7, flat. Midpoint of 6 at 8 is:",
+          "options": [
+            "7",
+            "6",
+            "8",
+            "2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — centered on fair.",
+            "B": "6 is bid.",
+            "C": "8 is ask.",
+            "D": "2 is spread."
+          }
+        },
+        {
+          "id": "mm_int_exp_q1_r2",
+          "question": "Flat inventory → quote should be:",
+          "options": [
+            "Roughly symmetric around fair",
+            "Skewed to accumulate more",
+            "One-sided only",
+            "Crossed"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Skew when imbalanced.",
+            "C": "Two-sided when flat.",
+            "D": "Invalid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_exp_q2",
+      "kind": "standard",
+      "concept": "integrated_update",
+      "question": "You quoted 6 at 8 on two-dice sum (fair 7). Moderator reveals first die = 3. New fair ≈ 6.5. You are still flat. Best immediate re-quote?",
+      "options": [
+        "5.5 at 7.5 (re-centered near 6.5)",
+        "6 at 8 (keep old quote)",
+        "8 at 10 (shift high)",
+        "3 at 4 (tight around revealed die only)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 3 + 3.5 = 6.5; symmetric spread around updated fair.",
+        "B": "Old quote centered at 7 is stale — ask 8 is rich vs 6.5 fair, bid 6 is cheap; both wrong directionally.",
+        "C": "8 at 10 centers at 9, far above 6.5.",
+        "D": "3 at 4 ignores expected sum, uses single die incorrectly."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_exp_q2_r1",
+          "question": "Die shows 3. Expected sum:",
+          "options": [
+            "6.5",
+            "7",
+            "3",
+            "9"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 3+3.5.",
+            "B": "7 is old fair.",
+            "C": "3 is one die.",
+            "D": "9 is too high."
+          }
+        },
+        {
+          "id": "mm_int_exp_q2_r2",
+          "question": "After news, first step:",
+          "options": [
+            "Update fair, then re-quote",
+            "Keep quote, hope",
+            "Only widen",
+            "Stop trading forever"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Stale loses edge.",
+            "C": "Re-center too.",
+            "D": "Overreaction."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_exp_q3",
+      "kind": "standard",
+      "concept": "integrated_inventory",
+      "question": "Fair 50. You are long 3 (limit +4) after getting hit on your bid several times. Your last quote was 48 at 52. Best next quote?",
+      "options": [
+        "47 at 49 — skew down, tight ask to sell",
+        "46 at 54 — widen symmetrically",
+        "48 at 52 — unchanged",
+        "52 at 54 — raise to earn more"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Long near limit → discourage more lifts, invite selling inventory via relatively attractive ask while shading down.",
+        "B": "Symmetric widen doesn't address directional inventory.",
+        "C": "Unchanged keeps inviting lifts — you are already long.",
+        "D": "Raising ask makes it harder to flatten."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_exp_q3_r1",
+          "question": "Long near limit. Priority:",
+          "options": [
+            "Flatten position",
+            "Buy more",
+            "Widen only",
+            "Cross quote"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Adds risk.",
+            "C": "Direction matters.",
+            "D": "Invalid."
+          }
+        },
+        {
+          "id": "mm_int_exp_q3_r2",
+          "question": "Sellers hit your bid repeatedly → you are:",
+          "options": [
+            "More long",
+            "More short",
+            "Unchanged",
+            "Crossed"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — each hit on your bid is a buy that adds long inventory.",
+            "B": "Hits on bid add long, not short.",
+            "C": "Each fill changes position.",
+            "D": "Unrelated to quote validity."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_exp_q4",
+      "kind": "challenge",
+      "concept": "integrated_card_game",
+      "question": "Draw one card: payoff $10 if heart, $0 otherwise. Before draw, fair = 2.5. The card is revealed red (suit known, rank not). New fair = 5. You still quote 2 at 3 from before the reveal. Flat. Best action?",
+      "options": [
+        "Re-quote near 4.5 at 5.5 — old quote is wildly stale low",
+        "Keep 2 at 3 — spread width still works",
+        "Quote 0 at 10 — random wide market",
+        "Only tighten to 2.4 at 2.6 around old fair"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Given red, P(heart) = 1/2 so fair = 5; your ask at 3 invites every buyer in the room to lift a cheap offer.",
+        "B": "Spread width is meaningless if the center is wrong by two points — you would be picked off instantly.",
+        "C": "0 at 10 is off-center and undisciplined; re-center near 5 first, then choose width.",
+        "D": "Tightening around 2.5 ignores the public red-card clue that doubled fair value."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_exp_q4_r1",
+          "question": "Red card shown. P(heart | red) =",
+          "options": [
+            "1/2",
+            "1/4",
+            "1/13",
+            "1/52"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — half of red cards are hearts.",
+            "B": "1/4 is unconditional P(heart).",
+            "C": "1/13 is one rank among suits.",
+            "D": "1/52 is one specific card."
+          }
+        },
+        {
+          "id": "mm_int_exp_q4_r2",
+          "question": "Fair jumps from 2.5 to 5. Your old ask 3 is:",
+          "options": [
+            "Too low — buyers will lift",
+            "Too high",
+            "Perfect",
+            "Crossed"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — ask far below new fair.",
+            "B": "3 is below 5, not above.",
+            "C": "Center moved — quote is stale.",
+            "D": "Not about crossing."
           }
         }
       ]

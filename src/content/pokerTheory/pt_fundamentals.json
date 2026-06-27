@@ -12,7 +12,9 @@
   "intro": [
     "Texas Hold'em is the most widely studied poker variant. Each player receives two private hole cards, then five community cards are dealt in stages: the flop (three cards), the turn (one card), and the river (one card).",
     "Betting happens before the flop (preflop), after the flop, after the turn, and after the river. You win by making the best five-card hand from your hole cards plus the board, or by being the last player remaining after everyone else folds.",
-    "Understanding the flow of a hand — who acts when, what the blinds are, and when cards are revealed — is the foundation for every strategic concept that follows."
+    "Understanding the flow of a hand — who acts when, what the blinds are, and when cards are revealed — is the foundation for every strategic concept that follows.",
+    "Every hand you play sits inside a larger framework: Game Theory Optimal (GTO) strategies aim to be unexploitable by mixing correct frequencies, while exploitative play deviates when opponents leak chips through predictable folds, calls, or sizings. You do not need solver software to benefit — simply knowing that each street has a pot size, a stack-to-pot ratio (SPR), and an action order lets you ask the right question: am I getting the right price to continue, and does my position let me control the pot? Fundamentals are not just rules; they are the scaffolding for every pot-odds calculation and range decision that follows.",
+    "Every hand you play sits inside a larger framework: Game Theory Optimal (GTO) strategies aim to be unexploitable by mixing correct frequencies, while exploitative play deviates when opponents leak chips through predictable folds, calls, or sizings. You do not need solver software to benefit — simply knowing that each street has a pot size, a stack-to-pot ratio (SPR), and an action order lets you ask the right question: am I getting the right price to continue, and does my position let me control the pot? Fundamentals are not just rules; they are the scaffolding for every pot-odds calculation and range decision that follows."
   ],
   "questions": [
     {
@@ -561,6 +563,116 @@
             "B": "Correct — main pot plus side pot(s).",
             "C": "Pots always exist.",
             "D": "Split only at showdown if tied."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q11",
+      "kind": "challenge",
+      "concept": "spr_decisions",
+      "question": "$1/$2 cash game. Effective stacks are $200. Three players see a flop; the pot is $18 after preflop action. SPR (stack-to-pot ratio) is roughly:",
+      "options": [
+        "~11",
+        "~2",
+        "~100",
+        "~0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — $200 effective / $18 pot ≈ 11. High SPR means more postflop streets and implied odds matter.",
+        "B": "~2 would mean a much larger pot relative to stacks (e.g. $100 pot on $200 stacks).",
+        "C": "~100 would require a tiny pot, not $18.",
+        "D": "~0.5 would mean the pot is twice the remaining stack — a committed spot."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q11_r1",
+          "question": "SPR = effective stack ÷ pot. Stack $150, pot $30. SPR is:",
+          "options": [
+            "5",
+            "0.2",
+            "180",
+            "50"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 150 ÷ 30 = 5.",
+            "B": "0.2 inverts the ratio.",
+            "C": "180 adds instead of divides.",
+            "D": "50 is not 150/30."
+          }
+        },
+        {
+          "id": "pt_f1_q11_r2",
+          "question": "Low SPR (near 1–3) usually means:",
+          "options": [
+            "Players are more committed — fewer streets to maneuver",
+            "Infinite implied odds",
+            "Blinds never matter",
+            "Only preflop action matters"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — small SPR often leads to all-in decisions quickly.",
+            "B": "Low SPR limits room for future bets.",
+            "C": "Blinds still set the structure.",
+            "D": "Postflop still matters, just with less stack behind."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q12",
+      "kind": "challenge",
+      "concept": "action_order",
+      "question": "Six-max: UTG opens, MP calls, BTN calls, SB folds, BB checks. On the flop, who acts first?",
+      "options": [
+        "BB",
+        "BTN",
+        "UTG",
+        "MP"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — postflop action starts with the first active player left of the button: the BB.",
+        "B": "BTN acts last among remaining players, not first.",
+        "C": "UTG is early but BB is left of button and acts first postflop.",
+        "D": "MP acts after BB on the flop."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q12_r1",
+          "question": "Postflop, the first player to act is:",
+          "options": [
+            "First active seat left of the button",
+            "Always the button",
+            "Always UTG",
+            "The dealer"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — action starts left of button (often BB or SB if still in).",
+            "B": "Button acts last postflop.",
+            "C": "UTG is not always first postflop.",
+            "D": "Dealer doesn't play."
+          }
+        },
+        {
+          "id": "pt_f1_q12_r2",
+          "question": "Preflop, the first player to act (excluding forced blinds) is typically:",
+          "options": [
+            "UTG",
+            "The button",
+            "The big blind",
+            "The dealer"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — UTG acts first preflop in standard order.",
+            "B": "Button acts last preflop.",
+            "C": "BB acts last preflop when unopened.",
+            "D": "Dealer doesn't bet."
           }
         }
       ]

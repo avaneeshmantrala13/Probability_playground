@@ -1,0 +1,1026 @@
+[
+  {
+    "lessonId": "lesson_1",
+    "introAppend": [
+      "Every quant interview opens with the same contract: name the sample space, respect the axioms, then translate a story into a single number—often an expected value. Harvard Stat 110 and classic puzzle collections train you to do this without simulation: list outcomes or use complements, check that probabilities sum to one, and only then compute EV as a weighted average. The two challenge questions below mirror that rhythm—simple setup, disciplined counting, one clean answer."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l1_q11",
+        "kind": "challenge",
+        "concept": "expected_value_game",
+        "question": "You play a one-round game: with probability 0.35 you gain $20, with probability 0.45 you lose $6, and with probability 0.20 you break even ($0). What is the expected profit E[X]?",
+        "options": ["$4.30", "$7.00", "$2.10", "−$1.50"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. E[X] = 0.35(20) + 0.45(−6) + 0.20(0) = 7 − 2.7 = 4.30.",
+          "B": "7.00 ignores the 45% loss branch entirely. All outcomes must enter the weighted average.",
+          "C": "2.10 might come from averaging only the gain and loss magnitudes without their probabilities.",
+          "D": "−1.50 would require the loss branch to dominate more heavily than it does here."
+        },
+        "remediation": [
+          {
+            "id": "l1_q11_r1",
+            "question": "A fair coin pays +$8 on heads and −$3 on tails. What is E[profit]?",
+            "options": ["$2.50", "$5.00", "$4.00", "$0.50"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. E = 0.5(8) + 0.5(−3) = 4 − 1.5 = 2.50.",
+              "B": "5.00 uses only the heads payoff and forgets the tails outcome.",
+              "C": "4.00 is the heads payoff alone, not the expectation.",
+              "D": "0.50 might come from subtracting payoffs without weighting by 1/2."
+            }
+          },
+          {
+            "id": "l1_q11_r2",
+            "question": "Which formula correctly computes E[X] for discrete X with values xᵢ and probabilities pᵢ?",
+            "options": [
+              "Σ xᵢ pᵢ",
+              "Σ pᵢ / xᵢ",
+              "max(xᵢ)",
+              "Σ xᵢ / n"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Expected value is the probability-weighted sum of outcomes.",
+              "B": "Dividing probabilities by outcomes has no probabilistic meaning here.",
+              "C": "The maximum outcome is not the average unless all mass sits there.",
+              "D": "Σ xᵢ / n treats outcomes as equally likely even when they are not."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l1_q12",
+        "kind": "challenge",
+        "concept": "inclusion_exclusion_basics",
+        "question": "Events A and B satisfy P(A) = 0.40, P(B) = 0.55, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
+        "options": ["0.80", "0.95", "0.70", "0.55"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 0.40 + 0.55 − 0.15 = 0.80.",
+          "B": "0.95 adds P(A) and P(B) without subtracting the overlap, double-counting the intersection.",
+          "C": "0.70 subtracts too much overlap or uses only one of the individual probabilities.",
+          "D": "0.55 equals P(B) alone and ignores outcomes in A but not B."
+        },
+        "remediation": [
+          {
+            "id": "l1_q12_r1",
+            "question": "If P(A) = 0.30 and P(B) = 0.50 with A and B disjoint, what is P(A ∪ B)?",
+            "options": ["0.80", "0.15", "0.65", "0.50"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Disjoint events add: 0.30 + 0.50 = 0.80.",
+              "B": "0.15 would multiply probabilities, which applies to independent joint events, not unions of disjoint events.",
+              "C": "0.65 might subtract an overlap that does not exist for disjoint events.",
+              "D": "0.50 ignores event A entirely."
+            }
+          },
+          {
+            "id": "l1_q12_r2",
+            "question": "Why must P(A ∩ B) be subtracted when computing P(A ∪ B)?",
+            "options": [
+              "Outcomes in both A and B would otherwise be counted twice",
+              "It makes the union smaller than either event",
+              "The axioms require multiplication instead of addition",
+              "It converts conditional into joint probability"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Adding P(A) and P(B) counts the overlap twice; subtract once to fix it.",
+              "B": "Subtracting overlap still leaves a probability at least as large as each individual event.",
+              "C": "The union rule uses addition with a correction, not multiplication.",
+              "D": "Inclusion-exclusion for two events is about avoiding double counting, not reversing conditioning."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_2",
+    "introAppend": [
+      "Combinatorics is the bookkeeping layer behind almost every probability puzzle in quant interviews—from counting poker hands to enumerating failure modes in a trading system. Stat 110 emphasizes choosing the right model: ordered versus unordered, with or without replacement, and when inclusion-exclusion beats brute force. Master these distinctions and a brain-teaser that looks intimidating often collapses to a single binomial coefficient or a short inclusion-exclusion calculation."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l2_q11",
+        "kind": "challenge",
+        "concept": "combinations_selection",
+        "question": "A portfolio manager must pick exactly 4 distinct stocks from a universe of 11 for a long-only basket. How many different baskets are possible?",
+        "options": ["330", "792", "165", "44"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Order does not matter: C(11,4) = 11!/(4!·7!) = 330.",
+          "B": "792 equals C(12,4)—likely using the wrong universe size or counting ordered selections.",
+          "C": "165 equals C(11,3), choosing three stocks instead of four.",
+          "D": "44 might come from 11 × 4, treating the problem as ordered selections without full counting."
+        },
+        "remediation": [
+          {
+            "id": "l2_q11_r1",
+            "question": "How many ways can you choose 2 items from 6 without regard to order?",
+            "options": ["15", "30", "12", "6"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. C(6,2) = 6!/(2!·4!) = 15.",
+              "B": "30 equals P(6,2), counting ordered pairs.",
+              "C": "12 has no standard combinatorial meaning for this problem.",
+              "D": "6 counts only single selections or confuses the problem with choosing one item."
+            }
+          },
+          {
+            "id": "l2_q11_r2",
+            "question": "When does C(n,r) apply instead of P(n,r)?",
+            "options": [
+              "When the order of the chosen items does not matter",
+              "When items must be arranged in a line",
+              "When repetition is allowed",
+              "When r equals n"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Combinations count unordered selections; permutations count ordered arrangements.",
+              "B": "Arrangements in a line require permutations, not combinations.",
+              "C": "Repetition allowed leads to stars-and-bars or n^r models, not plain C(n,r).",
+              "D": "r = n gives C(n,n) = 1, one way to take everything, but that is not the general rule for combinations."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l2_q12",
+        "kind": "challenge",
+        "concept": "inclusion_exclusion_counting",
+        "question": "Six distinct quant interns sit in a row. Two specific interns—Alex and Blair—refuse to sit next to each other. How many valid seatings exist?",
+        "options": ["480", "720", "240", "360"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Total 6! = 720. Treat Alex and Blair as a block: 5! × 2 = 240 adjacent seatings. Valid = 720 − 240 = 480.",
+          "B": "720 counts all seatings without removing those where Alex and Blair are adjacent.",
+          "C": "240 counts only the forbidden adjacent seatings, not the allowed ones.",
+          "D": "360 might halve 720 incorrectly without using the block method."
+        },
+        "remediation": [
+          {
+            "id": "l2_q12_r1",
+            "question": "Four people sit in a row. Persons A and B must not be adjacent. How many arrangements?",
+            "options": ["12", "24", "6", "18"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Total 4! = 24. Block A,B: 3! × 2 = 12 adjacent. Valid = 24 − 12 = 12.",
+              "B": "24 ignores the restriction entirely.",
+              "C": "6 counts only half the row or uses an incorrect block formula.",
+              "D": "18 subtracts too few forbidden arrangements."
+            }
+          },
+          {
+            "id": "l2_q12_r2",
+            "question": "In the block method for 'A and B adjacent,' why multiply by 2?",
+            "options": [
+              "A can be left of B or right of B within the block",
+              "Each person has two seats",
+              "We count complements twice",
+              "Order of the other people is doubled"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. The block AB and BA are two distinct ordered arrangements.",
+              "B": "People do not each get two seats; the factor 2 is internal order within the pair.",
+              "C": "Complement counting subtracts once; the factor 2 is not about double subtraction.",
+              "D": "The other people's permutations are already captured by (n−1)!."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_3",
+    "introAppend": [
+      "Bayes' theorem is the interview litmus test for whether you update beliefs correctly when new evidence arrives. The Stat 110 pattern—partition the world, compute a total-probability denominator, then flip the conditioning direction—shows up in disease testing, manufacturing defects, and trading signals. Green Book-style puzzles often hide the partition in plain sight; your job is to write P(hypothesis | data) before reaching for a calculator."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l3_q11",
+        "kind": "challenge",
+        "concept": "bayes_manufacturing",
+        "question": "A factory runs Line A (60% of output, 2% defective), Line B (25%, 5% defective), and Line C (15%, 12% defective). A randomly inspected unit is defective. What is P(it came from Line C | defective)?",
+        "options": ["9/19", "3/10", "12/100", "15/100"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. P(D) = 0.6(0.02) + 0.25(0.05) + 0.15(0.12) = 0.0425. P(C ∩ D) = 0.018, so P(C|D) = 0.018/0.0425 = 9/19.",
+          "B": "3/10 is P(C) before seeing the defect, not the posterior.",
+          "C": "12/100 is the defect rate on Line C alone, not P(C | defective).",
+          "D": "15/100 is the prior share of Line C, ignoring how diagnostic a defect is."
+        },
+        "remediation": [
+          {
+            "id": "l3_q11_r1",
+            "question": "In Bayes' theorem, the denominator P(B) in P(A|B) = P(B|A)P(A)/P(B) is often found by:",
+            "options": [
+              "Law of total probability over a partition",
+              "Multiplying P(A) and P(B) always",
+              "Taking the maximum prior",
+              "Ignoring the prior P(A)"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Sum P(B|scenario)P(scenario) across disjoint scenarios that cover the sample space.",
+              "B": "P(A)P(B) equals joint probability only under independence, not generally P(B).",
+              "C": "The largest prior is irrelevant to the normalization constant.",
+              "D": "The prior is essential; Bayes combines prior with likelihood."
+            }
+          },
+          {
+            "id": "l3_q11_r2",
+            "question": "Supplier S1 provides 70% of parts (1% defective); S2 provides 30% (4% defective). Given a defective part, P(S2 | defective) equals:",
+            "options": ["12/19", "4/100", "30/100", "1/2"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. P(defect) = 0.007 + 0.012 = 0.019. P(S2 ∩ defect) = 0.012. Posterior = 0.012/0.019 = 12/19.",
+              "B": "4/100 is the defect rate for S2 alone, not the posterior probability.",
+              "C": "30/100 is the prior P(S2) before observing the defect.",
+              "D": "1/2 would require equal posterior weight on both suppliers, which the unequal priors and rates do not produce."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l3_q12",
+        "kind": "challenge",
+        "concept": "bayes_weather_forecast",
+        "question": "Tomorrow's weather: P(rain) = 0.30. The forecast says 'rain' with P(forecast rain | rain) = 0.85 and P(forecast rain | no rain) = 0.20. The forecast predicts rain. What is P(actual rain | forecast rain)?",
+        "options": ["51/73", "0.30", "0.85", "17/20"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. P(FR) = 0.30(0.85) + 0.70(0.20) = 0.255 + 0.14 = 0.395. P(rain ∩ FR) = 0.255. Posterior = 0.255/0.395 = 51/73.",
+          "B": "0.30 is the prior P(rain) before reading the forecast.",
+          "C": "0.85 is P(forecast rain | rain), the likelihood—not the reversed conditional.",
+          "D": "17/20 confuses the false-alarm rate with the posterior; 0.20 is P(FR | no rain)."
+        },
+        "remediation": [
+          {
+            "id": "l3_q12_r1",
+            "question": "Bayes' theorem reverses conditioning: P(A|B) is proportional to:",
+            "options": [
+              "P(B|A) × P(A)",
+              "P(A|B) × P(B)",
+              "P(A) only",
+              "P(B) only"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Likelihood times prior; divide by P(B) to normalize.",
+              "B": "P(A|B) × P(B) = P(A ∩ B), which is not the unnormalized posterior weight.",
+              "C": "The prior alone ignores how informative the evidence B is.",
+              "D": "P(B) alone is the normalizer, not the numerator."
+            }
+          },
+          {
+            "id": "l3_q12_r2",
+            "question": "A rare disease has prevalence 1%. A test has sensitivity 99% and false-positive rate 5%. A patient tests positive. The posterior P(disease | positive) is:",
+            "options": ["Much less than 99%", "Exactly 99%", "Exactly 5%", "Exactly 50%"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. With a rare disease, most positives are false positives despite good sensitivity—the posterior stays well below 99%.",
+              "B": "99% is sensitivity P(+|disease), not P(disease|+).",
+              "C": "5% is the false-positive rate among healthy people, not the posterior.",
+              "D": "50% would require equal prior odds and balanced evidence, which this setup does not give."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_4",
+    "introAppend": [
+      "Random variables turn stories into numbers you can average, and linearity of expectation is the most under-rated interview weapon: it holds even when variables are dependent. Stat 110 drills this through indicator tricks and named distributions—Geometric waiting times, Binomial counts, fixed-point expectations in permutations. When a Green Book puzzle asks 'how many on average,' resist building the full PMF; decompose into indicators or apply E[aX + bY] = aE[X] + bE[Y] first."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l4_q11",
+        "kind": "challenge",
+        "concept": "geometric_waiting_time",
+        "question": "A biased coin has P(heads) = 1/5. You flip until the first heads (counting the successful flip). Let T be the number of flips. What is E[T]?",
+        "options": ["5", "1/5", "4", "1"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. T is Geometric(p = 1/5), so E[T] = 1/p = 5.",
+          "B": "1/5 is the success probability p, not the expected waiting time.",
+          "C": "4 might confuse E[T] with the expected number of failures before success ( (1−p)/p ).",
+          "D": "1 would mean success is guaranteed on the first flip."
+        },
+        "remediation": [
+          {
+            "id": "l4_q11_r1",
+            "question": "For a Geometric(p) waiting-time variable W (trials until first success), E[W] equals:",
+            "options": ["1/p", "p", "1 − p", "p²"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Expected waiting time scales inversely with success probability.",
+              "B": "p is the per-trial success probability, not the mean wait.",
+              "C": "1 − p is the per-trial failure probability.",
+              "D": "p² has no standard role as the mean of W."
+            }
+          },
+          {
+            "id": "l4_q11_r2",
+            "question": "With p = 1/3, the expected number of flips until the first heads is:",
+            "options": ["3", "1/3", "2", "6"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. E[W] = 1/(1/3) = 3.",
+              "B": "1/3 is p itself, not the expectation.",
+              "C": "2 might come from 1/p − 1, the expected failures only.",
+              "D": "6 has no basis in the geometric mean formula."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l4_q12",
+        "kind": "challenge",
+        "concept": "binomial_expectation",
+        "question": "A trader makes 8 independent bets, each winning with probability 0.55. Let W be the number of wins. What is E[W]?",
+        "options": ["4.4", "8", "0.55", "3.2"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. W ~ Binomial(n=8, p=0.55), so E[W] = np = 8(0.55) = 4.4.",
+          "B": "8 is the number of trials, not the expected count of successes.",
+          "C": "0.55 is p, the per-trial win probability, not E[W].",
+          "D": "3.2 equals n(1−p) = 8(0.45), the expected number of losses, not wins."
+        },
+        "remediation": [
+          {
+            "id": "l4_q12_r1",
+            "question": "If X ~ Binomial(n, p), then E[X] equals:",
+            "options": ["np", "np(1−p)", "p/n", "n/p"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Each of n independent Bernoulli(p) trials contributes p in expectation.",
+              "B": "np(1−p) is Var(X) for a binomial, not the mean.",
+              "C": "p/n has no standard interpretation as a binomial mean.",
+              "D": "n/p resembles a geometric mean, not a binomial count."
+            }
+          },
+          {
+            "id": "l4_q12_r2",
+            "question": "Ten fair coin flips. Expected number of heads equals:",
+            "options": ["5", "10", "0.5", "2.5"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. E = np = 10(0.5) = 5.",
+              "B": "10 is the number of flips, not the expected head count.",
+              "C": "0.5 is p for a fair coin, not E[X].",
+              "D": "2.5 might halve the correct answer incorrectly."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_5",
+    "introAppend": [
+      "Conditional probability is where intuition fails fastest in interviews: the sample space shrinks, and every count must be renormalized within that slice. Brainstellar-style card and urn puzzles exploit whether you treat draws as with or without replacement. Stat 110's mantra—P(A|B) = P(A ∩ B)/P(B)—sounds trivial until a problem hides B inside a story about 'given that the card is red' or 'knowing the first flip was tails.'"
+    ],
+    "appendQuestions": [
+      {
+        "id": "l5_q11",
+        "kind": "challenge",
+        "concept": "conditional_cards",
+        "simulation": { "type": "card_marble", "mode": "cards" },
+        "question": "Two cards are drawn without replacement from a standard 52-card deck. Given that the first card is a heart, what is P(both cards are hearts)?",
+        "options": ["12/51", "1/4", "13/52", "1/17"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Given the first card is a heart, 12 hearts remain among 51 cards, so P(second is heart | first is heart) = 12/51 = 4/17.",
+          "B": "1/4 is P(heart) on a single draw, ignoring that one heart is already gone.",
+          "C": "13/52 equals 1/4, the unconditional single-draw heart probability.",
+          "D": "1/17 equals 3/51 and does not match the 12 remaining hearts out of 51 cards."
+        },
+        "remediation": [
+          {
+            "id": "l5_q11_r1",
+            "question": "One card is drawn from a deck. Given it is red, P(it is a diamond) equals:",
+            "options": ["1/2", "1/4", "13/52", "0"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Among 26 red cards, 13 are diamonds: 13/26 = 1/2.",
+              "B": "1/4 is P(diamond) unconditionally, before conditioning on red.",
+              "C": "13/52 equals 1/4, the unconditional diamond probability.",
+              "D": "0 would mean no red card is a diamond, which is false."
+            }
+          },
+          {
+            "id": "l5_q11_r2",
+            "question": "Drawing without replacement means the second draw has:",
+            "options": [
+              "One fewer card in the deck than the first draw",
+              "The same deck size as the first draw",
+              "Independent probabilities from the first draw",
+              "Probability 1/2 always"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. The deck shrinks; later probabilities depend on earlier outcomes.",
+              "B": "With replacement keeps the deck size fixed; without replacement does not.",
+              "C": "Without replacement, draws are dependent, not independent.",
+              "D": "Probabilities depend on the composition remaining, not a fixed 1/2."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l5_q12",
+        "kind": "challenge",
+        "concept": "conditional_urn",
+        "simulation": { "type": "card_marble", "mode": "marbles" },
+        "question": "An urn holds 4 red and 6 blue marbles. Two marbles are drawn without replacement. Given that at least one is red, what is P(both are red)?",
+        "options": ["1/5", "2/15", "4/15", "2/9"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. P(both red) = C(4,2)/C(10,2) = 6/45 = 2/15. P(at least one red) = 1 − C(6,2)/45 = 1 − 15/45 = 30/45 = 2/3. Conditional = (2/15)/(2/3) = 1/5.",
+          "B": "2/15 is P(both red) unconditionally, not conditioned on at least one red.",
+          "C": "4/15 might count ordered pairs incorrectly.",
+          "D": "2/9 could come from an incorrect restricted sample space."
+        },
+        "remediation": [
+          {
+            "id": "l5_q12_r1",
+            "question": "P(A|B) equals:",
+            "options": [
+              "P(A ∩ B) / P(B)",
+              "P(A) / P(B)",
+              "P(B) / P(A)",
+              "P(A) × P(B)"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Restrict to outcomes where B occurs and measure the fraction also in A.",
+              "B": "P(A)/P(B) ignores the joint event in the numerator.",
+              "C": "P(B)/P(A) reverses the ratio incorrectly.",
+              "D": "P(A)P(B) is joint probability under independence, not conditional probability."
+            }
+          },
+          {
+            "id": "l5_q12_r2",
+            "question": "Using complements, P(at least one red) in the urn problem equals:",
+            "options": [
+              "1 − P(both blue)",
+              "P(both red)",
+              "P(first red)",
+              "2 × P(red)"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. 'At least one red' is the complement of 'both blue.'",
+              "B": "P(both red) is a subset of 'at least one red,' not the whole event.",
+              "C": "The first draw alone does not capture both draws.",
+              "D": "Doubling a single-draw probability has no valid meaning here."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_6",
+    "introAppend": [
+      "Before you simulate or estimate, you must read a dataset's shape: center, spread, skew, and outliers tell you which summary statistics lie. Quant interviews rarely ask you to compute a median by hand, but they do ask whether the mean or median is pulled more by a fat tail, or whether a histogram looks symmetric versus right-skewed. That vocabulary connects directly to downstream modeling—log returns, PnL tails, and robust risk metrics all start here."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l6_q11",
+        "kind": "challenge",
+        "concept": "skew_mean_median",
+        "simulation": { "type": "distribution_builder", "shape": "normal" },
+        "question": "Daily PnL for a strategy is strongly right-skewed with a long tail of large wins and many small losses. Which statement is most likely true?",
+        "options": [
+          "Mean PnL exceeds median PnL",
+          "Median PnL exceeds mean PnL",
+          "Mean and median are always equal",
+          "Neither mean nor median exists"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Right skew pulls the mean toward the long upper tail; the median sits lower.",
+          "B": "Median exceeding mean describes left skew, not right skew.",
+          "C": "Mean equals median mainly in symmetric distributions, not with a long right tail.",
+          "D": "Both mean and median exist for typical finite PnL samples."
+        },
+        "remediation": [
+          {
+            "id": "l6_q11_r1",
+            "question": "A single large positive outlier is added to a data set. Which is most affected?",
+            "options": [
+              "The mean",
+              "The median",
+              "The mode",
+              "The range only, not the mean"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. The mean incorporates every value; one extreme pulls it strongly.",
+              "B": "The median changes only if the outlier crosses the middle rank.",
+              "C": "The mode may not change at all if the outlier value was not previously present.",
+              "D": "The range increases, but the mean is also affected."
+            }
+          },
+          {
+            "id": "l6_q11_r2",
+            "question": "Right-skewed data has a histogram with:",
+            "options": [
+              "A longer tail extending toward larger values",
+              "A longer tail extending toward smaller values",
+              "Perfect symmetry",
+              "Zero spread"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Right skew means the bulk is left with a tail stretching right.",
+              "B": "A tail toward smaller values describes left skew.",
+              "C": "Symmetric histograms have balanced tails.",
+              "D": "Skew describes shape, not whether spread is zero."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l6_q12",
+        "kind": "challenge",
+        "concept": "variance_spread",
+        "simulation": { "type": "distribution_builder", "shape": "normal" },
+        "question": "Dataset A: {2, 4, 6, 8, 10}. Dataset B: {5, 5, 6, 6, 8}. Which has the larger sample variance?",
+        "options": [
+          "Dataset A",
+          "Dataset B",
+          "They are equal",
+          "Cannot determine without n − 1"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. A is spread across 2–10 (mean 6); B clusters tightly around 5–8. A has larger spread and variance.",
+          "B": "B's values cluster near the mean, giving smaller variance than A.",
+          "C": "The spreads differ visibly; variances are not equal.",
+          "D": "Both use the same n; relative size of variance is clear from spread."
+        },
+        "remediation": [
+          {
+            "id": "l6_q12_r1",
+            "question": "Variance measures:",
+            "options": [
+              "Average squared distance from the mean",
+              "The middle value of sorted data",
+              "The most frequent value",
+              "Maximum minus minimum only"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Variance averages squared deviations from the mean.",
+              "B": "That describes the median.",
+              "C": "That describes the mode.",
+              "D": "Range is max − min; variance uses all deviations."
+            }
+          },
+          {
+            "id": "l6_q12_r2",
+            "question": "If every value in a data set is identical, the sample variance equals:",
+            "options": ["0", "1", "The mean", "Undefined"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. No deviation from the mean means all squared deviations are zero.",
+              "B": "1 is an arbitrary positive number with no special role here.",
+              "C": "The mean may be any value, but variance is still zero.",
+              "D": "Variance is defined and equals zero when all values match."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_7",
+    "introAppend": [
+      "Variance and the law of large numbers bridge classroom probability and real quant work: risk is spread, portfolios combine covariances, and Monte Carlo averages converge because sample means stabilize. Stat 110 pairs Var(X) computations with the LLN story—repeat independent trials and noise in the average shrinks. Interviewers love asking whether diversification lowers portfolio variance or why a simulation with 10 draws looks noisy but 10,000 draws does not."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l7_q11",
+        "kind": "challenge",
+        "concept": "variance_bernoulli",
+        "simulation": { "type": "distribution_builder", "shape": "normal" },
+        "question": "Let X be Bernoulli(p) with p = 0.25. What is Var(X)?",
+        "options": ["0.1875", "0.25", "0.75", "0.0625"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Var(X) = p(1−p) = 0.25(0.75) = 0.1875.",
+          "B": "0.25 is p itself, not the variance.",
+          "C": "0.75 is 1 − p, the failure probability.",
+          "D": "0.0625 equals p² = (0.25)², not p(1−p)."
+        },
+        "remediation": [
+          {
+            "id": "l7_q11_r1",
+            "question": "For Bernoulli(p), Var(X) equals:",
+            "options": ["p(1−p)", "p²", "1 − p", "p"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Standard Bernoulli variance formula.",
+              "B": "p² is not the variance of a Bernoulli trial.",
+              "C": "1 − p is the failure probability, not variance.",
+              "D": "p is the mean, not the variance."
+            }
+          },
+          {
+            "id": "l7_q11_r2",
+            "question": "Bernoulli(p = 0.5) has variance:",
+            "options": ["0.25", "0.5", "0", "1"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. p(1−p) = 0.5(0.5) = 0.25.",
+              "B": "0.5 is the mean, not variance.",
+              "C": "0 would mean no randomness, but a fair coin flip varies.",
+              "D": "1 exceeds the maximum Bernoulli variance of 0.25 at p = 0.5."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l7_q12",
+        "kind": "challenge",
+        "concept": "lln_sample_mean",
+        "simulation": { "type": "distribution_builder", "shape": "normal" },
+        "question": "X₁, …, Xₙ are i.i.d. with mean μ and finite variance. As n grows, the sample mean X̄ₙ satisfies:",
+        "options": [
+          "X̄ₙ converges to μ (law of large numbers)",
+          "Var(X̄ₙ) stays constant in n",
+          "X̄ₙ always equals μ for any finite n",
+          "X̄ₙ diverges to infinity"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. The LLN says sample averages stabilize around the true mean as n increases.",
+          "B": "Var(X̄ₙ) = σ²/n shrinks as n grows, it does not stay constant.",
+          "C": "For finite n, random fluctuation remains; equality holds only in the limit.",
+          "D": "Averages of bounded-mean variables do not diverge under the LLN assumptions."
+        },
+        "remediation": [
+          {
+            "id": "l7_q12_r1",
+            "question": "If Var(X) = σ² and X̄ₙ is the mean of n i.i.d. copies, Var(X̄ₙ) equals:",
+            "options": ["σ²/n", "σ²", "nσ²", "σ/√n"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Averaging divides variance by n.",
+              "B": "σ² is the variance of one observation, not the mean.",
+              "C": "nσ² multiplies instead of divides.",
+              "D": "σ/√n is the standard error, not the variance."
+            }
+          },
+          {
+            "id": "l7_q12_r2",
+            "question": "Monte Carlo pricing averages many simulated payoffs because the LLN guarantees:",
+            "options": [
+              "The sample average approximates the true expected payoff",
+              "Each simulation equals the exact price",
+              "Variance increases with more simulations",
+              "Independence is unnecessary"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. More independent draws make the sample mean a better estimate of E[payoff].",
+              "B": "Individual simulations vary; only the average stabilizes.",
+              "C": "More simulations reduce variance of the estimate, not increase it.",
+              "D": "Independence (or appropriate ergodicity) is essential for the LLN logic."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_8",
+    "introAppend": [
+      "Estimation closes the loop from data to decisions: point estimates, confidence intervals, and bias corrections appear whenever quants infer parameters from samples. Stat 110's statistical inference thread and Green Book brain teasers both test whether you know what a 95% interval actually means—and whether dividing by n versus n−1 matters for unbiased variance. The challenges below stress interpretation and computation, not rote formula memorization."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l8_q11",
+        "kind": "challenge",
+        "concept": "confidence_interval_compute",
+        "simulation": { "type": "distribution_builder", "shape": "normal" },
+        "question": "n = 100, sample mean x̄ = 50, population σ = 10 (known). A 95% confidence interval for μ uses margin 1.96(σ/√n). The interval is:",
+        "options": ["[48.04, 51.96]", "[40, 60]", "[49, 51]", "[45, 55]"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. SE = 10/10 = 1. Margin = 1.96. Interval = 50 ± 1.96 = [48.04, 51.96].",
+          "B": "[40, 60] uses ±10, treating σ as the margin instead of σ/√n.",
+          "C": "[49, 51] uses a ±1 margin, ignoring the 1.96 critical value.",
+          "D": "[45, 55] uses ±5, perhaps dividing σ by 2 incorrectly."
+        },
+        "remediation": [
+          {
+            "id": "l8_q11_r1",
+            "question": "Standard error of the mean equals:",
+            "options": ["σ/√n", "σ", "σ/n", "√σ"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Averaging reduces uncertainty by a factor of √n.",
+              "B": "σ is population spread of individual observations, not the mean.",
+              "C": "σ/n shrinks too fast; the correct divisor is √n.",
+              "D": "√σ is not the standard error formula."
+            }
+          },
+          {
+            "id": "l8_q11_r2",
+            "question": "x̄ = 100, SE = 2. A 95% margin of error is 1.96 × 2 = 3.92. The CI is:",
+            "options": ["[96.08, 103.92]", "[98, 102]", "[100, 100]", "[90, 110]"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. 100 ± 3.92 gives [96.08, 103.92].",
+              "B": "[98, 102] uses ±2, omitting the 1.96 multiplier.",
+              "C": "[100, 100] treats the point estimate as certain.",
+              "D": "[90, 110] is far too wide for this SE."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l8_q12",
+        "kind": "challenge",
+        "concept": "ci_interpretation",
+        "simulation": { "type": "distribution_builder", "shape": "normal" },
+        "question": "A correctly constructed 95% confidence interval for μ means:",
+        "options": [
+          "If we repeated sampling many times, about 95% of such intervals would contain μ",
+          "There is a 95% probability that μ is a random variable inside this fixed interval",
+          "95% of the data fall inside the interval",
+          "The sample mean equals μ with probability 0.95"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. The 95% refers to long-run coverage of the procedure, not a single interval trapping a random μ.",
+          "B": "μ is fixed; it is the interval that varies across samples, not μ sliding inside one interval.",
+          "C": "Confidence intervals estimate a parameter, not the fraction of raw data inside bounds.",
+          "D": "The sample mean is a point estimate; the CI quantifies uncertainty around it."
+        },
+        "remediation": [
+          {
+            "id": "l8_q12_r1",
+            "question": "Which statement misinterprets a confidence interval?",
+            "options": [
+              "'There is a 95% chance μ lies in [48, 52]' for one computed interval",
+              "The interval center is the sample mean",
+              "Wider intervals reflect more uncertainty",
+              "The method uses a critical value from a reference distribution"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. This treats μ as random inside one realized interval—a common mistake.",
+              "B": "The sample mean is typically the interval center—valid.",
+              "C": "Larger margins produce wider intervals—valid.",
+              "D": "Critical values like 1.96 come from the chosen reference distribution—valid."
+            }
+          },
+          {
+            "id": "l8_q12_r2",
+            "question": "Increasing sample size n while holding σ fixed tends to:",
+            "options": [
+              "Narrow the confidence interval",
+              "Widen the confidence interval",
+              "Leave interval width unchanged",
+              "Eliminate the need for a mean"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. SE = σ/√n shrinks as n grows, so the margin shrinks.",
+              "B": "Wider intervals correspond to smaller n or higher uncertainty.",
+              "C": "SE depends on n, so width changes with sample size.",
+              "D": "You still estimate μ with the sample mean."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_9",
+    "introAppend": [
+      "Game theory models markets where your payoff depends on others' choices—auctions, bidding wars, and adversarial market making all fit. Quant interviews rarely ask you to solve a general game in full, but they do test Nash equilibrium, mixed strategies, and whether a game is zero-sum. Recognize when a dominant strategy exists, when randomization is optimal, and when bid shading beats bidding your true value."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l9_q11",
+        "kind": "challenge",
+        "concept": "mixed_strategy_equilibrium",
+        "simulation": { "type": "coin_flip" },
+        "question": "In matching pennies, Row wins if both players show the same side (HH or TT); Column wins if they differ. In the unique mixed-strategy Nash equilibrium, each player randomizes:",
+        "options": [
+          "50% heads, 50% tails",
+          "Always heads",
+          "75% heads, 25% tails",
+          "100% tails"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Equal mixing makes the opponent indifferent between heads and tails, which is required for a mixed equilibrium.",
+          "B": "Always heads is exploitable—Column would always play tails.",
+          "C": "Unequal mixing lets the opponent exploit the predictable bias.",
+          "D": "Any pure strategy is a best response target for the other player."
+        },
+        "remediation": [
+          {
+            "id": "l9_q11_r1",
+            "question": "Why must a player randomize in matching pennies?",
+            "options": [
+              "Any predictable pattern can be exploited by the opponent",
+              "Payoffs are always equal",
+              "The game has a dominant pure strategy",
+              "Mixed strategies are never optimal"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Pure strategies lose against a best-responding opponent.",
+              "B": "Payoffs differ by outcome; that is why strategy matters.",
+              "C": "There is no dominant pure strategy in matching pennies.",
+              "D": "Mixed strategies are essential here."
+            }
+          },
+          {
+            "id": "l9_q11_r2",
+            "question": "In the mixed equilibrium of matching pennies, each player's expected payoff is:",
+            "options": ["0", "1", "−1", "0.5"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Symmetric zero-sum mixing gives each player zero expected value.",
+              "B": "1 would mean Row always wins in expectation.",
+              "C": "−1 would mean Row always loses in expectation.",
+              "D": "0.5 is not the equilibrium expected payoff here."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l9_q12",
+        "kind": "challenge",
+        "concept": "prisoners_dilemma",
+        "question": "Two traders choose Cooperate or Defect. Mutual cooperation yields (3, 3); mutual defection (1, 1); one defects alone (5, 0). Which is true?",
+        "options": [
+          "Defect is a dominant strategy for both players",
+          "Cooperate is a dominant strategy for both players",
+          "There is no Nash equilibrium",
+          "The game is not simultaneous"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Defect gives a higher payoff regardless of the other's action, so both defect in the unique Nash equilibrium.",
+          "B": "Cooperate is never better when the other defects (0 vs 1).",
+          "C": "(Defect, Defect) is a Nash equilibrium.",
+          "D": "The game is a standard simultaneous-move payoff matrix."
+        },
+        "remediation": [
+          {
+            "id": "l9_q12_r1",
+            "question": "A dominant strategy is one that:",
+            "options": [
+              "Is best regardless of what the other player does",
+              "Is best only if the other cooperates",
+              "Requires randomization",
+              "Never exists in finite games"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Dominance is defined against all opponent actions.",
+              "B": "Conditional superiority is not dominance.",
+              "C": "Dominant strategies are pure by definition here.",
+              "D": "Many finite games have dominant strategies."
+            }
+          },
+          {
+            "id": "l9_q12_r2",
+            "question": "In the prisoners' dilemma, the Nash equilibrium outcome is:",
+            "options": [
+              "Pareto dominated by mutual cooperation",
+              "Pareto optimal",
+              "The same as mutual cooperation",
+              "Undefined"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Both would prefer (3,3) over (1,1), but defection is individually rational.",
+              "B": "(1,1) is not Pareto optimal since cooperation improves both.",
+              "C": "Equilibrium is mutual defection, not cooperation.",
+              "D": "The equilibrium is well defined."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "lesson_10",
+    "introAppend": [
+      "Brain teasers reward pattern recognition over brute force: symmetry cuts a problem in half, complements avoid messy casework, and Fermi estimates show structured thinking under time pressure. Green Book and Brainstellar-style puzzles often disguise a simple invariant—equal odds for two symmetric players, or an expected value that linearity resolves in one line. Treat these as fluency drills: state the trick aloud, then compute."
+    ],
+    "appendQuestions": [
+      {
+        "id": "l10_q11",
+        "kind": "challenge",
+        "concept": "symmetry_coin_game",
+        "question": "Alice and Bob alternately flip a fair coin; Alice goes first. The first heads wins. By symmetry, P(Alice wins) equals:",
+        "options": ["2/3", "1/2", "1/3", "3/4"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Let p = P(Alice wins). Then p = 1/2 + (1/4)p, so p = 2/3. Alice's first-turn advantage gives her the extra edge.",
+          "B": "1/2 ignores Alice's first-turn advantage.",
+          "C": "1/3 is Bob's win probability, not Alice's.",
+          "D": "3/4 overstates the first-mover edge."
+        },
+        "remediation": [
+          {
+            "id": "l10_q11_r1",
+            "question": "Alice wins immediately if the first flip is heads. That probability is:",
+            "options": ["1/2", "1/4", "1/3", "2/3"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. On her first flip, P(H) = 1/2.",
+              "B": "1/4 is P(both first flips are tails).",
+              "C": "1/3 is not the single-flip head probability.",
+              "D": "2/3 is Alice's total win probability, not just the first-flip win."
+            }
+          },
+          {
+            "id": "l10_q11_r2",
+            "question": "If both miss on their first tries (TT), the game restarts with Alice to flip. The probability of this restart is:",
+            "options": ["1/4", "1/2", "1/3", "3/4"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. P(T on Alice) × P(T on Bob) = 1/2 × 1/2 = 1/4.",
+              "B": "1/2 is one fair flip being tails, not both players missing.",
+              "C": "1/3 has no basis here.",
+              "D": "3/4 is far too large for two consecutive tails."
+            }
+          }
+        ]
+      },
+      {
+        "id": "l10_q12",
+        "kind": "challenge",
+        "concept": "fermi_estimation",
+        "question": "Estimate how many piano tunings occur per year in a city of 1 million people. Which decomposition is most sensible?",
+        "options": [
+          "(Population) × (fraction with pianos) × (tunings per piano per year)",
+          "(Population) × (piano tunings per person per day)",
+          "Population ÷ tunings only",
+          "One tuning per person per year"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Fermi estimation multiplies interpretable factors with consistent units.",
+          "B": "Tunings per person per day is not a natural unit; most people own no piano.",
+          "C": "Dividing population by tunings alone drops key factors like piano ownership.",
+          "D": "One tuning per person per year ignores that most people have no piano."
+        },
+        "remediation": [
+          {
+            "id": "l10_q12_r1",
+            "question": "A good Fermi estimate:",
+            "options": [
+              "Breaks the problem into factors you can approximate",
+              "Requires exact census data",
+              "Uses only one guessed number",
+              "Avoids checking units"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Decomposition and order-of-magnitude reasoning are the point.",
+              "B": "Exact data defeats the purpose of a quick estimate.",
+              "C": "Multiple factors capture structure; one number is too crude.",
+              "D": "Unit checks catch inconsistent decompositions."
+            }
+          },
+          {
+            "id": "l10_q12_r2",
+            "question": "If 1 in 50 households has a piano and each piano is tuned once per year, tunings ≈:",
+            "options": [
+              "Population × (1/50) × 1",
+              "Population × 50",
+              "Population / 50 / 365",
+              "50 tunings total"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct. Households with pianos × one tuning each year (assuming ~1 household per person factor absorbed in framing).",
+              "B": "Multiplying by 50 overcounts by orders of magnitude.",
+              "C": "Dividing by 365 introduces daily rate without justification.",
+              "D": "50 tunings total ignores population scale entirely."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

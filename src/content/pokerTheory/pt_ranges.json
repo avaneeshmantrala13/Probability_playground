@@ -12,7 +12,9 @@
   "intro": [
     "Instead of guessing one exact hand, strong players assign opponents a range — all combinations consistent with their actions. Preflop raises, calls, and postflop lines narrow that range street by street.",
     "Polarized ranges contain very strong hands and bluffs, with few medium-strength hands. Merged ranges include strong, medium, and some weak hands together — common in small bets and protected checks.",
-    "Range advantage means your range hits a given board better than your opponent's on average. Nut advantage is who holds the strongest possible hands more often. These ideas drive c-bet frequency, bet sizing, and defense."
+    "Range advantage means your range hits a given board better than your opponent's on average. Nut advantage is who holds the strongest possible hands more often. These ideas drive c-bet frequency, bet sizing, and defense.",
+    "Range thinking replaces 'I put him on ace-king' with 'his line is consistent with AK, AQ, pocket jacks, and some bluffs.' Polarized ranges on the river contain nuts and air — few medium hands bet large. Capped ranges cannot contain the nuts (e.g., a caller who just called three streets rarely has the absolute best hand). Range advantage on a flop like K♠ 7♦ 2♣ favors the preflop raiser; nut advantage asks who holds KK, AK, and 77 more often. Exploitative adjustments widen bluffs when opponents overfold and tighten when they hero-call too much.",
+    "Range thinking replaces 'I put him on ace-king' with 'his line is consistent with AK, AQ, pocket jacks, and some bluffs.' Polarized ranges on the river contain nuts and air — few medium hands bet large. Capped ranges cannot contain the nuts (e.g., a caller who just called three streets rarely has the absolute best hand). Range advantage on a flop like K♠ 7♦ 2♣ favors the preflop raiser; nut advantage asks who holds KK, AK, and 77 more often. Exploitative adjustments widen bluffs when opponents overfold and tighten when they hero-call too much."
   ],
   "questions": [
     {
@@ -561,6 +563,116 @@
             "B": "Actions define ranges.",
             "C": "Play a strategy across combos.",
             "D": "Best hand wins."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q11",
+      "kind": "challenge",
+      "concept": "polarized_river",
+      "question": "BTN opens, BB calls. Check-check flop. BB checks, BTN bets small turn, BB calls. BB checks river. BTN overbets 1.5× pot. This sizing most likely represents:",
+      "options": [
+        "A polarized range — very strong value or bluffs, few medium hands",
+        "Only medium-strength hands",
+        "Always a bluff",
+        "Only weak high-card hands"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — large river bets are typically polarized; medium hands prefer smaller sizings or checks.",
+        "B": "Medium hands rarely overbet 1.5× pot for thin value.",
+        "C": "Overbets include value hands too.",
+        "D": "Pure air is part of polarized range, not the only component."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q11_r1",
+          "question": "Polarized betting range means:",
+          "options": [
+            "Strong hands and bluffs — not many middling hands",
+            "Only nuts",
+            "Only bluffs",
+            "Random hands equally"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — polarized = two poles, strong and weak.",
+            "B": "Includes bluffs too.",
+            "C": "Includes value too.",
+            "D": "Not random — structured by strategy."
+          }
+        },
+        {
+          "id": "pt_rng_q11_r2",
+          "question": "Merged betting range includes:",
+          "options": [
+            "Strong, medium, and some weak hands at smaller sizings",
+            "Only bluffs",
+            "No value hands",
+            "Only river shoves"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — merged ranges bet a wider mix at smaller sizes.",
+            "B": "Merged includes value.",
+            "C": "Value hands are present.",
+            "D": "Merged often uses smaller bets."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q12",
+      "kind": "challenge",
+      "concept": "capped_range",
+      "question": "Villain flat-called preflop, called flop and turn, and now faces a river overbet. Their range is often described as 'capped' because:",
+      "options": [
+        "They rarely slow-played the nuts — calling lines seldom contain the absolute best hands",
+        "They always have the nuts",
+        "Capped means unlimited strength",
+        "They must have folded preflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — passive call-call-call lines rarely include slow-played nutted hands; strong hands often raise earlier.",
+        "B": "Capped means upper bound on strength, not nuts.",
+        "C": "Capped limits maximum strength, not unlimited.",
+        "D": "They called every street — still in the hand."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q12_r1",
+          "question": "A capped range:",
+          "options": [
+            "Unlikely to contain the nuts",
+            "Always contains quads",
+            "Has no bluffs",
+            "Cannot call"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — capped = maximum strength is limited.",
+            "B": "Quads would uncap the range.",
+            "C": "Capped refers to value ceiling; bluffs may still exist.",
+            "D": "Capped ranges can still call."
+          }
+        },
+        {
+          "id": "pt_rng_q12_r2",
+          "question": "Uncapped range means:",
+          "options": [
+            "Can still contain the nuts",
+            "Cannot bet",
+            "Only high card",
+            "Always folded"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — uncapped = nuts still possible.",
+            "B": "Uncapped ranges bet and raise.",
+            "C": "Can contain strong made hands.",
+            "D": "Uncapped refers to strength, not fold status."
           }
         }
       ]

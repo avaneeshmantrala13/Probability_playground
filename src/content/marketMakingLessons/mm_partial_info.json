@@ -3,12 +3,23 @@
   "order": 5,
   "title": "Updating Quotes with Information",
   "subtitle": "Bayesian-style fair value when clues appear",
-  "topics": ["Partial revelation", "Conditional expectation", "Quote updates", "Information edge"],
+  "topics": [
+    "Partial revelation",
+    "Conditional expectation",
+    "Quote updates",
+    "Information edge",
+    "Bayesian updating",
+    "Stale quotes"
+  ],
   "intro": [
     "Trading games rarely reveal everything at once. A dice cup is lifted halfway; a card is shown then hidden; a coin flip result is announced for one of two coins. Each clue updates fair value — and your quote must move immediately or someone will trade against stale prices.",
     "Conditional expectation is the tool: fair value equals the average outcome given what you know now, not what you knew at the start. If one die shows 4, the expected sum of two dice is 4 plus E[other die] = 4 + 3.5 = 7.5.",
     "Good market makers treat new information as mandatory repricing. They also respect what the room has learned — if everyone saw the same clue, your edge is only in speed and spread, not in secret knowledge.",
-    "This lesson practices fair value updates under partial information — a staple of prop-firm interview games."
+    "This lesson practices fair value updates under partial information — a staple of prop-firm interview games.",
+    "Bayesian updating in interview games is usually arithmetic, not notation: someone reveals a die face, shows a card suit, or announces one coin result. Fair value jumps to the conditional expectation given that clue — and stale quotes are an invitation to be picked off.",
+    "Calibration under partial information means widening when residual uncertainty is still large. If one die shows 2, the sum's fair is 5.5 but still has variance from the hidden die — a tight quote around 5.5 ignores that you could still land anywhere from 3 to 8.",
+    "Bayesian updating in interview games is usually arithmetic, not notation: someone reveals a die face, shows a card suit, or announces one coin result. Fair value jumps to the conditional expectation given that clue — and stale quotes are an invitation to be picked off.",
+    "Calibration under partial information means widening when residual uncertainty is still large. If one die shows 2, the sum's fair is 5.5 but still has variance from the hidden die — a tight quote around 5.5 ignores that you could still land anywhere from 3 to 8."
   ],
   "questions": [
     {
@@ -16,7 +27,12 @@
       "kind": "standard",
       "concept": "one_die_revealed",
       "question": "Two fair dice; contract pays the sum. One die is revealed as 3 (the other is hidden). Updated fair value:",
-      "options": ["3", "6", "6.5", "9"],
+      "options": [
+        "3",
+        "6",
+        "6.5",
+        "9"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "Three is only one die, not the sum.",
@@ -28,7 +44,12 @@
         {
           "id": "mm_pi_q1_r1",
           "question": "One die shows 5. Expected sum of two dice:",
-          "options": ["5", "8", "8.5", "11"],
+          "options": [
+            "5",
+            "8",
+            "8.5",
+            "11"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "One die only.",
@@ -40,7 +61,12 @@
         {
           "id": "mm_pi_q1_r2",
           "question": "Hidden fair die contributes how much to expected sum?",
-          "options": ["3", "3.5", "6", "Unknown"],
+          "options": [
+            "3",
+            "3.5",
+            "6",
+            "Unknown"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Rounded down.",
@@ -56,7 +82,12 @@
       "kind": "standard",
       "concept": "coin_one_revealed",
       "question": "Two fair coins (0 or 1 each). Payoff = sum. First coin flipped: 1. Second still hidden. Fair value:",
-      "options": ["0.5", "1", "1.5", "2"],
+      "options": [
+        "0.5",
+        "1",
+        "1.5",
+        "2"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "Single coin EV.",
@@ -68,7 +99,12 @@
         {
           "id": "mm_pi_q2_r1",
           "question": "First coin 0, second hidden fair. Expected sum:",
-          "options": ["0", "0.5", "1", "1.5"],
+          "options": [
+            "0",
+            "0.5",
+            "1",
+            "1.5"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Second coin can be 1.",
@@ -80,7 +116,12 @@
         {
           "id": "mm_pi_q2_r2",
           "question": "Before any flip, expected sum of two fair 0/1 coins:",
-          "options": ["0.5", "1", "1.5", "2"],
+          "options": [
+            "0.5",
+            "1",
+            "1.5",
+            "2"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "One coin.",
@@ -130,7 +171,12 @@
         {
           "id": "mm_pi_q3_r2",
           "question": "Die shows 1. Two-dice sum fair value:",
-          "options": ["1", "3.5", "4.5", "7"],
+          "options": [
+            "1",
+            "3.5",
+            "4.5",
+            "7"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "One die.",
@@ -146,7 +192,12 @@
       "kind": "standard",
       "concept": "card_partial",
       "question": "One card drawn from a standard 52-card deck. Payoff = rank value where Jack=11, Queen=12, King=13, Ace=1, number cards face value. Card is revealed: Ace. Fair value now:",
-      "options": ["1", "7", "8", "14"],
+      "options": [
+        "1",
+        "7",
+        "8",
+        "14"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. Card is known — payoff is 1 with certainty.",
@@ -175,7 +226,12 @@
         {
           "id": "mm_pi_q4_r2",
           "question": "King revealed (rank 13). Fair value:",
-          "options": ["10", "11", "13", "52"],
+          "options": [
+            "10",
+            "11",
+            "13",
+            "52"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Face cards differ.",
@@ -292,6 +348,226 @@
             "B": "Wide ≠ stale.",
             "C": "Crossed is different error.",
             "D": "That would be fresh and correct."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_exp_q1",
+      "kind": "standard",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice are rolled. One die is revealed showing 5; the other remains hidden. What is the expected sum (fair value)?",
+      "options": [
+        "8.5",
+        "7",
+        "5",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum | one die 5] = 5 + E[other die] = 5 + 3.5 = 8.5.",
+        "B": "7 is the unconditional two-dice mean — ignore the reveal.",
+        "C": "5 is just the known die, not the sum expectation.",
+        "D": "10 might add max hidden die incorrectly."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_exp_q1_r1",
+          "question": "One die shows 4. Expected sum:",
+          "options": [
+            "7.5",
+            "4",
+            "7",
+            "8"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 4 + 3.5 = 7.5.",
+            "B": "4 ignores hidden die.",
+            "C": "7 is unconditional.",
+            "D": "8 is too high."
+          }
+        },
+        {
+          "id": "mm_pi_exp_q1_r2",
+          "question": "Hidden fair die has E =",
+          "options": [
+            "3.5",
+            "7",
+            "1",
+            "6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "7 is two-dice sum.",
+            "C": "1 is min.",
+            "D": "6 is max."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_exp_q2",
+      "kind": "standard",
+      "concept": "card_bayes",
+      "question": "A card is drawn from a full deck. You are told it is red (hearts or diamonds) but not the rank. Payoff is $10 if it is a heart, $0 otherwise. Updated fair value?",
+      "options": [
+        "5",
+        "2.5",
+        "10",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Given red, P(heart | red) = 13/26 = 1/2, so EV = 10 × 1/2 = 5.",
+        "B": "2.5 is unconditional EV before color clue — P(heart)=1/4.",
+        "C": "10 assumes certainty of hearts.",
+        "D": "0 ignores the 50% heart chance given red."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_exp_q2_r1",
+          "question": "26 red cards, 13 hearts. P(heart | red) =",
+          "options": [
+            "1/2",
+            "1/4",
+            "1/13",
+            "1/52"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — half of red cards are hearts.",
+            "B": "1/4 is unconditional.",
+            "C": "1/13 is one rank.",
+            "D": "1/52 is one card."
+          }
+        },
+        {
+          "id": "mm_pi_exp_q2_r2",
+          "question": "Win $10 with prob 1/2. EV =",
+          "options": [
+            "5",
+            "10",
+            "2.5",
+            "0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Ignores probability.",
+            "C": "Wrong prob.",
+            "D": "Ignores win."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_exp_q3",
+      "kind": "standard",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on two dice. One die is revealed as 6. You still quote 6 at 8 (centered on old fair). What should a sharp trader do?",
+      "options": [
+        "Buy from you — your ask 8 is far below new fair 9.5",
+        "Sell to you — your bid 6 is too high",
+        "Ignore — fair unchanged",
+        "Wait — your quote is correctly centered"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. New fair = 6 + 3.5 = 9.5; lifting your ask at 8 buys cheap vs updated fair.",
+        "B": "Selling at bid 6 is bad for them — bid is below new fair, they'd gift edge to you.",
+        "C": "Fair moved up on the reveal.",
+        "D": "Quote is stale low — classic pick-off."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_exp_q3_r1",
+          "question": "New fair 9.5, your ask 8. Ask is:",
+          "options": [
+            "Too low (attractive to buyers)",
+            "Too high",
+            "Perfect",
+            "Crossed"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — ask below fair invites lifts.",
+            "B": "8 < 9.5 is not too high.",
+            "C": "Not centered on new fair.",
+            "D": "Not about crossing."
+          }
+        },
+        {
+          "id": "mm_pi_exp_q3_r2",
+          "question": "After information, you must:",
+          "options": [
+            "Recompute fair and re-quote",
+            "Never change quote",
+            "Only widen spread",
+            "Cancel all math"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Stale quotes lose money.",
+            "C": "Re-center matters too.",
+            "D": "Math is essential."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_exp_q4",
+      "kind": "challenge",
+      "concept": "two_stage_coin",
+      "question": "Two fair coins: payoff = number of heads (0, 1, or 2). Coin 1 is flipped and shows heads; coin 2 is still hidden. What is updated fair value?",
+      "options": [
+        "1.5",
+        "1.0",
+        "2.0",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Given one head shown, total heads = 1 + (1 if coin2 H else 0); E = 1 + 0.5 = 1.5.",
+        "B": "1.0 is unconditional E[heads] for two fair coins.",
+        "C": "2.0 assumes both heads for sure.",
+        "D": "0.5 is E[remaining coin only], not total payoff."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_exp_q4_r1",
+          "question": "One head fixed, one fair coin remaining. Expected total heads:",
+          "options": [
+            "1.5",
+            "1.0",
+            "2.0",
+            "0.5"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 1 + 0.5.",
+            "B": "1.0 ignores fixed head.",
+            "C": "2.0 assumes second head certain.",
+            "D": "0.5 is only the second coin."
+          }
+        },
+        {
+          "id": "mm_pi_exp_q4_r2",
+          "question": "Fair coin: E[heads on one flip] =",
+          "options": [
+            "0.5",
+            "1.0",
+            "0",
+            "2.0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "1.0 is certain head.",
+            "C": "0 is certain tail.",
+            "D": "Two flips max is 2, not E."
           }
         }
       ]

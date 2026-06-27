@@ -1,0 +1,528 @@
+{
+  "lessonId": "lesson_11",
+  "order": 11,
+  "title": "Firm-Style Probability Drills",
+  "subtitle": "Jane Street–style puzzles: symmetry, updating, and quick EV",
+  "topics": [
+    "Interview puzzles",
+    "Expected value",
+    "Symmetry",
+    "Bayesian updating",
+    "Market-making intuition"
+  ],
+  "intro": [
+    "Trading firms like Jane Street, SIG, and Optiver do not ask you to recite formulas — they watch you reason under uncertainty. The patterns repeat: compute an expected value, exploit symmetry, update beliefs when new information arrives, and explain your answer out loud.",
+    "This capstone lesson collects original drills inspired by those interview styles (probability & markets guides, classic puzzle collections, and public practice sites). Nothing here is copied from proprietary question banks; the scenarios are written for Probability Playground.",
+    "Treat each question like a live interview: state assumptions, show arithmetic, and sanity-check extremes. If you can pass this lesson, you are ready to pair our interactive content with the external resources hub for depth reading."
+  ],
+  "questions": [
+    {
+      "id": "l11_q1",
+      "kind": "challenge",
+      "concept": "symmetry_coin",
+      "question": "Two fair coins are hidden. You are told at least one is Heads. What is the probability both are Heads?",
+      "options": ["1/4", "1/3", "1/2", "2/3"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/4 is P(both Heads) unconditionally, but we are conditioning on at least one Head.",
+        "B": "Correct. Conditional sample space {HH, HT, TH} — only one of three equally likely outcomes has two Heads.",
+        "C": "1/2 ignores that HT and TH are also consistent with 'at least one Head'.",
+        "D": "2/3 would require two favorable outcomes out of three for double Heads, which is not the case."
+      },
+      "remediation": [
+        {
+          "id": "l11_q1_r1",
+          "question": "A fair coin is flipped twice. Given the first flip is Heads, P(both Heads)?",
+          "options": ["1/4", "1/2", "2/3", "1"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "That is unconditional P(HH).",
+            "B": "Correct — given first H, second is H with probability 1/2.",
+            "C": "2/3 is the 'at least one H' conditioning, not 'first is H'.",
+            "D": "First flip fixed as H does not force second H."
+          }
+        },
+        {
+          "id": "l11_q1_r2",
+          "question": "Two dice show at least one six. Approximate P(both sixes)?",
+          "options": ["1/36", "1/11", "1/6", "1/3"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "1/36 is unconditional P(6,6).",
+            "B": "Correct — 11 outcomes have ≥1 six; only (6,6) has both.",
+            "C": "1/6 treats the second die as independent without conditioning.",
+            "D": "Too high — double six is rare even conditional on ≥1 six."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q2",
+      "kind": "challenge",
+      "concept": "expected_dice_game",
+      "question": "You roll a fair die; you win $6 if it shows 6, otherwise you lose $1. What is the expected profit per roll?",
+      "options": ["-$0.50", "$0", "$0.17", "$1"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Underestimates the win frequency — one-sixth of rolls pay +6.",
+        "B": "Correct. EV = (1/6)(6) + (5/6)(−1) = 1 − 5/6 = 0.",
+        "C": "Small positive EV would need a higher payoff or better loss structure.",
+        "D": "$1 EV would require much more favorable payouts."
+      },
+      "remediation": [
+        {
+          "id": "l11_q2_r1",
+          "question": "Win $12 on a six, lose $2 otherwise. EV per roll?",
+          "options": ["-$2", "$0", "$2", "$4"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "The win on 6 offsets five losses of 2.",
+            "B": "Correct — (1/6)(12) + (5/6)(−2) = 2 − 10/6 = 0.",
+            "C": "Positive EV needs larger win or smaller loss.",
+            "D": "Too high for this payoff structure."
+          }
+        },
+        {
+          "id": "l11_q2_r2",
+          "question": "Win $10 on heads, lose $4 on tails (fair coin). EV?",
+          "options": ["-$4", "$1", "$3", "$5"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Ignores the +10 win half the time.",
+            "B": "Understates the positive half.",
+            "C": "Correct — 0.5(10) + 0.5(−4) = 3.",
+            "D": "Too high for this structure."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q3",
+      "kind": "standard",
+      "concept": "make_market_dice",
+      "question": "Fair die roll. Fair value is 3.5. You quote 3 at 4 with a $1 spread. A trader sells to you at 3. Did you likely buy above or below fair value?",
+      "options": [
+        "Above — you overpaid",
+        "Below — you got a good buy",
+        "Exactly at fair value",
+        "Cannot determine"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Buying at 3 when fair is 3.5 means you paid less than fair — a good buy for you.",
+        "B": "Correct. Your bid at 3 is below expected value 3.5, so buying there is +EV for the market maker.",
+        "C": "3 ≠ 3.5; you traded on the bid side below midpoint.",
+        "D": "Fair value comparison is enough to judge the trade direction."
+      },
+      "remediation": [
+        {
+          "id": "l11_q3_r1",
+          "question": "Fair value 10. You sell at your ask of 11. Relative to fair, you:",
+          "options": ["Gave away edge", "Captured edge", "Broke even", "Lost inventory only"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Selling above fair is good for the market maker.",
+            "B": "Correct — ask above fair value is +EV sale.",
+            "C": "11 ≠ 10.",
+            "D": "This is about price vs fair, not inventory alone."
+          }
+        },
+        {
+          "id": "l11_q3_r2",
+          "question": "Fair value 50. Quote 49 at 51. Midpoint of your quote is:",
+          "options": ["49", "50", "51", "100"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "That is the bid only.",
+            "B": "Correct — (49+51)/2 = 50, matching fair value here.",
+            "C": "That is the ask only.",
+            "D": "Sum, not midpoint."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q4",
+      "kind": "challenge",
+      "concept": "bayes_urn",
+      "question": "Urn: 2 red, 1 blue. Draw one — red. You draw again without replacement. P(second is red)?",
+      "options": ["1/3", "1/2", "2/3", "1"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/3 is P(first red), not second after first red.",
+        "B": "Correct. After one red removed, urn has 1 red, 1 blue → P(red) = 1/2.",
+        "C": "2/3 was P(first red); second draw has fewer reds left.",
+        "D": "Second draw is not certain red."
+      },
+      "remediation": [
+        {
+          "id": "l11_q4_r1",
+          "question": "3 red, 2 blue. First draw red. P(second red)?",
+          "options": ["1/2", "2/5", "3/5", "3/4"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Need to update counts: 2 red, 2 blue remain.",
+            "B": "Correct — 2 red out of 4 balls.",
+            "C": "3/5 is too high after removing a red.",
+            "D": "Not guaranteed."
+          }
+        },
+        {
+          "id": "l11_q4_r2",
+          "question": "Two cards from a deck without replacement. First is an ace. P(second is ace)?",
+          "options": ["1/13", "3/51", "4/52", "1/4"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "1/13 is single-draw ace probability.",
+            "B": "Correct — 3 aces remain in 51 cards.",
+            "C": "4/52 ignores the first ace drawn.",
+            "D": "1/4 treats draws as independent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q5",
+      "kind": "challenge",
+      "concept": "alliance_game",
+      "question": "A and B each pick 0 or 1 secretly. You see sum mod 2. If sum is 0, team wins $3. Entry fee $1. Should the team play?",
+      "options": ["No — negative EV", "Yes — EV = $0.50", "Yes — EV = $1", "Yes — EV = $2"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "They can coordinate: both pick same bit → sum 0 with prob 1/2.",
+        "B": "Correct. Win $3 with prob 1/2, pay $1 → EV = 1.5 − 1 = 0.5.",
+        "C": "Overstates EV — win only half the time.",
+        "D": "Far too high."
+      },
+      "remediation": [
+        {
+          "id": "l11_q5_r1",
+          "question": "Same game but win $5 with prob 1/2, fee $1. EV?",
+          "options": ["$1", "$1.5", "$2", "$2.5"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "0.5(5) − 1 = 1.5.",
+            "B": "Correct.",
+            "C": "Would need higher win or higher win prob.",
+            "D": "Too high."
+          }
+        },
+        {
+          "id": "l11_q5_r2",
+          "question": "Win $3 with prob 1/3, fee $1. EV?",
+          "options": ["-$1", "$0", "$0.33", "$1"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "EV is exactly 0 here.",
+            "B": "Correct — (1/3)(3) − 1 = 0.",
+            "C": "Slight mis-arithmetic.",
+            "D": "Too high."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q6",
+      "kind": "standard",
+      "concept": "spread_calibration",
+      "question": "You are very uncertain about fair value on a novelty dice game. Should your bid-ask spread be wider or narrower than when you are confident?",
+      "options": ["Wider", "Narrower", "Same width always", "Only widen the ask"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. More uncertainty → wider spread to protect against adverse selection.",
+        "B": "Tight spreads when uncertain invite getting picked off on both sides.",
+        "C": "Good market makers adjust width to confidence.",
+        "D": "Both sides typically widen symmetrically around fair value."
+      },
+      "remediation": [
+        {
+          "id": "l11_q6_r1",
+          "question": "New public info sharply reduces your uncertainty. Spread should:",
+          "options": ["Widen", "Tighten", "Stay fixed", "Disappear"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Less uncertainty usually allows tighter quotes.",
+            "B": "Correct — you can compete more aggressively when risk is lower.",
+            "C": "Quotes should reflect updated beliefs.",
+            "D": "You still need a spread for inventory risk."
+          }
+        },
+        {
+          "id": "l11_q6_r2",
+          "question": "Main reason market makers widen spreads:",
+          "options": ["Regulation", "Inventory/uncertainty risk", "To confuse clients", "Random noise"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Not the primary economic reason.",
+            "B": "Correct — compensation for risk and adverse selection.",
+            "C": "Spreads are economic, not theatrical.",
+            "D": "Quotes are intentional."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q7",
+      "kind": "challenge",
+      "concept": "geometric_waiting",
+      "question": "Repeated fair coin flips until first Heads. Expected number of flips?",
+      "options": ["1", "1.5", "2", "4"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You often need more than one flip.",
+        "B": "Geometric(1/2) mean is 1/p = 2, not 1.5.",
+        "C": "Correct — expected waiting time for success prob 1/2 is 2 trials.",
+        "D": "4 would correspond to p = 1/4."
+      },
+      "remediation": [
+        {
+          "id": "l11_q7_r1",
+          "question": "Flips until six on a fair die. Expected rolls?",
+          "options": ["3", "4", "6", "36"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Too low.",
+            "B": "Still below 1/(1/6).",
+            "C": "Correct — mean of Geometric(1/6) is 6.",
+            "D": "36 is variance-related scale, not mean."
+          }
+        },
+        {
+          "id": "l11_q7_r2",
+          "question": "Success prob 1/3 each trial. Expected trials until success?",
+          "options": ["1/3", "1", "3", "9"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "That is p, not mean.",
+            "B": "Too low for p=1/3.",
+            "C": "Correct — mean = 1/p = 3.",
+            "D": "Too high."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q8",
+      "kind": "challenge",
+      "concept": "conditional_cards",
+      "question": "From a standard deck, two cards drawn without replacement. P(both hearts)?",
+      "options": ["1/16", "1/17", "25/1024", "1/4"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/16 treats draws as independent (13/52 × 13/52).",
+        "B": "Correct — (13/52)(12/51) = 156/2652 = 1/17.",
+        "C": "Wrong denominator arithmetic.",
+        "D": "1/4 is P(one card is heart), not both."
+      },
+      "remediation": [
+        {
+          "id": "l11_q8_r1",
+          "question": "P(both aces from two cards)?",
+          "options": ["1/169", "1/221", "1/13", "2/52"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Independent approximation.",
+            "B": "Correct — (4/52)(3/51) = 1/221.",
+            "C": "Single-draw ace prob.",
+            "D": "Not quite — draws without replacement."
+          }
+        },
+        {
+          "id": "l11_q8_r2",
+          "question": "One heart drawn. P(second is heart)?",
+          "options": ["12/51", "13/52", "1/4", "12/52"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 12 hearts left in 51 cards.",
+            "B": "Ignores first heart removed.",
+            "C": "Unconditional approx.",
+            "D": "Wrong denominator."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q9",
+      "kind": "standard",
+      "concept": "think_aloud",
+      "question": "In a quant interview, which habit helps most when stuck?",
+      "options": [
+        "Stay silent until you have the exact answer",
+        "Talk through assumptions and try small cases",
+        "Ask to use a calculator immediately",
+        "Change the problem to an easier one without telling the interviewer"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Silence hides your reasoning — interviewers grade the process.",
+        "B": "Correct. Narrating assumptions and testing small cases is exactly what firms like Jane Street encourage.",
+        "C": "Mental math matters; calculators are rarely the first move.",
+        "D": "Never silently change the problem — clarify with the interviewer instead."
+      },
+      "remediation": [
+        {
+          "id": "l11_q9_r1",
+          "question": "Best first step on an unfamiliar puzzle:",
+          "options": ["Guess answer", "Define variables and restate givens", "Memorize formula", "Skip"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Guessing wastes the collaborative format.",
+            "B": "Correct — structure before computation.",
+            "C": "Formulas come after understanding.",
+            "D": "Never skip without engaging."
+          }
+        },
+        {
+          "id": "l11_q9_r2",
+          "question": "Interviewer gives a hint. You should:",
+          "options": ["Ignore it", "Incorporate and explain updated reasoning", "Ask for full solution", "Restart silently"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Hints are gifts — use them.",
+            "B": "Correct — shows adaptability.",
+            "C": "They want your reasoning, not theirs read aloud.",
+            "D": "Explain the pivot out loud."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l11_q10",
+      "kind": "challenge",
+      "concept": "fermi_estimate",
+      "question": "Order-of-magnitude: about how many fair coin flips give an expected count of 50 Heads?",
+      "options": ["10", "50", "100", "1000"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "10 flips → only 5 expected heads.",
+        "B": "50 flips → 25 expected heads.",
+        "C": "Correct — expected heads = n/2, so n = 100 for 50 heads.",
+        "D": "1000 flips → 500 expected heads."
+      },
+      "remediation": [
+        {
+          "id": "l11_q10_r1",
+          "question": "Fair coin: expected Heads in 80 flips?",
+          "options": ["20", "40", "80", "160"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Too low.",
+            "B": "Correct — half of 80.",
+            "C": "That would need all heads.",
+            "D": "Double the flips."
+          }
+        },
+        {
+          "id": "l11_q10_r2",
+          "question": "Quick sanity: 1000 flips, expected Heads near:",
+          "options": ["100", "250", "500", "900"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Far too low.",
+            "B": "Still low.",
+            "C": "Correct — about half.",
+            "D": "Almost all heads is unlikely."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l11_p1",
+      "question": "Fair coin P(Heads)?",
+      "options": ["0", "1/4", "1/2", "1"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Heads is possible.",
+        "B": "1/4 is not fair coin.",
+        "C": "Correct.",
+        "D": "Not certain."
+      }
+    },
+    {
+      "id": "l11_p2",
+      "question": "Expected value of fair die roll?",
+      "options": ["3", "3.5", "4", "6"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Slightly low.",
+        "B": "Correct — (1+2+3+4+5+6)/6.",
+        "C": "High.",
+        "D": "Maximum face, not mean."
+      }
+    },
+    {
+      "id": "l11_p3",
+      "question": "At least one head in two fair flips — how many outcomes in sample space?",
+      "options": ["2", "3", "4", "8"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Too few.",
+        "B": "That counts favorable, not total space.",
+        "C": "Correct — HH, HT, TH, TT.",
+        "D": "Three flips."
+      }
+    },
+    {
+      "id": "l11_p4",
+      "question": "Bid 8 ask 10 — spread width?",
+      "options": ["1", "2", "8", "10"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Half the gap.",
+        "B": "Correct — 10 − 8.",
+        "C": "Bid size.",
+        "D": "Ask size."
+      }
+    },
+    {
+      "id": "l11_p5",
+      "question": "Win $4 with prob 1/2, else $0. EV?",
+      "options": ["$0", "$1", "$2", "$4"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Positive EV exists.",
+        "B": "Too low.",
+        "C": "Correct — 0.5 × 4.",
+        "D": "Full win not guaranteed."
+      }
+    },
+    {
+      "id": "l11_p6",
+      "question": "P(both heads) two fair coins?",
+      "options": ["1/4", "1/2", "3/4", "1"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — (1/2)².",
+        "B": "One head prob.",
+        "C": "At least one head.",
+        "D": "Not certain."
+      }
+    },
+    {
+      "id": "l11_p7",
+      "question": "More uncertainty → spread should be:",
+      "options": ["Wider", "Tighter", "Zero", "Ignored"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Opposite.",
+        "C": "Never zero in practice.",
+        "D": "Spread reflects uncertainty."
+      }
+    },
+    {
+      "id": "l11_p8",
+      "question": "Geometric with p=1/2, mean trials until success?",
+      "options": ["1", "2", "4", "8"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Too low.",
+        "B": "Correct — 1/p.",
+        "C": "Higher p needed.",
+        "D": "Too high."
+      }
+    }
+  ]
+}

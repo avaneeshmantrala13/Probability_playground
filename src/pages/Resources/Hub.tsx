@@ -71,9 +71,10 @@ export function ResourcesHub() {
         </h1>
         <p className="mt-2 max-w-2xl text-secondary">
           Curated links to the best <strong className="font-semibold text-primary">official</strong>{" "}
-          quant, market-making, and poker theory materials. We link out to publishers and
-          firms — we don&apos;t scrape or host copyrighted books. Use Probability Playground
-          lessons for interactive practice; use these for depth and reading lists.
+          quant, market-making, and poker theory materials — plus{" "}
+          <strong className="font-semibold text-primary">original interview-style questions</strong>{" "}
+          inspired by those sources woven into our lesson tracks. We link out to publishers and
+          firms; we don&apos;t host copyrighted books.
         </p>
         <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-secondary">
           <span className="font-semibold text-primary">Support authors:</span> buy books from

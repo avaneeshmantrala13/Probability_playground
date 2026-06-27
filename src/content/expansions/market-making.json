@@ -1,0 +1,1092 @@
+[
+  {
+    "lessonId": "mm_bid_ask",
+    "introAppend": [
+      "In live interview games, quotes are shouted in compressed form: '47 at 49' or 'I'm 47 bid, 49 offer.' The moderator may call 'sold!' when someone hits a bid or 'done!' when someone lifts an offer. Your first job is to parse direction instantly — confusing buy and sell language is the most common early mistake.",
+      "Jane Street-style dice and card games treat the quote as a standing limit order on both sides. You are not negotiating each trade from scratch; you publish prices and let the room choose which side to take. That discipline — always know your bid, always know your ask — is what separates practiced market makers from candidates who only compute fair value."
+    ],
+    "topicsAppend": ["Voice trading", "Hit vs lift", "Quote parsing"],
+    "appendQuestions": [
+      {
+        "id": "mm_ba_exp_q1",
+        "kind": "standard",
+        "concept": "voice_lift",
+        "question": "A classmate shouts, 'I'm an offer at 63 on the two-dice sum game.' You want to buy one contract. What price do you pay, and what happened to their quote?",
+        "options": [
+          "You pay 63; you lifted their ask",
+          "You pay 63; you hit their bid",
+          "You pay 62; you improved their bid",
+          "You pay 64; you crossed through their offer"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. 'Offer at 63' means their ask is 63. When you buy, you lift the ask and trade at 63.",
+          "B": "Hitting a bid is what a seller does. As a buyer you take the offer side, not the bid.",
+          "C": "62 would be below their stated offer; you cannot unilaterally trade there unless they improve.",
+          "D": "64 is above their offer. You trade at the quoted ask unless someone negotiates an improvement."
+        },
+        "remediation": [
+          {
+            "id": "mm_ba_exp_q1_r1",
+            "question": "Quote: '40 at 44.' A buyer lifts. Trade price:",
+            "options": ["40", "42", "44", "45"],
+            "correctAnswer": 2,
+            "explanations": {
+              "A": "40 is the bid — sellers hit there.",
+              "B": "42 is the midpoint, not a quoted price.",
+              "C": "Correct — buyers pay the ask at 44.",
+              "D": "45 is above the offer."
+            }
+          },
+          {
+            "id": "mm_ba_exp_q1_r2",
+            "question": "'I'm 25 bid' means you can sell to them at:",
+            "options": ["25", "26", "24", "50"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — their bid is 25; sellers hit that price.",
+              "B": "26 is above their bid unless they improve.",
+              "C": "24 is below their bid; they won't buy there.",
+              "D": "50 is unrelated to the quote."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_ba_exp_q2",
+        "kind": "standard",
+        "concept": "two_sided_format",
+        "question": "The moderator reads your quote back as 'sixty-two bid, sixty-six offered.' Which pair correctly maps to bid-at-ask notation?",
+        "options": [
+          "66 at 62",
+          "62 at 66",
+          "62 at 64",
+          "64 at 66"
+        ],
+        "correctAnswer": 1,
+        "explanations": {
+          "A": "This reverses bid and ask — the bid must be the lower buy price.",
+          "B": "Correct. Bid 62 (you buy there), ask/offer 66 (you sell there). Convention is bid first, ask second.",
+          "C": "64 is not part of the moderator's read-back; the ask was 66.",
+          "D": "64 might be a midpoint but is not the stated two-sided quote."
+        },
+        "remediation": [
+          {
+            "id": "mm_ba_exp_q2_r1",
+            "question": "You buy at 18 and sell at 21. Your quote in bid-at-ask form is:",
+            "options": ["21 at 18", "18 at 21", "19.5 at 19.5", "18 at 18"],
+            "correctAnswer": 1,
+            "explanations": {
+              "A": "Bid must be lower than ask — this is crossed.",
+              "B": "Correct — 18 bid, 21 ask.",
+              "C": "Equal bid and ask is not your stated quote.",
+              "D": "Zero spread at 18 is not what you described."
+            }
+          },
+          {
+            "id": "mm_ba_exp_q2_r2",
+            "question": "In '33 at 37', the number 33 is your:",
+            "options": ["Ask (sell price)", "Bid (buy price)", "Spread", "Fair value"],
+            "correctAnswer": 1,
+            "explanations": {
+              "A": "The ask is the higher number, 37.",
+              "B": "Correct — the first number is always the bid.",
+              "C": "Spread is the difference, 4, not either price.",
+              "D": "Fair value may be near the midpoint but is not labeled as 33."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_ba_exp_q3",
+        "kind": "standard",
+        "concept": "standing_quote",
+        "question": "You quote 51 at 55 on a dice-sum contract and do not withdraw. A trader says 'sold' — meaning they sell to you. Must you buy, and at what price?",
+        "options": [
+          "Yes, at 51",
+          "Yes, at 55",
+          "No, quotes are non-binding in mock games",
+          "Yes, at 53 (the midpoint)"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. A standing two-sided quote is an invitation; when they sell, they hit your bid at 51 and you are obligated at that price in standard game rules.",
+          "B": "55 is your ask — that is where you sell to buyers, not where you buy from sellers.",
+          "C": "Interview games treat published quotes as firm unless the rules say otherwise; withdrawing after someone trades is bad form and often disallowed.",
+          "D": "Midpoint is not automatically the trade price; you trade at the quoted side they choose."
+        },
+        "remediation": [
+          {
+            "id": "mm_ba_exp_q3_r1",
+            "question": "Quote 70 at 74. Buyer says 'I'll take it.' You sell at:",
+            "options": ["70", "72", "74", "76"],
+            "correctAnswer": 2,
+            "explanations": {
+              "A": "70 is your bid.",
+              "B": "72 is inside the spread but not quoted.",
+              "C": "Correct — buyers lift the ask at 74.",
+              "D": "76 is above your offer."
+            }
+          },
+          {
+            "id": "mm_ba_exp_q3_r2",
+            "question": "After you quote two-sided prices, a seller hits your bid. You:",
+            "options": ["Buy at your bid", "Sell at your ask", "Refuse unless you like the trade", "Split the spread automatically"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — sellers trade against your bid.",
+              "B": "Selling happens when someone lifts your ask.",
+              "C": "Selective refusal breaks market-making norms in mock games.",
+              "D": "Trades occur at bid or ask, not automatically at mid."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_ba_exp_q4",
+        "kind": "challenge",
+        "concept": "crossed_quote",
+        "question": "You accidentally shout '58 at 56' on a card-draw game. Before anyone trades, what is wrong and what should you do?",
+        "options": [
+          "Crossed quote (bid > ask); immediately replace with bid below ask",
+          "Valid quote; spread is −2 which means free money",
+          "Only the ask is wrong; keep 58 as bid",
+          "Nothing — first trade sets the true market"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Bid must be strictly below ask. A crossed quote would let others buy from you at 56 and sell to you at 58 simultaneously — you lose 2 per round-trip. Fix it instantly.",
+          "B": "Negative spread looks like arbitrage against you, not edge for you. It is an error, not a feature.",
+          "C": "Both sides define the quote; the entire statement is invalid until uncrossed.",
+          "D": "You should correct errors before trading; letting others pick off a crossed quote is costly."
+        },
+        "remediation": [
+          {
+            "id": "mm_ba_exp_q4_r1",
+            "question": "Which quote is valid (not crossed)?",
+            "options": ["90 at 88", "88 at 90", "90 at 90", "All are valid"],
+            "correctAnswer": 1,
+            "explanations": {
+              "A": "Bid exceeds ask — crossed.",
+              "B": "Correct — bid below ask.",
+              "C": "Zero spread is unusual but not crossed; 88 at 90 is the clearest valid two-sided market.",
+              "D": "90 at 88 is crossed."
+            }
+          },
+          {
+            "id": "mm_ba_exp_q4_r2",
+            "question": "Bid 45, ask 42. This quote is:",
+            "options": ["Crossed", "Tight", "Wide", "Fair"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — bid above ask is crossed.",
+              "B": "Tight refers to small spread, not inverted quotes.",
+              "C": "Wide also assumes bid < ask.",
+              "D": "Fair describes value, not quote validity."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "mm_spread",
+    "introAppend": [
+      "Larry Harris emphasizes that the spread compensates market makers for three costs: order-processing, inventory holding, and adverse selection. In interview dice games you feel all three at once: fills arrive fast, position swings quickly, and sharper classmates trade when your quote is stale.",
+      "Calibration matters as much as width. A spread that looks tight on paper but sits far from fair value gets picked off; a wide spread centered on fair may earn less gross edge per trade but survive longer. Practice judging spread in units of uncertainty — widen when variance or information risk rises."
+    ],
+    "topicsAppend": ["Adverse selection", "Spread calibration", "Round-trip edge"],
+    "appendQuestions": [
+      {
+        "id": "mm_sp_exp_q1",
+        "kind": "standard",
+        "concept": "round_trip_edge",
+        "question": "You quote 44 at 48 on a fair-7 dice game. You buy 1 at 44, then later sell 1 at 48 with no fair-value change. What is your gross P&L on the round-trip?",
+        "options": ["+4", "+2", "0", "−4"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Buy at 44, sell at 48 → profit 4, equal to the spread width.",
+          "B": "2 would be half the spread — that is per-side edge in some models, not full round-trip.",
+          "C": "Zero ignores the captured spread when fair value is unchanged.",
+          "D": "−4 would mean you lost the spread; you earned it when centered and flat."
+        },
+        "remediation": [
+          {
+            "id": "mm_sp_exp_q1_r1",
+            "question": "Buy at 30, sell at 35, no other costs. Gross profit:",
+            "options": ["5", "2.5", "65", "−5"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 35 − 30 = 5.",
+              "B": "2.5 is half the gap, not the round-trip.",
+              "C": "65 is the sum of prices.",
+              "D": "You bought low and sold high."
+            }
+          },
+          {
+            "id": "mm_sp_exp_q1_r2",
+            "question": "Spread is 6. One full round-trip (buy bid, sell ask) earns:",
+            "options": ["6", "3", "12", "0"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — round-trip captures full spread.",
+              "B": "3 might be half-spread per leg, not total.",
+              "C": "12 double-counts.",
+              "D": "Zero ignores edge when fair is stable."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_sp_exp_q2",
+        "kind": "standard",
+        "concept": "widen_on_uncertainty",
+        "question": "Fair value on a product is 50, but a hidden card will be revealed in 10 seconds and could move fair by ±15. You are currently 49 at 51. What is the most defensible adjustment?",
+        "options": [
+          "Widen materially (e.g., 45 at 55) while re-centering on 50",
+          "Tighten to 49.5 at 50.5 to attract flow before the reveal",
+          "Keep 49 at 51 — spread already compensates",
+          "Quote one-sided bid only at 50"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Large imminent information risk is classic adverse-selection territory; Harris would widen to cover pick-off risk while staying near fair.",
+          "B": "Tightening before a volatility event invites informed traders to hit the wrong side.",
+          "C": "A 2-point spread is tiny relative to ±15 fair-value swing — you would be picked off.",
+          "D": "One-sided quoting may be allowed at limits, but here the priority is widening two-sided protection."
+        },
+        "remediation": [
+          {
+            "id": "mm_sp_exp_q2_r1",
+            "question": "Variance of payoff just doubled. Spread should generally:",
+            "options": ["Widen", "Tighten", "Stay fixed always", "Go to zero"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — more risk warrants more compensation.",
+              "B": "Tightening increases risk per fill.",
+              "C": "Spread should respond to conditions.",
+              "D": "Zero spread removes compensation."
+            }
+          },
+          {
+            "id": "mm_sp_exp_q2_r2",
+            "question": "You are very confident fair = 100 with tiny error. Spread should be:",
+            "options": ["Relatively tight", "Very wide", "Crossed", "Undefined"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — low uncertainty allows tighter quotes.",
+              "B": "Wide is for high uncertainty.",
+              "C": "Crossed is always invalid.",
+              "D": "Spread is always defined in practice."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_sp_exp_q3",
+        "kind": "standard",
+        "concept": "half_spread",
+        "question": "Fair is 20. You quote 18 at 22 (spread 4). A buyer lifts you once at the ask, fair unchanged. Relative to fair, how many points of edge did you earn on that single sell?",
+        "options": ["2", "4", "1", "0"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Ask 22 is 2 above fair 20 — you capture half the spread on a one-sided sell.",
+          "B": "4 is the full spread; you only sold once, not round-tripped.",
+          "C": "1 would undercount the distance from fair to ask.",
+          "D": "Zero ignores that 22 > 20 when fair is unchanged."
+        },
+        "remediation": [
+          {
+            "id": "mm_sp_exp_q3_r1",
+            "question": "Fair 10, quote 8 at 12. You buy at bid. Edge vs fair:",
+            "options": ["2", "4", "0", "−2"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — bid 8 is 2 below fair 10.",
+              "B": "4 is full spread.",
+              "C": "There is edge vs fair on the buy.",
+              "D": "Negative would mean you overpaid."
+            }
+          },
+          {
+            "id": "mm_sp_exp_q3_r2",
+            "question": "Fair 50, quote 48 at 52. Midpoint of quote is:",
+            "options": ["50", "48", "52", "4"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — (48+52)/2 = 50, matching fair.",
+              "B": "48 is the bid.",
+              "C": "52 is the ask.",
+              "D": "4 is the spread."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_sp_exp_q4",
+        "kind": "challenge",
+        "concept": "spread_comparison",
+        "question": "Two candidates quote the same fair-100 product: Alice 97 at 103 (spread 6), Bob 99 at 101 (spread 2). Fair is stable. Who earns more gross edge per completed round-trip, and who is more exposed to a ±5 fair-value shock on a one-sided fill?",
+        "options": [
+          "Alice earns more per round-trip; Bob is more exposed on one-sided fills",
+          "Bob earns more per round-trip; Alice is more exposed",
+          "Equal on both dimensions",
+          "Bob earns more and is less exposed"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Alice captures 6 per round-trip vs Bob's 2, but Bob's tight quote leaves only 1 point cushion vs fair on each side — a 5-point move hurts more relative to earned edge.",
+          "B": "Reverses both comparisons — Bob's spread is narrower, not wider.",
+          "C": "Spread width directly differs on edge and cushion.",
+          "D": "Bob earns less per trip and has thinner protection."
+        },
+        "remediation": [
+          {
+            "id": "mm_sp_exp_q4_r1",
+            "question": "Spread 8 vs spread 2 on same fair. Round-trip edge is higher for:",
+            "options": ["Spread 8", "Spread 2", "Equal", "Cannot tell"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — wider spread, more round-trip edge.",
+              "B": "2 is smaller.",
+              "C": "They differ.",
+              "D": "Fair is the same; compare spreads."
+            }
+          },
+          {
+            "id": "mm_sp_exp_q4_r2",
+            "question": "Tighter spread generally means:",
+            "options": ["Less edge per trade, more pick-off sensitivity", "More edge, less sensitivity", "No change", "Crossed quotes"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — classic spread trade-off.",
+              "B": "Reverses the trade-off.",
+              "C": "Width matters.",
+              "D": "Tight ≠ crossed."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "mm_fair_value",
+    "introAppend": [
+      "Before you widen or skew, you need a number to anchor on. In dice-sum games fair is 7; in 'product of two fair dice' games fair is 12.25. Card games specify payoffs per rank — your job is to turn those rules into an expected value, then quote around it.",
+      "Brainstellar-style puzzles often hide fair value inside a story: 'You draw until you see a red face,' or 'Payoff equals the maximum of two rolls.' The market-making twist is that once you state fair, the room will test whether your bid and ask bracket it symmetrically unless inventory or information says otherwise."
+    ],
+    "topicsAppend": ["Dice products", "Card payoffs", "EV anchoring"],
+    "appendQuestions": [
+      {
+        "id": "mm_fv_exp_q1",
+        "kind": "standard",
+        "concept": "dice_sum_fair",
+        "question": "You make a market on the sum of two fair six-sided dice (each face 1–6, equally likely). What fair value should center your quote?",
+        "options": ["7", "6", "3.5", "12"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. E[sum] = E[die1] + E[die2] = 3.5 + 3.5 = 7.",
+          "B": "6 is below the true mean — common guess but wrong for two dice.",
+          "C": "3.5 is the expectation of a single die, not the sum.",
+          "D": "12 is the maximum sum, not the average."
+        },
+        "remediation": [
+          {
+            "id": "mm_fv_exp_q1_r1",
+            "question": "One fair die. Expected value:",
+            "options": ["3.5", "7", "1", "6"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — (1+2+3+4+5+6)/6 = 3.5.",
+              "B": "7 is two-dice sum.",
+              "C": "1 is minimum face.",
+              "D": "6 is maximum face."
+            }
+          },
+          {
+            "id": "mm_fv_exp_q1_r2",
+            "question": "Two dice sum: minimum and maximum outcomes are:",
+            "options": ["2 and 12", "1 and 6", "2 and 6", "1 and 12"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 1+1=2, 6+6=12.",
+              "B": "1 and 6 are single-die bounds.",
+              "C": "6 is not the max sum.",
+              "D": "1 is not achievable as a sum of two dice."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_fv_exp_q2",
+        "kind": "standard",
+        "concept": "dice_product_fair",
+        "question": "Payoff equals the product of two independent fair dice rolls. What is fair value?",
+        "options": ["12.25", "7", "3.5", "36"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. E[XY] = E[X]E[Y] = 3.5 × 3.5 = 12.25 for independent dice.",
+          "B": "7 is the expected sum, not product.",
+          "C": "3.5 is a single die mean.",
+          "D": "36 is the maximum product (6×6), not the average."
+        },
+        "remediation": [
+          {
+            "id": "mm_fv_exp_q2_r1",
+            "question": "E[X]=4, E[Y]=5, X and Y independent. E[XY]=",
+            "options": ["20", "9", "1", "45"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 4×5=20.",
+              "B": "9 would be E[X+Y] if means were 4 and 5... actually 4+5=9, not product.",
+              "C": "1 is unrelated.",
+              "D": "45 might confuse with sum of maxes."
+            }
+          },
+          {
+            "id": "mm_fv_exp_q2_r2",
+            "question": "Product of two dice: max outcome is:",
+            "options": ["36", "12", "7", "6"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 6×6=36.",
+              "B": "12 is max sum.",
+              "C": "7 is mean sum.",
+              "D": "6 is max single die."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_fv_exp_q3",
+        "kind": "standard",
+        "concept": "card_ev",
+        "question": "One card is drawn uniformly from a standard 52-card deck. Payoff = 10 if it is a heart, 0 otherwise. What fair value centers your quote?",
+        "options": ["2.5", "10", "5", "0.25"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. P(heart) = 13/52 = 1/4, so EV = 10 × 1/4 = 2.5.",
+          "B": "10 is the payoff conditional on hearts, not unconditional EV.",
+          "C": "5 might confuse with half the deck or wrong probability.",
+          "D": "0.25 is the probability, not the dollar EV."
+        },
+        "remediation": [
+          {
+            "id": "mm_fv_exp_q3_r1",
+            "question": "Win $8 with prob 1/2, else $0. EV =",
+            "options": ["4", "8", "2", "0"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 8×0.5=4.",
+              "B": "8 ignores probability.",
+              "C": "2 is wrong arithmetic.",
+              "D": "0 ignores the win case."
+            }
+          },
+          {
+            "id": "mm_fv_exp_q3_r2",
+            "question": "13 hearts in 52 cards. P(heart) =",
+            "options": ["1/4", "1/2", "1/13", "1/52"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 13/52 = 1/4.",
+              "B": "1/2 is too high.",
+              "C": "1/13 treats one specific heart.",
+              "D": "1/52 is one specific card."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_fv_exp_q4",
+        "kind": "challenge",
+        "concept": "weighted_fair",
+        "question": "A biased coin pays $1 on heads. P(heads) = 0.6. You also receive a one-time $2 fee for quoting. What fair value (including the fee) should you use to center a two-sided market on the coin contract alone?",
+        "options": ["2.6", "0.6", "1.0", "3.0"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Coin EV = 0.6×1 + 0.4×0 = 0.6; plus $2 fee → 2.6 total fair for your position in the bundled deal.",
+          "B": "0.6 is coin EV only — omits the certain $2 fee.",
+          "C": "1.0 assumes a fair coin.",
+          "D": "3.0 overstates — might add fee twice or use wrong probability."
+        },
+        "remediation": [
+          {
+            "id": "mm_fv_exp_q4_r1",
+            "question": "P(H)=0.6, win $1 on H. Coin EV alone:",
+            "options": ["0.6", "1.0", "0.4", "2.0"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "1.0 is fair-coin EV.",
+              "C": "0.4 is P(tails).",
+              "D": "2.0 is too high."
+            }
+          },
+          {
+            "id": "mm_fv_exp_q4_r2",
+            "question": "EV 0.6 plus certain $2. Total fair:",
+            "options": ["2.6", "2.0", "0.6", "1.6"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — add certain cash to EV.",
+              "B": "2.0 omits coin EV.",
+              "C": "0.6 omits fee.",
+              "D": "1.6 is wrong sum."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "mm_inventory",
+    "introAppend": [
+      "Harris describes inventory risk as the chance that prices move while you hold position. In a fast interview game you might go long three contracts in thirty seconds — your quote should stop looking symmetric around abstract fair and start pulling you flat.",
+      "Skew is not panic. You shift prices to make the relieving trade attractive: if you are long, you might shade both sides down slightly but tighten your ask to invite buyers, or widen your bid so you stop accumulating. The art is moving enough to reduce risk without donating edge on every fill."
+    ],
+    "topicsAppend": ["Inventory skew", "Position limits", "Flattening trades"],
+    "appendQuestions": [
+      {
+        "id": "mm_inv_exp_q1",
+        "kind": "standard",
+        "concept": "long_inventory_skew",
+        "question": "Fair is 50. You are long 5 contracts (at your position limit). You want to reduce inventory without crossing fair by much. Which quote best reflects standard skew?",
+        "options": [
+          "49 at 50 (lower both sides; tighter ask to attract buyers)",
+          "48 at 52 (wide and low — discourage all trading)",
+          "50 at 54 (raise both — encourage more buying)",
+          "45 at 55 (unchanged center, only widen)"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Long inventory → encourage sells to you less and buys from you more; shading down with a relatively tight ask invites lift-offs.",
+          "B": "48 at 52 widens but still centers low; discouraging all flow is slow when you need to flatten.",
+          "C": "Raising both sides encourages more long accumulation — wrong direction.",
+          "D": "Symmetric widen ignores directional inventory pressure."
+        },
+        "remediation": [
+          {
+            "id": "mm_inv_exp_q1_r1",
+            "question": "Too long. You want buyers to lift you. Ask should be:",
+            "options": ["Relatively attractive (tight or low)", "Very high", "Removed entirely always", "Equal to bid"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — make selling to the market easy for you.",
+              "B": "High ask discourages buyers.",
+              "C": "You may still quote two-sided.",
+              "D": "Bid = ask is zero spread, unusual."
+            }
+          },
+          {
+            "id": "mm_inv_exp_q1_r2",
+            "question": "Long inventory → bid should generally be:",
+            "options": ["Less aggressive (lower or wider bid)", "More aggressive (higher bid)", "Unchanged always", "Crossed above ask"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — don't keep buying more.",
+              "B": "Higher bid accumulates more long.",
+              "C": "Inventory should affect quotes.",
+              "D": "Crossed is invalid."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_inv_exp_q2",
+        "kind": "standard",
+        "concept": "short_inventory_skew",
+        "question": "Fair is 100. You are short 3 contracts. Which adjustment best skews toward flattening?",
+        "options": [
+          "101 at 102 — shade up, relatively tight bid to attract sellers",
+          "97 at 98 — shade down to buy cheaply",
+          "100 at 110 — only widen the ask",
+          "95 at 105 — symmetric around fair"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Short → raise quotes and make your bid attractive so sellers hit you and you cover.",
+          "B": "Shading down makes your bid less attractive — you stay short longer.",
+          "C": "Only widening ask does not actively pull inventory in.",
+          "D": "Symmetric quote ignores short risk."
+        },
+        "remediation": [
+          {
+            "id": "mm_inv_exp_q2_r1",
+            "question": "Short inventory. You want sellers to hit your bid. Bid should be:",
+            "options": ["Relatively attractive (high/tight)", "Very low", "Zero", "Above your ask"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — encourage incoming sells to you.",
+              "B": "Low bid repels sellers.",
+              "C": "Zero is not a strategy.",
+              "D": "Crossed invalid."
+            }
+          },
+          {
+            "id": "mm_inv_exp_q2_r2",
+            "question": "Short means you:",
+            "options": ["Sold more than you bought (net negative position)", "Bought more than you sold", "Have zero position", "Crossed your quote"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — net short is negative inventory.",
+              "B": "That is long.",
+              "C": "Flat is zero.",
+              "D": "Unrelated."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_inv_exp_q3",
+        "kind": "standard",
+        "concept": "position_limit",
+        "question": "Position limit is ±4. You are long 4. Fair is 30. What is the most appropriate quoting rule?",
+        "options": [
+          "Stop bidding — offer only (one-sided) until you reduce position",
+          "Quote 29 at 31 normally — limits don't matter",
+          "Cross 32 at 28 to force trades",
+          "Widen bid to 10 at 31"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. At max long you cannot buy more; one-sided offer lets you sell without violating limits.",
+          "B": "Normal two-sided quoting would let sellers hit your bid and breach the limit.",
+          "C": "Crossed quotes are invalid.",
+          "D": "Absurdly low bid is unnecessary — simply don't bid at limit."
+        },
+        "remediation": [
+          {
+            "id": "mm_inv_exp_q3_r1",
+            "question": "At max long, you should NOT:",
+            "options": ["Accept trades that increase long further", "Sell to reduce position", "Quote an offer", "Try to flatten"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — cannot add long at limit.",
+              "B": "Selling reduces position — good.",
+              "C": "Offering is fine.",
+              "D": "Flattening is the goal."
+            }
+          },
+          {
+            "id": "mm_inv_exp_q3_r2",
+            "question": "Limit +4, position +4. Buying one more is:",
+            "options": ["Not allowed", "Required", "Neutral", "Always profitable"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — at upper limit.",
+              "B": "Would violate limit.",
+              "C": "It increases risk.",
+              "D": "Profit unknown."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_inv_exp_q4",
+        "kind": "challenge",
+        "concept": "inventory_pnl",
+        "question": "Fair is 40 and unchanged. You buy 2 at 38 (bid), then sell 1 at 42 (ask). You are now long 1 at average cost 38. Mark-to-market P&L vs fair on the open lot is:",
+        "options": ["+2", "+4", "0", "−2"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Long 1 at 38 with fair 40 → unrealized gain 2 on the remaining contract (plus you already locked spread on the round-trip of one lot).",
+          "B": "4 double-counts or uses wrong cost.",
+          "C": "Zero ignores fair above your cost.",
+          "D": "−2 would mean fair below cost."
+        },
+        "remediation": [
+          {
+            "id": "mm_inv_exp_q4_r1",
+            "question": "Long 1 at cost 38. Fair 40. Unrealized P&L:",
+            "options": ["+2", "−2", "38", "40"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 40−38=2.",
+              "B": "Sign reversed.",
+              "C": "38 is cost, not P&L.",
+              "D": "40 is fair, not P&L."
+            }
+          },
+          {
+            "id": "mm_inv_exp_q4_r2",
+            "question": "Buy at 38, fair 40. Position is:",
+            "options": ["Long and profitable vs fair", "Short", "Flat", "Crossed"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "You bought — long.",
+              "C": "One contract open.",
+              "D": "Quote term, not position."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "mm_partial_info",
+    "introAppend": [
+      "Bayesian updating in interview games is usually arithmetic, not notation: someone reveals a die face, shows a card suit, or announces one coin result. Fair value jumps to the conditional expectation given that clue — and stale quotes are an invitation to be picked off.",
+      "Calibration under partial information means widening when residual uncertainty is still large. If one die shows 2, the sum's fair is 5.5 but still has variance from the hidden die — a tight quote around 5.5 ignores that you could still land anywhere from 3 to 8."
+    ],
+    "topicsAppend": ["Bayesian updating", "Conditional expectation", "Stale quotes"],
+    "appendQuestions": [
+      {
+        "id": "mm_pi_exp_q1",
+        "kind": "standard",
+        "concept": "one_die_revealed",
+        "question": "Two fair dice are rolled. One die is revealed showing 5; the other remains hidden. What is the expected sum (fair value)?",
+        "options": ["8.5", "7", "5", "10"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. E[sum | one die 5] = 5 + E[other die] = 5 + 3.5 = 8.5.",
+          "B": "7 is the unconditional two-dice mean — ignore the reveal.",
+          "C": "5 is just the known die, not the sum expectation.",
+          "D": "10 might add max hidden die incorrectly."
+        },
+        "remediation": [
+          {
+            "id": "mm_pi_exp_q1_r1",
+            "question": "One die shows 4. Expected sum:",
+            "options": ["7.5", "4", "7", "8"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 4 + 3.5 = 7.5.",
+              "B": "4 ignores hidden die.",
+              "C": "7 is unconditional.",
+              "D": "8 is too high."
+            }
+          },
+          {
+            "id": "mm_pi_exp_q1_r2",
+            "question": "Hidden fair die has E =",
+            "options": ["3.5", "7", "1", "6"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "7 is two-dice sum.",
+              "C": "1 is min.",
+              "D": "6 is max."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_pi_exp_q2",
+        "kind": "standard",
+        "concept": "card_bayes",
+        "question": "A card is drawn from a full deck. You are told it is red (hearts or diamonds) but not the rank. Payoff is $10 if it is a heart, $0 otherwise. Updated fair value?",
+        "options": ["5", "2.5", "10", "0"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Given red, P(heart | red) = 13/26 = 1/2, so EV = 10 × 1/2 = 5.",
+          "B": "2.5 is unconditional EV before color clue — P(heart)=1/4.",
+          "C": "10 assumes certainty of hearts.",
+          "D": "0 ignores the 50% heart chance given red."
+        },
+        "remediation": [
+          {
+            "id": "mm_pi_exp_q2_r1",
+            "question": "26 red cards, 13 hearts. P(heart | red) =",
+            "options": ["1/2", "1/4", "1/13", "1/52"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — half of red cards are hearts.",
+              "B": "1/4 is unconditional.",
+              "C": "1/13 is one rank.",
+              "D": "1/52 is one card."
+            }
+          },
+          {
+            "id": "mm_pi_exp_q2_r2",
+            "question": "Win $10 with prob 1/2. EV =",
+            "options": ["5", "10", "2.5", "0"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "Ignores probability.",
+              "C": "Wrong prob.",
+              "D": "Ignores win."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_pi_exp_q3",
+        "kind": "standard",
+        "concept": "stale_quote",
+        "question": "Fair was 7 on two dice. One die is revealed as 6. You still quote 6 at 8 (centered on old fair). What should a sharp trader do?",
+        "options": [
+          "Buy from you — your ask 8 is far below new fair 9.5",
+          "Sell to you — your bid 6 is too high",
+          "Ignore — fair unchanged",
+          "Wait — your quote is correctly centered"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. New fair = 6 + 3.5 = 9.5; lifting your ask at 8 buys cheap vs updated fair.",
+          "B": "Selling at bid 6 is bad for them — bid is below new fair, they'd gift edge to you.",
+          "C": "Fair moved up on the reveal.",
+          "D": "Quote is stale low — classic pick-off."
+        },
+        "remediation": [
+          {
+            "id": "mm_pi_exp_q3_r1",
+            "question": "New fair 9.5, your ask 8. Ask is:",
+            "options": ["Too low (attractive to buyers)", "Too high", "Perfect", "Crossed"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — ask below fair invites lifts.",
+              "B": "8 < 9.5 is not too high.",
+              "C": "Not centered on new fair.",
+              "D": "Not about crossing."
+            }
+          },
+          {
+            "id": "mm_pi_exp_q3_r2",
+            "question": "After information, you must:",
+            "options": ["Recompute fair and re-quote", "Never change quote", "Only widen spread", "Cancel all math"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "Stale quotes lose money.",
+              "C": "Re-center matters too.",
+              "D": "Math is essential."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_pi_exp_q4",
+        "kind": "challenge",
+        "concept": "two_stage_coin",
+        "question": "Two fair coins: payoff = number of heads (0, 1, or 2). Coin 1 is flipped and shows heads; coin 2 is still hidden. What is updated fair value?",
+        "options": ["1.5", "1.0", "2.0", "0.5"],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Given one head shown, total heads = 1 + (1 if coin2 H else 0); E = 1 + 0.5 = 1.5.",
+          "B": "1.0 is unconditional E[heads] for two fair coins.",
+          "C": "2.0 assumes both heads for sure.",
+          "D": "0.5 is E[remaining coin only], not total payoff."
+        },
+        "remediation": [
+          {
+            "id": "mm_pi_exp_q4_r1",
+            "question": "One head fixed, one fair coin remaining. Expected total heads:",
+            "options": ["1.5", "1.0", "2.0", "0.5"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 1 + 0.5.",
+              "B": "1.0 ignores fixed head.",
+              "C": "2.0 assumes second head certain.",
+              "D": "0.5 is only the second coin."
+            }
+          },
+          {
+            "id": "mm_pi_exp_q4_r2",
+            "question": "Fair coin: E[heads on one flip] =",
+            "options": ["0.5", "1.0", "0", "2.0"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "1.0 is certain head.",
+              "C": "0 is certain tail.",
+              "D": "Two flips max is 2, not E."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lessonId": "mm_interview",
+    "introAppend": [
+      "Capstone rounds compress everything: compute fair from a verbal spec, choose spread width given volatility and your confidence, update after public clues, and skew when fills pile on one side. Interviewers watch whether you speak your reasoning aloud while adjusting — silence with a wrong quote is worse than a slow correct one.",
+      "Treat each scenario as a live game tick: state fair, state bid and ask, and when the moderator announces news, pause fills mentally, recompute conditional fair, then replace your quote entirely. The winners are rarely the fastest mental calculators alone — they are the ones who keep quotes coherent under pressure."
+    ],
+    "topicsAppend": ["Integrated scenarios", "Live game flow", "Verbal reasoning"],
+    "appendQuestions": [
+      {
+        "id": "mm_int_exp_q1",
+        "kind": "standard",
+        "concept": "integrated_dice_quote",
+        "question": "Game: sum of two fair dice, fair = 7. You are flat. Uncertainty is moderate. Best initial two-sided quote?",
+        "options": [
+          "6 at 8 (spread 2, centered on 7)",
+          "7 at 7 (zero spread)",
+          "4 at 10 (wide but off-center low)",
+          "6 at 12 (wide and off-center high)"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Symmetric spread 2 around fair 7 is the textbook opening quote in mock games.",
+          "B": "Zero spread earns no compensation and is atypical in practice rounds.",
+          "C": "Off-center low invites sellers to hit a bid above their updated view after clues.",
+          "D": "Off-center high skews long unnecessarily when flat."
+        },
+        "remediation": [
+          {
+            "id": "mm_int_exp_q1_r1",
+            "question": "Fair 7, flat. Midpoint of 6 at 8 is:",
+            "options": ["7", "6", "8", "2"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — centered on fair.",
+              "B": "6 is bid.",
+              "C": "8 is ask.",
+              "D": "2 is spread."
+            }
+          },
+          {
+            "id": "mm_int_exp_q1_r2",
+            "question": "Flat inventory → quote should be:",
+            "options": ["Roughly symmetric around fair", "Skewed to accumulate more", "One-sided only", "Crossed"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "Skew when imbalanced.",
+              "C": "Two-sided when flat.",
+              "D": "Invalid."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_int_exp_q2",
+        "kind": "standard",
+        "concept": "integrated_update",
+        "question": "You quoted 6 at 8 on two-dice sum (fair 7). Moderator reveals first die = 3. New fair ≈ 6.5. You are still flat. Best immediate re-quote?",
+        "options": [
+          "5.5 at 7.5 (re-centered near 6.5)",
+          "6 at 8 (keep old quote)",
+          "8 at 10 (shift high)",
+          "3 at 4 (tight around revealed die only)"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. 3 + 3.5 = 6.5; symmetric spread around updated fair.",
+          "B": "Old quote centered at 7 is stale — ask 8 is rich vs 6.5 fair, bid 6 is cheap; both wrong directionally.",
+          "C": "8 at 10 centers at 9, far above 6.5.",
+          "D": "3 at 4 ignores expected sum, uses single die incorrectly."
+        },
+        "remediation": [
+          {
+            "id": "mm_int_exp_q2_r1",
+            "question": "Die shows 3. Expected sum:",
+            "options": ["6.5", "7", "3", "9"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 3+3.5.",
+              "B": "7 is old fair.",
+              "C": "3 is one die.",
+              "D": "9 is too high."
+            }
+          },
+          {
+            "id": "mm_int_exp_q2_r2",
+            "question": "After news, first step:",
+            "options": ["Update fair, then re-quote", "Keep quote, hope", "Only widen", "Stop trading forever"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "Stale loses edge.",
+              "C": "Re-center too.",
+              "D": "Overreaction."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_int_exp_q3",
+        "kind": "standard",
+        "concept": "integrated_inventory",
+        "question": "Fair 50. You are long 3 (limit +4) after getting hit on your bid several times. Your last quote was 48 at 52. Best next quote?",
+        "options": [
+          "47 at 49 — skew down, tight ask to sell",
+          "46 at 54 — widen symmetrically",
+          "48 at 52 — unchanged",
+          "52 at 54 — raise to earn more"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Long near limit → discourage more lifts, invite selling inventory via relatively attractive ask while shading down.",
+          "B": "Symmetric widen doesn't address directional inventory.",
+          "C": "Unchanged keeps inviting lifts — you are already long.",
+          "D": "Raising ask makes it harder to flatten."
+        },
+        "remediation": [
+          {
+            "id": "mm_int_exp_q3_r1",
+            "question": "Long near limit. Priority:",
+            "options": ["Flatten position", "Buy more", "Widen only", "Cross quote"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct.",
+              "B": "Adds risk.",
+              "C": "Direction matters.",
+              "D": "Invalid."
+            }
+          },
+          {
+            "id": "mm_int_exp_q3_r2",
+            "question": "Sellers hit your bid repeatedly → you are:",
+            "options": ["More long", "More short", "Unchanged", "Crossed"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — each hit on your bid is a buy that adds long inventory.",
+              "B": "Hits on bid add long, not short.",
+              "C": "Each fill changes position.",
+              "D": "Unrelated to quote validity."
+            }
+          }
+        ]
+      },
+      {
+        "id": "mm_int_exp_q4",
+        "kind": "challenge",
+        "concept": "integrated_card_game",
+        "question": "Draw one card: payoff $10 if heart, $0 otherwise. Before draw, fair = 2.5. The card is revealed red (suit known, rank not). New fair = 5. You still quote 2 at 3 from before the reveal. Flat. Best action?",
+        "options": [
+          "Re-quote near 4.5 at 5.5 — old quote is wildly stale low",
+          "Keep 2 at 3 — spread width still works",
+          "Quote 0 at 10 — random wide market",
+          "Only tighten to 2.4 at 2.6 around old fair"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct. Given red, P(heart) = 1/2 so fair = 5; your ask at 3 invites every buyer in the room to lift a cheap offer.",
+          "B": "Spread width is meaningless if the center is wrong by two points — you would be picked off instantly.",
+          "C": "0 at 10 is off-center and undisciplined; re-center near 5 first, then choose width.",
+          "D": "Tightening around 2.5 ignores the public red-card clue that doubled fair value."
+        },
+        "remediation": [
+          {
+            "id": "mm_int_exp_q4_r1",
+            "question": "Red card shown. P(heart | red) =",
+            "options": ["1/2", "1/4", "1/13", "1/52"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — half of red cards are hearts.",
+              "B": "1/4 is unconditional P(heart).",
+              "C": "1/13 is one rank among suits.",
+              "D": "1/52 is one specific card."
+            }
+          },
+          {
+            "id": "mm_int_exp_q4_r2",
+            "question": "Fair jumps from 2.5 to 5. Your old ask 3 is:",
+            "options": ["Too low — buyers will lift", "Too high", "Perfect", "Crossed"],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — ask far below new fair.",
+              "B": "3 is below 5, not above.",
+              "C": "Center moved — quote is stale.",
+              "D": "Not about crossing."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

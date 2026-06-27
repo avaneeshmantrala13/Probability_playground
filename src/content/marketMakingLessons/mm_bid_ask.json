@@ -3,12 +3,24 @@
   "order": 1,
   "title": "Bid & Ask Fundamentals",
   "subtitle": "Two-sided quotes and who hits whom",
-  "topics": ["Bid price", "Ask price", "Two-sided quoting", "Market maker role"],
+  "topics": [
+    "Bid price",
+    "Ask price",
+    "Two-sided quoting",
+    "Market maker role",
+    "Voice trading",
+    "Hit vs lift",
+    "Quote parsing"
+  ],
   "intro": [
     "A market maker stands ready to buy and sell the same product at two prices. The bid is the highest price at which you will buy; the ask (offer) is the lowest price at which you will sell. Together they form your quote.",
     "When a customer wants to buy, they lift your ask — you sell to them at the higher price. When they want to sell, they hit your bid — you buy from them at the lower price. Your profit on a round-trip comes from the gap between those prices: the spread.",
     "In trading interviews, clarity about direction matters. 'I'm a buyer at 10' means your bid is 10. 'I'm an offer at 12' means your ask is 12. Mixing these up is one of the fastest ways to lose credibility in a mock trading game.",
-    "This lesson builds the vocabulary and mechanics you need before you ever compute fair value or manage inventory."
+    "This lesson builds the vocabulary and mechanics you need before you ever compute fair value or manage inventory.",
+    "In live interview games, quotes are shouted in compressed form: '47 at 49' or 'I'm 47 bid, 49 offer.' The moderator may call 'sold!' when someone hits a bid or 'done!' when someone lifts an offer. Your first job is to parse direction instantly — confusing buy and sell language is the most common early mistake.",
+    "Jane Street-style dice and card games treat the quote as a standing limit order on both sides. You are not negotiating each trade from scratch; you publish prices and let the room choose which side to take. That discipline — always know your bid, always know your ask — is what separates practiced market makers from candidates who only compute fair value.",
+    "In live interview games, quotes are shouted in compressed form: '47 at 49' or 'I'm 47 bid, 49 offer.' The moderator may call 'sold!' when someone hits a bid or 'done!' when someone lifts an offer. Your first job is to parse direction instantly — confusing buy and sell language is the most common early mistake.",
+    "Jane Street-style dice and card games treat the quote as a standing limit order on both sides. You are not negotiating each trade from scratch; you publish prices and let the room choose which side to take. That discipline — always know your bid, always know your ask — is what separates practiced market makers from candidates who only compute fair value."
   ],
   "questions": [
     {
@@ -16,7 +28,12 @@
       "kind": "standard",
       "concept": "bid_definition",
       "question": "You quote 47 at 49 on a dice game. A trader says 'I'll sell you one.' Which price do you pay?",
-      "options": ["47", "48", "49", "50"],
+      "options": [
+        "47",
+        "48",
+        "49",
+        "50"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. When someone sells to you, they hit your bid — the lower number in a 'bid at ask' quote.",
@@ -28,7 +45,12 @@
         {
           "id": "mm_ba_q1_r1",
           "question": "Your quote is 10 at 12. Someone wants to sell. You buy at:",
-          "options": ["10", "11", "12", "13"],
+          "options": [
+            "10",
+            "11",
+            "12",
+            "13"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — sellers hit your bid at 10.",
@@ -40,7 +62,12 @@
         {
           "id": "mm_ba_q1_r2",
           "question": "In '20 at 22', the bid is:",
-          "options": ["20", "21", "22", "42"],
+          "options": [
+            "20",
+            "21",
+            "22",
+            "42"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — the first number is always the bid.",
@@ -56,7 +83,12 @@
       "kind": "standard",
       "concept": "ask_definition",
       "question": "You quote 15 at 17. A customer wants to buy from you. At what price do you sell?",
-      "options": ["15", "16", "17", "18"],
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "15 is your bid — you buy there, not sell.",
@@ -68,7 +100,12 @@
         {
           "id": "mm_ba_q2_r1",
           "question": "Quote: 8 at 10. A buyer lifts you. You sell at:",
-          "options": ["8", "9", "10", "11"],
+          "options": [
+            "8",
+            "9",
+            "10",
+            "11"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "8 is your bid.",
@@ -80,7 +117,12 @@
         {
           "id": "mm_ba_q2_r2",
           "question": "The higher number in '30 at 33' is the price at which you:",
-          "options": ["Buy", "Sell", "Do nothing", "Split the difference"],
+          "options": [
+            "Buy",
+            "Sell",
+            "Do nothing",
+            "Split the difference"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "You buy at the lower (bid) price.",
@@ -113,7 +155,12 @@
         {
           "id": "mm_ba_q3_r1",
           "question": "Which quote is NOT crossed?",
-          "options": ["100 at 98", "99 at 101", "50 at 50", "All are crossed"],
+          "options": [
+            "100 at 98",
+            "99 at 101",
+            "50 at 50",
+            "All are crossed"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Bid exceeds ask — crossed.",
@@ -218,7 +265,12 @@
         {
           "id": "mm_ba_q5_r1",
           "question": "'Offer 40' means you will sell at:",
-          "options": ["40", "Below 40", "Above 40", "Unknown"],
+          "options": [
+            "40",
+            "Below 40",
+            "Above 40",
+            "Unknown"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — offer/ask is your sell price.",
@@ -230,7 +282,12 @@
         {
           "id": "mm_ba_q5_r2",
           "question": "If you are '40 at 42', your spread width is:",
-          "options": ["0", "1", "2", "4"],
+          "options": [
+            "0",
+            "1",
+            "2",
+            "4"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Zero would mean bid equals ask.",
@@ -246,7 +303,12 @@
       "kind": "standard",
       "concept": "round_trip",
       "question": "You buy at your bid of 20 and later sell at your ask of 22 on the same contract (same size). Your gross P&amp;L per unit is:",
-      "options": ["−2", "0", "+2", "+42"],
+      "options": [
+        "−2",
+        "0",
+        "+2",
+        "+42"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "Negative would be selling low and buying high.",
@@ -258,7 +320,12 @@
         {
           "id": "mm_ba_q6_r1",
           "question": "Buy at 100, sell at 103 (same size). Gross P&amp;L per unit:",
-          "options": ["−3", "0", "+3", "+203"],
+          "options": [
+            "−3",
+            "0",
+            "+3",
+            "+203"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Sign reversed.",
@@ -285,6 +352,330 @@
           }
         }
       ]
+    },
+    {
+      "id": "mm_ba_exp_q1",
+      "kind": "standard",
+      "concept": "voice_lift",
+      "question": "A classmate shouts, 'I'm an offer at 63 on the two-dice sum game.' You want to buy one contract. What price do you pay, and what happened to their quote?",
+      "options": [
+        "You pay 63; you lifted their ask",
+        "You pay 63; you hit their bid",
+        "You pay 62; you improved their bid",
+        "You pay 64; you crossed through their offer"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 'Offer at 63' means their ask is 63. When you buy, you lift the ask and trade at 63.",
+        "B": "Hitting a bid is what a seller does. As a buyer you take the offer side, not the bid.",
+        "C": "62 would be below their stated offer; you cannot unilaterally trade there unless they improve.",
+        "D": "64 is above their offer. You trade at the quoted ask unless someone negotiates an improvement."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_exp_q1_r1",
+          "question": "Quote: '40 at 44.' A buyer lifts. Trade price:",
+          "options": [
+            "40",
+            "42",
+            "44",
+            "45"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "40 is the bid — sellers hit there.",
+            "B": "42 is the midpoint, not a quoted price.",
+            "C": "Correct — buyers pay the ask at 44.",
+            "D": "45 is above the offer."
+          }
+        },
+        {
+          "id": "mm_ba_exp_q1_r2",
+          "question": "'I'm 25 bid' means you can sell to them at:",
+          "options": [
+            "25",
+            "26",
+            "24",
+            "50"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — their bid is 25; sellers hit that price.",
+            "B": "26 is above their bid unless they improve.",
+            "C": "24 is below their bid; they won't buy there.",
+            "D": "50 is unrelated to the quote."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_exp_q2",
+      "kind": "standard",
+      "concept": "two_sided_format",
+      "question": "The moderator reads your quote back as 'sixty-two bid, sixty-six offered.' Which pair correctly maps to bid-at-ask notation?",
+      "options": [
+        "66 at 62",
+        "62 at 66",
+        "62 at 64",
+        "64 at 66"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This reverses bid and ask — the bid must be the lower buy price.",
+        "B": "Correct. Bid 62 (you buy there), ask/offer 66 (you sell there). Convention is bid first, ask second.",
+        "C": "64 is not part of the moderator's read-back; the ask was 66.",
+        "D": "64 might be a midpoint but is not the stated two-sided quote."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_exp_q2_r1",
+          "question": "You buy at 18 and sell at 21. Your quote in bid-at-ask form is:",
+          "options": [
+            "21 at 18",
+            "18 at 21",
+            "19.5 at 19.5",
+            "18 at 18"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Bid must be lower than ask — this is crossed.",
+            "B": "Correct — 18 bid, 21 ask.",
+            "C": "Equal bid and ask is not your stated quote.",
+            "D": "Zero spread at 18 is not what you described."
+          }
+        },
+        {
+          "id": "mm_ba_exp_q2_r2",
+          "question": "In '33 at 37', the number 33 is your:",
+          "options": [
+            "Ask (sell price)",
+            "Bid (buy price)",
+            "Spread",
+            "Fair value"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "The ask is the higher number, 37.",
+            "B": "Correct — the first number is always the bid.",
+            "C": "Spread is the difference, 4, not either price.",
+            "D": "Fair value may be near the midpoint but is not labeled as 33."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_exp_q3",
+      "kind": "standard",
+      "concept": "standing_quote",
+      "question": "You quote 51 at 55 on a dice-sum contract and do not withdraw. A trader says 'sold' — meaning they sell to you. Must you buy, and at what price?",
+      "options": [
+        "Yes, at 51",
+        "Yes, at 55",
+        "No, quotes are non-binding in mock games",
+        "Yes, at 53 (the midpoint)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A standing two-sided quote is an invitation; when they sell, they hit your bid at 51 and you are obligated at that price in standard game rules.",
+        "B": "55 is your ask — that is where you sell to buyers, not where you buy from sellers.",
+        "C": "Interview games treat published quotes as firm unless the rules say otherwise; withdrawing after someone trades is bad form and often disallowed.",
+        "D": "Midpoint is not automatically the trade price; you trade at the quoted side they choose."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_exp_q3_r1",
+          "question": "Quote 70 at 74. Buyer says 'I'll take it.' You sell at:",
+          "options": [
+            "70",
+            "72",
+            "74",
+            "76"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "70 is your bid.",
+            "B": "72 is inside the spread but not quoted.",
+            "C": "Correct — buyers lift the ask at 74.",
+            "D": "76 is above your offer."
+          }
+        },
+        {
+          "id": "mm_ba_exp_q3_r2",
+          "question": "After you quote two-sided prices, a seller hits your bid. You:",
+          "options": [
+            "Buy at your bid",
+            "Sell at your ask",
+            "Refuse unless you like the trade",
+            "Split the spread automatically"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — sellers trade against your bid.",
+            "B": "Selling happens when someone lifts your ask.",
+            "C": "Selective refusal breaks market-making norms in mock games.",
+            "D": "Trades occur at bid or ask, not automatically at mid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_exp_q4",
+      "kind": "challenge",
+      "concept": "crossed_quote",
+      "question": "You accidentally shout '58 at 56' on a card-draw game. Before anyone trades, what is wrong and what should you do?",
+      "options": [
+        "Crossed quote (bid > ask); immediately replace with bid below ask",
+        "Valid quote; spread is −2 which means free money",
+        "Only the ask is wrong; keep 58 as bid",
+        "Nothing — first trade sets the true market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bid must be strictly below ask. A crossed quote would let others buy from you at 56 and sell to you at 58 simultaneously — you lose 2 per round-trip. Fix it instantly.",
+        "B": "Negative spread looks like arbitrage against you, not edge for you. It is an error, not a feature.",
+        "C": "Both sides define the quote; the entire statement is invalid until uncrossed.",
+        "D": "You should correct errors before trading; letting others pick off a crossed quote is costly."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_exp_q4_r1",
+          "question": "Which quote is valid (not crossed)?",
+          "options": [
+            "90 at 88",
+            "88 at 90",
+            "90 at 90",
+            "All are valid"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Bid exceeds ask — crossed.",
+            "B": "Correct — bid below ask.",
+            "C": "Zero spread is unusual but not crossed; 88 at 90 is the clearest valid two-sided market.",
+            "D": "90 at 88 is crossed."
+          }
+        },
+        {
+          "id": "mm_ba_exp_q4_r2",
+          "question": "Bid 45, ask 42. This quote is:",
+          "options": [
+            "Crossed",
+            "Tight",
+            "Wide",
+            "Fair"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — bid above ask is crossed.",
+            "B": "Tight refers to small spread, not inverted quotes.",
+            "C": "Wide also assumes bid < ask.",
+            "D": "Fair describes value, not quote validity."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "mm_ba_p1",
+      "question": "Quote 20 at 22. Your bid is:",
+      "options": [
+        "20",
+        "21",
+        "22",
+        "42"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — first number is bid.",
+        "B": "Midpoint.",
+        "C": "Ask.",
+        "D": "Sum."
+      }
+    },
+    {
+      "id": "mm_ba_p2",
+      "question": "Customer buys from you. They pay:",
+      "options": [
+        "Your bid",
+        "Your ask",
+        "Midpoint",
+        "Either"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bid is where you buy.",
+        "B": "Correct — buyers lift the ask.",
+        "C": "Not unless agreed.",
+        "D": "Direction matters."
+      }
+    },
+    {
+      "id": "mm_ba_p3",
+      "question": "Market maker earns on round-trips mainly from:",
+      "options": [
+        "Spread",
+        "Guessing direction",
+        "Insider info",
+        "Wider inventory only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Not pure directional bets.",
+        "C": "Illegal/unethical.",
+        "D": "Inventory is risk, not primary edge source."
+      }
+    },
+    {
+      "id": "mm_ba_p4",
+      "question": "10 at 12 — spread width?",
+      "options": [
+        "1",
+        "2",
+        "10",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Half gap.",
+        "B": "Correct — 12−10.",
+        "C": "Bid.",
+        "D": "Ask."
+      }
+    },
+    {
+      "id": "mm_ba_p5",
+      "question": "You sell to a buyer at your:",
+      "options": [
+        "Bid",
+        "Ask",
+        "Bid minus 1",
+        "Ask plus 1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bid is purchase price for you.",
+        "B": "Correct.",
+        "C": "Not standard.",
+        "D": "Not unless improving."
+      }
+    },
+    {
+      "id": "mm_ba_p6",
+      "question": "'Hit the bid' means the customer:",
+      "options": [
+        "Buys from you",
+        "Sells to you",
+        "Cancels",
+        "Raises"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That lifts the ask.",
+        "B": "Correct — seller hits your bid.",
+        "C": "No trade.",
+        "D": "Different action."
+      }
     }
   ]
 }

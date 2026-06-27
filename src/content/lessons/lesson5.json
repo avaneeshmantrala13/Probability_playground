@@ -3,37 +3,81 @@
   "order": 5,
   "title": "Conditional Probability Foundations",
   "subtitle": "Restricted sample spaces and basic conditional probability",
-  "topics": ["Restricted sample spaces", "Basic conditional probability"],
+  "topics": [
+    "Restricted sample spaces",
+    "Basic conditional probability"
+  ],
   "intro": [
-    "Conditional probability is the chance of an event given that you already know something else has happened. That extra information shrinks the set of possibilities to a restricted sample space \u2014 for example, once you know a card is red, only 26 cards remain in play.",
-    "You'll work with bags of marbles and a deck of cards, paying close attention to whether a draw is made with replacement (probabilities stay the same) or without replacement (the totals shrink, so later probabilities change). For two draws without replacement, multiply the first probability by the updated second probability."
+    "Conditional probability is the chance of an event given that you already know something else has happened. That extra information shrinks the set of possibilities to a restricted sample space — for example, once you know a card is red, only 26 cards remain in play.",
+    "You'll work with bags of marbles and a deck of cards, paying close attention to whether a draw is made with replacement (probabilities stay the same) or without replacement (the totals shrink, so later probabilities change). For two draws without replacement, multiply the first probability by the updated second probability.",
+    "Conditional probability is where intuition fails fastest in interviews: the sample space shrinks, and every count must be renormalized within that slice. Brainstellar-style card and urn puzzles exploit whether you treat draws as with or without replacement. Stat 110's mantra—P(A|B) = P(A ∩ B)/P(B)—sounds trivial until a problem hides B inside a story about 'given that the card is red' or 'knowing the first flip was tails.'",
+    "Conditional probability is where intuition fails fastest in interviews: the sample space shrinks, and every count must be renormalized within that slice. Brainstellar-style card and urn puzzles exploit whether you treat draws as with or without replacement. Stat 110's mantra—P(A|B) = P(A ∩ B)/P(B)—sounds trivial until a problem hides B inside a story about 'given that the card is red' or 'knowing the first flip was tails.'"
   ],
   "questions": [
     {
       "id": "l5_q1",
       "kind": "standard",
       "concept": "conditioning_restricts_outcomes",
-      "simulation": { "type": "card_marble", "mode": "cards" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "cards"
+      },
       "question": "You draw one card from a standard deck and are told it is a diamond. Given this information, what is the probability that the card is red?",
-      "options": ["1", "1/2", "1/4", "13/52"],
+      "options": [
+        "1",
+        "1/2",
+        "1/4",
+        "13/52"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q1_r1",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "You draw a card and are told it is a heart. Given that information, the probability the card is red is:",
-          "options": ["1", "1/2", "1/4", "0"],
+          "options": [
+            "1",
+            "1/2",
+            "1/4",
+            "0"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q1_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag holds only red and blue marbles. You are told the marble you drew is red. Given that, the probability it is blue is:",
-          "options": ["0", "1/2", "1", "1/4"],
+          "options": [
+            "0",
+            "1/2",
+            "1",
+            "1/4"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -41,27 +85,66 @@
       "id": "l5_q2",
       "kind": "standard",
       "concept": "restricted_color",
-      "simulation": { "type": "card_marble", "mode": "cards" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "cards"
+      },
       "question": "You draw a card from a standard deck and are told it is red. Given that, what is the probability it is a heart?",
-      "options": ["1/2", "1/4", "1/13", "13/52"],
+      "options": [
+        "1/2",
+        "1/4",
+        "1/13",
+        "13/52"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q2_r1",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "Red cards are hearts and diamonds (26 total, 13 of each). Given a card is red, the probability it is a diamond is:",
-          "options": ["1/2", "1/4", "1/13", "1/26"],
+          "options": [
+            "1/2",
+            "1/4",
+            "1/13",
+            "1/26"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q2_r2",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "Given a card is black (clubs or spades, 26 cards), the probability it is a club is:",
-          "options": ["1/2", "1/4", "1/13", "13/52"],
+          "options": [
+            "1/2",
+            "1/4",
+            "1/13",
+            "13/52"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -69,27 +152,66 @@
       "id": "l5_q3",
       "kind": "standard",
       "concept": "without_replacement_basic",
-      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
       "question": "A bag has 2 red and 2 blue marbles. You draw one red marble and do NOT put it back. Given that, what is the probability the next draw is red?",
-      "options": ["1/3", "1/2", "1/4", "2/4"],
+      "options": [
+        "1/3",
+        "1/2",
+        "1/4",
+        "2/4"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q3_r1",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "After you remove one red marble from a bag of 2 red and 2 blue, how many marbles are left in total?",
-          "options": ["3", "4", "2", "1"],
+          "options": [
+            "3",
+            "4",
+            "2",
+            "1"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q3_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag has 3 red and 1 blue. You draw a red and keep it out. The probability the next draw is red is now:",
-          "options": ["2/3", "3/4", "1/2", "3/3"],
+          "options": [
+            "2/3",
+            "3/4",
+            "1/2",
+            "3/3"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -97,27 +219,66 @@
       "id": "l5_q4",
       "kind": "standard",
       "concept": "with_replacement",
-      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
       "question": "A bag has 5 red and 5 blue marbles. You draw a red one and put it BACK. What is the probability the next draw is red?",
-      "options": ["1/2", "4/9", "5/9", "0"],
+      "options": [
+        "1/2",
+        "4/9",
+        "5/9",
+        "0"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q4_r1",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "When you replace a marble after drawing it, the probabilities for the next draw are:",
-          "options": ["unchanged", "always smaller", "always larger", "zero"],
+          "options": [
+            "unchanged",
+            "always smaller",
+            "always larger",
+            "zero"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q4_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag has 3 red and 7 blue. Drawing WITH replacement, the chance of red on any draw is always:",
-          "options": ["3/10", "3/9", "2/9", "7/10"],
+          "options": [
+            "3/10",
+            "3/9",
+            "2/9",
+            "7/10"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -125,27 +286,66 @@
       "id": "l5_q5",
       "kind": "standard",
       "concept": "without_replacement_single",
-      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
       "question": "From a bag of 5 red, 3 blue, 2 green, you draw a green marble and do NOT put it back. What is the probability the next draw is red?",
-      "options": ["1/2", "5/10", "5/9", "4/9"],
+      "options": [
+        "1/2",
+        "5/10",
+        "5/9",
+        "4/9"
+      ],
       "correctAnswer": 2,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q5_r1",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag has 4 red and 6 blue (10 total). You draw a blue and keep it out. The probability the next draw is red is now:",
-          "options": ["4/10", "4/9", "3/9", "6/9"],
+          "options": [
+            "4/10",
+            "4/9",
+            "3/9",
+            "6/9"
+          ],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q5_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag has 6 red and 4 blue. You draw a red and keep it out. The probability the next draw is red is now:",
-          "options": ["6/10", "5/9", "6/9", "5/10"],
+          "options": [
+            "6/10",
+            "5/9",
+            "6/9",
+            "5/10"
+          ],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -153,27 +353,66 @@
       "id": "l5_q6",
       "kind": "standard",
       "concept": "restricted_face_card",
-      "simulation": { "type": "card_marble", "mode": "cards" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "cards"
+      },
       "question": "You are told the drawn card is a face card (Jack, Queen, or King = 12 cards). What is the probability it is a King?",
-      "options": ["4/52", "1/13", "1/3", "1/4"],
+      "options": [
+        "4/52",
+        "1/13",
+        "1/3",
+        "1/4"
+      ],
       "correctAnswer": 2,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q6_r1",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "There are 12 face cards and 4 are Queens. Given a face card, the probability it is a Queen is:",
-          "options": ["4/52", "1/3", "1/13", "1/12"],
+          "options": [
+            "4/52",
+            "1/3",
+            "1/13",
+            "1/12"
+          ],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q6_r2",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "Given a card is a face card (12 cards), the probability it is a Jack (4 of them) is:",
-          "options": ["1/4", "1/3", "1/13", "4/52"],
+          "options": [
+            "1/4",
+            "1/3",
+            "1/13",
+            "4/52"
+          ],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -181,27 +420,66 @@
       "id": "l5_q7",
       "kind": "standard",
       "concept": "sequential_card_given_first",
-      "simulation": { "type": "card_marble", "mode": "cards" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "cards"
+      },
       "question": "You draw two cards from a standard deck without replacement. Given that the first card was an Ace, what is the probability the second card is also an Ace?",
-      "options": ["4/52", "3/51", "4/51", "2/51"],
+      "options": [
+        "4/52",
+        "3/51",
+        "4/51",
+        "2/51"
+      ],
       "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q7_r1",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "One Ace has been drawn and kept out, so 3 Aces remain among 51 cards. The probability the next card is an Ace is:",
-          "options": ["3/51", "4/52", "3/52", "4/51"],
+          "options": [
+            "3/51",
+            "4/52",
+            "3/52",
+            "4/51"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q7_r2",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "You draw two cards without replacement. Given the first was a heart, 12 hearts remain among 51 cards. The probability the second is also a heart is:",
-          "options": ["12/51", "13/52", "13/51", "12/52"],
+          "options": [
+            "12/51",
+            "13/52",
+            "13/51",
+            "12/52"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -209,27 +487,66 @@
       "id": "l5_q8",
       "kind": "standard",
       "concept": "restricted_marble_exclusion",
-      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
       "question": "A bag has 5 red, 3 blue, and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
-      "options": ["5/8", "5/10", "1/2", "5/9"],
+      "options": [
+        "5/8",
+        "5/10",
+        "1/2",
+        "5/9"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q8_r1",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "If a marble is NOT green, only 8 marbles remain possible (5 red, 3 blue). The probability it is blue is:",
-          "options": ["3/8", "3/10", "1/3", "3/9"],
+          "options": [
+            "3/8",
+            "3/10",
+            "1/3",
+            "3/9"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q8_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag has 4 red, 4 blue, 2 green. Given the marble drawn is NOT green (8 remain), the probability it is red is:",
-          "options": ["1/2", "4/10", "4/9", "1/4"],
+          "options": [
+            "1/2",
+            "4/10",
+            "4/9",
+            "1/4"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -237,27 +554,66 @@
       "id": "l5_q9",
       "kind": "challenge",
       "concept": "both_red_without_replacement",
-      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
       "question": "A bag has 3 red and 2 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
-      "options": ["9/25", "3/10", "6/10", "1/2"],
+      "options": [
+        "9/25",
+        "3/10",
+        "6/10",
+        "1/2"
+      ],
       "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q9_r1",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "P(first red) = 3/5 and then P(second red) = 2/4. Multiplying these gives:",
-          "options": ["3/10", "5/9", "6/9", "1/2"],
+          "options": [
+            "3/10",
+            "5/9",
+            "6/9",
+            "1/2"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q9_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag has 4 red and 2 blue. Drawing two without replacement, P(both red) = 4/6 x 3/5 =",
-          "options": ["2/5", "1/2", "1/3", "16/36"],
+          "options": [
+            "2/5",
+            "1/2",
+            "1/3",
+            "16/36"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         }
       ]
     },
@@ -265,27 +621,184 @@
       "id": "l5_q10",
       "kind": "challenge",
       "concept": "at_least_one_red_without_replacement",
-      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
       "question": "A bag has 3 red and 2 blue marbles. You draw two without replacement. What is the probability of getting at least one red? (Hint: subtract the chance of both blue from 1.)",
-      "options": ["1/10", "9/10", "2/5", "3/5"],
+      "options": [
+        "1/10",
+        "9/10",
+        "2/5",
+        "3/5"
+      ],
       "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "",
+        "B": "",
+        "C": "",
+        "D": ""
+      },
       "remediation": [
         {
           "id": "l5_q10_r1",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "For the same bag (3 red, 2 blue), the probability that both draws are blue is 2/5 x 1/4 =",
-          "options": ["1/10", "2/9", "4/25", "1/5"],
+          "options": [
+            "1/10",
+            "2/9",
+            "4/25",
+            "1/5"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
         },
         {
           "id": "l5_q10_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "If the probability that both marbles are blue is 1/10, then P(at least one red) = 1 - 1/10 =",
-          "options": ["1/10", "9/10", "1/2", "3/5"],
+          "options": [
+            "1/10",
+            "9/10",
+            "1/2",
+            "3/5"
+          ],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "l5_q11",
+      "kind": "challenge",
+      "concept": "conditional_cards",
+      "simulation": {
+        "type": "card_marble",
+        "mode": "cards"
+      },
+      "question": "Two cards are drawn without replacement from a standard 52-card deck. Given that the first card is a heart, what is P(both cards are hearts)?",
+      "options": [
+        "12/51",
+        "1/4",
+        "13/52",
+        "1/17"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Given the first card is a heart, 12 hearts remain among 51 cards, so P(second is heart | first is heart) = 12/51 = 4/17.",
+        "B": "1/4 is P(heart) on a single draw, ignoring that one heart is already gone.",
+        "C": "13/52 equals 1/4, the unconditional single-draw heart probability.",
+        "D": "1/17 equals 3/51 and does not match the 12 remaining hearts out of 51 cards."
+      },
+      "remediation": [
+        {
+          "id": "l5_q11_r1",
+          "question": "One card is drawn from a deck. Given it is red, P(it is a diamond) equals:",
+          "options": [
+            "1/2",
+            "1/4",
+            "13/52",
+            "0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Among 26 red cards, 13 are diamonds: 13/26 = 1/2.",
+            "B": "1/4 is P(diamond) unconditionally, before conditioning on red.",
+            "C": "13/52 equals 1/4, the unconditional diamond probability.",
+            "D": "0 would mean no red card is a diamond, which is false."
+          }
+        },
+        {
+          "id": "l5_q11_r2",
+          "question": "Drawing without replacement means the second draw has:",
+          "options": [
+            "One fewer card in the deck than the first draw",
+            "The same deck size as the first draw",
+            "Independent probabilities from the first draw",
+            "Probability 1/2 always"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The deck shrinks; later probabilities depend on earlier outcomes.",
+            "B": "With replacement keeps the deck size fixed; without replacement does not.",
+            "C": "Without replacement, draws are dependent, not independent.",
+            "D": "Probabilities depend on the composition remaining, not a fixed 1/2."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l5_q12",
+      "kind": "challenge",
+      "concept": "conditional_urn",
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
+      "question": "An urn holds 4 red and 6 blue marbles. Two marbles are drawn without replacement. Given that at least one is red, what is P(both are red)?",
+      "options": [
+        "1/5",
+        "2/15",
+        "4/15",
+        "2/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both red) = C(4,2)/C(10,2) = 6/45 = 2/15. P(at least one red) = 1 − C(6,2)/45 = 1 − 15/45 = 30/45 = 2/3. Conditional = (2/15)/(2/3) = 1/5.",
+        "B": "2/15 is P(both red) unconditionally, not conditioned on at least one red.",
+        "C": "4/15 might count ordered pairs incorrectly.",
+        "D": "2/9 could come from an incorrect restricted sample space."
+      },
+      "remediation": [
+        {
+          "id": "l5_q12_r1",
+          "question": "P(A|B) equals:",
+          "options": [
+            "P(A ∩ B) / P(B)",
+            "P(A) / P(B)",
+            "P(B) / P(A)",
+            "P(A) × P(B)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Restrict to outcomes where B occurs and measure the fraction also in A.",
+            "B": "P(A)/P(B) ignores the joint event in the numerator.",
+            "C": "P(B)/P(A) reverses the ratio incorrectly.",
+            "D": "P(A)P(B) is joint probability under independence, not conditional probability."
+          }
+        },
+        {
+          "id": "l5_q12_r2",
+          "question": "Using complements, P(at least one red) in the urn problem equals:",
+          "options": [
+            "1 − P(both blue)",
+            "P(both red)",
+            "P(first red)",
+            "2 × P(red)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 'At least one red' is the complement of 'both blue.'",
+            "B": "P(both red) is a subset of 'at least one red,' not the whole event.",
+            "C": "The first draw alone does not capture both draws.",
+            "D": "Doubling a single-draw probability has no valid meaning here."
+          }
         }
       ]
     }

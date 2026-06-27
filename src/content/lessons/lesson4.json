@@ -12,14 +12,18 @@
   "intro": [
     "A random variable is a numerical summary of a random outcome. Instead of tracking every detail of an experiment, you focus on a number like 'how many sixes' or 'total profit.' For discrete random variables, a probability mass function (PMF) lists P(X = k) for each possible value k.",
     "The expected value E[X] is the probability-weighted average of X — your long-run center of mass. The most powerful fact for quant interviews is linearity of expectation: E[aX + bY] = aE[X] + bE[Y] always, even when X and Y are dependent. This lets you break messy problems into simple pieces.",
-    "Indicator variables are the secret weapon. Let I_A = 1 if event A occurs and 0 otherwise. Then E[I_A] = P(A). By writing counts as sums of indicators, you can compute expectations without finding the full distribution — a technique that shows up constantly in interview problems about cards, dice, and trading scenarios."
+    "Indicator variables are the secret weapon. Let I_A = 1 if event A occurs and 0 otherwise. Then E[I_A] = P(A). By writing counts as sums of indicators, you can compute expectations without finding the full distribution — a technique that shows up constantly in interview problems about cards, dice, and trading scenarios.",
+    "Random variables turn stories into numbers you can average, and linearity of expectation is the most under-rated interview weapon: it holds even when variables are dependent. Stat 110 drills this through indicator tricks and named distributions—Geometric waiting times, Binomial counts, fixed-point expectations in permutations. When a Green Book puzzle asks 'how many on average,' resist building the full PMF; decompose into indicators or apply E[aX + bY] = aE[X] + bE[Y] first.",
+    "Random variables turn stories into numbers you can average, and linearity of expectation is the most under-rated interview weapon: it holds even when variables are dependent. Stat 110 drills this through indicator tricks and named distributions—Geometric waiting times, Binomial counts, fixed-point expectations in permutations. When a Green Book puzzle asks 'how many on average,' resist building the full PMF; decompose into indicators or apply E[aX + bY] = aE[X] + bE[Y] first."
   ],
   "questions": [
     {
       "id": "l4_q1",
       "kind": "standard",
       "concept": "discrete_rv_definition",
-      "simulation": { "type": "dice" },
+      "simulation": {
+        "type": "dice"
+      },
       "question": "You roll a fair die and let X be the number showing. Which statement best describes X?",
       "options": [
         "X is a discrete random variable with possible values 1, 2, 3, 4, 5, 6",
@@ -37,7 +41,9 @@
       "remediation": [
         {
           "id": "l4_q1_r1",
-          "simulation": { "type": "coin_flip" },
+          "simulation": {
+            "type": "coin_flip"
+          },
           "question": "Let Y = 1 if a coin flip is heads and Y = 0 if tails. Y is:",
           "options": [
             "a discrete random variable",
@@ -55,7 +61,9 @@
         },
         {
           "id": "l4_q1_r2",
-          "simulation": { "type": "two_dice" },
+          "simulation": {
+            "type": "two_dice"
+          },
           "question": "Let S be the sum of two dice. S is a discrete random variable because:",
           "options": [
             "S takes integer values from 2 to 12 with a PMF",
@@ -77,7 +85,9 @@
       "id": "l4_q2",
       "kind": "standard",
       "concept": "pmf_validity",
-      "simulation": { "type": "distribution_builder" },
+      "simulation": {
+        "type": "distribution_builder"
+      },
       "question": "Which set of probabilities could be the PMF of a discrete random variable X taking values 0, 1, 2?",
       "options": [
         "P(0)=0.3, P(1)=0.5, P(2)=0.2",
@@ -113,7 +123,12 @@
         {
           "id": "l4_q2_r2",
           "question": "If X takes values 1 and 2 with P(X=1) = p, then P(X=2) must equal:",
-          "options": ["1 − p", "p", "1 + p", "p/2"],
+          "options": [
+            "1 − p",
+            "p",
+            "1 + p",
+            "p/2"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. The two probabilities must sum to 1.",
@@ -129,7 +144,12 @@
       "kind": "standard",
       "concept": "expected_value_compute",
       "question": "A discrete random variable X has P(X=1)=0.3, P(X=2)=0.5, P(X=3)=0.2. What is E[X]?",
-      "options": ["1.9", "2.0", "1.5", "2.5"],
+      "options": [
+        "1.9",
+        "2.0",
+        "1.5",
+        "2.5"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. E[X] = (1)(0.3) + (2)(0.5) + (3)(0.2) = 0.3 + 1.0 + 0.6 = 1.9.",
@@ -141,7 +161,12 @@
         {
           "id": "l4_q3_r1",
           "question": "If P(X=0)=0.6 and P(X=10)=0.4, then E[X] equals:",
-          "options": ["4", "10", "6", "0.4"],
+          "options": [
+            "4",
+            "10",
+            "6",
+            "0.4"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. (0)(0.6) + (10)(0.4) = 4.",
@@ -191,7 +216,12 @@
         {
           "id": "l4_q4_r1",
           "question": "If E[X] = 3 and E[Y] = −1, then E[X + Y] equals:",
-          "options": ["2", "4", "−3", "3"],
+          "options": [
+            "2",
+            "4",
+            "−3",
+            "3"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. 3 + (−1) = 2 by linearity.",
@@ -224,7 +254,12 @@
       "kind": "standard",
       "concept": "linearity_scaling",
       "question": "If E[X] = 4, what is E[3X − 2]?",
-      "options": ["10", "12", "6", "4"],
+      "options": [
+        "10",
+        "12",
+        "6",
+        "4"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. E[3X − 2] = 3E[X] − 2 = 12 − 2 = 10.",
@@ -236,7 +271,12 @@
         {
           "id": "l4_q5_r1",
           "question": "If E[X] = 7, then E[−2X + 5] equals:",
-          "options": ["−9", "9", "19", "−14"],
+          "options": [
+            "−9",
+            "9",
+            "19",
+            "−14"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. (−2)(7) + 5 = −14 + 5 = −9.",
@@ -248,7 +288,12 @@
         {
           "id": "l4_q5_r2",
           "question": "For constants a and b, E[aX + b] equals:",
-          "options": ["aE[X] + b", "E[X] + b", "aE[X]", "abE[X]"],
+          "options": [
+            "aE[X] + b",
+            "E[X] + b",
+            "aE[X]",
+            "abE[X]"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. Constants pull out of expectation and shifts add directly.",
@@ -281,7 +326,12 @@
         {
           "id": "l4_q6_r1",
           "question": "If P(A) = 0.35, then E[I_A] equals:",
-          "options": ["0.35", "0.65", "1", "0"],
+          "options": [
+            "0.35",
+            "0.65",
+            "1",
+            "0"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. The indicator expectation equals the event probability.",
@@ -293,7 +343,12 @@
         {
           "id": "l4_q6_r2",
           "question": "The indicator I_A takes the value 1 with probability:",
-          "options": ["P(A)", "P(Aᶜ)", "E[X]", "1 always"],
+          "options": [
+            "P(A)",
+            "P(Aᶜ)",
+            "E[X]",
+            "1 always"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. By definition, I_A = 1 exactly when A happens.",
@@ -308,9 +363,16 @@
       "id": "l4_q7",
       "kind": "standard",
       "concept": "indicator_counting",
-      "simulation": { "type": "dice" },
+      "simulation": {
+        "type": "dice"
+      },
       "question": "You roll a fair die 4 times. Let N be the total number of sixes. Writing N as a sum of indicators, E[N] equals:",
-      "options": ["1/6", "2/3", "1/3", "4"],
+      "options": [
+        "1/6",
+        "2/3",
+        "1/3",
+        "4"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "1/6 is the expected count from a single roll, not four.",
@@ -321,9 +383,16 @@
       "remediation": [
         {
           "id": "l4_q7_r1",
-          "simulation": { "type": "coin_flip" },
+          "simulation": {
+            "type": "coin_flip"
+          },
           "question": "Flip a fair coin 10 times. Let H be the number of heads. E[H] equals:",
-          "options": ["5", "10", "0.5", "2.5"],
+          "options": [
+            "5",
+            "10",
+            "0.5",
+            "2.5"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. Each flip contributes E[I] = 0.5; 10 × 0.5 = 5.",
@@ -334,9 +403,16 @@
         },
         {
           "id": "l4_q7_r2",
-          "simulation": { "type": "dice" },
+          "simulation": {
+            "type": "dice"
+          },
           "question": "Roll a fair die once. Let I be the indicator of rolling a 6. E[I] equals:",
-          "options": ["1/6", "1", "0", "6"],
+          "options": [
+            "1/6",
+            "1",
+            "0",
+            "6"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. E[I] = P(6) = 1/6.",
@@ -352,7 +428,12 @@
       "kind": "standard",
       "concept": "linearity_with_dependence",
       "question": "Let X be the result of one fair die roll and Y = X (same roll). X and Y are perfectly dependent, yet E[X + Y] equals:",
-      "options": ["2E[X]", "E[X]²", "E[X]", "2"],
+      "options": [
+        "2E[X]",
+        "E[X]²",
+        "E[X]",
+        "2"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. E[X + Y] = E[X] + E[Y] = 3.5 + 3.5 = 7 = 2E[X], even though X = Y.",
@@ -364,7 +445,12 @@
         {
           "id": "l4_q8_r1",
           "question": "If X and Y have the same distribution and E[X] = μ, then E[X + Y] equals:",
-          "options": ["2μ", "μ", "μ²", "0"],
+          "options": [
+            "2μ",
+            "μ",
+            "μ²",
+            "0"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. E[X + Y] = E[X] + E[Y] = μ + μ = 2μ regardless of dependence.",
@@ -397,7 +483,12 @@
       "kind": "challenge",
       "concept": "indicator_fixed_points",
       "question": "A random permutation of {1, 2, …, n} is equally likely. Let F be the number of fixed points (positions where the value equals the index). Using indicators, E[F] equals:",
-      "options": ["1", "n", "1/n", "n/2"],
+      "options": [
+        "1",
+        "n",
+        "1/n",
+        "n/2"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. F = Σ I_j with E[I_j] = P(position j fixed) = 1/n; sum over n positions gives n × (1/n) = 1.",
@@ -409,7 +500,12 @@
         {
           "id": "l4_q9_r1",
           "question": "In the fixed-point problem, P(position 1 is fixed in a random permutation of n items) equals:",
-          "options": ["1/n", "1", "1/2", "0"],
+          "options": [
+            "1/n",
+            "1",
+            "1/2",
+            "0"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. Exactly one of n items lands in position 1.",
@@ -421,7 +517,12 @@
         {
           "id": "l4_q9_r2",
           "question": "If N = I₁ + I₂ + … + I_k where each E[I_j] = p, then E[N] equals:",
-          "options": ["kp", "p", "p/k", "k + p"],
+          "options": [
+            "kp",
+            "p",
+            "p/k",
+            "k + p"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. Linearity gives the sum of individual expectations: k × p.",
@@ -437,7 +538,12 @@
       "kind": "challenge",
       "concept": "quant_geometric_expectation",
       "question": "Interview classic: flip a fair coin until the first heads. Let T be the number of flips (including the first heads). E[T] equals:",
-      "options": ["1", "2", "4", "0.5"],
+      "options": [
+        "1",
+        "2",
+        "4",
+        "0.5"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "1 would mean heads always on the first flip.",
@@ -449,7 +555,12 @@
         {
           "id": "l4_q10_r1",
           "question": "For a Geometric(p) waiting-time variable W (counting trials until first success), E[W] equals:",
-          "options": ["1/p", "p", "1 − p", "p²"],
+          "options": [
+            "1/p",
+            "p",
+            "1 − p",
+            "p²"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. The expected waiting time scales inversely with success probability.",
@@ -461,13 +572,128 @@
         {
           "id": "l4_q10_r2",
           "question": "With p = 1/4, the expected number of trials until the first success is:",
-          "options": ["4", "1/4", "1", "2"],
+          "options": [
+            "4",
+            "1/4",
+            "1",
+            "2"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. E[W] = 1/(1/4) = 4.",
             "B": "1/4 is p, not 1/p.",
             "C": "1 would correspond to p = 1 (certain success).",
             "D": "2 would correspond to p = 1/2."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l4_q11",
+      "kind": "challenge",
+      "concept": "geometric_waiting_time",
+      "question": "A biased coin has P(heads) = 1/5. You flip until the first heads (counting the successful flip). Let T be the number of flips. What is E[T]?",
+      "options": [
+        "5",
+        "1/5",
+        "4",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. T is Geometric(p = 1/5), so E[T] = 1/p = 5.",
+        "B": "1/5 is the success probability p, not the expected waiting time.",
+        "C": "4 might confuse E[T] with the expected number of failures before success ( (1−p)/p ).",
+        "D": "1 would mean success is guaranteed on the first flip."
+      },
+      "remediation": [
+        {
+          "id": "l4_q11_r1",
+          "question": "For a Geometric(p) waiting-time variable W (trials until first success), E[W] equals:",
+          "options": [
+            "1/p",
+            "p",
+            "1 − p",
+            "p²"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Expected waiting time scales inversely with success probability.",
+            "B": "p is the per-trial success probability, not the mean wait.",
+            "C": "1 − p is the per-trial failure probability.",
+            "D": "p² has no standard role as the mean of W."
+          }
+        },
+        {
+          "id": "l4_q11_r2",
+          "question": "With p = 1/3, the expected number of flips until the first heads is:",
+          "options": [
+            "3",
+            "1/3",
+            "2",
+            "6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. E[W] = 1/(1/3) = 3.",
+            "B": "1/3 is p itself, not the expectation.",
+            "C": "2 might come from 1/p − 1, the expected failures only.",
+            "D": "6 has no basis in the geometric mean formula."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l4_q12",
+      "kind": "challenge",
+      "concept": "binomial_expectation",
+      "question": "A trader makes 8 independent bets, each winning with probability 0.55. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "4.4",
+        "8",
+        "0.55",
+        "3.2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. W ~ Binomial(n=8, p=0.55), so E[W] = np = 8(0.55) = 4.4.",
+        "B": "8 is the number of trials, not the expected count of successes.",
+        "C": "0.55 is p, the per-trial win probability, not E[W].",
+        "D": "3.2 equals n(1−p) = 8(0.45), the expected number of losses, not wins."
+      },
+      "remediation": [
+        {
+          "id": "l4_q12_r1",
+          "question": "If X ~ Binomial(n, p), then E[X] equals:",
+          "options": [
+            "np",
+            "np(1−p)",
+            "p/n",
+            "n/p"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Each of n independent Bernoulli(p) trials contributes p in expectation.",
+            "B": "np(1−p) is Var(X) for a binomial, not the mean.",
+            "C": "p/n has no standard interpretation as a binomial mean.",
+            "D": "n/p resembles a geometric mean, not a binomial count."
+          }
+        },
+        {
+          "id": "l4_q12_r2",
+          "question": "Ten fair coin flips. Expected number of heads equals:",
+          "options": [
+            "5",
+            "10",
+            "0.5",
+            "2.5"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. E = np = 10(0.5) = 5.",
+            "B": "10 is the number of flips, not the expected head count.",
+            "C": "0.5 is p for a fair coin, not E[X].",
+            "D": "2.5 might halve the correct answer incorrectly."
           }
         }
       ]
@@ -496,7 +722,12 @@
       "id": "l4_pq2",
       "concept": "expected_value_compute",
       "question": "X takes values 10 and 20 with equal probability. E[X] equals:",
-      "options": ["15", "10", "20", "30"],
+      "options": [
+        "15",
+        "10",
+        "20",
+        "30"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. (10 + 20)/2 = 15 with equal weights 0.5 each.",
@@ -509,7 +740,12 @@
       "id": "l4_pq3",
       "concept": "linearity_of_expectation",
       "question": "If E[X]=2 and E[Y]=5, then E[X+Y] equals:",
-      "options": ["7", "10", "3", "2.5"],
+      "options": [
+        "7",
+        "10",
+        "3",
+        "2.5"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. 2 + 5 = 7 by linearity.",
@@ -522,7 +758,12 @@
       "id": "l4_pq4",
       "concept": "indicator_definition",
       "question": "If P(A)=0.2, then E[I_A] equals:",
-      "options": ["0.2", "0.8", "1", "0"],
+      "options": [
+        "0.2",
+        "0.8",
+        "1",
+        "0"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. Indicator expectation equals event probability.",
@@ -535,7 +776,12 @@
       "id": "l4_pq5",
       "concept": "linearity_scaling",
       "question": "If E[X]=6, then E[2X+3] equals:",
-      "options": ["15", "12", "9", "6"],
+      "options": [
+        "15",
+        "12",
+        "9",
+        "6"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. 2(6)+3 = 15.",
@@ -547,9 +793,16 @@
     {
       "id": "l4_pq6",
       "concept": "indicator_counting",
-      "simulation": { "type": "dice" },
+      "simulation": {
+        "type": "dice"
+      },
       "question": "Roll a fair die 3 times. Expected number of sixes equals:",
-      "options": ["1/2", "1/6", "3", "18"],
+      "options": [
+        "1/2",
+        "1/6",
+        "3",
+        "18"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. 3 × (1/6) = 3/6 = 1/2.",
@@ -580,7 +833,12 @@
       "id": "l4_pq8",
       "concept": "quant_geometric_expectation",
       "question": "Flip a coin with P(heads)=0.25 until the first heads. Expected number of flips equals:",
-      "options": ["4", "0.25", "1", "2"],
+      "options": [
+        "4",
+        "0.25",
+        "1",
+        "2"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. E[T] = 1/0.25 = 4.",

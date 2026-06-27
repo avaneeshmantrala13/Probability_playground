@@ -3,12 +3,24 @@
   "order": 3,
   "title": "Fair Value & Expected Value",
   "subtitle": "Centering quotes on the true mean",
-  "topics": ["Expected value", "Fair value", "Dice sums", "Coin products"],
+  "topics": [
+    "Expected value",
+    "Fair value",
+    "Dice sums",
+    "Coin products",
+    "Dice products",
+    "Card payoffs",
+    "EV anchoring"
+  ],
   "intro": [
     "Fair value is the price at which the contract is a fair bet — neither side has an edge. For a simple payout game, fair value is usually the expected value (EV): the probability-weighted average outcome.",
     "Market makers center their quotes around fair value. If fair is 7 on a dice sum game, you might quote 6 at 8 with spread 2. If you center too high or low, informed flow will buy or sell against you until you adjust.",
     "Interview puzzles love clean EV calculations: expected sum of two dice is 7; a fair coin pays 1 with probability 1/2 so EV is 0.5 per flip for a $1-on-heads contract; drawing one card from a shuffled deck, the expected rank depends on the payoff rule.",
-    "This lesson builds the arithmetic habit of computing fair value before you ever state a bid or ask."
+    "This lesson builds the arithmetic habit of computing fair value before you ever state a bid or ask.",
+    "Before you widen or skew, you need a number to anchor on. In dice-sum games fair is 7; in 'product of two fair dice' games fair is 12.25. Card games specify payoffs per rank — your job is to turn those rules into an expected value, then quote around it.",
+    "Brainstellar-style puzzles often hide fair value inside a story: 'You draw until you see a red face,' or 'Payoff equals the maximum of two rolls.' The market-making twist is that once you state fair, the room will test whether your bid and ask bracket it symmetrically unless inventory or information says otherwise.",
+    "Before you widen or skew, you need a number to anchor on. In dice-sum games fair is 7; in 'product of two fair dice' games fair is 12.25. Card games specify payoffs per rank — your job is to turn those rules into an expected value, then quote around it.",
+    "Brainstellar-style puzzles often hide fair value inside a story: 'You draw until you see a red face,' or 'Payoff equals the maximum of two rolls.' The market-making twist is that once you state fair, the room will test whether your bid and ask bracket it symmetrically unless inventory or information says otherwise."
   ],
   "questions": [
     {
@@ -16,7 +28,12 @@
       "kind": "standard",
       "concept": "dice_ev",
       "question": "You market-make on the sum of two fair six-sided dice. Fair value of the sum is:",
-      "options": ["6", "7", "8", "3.5"],
+      "options": [
+        "6",
+        "7",
+        "8",
+        "3.5"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "6 is below the average — common guess but wrong.",
@@ -28,7 +45,12 @@
         {
           "id": "mm_fv_q1_r1",
           "question": "One fair die. Expected value of the face showing:",
-          "options": ["3", "3.5", "4", "6"],
+          "options": [
+            "3",
+            "3.5",
+            "4",
+            "6"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Slightly low.",
@@ -40,7 +62,12 @@
         {
           "id": "mm_fv_q1_r2",
           "question": "Two dice sum: minimum 2, maximum 12. Fair value is:",
-          "options": ["2", "7", "12", "6"],
+          "options": [
+            "2",
+            "7",
+            "12",
+            "6"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Minimum outcome, not EV.",
@@ -56,7 +83,12 @@
       "kind": "standard",
       "concept": "coin_ev",
       "question": "Contract pays $10 if a fair coin shows heads, $0 if tails. Fair value is:",
-      "options": ["$0", "$5", "$10", "$20"],
+      "options": [
+        "$0",
+        "$5",
+        "$10",
+        "$20"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "Zero ignores the heads payout.",
@@ -68,7 +100,12 @@
         {
           "id": "mm_fv_q2_r1",
           "question": "Pay $8 on heads, $0 on tails (fair coin). Fair value:",
-          "options": ["$2", "$4", "$8", "$16"],
+          "options": [
+            "$2",
+            "$4",
+            "$8",
+            "$16"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Too low.",
@@ -80,7 +117,12 @@
         {
           "id": "mm_fv_q2_r2",
           "question": "Fair coin, $1 per head, $0 per tail. EV:",
-          "options": ["$0", "$0.50", "$1", "$2"],
+          "options": [
+            "$0",
+            "$0.50",
+            "$1",
+            "$2"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Heads has positive payoff.",
@@ -96,7 +138,12 @@
       "kind": "standard",
       "concept": "centering",
       "question": "Fair value is 7. You want spread 2 centered on fair. Your quote should be:",
-      "options": ["6 at 8", "7 at 9", "5 at 7", "7 at 7"],
+      "options": [
+        "6 at 8",
+        "7 at 9",
+        "5 at 7",
+        "7 at 7"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. Midpoint (6+8)/2 = 7, spread = 2.",
@@ -108,7 +155,12 @@
         {
           "id": "mm_fv_q3_r1",
           "question": "Fair 50, spread 6, centered:",
-          "options": ["47 at 53", "50 at 56", "44 at 50", "49 at 51"],
+          "options": [
+            "47 at 53",
+            "50 at 56",
+            "44 at 50",
+            "49 at 51"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — mid 50, width 6.",
@@ -141,7 +193,12 @@
       "kind": "standard",
       "concept": "weighted_ev",
       "question": "Game: roll one die; you receive $100 if result is 6, else $0. Fair value:",
-      "options": ["$0", "$16.67", "$50", "$100"],
+      "options": [
+        "$0",
+        "$16.67",
+        "$50",
+        "$100"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "Non-zero probability of $100.",
@@ -153,7 +210,12 @@
         {
           "id": "mm_fv_q4_r1",
           "question": "$60 if die shows 6, else $0. Fair value:",
-          "options": ["$5", "$10", "$30", "$60"],
+          "options": [
+            "$5",
+            "$10",
+            "$30",
+            "$60"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Too low.",
@@ -165,7 +227,12 @@
         {
           "id": "mm_fv_q4_r2",
           "question": "Probability 1/6, payout 100. EV formula:",
-          "options": ["100 − 6", "100 / 6", "100 × 6", "6 / 100"],
+          "options": [
+            "100 − 6",
+            "100 / 6",
+            "100 × 6",
+            "6 / 100"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Not the EV formula.",
@@ -181,7 +248,12 @@
       "kind": "standard",
       "concept": "product_ev",
       "question": "Two fair coins flipped. Contract pays the product of the two results, where each coin shows 1 or 2 (not 0). Fair value of the product:",
-      "options": ["1", "2", "2.25", "4"],
+      "options": [
+        "1",
+        "2",
+        "2.25",
+        "4"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "Too low — product can be 2 or 4 as well.",
@@ -193,7 +265,12 @@
         {
           "id": "mm_fv_q5_r1",
           "question": "One coin 1 or 2 fair. Expected value of face:",
-          "options": ["1", "1.5", "2", "3"],
+          "options": [
+            "1",
+            "1.5",
+            "2",
+            "3"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Minimum.",
@@ -226,7 +303,12 @@
       "kind": "standard",
       "concept": "conditional_fair",
       "question": "Three fair coins. Contract pays $1 per head. Before any flip, fair value is:",
-      "options": ["$0", "$1", "$1.50", "$3"],
+      "options": [
+        "$0",
+        "$1",
+        "$1.50",
+        "$3"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "Heads are possible.",
@@ -238,7 +320,12 @@
         {
           "id": "mm_fv_q6_r1",
           "question": "Two coins, $1 per head. Fair value:",
-          "options": ["$0.50", "$1", "$1.50", "$2"],
+          "options": [
+            "$0.50",
+            "$1",
+            "$1.50",
+            "$2"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "One coin's expectation.",
@@ -250,13 +337,238 @@
         {
           "id": "mm_fv_q6_r2",
           "question": "n fair coins, $1 per head. EV =",
-          "options": ["0.5", "n/2", "n", "2n"],
+          "options": [
+            "0.5",
+            "n/2",
+            "n",
+            "2n"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Single coin.",
             "B": "Correct — n × 0.5.",
             "C": "All heads unlikely.",
             "D": "Double."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_fv_exp_q1",
+      "kind": "standard",
+      "concept": "dice_sum_fair",
+      "question": "You make a market on the sum of two fair six-sided dice (each face 1–6, equally likely). What fair value should center your quote?",
+      "options": [
+        "7",
+        "6",
+        "3.5",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = E[die1] + E[die2] = 3.5 + 3.5 = 7.",
+        "B": "6 is below the true mean — common guess but wrong for two dice.",
+        "C": "3.5 is the expectation of a single die, not the sum.",
+        "D": "12 is the maximum sum, not the average."
+      },
+      "remediation": [
+        {
+          "id": "mm_fv_exp_q1_r1",
+          "question": "One fair die. Expected value:",
+          "options": [
+            "3.5",
+            "7",
+            "1",
+            "6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — (1+2+3+4+5+6)/6 = 3.5.",
+            "B": "7 is two-dice sum.",
+            "C": "1 is minimum face.",
+            "D": "6 is maximum face."
+          }
+        },
+        {
+          "id": "mm_fv_exp_q1_r2",
+          "question": "Two dice sum: minimum and maximum outcomes are:",
+          "options": [
+            "2 and 12",
+            "1 and 6",
+            "2 and 6",
+            "1 and 12"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 1+1=2, 6+6=12.",
+            "B": "1 and 6 are single-die bounds.",
+            "C": "6 is not the max sum.",
+            "D": "1 is not achievable as a sum of two dice."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_fv_exp_q2",
+      "kind": "standard",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair dice rolls. What is fair value?",
+      "options": [
+        "12.25",
+        "7",
+        "3.5",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[XY] = E[X]E[Y] = 3.5 × 3.5 = 12.25 for independent dice.",
+        "B": "7 is the expected sum, not product.",
+        "C": "3.5 is a single die mean.",
+        "D": "36 is the maximum product (6×6), not the average."
+      },
+      "remediation": [
+        {
+          "id": "mm_fv_exp_q2_r1",
+          "question": "E[X]=4, E[Y]=5, X and Y independent. E[XY]=",
+          "options": [
+            "20",
+            "9",
+            "1",
+            "45"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 4×5=20.",
+            "B": "9 would be E[X+Y] if means were 4 and 5... actually 4+5=9, not product.",
+            "C": "1 is unrelated.",
+            "D": "45 might confuse with sum of maxes."
+          }
+        },
+        {
+          "id": "mm_fv_exp_q2_r2",
+          "question": "Product of two dice: max outcome is:",
+          "options": [
+            "36",
+            "12",
+            "7",
+            "6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 6×6=36.",
+            "B": "12 is max sum.",
+            "C": "7 is mean sum.",
+            "D": "6 is max single die."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_fv_exp_q3",
+      "kind": "standard",
+      "concept": "card_ev",
+      "question": "One card is drawn uniformly from a standard 52-card deck. Payoff = 10 if it is a heart, 0 otherwise. What fair value centers your quote?",
+      "options": [
+        "2.5",
+        "10",
+        "5",
+        "0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(heart) = 13/52 = 1/4, so EV = 10 × 1/4 = 2.5.",
+        "B": "10 is the payoff conditional on hearts, not unconditional EV.",
+        "C": "5 might confuse with half the deck or wrong probability.",
+        "D": "0.25 is the probability, not the dollar EV."
+      },
+      "remediation": [
+        {
+          "id": "mm_fv_exp_q3_r1",
+          "question": "Win $8 with prob 1/2, else $0. EV =",
+          "options": [
+            "4",
+            "8",
+            "2",
+            "0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 8×0.5=4.",
+            "B": "8 ignores probability.",
+            "C": "2 is wrong arithmetic.",
+            "D": "0 ignores the win case."
+          }
+        },
+        {
+          "id": "mm_fv_exp_q3_r2",
+          "question": "13 hearts in 52 cards. P(heart) =",
+          "options": [
+            "1/4",
+            "1/2",
+            "1/13",
+            "1/52"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 13/52 = 1/4.",
+            "B": "1/2 is too high.",
+            "C": "1/13 treats one specific heart.",
+            "D": "1/52 is one specific card."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_fv_exp_q4",
+      "kind": "challenge",
+      "concept": "weighted_fair",
+      "question": "A biased coin pays $1 on heads. P(heads) = 0.6. You also receive a one-time $2 fee for quoting. What fair value (including the fee) should you use to center a two-sided market on the coin contract alone?",
+      "options": [
+        "2.6",
+        "0.6",
+        "1.0",
+        "3.0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Coin EV = 0.6×1 + 0.4×0 = 0.6; plus $2 fee → 2.6 total fair for your position in the bundled deal.",
+        "B": "0.6 is coin EV only — omits the certain $2 fee.",
+        "C": "1.0 assumes a fair coin.",
+        "D": "3.0 overstates — might add fee twice or use wrong probability."
+      },
+      "remediation": [
+        {
+          "id": "mm_fv_exp_q4_r1",
+          "question": "P(H)=0.6, win $1 on H. Coin EV alone:",
+          "options": [
+            "0.6",
+            "1.0",
+            "0.4",
+            "2.0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "1.0 is fair-coin EV.",
+            "C": "0.4 is P(tails).",
+            "D": "2.0 is too high."
+          }
+        },
+        {
+          "id": "mm_fv_exp_q4_r2",
+          "question": "EV 0.6 plus certain $2. Total fair:",
+          "options": [
+            "2.6",
+            "2.0",
+            "0.6",
+            "1.6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — add certain cash to EV.",
+            "B": "2.0 omits coin EV.",
+            "C": "0.6 omits fee.",
+            "D": "1.6 is wrong sum."
           }
         }
       ]

@@ -12,14 +12,19 @@
   "intro": [
     "Conditional probability answers a question you already ask intuitively: once you know something happened, how should your odds change? Formally, P(A|B) is the probability of A among outcomes where B is true. The sample space shrinks to B, and probabilities are renormalized so they still sum to 1.",
     "The law of total probability breaks an event into pieces across a partition (disjoint scenarios that cover everything). Bayes' theorem reverses conditioning: it turns hard-to-measure quantities like P(hypothesis|data) into products of easier pieces like P(data|hypothesis) and prior odds. Together, these tools are the backbone of probabilistic reasoning under uncertainty.",
-    "Quant interviews love this material because it tests whether you update beliefs correctly instead of chasing shortcuts. Disease testing, urn problems, trading signals, and card-drawing puzzles all reduce to the same pattern: restrict the sample space, apply total probability for the denominator, then use Bayes to flip the conditioning direction."
+    "Quant interviews love this material because it tests whether you update beliefs correctly instead of chasing shortcuts. Disease testing, urn problems, trading signals, and card-drawing puzzles all reduce to the same pattern: restrict the sample space, apply total probability for the denominator, then use Bayes to flip the conditioning direction.",
+    "Bayes' theorem is the interview litmus test for whether you update beliefs correctly when new evidence arrives. The Stat 110 pattern—partition the world, compute a total-probability denominator, then flip the conditioning direction—shows up in disease testing, manufacturing defects, and trading signals. Green Book-style puzzles often hide the partition in plain sight; your job is to write P(hypothesis | data) before reaching for a calculator.",
+    "Bayes' theorem is the interview litmus test for whether you update beliefs correctly when new evidence arrives. The Stat 110 pattern—partition the world, compute a total-probability denominator, then flip the conditioning direction—shows up in disease testing, manufacturing defects, and trading signals. Green Book-style puzzles often hide the partition in plain sight; your job is to write P(hypothesis | data) before reaching for a calculator."
   ],
   "questions": [
     {
       "id": "l3_q1",
       "kind": "standard",
       "concept": "conditional_definition",
-      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "marbles"
+      },
       "question": "Events A and B satisfy P(B) > 0. Which formula correctly defines the conditional probability P(A|B)?",
       "options": [
         "P(A) / P(B)",
@@ -37,9 +42,17 @@
       "remediation": [
         {
           "id": "l3_q1_r1",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "In a restricted sample space where B has already occurred, P(A|B) counts outcomes in both A and B divided by outcomes in:",
-          "options": ["A only", "B only", "the full original sample space", "A complement"],
+          "options": [
+            "A only",
+            "B only",
+            "the full original sample space",
+            "A complement"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Conditioning on B means B is the new denominator, not A.",
@@ -50,9 +63,17 @@
         },
         {
           "id": "l3_q1_r2",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "If P(A ∩ B) = 0.12 and P(B) = 0.4, then P(A|B) equals:",
-          "options": ["0.12", "0.3", "0.48", "0.028"],
+          "options": [
+            "0.12",
+            "0.3",
+            "0.48",
+            "0.028"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "0.12 is P(A ∩ B) before renormalizing within B.",
@@ -67,9 +88,17 @@
       "id": "l3_q2",
       "kind": "standard",
       "concept": "conditional_counting",
-      "simulation": { "type": "card_marble", "mode": "cards" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "cards"
+      },
       "question": "From a standard 52-card deck you draw one card and are told it is a heart. What is P(ace | heart)?",
-      "options": ["1/52", "1/13", "1/4", "4/52"],
+      "options": [
+        "1/52",
+        "1/13",
+        "1/4",
+        "4/52"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "1/52 is the unconditional probability of drawing the ace of hearts from the full deck.",
@@ -80,9 +109,17 @@
       "remediation": [
         {
           "id": "l3_q2_r1",
-          "simulation": { "type": "card_marble", "mode": "cards" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "cards"
+          },
           "question": "Given that a drawn card is red (26 cards), what is P(heart | red)?",
-          "options": ["1/2", "1/4", "13/52", "1/26"],
+          "options": [
+            "1/2",
+            "1/4",
+            "13/52",
+            "1/26"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. Half of the 26 red cards are hearts: 13/26 = 1/2.",
@@ -93,9 +130,17 @@
         },
         {
           "id": "l3_q2_r2",
-          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "simulation": {
+            "type": "card_marble",
+            "mode": "marbles"
+          },
           "question": "A bag has 3 red and 2 blue marbles. One red marble is drawn. Given this, P(red on next draw without replacement) is:",
-          "options": ["3/5", "2/4", "1/2", "2/5"],
+          "options": [
+            "3/5",
+            "2/4",
+            "1/2",
+            "2/5"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "3/5 is the probability before any marble was removed.",
@@ -183,7 +228,12 @@
         {
           "id": "l3_q4_r1",
           "question": "A partition means the Bᵢ are disjoint and their union is the entire sample space. Therefore Σ P(Bᵢ) equals:",
-          "options": ["0", "1", "P(A)", "depends on A"],
+          "options": [
+            "0",
+            "1",
+            "P(A)",
+            "depends on A"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Probabilities of a partition cannot all sum to zero.",
@@ -195,7 +245,12 @@
         {
           "id": "l3_q4_r2",
           "question": "A coin is equally likely to come from Box H (P heads = 0.8) or Box T (P heads = 0.3). Before seeing a flip, P(heads) equals:",
-          "options": ["0.8", "0.3", "0.55", "1.1"],
+          "options": [
+            "0.8",
+            "0.3",
+            "0.55",
+            "1.1"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "0.8 is P(heads | Box H) only, ignoring that Box T is equally likely.",
@@ -211,7 +266,12 @@
       "kind": "standard",
       "concept": "total_probability_calculation",
       "question": "A factory has Machine A (40% of output, 2% defective) and Machine B (60% of output, 5% defective). What is P(random item is defective)?",
-      "options": ["0.02", "0.05", "0.038", "0.07"],
+      "options": [
+        "0.02",
+        "0.05",
+        "0.038",
+        "0.07"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "0.02 is the defect rate from Machine A alone, not the plant-wide rate.",
@@ -223,7 +283,12 @@
         {
           "id": "l3_q5_r1",
           "question": "Urn I: 3 red, 1 blue. Urn II: 1 red, 3 blue. You pick an urn uniformly at random, then draw one ball. P(red) equals:",
-          "options": ["1/2", "1/4", "3/4", "2/8"],
+          "options": [
+            "1/2",
+            "1/4",
+            "3/4",
+            "2/8"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. (0.5)(3/4) + (0.5)(1/4) = 0.5.",
@@ -235,7 +300,12 @@
         {
           "id": "l3_q5_r2",
           "question": "Scenario X occurs with probability 0.3 and gives P(A) = 0.6; scenario Y occurs with probability 0.7 and gives P(A) = 0.2. Then P(A) equals:",
-          "options": ["0.32", "0.4", "0.8", "0.18"],
+          "options": [
+            "0.32",
+            "0.4",
+            "0.8",
+            "0.18"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. (0.3)(0.6) + (0.7)(0.2) = 0.18 + 0.14 = 0.32.",
@@ -306,7 +376,12 @@
       "kind": "standard",
       "concept": "medical_testing_bayes",
       "question": "A disease affects 1% of people. A test has sensitivity P(+ | disease) = 0.95 and specificity P(− | no disease) = 0.90 (so P(+ | no disease) = 0.10). If someone tests positive, P(disease | +) is closest to:",
-      "options": ["0.95", "0.50", "0.09", "0.01"],
+      "options": [
+        "0.95",
+        "0.50",
+        "0.09",
+        "0.01"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "0.95 is the sensitivity P(+ | disease), not the posterior P(disease | +).",
@@ -356,7 +431,12 @@
       "kind": "standard",
       "concept": "quant_signal_update",
       "question": "A quant fund's model says P(stock up tomorrow | bullish signal) = 0.7 and P(stock up | bearish signal) = 0.4. Signals are bullish 60% of days. What is P(stock up tomorrow) before seeing today's signal?",
-      "options": ["0.7", "0.4", "0.58", "0.55"],
+      "options": [
+        "0.7",
+        "0.4",
+        "0.58",
+        "0.55"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "0.7 is P(up | bullish) only, not the unconditional daily probability.",
@@ -385,7 +465,12 @@
         {
           "id": "l3_q8_r2",
           "question": "After seeing a bullish signal in the setup above, P(up | bullish) equals:",
-          "options": ["0.58", "0.7", "0.42", "0.6"],
+          "options": [
+            "0.58",
+            "0.7",
+            "0.42",
+            "0.6"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "0.58 is the unconditional P(up) before conditioning on the signal.",
@@ -401,7 +486,12 @@
       "kind": "challenge",
       "concept": "bayes_urn_challenge",
       "question": "Three urns: Urn 1 has 5 red / 5 blue; Urn 2 has 8 red / 2 blue; Urn 3 has 1 red / 9 blue. An urn is chosen uniformly at random, then one ball is drawn and it is red. P(the ball came from Urn 2 | red) equals:",
-      "options": ["4/7", "4/9", "8/18", "2/3"],
+      "options": [
+        "4/7",
+        "4/9",
+        "8/18",
+        "2/3"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. P(red) = (1/3)(0.5 + 0.8 + 0.1) = 7/15; P(Urn2 ∩ red) = 4/15; posterior = 4/7.",
@@ -430,7 +520,12 @@
         {
           "id": "l3_q9_r2",
           "question": "Two urns: Urn A is P(red)=0.9, Urn B is P(red)=0.1, each urn equally likely. After drawing red, P(Urn A | red) is:",
-          "options": ["0.9", "0.5", "0.9/1.0 = 0.9", "0.9/(0.9+0.1) = 0.9"],
+          "options": [
+            "0.9",
+            "0.5",
+            "0.9/1.0 = 0.9",
+            "0.9/(0.9+0.1) = 0.9"
+          ],
           "correctAnswer": 3,
           "explanations": {
             "A": "0.9 is P(red | A), not the posterior on the urn.",
@@ -446,7 +541,12 @@
       "kind": "challenge",
       "concept": "quant_bayes_interview",
       "question": "A plant runs Line 1 (70% of units, 1% defective) and Line 2 (30% of units, 10% defective). A randomly inspected unit is defective. P(it came from Line 2 | defective) is closest to:",
-      "options": ["0.30", "0.10", "0.81", "0.50"],
+      "options": [
+        "0.30",
+        "0.10",
+        "0.81",
+        "0.50"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "0.30 is P(Line 2) before seeing the defect, not the posterior.",
@@ -490,6 +590,116 @@
           }
         }
       ]
+    },
+    {
+      "id": "l3_q11",
+      "kind": "challenge",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (60% of output, 2% defective), Line B (25%, 5% defective), and Line C (15%, 12% defective). A randomly inspected unit is defective. What is P(it came from Line C | defective)?",
+      "options": [
+        "9/19",
+        "3/10",
+        "12/100",
+        "15/100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(D) = 0.6(0.02) + 0.25(0.05) + 0.15(0.12) = 0.0425. P(C ∩ D) = 0.018, so P(C|D) = 0.018/0.0425 = 9/19.",
+        "B": "3/10 is P(C) before seeing the defect, not the posterior.",
+        "C": "12/100 is the defect rate on Line C alone, not P(C | defective).",
+        "D": "15/100 is the prior share of Line C, ignoring how diagnostic a defect is."
+      },
+      "remediation": [
+        {
+          "id": "l3_q11_r1",
+          "question": "In Bayes' theorem, the denominator P(B) in P(A|B) = P(B|A)P(A)/P(B) is often found by:",
+          "options": [
+            "Law of total probability over a partition",
+            "Multiplying P(A) and P(B) always",
+            "Taking the maximum prior",
+            "Ignoring the prior P(A)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Sum P(B|scenario)P(scenario) across disjoint scenarios that cover the sample space.",
+            "B": "P(A)P(B) equals joint probability only under independence, not generally P(B).",
+            "C": "The largest prior is irrelevant to the normalization constant.",
+            "D": "The prior is essential; Bayes combines prior with likelihood."
+          }
+        },
+        {
+          "id": "l3_q11_r2",
+          "question": "Supplier S1 provides 70% of parts (1% defective); S2 provides 30% (4% defective). Given a defective part, P(S2 | defective) equals:",
+          "options": [
+            "12/19",
+            "4/100",
+            "30/100",
+            "1/2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. P(defect) = 0.007 + 0.012 = 0.019. P(S2 ∩ defect) = 0.012. Posterior = 0.012/0.019 = 12/19.",
+            "B": "4/100 is the defect rate for S2 alone, not the posterior probability.",
+            "C": "30/100 is the prior P(S2) before observing the defect.",
+            "D": "1/2 would require equal posterior weight on both suppliers, which the unequal priors and rates do not produce."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l3_q12",
+      "kind": "challenge",
+      "concept": "bayes_weather_forecast",
+      "question": "Tomorrow's weather: P(rain) = 0.30. The forecast says 'rain' with P(forecast rain | rain) = 0.85 and P(forecast rain | no rain) = 0.20. The forecast predicts rain. What is P(actual rain | forecast rain)?",
+      "options": [
+        "51/73",
+        "0.30",
+        "0.85",
+        "17/20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(FR) = 0.30(0.85) + 0.70(0.20) = 0.255 + 0.14 = 0.395. P(rain ∩ FR) = 0.255. Posterior = 0.255/0.395 = 51/73.",
+        "B": "0.30 is the prior P(rain) before reading the forecast.",
+        "C": "0.85 is P(forecast rain | rain), the likelihood—not the reversed conditional.",
+        "D": "17/20 confuses the false-alarm rate with the posterior; 0.20 is P(FR | no rain)."
+      },
+      "remediation": [
+        {
+          "id": "l3_q12_r1",
+          "question": "Bayes' theorem reverses conditioning: P(A|B) is proportional to:",
+          "options": [
+            "P(B|A) × P(A)",
+            "P(A|B) × P(B)",
+            "P(A) only",
+            "P(B) only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Likelihood times prior; divide by P(B) to normalize.",
+            "B": "P(A|B) × P(B) = P(A ∩ B), which is not the unnormalized posterior weight.",
+            "C": "The prior alone ignores how informative the evidence B is.",
+            "D": "P(B) alone is the normalizer, not the numerator."
+          }
+        },
+        {
+          "id": "l3_q12_r2",
+          "question": "A rare disease has prevalence 1%. A test has sensitivity 99% and false-positive rate 5%. A patient tests positive. The posterior P(disease | positive) is:",
+          "options": [
+            "Much less than 99%",
+            "Exactly 99%",
+            "Exactly 5%",
+            "Exactly 50%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. With a rare disease, most positives are false positives despite good sensitivity—the posterior stays well below 99%.",
+            "B": "99% is sensitivity P(+|disease), not P(disease|+).",
+            "C": "5% is the false-positive rate among healthy people, not the posterior.",
+            "D": "50% would require equal prior odds and balanced evidence, which this setup does not give."
+          }
+        }
+      ]
     }
   ],
   "placementQuestions": [
@@ -497,7 +707,12 @@
       "id": "l3_pq1",
       "concept": "conditional_definition",
       "question": "P(A|B) equals P(A ∩ B) divided by:",
-      "options": ["P(A)", "P(B)", "P(A ∪ B)", "1 − P(B)"],
+      "options": [
+        "P(A)",
+        "P(B)",
+        "P(A ∪ B)",
+        "1 − P(B)"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "Dividing by P(A) would give P(B|A), not P(A|B).",
@@ -509,9 +724,17 @@
     {
       "id": "l3_pq2",
       "concept": "conditional_counting",
-      "simulation": { "type": "card_marble", "mode": "cards" },
+      "simulation": {
+        "type": "card_marble",
+        "mode": "cards"
+      },
       "question": "Given a card is a spade, P(ace | spade) equals:",
-      "options": ["1/52", "1/13", "1/4", "4/13"],
+      "options": [
+        "1/52",
+        "1/13",
+        "1/4",
+        "4/13"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "1/52 is the unconditional probability of any specific card.",
@@ -524,7 +747,12 @@
       "id": "l3_pq3",
       "concept": "law_of_total_probability",
       "question": "If P(B) = 0.4 and P(A|B) = 0.25, while P(A|Bᶜ) = 0.5, then P(A) equals:",
-      "options": ["0.25", "0.4", "0.35", "0.75"],
+      "options": [
+        "0.25",
+        "0.4",
+        "0.35",
+        "0.75"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "0.25 is P(A|B) alone, not weighted by scenarios.",
@@ -573,7 +801,12 @@
       "id": "l3_pq6",
       "concept": "total_probability_calculation",
       "question": "Coin from Box 1 (P heads = 0.9) with weight 0.2, or Box 2 (P heads = 0.1) with weight 0.8. P(heads) equals:",
-      "options": ["0.9", "0.1", "0.26", "0.5"],
+      "options": [
+        "0.9",
+        "0.1",
+        "0.26",
+        "0.5"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "0.9 ignores that Box 2 is more likely.",
@@ -604,7 +837,12 @@
       "id": "l3_pq8",
       "concept": "bayes_urn_challenge",
       "question": "Two equally likely urns: Urn X has P(red)=0.6, Urn Y has P(red)=0.2. After one red draw, P(Urn X | red) equals:",
-      "options": ["0.6", "0.75", "0.5", "0.2"],
+      "options": [
+        "0.6",
+        "0.75",
+        "0.5",
+        "0.2"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "0.6 is P(red | X), not the posterior on the urn.",

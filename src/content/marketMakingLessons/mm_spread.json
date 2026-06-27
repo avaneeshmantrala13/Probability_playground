@@ -3,12 +3,24 @@
   "order": 2,
   "title": "Spread & Edge",
   "subtitle": "Width, compensation, and when to widen",
-  "topics": ["Spread width", "Edge", "Risk compensation", "Quoting discipline"],
+  "topics": [
+    "Spread width",
+    "Edge",
+    "Risk compensation",
+    "Quoting discipline",
+    "Adverse selection",
+    "Spread calibration",
+    "Round-trip edge"
+  ],
   "intro": [
     "The spread is the distance between your bid and ask: spread = ask − bid. It is the market maker's primary source of gross edge on a round-trip — buy at the bid, sell at the ask, keep the difference.",
     "A tight spread attracts flow but leaves little cushion if you are wrong about fair value or if the product moves against your inventory. A wide spread protects you but may see less trading. Interview games reward quotes that are tight enough to trade yet wide enough to survive adverse selection.",
     "Edge is not guaranteed profit on every fill. You earn the spread on average when you are centered on fair value and manage inventory. When customers know more than you, they pick off the wrong side of your quote — that is adverse selection, and the spread is partly payment for that risk.",
-    "This lesson trains you to compute spreads, reason about width, and connect spread choice to uncertainty."
+    "This lesson trains you to compute spreads, reason about width, and connect spread choice to uncertainty.",
+    "Larry Harris emphasizes that the spread compensates market makers for three costs: order-processing, inventory holding, and adverse selection. In interview dice games you feel all three at once: fills arrive fast, position swings quickly, and sharper classmates trade when your quote is stale.",
+    "Calibration matters as much as width. A spread that looks tight on paper but sits far from fair value gets picked off; a wide spread centered on fair may earn less gross edge per trade but survive longer. Practice judging spread in units of uncertainty — widen when variance or information risk rises.",
+    "Larry Harris emphasizes that the spread compensates market makers for three costs: order-processing, inventory holding, and adverse selection. In interview dice games you feel all three at once: fills arrive fast, position swings quickly, and sharper classmates trade when your quote is stale.",
+    "Calibration matters as much as width. A spread that looks tight on paper but sits far from fair value gets picked off; a wide spread centered on fair may earn less gross edge per trade but survive longer. Practice judging spread in units of uncertainty — widen when variance or information risk rises."
   ],
   "questions": [
     {
@@ -16,7 +28,12 @@
       "kind": "standard",
       "concept": "spread_width",
       "question": "You quote 38 at 42. What is your spread?",
-      "options": ["2", "4", "6", "80"],
+      "options": [
+        "2",
+        "4",
+        "6",
+        "80"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "2 would be half the actual gap or a miscalculation.",
@@ -28,7 +45,12 @@
         {
           "id": "mm_sp_q1_r1",
           "question": "Quote 55 at 58. Spread =",
-          "options": ["1", "2", "3", "113"],
+          "options": [
+            "1",
+            "2",
+            "3",
+            "113"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Too narrow.",
@@ -40,7 +62,12 @@
         {
           "id": "mm_sp_q1_r2",
           "question": "Bid 100, ask 105. Spread width:",
-          "options": ["5", "10", "205", "100"],
+          "options": [
+            "5",
+            "10",
+            "205",
+            "100"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct.",
@@ -56,7 +83,12 @@
       "kind": "standard",
       "concept": "midpoint",
       "question": "You quote 10 at 14. The midpoint of your quote is:",
-      "options": ["10", "12", "14", "24"],
+      "options": [
+        "10",
+        "12",
+        "14",
+        "24"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "10 is the bid, not the center.",
@@ -68,7 +100,12 @@
         {
           "id": "mm_sp_q2_r1",
           "question": "20 at 30. Midpoint:",
-          "options": ["20", "25", "30", "50"],
+          "options": [
+            "20",
+            "25",
+            "30",
+            "50"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Bid.",
@@ -80,7 +117,12 @@
         {
           "id": "mm_sp_q2_r2",
           "question": "Symmetric quote around fair value 50 with spread 4 should be:",
-          "options": ["48 at 52", "50 at 54", "46 at 50", "49 at 51"],
+          "options": [
+            "48 at 52",
+            "50 at 54",
+            "46 at 50",
+            "49 at 51"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — centered at 50, width 4.",
@@ -113,7 +155,12 @@
         {
           "id": "mm_sp_q3_r1",
           "question": "More uncertainty generally means you should quote a:",
-          "options": ["Tighter spread", "Wider spread", "One-sided quote only", "Zero spread"],
+          "options": [
+            "Tighter spread",
+            "Wider spread",
+            "One-sided quote only",
+            "Zero spread"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Tighter increases risk without compensation.",
@@ -125,7 +172,12 @@
         {
           "id": "mm_sp_q3_r2",
           "question": "Fair 100, spread 8, centered. Best quote:",
-          "options": ["96 at 104", "99 at 101", "100 at 108", "92 at 100"],
+          "options": [
+            "96 at 104",
+            "99 at 101",
+            "100 at 108",
+            "92 at 100"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — midpoint 100, width 8.",
@@ -141,7 +193,12 @@
       "kind": "standard",
       "concept": "edge_per_trade",
       "question": "Spread is 3. You complete one round-trip (buy at bid, sell at ask) of size 1. Gross edge before costs is:",
-      "options": ["0", "1.5", "3", "6"],
+      "options": [
+        "0",
+        "1.5",
+        "3",
+        "6"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "Zero ignores captured spread.",
@@ -153,7 +210,12 @@
         {
           "id": "mm_sp_q4_r1",
           "question": "Spread 5, one round-trip, size 2 units. Gross edge:",
-          "options": ["5", "7", "10", "20"],
+          "options": [
+            "5",
+            "7",
+            "10",
+            "20"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "Forgot size multiplier.",
@@ -165,7 +227,12 @@
         {
           "id": "mm_sp_q4_r2",
           "question": "If spread is 0, round-trip gross edge is:",
-          "options": ["0", "Positive always", "Negative always", "Undefined"],
+          "options": [
+            "0",
+            "Positive always",
+            "Negative always",
+            "Undefined"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct — no spread to capture.",
@@ -215,7 +282,12 @@
         {
           "id": "mm_sp_q5_r2",
           "question": "If everyone trading with you is uninformed, you generally can quote:",
-          "options": ["Wider", "Tighter", "One-sided only", "Nothing"],
+          "options": [
+            "Wider",
+            "Tighter",
+            "One-sided only",
+            "Nothing"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "Wide is for more risk.",
@@ -280,6 +352,330 @@
           }
         }
       ]
+    },
+    {
+      "id": "mm_sp_exp_q1",
+      "kind": "standard",
+      "concept": "round_trip_edge",
+      "question": "You quote 44 at 48 on a fair-7 dice game. You buy 1 at 44, then later sell 1 at 48 with no fair-value change. What is your gross P&L on the round-trip?",
+      "options": [
+        "+4",
+        "+2",
+        "0",
+        "−4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Buy at 44, sell at 48 → profit 4, equal to the spread width.",
+        "B": "2 would be half the spread — that is per-side edge in some models, not full round-trip.",
+        "C": "Zero ignores the captured spread when fair value is unchanged.",
+        "D": "−4 would mean you lost the spread; you earned it when centered and flat."
+      },
+      "remediation": [
+        {
+          "id": "mm_sp_exp_q1_r1",
+          "question": "Buy at 30, sell at 35, no other costs. Gross profit:",
+          "options": [
+            "5",
+            "2.5",
+            "65",
+            "−5"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 35 − 30 = 5.",
+            "B": "2.5 is half the gap, not the round-trip.",
+            "C": "65 is the sum of prices.",
+            "D": "You bought low and sold high."
+          }
+        },
+        {
+          "id": "mm_sp_exp_q1_r2",
+          "question": "Spread is 6. One full round-trip (buy bid, sell ask) earns:",
+          "options": [
+            "6",
+            "3",
+            "12",
+            "0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — round-trip captures full spread.",
+            "B": "3 might be half-spread per leg, not total.",
+            "C": "12 double-counts.",
+            "D": "Zero ignores edge when fair is stable."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_sp_exp_q2",
+      "kind": "standard",
+      "concept": "widen_on_uncertainty",
+      "question": "Fair value on a product is 50, but a hidden card will be revealed in 10 seconds and could move fair by ±15. You are currently 49 at 51. What is the most defensible adjustment?",
+      "options": [
+        "Widen materially (e.g., 45 at 55) while re-centering on 50",
+        "Tighten to 49.5 at 50.5 to attract flow before the reveal",
+        "Keep 49 at 51 — spread already compensates",
+        "Quote one-sided bid only at 50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Large imminent information risk is classic adverse-selection territory; Harris would widen to cover pick-off risk while staying near fair.",
+        "B": "Tightening before a volatility event invites informed traders to hit the wrong side.",
+        "C": "A 2-point spread is tiny relative to ±15 fair-value swing — you would be picked off.",
+        "D": "One-sided quoting may be allowed at limits, but here the priority is widening two-sided protection."
+      },
+      "remediation": [
+        {
+          "id": "mm_sp_exp_q2_r1",
+          "question": "Variance of payoff just doubled. Spread should generally:",
+          "options": [
+            "Widen",
+            "Tighten",
+            "Stay fixed always",
+            "Go to zero"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — more risk warrants more compensation.",
+            "B": "Tightening increases risk per fill.",
+            "C": "Spread should respond to conditions.",
+            "D": "Zero spread removes compensation."
+          }
+        },
+        {
+          "id": "mm_sp_exp_q2_r2",
+          "question": "You are very confident fair = 100 with tiny error. Spread should be:",
+          "options": [
+            "Relatively tight",
+            "Very wide",
+            "Crossed",
+            "Undefined"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — low uncertainty allows tighter quotes.",
+            "B": "Wide is for high uncertainty.",
+            "C": "Crossed is always invalid.",
+            "D": "Spread is always defined in practice."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_sp_exp_q3",
+      "kind": "standard",
+      "concept": "half_spread",
+      "question": "Fair is 20. You quote 18 at 22 (spread 4). A buyer lifts you once at the ask, fair unchanged. Relative to fair, how many points of edge did you earn on that single sell?",
+      "options": [
+        "2",
+        "4",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Ask 22 is 2 above fair 20 — you capture half the spread on a one-sided sell.",
+        "B": "4 is the full spread; you only sold once, not round-tripped.",
+        "C": "1 would undercount the distance from fair to ask.",
+        "D": "Zero ignores that 22 > 20 when fair is unchanged."
+      },
+      "remediation": [
+        {
+          "id": "mm_sp_exp_q3_r1",
+          "question": "Fair 10, quote 8 at 12. You buy at bid. Edge vs fair:",
+          "options": [
+            "2",
+            "4",
+            "0",
+            "−2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — bid 8 is 2 below fair 10.",
+            "B": "4 is full spread.",
+            "C": "There is edge vs fair on the buy.",
+            "D": "Negative would mean you overpaid."
+          }
+        },
+        {
+          "id": "mm_sp_exp_q3_r2",
+          "question": "Fair 50, quote 48 at 52. Midpoint of quote is:",
+          "options": [
+            "50",
+            "48",
+            "52",
+            "4"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — (48+52)/2 = 50, matching fair.",
+            "B": "48 is the bid.",
+            "C": "52 is the ask.",
+            "D": "4 is the spread."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_sp_exp_q4",
+      "kind": "challenge",
+      "concept": "spread_comparison",
+      "question": "Two candidates quote the same fair-100 product: Alice 97 at 103 (spread 6), Bob 99 at 101 (spread 2). Fair is stable. Who earns more gross edge per completed round-trip, and who is more exposed to a ±5 fair-value shock on a one-sided fill?",
+      "options": [
+        "Alice earns more per round-trip; Bob is more exposed on one-sided fills",
+        "Bob earns more per round-trip; Alice is more exposed",
+        "Equal on both dimensions",
+        "Bob earns more and is less exposed"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Alice captures 6 per round-trip vs Bob's 2, but Bob's tight quote leaves only 1 point cushion vs fair on each side — a 5-point move hurts more relative to earned edge.",
+        "B": "Reverses both comparisons — Bob's spread is narrower, not wider.",
+        "C": "Spread width directly differs on edge and cushion.",
+        "D": "Bob earns less per trip and has thinner protection."
+      },
+      "remediation": [
+        {
+          "id": "mm_sp_exp_q4_r1",
+          "question": "Spread 8 vs spread 2 on same fair. Round-trip edge is higher for:",
+          "options": [
+            "Spread 8",
+            "Spread 2",
+            "Equal",
+            "Cannot tell"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — wider spread, more round-trip edge.",
+            "B": "2 is smaller.",
+            "C": "They differ.",
+            "D": "Fair is the same; compare spreads."
+          }
+        },
+        {
+          "id": "mm_sp_exp_q4_r2",
+          "question": "Tighter spread generally means:",
+          "options": [
+            "Less edge per trade, more pick-off sensitivity",
+            "More edge, less sensitivity",
+            "No change",
+            "Crossed quotes"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — classic spread trade-off.",
+            "B": "Reverses the trade-off.",
+            "C": "Width matters.",
+            "D": "Tight ≠ crossed."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "mm_sp_p1",
+      "question": "Fair value 100, quote 99 at 101. Midpoint?",
+      "options": [
+        "99",
+        "100",
+        "101",
+        "200"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bid.",
+        "B": "Correct — average of 99 and 101.",
+        "C": "Ask.",
+        "D": "Sum."
+      }
+    },
+    {
+      "id": "mm_sp_p2",
+      "question": "Wider spread usually means:",
+      "options": [
+        "More certainty",
+        "More uncertainty/risk",
+        "Zero edge",
+        "Free money"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Opposite.",
+        "B": "Correct.",
+        "C": "Spread is compensation.",
+        "D": "No."
+      }
+    },
+    {
+      "id": "mm_sp_p3",
+      "question": "Bid 48 ask 52 — spread?",
+      "options": [
+        "2",
+        "4",
+        "48",
+        "52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Half.",
+        "B": "Correct.",
+        "C": "Bid.",
+        "D": "Ask."
+      }
+    },
+    {
+      "id": "mm_sp_p4",
+      "question": "If fair value rises, a market maker typically:",
+      "options": [
+        "Lowers both sides",
+        "Raises both bid and ask",
+        "Only widens",
+        "Stops quoting"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Wrong direction.",
+        "B": "Correct — re-center quotes.",
+        "C": "May tighten if confident.",
+        "D": "Usually keeps quoting."
+      }
+    },
+    {
+      "id": "mm_sp_p5",
+      "question": "Edge on a round-trip comes from crossing:",
+      "options": [
+        "Bid twice",
+        "Spread once buy and once sell",
+        "Ask twice",
+        "Fair value only"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two buys, no sell.",
+        "B": "Correct.",
+        "C": "Two sells.",
+        "D": "Need actual trades."
+      }
+    },
+    {
+      "id": "mm_sp_p6",
+      "question": "Tighter spread when you are very confident because:",
+      "options": [
+        "Less need to charge for uncertainty",
+        "Rules require it",
+        "Spreads cannot widen",
+        "Inventory disappears"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "No.",
+        "C": "False.",
+        "D": "Inventory still exists."
+      }
     }
   ]
 }

@@ -12,7 +12,9 @@
   "intro": [
     "Every poker decision eventually reduces to comparing five-card hands. Texas Hold'em uses a fixed hierarchy: high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush, and royal flush.",
     "You always form the best five-card hand from exactly five cards — using zero, one, or both hole cards plus community cards. When two players tie on the rank of a hand, kickers (the side cards) or the board itself decide the winner.",
-    "Misreading hand strength is one of the costliest beginner mistakes. This lesson trains you to rank hands quickly, spot counterfeited pairs, and recognize when the board alone is the best hand for everyone."
+    "Misreading hand strength is one of the costliest beginner mistakes. This lesson trains you to rank hands quickly, spot counterfeited pairs, and recognize when the board alone is the best hand for everyone.",
+    "Hand rankings are not just a memorization chart — they determine whether you are value betting, bluff-catching, or folding to aggression. In solver-backed play, nut hands (the best possible holding on a board) get bet and raised aggressively, while second-best made hands face reverse implied odds and thin value decisions. Kickers break ties on paired boards; playing the board splits pots. Recognizing when your full house loses to a higher boat, or when your flush is dominated, is the difference between a +EV call and a stack-dumping mistake.",
+    "Hand rankings are not just a memorization chart — they determine whether you are value betting, bluff-catching, or folding to aggression. In solver-backed play, nut hands (the best possible holding on a board) get bet and raised aggressively, while second-best made hands face reverse implied odds and thin value decisions. Kickers break ties on paired boards; playing the board splits pots. Recognizing when your full house loses to a higher boat, or when your flush is dominated, is the difference between a +EV call and a stack-dumping mistake."
   ],
   "questions": [
     {
@@ -561,6 +563,116 @@
             "B": "Correct — compare the highest card of the straight.",
             "C": "Higher straight wins.",
             "D": "Aggressor doesn't win ties."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q11",
+      "kind": "challenge",
+      "concept": "counterfeited",
+      "question": "You hold A♦ T♦. Board runs out A♠ T♠ T♣ 4♥ 4♦. Your best five-card hand is:",
+      "options": [
+        "Full house, tens full of fours",
+        "Two pair, aces and tens",
+        "Four of a kind, tens",
+        "Full house, fours full of tens"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — T-T-T-4-4 (tens full of fours). Your ace is a kicker only; the board pairs counterfeited your two pair.",
+        "B": "Two pair was true on the turn, but the river paired the board — full house is best now.",
+        "C": "You only have three tens, not four.",
+        "D": "Fours full of tens would need four fours; you have two fours on board."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q11_r1",
+          "question": "Board T-T-4-4-x with hole cards A-T makes:",
+          "options": [
+            "Full house (tens full)",
+            "Two pair only",
+            "Quads",
+            "High card"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — three tens and two fours on board = full house.",
+            "B": "Board pairing upgrades beyond two pair.",
+            "C": "Only three tens available.",
+            "D": "Full house beats high card."
+          }
+        },
+        {
+          "id": "pt_hr_q11_r2",
+          "question": "When the board pairs on the river, your two pair can:",
+          "options": [
+            "Become counterfeited — board may make a better hand for everyone",
+            "Always improve to quads",
+            "Never change rank",
+            "Beat any full house"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — paired boards can counterfeit hole-card pairs.",
+            "B": "Quads need four of a rank.",
+            "C": "Rank can change when board pairs.",
+            "D": "Full house beats two pair."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q12",
+      "kind": "challenge",
+      "concept": "nut_flush",
+      "question": "Board: K♠ 7♠ 2♠ 9♥ 3♦. Player A holds A♠ Q♣. Player B holds Q♠ J♠. Who wins?",
+      "options": [
+        "Player A — nut flush (A high)",
+        "Player B — higher spade in hand",
+        "Split pot",
+        "Player B — straight flush draw completed"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — A♠ makes the nut flush; Q♠ J♠ is a weaker flush.",
+        "B": "Both have a flush; A-high beats Q-high.",
+        "C": "Different flush ranks — no split.",
+        "D": "No straight flush on this board."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q12_r1",
+          "question": "Three spades on board. A♠ in hand vs Q♠ in hand — winner has:",
+          "options": [
+            "Ace-high flush",
+            "Queen-high flush",
+            "Split",
+            "Straight"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — highest spade in the five-card hand wins.",
+            "B": "Q-high loses to A-high flush.",
+            "C": "Different ranks don't split.",
+            "D": "Both have flushes, not straights."
+          }
+        },
+        {
+          "id": "pt_hr_q12_r2",
+          "question": "The nut flush on a three-suited board is:",
+          "options": [
+            "The highest card of that suit among all possible hands",
+            "Any flush",
+            "Two pair",
+            "The lowest flush"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — nuts = best possible hand on that board.",
+            "B": "Any flush can lose to a higher flush.",
+            "C": "Flush beats two pair.",
+            "D": "Nuts is the best, not the worst."
           }
         }
       ]

@@ -12,7 +12,9 @@
   "intro": [
     "Position is the single most important structural advantage in Hold'em. Players who act later on each street see more information before committing chips — who checked, who bet, and how large the pot grew.",
     "Early positions (under the gun and nearby seats) must open tight ranges because many players still act behind them. Late positions (cutoff and button) can widen ranges and steal blinds more profitably.",
-    "The blinds are unique: they post forced bets but act last preflop and first postflop. Understanding seat names and action order prevents costly mistakes before you ever look at your cards."
+    "The blinds are unique: they post forced bets but act last preflop and first postflop. Understanding seat names and action order prevents costly mistakes before you ever look at your cards.",
+    "Position is leverage. In GTO preflop charts, the button opens roughly twice as wide as under-the-gun because every postflop street you act last — controlling pot size, floating with equity, and stealing dead money on later streets. Out of position (OOP), you pay an information tax: you bet without knowing whether opponents will raise, and you check without knowing whether a free card costs you the pot. Exploitative players widen steals on the cutoff and button against tight blinds, while solver models defend the big blind wider than most live players because pot odds and closing action justify it.",
+    "Position is leverage. In GTO preflop charts, the button opens roughly twice as wide as under-the-gun because every postflop street you act last — controlling pot size, floating with equity, and stealing dead money on later streets. Out of position (OOP), you pay an information tax: you bet without knowing whether opponents will raise, and you check without knowing whether a free card costs you the pot. Exploitative players widen steals on the cutoff and button against tight blinds, while solver models defend the big blind wider than most live players because pot odds and closing action justify it."
   ],
   "questions": [
     {
@@ -561,6 +563,116 @@
             "B": "Blinds still apply.",
             "C": "Hole cards stay hidden.",
             "D": "Still need best hand or folds."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q11",
+      "kind": "challenge",
+      "concept": "btn_steal",
+      "question": "Folded to you on the button in a six-max $1/$2 game. SB and BB both fold ~70% to a 2.5bb open. Stealing is +EV primarily because:",
+      "options": [
+        "You win the blinds often without seeing a flop, and act last when called",
+        "You always have the best hand",
+        "Blinds must call any raise",
+        "UTG already acted"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — fold equity on the blinds plus positional advantage postflop makes wide BTN opens profitable.",
+        "B": "You open many hands; not always best.",
+        "C": "Blinds can fold; they are not forced to call.",
+        "D": "UTG folding is unrelated to BTN steal EV."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q11_r1",
+          "question": "Late-position steal attempts rely heavily on:",
+          "options": [
+            "Fold equity from blinds",
+            "Always showing down the nuts",
+            "Checking every hand",
+            "Posting extra blinds"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — winning uncontested pots is the primary win path.",
+            "B": "Steals include many non-nut hands.",
+            "C": "Open-raising, not checking.",
+            "D": "Blinds are posted by others."
+          }
+        },
+        {
+          "id": "pt_pos_q11_r2",
+          "question": "When your BTN steal gets called, your main postflop edge is:",
+          "options": [
+            "Acting last on every street",
+            "Acting first",
+            "Seeing hole cards first",
+            "Skipping the flop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — in-position play is the structural advantage.",
+            "B": "First to act is OOP.",
+            "C": "Deal order isn't the strategic edge.",
+            "D": "Flop always comes if hand continues."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q12",
+      "kind": "challenge",
+      "concept": "squeeze_ip",
+      "question": "UTG opens, two callers, you are on the BTN with A♣ 5♣. A squeeze (3-bet) is attractive here mainly because:",
+      "options": [
+        "Fold equity against multiple players plus position if called",
+        "You block every strong hand",
+        "Squeezes must always be called",
+        "UTG always folds aces"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — dead money from callers plus IP postflop makes light squeezes viable; A5s has blockers and playability.",
+        "B": "Blockers help but don't block everything.",
+        "C": "Squeeze is a raise — others may fold or call.",
+        "D": "Strong UTG ranges sometimes continue vs squeezes."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q12_r1",
+          "question": "A squeeze targets:",
+          "options": [
+            "Dead money from an open and callers",
+            "Only the river",
+            "Folded hands",
+            "The dealer's chips"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — re-raise after open + callers to take the pot preflop.",
+            "B": "Squeeze is preflop.",
+            "C": "Folded players are out.",
+            "D": "Dealer doesn't play."
+          }
+        },
+        {
+          "id": "pt_pos_q12_r2",
+          "question": "Squeezing from the button vs early open + callers, if called you usually:",
+          "options": [
+            "Have position postflop",
+            "Are out of position",
+            "Cannot c-bet",
+            "Must check-fold every flop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — BTN acts last postflop vs blinds and typical callers.",
+            "B": "BTN is in position.",
+            "C": "IP c-bets are common.",
+            "D": "Many flops allow continuation."
           }
         }
       ]

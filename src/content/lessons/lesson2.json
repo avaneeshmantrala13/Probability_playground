@@ -13,7 +13,9 @@
     "Counting is how probability becomes arithmetic. Once you know how many outcomes live in an event—and how many live in the whole sample space—you can write exact probabilities without running simulations.",
     "Permutations count ordered arrangements: ABC and BAC are different when order matters, such as ranking three traders or assigning desks. Combinations count unordered selections: choosing a two-person team from five people has one count whether you write {Alice, Bob} or {Bob, Alice}.",
     "The formulas n!/(n−r)! for permutations and C(n,r) = n!/(r!(n−r)!) for combinations appear in every quant interview. The key skill is recognizing which model fits the story—order matters or it does not—and whether repetition is allowed.",
-    "Inclusion-exclusion handles overlapping categories: when you count elements in A or B, you add |A| and |B| but subtract |A ∩ B| so you do not double-count the overlap. This preview of a powerful principle shows up when counting hands with at least one ace or portfolios with both factor exposures."
+    "Inclusion-exclusion handles overlapping categories: when you count elements in A or B, you add |A| and |B| but subtract |A ∩ B| so you do not double-count the overlap. This preview of a powerful principle shows up when counting hands with at least one ace or portfolios with both factor exposures.",
+    "Combinatorics is the bookkeeping layer behind almost every probability puzzle in quant interviews—from counting poker hands to enumerating failure modes in a trading system. Stat 110 emphasizes choosing the right model: ordered versus unordered, with or without replacement, and when inclusion-exclusion beats brute force. Master these distinctions and a brain-teaser that looks intimidating often collapses to a single binomial coefficient or a short inclusion-exclusion calculation.",
+    "Combinatorics is the bookkeeping layer behind almost every probability puzzle in quant interviews—from counting poker hands to enumerating failure modes in a trading system. Stat 110 emphasizes choosing the right model: ordered versus unordered, with or without replacement, and when inclusion-exclusion beats brute force. Master these distinctions and a brain-teaser that looks intimidating often collapses to a single binomial coefficient or a short inclusion-exclusion calculation."
   ],
   "questions": [
     {
@@ -21,7 +23,12 @@
       "kind": "standard",
       "concept": "factorial_counting",
       "question": "How many ways can 4 distinct quant interns be arranged in a line for a photo?",
-      "options": ["4", "12", "24", "256"],
+      "options": [
+        "4",
+        "12",
+        "24",
+        "256"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "4 counts only one position filled or confuses the problem with choosing one intern. All four spots must be filled in order.",
@@ -33,7 +40,12 @@
         {
           "id": "l2_q1_r1",
           "question": "How many ways can 3 different books be arranged on a shelf?",
-          "options": ["3", "6", "9", "27"],
+          "options": [
+            "3",
+            "6",
+            "9",
+            "27"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "3 is the number of books, not the number of orderings. Each arrangement uses all three books.",
@@ -45,7 +57,12 @@
         {
           "id": "l2_q1_r2",
           "question": "5! (5 factorial) equals:",
-          "options": ["20", "60", "120", "720"],
+          "options": [
+            "20",
+            "60",
+            "120",
+            "720"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "20 equals 5 × 4 or C(5,2). Factorial multiplies all integers from 1 through 5.",
@@ -61,7 +78,12 @@
       "kind": "standard",
       "concept": "permutations",
       "question": "From 6 distinct stocks, how many ways can you choose and rank a 1st, 2nd, and 3rd favorite (no ties)?",
-      "options": ["20", "120", "216", "720"],
+      "options": [
+        "20",
+        "120",
+        "216",
+        "720"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "20 equals C(6,3), which counts unordered triples. Rankings care about order among the top three.",
@@ -73,7 +95,12 @@
         {
           "id": "l2_q2_r1",
           "question": "How many 2-letter codes can you form from {A, B, C, D} without repeating a letter?",
-          "options": ["6", "8", "12", "16"],
+          "options": [
+            "6",
+            "8",
+            "12",
+            "16"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "6 equals C(4,2), ignoring order. AB and BA are different codes here.",
@@ -85,7 +112,12 @@
         {
           "id": "l2_q2_r2",
           "question": "P(5,2) — permutations of 5 items taken 2 at a time — equals:",
-          "options": ["10", "15", "20", "25"],
+          "options": [
+            "10",
+            "15",
+            "20",
+            "25"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "10 equals C(5,2), the combination count without order.",
@@ -101,7 +133,12 @@
       "kind": "standard",
       "concept": "combinations",
       "question": "A portfolio committee must pick 2 stocks from 5 candidates. Order does not matter. How many portfolios?",
-      "options": ["10", "20", "25", "120"],
+      "options": [
+        "10",
+        "20",
+        "25",
+        "120"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. C(5,2) = 5!/(2!×3!) = 10 unordered pairs.",
@@ -113,7 +150,12 @@
         {
           "id": "l2_q3_r1",
           "question": "How many ways can you choose 3 people from 4 for a team (order irrelevant)?",
-          "options": ["4", "6", "12", "24"],
+          "options": [
+            "4",
+            "6",
+            "12",
+            "24"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. C(4,3) = 4. Equivalently, choosing 3 to include is the same as choosing 1 to exclude.",
@@ -125,7 +167,12 @@
         {
           "id": "l2_q3_r2",
           "question": "C(6,2) equals:",
-          "options": ["12", "15", "30", "36"],
+          "options": [
+            "12",
+            "15",
+            "30",
+            "36"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "12 equals P(6,2)/3 or other incorrect values, not C(6,2).",
@@ -158,7 +205,12 @@
         {
           "id": "l2_q4_r1",
           "question": "From 10 stocks, how many 4-stock portfolios (unordered) are possible?",
-          "options": ["210", "5040", "10,000", "40"],
+          "options": [
+            "210",
+            "5040",
+            "10,000",
+            "40"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. C(10,4) = 10×9×8×7/(4×3×2×1) = 210.",
@@ -191,7 +243,12 @@
       "kind": "standard",
       "concept": "permutation_vs_combination",
       "question": "A desk assignment gives 8 analysts 3 labeled seats: Lead, Support, Review. How many assignments?",
-      "options": ["56", "336", "512", "24"],
+      "options": [
+        "56",
+        "336",
+        "512",
+        "24"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "56 equals C(8,3), ignoring that Lead, Support, and Review are distinct roles.",
@@ -203,7 +260,12 @@
         {
           "id": "l2_q5_r1",
           "question": "Choose a president and vice-president from 7 club members (distinct roles). How many slates?",
-          "options": ["21", "42", "49", "5040"],
+          "options": [
+            "21",
+            "42",
+            "49",
+            "5040"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "21 equals C(7,2), treating the two officers as an unordered pair.",
@@ -215,7 +277,12 @@
         {
           "id": "l2_q5_r2",
           "question": "Pick any 2 desserts from 6 options for yourself (order does not matter). How many choices?",
-          "options": ["12", "15", "30", "36"],
+          "options": [
+            "12",
+            "15",
+            "30",
+            "36"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "12 equals P(6,2)/3 or 6×2, not C(6,2).",
@@ -231,7 +298,12 @@
       "kind": "standard",
       "concept": "inclusion_exclusion_two_sets",
       "question": "In a class of 30, 18 students know Python and 15 know R. If 8 know both, how many know at least one language?",
-      "options": ["23", "25", "27", "33"],
+      "options": [
+        "23",
+        "25",
+        "27",
+        "33"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "23 equals 18 − 8 + something or 15 + 8 without the full formula. It undercounts the union.",
@@ -243,7 +315,12 @@
         {
           "id": "l2_q6_r1",
           "question": "Set A has 12 elements, set B has 9, and |A ∩ B| = 4. What is |A ∪ B|?",
-          "options": ["17", "21", "25", "13"],
+          "options": [
+            "17",
+            "21",
+            "25",
+            "13"
+          ],
           "correctAnswer": 0,
           "explanations": {
             "A": "Correct. |A ∪ B| = 12 + 9 − 4 = 17.",
@@ -255,7 +332,12 @@
         {
           "id": "l2_q6_r2",
           "question": "Among 50 traders, 30 trade equities and 25 trade bonds. If 10 trade both, how many trade at least one asset class?",
-          "options": ["35", "45", "55", "65"],
+          "options": [
+            "35",
+            "45",
+            "55",
+            "65"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "35 might subtract the overlap twice or use only one set's count.",
@@ -271,7 +353,12 @@
       "kind": "standard",
       "concept": "inclusion_exclusion_probability",
       "question": "P(A) = 0.5, P(B) = 0.4, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
-      "options": ["0.75", "0.80", "0.85", "0.90"],
+      "options": [
+        "0.75",
+        "0.80",
+        "0.85",
+        "0.90"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. P(A ∪ B) = 0.5 + 0.4 − 0.15 = 0.75.",
@@ -283,7 +370,12 @@
         {
           "id": "l2_q7_r1",
           "question": "P(C) = 0.6, P(D) = 0.3, P(C ∩ D) = 0.1. Find P(C ∪ D).",
-          "options": ["0.7", "0.8", "0.9", "1.0"],
+          "options": [
+            "0.7",
+            "0.8",
+            "0.9",
+            "1.0"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "0.7 subtracts too much overlap or uses incorrect values.",
@@ -295,7 +387,12 @@
         {
           "id": "l2_q7_r2",
           "question": "If P(A ∪ B) = 0.9, P(A) = 0.7, and P(B) = 0.5, what is P(A ∩ B)?",
-          "options": ["0.1", "0.2", "0.3", "0.4"],
+          "options": [
+            "0.1",
+            "0.2",
+            "0.3",
+            "0.4"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "0.1 is too small. Rearrange: P(A ∩ B) = P(A) + P(B) − P(A ∪ B).",
@@ -311,7 +408,12 @@
       "kind": "standard",
       "concept": "counting_for_probability",
       "question": "Two fair dice are rolled. Using counting, what is P(sum equals 7)?",
-      "options": ["1/12", "1/9", "1/6", "1/4"],
+      "options": [
+        "1/12",
+        "1/9",
+        "1/6",
+        "1/4"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "1/12 would be one favorable outcome out of twelve, but there are 36 ordered pairs total.",
@@ -323,7 +425,12 @@
         {
           "id": "l2_q8_r1",
           "question": "One fair die is rolled. What is P(even number)?",
-          "options": ["1/6", "1/3", "1/2", "2/3"],
+          "options": [
+            "1/6",
+            "1/3",
+            "1/2",
+            "2/3"
+          ],
           "correctAnswer": 2,
           "explanations": {
             "A": "1/6 is the probability of one specific face, not three even faces.",
@@ -335,7 +442,12 @@
         {
           "id": "l2_q8_r2",
           "question": "A bag has 3 red and 7 blue marbles. One is drawn at random. P(red)?",
-          "options": ["3/7", "3/10", "7/10", "1/3"],
+          "options": [
+            "3/7",
+            "3/10",
+            "7/10",
+            "1/3"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "3/7 compares red to blue only, ignoring the total sample space of 10 marbles.",
@@ -351,7 +463,12 @@
       "kind": "challenge",
       "concept": "inclusion_exclusion_three_sets",
       "question": "|A| = 40, |B| = 35, |C| = 30. Pairwise intersections: |A∩B| = 12, |A∩C| = 10, |B∩C| = 8. |A∩B∩C| = 3. How many elements in A ∪ B ∪ C?",
-      "options": ["68", "72", "78", "105"],
+      "options": [
+        "68",
+        "72",
+        "78",
+        "105"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "68 subtracts too much at some stage, likely forgetting to add back the triple intersection.",
@@ -363,7 +480,12 @@
         {
           "id": "l2_q9_r1",
           "question": "For two sets, |A| = 20, |B| = 15, |A ∩ B| = 5. Find |A ∪ B|.",
-          "options": ["25", "30", "35", "40"],
+          "options": [
+            "25",
+            "30",
+            "35",
+            "40"
+          ],
           "correctAnswer": 1,
           "explanations": {
             "A": "25 might subtract the intersection twice.",
@@ -445,6 +567,116 @@
           }
         }
       ]
+    },
+    {
+      "id": "l2_q11",
+      "kind": "challenge",
+      "concept": "combinations_selection",
+      "question": "A portfolio manager must pick exactly 4 distinct stocks from a universe of 11 for a long-only basket. How many different baskets are possible?",
+      "options": [
+        "330",
+        "792",
+        "165",
+        "44"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter: C(11,4) = 11!/(4!·7!) = 330.",
+        "B": "792 equals C(12,4)—likely using the wrong universe size or counting ordered selections.",
+        "C": "165 equals C(11,3), choosing three stocks instead of four.",
+        "D": "44 might come from 11 × 4, treating the problem as ordered selections without full counting."
+      },
+      "remediation": [
+        {
+          "id": "l2_q11_r1",
+          "question": "How many ways can you choose 2 items from 6 without regard to order?",
+          "options": [
+            "15",
+            "30",
+            "12",
+            "6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. C(6,2) = 6!/(2!·4!) = 15.",
+            "B": "30 equals P(6,2), counting ordered pairs.",
+            "C": "12 has no standard combinatorial meaning for this problem.",
+            "D": "6 counts only single selections or confuses the problem with choosing one item."
+          }
+        },
+        {
+          "id": "l2_q11_r2",
+          "question": "When does C(n,r) apply instead of P(n,r)?",
+          "options": [
+            "When the order of the chosen items does not matter",
+            "When items must be arranged in a line",
+            "When repetition is allowed",
+            "When r equals n"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Combinations count unordered selections; permutations count ordered arrangements.",
+            "B": "Arrangements in a line require permutations, not combinations.",
+            "C": "Repetition allowed leads to stars-and-bars or n^r models, not plain C(n,r).",
+            "D": "r = n gives C(n,n) = 1, one way to take everything, but that is not the general rule for combinations."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l2_q12",
+      "kind": "challenge",
+      "concept": "inclusion_exclusion_counting",
+      "question": "Six distinct quant interns sit in a row. Two specific interns—Alex and Blair—refuse to sit next to each other. How many valid seatings exist?",
+      "options": [
+        "480",
+        "720",
+        "240",
+        "360"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Total 6! = 720. Treat Alex and Blair as a block: 5! × 2 = 240 adjacent seatings. Valid = 720 − 240 = 480.",
+        "B": "720 counts all seatings without removing those where Alex and Blair are adjacent.",
+        "C": "240 counts only the forbidden adjacent seatings, not the allowed ones.",
+        "D": "360 might halve 720 incorrectly without using the block method."
+      },
+      "remediation": [
+        {
+          "id": "l2_q12_r1",
+          "question": "Four people sit in a row. Persons A and B must not be adjacent. How many arrangements?",
+          "options": [
+            "12",
+            "24",
+            "6",
+            "18"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Total 4! = 24. Block A,B: 3! × 2 = 12 adjacent. Valid = 24 − 12 = 12.",
+            "B": "24 ignores the restriction entirely.",
+            "C": "6 counts only half the row or uses an incorrect block formula.",
+            "D": "18 subtracts too few forbidden arrangements."
+          }
+        },
+        {
+          "id": "l2_q12_r2",
+          "question": "In the block method for 'A and B adjacent,' why multiply by 2?",
+          "options": [
+            "A can be left of B or right of B within the block",
+            "Each person has two seats",
+            "We count complements twice",
+            "Order of the other people is doubled"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The block AB and BA are two distinct ordered arrangements.",
+            "B": "People do not each get two seats; the factor 2 is internal order within the pair.",
+            "C": "Complement counting subtracts once; the factor 2 is not about double subtraction.",
+            "D": "The other people's permutations are already captured by (n−1)!."
+          }
+        }
+      ]
     }
   ],
   "placementQuestions": [
@@ -452,7 +684,12 @@
       "id": "l2_pq1",
       "concept": "factorial_counting",
       "question": "3! equals:",
-      "options": ["3", "6", "9", "27"],
+      "options": [
+        "3",
+        "6",
+        "9",
+        "27"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "3 is just n, not n!.",
@@ -465,7 +702,12 @@
       "id": "l2_pq2",
       "concept": "permutations",
       "question": "P(4,2) = permutations of 4 items taken 2 at a time:",
-      "options": ["6", "8", "12", "16"],
+      "options": [
+        "6",
+        "8",
+        "12",
+        "16"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "6 equals C(4,2), combinations without order.",
@@ -478,7 +720,12 @@
       "id": "l2_pq3",
       "concept": "combinations",
       "question": "C(5,2) equals:",
-      "options": ["10", "15", "20", "25"],
+      "options": [
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. 5×4/(2×1) = 10.",
@@ -491,7 +738,12 @@
       "id": "l2_pq4",
       "concept": "permutation_vs_combination",
       "question": "Choose a chair and a vice-chair from 6 people (distinct roles). How many ways?",
-      "options": ["15", "30", "36", "720"],
+      "options": [
+        "15",
+        "30",
+        "36",
+        "720"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "15 equals C(6,2), ignoring role labels.",
@@ -504,7 +756,12 @@
       "id": "l2_pq5",
       "concept": "inclusion_exclusion_two_sets",
       "question": "|A| = 25, |B| = 20, |A ∩ B| = 7. Find |A ∪ B|.",
-      "options": ["38", "45", "52", "12"],
+      "options": [
+        "38",
+        "45",
+        "52",
+        "12"
+      ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. 25 + 20 − 7 = 38.",
@@ -517,7 +774,12 @@
       "id": "l2_pq6",
       "concept": "inclusion_exclusion_probability",
       "question": "P(A) = 0.6, P(B) = 0.5, P(A ∩ B) = 0.2. Find P(A ∪ B).",
-      "options": ["0.7", "0.8", "0.9", "1.1"],
+      "options": [
+        "0.7",
+        "0.8",
+        "0.9",
+        "1.1"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "0.7 subtracts too much overlap.",
@@ -530,7 +792,12 @@
       "id": "l2_pq7",
       "concept": "counting_for_probability",
       "question": "Two dice rolled. How many equally likely ordered outcomes?",
-      "options": ["12", "21", "36", "72"],
+      "options": [
+        "12",
+        "21",
+        "36",
+        "72"
+      ],
       "correctAnswer": 2,
       "explanations": {
         "A": "12 might add 6 + 6 instead of multiplying.",
@@ -543,7 +810,12 @@
       "id": "l2_pq8",
       "concept": "combinations_probability",
       "question": "From 8 stocks, how many 3-stock portfolios (unordered)?",
-      "options": ["24", "56", "336", "512"],
+      "options": [
+        "24",
+        "56",
+        "336",
+        "512"
+      ],
       "correctAnswer": 1,
       "explanations": {
         "A": "24 equals P(8,3)/28 or other errors, not C(8,3).",

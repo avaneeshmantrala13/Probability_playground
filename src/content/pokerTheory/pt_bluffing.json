@@ -12,7 +12,9 @@
   "intro": [
     "A bluff wins when a better hand folds. Pure bluffs rely entirely on fold equity — you have little chance to improve if called. Semi-bluffs bet with draws, combining fold equity with equity when called.",
     "Good bluffs tell a coherent story: your line should represent hands your opponent believes you could hold. Wet, scary boards favor bluffs; calling stations and multiway pots reduce bluff success.",
-    "Bluffing is not random aggression — it is a calculated use of fold equity, blockers, and opponent tendencies. This lesson teaches when to fire, when to give up, and how semi-bluffs differ from pure air."
+    "Bluffing is not random aggression — it is a calculated use of fold equity, blockers, and opponent tendencies. This lesson teaches when to fire, when to give up, and how semi-bluffs differ from pure air.",
+    "Bluffing is not chaos — it is ratio math tied to bet sizing. A half-pot bluff needs to work only ~33% of the time to break even (risking 1 to win 2). Solver outputs pair value bets with bluffs at ratios that make opponents indifferent with MDF. Semi-bluffs add equity when called — flush draws and open-enders are the best bluff candidates because they win when opponents fold and improve when called. Blockers matter: holding the A♠ on a three-spade board reduces combos of nut flushes in villain's range, making bluffs more credible.",
+    "Bluffing is not chaos — it is ratio math tied to bet sizing. A half-pot bluff needs to work only ~33% of the time to break even (risking 1 to win 2). Solver outputs pair value bets with bluffs at ratios that make opponents indifferent with MDF. Semi-bluffs add equity when called — flush draws and open-enders are the best bluff candidates because they win when opponents fold and improve when called. Blockers matter: holding the A♠ on a three-spade board reduces combos of nut flushes in villain's range, making bluffs more credible."
   ],
   "questions": [
     {
@@ -561,6 +563,116 @@
             "B": "Value wants calls too.",
             "C": "Gets called often.",
             "D": "Showdown possible."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q11",
+      "kind": "challenge",
+      "concept": "bluff_ratio",
+      "question": "You bet $40 into an $80 pot on the river as a pure bluff (zero equity if called). Break-even fold frequency for villain is:",
+      "options": [
+        "33% — you risk $40 to win $120 total",
+        "50%",
+        "67%",
+        "10%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — need folds 40/(40+80) = 33% of the time; bluff succeeds when villain folds more than that.",
+        "B": "50% would be pot-sized bet math.",
+        "C": "67% is MDF for defender, not bluff breakeven.",
+        "D": "10% is far too low — bluffs would rarely need to work."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q11_r1",
+          "question": "Half-pot bluff ($50 into $100) needs villain to fold:",
+          "options": [
+            "~33%",
+            "~50%",
+            "~67%",
+            "~100%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 50/(50+100) = 33%.",
+            "B": "50% is even-money.",
+            "C": "67% is MDF for half-pot defense.",
+            "D": "100% fold is ideal but not required for breakeven."
+          }
+        },
+        {
+          "id": "pt_bl_q11_r2",
+          "question": "Bluff breakeven fold % = bet / (bet + pot). Bigger bet relative to pot:",
+          "options": [
+            "Requires fewer folds to break even",
+            "Requires more folds",
+            "Requires zero folds",
+            "Is always -EV"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — larger bets need lower fold % to break even (but risk more chips).",
+            "B": "Larger bets need fewer folds, not more.",
+            "C": "Some folds always needed for pure bluffs.",
+            "D": "Bluffs can be +EV with enough folds."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q12",
+      "kind": "challenge",
+      "concept": "blocker_bluff",
+      "question": "River board: Q♠ J♠ 7♠ 3♥ 2♣. You hold A♠ 5♦ (missed draw, no pair). Bluffing is more credible than holding 8♣ 4♦ because:",
+      "options": [
+        "A♠ blocks nut flush combos — villain is less likely to have the ace-high flush",
+        "8♣ blocks more straights",
+        "Blockers never matter",
+        "A♠ guarantees you win if called"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — holding A♠ removes nut flush combos from villain's range, increasing fold equity.",
+        "B": "8♣ doesn't block flushes on this board.",
+        "C": "Blockers are a core bluff-selection tool.",
+        "D": "If called with air, you still lose unless villain folds."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q12_r1",
+          "question": "Good bluff candidates often have:",
+          "options": [
+            "Blockers to villain's calling range",
+            "No relation to board",
+            "Only pairs",
+            "The nuts"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — blockers reduce strong hands opponent can hold.",
+            "B": "Blockers tie bluffs to board structure.",
+            "C": "Pairs often want showdown, not bluff.",
+            "D": "Nuts want value, not bluff."
+          }
+        },
+        {
+          "id": "pt_bl_q12_r2",
+          "question": "Holding the nut blocker (e.g. A♠ on three-spade board) when bluffing:",
+          "options": [
+            "Makes villain less likely to have the nuts",
+            "Guarantees a call",
+            "Is illegal",
+            "Means you have a flush"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fewer nut combos in villain's range.",
+            "B": "Blockers increase fold equity, not call rate.",
+            "C": "Blocker bluffs are standard.",
+            "D": "One spade isn't a flush unless four on board match."
           }
         }
       ]

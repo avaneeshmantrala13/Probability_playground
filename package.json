@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "validate:content": "node scripts/validate-content.mjs"
+    "validate:content": "node scripts/validate-content.mjs",
+    "merge:expansions": "node scripts/merge-lesson-expansions.mjs"
   },
   "dependencies": {
     "@vercel/node": "^3.2.0",

@@ -1,0 +1,96 @@
+[
+  {
+    "lessonId": "mm_bid_ask",
+    "placementQuestions": [
+      {
+        "id": "mm_ba_p1",
+        "question": "Quote 20 at 22. Your bid is:",
+        "options": ["20", "21", "22", "42"],
+        "correctAnswer": 0,
+        "explanations": { "A": "Correct — first number is bid.", "B": "Midpoint.", "C": "Ask.", "D": "Sum." }
+      },
+      {
+        "id": "mm_ba_p2",
+        "question": "Customer buys from you. They pay:",
+        "options": ["Your bid", "Your ask", "Midpoint", "Either"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Bid is where you buy.", "B": "Correct — buyers lift the ask.", "C": "Not unless agreed.", "D": "Direction matters." }
+      },
+      {
+        "id": "mm_ba_p3",
+        "question": "Market maker earns on round-trips mainly from:",
+        "options": ["Spread", "Guessing direction", "Insider info", "Wider inventory only"],
+        "correctAnswer": 0,
+        "explanations": { "A": "Correct.", "B": "Not pure directional bets.", "C": "Illegal/unethical.", "D": "Inventory is risk, not primary edge source." }
+      },
+      {
+        "id": "mm_ba_p4",
+        "question": "10 at 12 — spread width?",
+        "options": ["1", "2", "10", "12"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Half gap.", "B": "Correct — 12−10.", "C": "Bid.", "D": "Ask." }
+      },
+      {
+        "id": "mm_ba_p5",
+        "question": "You sell to a buyer at your:",
+        "options": ["Bid", "Ask", "Bid minus 1", "Ask plus 1"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Bid is purchase price for you.", "B": "Correct.", "C": "Not standard.", "D": "Not unless improving." }
+      },
+      {
+        "id": "mm_ba_p6",
+        "question": "'Hit the bid' means the customer:",
+        "options": ["Buys from you", "Sells to you", "Cancels", "Raises"],
+        "correctAnswer": 1,
+        "explanations": { "A": "That lifts the ask.", "B": "Correct — seller hits your bid.", "C": "No trade.", "D": "Different action." }
+      }
+    ]
+  },
+  {
+    "lessonId": "mm_spread",
+    "placementQuestions": [
+      {
+        "id": "mm_sp_p1",
+        "question": "Fair value 100, quote 99 at 101. Midpoint?",
+        "options": ["99", "100", "101", "200"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Bid.", "B": "Correct — average of 99 and 101.", "C": "Ask.", "D": "Sum." }
+      },
+      {
+        "id": "mm_sp_p2",
+        "question": "Wider spread usually means:",
+        "options": ["More certainty", "More uncertainty/risk", "Zero edge", "Free money"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Opposite.", "B": "Correct.", "C": "Spread is compensation.", "D": "No." }
+      },
+      {
+        "id": "mm_sp_p3",
+        "question": "Bid 48 ask 52 — spread?",
+        "options": ["2", "4", "48", "52"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Half.", "B": "Correct.", "C": "Bid.", "D": "Ask." }
+      },
+      {
+        "id": "mm_sp_p4",
+        "question": "If fair value rises, a market maker typically:",
+        "options": ["Lowers both sides", "Raises both bid and ask", "Only widens", "Stops quoting"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Wrong direction.", "B": "Correct — re-center quotes.", "C": "May tighten if confident.", "D": "Usually keeps quoting." }
+      },
+      {
+        "id": "mm_sp_p5",
+        "question": "Edge on a round-trip comes from crossing:",
+        "options": ["Bid twice", "Spread once buy and once sell", "Ask twice", "Fair value only"],
+        "correctAnswer": 1,
+        "explanations": { "A": "Two buys, no sell.", "B": "Correct.", "C": "Two sells.", "D": "Need actual trades." }
+      },
+      {
+        "id": "mm_sp_p6",
+        "question": "Tighter spread when you are very confident because:",
+        "options": ["Less need to charge for uncertainty", "Rules require it", "Spreads cannot widen", "Inventory disappears"],
+        "correctAnswer": 0,
+        "explanations": { "A": "Correct.", "B": "No.", "C": "False.", "D": "Inventory still exists." }
+      }
+    ]
+  }
+]
