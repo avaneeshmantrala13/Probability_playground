@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useProgress } from "../context/ProgressContext";
 import { completeCheckoutReturn } from "../lib/payments/checkoutReturn";
 import {
+  canAccessPokerNight,
   isPokerNightUnlocked,
   pokerNightLockMessage,
   TABLE_TIERS,
@@ -29,6 +30,7 @@ import { MultiplayerGate } from "../components/pokernight/MultiplayerGate";
 import { MultiplayerLobby } from "../components/pokernight/MultiplayerLobby";
 import { TableChat } from "../components/pokernight/TableChat";
 import { TokenPurchaseModal } from "../components/pokernight/TokenPurchaseModal";
+import { FreePlayExpiredModal } from "../components/pokernight/FreePlayExpiredModal";
 import { FreePlayBanner } from "../components/dailyRewards/FreePlayBanner";
 import { useQuizGates, useQuizFrozenTableState } from "../components/pokernight/useQuizGates";
 import { QuizGateModal } from "../components/pokernight/QuizGateModal";
@@ -40,10 +42,14 @@ type MpSession = { roomId: string; tier: TableTier; buyIn: number; key: number }
 
 export function PokerNight() {
   const { progress, loading, seedPokerTokens } = useProgress();
+  const [freePlayJustEnded, setFreePlayJustEnded] = useState(false);
+
+  const fullyUnlocked = isPokerNightUnlocked(progress);
+  const canPlay = canAccessPokerNight(progress);
 
   useEffect(() => {
-    if (!loading && isPokerNightUnlocked(progress)) seedPokerTokens();
-  }, [loading, progress, seedPokerTokens]);
+    if (!loading && canPlay) seedPokerTokens();
+  }, [loading, canPlay, seedPokerTokens]);
 
   if (loading) {
     return (
@@ -53,17 +59,31 @@ export function PokerNight() {
     );
   }
 
-  if (!isPokerNightUnlocked(progress)) {
-    const msg = pokerNightLockMessage(progress);
+  if (!canPlay) {
+    const msg = pokerNightLockMessage(progress, { freePlayJustEnded });
     return <LockedScreen headline={msg.headline} detail={msg.detail} />;
   }
 
-  return <PokerNightUnlocked />;
+  return (
+    <PokerNightUnlocked
+      onFreePlayEnded={() => setFreePlayJustEnded(true)}
+      showFreePlayEndedModal={freePlayJustEnded && fullyUnlocked}
+      onDismissFreePlayEnded={() => setFreePlayJustEnded(false)}
+    />
+  );
 }
 
 export default PokerNight;
 
-function PokerNightUnlocked() {
+function PokerNightUnlocked({
+  onFreePlayEnded,
+  showFreePlayEndedModal,
+  onDismissFreePlayEnded,
+}: {
+  onFreePlayEnded: () => void;
+  showFreePlayEndedModal: boolean;
+  onDismissFreePlayEnded: () => void;
+}) {
   const { user } = useAuth();
   const {
     progress,
@@ -135,6 +155,12 @@ function PokerNightUnlocked() {
     }
     if (!spendTokens(buyIn)) return;
     setSeat({ tier, buyIn, key: Date.now() });
+  };
+
+  const handleFreePlaySessionEnd = (finalStack: number) => {
+    if (finalStack > 0) addTokens(finalStack);
+    setSeat(null);
+    onFreePlayEnded();
   };
 
   const handleCashOut = (finalStack: number) => {
@@ -209,7 +235,7 @@ function PokerNightUnlocked() {
             freePlayMinutesRemaining={freePlayMinutesRemaining}
             tickFreePlayMinutes={tickFreePlayMinutes}
             onCashOut={handleCashOut}
-            onFreePlayExpired={() => setSeat(null)}
+            onFreePlayExpired={handleFreePlaySessionEnd}
             deckSkinId={progress.equipped?.deckSkin ?? "deck-classic"}
             tableThemeId={progress.equipped?.tableTheme ?? "table-classic-green"}
           />
@@ -236,6 +262,10 @@ function PokerNightUnlocked() {
           onLeave={() => setMode("single")}
         />
       )}
+
+      {showFreePlayEndedModal && (
+        <FreePlayExpiredModal stillUnlocked onDismiss={onDismissFreePlayEnded} />
+      )}
     </div>
   );
 }
@@ -248,7 +278,7 @@ interface PokerSessionProps {
   freePlayMinutesRemaining?: number;
   tickFreePlayMinutes?: (minutes: number) => void;
   onCashOut: (finalStack: number) => void;
-  onFreePlayExpired?: () => void;
+  onFreePlayExpired?: (finalStack: number) => void;
   deckSkinId: string;
   tableThemeId: string;
 }
@@ -270,18 +300,14 @@ function PokerSession({
   const navigate = useNavigate();
   const reduced = useReducedMotion();
   const { recordPokerHand, spendTokens, addTokens } = useProgress();
+  const expiredHandled = useRef(false);
+  const stackRef = useRef(buyIn);
 
   useEffect(() => {
     if (!freePlay || !tickFreePlayMinutes) return;
     const id = window.setInterval(() => tickFreePlayMinutes(1), 60_000);
     return () => clearInterval(id);
   }, [freePlay, tickFreePlayMinutes]);
-
-  useEffect(() => {
-    if (freePlay && freePlayMinutesRemaining <= 0) {
-      onFreePlayExpired?.();
-    }
-  }, [freePlay, freePlayMinutesRemaining, onFreePlayExpired]);
 
   const deck = getDeckSkin(deckSkinId);
   const theme = getTableTheme(tableThemeId);
@@ -310,13 +336,17 @@ function PokerSession({
     });
 
     if (info.humanStack === 0) {
-      const bank = bankrollRef.current;
-      if (bank < TABLE_TIERS[0].minBuyIn) {
-        setPhase("broke");
-      } else if (bank < tier.minBuyIn) {
-        onCashOut(0);
-      } else {
+      if (freePlay) {
         setPhase("busted");
+      } else {
+        const bank = bankrollRef.current;
+        if (bank < TABLE_TIERS[0].minBuyIn) {
+          setPhase("broke");
+        } else if (bank < tier.minBuyIn) {
+          onCashOut(0);
+        } else {
+          setPhase("busted");
+        }
       }
     } else {
       setPhase("playing");
@@ -347,6 +377,14 @@ function PokerSession({
     humanSeatIndex,
   } = game;
 
+  stackRef.current = humanSeat.stack;
+
+  useEffect(() => {
+    if (!freePlay || freePlayMinutesRemaining > 0 || expiredHandled.current) return;
+    expiredHandled.current = true;
+    onFreePlayExpired?.(stackRef.current);
+  }, [freePlay, freePlayMinutesRemaining, onFreePlayExpired]);
+
   const quizGates = useQuizGates({
     state,
     viewerSeatIndex: humanSeatIndex,
@@ -367,7 +405,7 @@ function PokerSession({
   };
 
   const handleRebuy = (amount: number) => {
-    if (!spendTokens(amount)) {
+    if (!freePlay && !spendTokens(amount)) {
       setShowPurchase(true);
       return;
     }
@@ -406,6 +444,7 @@ function PokerSession({
         onLeave={handleLeave}
         leaveDisabled={!handComplete}
         onBuyTokens={() => setShowPurchase(true)}
+        freePlayMinutesRemaining={freePlay ? freePlayMinutesRemaining : undefined}
       />
 
       <div className="pn-viewport-main">
@@ -613,6 +652,7 @@ function SessionHeader({
   onBuyTokens,
   badge,
   className,
+  freePlayMinutesRemaining,
 }: {
   tier: TableTier;
   stack: number;
@@ -622,6 +662,7 @@ function SessionHeader({
   onBuyTokens?: () => void;
   badge?: string;
   className?: string;
+  freePlayMinutesRemaining?: number;
 }) {
   return (
     <div className={["flex flex-wrap items-center justify-between gap-2", className].filter(Boolean).join(" ")}>
@@ -641,6 +682,11 @@ function SessionHeader({
           Bankroll:{" "}
           <span className="font-mono font-semibold">{bankroll.toLocaleString()}</span>
         </span>
+        {freePlayMinutesRemaining != null && freePlayMinutesRemaining > 0 && (
+          <span className="pp-card px-3 py-1.5 font-semibold text-accent">
+            Free play: {freePlayMinutesRemaining} min left
+          </span>
+        )}
       </div>
       <div className="flex flex-wrap items-center gap-2">
         {onBuyTokens && (

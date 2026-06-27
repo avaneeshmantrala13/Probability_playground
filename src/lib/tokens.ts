@@ -5,6 +5,8 @@ export const STARTING_TOKENS = 1000;
 
 export {
   BYPASS_POKER_NIGHT_GATE,
+  canAccessPokerNight,
+  hasFreePlayMinutes,
   isPokerNightUnlocked,
   allPokerTheoryLessonsPassed,
   completedPokerTheoryToday,

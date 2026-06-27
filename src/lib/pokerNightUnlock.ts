@@ -16,8 +16,13 @@ export function completedPokerTheoryToday(progress: CourseProgress): boolean {
   return progress.pokerTheoryLastPassDate === todayKey();
 }
 
+/** True when the user has streak reward minutes left for the poker table. */
+export function hasFreePlayMinutes(progress: CourseProgress): boolean {
+  return (progress.freePlayMinutesRemaining ?? 0) > 0;
+}
+
 /**
- * Poker Night unlock:
+ * Poker Night unlock (ongoing access):
  * - All poker theory lessons mastered → play anytime
  * - Otherwise → complete ≥1 poker theory lesson today
  */
@@ -27,11 +32,28 @@ export function isPokerNightUnlocked(progress: CourseProgress): boolean {
   return completedPokerTheoryToday(progress);
 }
 
+/** May open /poker — includes streak free-play minutes even without today's lesson. */
+export function canAccessPokerNight(progress: CourseProgress): boolean {
+  if (BYPASS_POKER_NIGHT_GATE) return true;
+  if (hasFreePlayMinutes(progress)) return true;
+  return isPokerNightUnlocked(progress);
+}
+
 /** User-facing hint for the locked screen. */
-export function pokerNightLockMessage(progress: CourseProgress): {
+export function pokerNightLockMessage(
+  progress: CourseProgress,
+  opts?: { freePlayJustEnded?: boolean },
+): {
   headline: string;
   detail: string;
 } {
+  if (opts?.freePlayJustEnded) {
+    return {
+      headline: "Free play time's up",
+      detail:
+        "Your streak reward minutes have ended. Pass any Poker Theory lesson today to keep playing, or come back tomorrow for another daily reward.",
+    };
+  }
   if (allPokerTheoryLessonsPassed(progress)) {
     return { headline: "Poker Night is locked", detail: "Unexpected lock state." };
   }
