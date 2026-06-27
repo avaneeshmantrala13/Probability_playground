@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_fundamentals",
+  "order": 1,
+  "title": "Poker Fundamentals",
+  "subtitle": "Rules, streets, and how a hand unfolds",
+  "topics": [
+    "Texas Hold'em rules",
+    "Blinds",
+    "Streets",
+    "Showdown"
+  ],
+  "intro": [
+    "Texas Hold'em is the most widely studied poker variant. Each player receives two private hole cards, then five community cards are dealt in stages: the flop (three cards), the turn (one card), and the river (one card).",
+    "Betting happens before the flop (preflop), after the flop, after the turn, and after the river. You win by making the best five-card hand from your hole cards plus the board, or by being the last player remaining after everyone else folds.",
+    "Understanding the flow of a hand — who acts when, what the blinds are, and when cards are revealed — is the foundation for every strategic concept that follows."
+  ],
+  "questions": [
+    {
+      "id": "pt_f1_q1",
+      "kind": "standard",
+      "concept": "hole_cards",
+      "question": "How many private hole cards does each player receive in Texas Hold'em?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Hold'em uses one private card only in exotic variants; standard Texas Hold'em always deals two.",
+        "B": "Correct. Every player gets exactly two hole cards that only they may look at until showdown.",
+        "C": "Four hole cards is Omaha, not Hold'em.",
+        "D": "Five private cards would leave no community cards for the shared board."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q1_r1",
+          "question": "At the start of a Hold'em hand, each player is dealt this many face-down cards:",
+          "options": [
+            "2",
+            "3",
+            "5",
+            "7"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — two hole cards.",
+            "B": "Three is not standard Hold'em.",
+            "C": "Five is the community board total, not hole cards.",
+            "D": "Seven is used in some stud games, not Hold'em."
+          }
+        },
+        {
+          "id": "pt_f1_q1_r2",
+          "question": "Your hidden cards in Texas Hold'em are called hole cards. How many do you get?",
+          "options": [
+            "1",
+            "2",
+            "4",
+            "6"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "One hole card isn't Hold'em.",
+            "B": "Correct — exactly two hole cards.",
+            "C": "Four hole cards describes Omaha.",
+            "D": "Six isn't a standard deal in Hold'em."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q2",
+      "kind": "standard",
+      "concept": "community_cards",
+      "question": "How many community cards are dealt on the board in a full Texas Hold'em hand?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Three is only the flop; the turn and river add two more.",
+        "B": "Four is still missing the river.",
+        "C": "Correct — flop (3) + turn (1) + river (1) = 5 community cards.",
+        "D": "Seven would exceed a standard deck's shared cards."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q2_r1",
+          "question": "The flop shows three community cards. After the turn and river, the board has:",
+          "options": [
+            "4 cards",
+            "5 cards",
+            "6 cards",
+            "7 cards"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Four is only through the turn.",
+            "B": "Correct — five total community cards.",
+            "C": "Six isn't standard.",
+            "D": "Seven isn't standard."
+          }
+        },
+        {
+          "id": "pt_f1_q2_r2",
+          "question": "In Hold'em you combine your hole cards with community cards. The board ends with:",
+          "options": [
+            "3 cards",
+            "4 cards",
+            "5 cards",
+            "6 cards"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Three is just the flop.",
+            "B": "Four is missing the river.",
+            "C": "Correct — five community cards total.",
+            "D": "Six isn't used in Hold'em."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q3",
+      "kind": "standard",
+      "concept": "streets",
+      "question": "What is the correct order of betting rounds in Hold'em?",
+      "options": [
+        "Preflop → Turn → Flop → River",
+        "Preflop → Flop → Turn → River",
+        "Flop → Preflop → Turn → River",
+        "Preflop → Flop → River → Turn"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Turn before flop is wrong.",
+        "B": "Correct — preflop, then flop, turn, and river.",
+        "C": "Flop never comes before preflop.",
+        "D": "River always comes after the turn."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q3_r1",
+          "question": "After hole cards are dealt, the first betting round is:",
+          "options": [
+            "The flop",
+            "Preflop",
+            "The river",
+            "Showdown"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Flop is second.",
+            "B": "Correct — betting starts preflop.",
+            "C": "River is near the end.",
+            "D": "Showdown follows all betting."
+          }
+        },
+        {
+          "id": "pt_f1_q3_r2",
+          "question": "The turn is dealt after which street?",
+          "options": [
+            "Preflop",
+            "The flop",
+            "The river",
+            "Showdown"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Preflop has no community cards yet.",
+            "B": "Correct — flop, then turn.",
+            "C": "River comes after the turn.",
+            "D": "Showdown is last."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q4",
+      "kind": "standard",
+      "concept": "blinds",
+      "question": "In a $1/$2 cash game, the small blind posts:",
+      "options": [
+        "$1",
+        "$2",
+        "$0.50",
+        "$3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — the first number is the small blind.",
+        "B": "The big blind is $2.",
+        "C": "$0.50 isn't the posted blind here.",
+        "D": "$3 isn't standard for this structure."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q4_r1",
+          "question": "The player directly left of the dealer posts the small blind of:",
+          "options": [
+            "$1",
+            "$2",
+            "Half the big blind only in tournaments",
+            "$0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct in a $1/$2 game.",
+            "B": "That's the big blind.",
+            "C": "Cash games use fixed blinds as labeled.",
+            "D": "Blinds are mandatory forced bets."
+          }
+        },
+        {
+          "id": "pt_f1_q4_r2",
+          "question": "In $1/$2, the big blind is:",
+          "options": [
+            "$1",
+            "$2",
+            "$4",
+            "$0.50"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "$1 is the small blind.",
+            "B": "Correct — the second number is the big blind.",
+            "C": "$4 isn't labeled.",
+            "D": "$0.50 isn't the big blind here."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q5",
+      "kind": "standard",
+      "concept": "showdown",
+      "question": "At showdown, a player must show cards to win the pot if:",
+      "options": [
+        "They were the last aggressor on the river",
+        "They are called and must table a hand to claim the pot",
+        "They folded on the turn",
+        "They checked preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Last aggressor rule decides show order, not eligibility.",
+        "B": "Correct — if called at showdown you must show to win.",
+        "C": "Folded players cannot win.",
+        "D": "Checking preflop doesn't determine showdown rules."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q5_r1",
+          "question": "If you bet the river and get called, you generally must:",
+          "options": [
+            "Muck without showing",
+            "Show your hand to win",
+            "Fold automatically",
+            "Reveal one card only"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "You can't win without showing when called.",
+            "B": "Correct — table your cards to claim the pot.",
+            "C": "You didn't fold; you were called.",
+            "D": "Full hand is shown at showdown."
+          }
+        },
+        {
+          "id": "pt_f1_q5_r2",
+          "question": "A player who folded before the river:",
+          "options": [
+            "Can still win if they had the nuts",
+            "Is out of the hand",
+            "Shows cards anyway",
+            "Posts another blind"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Folded means out of the hand.",
+            "B": "Correct — once you fold you cannot win the pot.",
+            "C": "No need to show after folding.",
+            "D": "Blinds apply to new hands."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q6",
+      "kind": "standard",
+      "concept": "best_five",
+      "question": "You hold A♠ K♦ and the board is Q♠ J♠ T♥ 2♣ 7♦. Your best five-card hand is:",
+      "options": [
+        "High card ace",
+        "A straight",
+        "A flush",
+        "Two pair"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You use A-K with the board to make Broadway: A-K-Q-J-T.",
+        "B": "Correct — you have a Broadway straight (A high).",
+        "C": "No five spades; not a flush.",
+        "D": "Two pair isn't your best five here."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q6_r1",
+          "question": "Hole cards A-K on board Q-J-T-x-x makes:",
+          "options": [
+            "Pair of aces",
+            "Straight",
+            "Full house",
+            "Flush draw only"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Pair ignores the straight.",
+            "B": "Correct — A-K-Q-J-T is a straight.",
+            "C": "No pair for a boat.",
+            "D": "No flush completed."
+          }
+        },
+        {
+          "id": "pt_f1_q6_r2",
+          "question": "You may use zero, one, or two hole cards to make your best hand. Here A-K with Q-J-T uses:",
+          "options": [
+            "0 hole cards",
+            "1 hole card",
+            "2 hole cards",
+            "Must use both always"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Board alone is Q-J-T high card.",
+            "B": "One card can't beat the straight.",
+            "C": "Correct — both A and K complete the straight.",
+            "D": "You choose the best five, not always both."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q7",
+      "kind": "standard",
+      "concept": "actions",
+      "question": "Which action keeps you in the hand without putting more chips in (when no bet faces you)?",
+      "options": [
+        "Fold",
+        "Check",
+        "Raise",
+        "Muck"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Fold ends your participation.",
+        "B": "Correct — check passes action with no additional chips.",
+        "C": "Raise adds chips.",
+        "D": "Muck is surrendering at showdown."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q7_r1",
+          "question": "When no one has bet this street, you may:",
+          "options": [
+            "Check",
+            "Fold only",
+            "Must bet",
+            "Show cards"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — check is allowed.",
+            "B": "Fold is allowed but not required.",
+            "C": "Betting is optional.",
+            "D": "Showdown isn't now."
+          }
+        },
+        {
+          "id": "pt_f1_q7_r2",
+          "question": "Facing no bet, checking means:",
+          "options": [
+            "You forfeit the pot",
+            "You stay in without adding chips",
+            "You must call",
+            "You win automatically"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Forfeit is fold.",
+            "B": "Correct — pass action, stay in.",
+            "C": "Nothing to call.",
+            "D": "Check doesn't win the pot."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q8",
+      "kind": "standard",
+      "concept": "side_pots",
+      "question": "Three players remain. Short stack goes all-in for $50, two deeper stacks build a $200 side pot. Who can win the side pot?",
+      "options": [
+        "Only the short stack",
+        "Only the two deeper players",
+        "All three players",
+        "The dealer"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Short stack wasn't eligible for chips beyond their $50.",
+        "B": "Correct — only players who matched the extra action contest the side pot.",
+        "C": "Short stack can't win chips they didn't cover.",
+        "D": "Dealer doesn't play."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q8_r1",
+          "question": "Side pots exist when:",
+          "options": [
+            "Everyone has equal stacks",
+            "A player is all-in for less than others continue betting",
+            "The board pairs",
+            "Blinds are posted"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Equal stacks don't create sides.",
+            "B": "Correct — unequal all-ins create side pots.",
+            "C": "Board pairing is unrelated.",
+            "D": "Blinds start the hand."
+          }
+        },
+        {
+          "id": "pt_f1_q8_r2",
+          "question": "The main pot is contested by:",
+          "options": [
+            "Only the biggest stack",
+            "Every player who matched the shortest all-in",
+            "Folded players",
+            "Nobody"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "All matched players can win main.",
+            "B": "Correct — all who put in up to the short stack amount.",
+            "C": "Folded players are out.",
+            "D": "Main pot always has eligible players."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q9",
+      "kind": "challenge",
+      "concept": "button_advantage",
+      "question": "Why is the dealer button considered valuable?",
+      "options": [
+        "It posts the big blind next hand",
+        "It acts last on postflop streets",
+        "It sees hole cards first",
+        "It always wins ties"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Button moves each hand; blind posting isn't the advantage.",
+        "B": "Correct — acting last postflop lets you see others' actions first.",
+        "C": "Deal order isn't strategic advantage.",
+        "D": "Ties split; button doesn't win."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q9_r1",
+          "question": "Postflop, the button typically acts:",
+          "options": [
+            "First",
+            "Last among remaining players",
+            "Only on the river",
+            "Never"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "First is out of position.",
+            "B": "Correct — last to act is the advantage.",
+            "C": "Button acts every postflop street.",
+            "D": "Button always has a seat."
+          }
+        },
+        {
+          "id": "pt_f1_q9_r2",
+          "question": "Acting last on the flop lets you:",
+          "options": [
+            "See opponents' actions before deciding",
+            "Deal the turn",
+            "Skip the blind",
+            "Show cards early"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — information advantage.",
+            "B": "Dealer deals but that's not the strategic edge.",
+            "C": "Blinds still apply.",
+            "D": "Showdown is later."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_f1_q10",
+      "kind": "challenge",
+      "concept": "all_in_rules",
+      "question": "Player A shoves all-in for $100. Player B has $300 and calls. Player C has $500 and raises to $250 total. What happens?",
+      "options": [
+        "C's raise is illegal",
+        "B may only call $100 unless they have chips to match C",
+        "C wins automatically",
+        "Hand ends preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Raises are legal if C has chips.",
+        "B": "Correct — B must match available action; side pots may form if B can't cover full raise.",
+        "C": "No automatic win.",
+        "D": "Hand continues with remaining action."
+      },
+      "remediation": [
+        {
+          "id": "pt_f1_q10_r1",
+          "question": "When a short all-in doesn't reopen betting, a full raise:",
+          "options": [
+            "Always reopens action for players who already acted",
+            "May not reopen if the raise increment is insufficient",
+            "Ends the hand",
+            "Only the dealer can call"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Reopening depends on raise size rules.",
+            "B": "Correct — insufficient raises may not reopen.",
+            "C": "Hand continues.",
+            "D": "Players act, not dealer."
+          }
+        },
+        {
+          "id": "pt_f1_q10_r2",
+          "question": "Multiple all-ins at different stack depths usually create:",
+          "options": [
+            "One pot only",
+            "Main and side pots",
+            "No pot",
+            "Split pots always"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Different amounts create sides.",
+            "B": "Correct — main pot plus side pot(s).",
+            "C": "Pots always exist.",
+            "D": "Split only at showdown if tied."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_f1_p1",
+      "concept": "hole_cards",
+      "question": "Each Hold'em player receives how many hole cards?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "One isn't Hold'em.",
+        "B": "Correct.",
+        "C": "Three isn't standard.",
+        "D": "Five is the board total."
+      }
+    },
+    {
+      "id": "pt_f1_p2",
+      "concept": "community",
+      "question": "Total community cards on the board:",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Three is flop only.",
+        "B": "Four is through turn.",
+        "C": "Correct.",
+        "D": "Six isn't standard."
+      }
+    },
+    {
+      "id": "pt_f1_p3",
+      "concept": "streets",
+      "question": "First betting round:",
+      "options": [
+        "Flop",
+        "Preflop",
+        "River",
+        "Showdown"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Flop is second.",
+        "B": "Correct.",
+        "C": "River is late.",
+        "D": "Showdown is last."
+      }
+    },
+    {
+      "id": "pt_f1_p4",
+      "concept": "blinds",
+      "question": "$2/$5 game: small blind is:",
+      "options": [
+        "$2",
+        "$5",
+        "$1",
+        "$2.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — first number.",
+        "B": "That's the big blind.",
+        "C": "$1 isn't labeled.",
+        "D": "$2.50 isn't standard."
+      }
+    },
+    {
+      "id": "pt_f1_p5",
+      "concept": "showdown",
+      "question": "To win when called on the river you must:",
+      "options": [
+        "Fold",
+        "Show a hand",
+        "Post a blind",
+        "Check only"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Fold loses.",
+        "B": "Correct.",
+        "C": "Blinds are pre-hand.",
+        "D": "Check doesn't claim a bet pot alone."
+      }
+    },
+    {
+      "id": "pt_f1_p6",
+      "concept": "best_five",
+      "question": "Best hand uses at most how many hole cards?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Zero is possible (play the board).",
+        "B": "One is common.",
+        "C": "Correct — maximum two.",
+        "D": "Five hole cards isn't Hold'em."
+      }
+    },
+    {
+      "id": "pt_f1_p7",
+      "concept": "actions",
+      "question": "No bet facing you — you can:",
+      "options": [
+        "Check",
+        "Must fold",
+        "Must raise",
+        "Win pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Fold optional.",
+        "C": "Raise optional.",
+        "D": "Doesn't win yet."
+      }
+    },
+    {
+      "id": "pt_f1_p8",
+      "concept": "button",
+      "question": "The button acts postflop:",
+      "options": [
+        "First",
+        "Last (among players in hand)",
+        "Never",
+        "Only preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "First is wrong.",
+        "B": "Correct.",
+        "C": "Button acts postflop.",
+        "D": "Button acts both."
+      }
+    }
+  ]
+}

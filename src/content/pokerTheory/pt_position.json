@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_position",
+  "order": 3,
+  "title": "Position & Seat Advantage",
+  "subtitle": "Why acting last is worth more than extra cards",
+  "topics": [
+    "Seat names",
+    "Early vs late position",
+    "Steals",
+    "Squeeze plays"
+  ],
+  "intro": [
+    "Position is the single most important structural advantage in Hold'em. Players who act later on each street see more information before committing chips — who checked, who bet, and how large the pot grew.",
+    "Early positions (under the gun and nearby seats) must open tight ranges because many players still act behind them. Late positions (cutoff and button) can widen ranges and steal blinds more profitably.",
+    "The blinds are unique: they post forced bets but act last preflop and first postflop. Understanding seat names and action order prevents costly mistakes before you ever look at your cards."
+  ],
+  "questions": [
+    {
+      "id": "pt_pos_q1",
+      "kind": "standard",
+      "concept": "seat_names",
+      "question": "In a full-ring game, 'under the gun' (UTG) is:",
+      "options": [
+        "The player on the button",
+        "The first player to act preflop after the blinds",
+        "The small blind",
+        "The last player to act preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Button acts last preflop among non-blinds.",
+        "B": "Correct — UTG is first to act once action reaches the main seats.",
+        "C": "Small blind posts and acts early but isn't UTG.",
+        "D": "Last preflop is typically the button or cutoff area."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q1_r1",
+          "question": "First voluntary preflop action at a full table usually comes from:",
+          "options": [
+            "The button",
+            "UTG",
+            "The big blind",
+            "The dealer chip"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Button waits for others.",
+            "B": "Correct — UTG opens the action.",
+            "C": "BB acts last preflop.",
+            "D": "Dealer is a marker, not a seat."
+          }
+        },
+        {
+          "id": "pt_pos_q1_r2",
+          "question": "UTG stands for:",
+          "options": [
+            "Under the gun — first to act",
+            "Under the game",
+            "Ultimate table guard",
+            "Unlimited table game"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — first seat to act preflop.",
+            "B": "Not a real poker term.",
+            "C": "Made up.",
+            "D": "Not standard."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q2",
+      "kind": "standard",
+      "concept": "late_position",
+      "question": "Which seat is considered the most advantageous in a typical hand?",
+      "options": [
+        "Small blind",
+        "Big blind",
+        "Button (dealer)",
+        "UTG"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "SB acts first postflop and posts blind.",
+        "B": "BB posts more and acts early postflop.",
+        "C": "Correct — button acts last postflop on every street.",
+        "D": "UTG acts first among openers."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q2_r1",
+          "question": "Acting last postflop gives you:",
+          "options": [
+            "Less information",
+            "More information before you decide",
+            "Automatic pot wins",
+            "No need to think about ranges"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Last to act sees more, not less.",
+            "B": "Correct — you observe others first.",
+            "C": "Position doesn't guarantee wins.",
+            "D": "Ranges still matter."
+          }
+        },
+        {
+          "id": "pt_pos_q2_r2",
+          "question": "The dealer button moves:",
+          "options": [
+            "Every hand clockwise",
+            "Only after you win",
+            "Never in tournaments",
+            "Randomly each street"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — one seat clockwise each hand.",
+            "B": "Winning doesn't move the button.",
+            "C": "Button moves in all formats.",
+            "D": "Streets don't move the button."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q3",
+      "kind": "standard",
+      "concept": "blind_order",
+      "question": "Preflop, who acts last among players still in the hand (excluding folds)?",
+      "options": [
+        "Small blind",
+        "Big blind",
+        "Button",
+        "UTG"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "SB acts near the end but before BB in preflop order.",
+        "B": "BB acts last only if no raise; with raises, button often acts last.",
+        "C": "Correct — in raised pots the button typically closes the action preflop.",
+        "D": "UTG acts first."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q3_r1",
+          "question": "The big blind is posted by:",
+          "options": [
+            "The player left of the small blind",
+            "The player two seats left of the button",
+            "The button",
+            "UTG"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "SB is one left of button; BB is next.",
+            "B": "Correct — BB is two seats left of the button.",
+            "C": "Button doesn't post BB.",
+            "D": "UTG doesn't post blinds."
+          }
+        },
+        {
+          "id": "pt_pos_q3_r2",
+          "question": "Small blind posts:",
+          "options": [
+            "Half the big blind (typically)",
+            "Double the big blind",
+            "Nothing",
+            "Only in tournaments"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — SB is usually half the BB.",
+            "B": "SB is smaller, not double.",
+            "C": "SB is a forced bet.",
+            "D": "Blinds exist in cash games too."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q4",
+      "kind": "standard",
+      "concept": "open_range",
+      "question": "Why should UTG open a tighter range than the button?",
+      "options": [
+        "UTG sees the flop first",
+        "Many players still act behind UTG",
+        "UTG has the button next hand",
+        "Blinds always fold to UTG"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Flop order differs from preflop opening logic.",
+        "B": "Correct — more players behind means more ways to be dominated or squeezed.",
+        "C": "Next hand's button is irrelevant to this hand.",
+        "D": "Blinds defend often."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q4_r1",
+          "question": "Opening wide from early position is risky because:",
+          "options": [
+            "You might get raised or called by better hands behind you",
+            "The board is already dealt",
+            "You must always fold postflop",
+            "Position doesn't matter preflop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — players behind can punish wide opens.",
+            "B": "Board comes after preflop.",
+            "C": "You can continue postflop.",
+            "D": "Position matters postflop especially."
+          }
+        },
+        {
+          "id": "pt_pos_q4_r2",
+          "question": "The cutoff opens wider than UTG mainly because:",
+          "options": [
+            "Fewer players left to act",
+            "Cutoff posts blinds",
+            "UTG is on the button",
+            "Rules require it"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fewer opponents behind.",
+            "B": "Cutoff doesn't post blinds.",
+            "C": "UTG isn't the button.",
+            "D": "It's strategy, not a rule."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q5",
+      "kind": "standard",
+      "concept": "oop_ip",
+      "question": "You are 'in position' against an opponent when:",
+      "options": [
+        "You act before them on every street",
+        "You act after them on the current street",
+        "You have more chips",
+        "You are in the blinds"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Acting first is out of position.",
+        "B": "Correct — acting last on a street means you are in position.",
+        "C": "Stack size isn't position.",
+        "D": "Blinds are usually out of position postflop."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q5_r1",
+          "question": "Out of position (OOP) means:",
+          "options": [
+            "You act first on a street",
+            "You have the nuts",
+            "You are on the button",
+            "You checked preflop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — OOP acts before your opponent.",
+            "B": "Hand strength isn't position.",
+            "C": "Button is in position.",
+            "D": "Check doesn't define position."
+          }
+        },
+        {
+          "id": "pt_pos_q5_r2",
+          "question": "Being in position on the river lets you:",
+          "options": [
+            "See whether opponent checks or bets before you act",
+            "Deal extra cards",
+            "Skip showdown",
+            "Win ties automatically"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — informational edge on the final street.",
+            "B": "No extra cards.",
+            "C": "Showdown still happens.",
+            "D": "Ties still split."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q6",
+      "kind": "standard",
+      "concept": "steal",
+      "question": "A 'steal' attempt usually comes from:",
+      "options": [
+        "UTG with 7♠ 2♦",
+        "Late position with a raise when folds are likely",
+        "Big blind checking",
+        "Showing cards early"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "UTG opens get called too often for a steal.",
+        "B": "Correct — late-position raises can win blinds uncontested.",
+        "C": "Checking isn't a steal.",
+        "D": "Showing cards isn't a steal."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q6_r1",
+          "question": "Stealing blinds works best when:",
+          "options": [
+            "Many tight players left to act might fold",
+            "You always have aces",
+            "You are UTG",
+            "Pot is already huge"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fold equity from late seat matters.",
+            "B": "You won't always have aces.",
+            "C": "UTG has players behind.",
+            "D": "Huge pots mean someone already invested."
+          }
+        },
+        {
+          "id": "pt_pos_q6_r2",
+          "question": "Button raise first-in is often called a:",
+          "options": [
+            "Steal or open-raise",
+            "Check-raise",
+            "Slow play",
+            "Muck"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — opening from the button to take blinds.",
+            "B": "Check-raise requires a prior bet.",
+            "C": "Slow play is trapping.",
+            "D": "Muck is folding at showdown."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q7",
+      "kind": "standard",
+      "concept": "postflop_order",
+      "question": "On the flop, who typically acts first?",
+      "options": [
+        "The button",
+        "First active player left of the button",
+        "The big blind always",
+        "Random seat"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Button acts last, not first.",
+        "B": "Correct — first active seat clockwise from the button acts first.",
+        "C": "BB acts first only if still in and left of button.",
+        "D": "Order is fixed, not random."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q7_r1",
+          "question": "Postflop action starts:",
+          "options": [
+            "With the small blind if still in the hand",
+            "Left of the button among active players",
+            "With the last raiser preflop only",
+            "On the river"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "SB may act first but rule is left of button.",
+            "B": "Correct — clockwise from button.",
+            "C": "Preflop aggressor matters in some formats but standard is left of button.",
+            "D": "Flop is first postflop street."
+          }
+        },
+        {
+          "id": "pt_pos_q7_r2",
+          "question": "If only button and BB remain on the flop, first to act is:",
+          "options": [
+            "Button",
+            "Big blind",
+            "Split action",
+            "Dealer"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Button acts last on flop.",
+            "B": "Correct — BB is left of button and acts first.",
+            "C": "Action isn't split.",
+            "D": "Dealer doesn't play."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q8",
+      "kind": "standard",
+      "concept": "defend_bb",
+      "question": "Big blind defends wider than early positions because:",
+      "options": [
+        "BB already has money in the pot and closes preflop action",
+        "BB always has position postflop",
+        "Rules force BB to call",
+        "BB sees hole cards last"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — pot odds and closing action justify wider defense.",
+        "B": "BB is usually OOP postflop.",
+        "C": "BB can fold to raises.",
+        "D": "Hole cards aren't seen last."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q8_r1",
+          "question": "BB gets a discount to call because:",
+          "options": [
+            "Part of the call is already posted as the blind",
+            "Dealer adds chips",
+            "SB pays for BB",
+            "Antes don't exist"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — you need only complete the blind.",
+            "B": "Dealer doesn't add.",
+            "C": "SB posts separately.",
+            "D": "Antes are unrelated to this idea."
+          }
+        },
+        {
+          "id": "pt_pos_q8_r2",
+          "question": "Closing the action preflop means:",
+          "options": [
+            "You act last with no players left behind you",
+            "You must raise",
+            "You win the pot",
+            "You are on the button"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — no one can raise after you.",
+            "B": "You can call or fold too.",
+            "C": "Closing action doesn't win the pot.",
+            "D": "Button may not close if blinds remain."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q9",
+      "kind": "challenge",
+      "concept": "squeeze",
+      "question": "UTG opens, cutoff calls, you are on the button with A♣ 5♣. A squeeze is:",
+      "options": [
+        "Calling only",
+        "A large re-raise to punish the open and call, often folding out weaker hands",
+        "Checking the flop",
+        "Showing your hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Flat call isn't a squeeze.",
+        "B": "Correct — squeeze re-raises leverage fold equity against open + caller.",
+        "C": "Flop hasn't happened.",
+        "D": "Never show early."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q9_r1",
+          "question": "Squeezes work well from the button because:",
+          "options": [
+            "You may fold out the original raiser and caller",
+            "You act first preflop",
+            "You post a blind",
+            "You always have a pair"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fold equity from late position.",
+            "B": "Button acts late preflop.",
+            "C": "Button doesn't post blind.",
+            "D": "Squeeze ranges are wider than only pairs."
+          }
+        },
+        {
+          "id": "pt_pos_q9_r2",
+          "question": "A squeeze targets:",
+          "options": [
+            "Dead money from an open and one or more callers",
+            "Only the river",
+            "Showing down cheaply",
+            "Posting antes"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — dead money in the middle.",
+            "B": "Preflop move.",
+            "C": "Squeeze is aggressive, not cheap showdown.",
+            "D": "Antes add dead money but squeeze targets opens/calls."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_pos_q10",
+      "kind": "challenge",
+      "concept": "multiway",
+      "question": "On a wet flop K♥ T♥ 8♠, why is position especially valuable multiway?",
+      "options": [
+        "Fewer players means more bluffs work",
+        "Later actors see how many opponents check or bet before deciding",
+        "Board pairs always",
+        "Blinds act last"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Multiway means more players, not fewer.",
+        "B": "Correct — multiway pots amplify the value of seeing all actions first.",
+        "C": "Board pairing is unrelated.",
+        "D": "Blinds act early postflop."
+      },
+      "remediation": [
+        {
+          "id": "pt_pos_q10_r1",
+          "question": "Multiway pot means:",
+          "options": [
+            "Three or more players saw the flop",
+            "Heads-up only",
+            "Everyone folded preflop",
+            "Side pot only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — multiple players contest the pot.",
+            "B": "Heads-up is two players.",
+            "C": "Someone must reach the flop.",
+            "D": "Side pots are stack-related."
+          }
+        },
+        {
+          "id": "pt_pos_q10_r2",
+          "question": "Acting last multiway helps you:",
+          "options": [
+            "Gauge strength from several checks or bets",
+            "Skip paying the blinds",
+            "See opponent hole cards",
+            "Win without showdown always"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — more information with more actors.",
+            "B": "Blinds still apply.",
+            "C": "Hole cards stay hidden.",
+            "D": "Still need best hand or folds."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_pos_p1",
+      "concept": "utg",
+      "question": "UTG is:",
+      "options": [
+        "First to act preflop among main seats",
+        "The button",
+        "The big blind",
+        "Last to act"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Button is last.",
+        "C": "BB acts last preflop.",
+        "D": "UTG is early."
+      }
+    },
+    {
+      "id": "pt_pos_p2",
+      "concept": "button",
+      "question": "Best seat postflop:",
+      "options": [
+        "UTG",
+        "SB",
+        "Button",
+        "BB only"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Early is weak postflop.",
+        "B": "SB acts first postflop.",
+        "C": "Correct.",
+        "D": "BB acts early."
+      }
+    },
+    {
+      "id": "pt_pos_p3",
+      "concept": "ip",
+      "question": "In position means:",
+      "options": [
+        "Act last on the street",
+        "Act first",
+        "Have aces",
+        "Post blind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "That's OOP.",
+        "C": "Hand strength unrelated.",
+        "D": "Blinds unrelated."
+      }
+    },
+    {
+      "id": "pt_pos_p4",
+      "concept": "open",
+      "question": "UTG should open:",
+      "options": [
+        "Tighter than the button",
+        "Every hand",
+        "Only when on the button",
+        "Never"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — early = tighter.",
+        "B": "Too wide.",
+        "C": "UTG isn't button.",
+        "D": "UTG opens sometimes."
+      }
+    },
+    {
+      "id": "pt_pos_p5",
+      "concept": "blinds",
+      "question": "Small blind is usually:",
+      "options": [
+        "Half the big blind",
+        "Double the big blind",
+        "Zero",
+        "Same as button"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "SB is smaller.",
+        "C": "SB posts.",
+        "D": "Button different role."
+      }
+    },
+    {
+      "id": "pt_pos_p6",
+      "concept": "steal",
+      "question": "Steal attempts often come from:",
+      "options": [
+        "Late position",
+        "UTG always",
+        "Folded hands",
+        "Showdown"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "UTG has players behind.",
+        "C": "Folded can't steal.",
+        "D": "Showdown is end."
+      }
+    },
+    {
+      "id": "pt_pos_p7",
+      "concept": "flop_act",
+      "question": "Flop action starts:",
+      "options": [
+        "Left of button",
+        "On the river",
+        "With dealer",
+        "Random"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "River is later.",
+        "C": "Dealer doesn't act.",
+        "D": "Order fixed."
+      }
+    },
+    {
+      "id": "pt_pos_p8",
+      "concept": "bb_defend",
+      "question": "BB defends wider partly because:",
+      "options": [
+        "Already invested in the pot",
+        "Always has position",
+        "Must call by rule",
+        "Sees cards last"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — pot odds.",
+        "B": "BB usually OOP.",
+        "C": "Can fold.",
+        "D": "Not last to see cards."
+      }
+    }
+  ]
+}
