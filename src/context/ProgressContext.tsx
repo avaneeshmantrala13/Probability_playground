@@ -269,6 +269,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
             ? [...prev.completedLessons, lessonId]
             : prev.completedLessons;
 
+        const pokerTheoryLastPassDate =
+          passed && lessonId.startsWith("pt_") ? todayKey() : prev.pokerTheoryLastPassDate;
+
         // A passed lesson ends timing; a failed attempt keeps accruing so the
         // remediation round continues the same stopwatch.
         const lessonTimers = { ...prev.lessonTimers };
@@ -278,6 +281,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           ...prev,
           lessonMastery: { ...prev.lessonMastery, [lessonId]: mastery },
           completedLessons,
+          pokerTheoryLastPassDate,
           activeAttempt: null,
           lessonTimers,
         };

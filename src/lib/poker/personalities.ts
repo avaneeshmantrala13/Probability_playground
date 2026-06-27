@@ -161,3 +161,28 @@ export function pickPersonas(count: number): Persona[] {
   const chosen = [host, ...others].slice(0, Math.max(1, count));
   return chosen;
 }
+
+const TIER_AVATAR: Record<string, string[]> = {
+  low: ["🎩", "🥊", "🧮", "🦊", "🎭", "🃏"],
+  mid: ["🎩", "💎", "🧮", "🦊", "🎭", "🃏"],
+  high: ["👑", "🥇", "💰", "🏆", "♠️", "♦️"],
+};
+
+/** Same cast levels up visually and strategically at higher buy-in tables. */
+export function pickPersonasForTier(count: number, tierId: string): Persona[] {
+  const base = pickPersonas(count);
+  const avatars = TIER_AVATAR[tierId] ?? TIER_AVATAR.low;
+  const skillBoost = tierId === "high" ? 0.12 : tierId === "mid" ? 0.06 : 0;
+
+  return base.map((p, i) => ({
+    ...p,
+    avatar: avatars[i % avatars.length] ?? p.avatar,
+    aggression: clamp01(p.aggression + skillBoost),
+    bluffFreq: clamp01(p.bluffFreq + skillBoost * 0.5),
+    tightness: clamp01(p.tightness + skillBoost * 0.3),
+  }));
+}
+
+function clamp01(x: number): number {
+  return x < 0 ? 0 : x > 1 ? 1 : x;
+}

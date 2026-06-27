@@ -18,6 +18,12 @@
     },
     "api/admin-reset-progress.ts": {
       "maxDuration": 30
+    },
+    "api/tutor-chat.ts": {
+      "maxDuration": 30
+    },
+    "api/generate-lesson-question.ts": {
+      "maxDuration": 45
     }
   },
   "rewrites": [

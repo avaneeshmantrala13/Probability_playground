@@ -18,6 +18,9 @@ import { LessonCleared } from "../components/lesson/LessonCleared";
 import { IntroModal } from "../components/lesson/IntroModal";
 import type { OptionState } from "../components/lesson/OptionButton";
 import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
+import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
+import { fetchGeneratedQuestion } from "../lib/ai/client";
+import type { RenderableQuestion } from "../content/types";
 import { ChevronRightIcon, ClockIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
 import { useLessonTimer } from "../hooks/useLessonTimer";
@@ -38,15 +41,20 @@ export function LessonPlayer() {
   const alreadyMastered = Boolean(progress.lessonMastery[lessonId]?.passed);
   const timer = useLessonTimer(lessonId);
 
-  const total = lesson?.questions.length ?? 0;
+  const baseQuestionCount = lesson?.questions.length ?? 0;
 
   const [round, setRound] = useState(0);
   const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<AttemptAnswer[]>(() => freshAnswers(total));
+  const [answers, setAnswers] = useState<AttemptAnswer[]>(() =>
+    freshAnswers(baseQuestionCount),
+  );
   const [phase, setPhase] = useState<"intro" | "placement" | "quiz" | "results">("quiz");
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [showIntroModal, setShowIntroModal] = useState(false);
   const [earnedBefore, setEarnedBefore] = useState<Set<string>>(() => new Set());
+  const [extraAiQuestions, setExtraAiQuestions] = useState<RenderableQuestion[]>([]);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState<string | null>(null);
   const hydratedFor = useRef<string | null>(null);
 
   // Resume / initialize the attempt once progress has loaded.
@@ -62,20 +70,20 @@ export function LessonPlayer() {
       !alreadyMastered &&
       attempt &&
       attempt.lessonId === lesson.lessonId &&
-      attempt.answers.length === total
+      attempt.answers.length >= baseQuestionCount
     ) {
       setRound(attempt.round);
       setAnswers(attempt.answers);
       setIndex(
         progress.currentLesson === lesson.lessonId
-          ? Math.min(Math.max(progress.currentQuestion, 0), total - 1)
+          ? Math.min(Math.max(progress.currentQuestion, 0), attempt.answers.length - 1)
           : 0,
       );
       // Returning mid-attempt resumes straight at the saved question.
       setPhase("quiz");
     } else {
       const r = roundForLesson(lesson.lessonId, progress);
-      const fresh = freshAnswers(total);
+      const fresh = freshAnswers(baseQuestionCount);
       setRound(r);
       setAnswers(fresh);
       setIndex(0);
@@ -86,7 +94,7 @@ export function LessonPlayer() {
     }
     setResult(null);
     hydratedFor.current = lesson.lessonId;
-  }, [lesson, loading, progress, total, alreadyMastered, setPosition, saveAttempt]);
+  }, [lesson, loading, progress, baseQuestionCount, alreadyMastered, setPosition, saveAttempt]);
 
   // Persist position when the student changes question.
   useEffect(() => {
@@ -94,10 +102,17 @@ export function LessonPlayer() {
     setPosition(lesson.lessonId, index);
   }, [index, lesson, setPosition]);
 
-  const questions = useMemo(
+  const baseQuestions = useMemo(
     () => (lesson ? buildAttemptQuestions(lesson, round) : []),
     [lesson, round],
   );
+
+  const questions = useMemo(
+    () => [...baseQuestions, ...extraAiQuestions],
+    [baseQuestions, extraAiQuestions],
+  );
+
+  const questionCount = questions.length;
 
   if (!lesson) return <Navigate to="/lessons" replace />;
   if (loading) return <LoadingScreen />;
@@ -144,19 +159,58 @@ export function LessonPlayer() {
     return "muted";
   }
 
-  const isLast = index === total - 1;
+  const isLast = index === questionCount - 1;
+  const isLastBase =
+    index === baseQuestions.length - 1 && index >= baseQuestionCount - 1;
+
+  async function loadAiQuestion() {
+    if (!lesson || aiLoading) return;
+    setAiError(null);
+    setAiLoading(true);
+    try {
+      const gen = await fetchGeneratedQuestion({
+        lessonId: lesson.lessonId,
+        lessonTitle: lesson.title,
+        topics: lesson.topics,
+        order: lesson.order,
+        conceptHint: lesson.topics[index % lesson.topics.length],
+      });
+      const rq: RenderableQuestion = {
+        id: gen.id,
+        question: gen.question,
+        options: gen.options,
+        correctAnswer: gen.correctAnswer,
+        explanations: gen.explanations,
+      };
+      setExtraAiQuestions((prev) => {
+        const next = [...prev, rq];
+        setIndex(baseQuestions.length + prev.length);
+        return next;
+      });
+      setAnswers((prev) => {
+        const next = [...prev, { selected: null, checked: false }];
+        saveAttempt(lesson.lessonId, round, next);
+        return next;
+      });
+    } catch (err) {
+      setAiError(err instanceof Error ? err.message : "Could not generate question.");
+    } finally {
+      setAiLoading(false);
+    }
+  }
 
   function finish() {
     if (!lesson) return;
-    const correct = questions.reduce(
+    const correct = baseQuestions.reduce(
       (acc, q, i) => acc + (answers[i]?.selected === q.correctAnswer ? 1 : 0),
       0,
     );
+    const scoreTotal = baseQuestions.length;
     // Always record elapsed time; completeAttempt only updates the best time
     // when the attempt passed and elapsedMs > 0, so redos can still improve it.
     const elapsedMs = timer.getElapsedMs();
     setEarnedBefore(earnedBadgeIds(progress));
-    const res = completeAttempt(lesson.lessonId, round, correct, total, elapsedMs);
+    const res = completeAttempt(lesson.lessonId, round, correct, scoreTotal, elapsedMs);
     // Passing ends timing for this lesson; a failed attempt keeps the clock
     // running into the next remediation round.
     if (res.passed) timer.stop();
@@ -167,7 +221,8 @@ export function LessonPlayer() {
   function retry() {
     if (!lesson) return;
     const newRound = round + 1;
-    const fresh = freshAnswers(total);
+    const fresh = freshAnswers(baseQuestionCount);
+    setExtraAiQuestions([]);
     setRound(newRound);
     setAnswers(fresh);
     setIndex(0);
@@ -185,7 +240,8 @@ export function LessonPlayer() {
       )
     )
       return;
-    const fresh = freshAnswers(total);
+    const fresh = freshAnswers(baseQuestionCount);
+    setExtraAiQuestions([]);
     setAnswers(fresh);
     setIndex(0);
     setResult(null);
@@ -263,7 +319,7 @@ export function LessonPlayer() {
             >
               {isRemediation
                 ? `Practice round ${round}`
-                : current && index < total
+                : current && index < questionCount
                   ? `Lesson ${lesson.order}`
                   : ""}
             </span>
@@ -293,7 +349,7 @@ export function LessonPlayer() {
         )}
         <div className="mt-3 flex items-center gap-3">
           <div className="flex-1">
-            <ProgressBar current={index + 1} total={total} label="Question" />
+            <ProgressBar current={index + 1} total={questionCount} label="Question" />
           </div>
           <span
             className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums text-secondary"
@@ -325,6 +381,33 @@ export function LessonPlayer() {
         }
       />
 
+      <QuestionTutorChat
+        lessonTitle={lesson.title}
+        questionText={current.question}
+        options={current.options}
+        selectedIndex={selected}
+      />
+
+      {aiError && (
+        <p className="mt-3 text-sm text-danger" role="alert">
+          {aiError}
+        </p>
+      )}
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <button
+          type="button"
+          className="pp-btn-secondary text-sm"
+          disabled={aiLoading}
+          onClick={() => void loadAiQuestion()}
+        >
+          {aiLoading ? "Generating…" : "Generate AI bonus question"}
+        </button>
+        {index >= baseQuestions.length && (
+          <span className="self-center text-xs text-muted">AI practice — not counted toward lesson pass</span>
+        )}
+      </div>
+
       <div className="mt-5 flex items-center justify-between gap-3">
         <button
           type="button"
@@ -348,11 +431,15 @@ export function LessonPlayer() {
           <button type="button" className="pp-btn-primary" onClick={finish}>
             Finish lesson
           </button>
+        ) : isLastBase ? (
+          <button type="button" className="pp-btn-primary" onClick={finish}>
+            Finish lesson
+          </button>
         ) : (
           <button
             type="button"
             className="pp-btn-primary"
-            onClick={() => setIndex((i) => Math.min(total - 1, i + 1))}
+            onClick={() => setIndex((i) => Math.min(questionCount - 1, i + 1))}
           >
             Next
             <ChevronRightIcon size={16} />

@@ -5,14 +5,14 @@ import { useProgress } from "../context/ProgressContext";
 import { completeCheckoutReturn } from "../lib/payments/checkoutReturn";
 import {
   isPokerNightUnlocked,
-  lessonsRemainingForPoker,
+  pokerNightLockMessage,
   TABLE_TIERS,
   type TableTier,
 } from "../lib/tokens";
 import { getDeckSkin, getTableTheme } from "../lib/cosmetics";
 import { isMultiplayerUnlocked } from "../lib/multiplayer/access";
 import {
-  pickPersonas,
+  pickPersonasForTier,
   type GameConfig,
   type HandResult,
 } from "../lib/poker";
@@ -54,7 +54,8 @@ export function PokerNight() {
   }
 
   if (!isPokerNightUnlocked(progress)) {
-    return <LockedScreen lessonsRemaining={lessonsRemainingForPoker(progress)} />;
+    const msg = pokerNightLockMessage(progress);
+    return <LockedScreen headline={msg.headline} detail={msg.detail} />;
   }
 
   return <PokerNightUnlocked />;
@@ -297,7 +298,7 @@ function PokerSession({
     botStack: Math.max(tier.minBuyIn, Math.min(tier.maxBuyIn, buyIn)),
   };
 
-  const personasRef = useRef(pickPersonas(tier.opponents));
+  const personasRef = useRef(pickPersonasForTier(tier.opponents, tier.id));
   const [pauseForQuiz, setPauseForQuiz] = useState(false);
 
   const handleHandEnd = (info: { result: HandResult; humanStack: number }) => {

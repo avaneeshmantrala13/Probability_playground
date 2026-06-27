@@ -1,24 +1,19 @@
-import { LESSONS } from "../content";
 import type { CourseProgress } from "./progress";
 
-/** Starting stake granted once when Poker Night (quant capstone practice) unlocks. */
+/** Starting stake granted once when Poker Night unlocks. */
 export const STARTING_TOKENS = 1000;
 
-/** TEMP: set false to restore the all-lessons mastery gate on /poker. */
-export const BYPASS_POKER_NIGHT_GATE = true;
+export {
+  BYPASS_POKER_NIGHT_GATE,
+  isPokerNightUnlocked,
+  allPokerTheoryLessonsPassed,
+  completedPokerTheoryToday,
+  pokerNightLockMessage,
+} from "./pokerNightUnlock";
 
-/**
- * Poker Night is the live-practice capstone: it unlocks once every quant lesson
- * has been passed/mastered.
- */
-export function isPokerNightUnlocked(progress: CourseProgress): boolean {
-  if (BYPASS_POKER_NIGHT_GATE) return true;
-  return LESSONS.every((l) => Boolean(progress.lessonMastery[l.lessonId]?.passed));
-}
-
-/** How many lessons still need to be passed before the capstone unlocks. */
-export function lessonsRemainingForPoker(progress: CourseProgress): number {
-  return LESSONS.filter((l) => !progress.lessonMastery[l.lessonId]?.passed).length;
+/** @deprecated Use pokerNightLockMessage — kept for imports. */
+export function lessonsRemainingForPoker(_progress: CourseProgress): number {
+  return 0;
 }
 
 export const POKER_ROUTE = "/poker";

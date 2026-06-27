@@ -135,6 +135,8 @@ export interface CourseProgress {
   tokensByDay?: Record<string, { earned: number; lost: number }>;
   /** Best correct-answer counts in 120s mental math drills, per difficulty. */
   mentalMathBest?: MentalMathBestScores;
+  /** YYYY-MM-DD when a poker theory lesson was last passed (daily Poker Night gate). */
+  pokerTheoryLastPassDate?: string | null;
 }
 
 export function emptyProgress(): CourseProgress {
