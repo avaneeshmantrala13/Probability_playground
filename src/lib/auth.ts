@@ -1,7 +1,9 @@
 import {
   createUserWithEmailAndPassword,
+  getRedirectResult,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signInWithRedirect,
   signOut as fbSignOut,
   updateProfile,
   type User,
@@ -23,6 +25,7 @@ export type AuthErrorCode =
   | "email-in-use"
   | "invalid-credentials"
   | "popup-closed"
+  | "redirect"
   | "unknown";
 
 export class AuthError extends Error {
@@ -35,6 +38,7 @@ export class AuthError extends Error {
 }
 
 const USERNAME_RE = /^[a-zA-Z0-9_]{3,20}$/;
+const AUTH_ERROR_KEY = "pp-auth-error";
 
 export function normalizeUsername(username: string): string {
   return username.trim().toLowerCase();
@@ -47,6 +51,18 @@ export function isValidUsername(username: string): boolean {
 /** True if the string looks like an email rather than a username. */
 export function looksLikeEmail(value: string): boolean {
   return value.includes("@");
+}
+
+export function consumeStoredAuthError(): string | null {
+  if (typeof window === "undefined") return null;
+  const message = sessionStorage.getItem(AUTH_ERROR_KEY);
+  if (message) sessionStorage.removeItem(AUTH_ERROR_KEY);
+  return message;
+}
+
+function storeAuthError(message: string): void {
+  if (typeof window === "undefined") return;
+  sessionStorage.setItem(AUTH_ERROR_KEY, message);
 }
 
 async function getEmailForUsername(username: string): Promise<string | null> {
@@ -88,6 +104,51 @@ async function provisionUserDocs(
   batch.set(doc(db, "settings", user.uid), { theme: "system" });
 
   await batch.commit();
+}
+
+async function provisionGoogleUser(user: User): Promise<void> {
+  const userRef = doc(db, "users", user.uid);
+  const snap = await getDoc(userRef);
+  if (snap.exists()) return;
+
+  const rawName = user.displayName ?? user.email?.split("@")[0] ?? "Learner";
+  const username = rawName.trim().slice(0, 20) || "Learner";
+
+  await setDoc(userRef, {
+    uid: user.uid,
+    username,
+    usernameLower: normalizeUsername(username.replace(/\s+/g, "_")),
+    email: user.email ?? "",
+    provider: "google",
+    streak: 0,
+    lastActiveDate: null,
+    createdAt: serverTimestamp(),
+  });
+  await setDoc(doc(db, "settings", user.uid), { theme: "system" }, { merge: true });
+}
+
+/** Popups hang on the Firebase handler in many production browsers — use redirect. */
+function preferGoogleRedirect(): boolean {
+  if (typeof window === "undefined") return false;
+  const host = window.location.hostname;
+  return host !== "localhost" && host !== "127.0.0.1";
+}
+
+/**
+ * Call once on app load to finish a Google redirect sign-in, if any.
+ * Must run before relying on auth state after a redirect return.
+ */
+export async function handleGoogleRedirectResult(): Promise<User | null> {
+  try {
+    const result = await getRedirectResult(auth);
+    if (!result?.user) return null;
+    await provisionGoogleUser(result.user);
+    return result.user;
+  } catch (err) {
+    const mapped = mapFirebaseError(err);
+    storeAuthError(mapped.message);
+    throw mapped;
+  }
 }
 
 export async function signUpWithUsername(
@@ -141,24 +202,21 @@ export async function signInWithIdentifier(
 }
 
 export async function signInWithGoogle(): Promise<User> {
+  if (preferGoogleRedirect()) {
+    await signInWithRedirect(auth, googleProvider);
+    throw new AuthError("redirect", "Redirecting to Google…");
+  }
+
   try {
     const cred = await signInWithPopup(auth, googleProvider);
-    const userRef = doc(db, "users", cred.user.uid);
-    const snap = await getDoc(userRef);
-    if (!snap.exists()) {
-      await setDoc(userRef, {
-        uid: cred.user.uid,
-        username: cred.user.displayName ?? cred.user.email?.split("@")[0] ?? "Learner",
-        email: cred.user.email,
-        provider: "google",
-        streak: 0,
-        lastActiveDate: null,
-        createdAt: serverTimestamp(),
-      });
-      await setDoc(doc(db, "settings", cred.user.uid), { theme: "system" }, { merge: true });
-    }
+    await provisionGoogleUser(cred.user);
     return cred.user;
   } catch (err) {
+    const code = (err as { code?: string })?.code ?? "";
+    if (code === "auth/popup-blocked") {
+      await signInWithRedirect(auth, googleProvider);
+      throw new AuthError("redirect", "Redirecting to Google…");
+    }
     throw mapFirebaseError(err);
   }
 }
@@ -181,6 +239,23 @@ function mapFirebaseError(err: unknown): AuthError {
     case "auth/popup-closed-by-user":
     case "auth/cancelled-popup-request":
       return new AuthError("popup-closed", "Sign-in was cancelled.");
+    case "auth/popup-blocked":
+      return new AuthError(
+        "unknown",
+        "Google sign-in was blocked by your browser. Try again — we'll use a full-page redirect.",
+      );
+    case "auth/unauthorized-domain":
+      return new AuthError(
+        "unknown",
+        "This site domain is not authorized for Google sign-in in Firebase. Add it under Authentication → Settings → Authorized domains.",
+      );
+    case "auth/operation-not-allowed":
+      return new AuthError(
+        "unknown",
+        "Google sign-in is not enabled for this app. Enable the Google provider in Firebase Authentication.",
+      );
+    case "auth/network-request-failed":
+      return new AuthError("unknown", "Network error. Check your connection and try again.");
     default:
       return new AuthError("unknown", "Something went wrong. Please try again.");
   }

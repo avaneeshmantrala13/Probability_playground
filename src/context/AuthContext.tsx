@@ -8,6 +8,7 @@ import {
 } from "react";
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { auth, isFirebaseConfigured } from "../lib/firebase";
+import { handleGoogleRedirectResult } from "../lib/auth";
 
 interface AuthContextValue {
   user: User | null;
@@ -26,11 +27,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(false);
       return;
     }
-    const unsub = onAuthStateChanged(auth, (next) => {
-      setUser(next);
-      setLoading(false);
-    });
-    return unsub;
+
+    let unsub: (() => void) | undefined;
+    let cancelled = false;
+
+    (async () => {
+      try {
+        await handleGoogleRedirectResult();
+      } catch {
+        // Error message stored for Login/Signup to display.
+      }
+      if (cancelled) return;
+      unsub = onAuthStateChanged(auth, (next) => {
+        setUser(next);
+        setLoading(false);
+      });
+    })();
+
+    return () => {
+      cancelled = true;
+      unsub?.();
+    };
   }, []);
 
   const value = useMemo<AuthContextValue>(
