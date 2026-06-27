@@ -17,6 +17,7 @@ import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { LessonCleared } from "../components/lesson/LessonCleared";
 import { IntroModal } from "../components/lesson/IntroModal";
 import type { OptionState } from "../components/lesson/OptionButton";
+import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
 import { ChevronRightIcon, ClockIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
 import { useLessonTimer } from "../hooks/useLessonTimer";
@@ -42,7 +43,7 @@ export function LessonPlayer() {
   const [round, setRound] = useState(0);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<AttemptAnswer[]>(() => freshAnswers(total));
-  const [phase, setPhase] = useState<"intro" | "quiz" | "results">("quiz");
+  const [phase, setPhase] = useState<"intro" | "placement" | "quiz" | "results">("quiz");
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [showIntroModal, setShowIntroModal] = useState(false);
   const [earnedBefore, setEarnedBefore] = useState<Set<string>>(() => new Set());
@@ -203,7 +204,37 @@ export function LessonPlayer() {
 
   if (phase === "intro" && lesson.intro && lesson.intro.length > 0) {
     return (
-      <IntroView lesson={lesson} onBegin={() => setPhase("quiz")} />
+      <IntroView
+        lesson={lesson}
+        onBegin={() => setPhase("quiz")}
+        onPlacement={
+          lesson.placementQuestions && lesson.placementQuestions.length > 0 && !alreadyMastered
+            ? () => setPhase("placement")
+            : undefined
+        }
+      />
+    );
+  }
+
+  if (phase === "placement" && lesson.placementQuestions?.length) {
+    return (
+      <PlacementQuiz
+        lesson={lesson}
+        onBack={() => setPhase("intro")}
+        onPass={(correct, placementTotal) => {
+          setEarnedBefore(earnedBadgeIds(progress));
+          const res = completeAttempt(
+            lesson.lessonId,
+            0,
+            correct,
+            placementTotal,
+            timer.getElapsedMs(),
+          );
+          if (res.passed) timer.stop();
+          setResult(res);
+          setPhase("results");
+        }}
+      />
     );
   }
 
@@ -339,9 +370,11 @@ export function LessonPlayer() {
 function IntroView({
   lesson,
   onBegin,
+  onPlacement,
 }: {
   lesson: Lesson;
   onBegin: () => void;
+  onPlacement?: () => void;
 }) {
   return (
     <div className="mx-auto max-w-2xl">
@@ -369,7 +402,7 @@ function IntroView({
           ))}
         </div>
 
-        <div className="mt-7">
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <button
             type="button"
             className="pp-btn-primary"
@@ -379,6 +412,11 @@ function IntroView({
             Begin lesson
             <ChevronRightIcon size={16} />
           </button>
+          {onPlacement && (
+            <button type="button" className="pp-btn-secondary" onClick={onPlacement}>
+              Skip ahead — placement quiz
+            </button>
+          )}
         </div>
       </div>
     </div>

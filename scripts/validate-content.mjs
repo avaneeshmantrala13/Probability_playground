@@ -1,5 +1,6 @@
-// Validates the lesson content files against the PRD rules:
-// - 6 lessons, 10 questions each (8 standard + 2 challenge)
+// Validates lesson content files:
+// - 6–15 lessons, 10 questions each (8 standard + 2 challenge)
+// - optional placementQuestions (8 items, no remediation required)
 // - each lesson has a non-empty intro (array of overview paragraphs)
 // - 4 options per question, correctAnswer in range
 // - exactly 2 remediation variants per question, each well-formed
@@ -37,7 +38,8 @@ function checkRenderable(where, q) {
   totalAuthored += 1;
 }
 
-if (files.length !== 6) errors.push(`Expected 6 lesson files, found ${files.length}`);
+if (files.length < 6 || files.length > 15)
+  errors.push(`Expected 6–15 lesson files, found ${files.length}`);
 
 for (const file of files) {
   const lesson = JSON.parse(readFileSync(join(dir, file), "utf8"));
@@ -61,6 +63,16 @@ for (const file of files) {
     if (!Array.isArray(q.remediation) || q.remediation.length !== 2)
       errors.push(`${tag}/${q.id}: expected 2 remediation variants`);
     else q.remediation.forEach((v) => checkRenderable(`${tag}/${q.id}/${v.id}`, v));
+  }
+
+  if (lesson.placementQuestions != null) {
+    if (!Array.isArray(lesson.placementQuestions) || lesson.placementQuestions.length !== 8)
+      errors.push(`${tag}: placementQuestions must have exactly 8 items when present`);
+    else {
+      for (const pq of lesson.placementQuestions) {
+        checkRenderable(`${tag}/placement/${pq.id}`, pq);
+      }
+    }
   }
 }
 

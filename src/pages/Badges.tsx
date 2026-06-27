@@ -10,6 +10,7 @@ import { CheckIcon, FlameIcon, LockIcon } from "../components/icons";
 
 const CATEGORY_ORDER: BadgeCategory[] = [
   "lesson",
+  "quant",
   "game",
   "streak",
   "speed",
@@ -18,6 +19,7 @@ const CATEGORY_ORDER: BadgeCategory[] = [
 
 const CATEGORY_LABELS: Record<BadgeCategory, string> = {
   lesson: "Lessons",
+  quant: "Quant prep",
   game: "Games",
   streak: "Streaks",
   speed: "Speed",

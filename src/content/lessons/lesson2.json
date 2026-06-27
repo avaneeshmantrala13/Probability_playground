@@ -1,303 +1,556 @@
 {
   "lessonId": "lesson_2",
   "order": 2,
-  "title": "Theoretical Probability",
-  "subtitle": "Favorable outcomes, total outcomes, and simple probability",
-  "topics": ["Favorable outcomes", "Total outcomes", "Simple probability"],
+  "title": "Combinatorics & Counting",
+  "subtitle": "Permutations, combinations, and inclusion-exclusion",
+  "topics": [
+    "Permutations",
+    "Combinations",
+    "Inclusion-exclusion",
+    "Counting for probability"
+  ],
   "intro": [
-    "Here you'll compute probabilities by reasoning, not by running trials. For equally likely outcomes, the theoretical probability of an event is the number of favorable outcomes divided by the total number of possible outcomes.",
-    "You'll practice this with dice and spinners, find the probability of an event NOT happening using complements (the two add up to 1), and compare two events to decide which is more likely."
+    "Counting is how probability becomes arithmetic. Once you know how many outcomes live in an event—and how many live in the whole sample space—you can write exact probabilities without running simulations.",
+    "Permutations count ordered arrangements: ABC and BAC are different when order matters, such as ranking three traders or assigning desks. Combinations count unordered selections: choosing a two-person team from five people has one count whether you write {Alice, Bob} or {Bob, Alice}.",
+    "The formulas n!/(n−r)! for permutations and C(n,r) = n!/(r!(n−r)!) for combinations appear in every quant interview. The key skill is recognizing which model fits the story—order matters or it does not—and whether repetition is allowed.",
+    "Inclusion-exclusion handles overlapping categories: when you count elements in A or B, you add |A| and |B| but subtract |A ∩ B| so you do not double-count the overlap. This preview of a powerful principle shows up when counting hands with at least one ace or portfolios with both factor exposures."
   ],
   "questions": [
     {
       "id": "l2_q1",
       "kind": "standard",
-      "concept": "single_outcome_die",
-      "simulation": { "type": "dice" },
-      "question": "On one roll of a fair die, what is the theoretical probability of rolling a 4?",
-      "options": ["1/6", "1/4", "1/3", "1/2"],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "factorial_counting",
+      "question": "How many ways can 4 distinct quant interns be arranged in a line for a photo?",
+      "options": ["4", "12", "24", "256"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4 counts only one position filled or confuses the problem with choosing one intern. All four spots must be filled in order.",
+        "B": "12 might come from 4 × 3 or a partial product. You must multiply through all four choices: 4 × 3 × 2 × 1.",
+        "C": "Correct. This is 4! = 24 ordered permutations of four distinct people.",
+        "D": "256 equals 4⁴, which would allow repetition—using the same intern in multiple slots, which is not allowed here."
+      },
       "remediation": [
         {
           "id": "l2_q1_r1",
-          "simulation": { "type": "dice" },
-          "question": "There is one '2' among the six equally likely faces of a die. The probability of rolling a 2 is:",
-          "options": ["1/2", "1/3", "1/6", "2/6"],
-          "correctAnswer": 2,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "How many ways can 3 different books be arranged on a shelf?",
+          "options": ["3", "6", "9", "27"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "3 is the number of books, not the number of orderings. Each arrangement uses all three books.",
+            "B": "Correct. 3! = 3 × 2 × 1 = 6 permutations.",
+            "C": "9 equals 3², not 3!. Squaring counts something else entirely.",
+            "D": "27 equals 3³, as if each of three slots had three independent choices with repetition."
+          }
         },
         {
           "id": "l2_q1_r2",
-          "simulation": { "type": "dice" },
-          "question": "Probability equals favorable outcomes over total outcomes. For rolling a 5 on a fair die that is:",
-          "options": ["5/6", "1/6", "1/5", "6/1"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "5! (5 factorial) equals:",
+          "options": ["20", "60", "120", "720"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "20 equals 5 × 4 or C(5,2). Factorial multiplies all integers from 1 through 5.",
+            "B": "60 equals 5 × 4 × 3 but stops one factor short of 5!.",
+            "C": "Correct. 5! = 5 × 4 × 3 × 2 × 1 = 120.",
+            "D": "720 equals 6!, not 5!."
+          }
         }
       ]
     },
     {
       "id": "l2_q2",
       "kind": "standard",
-      "concept": "single_sector_spinner",
-      "simulation": { "type": "spinner", "sectors": 4 },
-      "question": "A spinner is divided into 4 equal sectors. What is the probability of landing on one particular sector?",
-      "options": ["1/2", "1/3", "1/4", "1/8"],
-      "correctAnswer": 2,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "permutations",
+      "question": "From 6 distinct stocks, how many ways can you choose and rank a 1st, 2nd, and 3rd favorite (no ties)?",
+      "options": ["20", "120", "216", "720"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "20 equals C(6,3), which counts unordered triples. Rankings care about order among the top three.",
+        "B": "Correct. P(6,3) = 6 × 5 × 4 = 120 ordered selections.",
+        "C": "216 equals 6³, allowing the same stock to occupy multiple ranks. Here each rank must be a different stock.",
+        "D": "720 equals 6!, the count when all six stocks are ranked in every position, not just the top three."
+      },
       "remediation": [
         {
           "id": "l2_q2_r1",
-          "simulation": { "type": "spinner", "sectors": 2 },
-          "question": "A spinner has 2 equal sectors. The probability of landing on a chosen sector is:",
-          "options": ["1/2", "1/4", "2/2", "1/3"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "How many 2-letter codes can you form from {A, B, C, D} without repeating a letter?",
+          "options": ["6", "8", "12", "16"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "6 equals C(4,2), ignoring order. AB and BA are different codes here.",
+            "B": "8 has no standard combinatorial meaning for this setup.",
+            "C": "Correct. P(4,2) = 4 × 3 = 12 ordered codes.",
+            "D": "16 equals 4², allowing repeated letters like AA."
+          }
         },
         {
           "id": "l2_q2_r2",
-          "simulation": { "type": "spinner", "sectors": 8 },
-          "question": "A spinner has 8 equal sectors. The probability of landing on a single chosen sector is:",
-          "options": ["1/4", "1/8", "1/2", "1/16"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "P(5,2) — permutations of 5 items taken 2 at a time — equals:",
+          "options": ["10", "15", "20", "25"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "10 equals C(5,2), the combination count without order.",
+            "B": "15 might come from 5 × 3 or other incorrect products.",
+            "C": "Correct. P(5,2) = 5 × 4 = 20.",
+            "D": "25 equals 5² with repetition allowed."
+          }
         }
       ]
     },
     {
       "id": "l2_q3",
       "kind": "standard",
-      "concept": "even_number",
-      "simulation": { "type": "dice" },
-      "question": "What is the probability of rolling an even number (2, 4, or 6) on a fair die?",
-      "options": ["1/6", "1/3", "1/2", "2/3"],
-      "correctAnswer": 2,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "combinations",
+      "question": "A portfolio committee must pick 2 stocks from 5 candidates. Order does not matter. How many portfolios?",
+      "options": ["10", "20", "25", "120"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(5,2) = 5!/(2!×3!) = 10 unordered pairs.",
+        "B": "20 equals P(5,2), counting ordered pairs. The committee treats {A,B} the same as {B,A}.",
+        "C": "25 equals 5², as if each slot were independent with repetition.",
+        "D": "120 equals 5!, the count of all full rankings of five stocks."
+      },
       "remediation": [
         {
           "id": "l2_q3_r1",
-          "simulation": { "type": "dice" },
-          "question": "The odd numbers on a die are 1, 3, and 5. The probability of rolling an odd number is:",
-          "options": ["1/6", "1/3", "1/2", "5/6"],
-          "correctAnswer": 2,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "How many ways can you choose 3 people from 4 for a team (order irrelevant)?",
+          "options": ["4", "6", "12", "24"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. C(4,3) = 4. Equivalently, choosing 3 to include is the same as choosing 1 to exclude.",
+            "B": "6 equals C(4,2) or P(4,2)/2, not C(4,3).",
+            "C": "12 equals P(4,3), counting ordered triples.",
+            "D": "24 equals 4!, all permutations of four people."
+          }
         },
         {
           "id": "l2_q3_r2",
-          "simulation": { "type": "dice" },
-          "question": "Three of the six faces (2, 4, 6) are even. As a simplified fraction, the probability of an even roll is:",
-          "options": ["3/6", "1/2", "2/6", "1/6"],
+          "question": "C(6,2) equals:",
+          "options": ["12", "15", "30", "36"],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "12 equals P(6,2)/3 or other incorrect values, not C(6,2).",
+            "B": "Correct. C(6,2) = 6×5/(2×1) = 15.",
+            "C": "30 equals P(6,2), ordered selections of 2 from 6.",
+            "D": "36 equals 6², not a combination count."
+          }
         }
       ]
     },
     {
       "id": "l2_q4",
       "kind": "standard",
-      "concept": "greater_than_four",
-      "simulation": { "type": "dice" },
-      "question": "What is the probability of rolling a number greater than 4 on a fair die?",
-      "options": ["1/6", "1/3", "1/2", "2/3"],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "combinations_probability",
+      "question": "Five cards are drawn from a standard 52-card deck. How many equally likely 5-card hands are possible?",
+      "options": [
+        "2,598,960",
+        "311,875,200",
+        "52!",
+        "5!"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(52,5) = 52!/(5!×47!) = 2,598,960 unordered hands.",
+        "B": "311,875,200 equals P(52,5), counting ordered draws. A poker hand is an unordered set of five cards.",
+        "C": "52! counts every ordering of the entire deck, not 5-card subsets.",
+        "D": "5! counts orderings of five positions, ignoring which cards are chosen from the deck."
+      },
       "remediation": [
         {
           "id": "l2_q4_r1",
-          "simulation": { "type": "dice" },
-          "question": "The faces greater than 4 are 5 and 6. That is 2 favorable out of 6, which simplifies to:",
-          "options": ["1/6", "1/3", "1/2", "2/3"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "From 10 stocks, how many 4-stock portfolios (unordered) are possible?",
+          "options": ["210", "5040", "10,000", "40"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. C(10,4) = 10×9×8×7/(4×3×2×1) = 210.",
+            "B": "5040 equals P(10,4), ordered selections.",
+            "C": "10,000 equals 10⁴, unrelated to combinations without repetition.",
+            "D": "40 equals 10 × 4, not a combinatorial formula."
+          }
         },
         {
           "id": "l2_q4_r2",
-          "simulation": { "type": "dice" },
-          "question": "What is the probability of rolling a number greater than 3 (that is, 4, 5, or 6) on a fair die?",
-          "options": ["1/6", "1/3", "1/2", "2/3"],
+          "question": "When order does NOT matter, which formula applies for choosing r items from n?",
+          "options": [
+            "n^r",
+            "n!/r!",
+            "n!/(r!(n−r)!)",
+            "r!/n!"
+          ],
           "correctAnswer": 2,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "n^r allows repetition and treats positions as distinct, like passwords with repeats.",
+            "B": "n!/r! counts permutations of all n items divided by r!, not unordered r-subsets.",
+            "C": "Correct. C(n,r) = n!/(r!(n−r)!) counts combinations.",
+            "D": "r!/n! is inverted and far too small for typical n > r."
+          }
         }
       ]
     },
     {
       "id": "l2_q5",
       "kind": "standard",
-      "concept": "colored_region",
-      "simulation": { "type": "spinner", "sectors": 8 },
-      "question": "A spinner has 8 equal sectors and 3 of them are red. What is the probability of landing on red?",
-      "options": ["3/8", "1/8", "5/8", "1/3"],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "permutation_vs_combination",
+      "question": "A desk assignment gives 8 analysts 3 labeled seats: Lead, Support, Review. How many assignments?",
+      "options": ["56", "336", "512", "24"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "56 equals C(8,3), ignoring that Lead, Support, and Review are distinct roles.",
+        "B": "Correct. P(8,3) = 8 × 7 × 6 = 336 ordered assignments to labeled seats.",
+        "C": "512 equals 8³, allowing one analyst in multiple seats simultaneously.",
+        "D": "24 equals 4! or P(4,3) from a smaller pool, not 8 analysts."
+      },
       "remediation": [
         {
           "id": "l2_q5_r1",
-          "simulation": { "type": "spinner", "sectors": 4 },
-          "question": "A spinner has 4 equal sectors and 1 is blue. The probability of landing on blue is:",
-          "options": ["1/4", "3/4", "1/2", "4/1"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Choose a president and vice-president from 7 club members (distinct roles). How many slates?",
+          "options": ["21", "42", "49", "5040"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "21 equals C(7,2), treating the two officers as an unordered pair.",
+            "B": "Correct. P(7,2) = 7 × 6 = 42 because president and VP are labeled positions.",
+            "C": "49 equals 7² with repetition allowed—one person could hold both offices.",
+            "D": "5040 equals 7!, ranking all seven members rather than picking two officers."
+          }
         },
         {
           "id": "l2_q5_r2",
-          "simulation": { "type": "spinner", "sectors": 6 },
-          "question": "A spinner has 6 equal sectors and 4 are green. The probability of landing on green is:",
-          "options": ["4/6", "2/6", "1/6", "6/4"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Pick any 2 desserts from 6 options for yourself (order does not matter). How many choices?",
+          "options": ["12", "15", "30", "36"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "12 equals P(6,2)/3 or 6×2, not C(6,2).",
+            "B": "Correct. C(6,2) = 15 unordered pairs of desserts.",
+            "C": "30 equals P(6,2), treating first and second dessert as distinct picks.",
+            "D": "36 equals 6² with replacement."
+          }
         }
       ]
     },
     {
       "id": "l2_q6",
       "kind": "standard",
-      "concept": "complement",
-      "simulation": { "type": "dice" },
-      "question": "What is the probability of NOT rolling a 6 on a fair die?",
-      "options": ["1/6", "5/6", "1/2", "1"],
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "In a class of 30, 18 students know Python and 15 know R. If 8 know both, how many know at least one language?",
+      "options": ["23", "25", "27", "33"],
       "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "23 equals 18 − 8 + something or 15 + 8 without the full formula. It undercounts the union.",
+        "B": "Correct. |P ∪ R| = 18 + 15 − 8 = 25 by inclusion-exclusion.",
+        "C": "27 equals 18 + 15 − 6 or adds without subtracting overlap correctly.",
+        "D": "33 equals 18 + 15, double-counting the 8 students who know both."
+      },
       "remediation": [
         {
           "id": "l2_q6_r1",
-          "simulation": { "type": "dice" },
-          "question": "The probability of rolling a 1 is 1/6. The probability of NOT rolling a 1 is:",
-          "options": ["1/6", "2/6", "5/6", "6/6"],
-          "correctAnswer": 2,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Set A has 12 elements, set B has 9, and |A ∩ B| = 4. What is |A ∪ B|?",
+          "options": ["17", "21", "25", "13"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. |A ∪ B| = 12 + 9 − 4 = 17.",
+            "B": "21 equals 12 + 9 without subtracting the overlap.",
+            "C": "25 adds the intersection instead of subtracting it.",
+            "D": "13 subtracts too aggressively, as if removing all of B from A."
+          }
         },
         {
           "id": "l2_q6_r2",
-          "simulation": { "type": "spinner", "sectors": 4 },
-          "question": "On a 4-sector spinner, the probability of NOT landing on one specific sector is:",
-          "options": ["1/4", "2/4", "3/4", "4/4"],
-          "correctAnswer": 2,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Among 50 traders, 30 trade equities and 25 trade bonds. If 10 trade both, how many trade at least one asset class?",
+          "options": ["35", "45", "55", "65"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "35 might subtract the overlap twice or use only one set's count.",
+            "B": "Correct. 30 + 25 − 10 = 45 trade equities, bonds, or both.",
+            "C": "55 equals 30 + 25, forgetting to subtract those counted twice.",
+            "D": "65 exceeds the class size of 50 and is impossible."
+          }
         }
       ]
     },
     {
       "id": "l2_q7",
       "kind": "standard",
-      "concept": "compare_events",
-      "simulation": { "type": "dice" },
-      "question": "On one roll of a die, which is more likely: rolling a number greater than 4, or rolling an even number?",
-      "options": [
-        "Greater than 4 is more likely",
-        "Rolling an even number is more likely",
-        "They are equally likely",
-        "It cannot be determined"
-      ],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.5, P(B) = 0.4, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
+      "options": ["0.75", "0.80", "0.85", "0.90"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(A ∪ B) = 0.5 + 0.4 − 0.15 = 0.75.",
+        "B": "0.80 equals 0.5 + 0.4 − 0.10 or other arithmetic slips.",
+        "C": "0.85 adds 0.5 + 0.4 − 0.05, using the wrong intersection.",
+        "D": "0.90 equals 0.5 + 0.4 without subtracting overlap, double-counting the intersection."
+      },
       "remediation": [
         {
           "id": "l2_q7_r1",
-          "simulation": { "type": "dice" },
-          "question": "On one die, which is more likely: rolling a 1, or rolling an odd number?",
-          "options": ["Rolling a 1", "Rolling an odd number", "Equally likely", "Cannot tell"],
+          "question": "P(C) = 0.6, P(D) = 0.3, P(C ∩ D) = 0.1. Find P(C ∪ D).",
+          "options": ["0.7", "0.8", "0.9", "1.0"],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "0.7 subtracts too much overlap or uses incorrect values.",
+            "B": "Correct. 0.6 + 0.3 − 0.1 = 0.8.",
+            "C": "0.9 equals 0.6 + 0.3 without subtracting the 0.1 overlap.",
+            "D": "1.0 would mean the union is certain, which 0.8 already shows is false."
+          }
         },
         {
           "id": "l2_q7_r2",
-          "simulation": { "type": "dice" },
-          "question": "Which is more likely on one die: rolling a multiple of 3 (3 or 6), or rolling a number less than 4 (1, 2, or 3)?",
-          "options": [
-            "Multiple of 3 is more likely",
-            "Less than 4 is more likely",
-            "Equally likely",
-            "Both are impossible"
-          ],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "If P(A ∪ B) = 0.9, P(A) = 0.7, and P(B) = 0.5, what is P(A ∩ B)?",
+          "options": ["0.1", "0.2", "0.3", "0.4"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "0.1 is too small. Rearrange: P(A ∩ B) = P(A) + P(B) − P(A ∪ B).",
+            "B": "0.2 might come from |0.7 − 0.5|, ignoring the union value.",
+            "C": "Correct. P(A ∩ B) = 0.7 + 0.5 − 0.9 = 0.3.",
+            "D": "0.4 exceeds what the given probabilities allow for the intersection."
+          }
         }
       ]
     },
     {
       "id": "l2_q8",
       "kind": "standard",
-      "concept": "odd_sector_spinner",
-      "simulation": { "type": "spinner", "sectors": 5 },
-      "question": "A spinner has 5 equal sectors numbered 1 to 5. What is the probability of landing on an odd number (1, 3, or 5)?",
-      "options": ["1/5", "2/5", "3/5", "1/2"],
+      "concept": "counting_for_probability",
+      "question": "Two fair dice are rolled. Using counting, what is P(sum equals 7)?",
+      "options": ["1/12", "1/9", "1/6", "1/4"],
       "correctAnswer": 2,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "1/12 would be one favorable outcome out of twelve, but there are 36 ordered pairs total.",
+        "B": "1/9 equals 4/36, the probability of a sum of 4 or another miscount—not sum 7.",
+        "C": "Correct. Six ordered pairs give sum 7 out of 36 equally likely outcomes: 6/36 = 1/6.",
+        "D": "1/4 equals 9/36. Nine pairs do not sum to 7; only six do."
+      },
       "remediation": [
         {
           "id": "l2_q8_r1",
-          "simulation": { "type": "spinner", "sectors": 5 },
-          "question": "On the same 1-to-5 spinner, what is the probability of landing on an even number (2 or 4)?",
-          "options": ["1/5", "2/5", "3/5", "1/2"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "One fair die is rolled. What is P(even number)?",
+          "options": ["1/6", "1/3", "1/2", "2/3"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "1/6 is the probability of one specific face, not three even faces.",
+            "B": "1/3 equals 2/6, counting only two even outcomes instead of three.",
+            "C": "Correct. Even faces {2, 4, 6} are 3 of 6 outcomes: 1/2.",
+            "D": "2/3 equals 4/6, overcounting favorable outcomes."
+          }
         },
         {
           "id": "l2_q8_r2",
-          "simulation": { "type": "spinner", "sectors": 6 },
-          "question": "A spinner has 6 equal sectors numbered 1 to 6. What is the probability of landing on an odd number (1, 3, or 5)?",
-          "options": ["1/6", "1/3", "1/2", "2/3"],
-          "correctAnswer": 2,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "A bag has 3 red and 7 blue marbles. One is drawn at random. P(red)?",
+          "options": ["3/7", "3/10", "7/10", "1/3"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "3/7 compares red to blue only, ignoring the total sample space of 10 marbles.",
+            "B": "Correct. 3 favorable out of 10 total gives 3/10.",
+            "C": "7/10 is P(blue), the complement of drawing red.",
+            "D": "1/3 might come from 3/(3+6) or rounding 3/10 incorrectly."
+          }
         }
       ]
     },
     {
       "id": "l2_q9",
       "kind": "challenge",
-      "concept": "multiple_of_three",
-      "simulation": { "type": "spinner", "sectors": 9 },
-      "question": "A spinner has 9 equal sectors numbered 1 to 9. What is the probability of landing on a multiple of 3 (3, 6, or 9)? Give the simplified fraction.",
-      "options": ["1/9", "2/9", "1/3", "2/3"],
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 40, |B| = 35, |C| = 30. Pairwise intersections: |A∩B| = 12, |A∩C| = 10, |B∩C| = 8. |A∩B∩C| = 3. How many elements in A ∪ B ∪ C?",
+      "options": ["68", "72", "78", "105"],
       "correctAnswer": 2,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "68 subtracts too much at some stage, likely forgetting to add back the triple intersection.",
+        "B": "72 is close but misses one correction in the inclusion-exclusion formula.",
+        "C": "Correct. |A∪B∪C| = 40+35+30 − 12−10−8 + 3 = 78.",
+        "D": "105 sums all individual set sizes without any subtraction, grossly overcounting overlaps."
+      },
       "remediation": [
         {
           "id": "l2_q9_r1",
-          "simulation": { "type": "dice" },
-          "question": "The multiples of 3 from 1 to 6 are 3 and 6. That is 2 favorable out of 6, which equals:",
-          "options": ["1/6", "1/3", "1/2", "2/3"],
+          "question": "For two sets, |A| = 20, |B| = 15, |A ∩ B| = 5. Find |A ∪ B|.",
+          "options": ["25", "30", "35", "40"],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "25 might subtract the intersection twice.",
+            "B": "Correct. 20 + 15 − 5 = 30.",
+            "C": "35 equals 20 + 15 without subtracting overlap.",
+            "D": "40 adds the intersection instead of subtracting it."
+          }
         },
         {
           "id": "l2_q9_r2",
-          "simulation": { "type": "spinner", "sectors": 5 },
-          "question": "A spinner has 5 equal sectors numbered 1 to 5. The only multiple of 3 is 3, so the probability of landing on a multiple of 3 is:",
-          "options": ["1/5", "2/5", "3/5", "1/2"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Inclusion-exclusion for three sets adds back |A∩B∩C| because:",
+          "options": [
+            "It was never subtracted",
+            "It was subtracted three times and added zero times",
+            "It was subtracted once too many when subtracting pairwise overlaps",
+            "Triple intersections always have size 3"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "The triple intersection is affected when pairwise terms are subtracted.",
+            "B": "The triple region is subtracted three times (once per pairwise term) and must be restored once.",
+            "C": "Correct. Each pairwise subtraction removes the triple overlap; adding |A∩B∩C| once fixes the over-subtraction.",
+            "D": "The size of a triple intersection depends on the problem, not a fixed value of 3."
+          }
         }
       ]
     },
     {
       "id": "l2_q10",
       "kind": "challenge",
-      "concept": "compare_spinners",
-      "simulation": { "type": "spinner", "sectors": 6 },
-      "question": "Spinner A has 4 equal sectors with 1 red. Spinner B has 6 equal sectors with 2 red. Which spinner gives a higher chance of landing on red?",
-      "options": ["Spinner A", "Spinner B", "They are equal", "Cannot be determined"],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "combinations_probability",
+      "question": "From a standard 52-card deck, what is P(a 5-card hand contains exactly 2 aces)?",
+      "options": [
+        "C(4,2)C(48,3) / C(52,5)",
+        "C(4,2)C(48,2) / C(52,5)",
+        "C(4,2) / C(52,2)",
+        "C(48,3) / C(52,5)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Choose 2 of 4 aces and 3 of the 48 non-aces, divided by all C(52,5) hands.",
+        "B": "C(48,2) chooses only two non-ace cards, leaving a three-card hand instead of five.",
+        "C": "C(4,2)/C(52,2) counts two-card hands from the deck, not five-card poker hands.",
+        "D": "C(48,3)/C(52,5) counts hands with three non-aces but ignores which aces appear and undercounts aces."
+      },
       "remediation": [
         {
           "id": "l2_q10_r1",
-          "simulation": { "type": "spinner", "sectors": 4 },
-          "question": "Spinner A has 2 red out of 4 sectors. Spinner B has 2 red out of 8 sectors. Which has the higher chance of red?",
-          "options": ["Spinner A", "Spinner B", "Equal", "Cannot tell"],
+          "question": "From 10 stocks (3 tech, 7 non-tech), pick 4 at random. Probability exactly 1 is tech?",
+          "options": [
+            "C(3,1)C(7,3) / C(10,4)",
+            "C(3,1)C(7,4) / C(10,4)",
+            "C(3,1) / C(10,1)",
+            "C(7,3) / C(10,4)"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. One tech from 3 and three non-tech from 7, over all C(10,4) portfolios.",
+            "B": "C(7,4) selects four non-tech stocks, giving zero or too many tech names for 'exactly 1 tech'.",
+            "C": "C(3,1)/C(10,1) is the probability one random draw is tech, not a 4-stock portfolio.",
+            "D": "C(7,3)/C(10,4) ignores selecting the single tech stock entirely."
+          }
         },
         {
           "id": "l2_q10_r2",
-          "simulation": { "type": "spinner", "sectors": 5 },
-          "question": "Spinner A has 1 red of 5 sectors (1/5). Spinner B has 1 red of 4 sectors (1/4). Which has the higher chance of red?",
-          "options": ["Spinner A", "Spinner B", "Equal", "Cannot tell"],
+          "question": "When all hands are equally likely, probability equals:",
+          "options": [
+            "Favorable permutations / Total permutations",
+            "Favorable combinations / Total combinations",
+            "Favorable outcomes / Favorable combinations",
+            "Total combinations / Favorable combinations"
+          ],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Permutations overcount when the hand is unordered, unless you use them consistently in numerator and denominator.",
+            "B": "Correct. Count unordered favorable hands divided by unordered total hands.",
+            "C": "Dividing favorable outcomes by favorable combinations inverts the ratio nonsensically.",
+            "D": "Inverting the ratio gives a number greater than 1 for nontrivial events."
+          }
         }
       ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l2_pq1",
+      "concept": "factorial_counting",
+      "question": "3! equals:",
+      "options": ["3", "6", "9", "27"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3 is just n, not n!.",
+        "B": "Correct. 3! = 3 × 2 × 1 = 6.",
+        "C": "9 equals 3².",
+        "D": "27 equals 3³."
+      }
+    },
+    {
+      "id": "l2_pq2",
+      "concept": "permutations",
+      "question": "P(4,2) = permutations of 4 items taken 2 at a time:",
+      "options": ["6", "8", "12", "16"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6 equals C(4,2), combinations without order.",
+        "B": "8 has no standard meaning here.",
+        "C": "Correct. 4 × 3 = 12.",
+        "D": "16 equals 4² with repetition."
+      }
+    },
+    {
+      "id": "l2_pq3",
+      "concept": "combinations",
+      "question": "C(5,2) equals:",
+      "options": ["10", "15", "20", "25"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 5×4/(2×1) = 10.",
+        "B": "15 equals C(6,2), not C(5,2).",
+        "C": "20 equals P(5,2), ordered pairs.",
+        "D": "25 equals 5²."
+      }
+    },
+    {
+      "id": "l2_pq4",
+      "concept": "permutation_vs_combination",
+      "question": "Choose a chair and a vice-chair from 6 people (distinct roles). How many ways?",
+      "options": ["15", "30", "36", "720"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "15 equals C(6,2), ignoring role labels.",
+        "B": "Correct. P(6,2) = 30.",
+        "C": "36 equals 6² with one person in both roles.",
+        "D": "720 equals 6!, a full ranking of everyone."
+      }
+    },
+    {
+      "id": "l2_pq5",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "|A| = 25, |B| = 20, |A ∩ B| = 7. Find |A ∪ B|.",
+      "options": ["38", "45", "52", "12"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 25 + 20 − 7 = 38.",
+        "B": "45 adds without subtracting overlap.",
+        "C": "52 adds |A ∩ B| instead of subtracting.",
+        "D": "12 equals |A ∩ B| or another partial count, not the union."
+      }
+    },
+    {
+      "id": "l2_pq6",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.6, P(B) = 0.5, P(A ∩ B) = 0.2. Find P(A ∪ B).",
+      "options": ["0.7", "0.8", "0.9", "1.1"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.7 subtracts too much overlap.",
+        "B": "0.8 uses wrong intersection value.",
+        "C": "Correct. 0.6 + 0.5 − 0.2 = 0.9.",
+        "D": "1.1 exceeds 1 and is impossible."
+      }
+    },
+    {
+      "id": "l2_pq7",
+      "concept": "counting_for_probability",
+      "question": "Two dice rolled. How many equally likely ordered outcomes?",
+      "options": ["12", "21", "36", "72"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 might add 6 + 6 instead of multiplying.",
+        "B": "21 has no basis; 6 × 6 = 36.",
+        "C": "Correct. Each die has 6 faces: 6 × 6 = 36 ordered pairs.",
+        "D": "72 doubles 36 incorrectly."
+      }
+    },
+    {
+      "id": "l2_pq8",
+      "concept": "combinations_probability",
+      "question": "From 8 stocks, how many 3-stock portfolios (unordered)?",
+      "options": ["24", "56", "336", "512"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "24 equals P(8,3)/28 or other errors, not C(8,3).",
+        "B": "Correct. C(8,3) = 8×7×6/(3×2×1) = 56.",
+        "C": "336 equals P(8,3), ordered triples.",
+        "D": "512 equals 8³."
+      }
     }
   ]
 }
