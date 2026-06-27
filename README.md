@@ -62,6 +62,16 @@ instead of crashing.
 
 The frontend deploys to Vercel; Firebase stays as the backend (no server code).
 
+**Production URL (stable, use this for sign-in):**
+https://probability-playground-flax.vercel.app
+
+Vercel also creates a **unique preview URL per deployment** (for example
+`probability-playground-b9dx5ez9p-avialphaaiprojects.vercel.app`). Those links
+come from the Vercel dashboard or GitHub deploy comments — they are not your
+main site, they change every deploy, and Google sign-in will not work on them
+unless you add each one to Firebase. Login/signup automatically redirect preview
+URLs to the production domain above.
+
 1. Push this repo to GitHub/GitLab and import it in Vercel.
 2. Framework preset: **Vite**. Build command `npm run build`, output `dist`.
 3. In **Vercel -> Project -> Settings -> Environment Variables**, add the same
@@ -69,7 +79,7 @@ The frontend deploys to Vercel; Firebase stays as the backend (no server code).
 4. Deploy. `vercel.json` rewrites all routes to `index.html` so client-side
    routes (e.g. `/lessons/lesson_1`) work on refresh.
 5. In **Firebase Console -> Authentication -> Settings -> Authorized domains**,
-   add your Vercel domain so Google sign-in works in production.
+   add `probability-playground-flax.vercel.app` (and `localhost` for local dev).
 
 ## Scripts
 

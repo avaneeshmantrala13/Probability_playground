@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
+import { redirectPreviewToCanonical } from "./lib/appUrl";
 import { FirebaseSetupNotice } from "./components/FirebaseSetupNotice";
 import { LoadingScreen } from "./components/layout/LoadingScreen";
 import { ProtectedRoute } from "./components/layout/ProtectedRoute";
@@ -41,6 +43,10 @@ function Protected({ children }: { children: ReactNode }) {
 
 export function App() {
   const { configured, loading, user } = useAuth();
+
+  useEffect(() => {
+    redirectPreviewToCanonical();
+  }, []);
 
   if (!configured) return <FirebaseSetupNotice />;
   if (loading) return <LoadingScreen />;

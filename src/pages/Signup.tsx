@@ -10,8 +10,10 @@ import {
   signInWithGoogle,
   signUpWithUsername,
 } from "../lib/auth";
+import { useCanonicalAuthUrl } from "../hooks/useCanonicalAuthUrl";
 
 export function Signup() {
+  useCanonicalAuthUrl();
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");

@@ -9,8 +9,10 @@ import {
   signInWithGoogle,
   signInWithIdentifier,
 } from "../lib/auth";
+import { useCanonicalAuthUrl } from "../hooks/useCanonicalAuthUrl";
 
 export function Login() {
+  useCanonicalAuthUrl();
   const navigate = useNavigate();
   const location = useLocation() as { state?: { from?: { pathname?: string } } };
   const redirectTo = location.state?.from?.pathname ?? "/";
