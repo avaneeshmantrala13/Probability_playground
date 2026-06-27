@@ -89,6 +89,12 @@ export function Home() {
 
           <div className="flex w-full flex-wrap gap-2 border-t border-border/60 pt-4 text-sm">
             <Link
+              to="/resources"
+              className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1.5 font-medium text-primary transition hover:border-indigo-500/50 hover:text-indigo-600"
+            >
+              Prep resources
+            </Link>
+            <Link
               to="/lessons"
               className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
             >

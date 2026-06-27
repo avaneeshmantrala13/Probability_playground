@@ -19,6 +19,7 @@ import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
 import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { IntroModal } from "../components/lesson/IntroModal";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
+import { LessonResourcesPanel } from "../components/resources/LessonResourcesPanel";
 import { fetchGeneratedQuestion } from "../lib/ai/client";
 import type { OptionState } from "../components/lesson/OptionButton";
 import { CheckIcon, ChevronRightIcon, ClockIcon, TrophyIcon } from "../components/icons";
@@ -470,6 +471,8 @@ export function PokerTheoryPlayer() {
             options={current.options}
             selectedIndex={selected}
           />
+
+          <LessonResourcesPanel track="poker-theory" topics={lesson.topics} />
 
           {aiError && (
             <p className="mt-3 text-sm text-danger" role="alert">

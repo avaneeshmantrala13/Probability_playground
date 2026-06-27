@@ -21,6 +21,7 @@ import { IntroModal } from "../components/lesson/IntroModal";
 import type { OptionState } from "../components/lesson/OptionButton";
 import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
+import { LessonResourcesPanel } from "../components/resources/LessonResourcesPanel";
 import { fetchGeneratedQuestion } from "../lib/ai/client";
 import { CheckIcon, ChevronRightIcon, ClockIcon, TrophyIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
@@ -383,6 +384,8 @@ export function MarketMakingLessonPlayer() {
         options={current.options}
         selectedIndex={selected}
       />
+
+      <LessonResourcesPanel track="market-making" topics={lesson.topics} />
 
       {aiError && (
         <p className="mt-3 text-sm text-danger" role="alert">
