@@ -74,8 +74,8 @@ function ScenarioVisual({ scenario }: { scenario: Scenario }) {
             {c}
           </span>
         ))}
-        {(params.drawCount as number) > 1 && (
-          <span className="text-xs text-muted">+{(params.drawCount as number) - revealed.length} hidden</span>
+        {(typeof params.drawCount === "number" && params.drawCount > 1) && (
+          <span className="text-xs text-muted">+{params.drawCount - revealed.length} hidden</span>
         )}
       </div>
     );
