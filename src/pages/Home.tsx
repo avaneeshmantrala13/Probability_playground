@@ -100,12 +100,18 @@ export function Home() {
             >
               Playground games
             </Link>
-            <span className="rounded-full border border-dashed border-border/80 px-3 py-1.5 text-muted">
-              Market making · coming soon
-            </span>
-            <span className="rounded-full border border-dashed border-border/80 px-3 py-1.5 text-muted">
-              Poker theory · coming soon
-            </span>
+            <Link
+              to="/market-making"
+              className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
+            >
+              Market making
+            </Link>
+            <Link
+              to="/poker-theory"
+              className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
+            >
+              Poker theory
+            </Link>
             <Link
               to="/poker"
               className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
