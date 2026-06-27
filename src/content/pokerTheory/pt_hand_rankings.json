@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_hand_rankings",
+  "order": 2,
+  "title": "Hand Rankings",
+  "subtitle": "From high card to royal flush — knowing what beats what",
+  "topics": [
+    "Hand hierarchy",
+    "Kickers",
+    "Playing the board",
+    "Split pots"
+  ],
+  "intro": [
+    "Every poker decision eventually reduces to comparing five-card hands. Texas Hold'em uses a fixed hierarchy: high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush, and royal flush.",
+    "You always form the best five-card hand from exactly five cards — using zero, one, or both hole cards plus community cards. When two players tie on the rank of a hand, kickers (the side cards) or the board itself decide the winner.",
+    "Misreading hand strength is one of the costliest beginner mistakes. This lesson trains you to rank hands quickly, spot counterfeited pairs, and recognize when the board alone is the best hand for everyone."
+  ],
+  "questions": [
+    {
+      "id": "pt_hr_q1",
+      "kind": "standard",
+      "concept": "hierarchy",
+      "question": "Which hand ranks highest?",
+      "options": [
+        "Straight",
+        "Flush",
+        "Full house",
+        "Three of a kind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A straight beats three of a kind but loses to flush and full house.",
+        "B": "A flush beats straight and three of a kind but loses to full house.",
+        "C": "Correct — full house (trips + pair) beats flush, straight, and three of a kind.",
+        "D": "Three of a kind is strong but below straight and flush."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q1_r1",
+          "question": "Which beats a flush?",
+          "options": [
+            "Two pair",
+            "Full house",
+            "Straight",
+            "One pair"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Two pair loses to flush.",
+            "B": "Correct — full house beats flush.",
+            "C": "Straight loses to flush.",
+            "D": "One pair loses to flush."
+          }
+        },
+        {
+          "id": "pt_hr_q1_r2",
+          "question": "Rank these from lowest to highest: flush, straight, full house.",
+          "options": [
+            "Flush < straight < full house",
+            "Straight < flush < full house",
+            "Full house < flush < straight",
+            "Straight < full house < flush"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Flush beats straight.",
+            "B": "Correct — straight, then flush, then full house.",
+            "C": "Full house is highest of the three.",
+            "D": "Full house beats flush."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q2",
+      "kind": "standard",
+      "concept": "royal_flush",
+      "question": "A royal flush is:",
+      "options": [
+        "A♠ K♠ Q♠ J♠ T♠",
+        "Five cards of the same suit any ranks",
+        "A♥ K♦ Q♣ J♠ T♥ mixed suits",
+        "Four aces plus any kicker"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — A-K-Q-J-T all the same suit is the royal flush, the highest possible hand.",
+        "B": "Any same-suit five cards is a flush; royal requires the top five ranks.",
+        "C": "Mixed suits cannot form a flush.",
+        "D": "Four aces is four of a kind, not a royal flush."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q2_r1",
+          "question": "The best possible Hold'em hand is:",
+          "options": [
+            "Four of a kind",
+            "Straight flush A-high",
+            "Full house aces full",
+            "Flush king-high"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Four of a kind is beaten by straight flush.",
+            "B": "Correct — royal flush (A-high straight flush) is unbeatable.",
+            "C": "Full house loses to straight flush.",
+            "D": "King-high flush is far from the nuts."
+          }
+        },
+        {
+          "id": "pt_hr_q2_r2",
+          "question": "Which is a straight flush?",
+          "options": [
+            "9♣ 8♣ 7♣ 6♣ 5♣",
+            "A♦ K♦ Q♦ J♦ 9♦",
+            "K♠ Q♠ J♠ T♠ 9♥",
+            "A♣ A♦ A♥ K♠ K♣"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — five consecutive clubs is a straight flush.",
+            "B": "Missing the ten for a straight.",
+            "C": "Nine of hearts breaks the flush.",
+            "D": "Two pair, not a straight flush."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q3",
+      "kind": "standard",
+      "concept": "two_pair",
+      "question": "Board: K♠ 7♥ 7♦ 3♣ 3♠. You hold K♦ Q♣. Your best hand is:",
+      "options": [
+        "Two pair, kings and sevens",
+        "Two pair, kings and threes",
+        "Full house, sevens full of threes",
+        "Pair of kings"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "K-K-7-7-3 uses kings and threes with a seven kicker.",
+        "B": "Correct — kings and threes with a seven kicker: K-K-3-3-7.",
+        "C": "Full house would need trips + pair; you have two pair only.",
+        "D": "Two pair is better than one pair."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q3_r1",
+          "question": "You have A♠ A♥, board 9♣ 9♦ 5♠ 2♥ K♣. Best hand:",
+          "options": [
+            "Two pair aces and nines",
+            "Two pair nines and fives",
+            "Full house nines full",
+            "Pair of aces"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — A-A-9-9-K beats using only board pairs.",
+            "B": "Nines and fives ignores your aces.",
+            "C": "No trips on board for a boat.",
+            "D": "Two pair beats one pair."
+          }
+        },
+        {
+          "id": "pt_hr_q3_r2",
+          "question": "Two pair means:",
+          "options": [
+            "Two different pairs among your five cards",
+            "Two hole cards paired",
+            "Two players each have a pair",
+            "Second-best pair on board"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — e.g. K-K-7-7-x is two pair.",
+            "B": "Hole cards need not both pair.",
+            "C": "Unrelated to number of players.",
+            "D": "Board pairs alone can make two pair for you."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q4",
+      "kind": "standard",
+      "concept": "kicker",
+      "question": "You: A♦ J♦. Villain: A♠ T♠. Board: A♥ 8♣ 5♦ 2♠ K♣. Who wins?",
+      "options": [
+        "You — higher kicker (J vs T)",
+        "Villain — higher kicker",
+        "Split pot",
+        "Villain — second pair"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — both have pair of aces; your J kicker beats T.",
+        "B": "Villain's ten is lower than your jack.",
+        "C": "Different kickers mean no split.",
+        "D": "Only one pair of aces matters."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q4_r1",
+          "question": "Same pair on board, you have K kicker, opponent Q kicker. Winner:",
+          "options": [
+            "You",
+            "Opponent",
+            "Split",
+            "Dealer"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — higher kicker wins when pairs tie.",
+            "B": "Queen loses to king.",
+            "C": "Splits need identical five-card hands.",
+            "D": "Dealer doesn't win pots."
+          }
+        },
+        {
+          "id": "pt_hr_q4_r2",
+          "question": "Kickers matter when:",
+          "options": [
+            "Both players have the same hand rank",
+            "Someone has a flush",
+            "Board is paired twice",
+            "Preflop only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — tied hand ranks compare side cards.",
+            "B": "Flush rank is decided by highest card in flush.",
+            "C": "Paired boards can still need kickers.",
+            "D": "Kickers apply at showdown."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q5",
+      "kind": "standard",
+      "concept": "play_board",
+      "question": "Board: Q♠ J♠ T♠ 9♠ 8♠. All players checked to showdown. Result?",
+      "options": [
+        "Player with A♠ in hole wins",
+        "Split pot — everyone plays the board",
+        "Highest hole card wins",
+        "Flush draw loses"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A spade in hole doesn't improve on a straight flush board.",
+        "B": "Correct — the board is a straight flush; hole cards irrelevant.",
+        "C": "Hole cards don't matter when board is best for all.",
+        "D": "Board completed the flush."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q5_r1",
+          "question": "When the board is the best five for all players:",
+          "options": [
+            "Strongest hole card wins",
+            "Split pot",
+            "First to act wins",
+            "Pot is dead"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Hole cards don't beat the board if board is best five.",
+            "B": "Correct — tied best hand splits.",
+            "C": "Action order doesn't decide winner.",
+            "D": "Pot goes to tied winners."
+          }
+        },
+        {
+          "id": "pt_hr_q5_r2",
+          "question": "You may use zero hole cards when:",
+          "options": [
+            "The board alone beats any combo with your cards",
+            "You fold preflop",
+            "You have pocket aces",
+            "Never"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 'playing the board' uses zero hole cards.",
+            "B": "Folded players don't showdown.",
+            "C": "Aces might still play if board isn't best alone.",
+            "D": "Zero hole cards is legal when board is strongest."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q6",
+      "kind": "standard",
+      "concept": "full_house",
+      "question": "Which is a full house?",
+      "options": [
+        "K♠ K♥ K♦ 7♣ 7♠",
+        "K♠ K♥ 7♦ 7♣ 3♠",
+        "7♠ 7♥ 7♦ 7♣ K♠",
+        "K♠ Q♠ J♠ T♠ 9♠"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — three kings and two sevens is a full house.",
+        "B": "Two pair only — need three of one rank.",
+        "C": "Four sevens is four of a kind.",
+        "D": "Straight flush, not full house."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q6_r1",
+          "question": "Full house is also called:",
+          "options": [
+            "Boat",
+            "Wheel",
+            "Broadway",
+            "Nut flush"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 'boat' is common slang for full house.",
+            "B": "Wheel is A-2-3-4-5 straight.",
+            "C": "Broadway is A-high straight.",
+            "D": "Nut flush is ace-high flush."
+          }
+        },
+        {
+          "id": "pt_hr_q6_r2",
+          "question": "8♣ 8♦ 8♠ K♥ K♦ is:",
+          "options": [
+            "Two pair",
+            "Full house eights full",
+            "Trips only",
+            "Four eights"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Two pair needs two ranks paired, not three eights.",
+            "B": "Correct — eights full of kings.",
+            "C": "Trips is three of a kind without a pair.",
+            "D": "Four of a kind needs four eights."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q7",
+      "kind": "standard",
+      "concept": "straight",
+      "question": "Which is a valid straight?",
+      "options": [
+        "A♠ 2♥ 3♦ 4♣ 5♠",
+        "K♠ Q♠ J♠ T♠ 9♥",
+        "A♠ K♥ Q♦ J♣ 9♠",
+        "2♠ 4♥ 6♦ 8♣ T♠"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — wheel: ace plays low as 1 in A-2-3-4-5.",
+        "B": "Nine of hearts breaks the straight.",
+        "C": "Gap at ten — not five consecutive ranks.",
+        "D": "Even ranks skip — not a straight."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q7_r1",
+          "question": "The 'wheel' straight uses ace as:",
+          "options": [
+            "High only",
+            "Low only (A-2-3-4-5)",
+            "Wild card",
+            "Kicker only"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Ace-high is Broadway, different straight.",
+            "B": "Correct — ace can be low in the wheel.",
+            "C": "No wild cards in Hold'em.",
+            "D": "Ace is part of the straight, not kicker."
+          }
+        },
+        {
+          "id": "pt_hr_q7_r2",
+          "question": "A straight beats:",
+          "options": [
+            "Flush",
+            "Three of a kind",
+            "Full house",
+            "Straight flush"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Flush beats straight.",
+            "B": "Correct — straight beats three of a kind.",
+            "C": "Full house beats straight.",
+            "D": "Straight flush beats straight."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q8",
+      "kind": "standard",
+      "concept": "flush",
+      "question": "You hold 2♠ 3♠. Board: A♠ K♠ 7♥ 5♠ 9♦. Your hand is:",
+      "options": [
+        "Pair of aces",
+        "Ace-high flush",
+        "Straight flush draw only",
+        "High card ace"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Pair of aces ignores the five spades available.",
+        "B": "Correct — A-K-9-5-2 spades is an ace-high flush.",
+        "C": "You completed the flush, not just a draw.",
+        "D": "Flush beats high card."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q8_r1",
+          "question": "Flush tie is broken by:",
+          "options": [
+            "Highest card in the flush, then next cards",
+            "Hole card suits",
+            "Who bet last",
+            "Smallest card"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — compare top down through all five flush cards.",
+            "B": "Suit of hole cards doesn't matter for tie.",
+            "C": "Betting order doesn't break ties.",
+            "D": "Highest cards win, not lowest."
+          }
+        },
+        {
+          "id": "pt_hr_q8_r2",
+          "question": "Five hearts on board, you have no hearts. You:",
+          "options": [
+            "Have a flush",
+            "Use the board flush",
+            "Have high card only if board flush is best",
+            "Automatically win"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "You don't hold a heart but board gives everyone a flush.",
+            "B": "Correct — you play the board flush; kickers may tie.",
+            "C": "High card only applies when the board isn't a completed flush.",
+            "D": "Ties split; no automatic win."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q9",
+      "kind": "challenge",
+      "concept": "counterfeit",
+      "question": "You hold 8♦ 8♠. Board: 8♥ K♣ K♦ 5♠ 5♥. Your effective hand vs someone with A♠ K♠?",
+      "options": [
+        "You win — trips eights",
+        "They win — kings full of fives beat eights full",
+        "Split",
+        "You win — higher trips"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You have eights full but they have kings full of eights.",
+        "B": "Correct — higher trips in full house wins: K-K-K-8-8 beats 8-8-8-K-K.",
+        "C": "Different full houses don't split.",
+        "D": "Trip eights became second best after board paired."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q9_r1",
+          "question": "Counterfeiting often happens when:",
+          "options": [
+            "Board pairs and reduces your pocket pair's value",
+            "You hit a flush",
+            "You fold preflop",
+            "Blinds increase"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — board pairs can 'counterfeit' your pocket pair.",
+            "B": "Flush improves your hand.",
+            "C": "Folding ends the hand.",
+            "D": "Blinds don't change hand ranks."
+          }
+        },
+        {
+          "id": "pt_hr_q9_r2",
+          "question": "Pocket tens on board T-K-K-5-5 makes:",
+          "options": [
+            "Stronger than K-x",
+            "Weaker full house than K-x with a king",
+            "Always the nuts",
+            "High card"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Tens full loses to kings full.",
+            "B": "Correct — opponent with a king has kings full of tens.",
+            "C": "Kings full beats tens full.",
+            "D": "Full house beats high card."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_hr_q10",
+      "kind": "challenge",
+      "concept": "compare_hands",
+      "question": "Board: 9♠ 8♠ 7♦ 6♣ 5♥. Player A: A♠ 2♠. Player B: T♦ T♣. Winner?",
+      "options": [
+        "A — higher straight",
+        "B — higher straight",
+        "Split",
+        "A — flush"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A has 9-high straight (9-8-7-6-5); T makes ten-high straight.",
+        "B": "Correct — T-9-8-7-6 beats 9-8-7-6-5.",
+        "C": "Different straights don't split.",
+        "D": "No five spades for a flush."
+      },
+      "remediation": [
+        {
+          "id": "pt_hr_q10_r1",
+          "question": "Ten-high straight on 9-8-7-6-5 board needs:",
+          "options": [
+            "A ten in hole or as part of best five",
+            "Two spades",
+            "Pair of tens only",
+            "Ace low"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — T completes T-9-8-7-6.",
+            "B": "Suits irrelevant for straight.",
+            "C": "Pair doesn't beat straight here.",
+            "D": "Ace low is wheel, different board."
+          }
+        },
+        {
+          "id": "pt_hr_q10_r2",
+          "question": "When both have straights, winner has:",
+          "options": [
+            "Same five cards always",
+            "Higher top card of the straight",
+            "Lower cards win",
+            "First aggressor"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Straights can differ in high card.",
+            "B": "Correct — compare the highest card of the straight.",
+            "C": "Higher straight wins.",
+            "D": "Aggressor doesn't win ties."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_hr_p1",
+      "concept": "hierarchy",
+      "question": "Which beats a straight?",
+      "options": [
+        "One pair",
+        "Two pair",
+        "Flush",
+        "High card"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Pair and two pair lose to straight.",
+        "B": "Two pair loses to straight.",
+        "C": "Correct.",
+        "D": "High card is weakest."
+      }
+    },
+    {
+      "id": "pt_hr_p2",
+      "concept": "royal",
+      "question": "Royal flush is:",
+      "options": [
+        "A-K-Q-J-T same suit",
+        "Any five same suit",
+        "Four aces",
+        "K-high straight"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "That's any flush.",
+        "C": "Four of a kind.",
+        "D": "Not necessarily same suit."
+      }
+    },
+    {
+      "id": "pt_hr_p3",
+      "concept": "kicker",
+      "question": "Same pair, you A-kicker, foe Q-kicker:",
+      "options": [
+        "You win",
+        "Foe wins",
+        "Split",
+        "Board wins"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — ace kicker.",
+        "B": "Queen is lower.",
+        "C": "Kickers differ.",
+        "D": "Players compare hands."
+      }
+    },
+    {
+      "id": "pt_hr_p4",
+      "concept": "board",
+      "question": "Board is best five for all:",
+      "options": [
+        "Split pot",
+        "Button wins",
+        "Highest hole card",
+        "Pot dead"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — play the board.",
+        "B": "Button doesn't auto-win.",
+        "C": "Hole cards irrelevant.",
+        "D": "Pot to winners."
+      }
+    },
+    {
+      "id": "pt_hr_p5",
+      "concept": "full_house",
+      "question": "Full house contains:",
+      "options": [
+        "Two pairs only",
+        "Three of one rank + pair",
+        "Four of a kind",
+        "Five sequential"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two pair is weaker.",
+        "B": "Correct.",
+        "C": "Quads beat boat.",
+        "D": "That's a straight."
+      }
+    },
+    {
+      "id": "pt_hr_p6",
+      "concept": "wheel",
+      "question": "Wheel straight is:",
+      "options": [
+        "A-K-Q-J-T",
+        "A-2-3-4-5",
+        "10-9-8-7-6",
+        "K-Q-J-T-9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Broadway.",
+        "B": "Correct — ace low.",
+        "C": "Ten-high.",
+        "D": "King-high."
+      }
+    },
+    {
+      "id": "pt_hr_p7",
+      "concept": "flush",
+      "question": "Ace-high flush beats:",
+      "options": [
+        "Straight",
+        "Full house",
+        "Four of a kind",
+        "Straight flush"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Boat beats flush.",
+        "C": "Quads beat flush.",
+        "D": "Straight flush beats flush."
+      }
+    },
+    {
+      "id": "pt_hr_p8",
+      "concept": "compare",
+      "question": "Higher straight wins when:",
+      "options": [
+        "Top card of straight is higher",
+        "More hole cards used",
+        "Acted last",
+        "Suits match"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Doesn't matter how many hole cards.",
+        "C": "Position irrelevant.",
+        "D": "Suits don't matter for straight."
+      }
+    }
+  ]
+}

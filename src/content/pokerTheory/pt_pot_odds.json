@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_pot_odds",
+  "order": 4,
+  "title": "Pot Odds & Expected Value",
+  "subtitle": "When a call is mathematically justified",
+  "topics": [
+    "Pot odds",
+    "Equity",
+    "Breakeven",
+    "Implied odds"
+  ],
+  "intro": [
+    "Pot odds compare the size of the pot to the price of a call. If you must call $10 into a $40 pot, you are getting 4:1 — you need to win more than one time in five (20% equity) to break even on that call.",
+    "Expected value (EV) extends this idea: multiply each outcome by its probability and sum. A +EV call loses often in the short run but profits over thousands of similar spots.",
+    "Implied odds adjust for future chips you may win when you hit your draw. This lesson connects raw math to Hold'em decisions — flush draws, gutshots, and river calls."
+  ],
+  "questions": [
+    {
+      "id": "pt_po_q1",
+      "kind": "standard",
+      "concept": "pot_odds_def",
+      "question": "Pot is $80, opponent bets $20. You call $20. Total pot you can win is:",
+      "options": [
+        "$80",
+        "$100",
+        "$120",
+        "$20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$80 is pot before the bet only.",
+        "B": "$100 ignores your call.",
+        "C": "Correct — $80 + $20 bet + $20 call = $120.",
+        "D": "$20 is only your call."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q1_r1",
+          "question": "Pot $50, bet $25, you call $25. Total pot after your call:",
+          "options": [
+            "$75",
+            "$100",
+            "$25",
+            "$50"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "$75 is before your call.",
+            "B": "Correct — $50 + $25 + $25 = $100.",
+            "C": "$25 is your call.",
+            "D": "$50 is starting pot."
+          }
+        },
+        {
+          "id": "pt_po_q1_r2",
+          "question": "Calling $10 into $40 (before call) gives pot odds of:",
+          "options": [
+            "4:1 on your call",
+            "10:1",
+            "1:4",
+            "Even money"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — risk $10 to win $40 = 4:1.",
+            "B": "10:1 would need $100 pot.",
+            "C": "1:4 inverts the ratio.",
+            "D": "Even money is 1:1."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q2",
+      "kind": "standard",
+      "concept": "breakeven",
+      "question": "Getting 3:1 pot odds, minimum break-even equity on a call?",
+      "options": [
+        "25%",
+        "33%",
+        "50%",
+        "75%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — call 1 to win 3+1=4, need 1/4 = 25%.",
+        "B": "33% is roughly 2:1 pot odds.",
+        "C": "50% is 1:1.",
+        "D": "75% would be poor odds."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q2_r1",
+          "question": "2:1 pot odds need break-even equity of:",
+          "options": [
+            "33%",
+            "25%",
+            "50%",
+            "20%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 1/(2+1) ≈ 33%.",
+            "B": "25% is 3:1.",
+            "C": "50% is even.",
+            "D": "20% is 4:1."
+          }
+        },
+        {
+          "id": "pt_po_q2_r2",
+          "question": "4:1 pot odds need break-even equity of:",
+          "options": [
+            "20%",
+            "25%",
+            "40%",
+            "80%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 1/5 = 20%.",
+            "B": "25% is 3:1.",
+            "C": "40% too high.",
+            "D": "80% too high."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q3",
+      "kind": "standard",
+      "concept": "flush_draw",
+      "question": "On the flop you have a flush draw (9 outs). Approximate equity to hit by the river?",
+      "options": [
+        "~35%",
+        "~15%",
+        "~50%",
+        "~2%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — rule of 4: 9×4 ≈ 36% by river.",
+        "B": "15% is too low for 9 outs.",
+        "C": "50% is an overestimate.",
+        "D": "2% is far too low."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q3_r1",
+          "question": "Rule of 4 on flop: 8 outs ≈ equity by river?",
+          "options": [
+            "32%",
+            "16%",
+            "8%",
+            "64%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 8×4 = 32%.",
+            "B": "16% is turn-only rough.",
+            "C": "8% underestimates.",
+            "D": "64% overestimates."
+          }
+        },
+        {
+          "id": "pt_po_q3_r2",
+          "question": "9 outs on the turn (one card) ≈ equity:",
+          "options": [
+            "18%",
+            "36%",
+            "9%",
+            "45%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — rule of 2: 9×2 = 18%.",
+            "B": "36% is two cards.",
+            "C": "9% too low.",
+            "D": "45% too high."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q4",
+      "kind": "standard",
+      "concept": "bad_call",
+      "question": "Pot $100, bet $100, you have 30% equity. Calling is:",
+      "options": [
+        "-EV",
+        "+EV",
+        "Always correct",
+        "0 EV always"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — need ~33% at 1:1 pot odds; 30% is short.",
+        "B": "+EV would need equity above breakeven.",
+        "C": "Not always correct.",
+        "D": "Could be -EV."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q4_r1",
+          "question": "Even-money pot odds need roughly:",
+          "options": [
+            "50% equity",
+            "25%",
+            "10%",
+            "0%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 1:1 means win half the time.",
+            "B": "25% is 3:1.",
+            "C": "10% too low.",
+            "D": "0% never profitable."
+          }
+        },
+        {
+          "id": "pt_po_q4_r2",
+          "question": "If equity < pot-odds breakeven, call is:",
+          "options": [
+            "-EV long run (without implied odds)",
+            "+EV always",
+            "Mandatory",
+            "Free"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — math says fold unless implied odds help.",
+            "B": "Not +EV.",
+            "C": "Fold often correct.",
+            "D": "Calls cost chips."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q5",
+      "kind": "standard",
+      "concept": "implied_odds",
+      "question": "Implied odds matter most when:",
+      "options": [
+        "You may win a large stack if you hit your draw",
+        "Pot is tiny and stacks shallow",
+        "You have the nuts already",
+        "Board is paired"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — future bets inflate reward beyond current pot.",
+        "B": "Shallow stacks limit implied odds.",
+        "C": "Nuts don't need implied odds for a draw.",
+        "D": "Paired board is a separate concern."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q5_r1",
+          "question": "Deep stacks generally:",
+          "options": [
+            "Increase implied odds for draws",
+            "Remove implied odds",
+            "Mean fold every draw",
+            "Change hand rankings"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — more chips to win when you hit.",
+            "B": "Deep stacks increase implied odds.",
+            "C": "Good draws still play.",
+            "D": "Rankings unchanged."
+          }
+        },
+        {
+          "id": "pt_po_q5_r2",
+          "question": "Set mining preflop needs:",
+          "options": [
+            "Implied odds — flop a set rarely but win big",
+            "No callers",
+            "50% equity preflop",
+            "Shallow 10bb stacks only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — ~12% flop set; profit from stacking opponent.",
+            "B": "Callers help pot odds.",
+            "C": "Pocket pair preflop equity is low.",
+            "D": "Deep stacks needed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q6",
+      "kind": "standard",
+      "concept": "ev_positive",
+      "question": "+EV means:",
+      "options": [
+        "Profitable long run if repeated",
+        "Wins every time",
+        "Always feels good",
+        "Same as pot odds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — positive expected value over many trials.",
+        "B": "Variance means losses happen.",
+        "C": "Feelings mislead.",
+        "D": "Pot odds help compute EV but differ."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q6_r1",
+          "question": "60% equity all-in is:",
+          "options": [
+            "+EV if pot odds justify",
+            "Always -EV",
+            "0 EV",
+            "Illegal"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — a favorite can be +EV.",
+            "B": "Favorites are often +EV.",
+            "C": "Not zero if edge exists.",
+            "D": "Legal shove."
+          }
+        },
+        {
+          "id": "pt_po_q6_r2",
+          "question": "Short-term results:",
+          "options": [
+            "Can diverge from EV due to variance",
+            "Always match EV exactly",
+            "Disprove EV in one hand",
+            "Eliminate math"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — luck swings short samples.",
+            "B": "Long run converges.",
+            "C": "One hand doesn't disprove math.",
+            "D": "Math still applies."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q7",
+      "kind": "standard",
+      "concept": "combo_draw",
+      "question": "Flush draw plus open-ended straight draw has more equity than flush alone because:",
+      "options": [
+        "More outs improve your hand",
+        "Same outs",
+        "Fewer outs",
+        "Board always pairs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — combined outs (minus overlap) boost equity.",
+        "B": "More outs, not same.",
+        "C": "More outs, not fewer.",
+        "D": "Board pairing unrelated."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q7_r1",
+          "question": "15 clean outs on flop ≈:",
+          "options": [
+            "60% by river (rule of 4)",
+            "15%",
+            "30%",
+            "100%"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 15×4 = 60%.",
+            "B": "15% is one-card rough.",
+            "C": "30% underestimates.",
+            "D": "Not guaranteed."
+          }
+        },
+        {
+          "id": "pt_po_q7_r2",
+          "question": "Strong combo draw is:",
+          "options": [
+            "Many ways to improve",
+            "Weak high card only",
+            "Always fold",
+            "Made full house"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — double draw equity.",
+            "B": "Can be strong.",
+            "C": "Often continue.",
+            "D": "Not made yet."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q8",
+      "kind": "standard",
+      "concept": "reverse_implied",
+      "question": "Reverse implied odds hurt when:",
+      "options": [
+        "Hitting your hand may lose a big pot (second best)",
+        "You fold too much",
+        "Pot is small",
+        "You have the nuts"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — dominated draws like non-nut flush can lose stacks.",
+        "B": "RIO is about losing big when you hit.",
+        "C": "Small pot limits loss, not RIO definition.",
+        "D": "Nuts don't have RIO problem."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q8_r1",
+          "question": "Non-nut flush on paired board risks:",
+          "options": [
+            "Full house beating your flush",
+            "Always winning",
+            "Split only",
+            "High card"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — paired board full houses possible.",
+            "B": "Can lose to boat.",
+            "C": "May lose entire pot.",
+            "D": "Flush beats high card but loses to boat."
+          }
+        },
+        {
+          "id": "pt_po_q8_r2",
+          "question": "Second-nut flush draw has:",
+          "options": [
+            "Reverse implied odds vs nut flush holder",
+            "No risk",
+            "Always +EV",
+            "Extra outs"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — making flush may still lose.",
+            "B": "Still risk.",
+            "C": "Can be -EV.",
+            "D": "Same flush outs roughly."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q9",
+      "kind": "challenge",
+      "concept": "river_call",
+      "question": "Pot $200, villain shoves $100. You need 25% equity (call $100 to win $400). Villain's range is 30% bluffs you beat, 70% value you lose to. Call?",
+      "options": [
+        "+EV call — 30% > 25% breakeven",
+        "Always fold",
+        "Always call regardless",
+        "Pot odds irrelevant"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — 30% equity exceeds 25% breakeven; bluff-catching is +EV.",
+        "B": "Fold if bluffs insufficient.",
+        "C": "Must compare to breakeven.",
+        "D": "Pot odds central."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q9_r1",
+          "question": "Bluff catching uses:",
+          "options": [
+            "Pot odds + range analysis",
+            "Only feelings",
+            "Always fold",
+            "Card color"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — need enough bluffs in range.",
+            "B": "Feelings mislead.",
+            "C": "Sometimes call is correct.",
+            "D": "Suits don't decide."
+          }
+        },
+        {
+          "id": "pt_po_q9_r2",
+          "question": "Polarized river range often contains:",
+          "options": [
+            "Strong value or bluffs — fewer medium hands",
+            "Always random",
+            "Only nuts",
+            "Only air"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — large bets often polarized.",
+            "B": "Not random.",
+            "C": "Includes bluffs too.",
+            "D": "Value hands too."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_po_q10",
+      "kind": "challenge",
+      "concept": "mdf",
+      "question": "Pot $100, bet $50. Minimum defense frequency (MDF) to prevent auto-profit bluffs?",
+      "options": [
+        "67%",
+        "33%",
+        "50%",
+        "100%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — MDF = pot/(pot+bet) = 100/150 ≈ 67% continue.",
+        "B": "33% is bet/pot, wrong formula.",
+        "C": "50% not MDF here.",
+        "D": "100% over-defends some spots."
+      },
+      "remediation": [
+        {
+          "id": "pt_po_q10_r1",
+          "question": "MDF tells you:",
+          "options": [
+            "How often to continue vs bet to deny bluff profit",
+            "Always fold",
+            "Always raise",
+            "Ignore pot size"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — balance defense vs pot odds.",
+            "B": "Not always fold.",
+            "C": "Raise is separate.",
+            "D": "Pot size defines MDF."
+          }
+        },
+        {
+          "id": "pt_po_q10_r2",
+          "question": "Folding more than MDF vs pure bluffs:",
+          "options": [
+            "Opponent profits betting any two",
+            "You win more",
+            "Math breaks",
+            "Blinds increase"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — exploitable fold frequency.",
+            "B": "You lose to bluffs.",
+            "C": "Math still holds.",
+            "D": "Blinds unrelated."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_po_p1",
+      "concept": "pot_odds",
+      "question": "Pot $60, bet $20, call $20. Total pot if call:",
+      "options": [
+        "$100",
+        "$80",
+        "$20",
+        "$60"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "$60+$20+$20=$100.",
+        "B": "Missing your call.",
+        "C": "Call only.",
+        "D": "Pot before bet."
+      }
+    },
+    {
+      "id": "pt_po_p2",
+      "concept": "breakeven",
+      "question": "4:1 pot odds need ~equity:",
+      "options": [
+        "20%",
+        "25%",
+        "50%",
+        "80%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "1/5=20%.",
+        "B": "25% is 3:1.",
+        "C": "50% is 1:1.",
+        "D": "Too high."
+      }
+    },
+    {
+      "id": "pt_po_p3",
+      "concept": "outs",
+      "question": "9 outs on flop ≈ river equity (rule of 4):",
+      "options": [
+        "36%",
+        "18%",
+        "9%",
+        "72%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "9×4=36%.",
+        "B": "18% one card.",
+        "C": "9% too low.",
+        "D": "72% too high."
+      }
+    },
+    {
+      "id": "pt_po_p4",
+      "concept": "ev",
+      "question": "+EV means:",
+      "options": [
+        "Long-run profit",
+        "Win always",
+        "Fold always",
+        "No math"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Variance exists.",
+        "C": "Often call or raise.",
+        "D": "Math defines EV."
+      }
+    },
+    {
+      "id": "pt_po_p5",
+      "concept": "implied",
+      "question": "Implied odds = future chips when:",
+      "options": [
+        "You hit your draw",
+        "You fold",
+        "Board pairs",
+        "UTG opens"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "No future win if fold.",
+        "C": "Separate issue.",
+        "D": "Preflop."
+      }
+    },
+    {
+      "id": "pt_po_p6",
+      "concept": "mdf",
+      "question": "Pot $90 bet $30 MDF ≈",
+      "options": [
+        "75%",
+        "33%",
+        "50%",
+        "10%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "90/120=75%.",
+        "B": "Wrong formula.",
+        "C": "Not 50%.",
+        "D": "Too low."
+      }
+    },
+    {
+      "id": "pt_po_p7",
+      "concept": "rio",
+      "question": "Reverse implied odds:",
+      "options": [
+        "Lose big when hit second best",
+        "Always win when hit",
+        "Free cards",
+        "More outs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Opposite of RIO.",
+        "C": "Unrelated.",
+        "D": "Outs same."
+      }
+    },
+    {
+      "id": "pt_po_p8",
+      "concept": "call",
+      "question": "Equity below pot odds breakeven → call is:",
+      "options": [
+        "-EV (without implied odds)",
+        "+EV always",
+        "Mandatory",
+        "0 chips"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Usually fold.",
+        "C": "Not mandatory.",
+        "D": "Call costs chips."
+      }
+    }
+  ]
+}
