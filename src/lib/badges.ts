@@ -32,7 +32,7 @@ import { emptyPokerStats } from "./progress";
 import type { CourseProgress } from "./progress";
 import { CHEST_BADGE_META, CHEST_BADGE_POOL } from "./dailyRewards/badges";
 
-export type BadgeCategory = "lesson" | "game" | "streak" | "speed" | "token";
+export type BadgeCategory = "lesson" | "game" | "streak" | "speed" | "token" | "quant";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
 
