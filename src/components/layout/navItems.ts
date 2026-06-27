@@ -8,7 +8,6 @@ import {
   DiceIcon,
   HeartIcon,
   HomeIcon,
-  LibraryIcon,
   MedalIcon,
   SettingsIcon,
   SpadeIcon,
@@ -43,14 +42,6 @@ export const NAV_ITEMS: NavItem[] = [
     matchPrefix: true,
     iconClassName: "text-sky-500",
     activeClassName: "bg-sky-500/15 text-primary ring-1 ring-sky-500/25",
-  },
-  {
-    to: "/resources",
-    label: "Resources",
-    icon: LibraryIcon,
-    matchPrefix: true,
-    iconClassName: "text-indigo-500",
-    activeClassName: "bg-indigo-500/15 text-primary ring-1 ring-indigo-500/25",
   },
   {
     to: "/poker-theory",

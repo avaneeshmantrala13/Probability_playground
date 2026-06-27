@@ -76,11 +76,6 @@ export function MarketMakingHub() {
         </ul>
       </div>
 
-      <p className="mt-6 text-center text-sm text-secondary">
-        <Link to="/resources?track=market-making" className="font-medium text-accent hover:underline">
-          Official prep links — Jane Street Probability & Markets guide, books, drills →
-        </Link>
-      </p>
     </div>
   );
 }

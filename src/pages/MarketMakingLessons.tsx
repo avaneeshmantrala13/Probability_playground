@@ -33,12 +33,6 @@ export function MarketMakingLessons() {
           value, inventory skew, and interview-style puzzles. Score 80% to unlock
           the next lesson.
         </p>
-        <Link
-          to="/resources?track=market-making"
-          className="mt-3 inline-flex text-sm font-medium text-accent hover:underline"
-        >
-          Browse market-making resources (Jane Street guide, Harris book…) →
-        </Link>
         <div className="mt-5 max-w-md">
           <ProgressBar
             current={completedCount}

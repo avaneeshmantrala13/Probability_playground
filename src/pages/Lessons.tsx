@@ -23,12 +23,6 @@ export function Lessons() {
           Each lesson pairs interactive simulations with questions and instant
           feedback. Score 80% to unlock the next one.
         </p>
-        <Link
-          to="/resources?track=quant"
-          className="mt-3 inline-flex text-sm font-medium text-accent hover:underline"
-        >
-          Browse quant prep resources (Stat 110, Green Book, Brainstellar…) →
-        </Link>
         <div className="mt-5 max-w-md">
           <ProgressBar
             current={completedCount}

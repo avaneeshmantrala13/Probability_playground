@@ -34,12 +34,6 @@ export function PokerTheory() {
           Score 80% to unlock the next lesson, or pass the placement quiz to
           skip ahead.
         </p>
-        <Link
-          to="/resources?track=poker-theory"
-          className="mt-3 inline-flex text-sm font-medium text-accent hover:underline"
-        >
-          Browse poker theory resources (GTO, Upswing, books…) →
-        </Link>
         <div className="mt-5 max-w-md">
           <ProgressBar
             current={completedCount}
