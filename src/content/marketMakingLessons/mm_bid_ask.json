@@ -1,0 +1,290 @@
+{
+  "lessonId": "mm_bid_ask",
+  "order": 1,
+  "title": "Bid & Ask Fundamentals",
+  "subtitle": "Two-sided quotes and who hits whom",
+  "topics": ["Bid price", "Ask price", "Two-sided quoting", "Market maker role"],
+  "intro": [
+    "A market maker stands ready to buy and sell the same product at two prices. The bid is the highest price at which you will buy; the ask (offer) is the lowest price at which you will sell. Together they form your quote.",
+    "When a customer wants to buy, they lift your ask — you sell to them at the higher price. When they want to sell, they hit your bid — you buy from them at the lower price. Your profit on a round-trip comes from the gap between those prices: the spread.",
+    "In trading interviews, clarity about direction matters. 'I'm a buyer at 10' means your bid is 10. 'I'm an offer at 12' means your ask is 12. Mixing these up is one of the fastest ways to lose credibility in a mock trading game.",
+    "This lesson builds the vocabulary and mechanics you need before you ever compute fair value or manage inventory."
+  ],
+  "questions": [
+    {
+      "id": "mm_ba_q1",
+      "kind": "standard",
+      "concept": "bid_definition",
+      "question": "You quote 47 at 49 on a dice game. A trader says 'I'll sell you one.' Which price do you pay?",
+      "options": ["47", "48", "49", "50"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. When someone sells to you, they hit your bid — the lower number in a 'bid at ask' quote.",
+        "B": "48 would be the midpoint, not a quoted price. You only trade at your stated bid or ask.",
+        "C": "49 is your ask — you pay that only when you sell to a buyer.",
+        "D": "50 is outside your quote; you are not obligated to trade there."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_q1_r1",
+          "question": "Your quote is 10 at 12. Someone wants to sell. You buy at:",
+          "options": ["10", "11", "12", "13"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — sellers hit your bid at 10.",
+            "B": "11 is not on your quote.",
+            "C": "12 is where you sell, not buy.",
+            "D": "13 is above your ask."
+          }
+        },
+        {
+          "id": "mm_ba_q1_r2",
+          "question": "In '20 at 22', the bid is:",
+          "options": ["20", "21", "22", "42"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — the first number is always the bid.",
+            "B": "21 is the midpoint, not the bid.",
+            "C": "22 is the ask.",
+            "D": "42 is the sum, not a quoted side."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_q2",
+      "kind": "standard",
+      "concept": "ask_definition",
+      "question": "You quote 15 at 17. A customer wants to buy from you. At what price do you sell?",
+      "options": ["15", "16", "17", "18"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "15 is your bid — you buy there, not sell.",
+        "B": "16 is inside your spread but not a quoted price unless you improve.",
+        "C": "Correct. Buyers lift your ask at 17.",
+        "D": "18 is above your offer; you are not required to sell there."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_q2_r1",
+          "question": "Quote: 8 at 10. A buyer lifts you. You sell at:",
+          "options": ["8", "9", "10", "11"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "8 is your bid.",
+            "B": "9 is not quoted.",
+            "C": "Correct — ask is 10.",
+            "D": "11 is above your offer."
+          }
+        },
+        {
+          "id": "mm_ba_q2_r2",
+          "question": "The higher number in '30 at 33' is the price at which you:",
+          "options": ["Buy", "Sell", "Do nothing", "Split the difference"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "You buy at the lower (bid) price.",
+            "B": "Correct — the ask is where you sell.",
+            "C": "You trade when hit or lifted.",
+            "D": "Midpoint is not automatic."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_q3",
+      "kind": "standard",
+      "concept": "valid_quote",
+      "question": "Which is a valid two-sided quote?",
+      "options": [
+        "52 at 50",
+        "50 at 52",
+        "50 at 50",
+        "52 at 52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bid 52 above ask 50 is crossed — you'd instantly buy high and sell low.",
+        "B": "Correct. Bid must be strictly below ask in a normal market.",
+        "C": "Zero spread is possible in theory but unusual; bid = ask with no edge is atypical for practice.",
+        "D": "Same issue as C — no spread means no compensation for risk."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_q3_r1",
+          "question": "Which quote is NOT crossed?",
+          "options": ["100 at 98", "99 at 101", "50 at 50", "All are crossed"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Bid exceeds ask — crossed.",
+            "B": "Correct — bid below ask.",
+            "C": "Zero spread; not crossed but atypical.",
+            "D": "Not all are crossed."
+          }
+        },
+        {
+          "id": "mm_ba_q3_r2",
+          "question": "A normal market maker quote has bid:",
+          "options": [
+            "Equal to ask",
+            "Above ask",
+            "Below ask",
+            "Unrelated to ask"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Equal gives no spread edge.",
+            "B": "Above ask is crossed.",
+            "C": "Correct — bid < ask.",
+            "D": "They are always paired."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_q4",
+      "kind": "standard",
+      "concept": "mm_role",
+      "question": "Why does a market maker provide both a bid and an ask?",
+      "options": [
+        "To guarantee profit on every trade",
+        "To offer liquidity — willing to buy or sell at stated prices",
+        "To avoid taking any inventory",
+        "To match only one side of the market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Individual trades can lose; edge comes from spread and skill over many trades.",
+        "B": "Correct. Two-sided quotes let others trade immediately without finding a counterparty.",
+        "C": "Market makers often hold inventory and manage risk from it.",
+        "D": "They stand on both sides simultaneously."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_q4_r1",
+          "question": "Liquidity in this context means:",
+          "options": [
+            "Cash in a bank account",
+            "Being ready to trade at posted prices",
+            "Only buying never selling",
+            "Waiting for someone else to quote first"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Not the trading sense of liquidity.",
+            "B": "Correct — immediate availability to trade.",
+            "C": "Liquidity is two-sided.",
+            "D": "The MM posts first."
+          }
+        },
+        {
+          "id": "mm_ba_q4_r2",
+          "question": "Without a market maker's ask, a buyer would need to:",
+          "options": [
+            "Find a seller themselves",
+            "Always trade at the bid",
+            "Never trade",
+            "Set only one price"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — the MM's ask is the ready sell price.",
+            "B": "Buyers pay the ask, not the bid.",
+            "C": "Trade still happens with bilateral search.",
+            "D": "Buyers take prices; MMs post both."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_q5",
+      "kind": "standard",
+      "concept": "quote_language",
+      "question": "You say 'I'm 25 bid.' What does that tell the room?",
+      "options": [
+        "You will sell at 25",
+        "You will buy at 25",
+        "Fair value is 25",
+        "Your ask is 25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Selling uses the ask side, not a bid declaration.",
+        "B": "Correct. 'Bid' means your buy price is 25.",
+        "C": "Fair value is separate from your posted bid.",
+        "D": "Ask would be stated as 'offer' or 'ask'."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_q5_r1",
+          "question": "'Offer 40' means you will sell at:",
+          "options": ["40", "Below 40", "Above 40", "Unknown"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — offer/ask is your sell price.",
+            "B": "You sell at the stated offer.",
+            "C": "Not above unless you improve away.",
+            "D": "It is explicit."
+          }
+        },
+        {
+          "id": "mm_ba_q5_r2",
+          "question": "If you are '40 at 42', your spread width is:",
+          "options": ["0", "1", "2", "4"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Zero would mean bid equals ask.",
+            "B": "Off by one.",
+            "C": "Correct — 42 − 40 = 2.",
+            "D": "That is the sum, not the width."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_q6",
+      "kind": "standard",
+      "concept": "round_trip",
+      "question": "You buy at your bid of 20 and later sell at your ask of 22 on the same contract (same size). Your gross P&amp;L per unit is:",
+      "options": ["−2", "0", "+2", "+42"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Negative would be selling low and buying high.",
+        "B": "Zero ignores the spread you captured.",
+        "C": "Correct. Buy at 20, sell at 22 → +2 per unit before fees.",
+        "D": "42 is the sum of prices, not profit."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_q6_r1",
+          "question": "Buy at 100, sell at 103 (same size). Gross P&amp;L per unit:",
+          "options": ["−3", "0", "+3", "+203"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Sign reversed.",
+            "B": "There is a +3 spread capture.",
+            "C": "Correct.",
+            "D": "Sum of prices, not P&amp;L."
+          }
+        },
+        {
+          "id": "mm_ba_q6_r2",
+          "question": "A round-trip through your own quote earns:",
+          "options": [
+            "The spread",
+            "Always zero",
+            "The bid only",
+            "The ask only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — buy low (bid), sell high (ask).",
+            "B": "Spread is the compensation.",
+            "C": "Both sides matter.",
+            "D": "Both sides matter."
+          }
+        }
+      ]
+    }
+  ]
+}

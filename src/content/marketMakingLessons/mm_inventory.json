@@ -1,0 +1,310 @@
+{
+  "lessonId": "mm_inventory",
+  "order": 4,
+  "title": "Inventory & Skew",
+  "subtitle": "When position should move your quote",
+  "topics": ["Inventory risk", "Skew", "Position limits", "Mean reversion"],
+  "intro": [
+    "Every fill changes your inventory — how many units you are long or short. If you buy repeatedly, you accumulate long inventory; your risk rises if the fair value falls. Market makers skew quotes to offload unwanted position.",
+    "Skew means shifting your bid and ask together (or asymmetrically) to encourage trades that reduce inventory. Too long? Lower both bid and ask so buyers are less eager but sellers hit your bid less — or tighten the ask to attract buyers who lift you. The exact style varies, but the goal is the same: get flat without giving away edge.",
+    "In interview games you often face position limits. Hitting the limit may force you to quote one-sided or widen dramatically. Ignoring inventory is a common way to blow up in mock trading.",
+    "This lesson connects position to quote adjustments — the bridge between fair value math and practical market making."
+  ],
+  "questions": [
+    {
+      "id": "mm_inv_q1",
+      "kind": "standard",
+      "concept": "long_inventory",
+      "question": "Fair value is 50. You are long 10 units (you own too many). To reduce length, you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Make your bid more attractive so sellers hit you",
+        "Keep quotes unchanged — inventory does not matter",
+        "Quote only a bid, no ask"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A more attractive (lower) ask encourages buyers to lift you — you sell inventory and reduce length.",
+        "B": "A better bid brings sellers — you'd buy more and increase length.",
+        "C": "Inventory absolutely matters for risk and quoting.",
+        "D": "One-sided quoting is a last resort, not the first response."
+      },
+      "remediation": [
+        {
+          "id": "mm_inv_q1_r1",
+          "question": "You are long. You want buyers to lift your ask. You should make your ask:",
+          "options": ["Higher", "Lower (more aggressive)", "Infinite", "Equal to bid only"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Higher ask discourages buyers.",
+            "B": "Correct — cheaper ask attracts buyers who take your length.",
+            "C": "Not realistic.",
+            "D": "Need an ask to sell."
+          }
+        },
+        {
+          "id": "mm_inv_q1_r2",
+          "question": "Long inventory exposes you to risk if:",
+          "options": [
+            "Fair value rises",
+            "Fair value falls",
+            "Spread widens only",
+            "Time passes with no trades"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Rising fair helps longs.",
+            "B": "Correct — you lose if value drops while holding units.",
+            "C": "Spread alone doesn't define inventory P&amp;L.",
+            "D": "Mark-to-market still matters."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_inv_q2",
+      "kind": "standard",
+      "concept": "short_inventory",
+      "question": "Fair 40. You are short 5 units (you owe the market). Best skew direction:",
+      "options": [
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Make your ask more attractive",
+        "Remove your bid entirely forever",
+        "Ignore — short inventory has no risk"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Higher bid (or relatively tighter bid) encourages sellers to hit you — you cover shorts.",
+        "B": "Attractive ask makes you shorter when buyers lift.",
+        "C": "May need bid to cover; removing forever isn't a strategy.",
+        "D": "Short inventory risks rising fair value."
+      },
+      "remediation": [
+        {
+          "id": "mm_inv_q2_r1",
+          "question": "Short inventory loses if fair value:",
+          "options": ["Falls", "Rises", "Stays flat", "Spread tightens"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Falling fair helps shorts.",
+            "B": "Correct — must buy back higher.",
+            "C": "Flat reduces mark-to-market change but position still binds.",
+            "D": "Spread is separate."
+          }
+        },
+        {
+          "id": "mm_inv_q2_r2",
+          "question": "To cover a short, you need to:",
+          "options": ["Sell more", "Buy back", "Widen spread only", "Never trade"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Selling increases short.",
+            "B": "Correct — buy to cover.",
+            "C": "Must actually trade to flatten.",
+            "D": "Position remains."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_inv_q3",
+      "kind": "standard",
+      "concept": "position_limit",
+      "question": "Your limit is ±8 units. You are long 8. What is typically forced?",
+      "options": [
+        "You may only quote to sell (reduce length), not buy more",
+        "You may only quote to buy",
+        "No change",
+        "You must cross your quote"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At max long, you cannot take more length — often one-sided or skewed to sell.",
+        "B": "Buying adds length — forbidden at limit.",
+        "C": "Limits force behavior change.",
+        "D": "Crossed quotes are invalid."
+      },
+      "remediation": [
+        {
+          "id": "mm_inv_q3_r1",
+          "question": "At max short −10, you should avoid:",
+          "options": [
+            "Selling more at your ask",
+            "Buying at your bid",
+            "Quoting any ask",
+            "All trading"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — selling increases short past limit.",
+            "B": "Buying reduces short — good.",
+            "C": "You may still need an ask to manage.",
+            "D": "You trade to flatten."
+          }
+        },
+        {
+          "id": "mm_inv_q3_r2",
+          "question": "Position limits exist to:",
+          "options": [
+            "Cap risk from inventory",
+            "Guarantee profit",
+            "Eliminate spread",
+            "Prevent all losses"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "No guarantee.",
+            "C": "Unrelated.",
+            "D": "Risk capped, not eliminated."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_inv_q4",
+      "kind": "standard",
+      "concept": "skew_vs_fair",
+      "question": "Fair 100, flat inventory. You become long 6. You shift quote from 99–101 to 98–100 (same spread). This skew:",
+      "options": [
+        "Lowers your ask, making it easier for buyers to lift you",
+        "Raises your ask, discouraging buyers",
+        "Leaves midpoint unchanged at 100",
+        "Creates a crossed market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Midpoint moves from 100 to 99 and ask drops from 101 to 100 — cheaper offer helps offload long inventory.",
+        "B": "Ask fell, not rose.",
+        "C": "Midpoint moved from 100 to 99.",
+        "D": "98–100 is a valid quote (bid < ask)."
+      },
+      "remediation": [
+        {
+          "id": "mm_inv_q4_r1",
+          "question": "Skewing a quote means:",
+          "options": [
+            "Moving bid/ask relative to fair to manage inventory",
+            "Only changing spread width",
+            "Always quoting at fair exactly",
+            "Trading without posting prices"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Width change alone isn't full skew story.",
+            "C": "Inventory breaks exact centering.",
+            "D": "MM posts prices."
+          }
+        },
+        {
+          "id": "mm_inv_q4_r2",
+          "question": "Flat inventory, fair 50. Ideal quote midpoint is:",
+          "options": ["45", "50", "55", "Does not matter"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Below fair.",
+            "B": "Correct — center on fair when flat.",
+            "C": "Above fair.",
+            "D": "Centering matters."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_inv_q5",
+      "kind": "standard",
+      "concept": "inventory_pnl",
+      "question": "You bought 3 units at average 20. Fair value is now 17. Mark-to-market loss on inventory (ignoring spread earned) is:",
+      "options": ["$3", "$6", "$9", "$51"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "One unit's loss only.",
+        "B": "Two units' loss.",
+        "C": "Correct. (17 − 20) × 3 = −9, loss of $9.",
+        "D": "Arithmetic nonsense."
+      },
+      "remediation": [
+        {
+          "id": "mm_inv_q5_r1",
+          "question": "Long 2 at 10, fair now 14. MTM gain:",
+          "options": ["$4", "$8", "$28", "−$8"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "One unit.",
+            "B": "Correct — 4 × 2 = 8.",
+            "C": "Sum incorrectly.",
+            "D": "Sign wrong."
+          }
+        },
+        {
+          "id": "mm_inv_q5_r2",
+          "question": "Inventory P&amp;L moves with:",
+          "options": [
+            "Changes in fair value",
+            "Spread width only",
+            "Number of quotes posted",
+            "Time of day only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — mark to fair.",
+            "B": "Spread is separate earned edge.",
+            "C": "Quotes don't alone change MTM.",
+            "D": "Not primary driver."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_inv_q6",
+      "kind": "standard",
+      "concept": "flatten_priority",
+      "question": "Near end of a trading game, you are long 7 with limit 8. Fair unchanged. Priority should be:",
+      "options": [
+        "Maximize spread capture on new round-trips",
+        "Flatten before the bell — reduce length even if you give up some edge",
+        "Buy more to average down",
+        "Widen to infinity and stop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Adding length near limit/end is dangerous.",
+        "B": "Correct. End-game risk — inventory marks against you; flattening often dominates.",
+        "C": "Averaging down increases risk.",
+        "D": "May not be allowed; flattening is active choice."
+      },
+      "remediation": [
+        {
+          "id": "mm_inv_q6_r1",
+          "question": "End-of-session large inventory is risky because:",
+          "options": [
+            "You may be marked at settlement fair with no time to trade out",
+            "Spread disappears",
+            "Fair value always drops",
+            "Quotes become crossed"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — settlement/ final mark.",
+            "B": "Spread still exists.",
+            "C": "Fair can move either way.",
+            "D": "Unrelated."
+          }
+        },
+        {
+          "id": "mm_inv_q6_r2",
+          "question": "When flat, primary edge source is usually:",
+          "options": ["Spread on round-trips", "Inventory marks", "Guessing direction", "Avoiding all trades"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Inventory is risk, not primary edge when flat.",
+            "C": "MM is not directional bettor.",
+            "D": "Must trade to earn spread."
+          }
+        }
+      ]
+    }
+  ]
+}

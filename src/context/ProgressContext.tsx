@@ -24,8 +24,6 @@ import {
   type LessonMastery,
 } from "../lib/progress";
 import { applyChestReward, processLoginRewards } from "../lib/dailyRewards";
-import { syncLeaderboardEntry } from "../lib/leaderboard";
-import { syncMentalMathLeaderboardEntry } from "../lib/mentalMathLeaderboard";
 import type { MentalMathDifficulty } from "../lib/mentalMath/types";
 import { emptyMentalMathScores } from "../lib/mentalMath/types";
 import { recordDayTokens } from "../lib/streak";
@@ -108,20 +106,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const latest = useRef<CourseProgress>(progress);
   latest.current = progress;
 
-  const username =
-    user?.displayName ?? user?.email?.split("@")[0] ?? "Learner";
-
   const persistProgress = useCallback(
     (uid: string, snapshot: CourseProgress) => {
       void saveProgress(uid, snapshot).catch(() => undefined);
-      void syncLeaderboardEntry(uid, username, snapshot).catch(() => undefined);
-      void syncMentalMathLeaderboardEntry(
-        uid,
-        username,
-        snapshot.mentalMathBest ?? emptyMentalMathScores(),
-      ).catch(() => undefined);
     },
-    [username],
+    [],
   );
 
   // Hydrate on sign-in; reset on sign-out. Also bumps the daily streak.

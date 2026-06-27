@@ -1,0 +1,300 @@
+{
+  "lessonId": "mm_partial_info",
+  "order": 5,
+  "title": "Updating Quotes with Information",
+  "subtitle": "Bayesian-style fair value when clues appear",
+  "topics": ["Partial revelation", "Conditional expectation", "Quote updates", "Information edge"],
+  "intro": [
+    "Trading games rarely reveal everything at once. A dice cup is lifted halfway; a card is shown then hidden; a coin flip result is announced for one of two coins. Each clue updates fair value — and your quote must move immediately or someone will trade against stale prices.",
+    "Conditional expectation is the tool: fair value equals the average outcome given what you know now, not what you knew at the start. If one die shows 4, the expected sum of two dice is 4 plus E[other die] = 4 + 3.5 = 7.5.",
+    "Good market makers treat new information as mandatory repricing. They also respect what the room has learned — if everyone saw the same clue, your edge is only in speed and spread, not in secret knowledge.",
+    "This lesson practices fair value updates under partial information — a staple of prop-firm interview games."
+  ],
+  "questions": [
+    {
+      "id": "mm_pi_q1",
+      "kind": "standard",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice; contract pays the sum. One die is revealed as 3 (the other is hidden). Updated fair value:",
+      "options": ["3", "6", "6.5", "9"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Three is only one die, not the sum.",
+        "B": "Six ignores the hidden die's expectation.",
+        "C": "Correct. 3 + E[other] = 3 + 3.5 = 6.5.",
+        "D": "Nine would require the hidden die to show six with certainty."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_q1_r1",
+          "question": "One die shows 5. Expected sum of two dice:",
+          "options": ["5", "8", "8.5", "11"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "One die only.",
+            "B": "Forgot 0.5 on hidden die.",
+            "C": "Correct — 5 + 3.5 = 8.5.",
+            "D": "Max sum if other is 6, not EV."
+          }
+        },
+        {
+          "id": "mm_pi_q1_r2",
+          "question": "Hidden fair die contributes how much to expected sum?",
+          "options": ["3", "3.5", "6", "Unknown"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Rounded down.",
+            "B": "Correct — E[single die] = 3.5.",
+            "C": "Maximum face.",
+            "D": "We know it's fair."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_q2",
+      "kind": "standard",
+      "concept": "coin_one_revealed",
+      "question": "Two fair coins (0 or 1 each). Payoff = sum. First coin flipped: 1. Second still hidden. Fair value:",
+      "options": ["0.5", "1", "1.5", "2"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Single coin EV.",
+        "B": "Only first coin, ignoring second's 0.5 EV.",
+        "C": "Correct. 1 + E[second] = 1 + 0.5 = 1.5.",
+        "D": "Two is max sum, not EV."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_q2_r1",
+          "question": "First coin 0, second hidden fair. Expected sum:",
+          "options": ["0", "0.5", "1", "1.5"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Second coin can be 1.",
+            "B": "Correct — 0 + 0.5 = 0.5.",
+            "C": "Too high.",
+            "D": "Both coins max."
+          }
+        },
+        {
+          "id": "mm_pi_q2_r2",
+          "question": "Before any flip, expected sum of two fair 0/1 coins:",
+          "options": ["0.5", "1", "1.5", "2"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "One coin.",
+            "B": "Correct — 2 × 0.5 = 1.",
+            "C": "After one coin shows 1.",
+            "D": "Maximum."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_q3",
+      "kind": "standard",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on two dice. One die shows 6. You still quote centered at 7. A smart trader will:",
+      "options": [
+        "Lift your ask — true fair is now 9.5",
+        "Hit your bid — true fair is now 9.5",
+        "Not trade — your quote is fine",
+        "Trade both sides equally"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. New fair = 6 + 3.5 = 9.5; your ask near 7–8 is cheap — they buy.",
+        "B": "They'd hit bid if your bid were above fair, not below.",
+        "C": "Quote is stale and losable.",
+        "D": "Directional edge is one-sided."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_q3_r1",
+          "question": "After information, first action is usually:",
+          "options": [
+            "Recompute fair and re-center quote",
+            "Widen spread only, ignore fair",
+            "Never change quotes",
+            "Cross your market intentionally"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Fair move dominates.",
+            "C": "Stale quotes lose.",
+            "D": "Invalid."
+          }
+        },
+        {
+          "id": "mm_pi_q3_r2",
+          "question": "Die shows 1. Two-dice sum fair value:",
+          "options": ["1", "3.5", "4.5", "7"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "One die.",
+            "B": "Single die EV.",
+            "C": "Correct — 1 + 3.5 = 4.5.",
+            "D": "Unconditional sum EV."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_q4",
+      "kind": "standard",
+      "concept": "card_partial",
+      "question": "One card drawn from a standard 52-card deck. Payoff = rank value where Jack=11, Queen=12, King=13, Ace=1, number cards face value. Card is revealed: Ace. Fair value now:",
+      "options": ["1", "7", "8", "14"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Card is known — payoff is 1 with certainty.",
+        "B": "Seven is unrelated average guess.",
+        "C": "Eight might confuse with expected before reveal.",
+        "D": "Fourteen has no basis."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_q4_r1",
+          "question": "Once a random outcome is fully revealed, fair value equals:",
+          "options": [
+            "The actual realized payoff",
+            "Always the unconditional EV",
+            "Zero",
+            "Half the maximum"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — no uncertainty left.",
+            "B": "Conditional on full info, EV equals outcome.",
+            "C": "Not unless payoff is zero.",
+            "D": "Not a rule."
+          }
+        },
+        {
+          "id": "mm_pi_q4_r2",
+          "question": "King revealed (rank 13). Fair value:",
+          "options": ["10", "11", "13", "52"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Face cards differ.",
+            "B": "Jack value.",
+            "C": "Correct — King = 13.",
+            "D": "Deck size."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_q5",
+      "kind": "standard",
+      "concept": "range_update",
+      "question": "Two dice sum game. You learn the sum is at least 10 (not the exact sum). Which fair value adjustment is most reasonable?",
+      "options": [
+        "Fair stays 7 — no exact sum known",
+        "Fair jumps above 7 — average sum conditional on ≥10 exceeds 7",
+        "Fair becomes 10 exactly",
+        "Fair becomes 2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Partial info still updates the distribution — low sums are ruled out.",
+        "B": "Correct. Conditioning on sum ≥10 raises expected value well above 7.",
+        "C": "At least 10 does not mean exactly 10.",
+        "D": "Two is below the constraint."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_q5_r1",
+          "question": "Learning a lower bound on payoff generally:",
+          "options": [
+            "Raises conditional fair value",
+            "Lowers it always",
+            "Has no effect",
+            "Makes fair zero"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — truncated low outcomes.",
+            "B": "Opposite for lower bounds.",
+            "C": "Distribution changes.",
+            "D": "Not unless bound is zero."
+          }
+        },
+        {
+          "id": "mm_pi_q5_r2",
+          "question": "Sum of two dice is at most 4. Conditional fair is:",
+          "options": [
+            "Below unconditional 7",
+            "Exactly 7",
+            "Above 10",
+            "Exactly 12"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — only low sums possible.",
+            "B": "Unconditional average.",
+            "C": "Too high for cap at 4.",
+            "D": "Impossible under cap."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_q6",
+      "kind": "standard",
+      "concept": "speed",
+      "question": "Public clue moves fair from 5 to 8. You update in 2 seconds; another MM updates instantly. Who gets picked off?",
+      "options": [
+        "You — stale quote sits at old fair longer",
+        "The fast MM — speed is bad",
+        "Neither — fair does not matter",
+        "Both equally regardless of speed"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Slow repricing leaves mispriced quotes in the market.",
+        "B": "Fast update reduces pick-off risk.",
+        "C": "Fair drives correct pricing.",
+        "D": "Speed matters when info is public."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_q6_r1",
+          "question": "When everyone sees the same clue:",
+          "options": [
+            "Quick fair-value math and quote update is critical",
+            "Only spread width matters",
+            "Inventory never matters",
+            "You should never trade"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Fair update comes first.",
+            "C": "Inventory still matters.",
+            "D": "Trading continues at new fair."
+          }
+        },
+        {
+          "id": "mm_pi_q6_r2",
+          "question": "A 'stale' quote is one that:",
+          "options": [
+            "Does not reflect current information",
+            "Has a wide spread",
+            "Is always crossed",
+            "Matches fair exactly"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Wide ≠ stale.",
+            "C": "Crossed is different error.",
+            "D": "That would be fresh and correct."
+          }
+        }
+      ]
+    }
+  ]
+}

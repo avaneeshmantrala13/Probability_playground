@@ -59,31 +59,60 @@ service cloud.firestore {
       allow read, write: if isOwner(uid);
     }
 
-    match /courseProgress/{uid} {
-      allow read, write: if isOwner(uid);
+    function numMonotonic(field, maxDelta) {
+      return !(field in request.resource.data)
+        || (
+          request.resource.data[field] is number
+          && request.resource.data[field] >= 0
+          && (
+            !(field in resource.data)
+            || request.resource.data[field] >= resource.data[field]
+          )
+          && (
+            !(field in resource.data)
+            || request.resource.data[field] <= resource.data[field] + maxDelta
+          )
+        );
     }
 
-    // Public ranking stats — each player writes only their own row.
+    function mentalMathFieldOk(field, maxScore) {
+      return !(field in request.resource.data.mentalMathBest)
+        || (
+          request.resource.data.mentalMathBest[field] is number
+          && request.resource.data.mentalMathBest[field] >= 0
+          && request.resource.data.mentalMathBest[field] <= maxScore
+          && (
+            !('mentalMathBest' in resource.data)
+            || !(field in resource.data.mentalMathBest)
+            || request.resource.data.mentalMathBest[field] >= resource.data.mentalMathBest[field]
+          )
+        );
+    }
+
+    function courseProgressWriteOk() {
+      return numMonotonic('problemsCorrect', 25)
+        && numMonotonic('lifetimeTokens', 5000)
+        && mentalMathFieldOk('easy', 120)
+        && mentalMathFieldOk('medium', 90)
+        && mentalMathFieldOk('hard', 70);
+    }
+
+    match /courseProgress/{uid} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid);
+      allow update: if isOwner(uid) && courseProgressWriteOk();
+      allow delete: if false;
+    }
+
+    // Rankings are computed server-side from courseProgress — clients read only.
     match /leaderboard/{uid} {
       allow read: if isSignedIn();
-      allow create, update: if isOwner(uid)
-        && request.resource.data.uid == request.auth.uid
-        && request.resource.data.username is string
-        && request.resource.data.lifetimeTokens is number
-        && request.resource.data.streak is number
-        && request.resource.data.problemsCorrect is number;
-      allow delete: if false;
+      allow write: if false;
     }
 
     match /mentalMathLeaderboard/{uid} {
       allow read: if isSignedIn();
-      allow create, update: if isOwner(uid)
-        && request.resource.data.uid == request.auth.uid
-        && request.resource.data.username is string
-        && request.resource.data.bestEasy is number
-        && request.resource.data.bestMedium is number
-        && request.resource.data.bestHard is number;
-      allow delete: if false;
+      allow write: if false;
     }
 
     match /lessonAttempts/{uid}/attempts/{attemptId} {

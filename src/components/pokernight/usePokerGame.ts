@@ -13,7 +13,10 @@ import {
   type Persona,
   type Seat,
 } from "../../lib/poker";
+import { fetchPokerBotLine } from "../../lib/ai/pokerBotLine";
 import type { Expression } from "./characters";
+
+const AI_QUIP_CHANCE = 0.38;
 
 export interface UsePokerGameOpts {
   config: GameConfig;
@@ -210,8 +213,15 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   }, [externalState]);
   const reportedHand = useRef(0);
   const speechId = useRef(0);
+  const humanFoldStats = useRef({ faced: 0, folded: 0 });
   const onHandEndRef = useRef(onHandEnd);
   onHandEndRef.current = onHandEnd;
+
+  const humanFoldRate = useCallback((): number | undefined => {
+    const { faced, folded } = humanFoldStats.current;
+    if (faced < 3) return undefined;
+    return folded / faced;
+  }, []);
 
   const pushSpeech = useCallback((seatIndex: number, text: string) => {
     if (!text) return;
@@ -219,6 +229,30 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     const id = speechId.current;
     setSpeeches((prev) => ({ ...prev, [seatIndex]: { id, text } }));
   }, []);
+
+  const maybeEnhanceSpeech = useCallback(
+    (
+      seatIndex: number,
+      decision: Action,
+      after: Seat,
+      persona: Persona | undefined,
+      stateBefore: GameState,
+    ) => {
+      if (!persona || Math.random() >= AI_QUIP_CHANCE) return;
+      const fallback = speechFor(decision, after);
+      void fetchPokerBotLine({
+        personaName: persona.name,
+        action: after.status === "allin" ? "all-in" : decision.type,
+        street: stateBefore.stage,
+        pot: stateBefore.pot,
+        humanFoldRate: humanFoldRate(),
+        fallback,
+      }).then((line) => {
+        if (line && line !== fallback) pushSpeech(seatIndex, line);
+      });
+    },
+    [humanFoldRate, pushSpeech],
+  );
 
   const isHumanTurn =
     state.stage !== "complete" && state.toAct === HUMAN_SEAT;
@@ -260,6 +294,13 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       const decision = decideBotAction(cur, seatIndex);
       const next = applyAction(cur, decision);
       pushSpeech(seatIndex, speechFor(decision, next.seats[seatIndex]));
+      maybeEnhanceSpeech(
+        seatIndex,
+        decision,
+        next.seats[seatIndex],
+        cur.seats[seatIndex]?.persona,
+        cur,
+      );
       setReactions((prev) => ({
         ...prev,
         [seatIndex]: reactionFor(decision, next.seats[seatIndex]),
@@ -268,7 +309,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       onStateChange?.(next);
     }, delay);
     return () => clearTimeout(timer);
-  }, [state, reduced, pushSpeech, externalState, waitForExternal, driveBots, botDelayMs, pauseGame, onStateChange]);
+  }, [state, reduced, pushSpeech, maybeEnhanceSpeech, externalState, waitForExternal, driveBots, botDelayMs, pauseGame, onStateChange]);
 
   // ----------------- report each completed hand exactly once -----------------
   useEffect(() => {
@@ -289,6 +330,10 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     (action: Action) => {
       const cur = stateRef.current;
       if (cur.toAct !== HUMAN_SEAT || cur.stage === "complete") return;
+      const la = legalActions(cur);
+      const facingBet = !la.canCheck && (la.canCall || la.callAmount > 0);
+      if (facingBet) humanFoldStats.current.faced += 1;
+      if (action.type === "fold" && facingBet) humanFoldStats.current.folded += 1;
       const next = applyAction(cur, action);
       pushSpeech(HUMAN_SEAT, speechFor(action, next.seats[HUMAN_SEAT]));
       setReactions((prev) => ({

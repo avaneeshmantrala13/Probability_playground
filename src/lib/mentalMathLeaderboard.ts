@@ -1,9 +1,6 @@
 import {
   collection,
-  doc,
   getDocs,
-  serverTimestamp,
-  setDoc,
 } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import type { MentalMathBestScores, MentalMathDifficulty } from "./mentalMath/types";
@@ -70,23 +67,13 @@ export async function fetchMentalMathLeaderboard(): Promise<MentalMathLeaderboar
   throw new Error(message);
 }
 
+/** Rankings are derived server-side from courseProgress — no client writes. */
 export async function syncMentalMathLeaderboardEntry(
-  uid: string,
-  username: string,
-  scores: MentalMathBestScores,
+  _uid: string,
+  _username: string,
+  _scores: MentalMathBestScores,
 ): Promise<void> {
-  await setDoc(
-    doc(db, "mentalMathLeaderboard", uid),
-    {
-      uid,
-      username,
-      bestEasy: scores.easy,
-      bestMedium: scores.medium,
-      bestHard: scores.hard,
-      updatedAt: serverTimestamp(),
-    },
-    { merge: true },
-  );
+  // no-op: /api/mental-math-leaderboard reads courseProgress directly
 }
 
 export function valueForMentalMathSort(

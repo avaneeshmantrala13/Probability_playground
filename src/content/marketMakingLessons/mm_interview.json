@@ -1,0 +1,290 @@
+{
+  "lessonId": "mm_interview",
+  "order": 6,
+  "title": "Interview Scenario Puzzles",
+  "subtitle": "Multi-step quoting under game pressure",
+  "topics": ["Dice games", "Card draws", "Multi-outcome EV", "Integrated quoting"],
+  "intro": [
+    "Prop-trading interviews often run live market-making games: a moderator describes a payoff, traders shout quotes, and information arrives in stages. Success combines fast fair-value math, disciplined two-sided quotes, inventory awareness, and calm updates when the picture changes.",
+    "Classic setups include rolling dice for sums or products, drawing cards with rank-based payoffs, and flipping multiple coins where results are revealed one at a time. None of these require memorizing proprietary materials — just probability, expected value, and good quoting habits.",
+    "This capstone lesson mixes integrated scenarios: compute fair, choose spread, react to clues, and recognize when a counterparty's trade tells you something about your quote. Treat each question like a compressed game round.",
+    "Finish this track and you are ready to practice in Learn Mode and Play Mode with the same vocabulary and instincts."
+  ],
+  "questions": [
+    {
+      "id": "mm_int_q1",
+      "kind": "standard",
+      "concept": "dice_product",
+      "question": "Two fair dice rolled. Contract pays the product of the two faces (1–6 each). Fair value is closest to:",
+      "options": ["7", "12.25", "18", "36"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Seven is the expected sum, not product.",
+        "B": "Correct. E[product] = E[die1] × E[die2] = 3.5 × 3.5 = 12.25 (independence).",
+        "C": "Eighteen is too high.",
+        "D": "Thirty-six is max product (6×6), not average."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_q1_r1",
+          "question": "E[X×Y] for independent X,Y equals:",
+          "options": ["E[X]+E[Y]", "E[X]×E[Y]", "E[X]/E[Y]", "Max(X,Y)"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Sum rule.",
+            "B": "Correct.",
+            "C": "Not a standard rule.",
+            "D": "Not expectation."
+          }
+        },
+        {
+          "id": "mm_int_q1_r2",
+          "question": "Single die E[face] = 3.5. Product of two independent dice EV ≈",
+          "options": ["7", "10", "12.25", "3.5"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Sum EV.",
+            "B": "Too low.",
+            "C": "Correct.",
+            "D": "Single die."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_q2",
+      "kind": "standard",
+      "concept": "integrated_quote",
+      "question": "Fair value computed as 12. Spread policy: 2 wide, centered on fair. Best integer quote:",
+      "options": ["11 at 13", "12 at 14", "10 at 14", "11 at 12"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Midpoint 12, spread 2 → 11 at 13.",
+        "B": "Midpoint 13, not 12.",
+        "C": "Midpoint 12 but spread is 4, not 2.",
+        "D": "Spread 1 and bid nearly equals ask incorrectly."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_q2_r1",
+          "question": "Fair 20, spread 4, integer centered quote:",
+          "options": ["18 at 22", "19 at 21", "20 at 24", "16 at 24"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — mid 20, width 4.",
+            "B": "Spread 2.",
+            "C": "Not centered.",
+            "D": "Spread 8."
+          }
+        },
+        {
+          "id": "mm_int_q2_r2",
+          "question": "After computing fair, next step before shouting a quote:",
+          "options": [
+            "Choose spread and center bid/ask on fair",
+            "Pick random numbers",
+            "Only state bid",
+            "Wait until game ends"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct workflow.",
+            "B": "Undisciplined.",
+            "C": "Two-sided required.",
+            "D": "Must quote in game."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_q3",
+      "kind": "standard",
+      "concept": "card_ev",
+      "question": "Draw one card from 52. Pay $10 if red, $0 if black. Fair value:",
+      "options": ["$2.50", "$5", "$10", "$26"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Quarter deck is red incorrectly.",
+        "B": "Correct. P(red)=26/52=0.5 → EV=$5.",
+        "C": "Ten is max red payout, not average.",
+        "D": "Twenty-six is count of red cards, not dollars."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_q3_r1",
+          "question": "P(red) in standard deck:",
+          "options": ["1/4", "1/3", "1/2", "2/3"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Too low.",
+            "B": "Too low.",
+            "C": "Correct — 26 red of 52.",
+            "D": "Too high."
+          }
+        },
+        {
+          "id": "mm_int_q3_r2",
+          "question": "$20 if red else $0. Fair value:",
+          "options": ["$5", "$10", "$20", "$40"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Half of correct.",
+            "B": "Correct — 0.5 × 20.",
+            "C": "Max payout.",
+            "D": "Double max."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_q4",
+      "kind": "standard",
+      "concept": "trade_signal",
+      "question": "You quote 14 at 16 on a dice-sum game. An aggressive trader immediately lifts your 16. Most likely interpretation:",
+      "options": [
+        "They think fair value is above 16",
+        "They think fair value is below 14",
+        "They are always random",
+        "Your spread is too wide"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Buying at 16 suggests they value the contract above your ask.",
+        "B": "Below 14 they'd sell to your bid.",
+        "C": "Informed flow is often directional.",
+        "D": "Wide spread doesn't explain eager lift."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_q4_r1",
+          "question": "Repeated lifts of your ask suggest:",
+          "options": [
+            "Your ask may be below fair — consider raising quotes",
+            "Your ask is too high",
+            "Fair is definitely zero",
+            "Ignore and never update"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — buyers see value above your offer.",
+            "B": "Opposite signal.",
+            "C": "Unfounded.",
+            "D": "Must update."
+          }
+        },
+        {
+          "id": "mm_int_q4_r2",
+          "question": "Someone hits your bid repeatedly. Likely:",
+          "options": [
+            "Fair below your bid",
+            "Fair above your ask",
+            "Fair equals spread",
+            "No information"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — sellers think your bid is rich.",
+            "B": "They'd lift ask instead.",
+            "C": "Nonsense.",
+            "D": "Flow carries signal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_q5",
+      "kind": "standard",
+      "concept": "multi_clue",
+      "question": "Three fair coins (0/1). Pay sum. Coin 1 = 1, Coin 2 = 1, Coin 3 still hidden. Fair value:",
+      "options": ["1", "2", "2.5", "3"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "One coin.",
+        "B": "Two coins certain without third.",
+        "C": "Correct. 1 + 1 + E[third] = 2 + 0.5 = 2.5.",
+        "D": "Three is max if last coin were 1 for sure."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_q5_r1",
+          "question": "Two coins show 1, one hidden. Expected sum:",
+          "options": ["1.5", "2", "2.5", "3"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Too low.",
+            "B": "Forgot hidden 0.5.",
+            "C": "Correct.",
+            "D": "Max not EV."
+          }
+        },
+        {
+          "id": "mm_int_q5_r2",
+          "question": "Each hidden fair 0/1 coin adds to EV:",
+          "options": ["0", "0.5", "1", "2"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Can be 1.",
+            "B": "Correct.",
+            "C": "Certain 1 only if known.",
+            "D": "Too much."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_q6",
+      "kind": "standard",
+      "concept": "game_strategy",
+      "question": "Opening round of a mock trading game. Unknown payoff described. Your FIRST step should be:",
+      "options": [
+        "Shout a tight quote immediately without calculating",
+        "Compute fair value, then quote a reasonable spread centered near fair",
+        "Only watch others and never quote",
+        "Quote 0 at 100 to guarantee trades"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Blind quotes get picked off.",
+        "B": "Correct. Fair → spread → two-sided quote is the standard workflow.",
+        "C": "Participation requires quoting.",
+        "D": "Absurd quote invites disaster."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_q6_r1",
+          "question": "Disciplined market makers typically:",
+          "options": [
+            "Update quotes when fair or inventory changes",
+            "Never change quotes mid-game",
+            "Trade only one side always",
+            "Ignore position limits"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Stale quotes lose.",
+            "C": "Two-sided is core.",
+            "D": "Limits matter."
+          }
+        },
+        {
+          "id": "mm_int_q6_r2",
+          "question": "Spread earns edge; fair value centers quote to avoid:",
+          "options": [
+            "Systematic pick-off",
+            "All trading",
+            "Inventory limits",
+            "Time limits"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — mis-centering loses to informed flow.",
+            "B": "You want fair trading at fair+spread.",
+            "C": "Separate issue.",
+            "D": "Separate issue."
+          }
+        }
+      ]
+    }
+  ]
+}

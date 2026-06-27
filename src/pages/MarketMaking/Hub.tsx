@@ -13,7 +13,24 @@ export function MarketMakingHub() {
         </p>
       </header>
 
-      <div className="mm-grid mm-grid-2">
+      <div className="mm-grid mm-grid-2 lg:grid-cols-3">
+        <Link to="/market-making/lessons" className="mm-card-link group">
+          <div className="mm-icon-wrap" aria-hidden>
+            🎓
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-primary">Structured Lessons</h2>
+            <p className="mt-1.5 text-sm text-secondary">
+              Mastery-based course on bid/ask, spread, fair value, inventory, and
+              interview-style puzzles. AI tutor and bonus questions included.
+            </p>
+          </div>
+          <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">
+            Start course
+            <ChevronRightIcon size={16} />
+          </span>
+        </Link>
+
         <Link to="/market-making/learn" className="mm-card-link group">
           <div className="mm-icon-wrap" aria-hidden>
             📚

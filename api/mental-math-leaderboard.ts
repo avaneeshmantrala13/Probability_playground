@@ -69,8 +69,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const db = getFirestore(app);
-    const [scoresSnap, usersSnap] = await Promise.all([
-      db.collection("mentalMathLeaderboard").get(),
+    const [progressSnap, usersSnap] = await Promise.all([
+      db.collection("courseProgress").get(),
       db.collection("users").get(),
     ]);
 
@@ -84,14 +84,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       usernames.set(userDoc.id, name);
     }
 
-    const entries: Row[] = scoresSnap.docs.map((doc) => {
+    const entries: Row[] = progressSnap.docs.map((doc) => {
       const data = doc.data();
+      const mm = (data.mentalMathBest as Record<string, unknown> | undefined) ?? {};
       return {
         uid: doc.id,
-        username: usernames.get(doc.id) ?? (data.username as string) ?? "Learner",
-        bestEasy: typeof data.bestEasy === "number" ? data.bestEasy : 0,
-        bestMedium: typeof data.bestMedium === "number" ? data.bestMedium : 0,
-        bestHard: typeof data.bestHard === "number" ? data.bestHard : 0,
+        username: usernames.get(doc.id) ?? "Learner",
+        bestEasy: typeof mm.easy === "number" ? mm.easy : 0,
+        bestMedium: typeof mm.medium === "number" ? mm.medium : 0,
+        bestHard: typeof mm.hard === "number" ? mm.hard : 0,
       };
     });
 

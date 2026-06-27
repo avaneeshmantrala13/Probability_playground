@@ -1,26 +1,27 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import {
-  getNextPokerTheoryLesson,
-  getPokerTheoryLesson,
-} from "../content/pokerTheory";
-import type { Lesson, RenderableQuestion } from "../content/pokerTheory/types";
+  getMarketMakingLesson,
+  getNextMarketMakingLesson,
+} from "../content/marketMakingLessons";
+import type { Lesson, RenderableQuestion } from "../content/types";
 import { useProgress, type AttemptResult } from "../context/ProgressContext";
 import type { AttemptAnswer } from "../lib/progress";
 import {
-  buildPokerTheoryAttemptQuestions,
-  isPokerTheoryLessonUnlocked,
+  buildMarketMakingAttemptQuestions,
+  isMarketMakingLessonUnlocked,
   PASS_THRESHOLD,
-  roundForPokerTheoryLesson,
-} from "../content/pokerTheory/mastery";
+  roundForMarketMakingLesson,
+} from "../content/marketMakingLessons/mastery";
 import { QuestionCard } from "../components/lesson/QuestionCard";
 import { ProgressBar } from "../components/lesson/ProgressBar";
 import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
 import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { IntroModal } from "../components/lesson/IntroModal";
+import type { OptionState } from "../components/lesson/OptionButton";
+import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
 import { fetchGeneratedQuestion } from "../lib/ai/client";
-import type { OptionState } from "../components/lesson/OptionButton";
 import { CheckIcon, ChevronRightIcon, ClockIcon, TrophyIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
 import { useLessonTimer } from "../hooks/useLessonTimer";
@@ -28,36 +29,26 @@ import { formatDuration } from "../lib/time";
 import { earnedBadgeIds, earnedBadges } from "../lib/badges";
 import { Confetti } from "../components/lesson/Confetti";
 
-type Phase =
-  | "intro"
-  | "placement-offer"
-  | "placement"
-  | "quiz"
-  | "results";
-
 function freshAnswers(count: number): AttemptAnswer[] {
   return Array.from({ length: count }, () => ({ selected: null, checked: false }));
 }
 
-export function PokerTheoryPlayer() {
+export function MarketMakingLessonPlayer() {
   const { lessonId = "" } = useParams();
-  const lesson = getPokerTheoryLesson(lessonId);
+  const lesson = getMarketMakingLesson(lessonId);
   const { progress, loading, setPosition, saveAttempt, completeAttempt, recordCorrectAnswer } =
     useProgress();
   const alreadyMastered = Boolean(progress.lessonMastery[lessonId]?.passed);
   const timer = useLessonTimer(lessonId);
 
-  const total = lesson?.questions.length ?? 0;
-  const placementTotal = lesson?.placementQuestions?.length ?? 0;
-  const hasPlacement = placementTotal > 0 && !alreadyMastered;
+  const baseQuestionCount = lesson?.questions.length ?? 0;
 
   const [round, setRound] = useState(0);
   const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<AttemptAnswer[]>(() => freshAnswers(total));
-  const [placementAnswers, setPlacementAnswers] = useState<AttemptAnswer[]>(() =>
-    freshAnswers(placementTotal),
+  const [answers, setAnswers] = useState<AttemptAnswer[]>(() =>
+    freshAnswers(baseQuestionCount),
   );
-  const [phase, setPhase] = useState<Phase>("quiz");
+  const [phase, setPhase] = useState<"intro" | "placement" | "quiz" | "results">("quiz");
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [showIntroModal, setShowIntroModal] = useState(false);
   const [earnedBefore, setEarnedBefore] = useState<Set<string>>(() => new Set());
@@ -68,7 +59,7 @@ export function PokerTheoryPlayer() {
 
   useEffect(() => {
     if (!lesson || loading) return;
-    if (!isPokerTheoryLessonUnlocked(lesson.lessonId, progress)) return;
+    if (!isMarketMakingLessonUnlocked(lesson.lessonId, progress)) return;
     if (hydratedFor.current === lesson.lessonId) return;
 
     const attempt = progress.activeAttempt;
@@ -76,107 +67,69 @@ export function PokerTheoryPlayer() {
       !alreadyMastered &&
       attempt &&
       attempt.lessonId === lesson.lessonId &&
-      attempt.answers.length === total
+      attempt.answers.length >= baseQuestionCount
     ) {
       setRound(attempt.round);
       setAnswers(attempt.answers);
       setIndex(
         progress.currentLesson === lesson.lessonId
-          ? Math.min(Math.max(progress.currentQuestion, 0), total - 1)
+          ? Math.min(Math.max(progress.currentQuestion, 0), attempt.answers.length - 1)
           : 0,
       );
       setPhase("quiz");
     } else {
-      const r = roundForPokerTheoryLesson(lesson.lessonId, progress);
-      const fresh = freshAnswers(total);
+      const r = roundForMarketMakingLesson(lesson.lessonId, progress);
+      const fresh = freshAnswers(baseQuestionCount);
       setRound(r);
       setAnswers(fresh);
       setIndex(0);
-      setPlacementAnswers(freshAnswers(placementTotal));
       setPosition(lesson.lessonId, 0);
       saveAttempt(lesson.lessonId, r, fresh);
-
-      if (r === 0 && lesson.intro && lesson.intro.length > 0) {
-        setPhase("intro");
-      } else if (r === 0 && hasPlacement) {
-        setPhase("placement-offer");
-      } else {
-        setPhase("quiz");
-      }
+      setPhase(r === 0 && lesson.intro && lesson.intro.length > 0 ? "intro" : "quiz");
     }
     setResult(null);
     hydratedFor.current = lesson.lessonId;
-  }, [
-    lesson,
-    loading,
-    progress,
-    total,
-    placementTotal,
-    hasPlacement,
-    alreadyMastered,
-    setPosition,
-    saveAttempt,
-  ]);
+  }, [lesson, loading, progress, baseQuestionCount, alreadyMastered, setPosition, saveAttempt]);
 
   useEffect(() => {
     if (!lesson || hydratedFor.current !== lesson.lessonId) return;
-    if (phase === "quiz") setPosition(lesson.lessonId, index);
-  }, [index, lesson, phase, setPosition]);
+    setPosition(lesson.lessonId, index);
+  }, [index, lesson, setPosition]);
 
   const baseQuestions = useMemo(
-    () => (lesson ? buildPokerTheoryAttemptQuestions(lesson, round) : []),
+    () => (lesson ? buildMarketMakingAttemptQuestions(lesson, round) : []),
     [lesson, round],
   );
 
-  const quizQuestions = useMemo(
+  const questions = useMemo(
     () => [...baseQuestions, ...extraAiQuestions],
     [baseQuestions, extraAiQuestions],
   );
 
-  const placementQuestions: RenderableQuestion[] = useMemo(
-    () =>
-      lesson?.placementQuestions?.map((q) => ({
-        id: q.id,
-        question: q.question,
-        options: q.options,
-        correctAnswer: q.correctAnswer,
-        explanations: q.explanations,
-      })) ?? [],
-    [lesson],
-  );
+  const questionCount = questions.length;
 
-  if (!lesson) return <Navigate to="/poker-theory" replace />;
+  if (!lesson) return <Navigate to="/market-making/lessons" replace />;
   if (loading) return <LoadingScreen />;
-  if (!isPokerTheoryLessonUnlocked(lesson.lessonId, progress)) {
-    return <Navigate to="/poker-theory" replace />;
+  if (!isMarketMakingLessonUnlocked(lesson.lessonId, progress)) {
+    return <Navigate to="/market-making/lessons" replace />;
   }
 
-  const isPlacementPhase = phase === "placement";
-  const activeQuestions = isPlacementPhase ? placementQuestions : quizQuestions;
-  const activeAnswers = isPlacementPhase ? placementAnswers : answers;
-  const activeTotal = activeQuestions.length;
-  const current = activeQuestions[index];
+  const current = questions[index];
+  if (!current) return <LoadingScreen />;
 
-  if (!current && phase !== "intro" && phase !== "placement-offer" && phase !== "results") {
-    return <LoadingScreen />;
-  }
-
-  const state = activeAnswers[index] ?? { selected: null, checked: false };
+  const state = answers[index] ?? { selected: null, checked: false };
   const { selected, checked } = state;
-  const isRemediation = round > 0 && !isPlacementPhase;
+  const isRemediation = round > 0;
 
-  function setActiveAnswers(next: AttemptAnswer[]) {
-    if (isPlacementPhase) setPlacementAnswers(next);
-    else {
-      setAnswers(next);
-      if (lesson) saveAttempt(lesson.lessonId, round, next);
-    }
+  function commit(next: AttemptAnswer[]) {
+    setAnswers(next);
+    if (lesson) saveAttempt(lesson.lessonId, round, next);
   }
 
   function update(patch: Partial<AttemptAnswer>) {
-    const next = [...activeAnswers];
+    const next = [...answers];
     next[index] = { ...next[index], ...patch };
-    setActiveAnswers(next);
+    commit(next);
   }
 
   function select(optionIndex: number) {
@@ -187,10 +140,10 @@ export function PokerTheoryPlayer() {
   function check() {
     if (selected === null) return;
     update({ checked: true });
-    if (selected === current.correctAnswer) recordCorrectAnswer();
+    if (selected === correctIndex) recordCorrectAnswer();
   }
 
-  const correctIndex = current?.correctAnswer ?? 0;
+  const correctIndex = current.correctAnswer;
   const isCorrect = checked && selected === correctIndex;
 
   function getOptionState(i: number): OptionState {
@@ -200,14 +153,12 @@ export function PokerTheoryPlayer() {
     return "muted";
   }
 
-  const isLast = index === activeTotal - 1;
+  const isLast = index === questionCount - 1;
   const isLastBase =
-    !isPlacementPhase &&
-    index === baseQuestions.length - 1 &&
-    index >= total - 1;
+    index === baseQuestions.length - 1 && index >= baseQuestionCount - 1;
 
   async function loadAiQuestion() {
-    if (!lesson || aiLoading || isPlacementPhase) return;
+    if (!lesson || aiLoading) return;
     setAiError(null);
     setAiLoading(true);
     try {
@@ -242,35 +193,16 @@ export function PokerTheoryPlayer() {
     }
   }
 
-  function finishQuiz() {
+  function finish() {
     if (!lesson) return;
     const correct = baseQuestions.reduce(
       (acc, q, i) => acc + (answers[i]?.selected === q.correctAnswer ? 1 : 0),
       0,
     );
+    const scoreTotal = baseQuestions.length;
     const elapsedMs = timer.getElapsedMs();
     setEarnedBefore(earnedBadgeIds(progress));
-    const res = completeAttempt(lesson.lessonId, round, correct, total, elapsedMs);
-    if (res.passed) timer.stop();
-    setResult(res);
-    setPhase("results");
-  }
-
-  function finishPlacement() {
-    if (!lesson) return;
-    const correct = placementQuestions.reduce(
-      (acc, q, i) => acc + (placementAnswers[i]?.selected === q.correctAnswer ? 1 : 0),
-      0,
-    );
-    const elapsedMs = timer.getElapsedMs();
-    setEarnedBefore(earnedBadgeIds(progress));
-    const res = completeAttempt(
-      lesson.lessonId,
-      0,
-      correct,
-      placementTotal,
-      elapsedMs,
-    );
+    const res = completeAttempt(lesson.lessonId, round, correct, scoreTotal, elapsedMs);
     if (res.passed) timer.stop();
     setResult(res);
     setPhase("results");
@@ -279,7 +211,7 @@ export function PokerTheoryPlayer() {
   function retry() {
     if (!lesson) return;
     const newRound = round + 1;
-    const fresh = freshAnswers(total);
+    const fresh = freshAnswers(baseQuestionCount);
     setExtraAiQuestions([]);
     setRound(newRound);
     setAnswers(fresh);
@@ -298,7 +230,7 @@ export function PokerTheoryPlayer() {
       )
     )
       return;
-    const fresh = freshAnswers(total);
+    const fresh = freshAnswers(baseQuestionCount);
     setExtraAiQuestions([]);
     setAnswers(fresh);
     setIndex(0);
@@ -308,30 +240,13 @@ export function PokerTheoryPlayer() {
     saveAttempt(lesson.lessonId, round, fresh);
   }
 
-  function beginPlacement() {
-    setIndex(0);
-    setPlacementAnswers(freshAnswers(placementTotal));
-    setPhase("placement");
-  }
-
-  function beginFullLesson() {
-    setIndex(0);
-    setPhase("quiz");
-  }
-
-  const wasPlacementAttempt =
-    placementTotal > 0 && result != null && result.total === placementTotal;
-
   if (phase === "results" && result) {
     return result.passed ? (
-      <PokerTheoryCleared
+      <MarketMakingLessonCleared
         lesson={lesson}
         result={result}
         previouslyEarned={earnedBefore}
-        skippedViaPlacement={wasPlacementAttempt}
       />
-    ) : wasPlacementAttempt ? (
-      <PlacementFailedView onContinue={beginFullLesson} score={result.scorePercent} />
     ) : (
       <ResultsView result={result} onRetry={retry} />
     );
@@ -341,76 +256,80 @@ export function PokerTheoryPlayer() {
     return (
       <IntroView
         lesson={lesson}
-        onBegin={() => (hasPlacement ? setPhase("placement-offer") : setPhase("quiz"))}
+        onBegin={() => setPhase("quiz")}
+        onPlacement={
+          lesson.placementQuestions && lesson.placementQuestions.length > 0 && !alreadyMastered
+            ? () => setPhase("placement")
+            : undefined
+        }
       />
     );
   }
 
-  if (phase === "placement-offer" && hasPlacement) {
+  if (phase === "placement" && lesson.placementQuestions?.length) {
     return (
-      <PlacementOfferView
+      <PlacementQuiz
         lesson={lesson}
-        questionCount={placementTotal}
-        onPlacement={beginPlacement}
-        onFullLesson={beginFullLesson}
+        onBack={() => setPhase("intro")}
+        onPass={(correct, placementTotal) => {
+          setEarnedBefore(earnedBadgeIds(progress));
+          const res = completeAttempt(
+            lesson.lessonId,
+            0,
+            correct,
+            placementTotal,
+            timer.getElapsedMs(),
+          );
+          if (res.passed) timer.stop();
+          setResult(res);
+          setPhase("results");
+        }}
       />
     );
   }
-
-  if (!current) return <LoadingScreen />;
 
   return (
     <div className="mx-auto max-w-2xl">
       <div className="mb-5">
         <div className="mb-3 flex items-center justify-between gap-3">
           <Link
-            to="/poker-theory"
+            to="/market-making/lessons"
             className="text-sm font-medium text-secondary hover:text-primary"
           >
-            &larr; Poker Theory
+            &larr; Market Making Lessons
           </Link>
           <div className="flex items-center gap-2">
-            {phase === "quiz" && (
-              <button
-                type="button"
-                onClick={restart}
-                className="rounded-full px-2.5 py-1 text-xs font-medium text-secondary hover:bg-surface-muted hover:text-primary"
-              >
-                Restart
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={restart}
+              className="rounded-full px-2.5 py-1 text-xs font-medium text-secondary hover:bg-surface-muted hover:text-primary"
+            >
+              Restart
+            </button>
             <span
               className={[
                 "rounded-full px-2.5 py-1 text-xs font-medium",
-                isPlacementPhase
+                isRemediation
                   ? "bg-accent/15 text-accent"
-                  : isRemediation
-                    ? "bg-accent/15 text-accent"
-                    : "bg-surface-muted text-secondary",
+                  : "bg-surface-muted text-secondary",
               ].join(" ")}
             >
-              {isPlacementPhase
-                ? "Placement test"
-                : isRemediation
-                  ? `Practice round ${round}`
-                  : `Lesson ${lesson.order}`}
+              {isRemediation
+                ? `Practice round ${round}`
+                : current && index < questionCount
+                  ? `Lesson ${lesson.order}`
+                  : ""}
             </span>
           </div>
         </div>
         <h1 className="text-xl font-bold text-primary">{lesson.title}</h1>
-        {isPlacementPhase && (
-          <p className="mt-1 text-sm text-secondary">
-            Score {Math.round(PASS_THRESHOLD * 100)}% or higher to skip the full lesson
-            and unlock the next one.
-          </p>
-        )}
         {isRemediation && (
           <p className="mt-1 text-sm text-secondary">
             Practice variants — same ideas, different numbers. Reach{" "}
             {Math.round(PASS_THRESHOLD * 100)}% to unlock the next lesson.
           </p>
         )}
-        {alreadyMastered && !isRemediation && !isPlacementPhase && (
+        {alreadyMastered && !isRemediation && (
           <p className="mt-1 text-sm text-secondary">
             You&apos;ve already mastered this lesson — feel free to redo it any time.
           </p>
@@ -426,7 +345,7 @@ export function PokerTheoryPlayer() {
         )}
         <div className="mt-3 flex items-center gap-3">
           <div className="flex-1">
-            <ProgressBar current={index + 1} total={activeTotal} label="Question" />
+            <ProgressBar current={index + 1} total={questionCount} label="Question" />
           </div>
           <span
             className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums text-secondary"
@@ -445,11 +364,7 @@ export function PokerTheoryPlayer() {
         onSelect={select}
         getOptionState={getOptionState}
         locked={checked}
-        badge={
-          isPlacementPhase ? undefined : (
-            <DifficultyBadge index={index} questionNumber={index + 1} />
-          )
-        }
+        badge={<DifficultyBadge index={index} questionNumber={index + 1} />}
         footer={
           checked && selected !== null ? (
             <FeedbackPanel
@@ -462,38 +377,34 @@ export function PokerTheoryPlayer() {
         }
       />
 
-      {!isPlacementPhase && current && (
-        <>
-          <QuestionTutorChat
-            lessonTitle={lesson.title}
-            questionText={current.question}
-            options={current.options}
-            selectedIndex={selected}
-          />
+      <QuestionTutorChat
+        lessonTitle={lesson.title}
+        questionText={current.question}
+        options={current.options}
+        selectedIndex={selected}
+      />
 
-          {aiError && (
-            <p className="mt-3 text-sm text-danger" role="alert">
-              {aiError}
-            </p>
-          )}
-
-          <div className="mt-4 flex flex-wrap gap-2">
-            <button
-              type="button"
-              className="pp-btn-secondary text-sm"
-              disabled={aiLoading}
-              onClick={() => void loadAiQuestion()}
-            >
-              {aiLoading ? "Generating…" : "Generate AI bonus question"}
-            </button>
-            {index >= baseQuestions.length && (
-              <span className="self-center text-xs text-muted">
-                AI practice — not counted toward lesson pass
-              </span>
-            )}
-          </div>
-        </>
+      {aiError && (
+        <p className="mt-3 text-sm text-danger" role="alert">
+          {aiError}
+        </p>
       )}
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <button
+          type="button"
+          className="pp-btn-secondary text-sm"
+          disabled={aiLoading}
+          onClick={() => void loadAiQuestion()}
+        >
+          {aiLoading ? "Generating…" : "Generate AI bonus question"}
+        </button>
+        {index >= baseQuestions.length && (
+          <span className="self-center text-xs text-muted">
+            AI practice — not counted toward lesson pass
+          </span>
+        )}
+      </div>
 
       <div className="mt-5 flex items-center justify-between gap-3">
         <button
@@ -515,22 +426,18 @@ export function PokerTheoryPlayer() {
             Check answer
           </button>
         ) : isLast ? (
-          <button
-            type="button"
-            className="pp-btn-primary"
-            onClick={isPlacementPhase ? finishPlacement : finishQuiz}
-          >
-            {isPlacementPhase ? "Finish placement" : "Finish lesson"}
+          <button type="button" className="pp-btn-primary" onClick={finish}>
+            Finish lesson
           </button>
         ) : isLastBase ? (
-          <button type="button" className="pp-btn-primary" onClick={finishQuiz}>
+          <button type="button" className="pp-btn-primary" onClick={finish}>
             Finish lesson
           </button>
         ) : (
           <button
             type="button"
             className="pp-btn-primary"
-            onClick={() => setIndex((i) => Math.min(activeTotal - 1, i + 1))}
+            onClick={() => setIndex((i) => Math.min(questionCount - 1, i + 1))}
           >
             Next
             <ChevronRightIcon size={16} />
@@ -545,15 +452,23 @@ export function PokerTheoryPlayer() {
   );
 }
 
-function IntroView({ lesson, onBegin }: { lesson: Lesson; onBegin: () => void }) {
+function IntroView({
+  lesson,
+  onBegin,
+  onPlacement,
+}: {
+  lesson: Lesson;
+  onBegin: () => void;
+  onPlacement?: () => void;
+}) {
   return (
     <div className="mx-auto max-w-2xl">
       <div className="mb-5">
         <Link
-          to="/poker-theory"
+          to="/market-making/lessons"
           className="text-sm font-medium text-secondary hover:text-primary"
         >
-          &larr; Poker Theory
+          &larr; Market Making Lessons
         </Link>
       </div>
 
@@ -570,90 +485,17 @@ function IntroView({ lesson, onBegin }: { lesson: Lesson; onBegin: () => void })
           ))}
         </div>
 
-        <div className="mt-7">
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <button type="button" className="pp-btn-primary" onClick={onBegin} autoFocus>
-            Continue
+            Begin lesson
             <ChevronRightIcon size={16} />
           </button>
+          {onPlacement && (
+            <button type="button" className="pp-btn-secondary" onClick={onPlacement}>
+              Skip ahead — placement quiz
+            </button>
+          )}
         </div>
-      </div>
-    </div>
-  );
-}
-
-function PlacementOfferView({
-  lesson,
-  questionCount,
-  onPlacement,
-  onFullLesson,
-}: {
-  lesson: Lesson;
-  questionCount: number;
-  onPlacement: () => void;
-  onFullLesson: () => void;
-}) {
-  const passMark = Math.round(PASS_THRESHOLD * 100);
-
-  return (
-    <div className="mx-auto max-w-2xl">
-      <div className="mb-5">
-        <Link
-          to="/poker-theory"
-          className="text-sm font-medium text-secondary hover:text-primary"
-        >
-          &larr; Poker Theory
-        </Link>
-      </div>
-
-      <div className="pp-card p-6 sm:p-8">
-        <h1 className="text-xl font-bold text-primary">{lesson.title}</h1>
-        <p className="mt-3 text-secondary">
-          Already comfortable with this topic? Take a quick {questionCount}-question
-          placement test. Score {passMark}% or higher to skip the full lesson and move
-          on.
-        </p>
-        <p className="mt-2 text-sm text-secondary">
-          Or work through all {lesson.questions.length} questions for deeper practice.
-        </p>
-
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <button type="button" className="pp-btn-primary" onClick={onPlacement}>
-            Take placement test
-            <ChevronRightIcon size={16} />
-          </button>
-          <button type="button" className="pp-btn-secondary" onClick={onFullLesson}>
-            Start full lesson
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PlacementFailedView({
-  score,
-  onContinue,
-}: {
-  score: number;
-  onContinue: () => void;
-}) {
-  const passMark = Math.round(PASS_THRESHOLD * 100);
-
-  return (
-    <div className="mx-auto max-w-md text-center">
-      <div className="pp-card p-8">
-        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-surface-muted text-3xl font-extrabold text-secondary">
-          {score}%
-        </div>
-        <h1 className="mt-5 text-xl font-bold text-primary">Placement not passed</h1>
-        <p className="mt-2 text-secondary">
-          You needed {passMark}% to skip ahead. No worries — the full lesson will
-          reinforce these concepts.
-        </p>
-        <button type="button" className="pp-btn-primary mt-6" onClick={onContinue}>
-          Start full lesson
-          <ChevronRightIcon size={16} />
-        </button>
       </div>
     </div>
   );
@@ -674,6 +516,7 @@ function ResultsView({
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-danger-soft text-3xl font-extrabold text-danger">
           {result.scorePercent}%
         </div>
+
         <h1 className="mt-5 text-xl font-bold text-primary">Keep practicing</h1>
         <p className="mt-2 text-secondary">
           You answered {result.correct} of {result.total} correctly.
@@ -682,11 +525,12 @@ function ResultsView({
           You need {passMark}% to unlock the next lesson. Try a fresh set of practice
           questions on the same ideas.
         </p>
+
         <div className="mt-6 flex flex-col gap-3">
           <button type="button" className="pp-btn-primary" onClick={onRetry}>
             Practice again
           </button>
-          <Link to="/poker-theory" className="pp-btn-secondary">
+          <Link to="/market-making/lessons" className="pp-btn-secondary">
             All lessons
           </Link>
         </div>
@@ -695,19 +539,17 @@ function ResultsView({
   );
 }
 
-function PokerTheoryCleared({
+function MarketMakingLessonCleared({
   lesson,
   result,
   previouslyEarned,
-  skippedViaPlacement,
 }: {
   lesson: Lesson;
   result: AttemptResult;
   previouslyEarned?: Set<string>;
-  skippedViaPlacement?: boolean;
 }) {
   const { progress } = useProgress();
-  const next = getNextPokerTheoryLesson(lesson.lessonId);
+  const next = getNextMarketMakingLesson(lesson.lessonId);
   const newBadges = earnedBadges(progress).filter(
     (b) => !(previouslyEarned?.has(b.id) ?? false),
   );
@@ -728,14 +570,13 @@ function PokerTheoryCleared({
         </div>
 
         <h1 className="mt-5 text-2xl font-extrabold tracking-tight text-primary">
-          {skippedViaPlacement ? "Placement passed!" : "Lesson mastered!"}
+          Lesson mastered!
         </h1>
         <p className="mt-2 text-secondary">
           You scored{" "}
           <span className="font-semibold text-primary">{result.scorePercent}%</span>{" "}
           ({result.correct} of {result.total} correct) on{" "}
           <span className="font-medium text-primary">{lesson.title}</span>.
-          {skippedViaPlacement && " You skipped the full lesson."}
         </p>
 
         {newBadges.length > 0 && (
@@ -757,16 +598,19 @@ function PokerTheoryCleared({
 
         <div className="mt-6 flex flex-col gap-3">
           {next ? (
-            <Link to={`/poker-theory/${next.lessonId}`} className="pp-btn-primary">
+            <Link
+              to={`/market-making/lessons/${next.lessonId}`}
+              className="pp-btn-primary"
+            >
               Start {next.title}
               <ChevronRightIcon size={16} />
             </Link>
           ) : (
-            <Link to="/poker-theory" className="pp-btn-primary">
-              Back to Poker Theory
+            <Link to="/market-making/lessons" className="pp-btn-primary">
+              Back to Market Making Lessons
             </Link>
           )}
-          <Link to="/poker-theory" className="pp-btn-secondary">
+          <Link to="/market-making/lessons" className="pp-btn-secondary">
             All lessons
           </Link>
         </div>

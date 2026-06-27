@@ -1,9 +1,6 @@
 import {
   collection,
-  doc,
   getDocs,
-  serverTimestamp,
-  setDoc,
 } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import type { CourseProgress } from "./progress";
@@ -75,24 +72,13 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
   throw new Error(message);
 }
 
-/** Denormalized public stats for ranking — written by the owning user only. */
+/** Rankings are derived server-side from courseProgress — no client writes. */
 export async function syncLeaderboardEntry(
-  uid: string,
-  username: string,
-  progress: CourseProgress,
+  _uid: string,
+  _username: string,
+  _progress: CourseProgress,
 ): Promise<void> {
-  await setDoc(
-    doc(db, "leaderboard", uid),
-    {
-      uid,
-      username,
-      lifetimeTokens: progress.lifetimeTokens ?? 0,
-      streak: progress.streak ?? 0,
-      problemsCorrect: progress.problemsCorrect ?? 0,
-      updatedAt: serverTimestamp(),
-    },
-    { merge: true },
-  );
+  // no-op: /api/leaderboard reads courseProgress directly
 }
 
 export const SORT_LABELS: Record<LeaderboardSort, string> = {
