@@ -457,19 +457,19 @@
       "remediation": [
         {
           "id": "l3_q10_r1",
-          "question": "Quant interview Bayes problems often test whether you:",
+          "question": "When a defect is observed, Bayes tells you to weight each source by:",
           "options": [
-            "update beliefs using likelihoods and priors instead of gut feel",
-            "always assume independence",
-            "ignore base rates",
-            "multiply probabilities without checking conditioning"
+            "P(defect | source) × P(source)",
+            "P(source) only",
+            "P(defect) only",
+            "1 − P(source)"
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "Correct. Structured updating separates strong candidates from guessers.",
-            "B": "Independence is sometimes false and must be checked.",
-            "C": "Base rates are central to Bayes; ignoring them is a common failure mode.",
-            "D": "Blind multiplication often confuses P(A|B) with P(A∩B)."
+            "A": "Correct. Likelihood of the evidence on each source times how common that source is.",
+            "B": "The prior alone ignores how diagnostic the defect is for each line.",
+            "C": "P(defect) is the denominator, not the unnormalized weight for one source.",
+            "D": "Complements of priors are not the Bayes numerator."
           }
         },
         {
