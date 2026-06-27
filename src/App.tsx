@@ -20,6 +20,11 @@ import { PokerNight } from "./pages/PokerNight";
 import { Store } from "./pages/Store";
 import { Comeback } from "./pages/Comeback";
 import { Leaderboard } from "./pages/Leaderboard";
+import { MarketMaking } from "./pages/MarketMaking";
+import { LearnMode } from "./pages/MarketMaking/LearnMode";
+import { PlayMode } from "./pages/MarketMaking/PlayMode";
+import { PokerTheory } from "./pages/PokerTheory";
+import { PokerTheoryPlayer } from "./pages/PokerTheoryPlayer";
 import { AccentThemeApplier } from "./components/store/AccentThemeApplier";
 import { DailyRewardsGate } from "./components/dailyRewards/DailyRewardsGate";
 
@@ -50,7 +55,12 @@ export function App() {
         <Route path="/" element={<Protected><Home /></Protected>} />
         <Route path="/lessons" element={<Protected><Lessons /></Protected>} />
         <Route path="/lessons/:lessonId" element={<Protected><LessonPlayer /></Protected>} />
+        <Route path="/poker-theory" element={<Protected><PokerTheory /></Protected>} />
+        <Route path="/poker-theory/:lessonId" element={<Protected><PokerTheoryPlayer /></Protected>} />
         <Route path="/playground" element={<Protected><Playground /></Protected>} />
+        <Route path="/market-making" element={<Protected><MarketMaking /></Protected>} />
+        <Route path="/market-making/learn" element={<Protected><LearnMode /></Protected>} />
+        <Route path="/market-making/play" element={<Protected><PlayMode /></Protected>} />
         <Route path="/calendar" element={<Protected><Calendar /></Protected>} />
         <Route path="/badges" element={<Protected><Badges /></Protected>} />
         <Route path="/leaderboard" element={<Protected><Leaderboard /></Protected>} />
