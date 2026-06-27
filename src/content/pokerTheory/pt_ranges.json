@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_ranges",
+  "order": 6,
+  "title": "Range Thinking",
+  "subtitle": "Hands opponents can have — not just the one you put them on",
+  "topics": [
+    "Range thinking",
+    "Polarized vs merged",
+    "Range advantage",
+    "Capped ranges"
+  ],
+  "intro": [
+    "Instead of guessing one exact hand, strong players assign opponents a range — all combinations consistent with their actions. Preflop raises, calls, and postflop lines narrow that range street by street.",
+    "Polarized ranges contain very strong hands and bluffs, with few medium-strength hands. Merged ranges include strong, medium, and some weak hands together — common in small bets and protected checks.",
+    "Range advantage means your range hits a given board better than your opponent's on average. Nut advantage is who holds the strongest possible hands more often. These ideas drive c-bet frequency, bet sizing, and defense."
+  ],
+  "questions": [
+    {
+      "id": "pt_rng_q1",
+      "kind": "standard",
+      "concept": "range_def",
+      "question": "A 'range' in poker is:",
+      "options": [
+        "Every hand villain might hold given their actions",
+        "Only pocket aces",
+        "The board only",
+        "Your single best guess"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — a set of possible holdings.",
+        "B": "AA is one combo in a range.",
+        "C": "Board is separate.",
+        "D": "One hand is too narrow."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q1_r1",
+          "question": "Ranges narrow when:",
+          "options": [
+            "Opponent takes stronger lines (raises, big bets)",
+            "Everyone checks preflop forever",
+            "Board is undealt",
+            "Hand hasn't started"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — aggressive action removes weak hands.",
+            "B": "No action doesn't narrow much.",
+            "C": "No board yet is preflop ranges.",
+            "D": "Hand must start first."
+          }
+        },
+        {
+          "id": "pt_rng_q1_r2",
+          "question": "Thinking in ranges helps because:",
+          "options": [
+            "Single-hand guesses are often wrong",
+            "Dealer always knows cards",
+            "Pot odds disappear",
+            "Blinds don't matter"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — distributions beat one-hand poker.",
+            "B": "Dealer doesn't play.",
+            "C": "Pot odds remain.",
+            "D": "Blinds still matter."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q2",
+      "kind": "standard",
+      "concept": "polarized",
+      "question": "Polarized betting range contains mostly:",
+      "options": [
+        "Nuts and bluffs, few medium hands",
+        "Only medium pairs",
+        "Random any two cards always",
+        "Folded hands"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — strong value plus air, not many middling hands.",
+        "B": "Medium pairs are merged territory.",
+        "C": "Not random — structured.",
+        "D": "Folded hands aren't in range."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q2_r1",
+          "question": "Large river overbet is often:",
+          "options": [
+            "Polarized",
+            "Merged with only weak hands",
+            "Empty range",
+            "Only high card"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — nuts or bluff.",
+            "B": "Merged includes medium value.",
+            "C": "Empty isn't betting.",
+            "D": "High card alone isn't a range type."
+          }
+        },
+        {
+          "id": "pt_rng_q2_r2",
+          "question": "Polarized means two poles:",
+          "options": [
+            "Very strong and weak bluffs",
+            "Only draws",
+            "Only sets",
+            "Only checks"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — strong vs air.",
+            "B": "Draws may be semi-bluffs elsewhere.",
+            "C": "Sets are strong pole only.",
+            "D": "Checks aren't a range composition."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q3",
+      "kind": "standard",
+      "concept": "merged",
+      "question": "Merged range includes:",
+      "options": [
+        "Strong, medium, and some weak hands together",
+        "Only bluffs",
+        "Only the nuts",
+        "No hands"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — wide mix, hard to exploit with one hand type.",
+        "B": "Bluffs only is polarized.",
+        "C": "Nuts only is too narrow.",
+        "D": "Ranges always have hands."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q3_r1",
+          "question": "Small flop c-bet often uses:",
+          "options": [
+            "Merged range — many hands for protection/value",
+            "Only 72o bluffs",
+            "No range at all",
+            "Only river bluffs"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — small bets include medium strength.",
+            "B": "72o alone isn't a strategy.",
+            "C": "Always a range.",
+            "D": "Flop not river only."
+          }
+        },
+        {
+          "id": "pt_rng_q3_r2",
+          "question": "Merged betting is harder to play against because:",
+          "options": [
+            "You face both value and medium hands",
+            "Opponent shows cards first",
+            "Pot disappears",
+            "Rules change"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — can't assume nuts or air only.",
+            "B": "Show order doesn't define merge.",
+            "C": "Pot remains.",
+            "D": "Rules fixed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q4",
+      "kind": "standard",
+      "concept": "range_adv",
+      "question": "Range advantage on a board means:",
+      "options": [
+        "Your overall range connects better than opponent's",
+        "You always have the nuts",
+        "Board is empty",
+        "Blinds are bigger"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — more strong combos in your range on average.",
+        "B": "Not every combo is nuts.",
+        "C": "Board has cards.",
+        "D": "Blinds unrelated."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q4_r1",
+          "question": "Preflop raiser often has range advantage on:",
+          "options": [
+            "High dry boards like A-K-2 rainbow",
+            "Low connected boards favoring callers' suited hands",
+            "Mucked boards",
+            "No flop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — raiser has more big cards.",
+            "B": "Low connected favors defender ranges.",
+            "C": "Board must exist.",
+            "D": "Flop needed for board advantage."
+          }
+        },
+        {
+          "id": "pt_rng_q4_r2",
+          "question": "Nut advantage means:",
+          "options": [
+            "Your range holds the nuts more often",
+            "You post blinds",
+            "You fold more",
+            "Rake is lower"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — who has strongest possible hands.",
+            "B": "Blinds unrelated.",
+            "C": "Folding isn't advantage.",
+            "D": "Rake separate."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q5",
+      "kind": "standard",
+      "concept": "capped",
+      "question": "A 'capped' range lacks:",
+      "options": [
+        "The strongest possible hands on this line",
+        "Any pairs",
+        "All bluffs",
+        "Community cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — e.g. call-call line rarely has nuts.",
+        "B": "Capped can still have pairs.",
+        "C": "Bluffs may remain.",
+        "D": "Board exists separately."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q5_r1",
+          "question": "Opponent call-call-call on wet board is often:",
+          "options": [
+            "Capped — rarely the nuts",
+            "Always the nuts",
+            "Empty",
+            "Dealer range"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — passive line removes nut combos.",
+            "B": "Passive lines cap range.",
+            "C": "Still has some hands.",
+            "D": "Dealer doesn't play."
+          }
+        },
+        {
+          "id": "pt_rng_q5_r2",
+          "question": "Bluff more vs capped range because:",
+          "options": [
+            "Strong hands less likely to call/raise",
+            "They always have quads",
+            "Pot is illegal",
+            "You must check"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fewer monsters defend.",
+            "B": "Quads unlikely in capped range.",
+            "C": "Pot legal.",
+            "D": "Bluffing optional but good."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q6",
+      "kind": "standard",
+      "concept": "narrow",
+      "question": "Each street of action generally:",
+      "options": [
+        "Narrows opponent ranges",
+        "Widens ranges to all cards",
+        "Removes the deck",
+        "Changes hand rankings"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — lines eliminate inconsistent hands.",
+        "B": "Ranges shrink with info.",
+        "C": "Deck remains.",
+        "D": "Rankings fixed."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q6_r1",
+          "question": "Raise on turn removes from range:",
+          "options": [
+            "Many weak hands and some medium",
+            "Only aces",
+            "Nothing",
+            "The button"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — aggression filters weak holdings.",
+            "B": "Not only aces — many hands.",
+            "C": "Something always removed.",
+            "D": "Button stays."
+          }
+        },
+        {
+          "id": "pt_rng_q6_r2",
+          "question": "Check-call-check often indicates:",
+          "options": [
+            "Medium strength, capped top",
+            "Always nut flush",
+            "No hand ever",
+            "Fold preflop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — passive medium lines.",
+            "B": "Nuts usually bet for value.",
+            "C": "Always some hand type.",
+            "D": "Reached postflop."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q7",
+      "kind": "standard",
+      "concept": "combo",
+      "question": "AA on A-K-5 flop is strong partly because:",
+      "options": [
+        "Many villain combos miss while yours connects",
+        "Board is low only",
+        "You have zero pair",
+        "Ranges don't matter"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — raiser range hits ace; caller range misses more.",
+        "B": "Board has ace and king.",
+        "C": "You have top set/trips possible.",
+        "D": "Ranges define this edge."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q7_r1",
+          "question": "Combo counting helps because:",
+          "options": [
+            "Some hands have more combinations than others",
+            "All hands have one combo",
+            "Board has hole cards",
+            "Dealer counts for you"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — AA has 6 combos, AK suited has 4, etc.",
+            "B": "Hands differ in combo count.",
+            "C": "Hole cards aren't on board.",
+            "D": "You count combos."
+          }
+        },
+        {
+          "id": "pt_rng_q7_r2",
+          "question": "Unpaired hands like AK have:",
+          "options": [
+            "More total combos than AA pairs",
+            "Zero combos",
+            "Same as 72o always",
+            "Only one combo"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 16 combos unpaired vs 6 for AA.",
+            "B": "All hands have combos.",
+            "C": "72o has 12 combos — different.",
+            "D": "Unpaired has 16 max."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q8",
+      "kind": "standard",
+      "concept": "balance",
+      "question": "Balanced range means:",
+      "options": [
+        "Mix of value and bluffs so opponents can't exploit easily",
+        "Only bluffing",
+        "Only checking nuts",
+        "Showing cards early"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — appropriate value/bluff ratio for size and board.",
+        "B": "Pure bluffs are unbalanced alone.",
+        "C": "Checking nuts loses value.",
+        "D": "Don't show early."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q8_r1",
+          "question": "If you never bluff, opponents can:",
+          "options": [
+            "Fold to your big bets easily",
+            "Always call profitably",
+            "Win every pot",
+            "Change rankings"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — exploit by overfolding.",
+            "B": "They lose when you have value.",
+            "C": "Not every pot.",
+            "D": "Rankings fixed."
+          }
+        },
+        {
+          "id": "pt_rng_q8_r2",
+          "question": "Balance matters most vs:",
+          "options": [
+            "Thinking opponents who adjust",
+            "Nobody ever",
+            "Folded players",
+            "Dead cards"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — good players exploit patterns.",
+            "B": "Always some relevance.",
+            "C": "Folded players don't act.",
+            "D": "Dead cards irrelevant."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q9",
+      "kind": "challenge",
+      "concept": "polarized_river",
+      "question": "Pot $100, you overbet $150 river. Polarized range most likely includes:",
+      "options": [
+        "Nuts and bluffs, not many second-pair hands",
+        "Only second pair",
+        "Only underpairs",
+        "Folded range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — big size polarizes value and air.",
+        "B": "Second pair usually smaller bet or check.",
+        "C": "Underpairs rarely overbet for value.",
+        "D": "Folded isn't betting."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q9_r1",
+          "question": "Overbet polarized — opponent with medium hand should often:",
+          "options": [
+            "Fold more than vs small bet",
+            "Always raise",
+            "Always call",
+            "Muck preflop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — medium loses to value, doesn't beat bluffs enough.",
+            "B": "Raise risky vs nuts.",
+            "C": "Calling overbet with medium is often bad.",
+            "D": "Already on river."
+          }
+        },
+        {
+          "id": "pt_rng_q9_r2",
+          "question": "Polarized sizing tells opponent:",
+          "options": [
+            "You are rarely medium strength",
+            "You always have 72o",
+            "Board is blank",
+            "Side pot forming"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — big bets skew strong or bluff.",
+            "B": "72o may bluff but not always.",
+            "C": "Board independent.",
+            "D": "Side pots stack-related."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_rng_q10",
+      "kind": "challenge",
+      "concept": "range_vs_hand",
+      "question": "UTG opens, you 3-bet from button, UTG calls. A-A-7 flop — your range advantage mainly comes from:",
+      "options": [
+        "More AA, AK, AQ combos in your 3-bet range",
+        "UTG having only 72o",
+        "Board being low",
+        "Blinds posting"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — 3-bettor range is stronger and hits ace-high boards.",
+        "B": "UTG opens tight, not only 72o.",
+        "C": "Ace-high isn't low.",
+        "D": "Blinds unrelated."
+      },
+      "remediation": [
+        {
+          "id": "pt_rng_q10_r1",
+          "question": "3-bettor range vs caller on A-high flop:",
+          "options": [
+            "3-bettor often has more strong ace-x",
+            "Caller always has nuts",
+            "Ranges identical",
+            "No advantage possible"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 3-bet range is weighted to big aces.",
+            "B": "Caller has some aces but capped.",
+            "C": "Ranges differ.",
+            "D": "Advantage exists on some boards."
+          }
+        },
+        {
+          "id": "pt_rng_q10_r2",
+          "question": "Range vs hand thinking means:",
+          "options": [
+            "Compare your whole range to theirs, not one hand",
+            "Ignore all actions",
+            "Only play one combo",
+            "Dealer decides winner"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — equity of ranges matters.",
+            "B": "Actions define ranges.",
+            "C": "Play a strategy across combos.",
+            "D": "Best hand wins."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_rng_p1",
+      "concept": "range",
+      "question": "Range is:",
+      "options": [
+        "Set of possible hands",
+        "One guess only",
+        "Board only",
+        "Rake"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Too narrow.",
+        "C": "Separate.",
+        "D": "House fee."
+      }
+    },
+    {
+      "id": "pt_rng_p2",
+      "concept": "polar",
+      "question": "Polarized:",
+      "options": [
+        "Strong + bluffs",
+        "Only medium",
+        "Empty",
+        "Folded"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "That's merged-ish.",
+        "C": "Ranges have hands.",
+        "D": "Not active."
+      }
+    },
+    {
+      "id": "pt_rng_p3",
+      "concept": "merge",
+      "question": "Merged range has:",
+      "options": [
+        "Strong, medium, weak mix",
+        "Only nuts",
+        "No hands",
+        "Only bluffs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Too narrow.",
+        "C": "Always hands.",
+        "D": "Polarized bluff pole."
+      }
+    },
+    {
+      "id": "pt_rng_p4",
+      "concept": "adv",
+      "question": "Range advantage:",
+      "options": [
+        "Your range hits board better",
+        "Always nuts",
+        "No board",
+        "Bigger blinds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Not every hand.",
+        "C": "Need board.",
+        "D": "Unrelated."
+      }
+    },
+    {
+      "id": "pt_rng_p5",
+      "concept": "cap",
+      "question": "Capped range lacks:",
+      "options": [
+        "Top of range strength",
+        "Any cards",
+        "Bluffs always",
+        "Deck"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Still has hands.",
+        "C": "May bluff.",
+        "D": "Deck remains."
+      }
+    },
+    {
+      "id": "pt_rng_p6",
+      "concept": "narrow",
+      "question": "Action each street:",
+      "options": [
+        "Narrows ranges",
+        "Widens to all cards",
+        "Removes deck",
+        "Changes ranks"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Opposite.",
+        "C": "Deck stays.",
+        "D": "Fixed."
+      }
+    },
+    {
+      "id": "pt_rng_p7",
+      "concept": "combo",
+      "question": "AA has how many combos?",
+      "options": [
+        "6",
+        "16",
+        "1",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — pairs.",
+        "B": "Unpaired max.",
+        "C": "More than one.",
+        "D": "72o has 12."
+      }
+    },
+    {
+      "id": "pt_rng_p8",
+      "concept": "balance",
+      "question": "Balanced range mixes:",
+      "options": [
+        "Value and bluffs",
+        "Only checks",
+        "Only folds",
+        "Dead cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Incomplete.",
+        "C": "Incomplete.",
+        "D": "Not in play."
+      }
+    }
+  ]
+}

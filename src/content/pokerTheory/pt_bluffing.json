@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_bluffing",
+  "order": 5,
+  "title": "Bluffing & Semi-Bluffs",
+  "subtitle": "Fold equity, story consistency, and when aggression makes sense",
+  "topics": [
+    "Pure bluffs",
+    "Semi-bluffs",
+    "Fold equity",
+    "Blockers"
+  ],
+  "intro": [
+    "A bluff wins when a better hand folds. Pure bluffs rely entirely on fold equity — you have little chance to improve if called. Semi-bluffs bet with draws, combining fold equity with equity when called.",
+    "Good bluffs tell a coherent story: your line should represent hands your opponent believes you could hold. Wet, scary boards favor bluffs; calling stations and multiway pots reduce bluff success.",
+    "Bluffing is not random aggression — it is a calculated use of fold equity, blockers, and opponent tendencies. This lesson teaches when to fire, when to give up, and how semi-bluffs differ from pure air."
+  ],
+  "questions": [
+    {
+      "id": "pt_bl_q1",
+      "kind": "standard",
+      "concept": "pure_bluff",
+      "question": "A pure bluff is:",
+      "options": [
+        "Betting with little equity if called, hoping opponent folds",
+        "Betting only with the nuts",
+        "Checking strong hands",
+        "Calling every raise"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — fold equity is the primary win path.",
+        "B": "Betting nuts is value, not bluff.",
+        "C": "Checking strong is slow play.",
+        "D": "Calling isn't bluffing."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q1_r1",
+          "question": "Pure bluff wins when:",
+          "options": [
+            "Opponent folds",
+            "You hit on river always",
+            "Board pairs",
+            "You show cards"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fold equity.",
+            "B": "Hitting turns bluff into semi-bluff or value.",
+            "C": "Pairing unrelated.",
+            "D": "Showdown not required if fold."
+          }
+        },
+        {
+          "id": "pt_bl_q1_r2",
+          "question": "Bluffing with zero fold equity is:",
+          "options": [
+            "Usually -EV",
+            "Always +EV",
+            "Required",
+            "Same as value bet"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — if called always, air loses.",
+            "B": "Need folds or draws.",
+            "C": "Not required.",
+            "D": "Value wants calls."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q2",
+      "kind": "standard",
+      "concept": "semi_bluff",
+      "question": "A semi-bluff is:",
+      "options": [
+        "Bet/raise with a draw that can improve if called",
+        "Only checking draws",
+        "Calling with nuts",
+        "Showing cards early"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — fold equity plus draw equity.",
+        "B": "Checking draws isn't semi-bluff.",
+        "C": "Nuts is value.",
+        "D": "Never show early."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q2_r1",
+          "question": "Flush draw betting the flop is often:",
+          "options": [
+            "Semi-bluff",
+            "Pure value only",
+            "Always fold",
+            "Check always"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — can win now or hit flush.",
+            "B": "Could be value if made.",
+            "C": "Often continue.",
+            "D": "Semi-bluff is aggressive option."
+          }
+        },
+        {
+          "id": "pt_bl_q2_r2",
+          "question": "Semi-bluff beats pure bluff when called because:",
+          "options": [
+            "You have outs to improve",
+            "Rules require it",
+            "Pot shrinks",
+            "Board freezes"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — equity when called.",
+            "B": "Strategy not rule.",
+            "C": "Pot may grow.",
+            "D": "Cards still come."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q3",
+      "kind": "standard",
+      "concept": "fold_equity",
+      "question": "Fold equity is:",
+      "options": [
+        "The chance opponent folds to your bet",
+        "Extra chips in blinds",
+        "Your hand strength",
+        "Pot odds only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — probability of winning uncontested.",
+        "B": "Blinds are dead money, not fold equity.",
+        "C": "Strength helps but FE is about folds.",
+        "D": "Pot odds differ."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q3_r1",
+          "question": "More fold equity when:",
+          "options": [
+            "Opponent's range is weak/capped",
+            "Opponent never folds",
+            "Multiway with callers",
+            "You have nuts"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — weak ranges fold more.",
+            "B": "No fold equity.",
+            "C": "Multiway reduces FE.",
+            "D": "Nuts wants call."
+          }
+        },
+        {
+          "id": "pt_bl_q3_r2",
+          "question": "Bluff success needs:",
+          "options": [
+            "Opponent to fold enough",
+            "Always best hand",
+            "Board to pair",
+            "Showdown"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct.",
+            "B": "Bluffs often have weak hands.",
+            "C": "Unrelated.",
+            "D": "Fold ends hand."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q4",
+      "kind": "standard",
+      "concept": "board_texture",
+      "question": "Dry board (K♠ 7♦ 2♣) vs wet board (J♥ T♥ 9♠) for bluffing:",
+      "options": [
+        "Dry boards often favor bluffs — fewer draws call",
+        "Wet boards always best for bluffs",
+        "Texture irrelevant",
+        "Only preflop matters"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — fewer credible calling hands on dry boards.",
+        "B": "Wet boards have many draws that continue.",
+        "C": "Texture matters greatly.",
+        "D": "Postflop texture key."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q4_r1",
+          "question": "Wet coordinated boards:",
+          "options": [
+            "Give opponents more continuing hands",
+            "Always fold everyone",
+            "Mean no bets ever",
+            "Only for checks"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — draws and pairs continue.",
+            "B": "Rare everyone folds.",
+            "C": "Still bet for value/semi-bluff.",
+            "D": "Bets exist."
+          }
+        },
+        {
+          "id": "pt_bl_q4_r2",
+          "question": "Dry ace-high flop:",
+          "options": [
+            "Often good c-bet bluff spot",
+            "Never bluff",
+            "Always check-raise",
+            "Only call"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — misses many ranges.",
+            "B": "Can bluff selectively.",
+            "C": "Check-raise not default.",
+            "D": "Can bet."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q5",
+      "kind": "standard",
+      "concept": "story",
+      "question": "A credible bluff story means:",
+      "options": [
+        "Your bets represent hands you could plausibly hold",
+        "Any bet works equally",
+        "Only bluff with nuts blocker",
+        "Story doesn't matter"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — line must match value range.",
+        "B": "Bad bluffs ignore story.",
+        "C": "Blockers help but story is broader.",
+        "D": "Story central."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q5_r1",
+          "question": "Triple-barrel bluff needs:",
+          "options": [
+            "Consistent story across streets",
+            "Random sizing only",
+            "Always nuts",
+            "Checking river"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — each street builds narrative.",
+            "B": "Sizing should make sense.",
+            "C": "Bluff by definition not nuts.",
+            "D": "River bet can bluff."
+          }
+        },
+        {
+          "id": "pt_bl_q5_r2",
+          "question": "If you check flop and turn, river overbet bluff:",
+          "options": [
+            "Harder story — missed earlier value lines",
+            "Always best bluff",
+            "Illegal",
+            "Automatic call"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — inconsistent lines get called.",
+            "B": "Sometimes works vs tight players.",
+            "C": "Legal.",
+            "D": "Opponents may call."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q6",
+      "kind": "standard",
+      "concept": "blockers",
+      "question": "Bluffing with A♠ on three-spade board helps because:",
+      "options": [
+        "You block nut flush combos opponent may hold",
+        "Ace always wins",
+        "Spades irrelevant",
+        "Blockers never matter"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — fewer nut flushes in villain range.",
+        "B": "You may not have flush.",
+        "C": "Spades matter.",
+        "D": "Blockers help bluff selection."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q6_r1",
+          "question": "Blockers reduce:",
+          "options": [
+            "Combos of strong hands villain can have",
+            "Your fold equity always",
+            "Pot size",
+            "Blind size"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — combo counting.",
+            "B": "Can increase bluff success.",
+            "C": "Unrelated.",
+            "D": "Unrelated."
+          }
+        },
+        {
+          "id": "pt_bl_q6_r2",
+          "question": "Nut flush blocker on river bluff:",
+          "options": [
+            "Makes bluff more credible vs flush-calling range",
+            "Forces always fold",
+            "Means you have flush",
+            "Illegal"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — villain less likely to have nuts.",
+            "B": "Not always.",
+            "C": "You might not have made flush.",
+            "D": "Legal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q7",
+      "kind": "standard",
+      "concept": "give_up",
+      "question": "When should you abandon a bluff?",
+      "options": [
+        "Turn/river when opponent shows strength and story breaks",
+        "Never give up",
+        "Always fire three barrels",
+        "Only on preflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — good players know when to stop.",
+        "B": "Stubborn bluffs burn chips.",
+        "C": "Three barrels not mandatory.",
+        "D": "Bluffs happen postflop."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q7_r1",
+          "question": "Opponent raises flop — with air you often:",
+          "options": [
+            "Re-evaluate — raise may mean strength",
+            "Always shove",
+            "Must call always",
+            "Show cards"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fold equity gone, equity low.",
+            "B": "Bad with air.",
+            "C": "Air often folds.",
+            "D": "No show mid-hand."
+          }
+        },
+        {
+          "id": "pt_bl_q7_r2",
+          "question": "Giving up on bluff saves:",
+          "options": [
+            "Chips you'd lose if called down",
+            "Nothing",
+            "Always the pot",
+            "Blinds only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — stop-loss on bluff lines.",
+            "B": "Saves real money.",
+            "C": "Pot already lost if they won't fold.",
+            "D": "More than blinds."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q8",
+      "kind": "standard",
+      "concept": "station",
+      "question": "Against a calling station you should:",
+      "options": [
+        "Bluff less, value bet more",
+        "Bluff more",
+        "Always triple barrel air",
+        "Never bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — low fold equity vs stations.",
+        "B": "They call — bluffs fail.",
+        "C": "Air loses money.",
+        "D": "Value bet thick."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q8_r1",
+          "question": "Calling station trait:",
+          "options": [
+            "Calls too often with medium hands",
+            "Folds everything",
+            "Only raises nuts",
+            "Never sees flop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — low fold frequency.",
+            "B": "Opposite of station.",
+            "C": "Stations call, not raise.",
+            "D": "They see flops."
+          }
+        },
+        {
+          "id": "pt_bl_q8_r2",
+          "question": "Vs station, thin value bets:",
+          "options": [
+            "More profitable than bluffs",
+            "Always -EV",
+            "Impossible",
+            "Same as bluff"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — extract from calls.",
+            "B": "Thin value good vs callers.",
+            "C": "Very possible.",
+            "D": "Bluffs worse."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q9",
+      "kind": "challenge",
+      "concept": "double_barrel",
+      "question": "You c-bet flop, get called. Turn brings blank. You have 6-high air. Best approach often:",
+      "options": [
+        "Selective turn barrel if villain range capped and card scary to them",
+        "Always shove",
+        "Always check and give up",
+        "Show your hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — second barrel when fold equity exists and story fits.",
+        "B": "Shove too large often.",
+        "C": "Sometimes barrel is good.",
+        "D": "Illegal."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q9_r1",
+          "question": "Second barrel works when:",
+          "options": [
+            "Turn card hurts caller's range",
+            "You have nuts always",
+            "Multiway five players",
+            "Never"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — range pressure.",
+            "B": "Bluff not nuts.",
+            "C": "Multiway bad for bluffs.",
+            "D": "Sometimes works."
+          }
+        },
+        {
+          "id": "pt_bl_q9_r2",
+          "question": "Blank turn for caller means:",
+          "options": [
+            "Their range unchanged — bluff less often",
+            "Always fold for them",
+            "You win pot",
+            "Board dead"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — less fold equity than scare card.",
+            "B": "They still have range.",
+            "C": "Not automatic.",
+            "D": "Cards still deal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_bl_q10",
+      "kind": "challenge",
+      "concept": "merge",
+      "question": "Betting medium strength for protection/thin value on scary river is:",
+      "options": [
+        "Not a bluff — value/protection bet",
+        "Pure bluff always",
+        "Same as check-fold",
+        "Illegal"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — wants calls from worse, folds from better sometimes.",
+        "B": "Medium hands aren't pure bluff.",
+        "C": "Different from check-fold.",
+        "D": "Legal."
+      },
+      "remediation": [
+        {
+          "id": "pt_bl_q10_r1",
+          "question": "Thin value differs from bluff because:",
+          "options": [
+            "Happy getting called by worse hands",
+            "Needs folds only",
+            "Always with air",
+            "Only preflop"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — value wants calls.",
+            "B": "Bluff needs folds.",
+            "C": "Value has showdown value.",
+            "D": "Postflop too."
+          }
+        },
+        {
+          "id": "pt_bl_q10_r2",
+          "question": "Merged bet can:",
+          "options": [
+            "Get called by worse and fold out some better",
+            "Only win by fold",
+            "Never get called",
+            "Skip showdown"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — middle outcome.",
+            "B": "Value wants calls too.",
+            "C": "Gets called often.",
+            "D": "Showdown possible."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_bl_p1",
+      "concept": "pure",
+      "question": "Pure bluff:",
+      "options": [
+        "Bets hoping for fold with little equity",
+        "Only with nuts",
+        "Checks strong",
+        "Calls raises"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Value.",
+        "C": "Slow play.",
+        "D": "Not bluff."
+      }
+    },
+    {
+      "id": "pt_bl_p2",
+      "concept": "semi",
+      "question": "Semi-bluff:",
+      "options": [
+        "Draw that can improve if called",
+        "Check only",
+        "Nuts call",
+        "Show early"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Passive.",
+        "C": "Value.",
+        "D": "No."
+      }
+    },
+    {
+      "id": "pt_bl_p3",
+      "concept": "fe",
+      "question": "Fold equity:",
+      "options": [
+        "Chance foe folds",
+        "Blind size",
+        "Hand rank",
+        "Pot odds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Dead money.",
+        "C": "Different.",
+        "D": "Different."
+      }
+    },
+    {
+      "id": "pt_bl_p4",
+      "concept": "dry",
+      "question": "Dry board bluffing:",
+      "options": [
+        "Often better — fewer calls",
+        "Always worse",
+        "Irrelevant",
+        "Preflop only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Dry helps bluffs.",
+        "C": "Matters.",
+        "D": "Postflop."
+      }
+    },
+    {
+      "id": "pt_bl_p5",
+      "concept": "story",
+      "question": "Credible bluff:",
+      "options": [
+        "Represents plausible hands",
+        "Any bet same",
+        "Only nuts",
+        "No story"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Bad bluffs.",
+        "C": "Value.",
+        "D": "Story matters."
+      }
+    },
+    {
+      "id": "pt_bl_p6",
+      "concept": "blocker",
+      "question": "Nut blocker helps bluff by:",
+      "options": [
+        "Reducing nut combos foe holds",
+        "Always winning",
+        "Irrelevant",
+        "Shrinking pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Not always.",
+        "C": "Matters.",
+        "D": "No."
+      }
+    },
+    {
+      "id": "pt_bl_p7",
+      "concept": "station",
+      "question": "Vs calling station:",
+      "options": [
+        "Value more, bluff less",
+        "Bluff more",
+        "Triple air",
+        "Never bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "They call.",
+        "C": "Loses.",
+        "D": "Value exists."
+      }
+    },
+    {
+      "id": "pt_bl_p8",
+      "concept": "give_up",
+      "question": "Give up bluff when:",
+      "options": [
+        "Story breaks / no fold equity",
+        "Never",
+        "Always barrel 3x",
+        "Preflop only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Burns chips.",
+        "C": "Not always.",
+        "D": "Postflop."
+      }
+    }
+  ]
+}
