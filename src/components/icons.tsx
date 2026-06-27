@@ -218,3 +218,9 @@ export const CrownIcon = (p: IconProps) => (
     <path d="M4 18h16M5 18l-1.5-9 5 4 3.5-6 3.5 6 5-4L19 18z" />
   </svg>
 );
+
+export const ChartIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M4 19V5M4 19h16M8 17V9M12 17V7M16 17v-4" />
+  </svg>
+);
