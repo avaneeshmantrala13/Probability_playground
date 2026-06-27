@@ -1,0 +1,359 @@
+{
+  "lessonId": "lesson_10",
+  "order": 10,
+  "title": "Brain Teasers & Quant Estimation",
+  "subtitle": "Fermi problems, mental math, and classic puzzle patterns",
+  "topics": ["Fermi estimation", "Mental math", "Combinatorial puzzles", "Probability puzzles", "Order-of-magnitude reasoning"],
+  "intro": [
+    "Quant interviews often test how you break an impossible-seeming question into manageable pieces. Fermi estimation asks you to approximate an unknown quantity by multiplying sensible guesses for each factor — population × fraction × rate — and tracking units carefully.",
+    "You'll also meet classic brain teasers: conditional probability traps, symmetry arguments, expected-value shortcuts, and combinatorial counting under constraints. The goal is not memorizing answers but recognizing patterns — when to use complement, when symmetry gives 1/2, and when to decompose a problem into independent sub-estimates."
+  ],
+  "questions": [
+    {
+      "id": "l10_q1",
+      "kind": "standard",
+      "concept": "fermi_decomposition",
+      "question": "A Fermi estimate approximates an unknown quantity by:",
+      "options": [
+        "breaking it into factors you can guess and multiplying them",
+        "guessing one random number",
+        "using only exact census data",
+        "ignoring units"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q1_r1",
+          "question": "Fermi problems are valued in interviews because they test:",
+          "options": ["structured reasoning under uncertainty", "memorization only", "calculator speed", "exact knowledge always"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q1_r2",
+          "question": "A good Fermi estimate tracks:",
+          "options": ["units at each step", "only the final digit", "nothing", "exact values only"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q2",
+      "kind": "standard",
+      "concept": "order_of_magnitude",
+      "question": "Roughly how many piano tuners work in a city of 5 million people? A reasonable first step is to estimate:",
+      "options": [
+        "how many households have pianos that need tuning per year",
+        "the exact number from a phone book",
+        "zero always",
+        "the city's area in square miles only"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q2_r1",
+          "question": "Order-of-magnitude reasoning aims to be correct within about:",
+          "options": ["a factor of 10 (one power of ten)", "exactly", "one percent", "one trillion"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q2_r2",
+          "question": "Supply ≈ demand in steady state means tuners needed ≈ tunings per year divided by:",
+          "options": ["tunings one tuner can do per year", "city population", "piano weight", "random guess"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q3",
+      "kind": "standard",
+      "concept": "mental_math_percent",
+      "question": "Quick mental math: 15% of 240 is closest to:",
+      "options": ["36", "24", "48", "12"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q3_r1",
+          "question": "10% of 240 is 24. 5% is half of that, so 15% = 10% + 5% =",
+          "options": ["36", "24", "48", "30"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q3_r2",
+          "question": "To find 15% quickly, a common trick is 10% plus:",
+          "options": ["half of 10%", "double 10%", "zero", "15% of 1%"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q4",
+      "kind": "standard",
+      "concept": "complement_trick",
+      "simulation": { "type": "dice" },
+      "question": "Two fair dice are rolled. P(at least one six) equals 1 minus P(no six on either die). P(no six) = (5/6)², so P(at least one six) =",
+      "options": ["11/36", "1/6", "1/36", "5/36"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q4_r1",
+          "simulation": { "type": "dice" },
+          "question": "Using the complement is often easier when the question says:",
+          "options": ["'at least one'", "'exactly zero always'", "'never use complement'", "'only one outcome'"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q4_r2",
+          "simulation": { "type": "dice" },
+          "question": "(5/6)² = 25/36. So 1 − 25/36 =",
+          "options": ["11/36", "25/36", "1/36", "5/36"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q5",
+      "kind": "standard",
+      "concept": "symmetry_argument",
+      "simulation": { "type": "coin_flip" },
+      "question": "Three fair coins are flipped. By symmetry, P(exactly one head) equals P(exactly one tail). P(exactly one head) =",
+      "options": ["3/8", "1/8", "1/2", "3/4"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q5_r1",
+          "simulation": { "type": "coin_flip" },
+          "question": "Exactly one head in three flips means choosing which flip is heads: C(3,1) = 3 ways, each with probability (1/2)³:",
+          "options": ["3/8", "1/8", "6/8", "1/2"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q5_r2",
+          "simulation": { "type": "coin_flip" },
+          "question": "Swapping heads and tails leaves the problem unchanged. This is a:",
+          "options": ["symmetry argument", "Fermi estimate", "confidence interval", "Nash equilibrium"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q6",
+      "kind": "standard",
+      "concept": "expected_value_linearity",
+      "question": "You roll a fair die. E[X] = 3.5. If you roll it twice and add the results, E[sum] =",
+      "options": ["7", "3.5", "6", "12"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q6_r1",
+          "simulation": { "type": "two_dice" },
+          "question": "Expectation is linear: E[X + Y] = E[X] + E[Y] even if X and Y are:",
+          "options": ["dependent", "always equal", "constants only", "never defined"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q6_r2",
+          "simulation": { "type": "dice" },
+          "question": "E[2X] for one fair die equals 2 × 3.5 =",
+          "options": ["7", "3.5", "6", "2"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q7",
+      "kind": "standard",
+      "concept": "conditional_trap",
+      "simulation": { "type": "card_marble", "mode": "cards" },
+      "question": "A standard deck: P(king | face card). There are 12 face cards and 4 kings among them, so the probability is:",
+      "options": ["1/3", "4/52", "1/13", "1/4"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q7_r1",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Given a face card, the sample space shrinks to 12 cards. Kings among them:",
+          "options": ["4", "52", "13", "1"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q7_r2",
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "P(king | face) = 4/12 =",
+          "options": ["1/3", "4/52", "1/13", "1/2"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q8",
+      "kind": "standard",
+      "concept": "scaling_units",
+      "question": "Estimate U.S. annual coffee consumption (cups). A reasonable per-person daily estimate might be ~1 cup, population ~330M, so annual cups ≈ 330M × 365 × 1. Order of magnitude:",
+      "options": ["10¹¹ (about 100 billion)", "10³", "10⁶", "10¹⁵"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q8_r1",
+          "question": "330 million × 365 ≈ 1.2 × 10⁸ × 10² ≈ order:",
+          "options": ["10¹¹ when including cups per day factor", "10²", "10⁰", "10²⁰"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q8_r2",
+          "question": "When multiplying estimates, exponents:",
+          "options": ["add (powers of ten combine)", "subtract always", "stay zero", "cancel"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q9",
+      "kind": "challenge",
+      "concept": "birthday_paradox_intuition",
+      "question": "In a group of 23 people, the probability that at least two share a birthday is surprisingly high (~50%) because:",
+      "options": [
+        "there are C(23,2) = 253 pairs to compare, not just 23 individuals",
+        "everyone has the same birthday",
+        "365 is small compared to 23",
+        "birthdays are not independent"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q9_r1",
+          "question": "The birthday paradox compares:",
+          "options": ["all pairs of people", "only adjacent people", "only one person", "months only"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q9_r2",
+          "question": "C(23,2) equals:",
+          "options": ["253", "23", "46", "365"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l10_q10",
+      "kind": "challenge",
+      "concept": "monty_hall_pattern",
+      "question": "Monty Hall: you pick door 1; host opens a goat door (say 3); you should switch because your initial pick had probability 1/3 and the other closed door now has:",
+      "options": ["2/3", "1/3", "1/2", "1"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l10_q10_r1",
+          "question": "Switching wins if your initial pick was wrong. Initial wrong probability is:",
+          "options": ["2/3", "1/3", "1/2", "0"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l10_q10_r2",
+          "question": "The host always reveals a goat and never opens the prize door. This:",
+          "options": ["transfers probability to the remaining door", "makes all doors equal always", "changes nothing", "makes switching worse"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l10_p1",
+      "concept": "fermi_decomposition",
+      "question": "Fermi estimation multiplies:",
+      "options": ["reasonable factor guesses", "exact census tables only", "random digits", "nothing"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l10_p2",
+      "concept": "order_of_magnitude",
+      "question": "Order-of-magnitude accuracy is typically within:",
+      "options": ["a power of ten", "exactly", "one unit", "one trillionth"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l10_p3",
+      "concept": "mental_math_percent",
+      "question": "15% of 200 equals:",
+      "options": ["30", "20", "15", "40"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l10_p4",
+      "concept": "complement_trick",
+      "simulation": { "type": "dice" },
+      "question": "P(at least one six with two dice) equals 1 −",
+      "options": ["(5/6)²", "(1/6)²", "1/6", "5/6"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l10_p5",
+      "concept": "symmetry_argument",
+      "simulation": { "type": "coin_flip" },
+      "question": "P(exactly one head in three fair flips) =",
+      "options": ["3/8", "1/8", "1/2", "6/8"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l10_p6",
+      "concept": "expected_value_linearity",
+      "simulation": { "type": "two_dice" },
+      "question": "E[sum of two fair dice] =",
+      "options": ["7", "3.5", "6", "12"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l10_p7",
+      "concept": "conditional_trap",
+      "simulation": { "type": "card_marble", "mode": "cards" },
+      "question": "P(king | face card) =",
+      "options": ["1/3", "4/52", "1/13", "1/4"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l10_p8",
+      "concept": "monty_hall_pattern",
+      "question": "Monty Hall: after host reveals a goat, switching wins with probability:",
+      "options": ["2/3", "1/3", "1/2", "1"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    }
+  ]
+}

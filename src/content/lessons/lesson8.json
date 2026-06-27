@@ -1,0 +1,407 @@
+{
+  "lessonId": "lesson_8",
+  "order": 8,
+  "title": "Estimation & Confidence",
+  "subtitle": "Point estimates, intervals, and sampling uncertainty",
+  "topics": ["Point estimation", "Confidence intervals", "Standard error", "Bias", "Sample size"],
+  "intro": [
+    "Estimation is how you infer unknown population quantities from sample data. A point estimate is a single best guess — like using the sample mean x̄ to estimate the population mean μ. In quant interviews you'll constantly estimate expected returns, volatilities, and model parameters from finite data.",
+    "Because samples vary, every estimate carries uncertainty. The standard error measures how much an estimator would bounce around if you repeated the sampling. A confidence interval wraps a point estimate with a margin that reflects that uncertainty — for example, a 95% CI means that if you repeated the experiment many times, about 95% of the intervals would contain the true parameter."
+  ],
+  "questions": [
+    {
+      "id": "l8_q1",
+      "kind": "standard",
+      "concept": "point_estimate",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "You draw a random sample and compute x̄ = 52.3. This value is a:",
+      "options": [
+        "point estimate of the population mean",
+        "confidence interval",
+        "p-value",
+        "the exact population mean"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q1_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "A single number computed from sample data to guess an unknown population parameter is called a:",
+          "options": ["point estimate", "hypothesis", "variance", "correlation"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q1_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The sample mean x̄ is commonly used as a point estimate for:",
+          "options": ["μ (population mean)", "σ² (variance only)", "the maximum", "the sample size"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q2",
+      "kind": "standard",
+      "concept": "standard_error",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "The standard error of the sample mean (with known σ) equals:",
+      "options": [
+        "σ / √n",
+        "σ × √n",
+        "σ² / n",
+        "σ / n"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q2_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "Standard error measures the typical spread of an estimator across:",
+          "options": ["repeated samples", "one sample only", "the population", "outliers only"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q2_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "If σ = 10 and n = 100, the standard error of x̄ is:",
+          "options": ["1", "10", "0.1", "100"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q3",
+      "kind": "standard",
+      "concept": "sample_size_effect",
+      "simulation": { "type": "experimental_probability", "probability": 0.5 },
+      "question": "Holding σ fixed, if you quadruple the sample size n, the standard error of x̄ is multiplied by:",
+      "options": ["1/2", "4", "2", "1/4"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q3_r1",
+          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "question": "Larger sample sizes make the standard error:",
+          "options": ["smaller", "larger", "unchanged", "infinite"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q3_r2",
+          "simulation": { "type": "experimental_probability", "probability": 0.5 },
+          "question": "Standard error decreases proportionally to 1/√n. If n increases from 25 to 100, SE is multiplied by:",
+          "options": ["1/2", "2", "4", "1/4"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q4",
+      "kind": "standard",
+      "concept": "confidence_interval_mean",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "A 95% confidence interval for μ (known σ) is x̄ ± 1.96 · (σ/√n). The number 1.96 comes from:",
+      "options": [
+        "the standard normal distribution",
+        "the sample mean",
+        "the variance formula",
+        "the law of large numbers alone"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q4_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "For a 95% CI, about 95% of the area under a standard normal curve lies within ±",
+          "options": ["1.96 standard deviations", "1 standard deviation", "3 standard deviations", "0.5 standard deviations"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q4_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "A wider confidence interval reflects:",
+          "options": ["more uncertainty", "less uncertainty", "a smaller sample always", "zero variance"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q5",
+      "kind": "standard",
+      "concept": "ci_interpretation",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "Which is the correct interpretation of a 95% confidence interval?",
+      "options": [
+        "If we repeated sampling many times, about 95% of the constructed intervals would contain the true μ",
+        "There is a 95% probability that μ lies in this specific interval",
+        "95% of the data falls inside the interval",
+        "The sample mean is correct 95% of the time"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q5_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The confidence level (e.g. 95%) refers to the long-run success rate of the:",
+          "options": ["procedure", "single interval only", "sample mean", "standard deviation"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q5_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "Once a specific CI is computed, the true μ either is or is not in it — the 95% refers to:",
+          "options": ["repeated sampling behavior", "a coin flip", "the data percentage", "the p-value"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q6",
+      "kind": "standard",
+      "concept": "unbiased_estimator",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "An estimator θ̂ is unbiased if:",
+      "options": [
+        "E[θ̂] = θ",
+        "Var(θ̂) = 0",
+        "θ̂ always equals θ",
+        "θ̂ > θ always"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q6_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "On average across many samples, an unbiased estimator hits the true parameter:",
+          "options": ["on target", "too high", "too low", "never"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q6_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The sample mean x̄ is an unbiased estimator of:",
+          "options": ["μ", "σ²", "the median only", "the maximum"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q7",
+      "kind": "standard",
+      "concept": "mle_intuition",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "Maximum likelihood estimation (MLE) chooses the parameter value that:",
+      "options": [
+        "maximizes the probability of observing the data you actually saw",
+        "minimizes the sample size",
+        "always equals zero",
+        "ignores the data"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q7_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "MLE asks: which parameter makes our observed data:",
+          "options": ["most likely", "least likely", "impossible", "constant"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q7_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "For a normal distribution with known variance, the MLE of the mean is:",
+          "options": ["the sample mean", "zero", "the median only", "the range"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q8",
+      "kind": "standard",
+      "concept": "margin_of_error",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "In x̄ ± 1.96(σ/√n), the term 1.96(σ/√n) is called the:",
+      "options": [
+        "margin of error",
+        "sample mean",
+        "variance",
+        "bias"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q8_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The margin of error is half the width of a:",
+          "options": ["confidence interval", "histogram", "sample", "variance"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q8_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "To cut the margin of error in half (same σ), you must multiply n by:",
+          "options": ["4", "2", "0.5", "1.96"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q9",
+      "kind": "challenge",
+      "concept": "compute_ci",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "n = 64, x̄ = 50, σ = 8. A 95% CI for μ is 50 ± 1.96(8/8) = 50 ± 1.96. The interval is:",
+      "options": ["[48.04, 51.96]", "[42, 58]", "[49, 51]", "[40, 60]"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q9_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "x̄ = 100, SE = 2, 95% margin = 1.96 × 2 = 3.92. The CI is:",
+          "options": ["[96.08, 103.92]", "[98, 102]", "[100, 100]", "[90, 110]"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q9_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "SE = σ/√n. With σ = 12 and n = 36, SE equals:",
+          "options": ["2", "12", "6", "0.5"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    },
+    {
+      "id": "l8_q10",
+      "kind": "challenge",
+      "concept": "sample_variance_bias",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "The sample variance s² = Σ(xᵢ − x̄)² / (n − 1) uses n − 1 instead of n in the denominator to:",
+      "options": [
+        "make it an unbiased estimator of σ²",
+        "make it smaller always",
+        "eliminate all variance",
+        "match the sample mean"
+      ],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "remediation": [
+        {
+          "id": "l8_q10_r1",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "Dividing by n instead of n − 1 for sample variance tends to:",
+          "options": ["underestimate σ²", "overestimate σ²", "be unbiased", "give zero"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        },
+        {
+          "id": "l8_q10_r2",
+          "simulation": { "type": "distribution_builder", "shape": "normal" },
+          "question": "The factor n − 1 in the denominator is called the:",
+          "options": ["degrees of freedom adjustment", "margin of error", "correlation", "MLE term"],
+          "correctAnswer": 0,
+          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l8_p1",
+      "concept": "point_estimate",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "The sample mean is a point estimate of:",
+      "options": ["μ", "σ only", "n", "the p-value"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l8_p2",
+      "concept": "standard_error",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "Standard error of x̄ (known σ) equals:",
+      "options": ["σ/√n", "σ√n", "σ²", "n/σ"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l8_p3",
+      "concept": "sample_size_effect",
+      "simulation": { "type": "experimental_probability", "probability": 0.5 },
+      "question": "Increasing n makes the standard error:",
+      "options": ["decrease", "increase", "stay the same", "infinite"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l8_p4",
+      "concept": "confidence_interval_mean",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "A 95% CI uses the critical value:",
+      "options": ["1.96 (for known σ, normal)", "0.5", "n", "σ²"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l8_p5",
+      "concept": "ci_interpretation",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "95% confidence refers to the long-run capture rate of the:",
+      "options": ["interval procedure", "single sample mean", "population", "standard deviation"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l8_p6",
+      "concept": "unbiased_estimator",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "Unbiased means E[θ̂] =",
+      "options": ["θ", "0", "1", "Var(θ̂)"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l8_p7",
+      "concept": "margin_of_error",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "Margin of error for x̄ equals z* ×",
+      "options": ["SE", "Var(X)", "n", "x̄"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    },
+    {
+      "id": "l8_p8",
+      "concept": "sample_variance_bias",
+      "simulation": { "type": "distribution_builder", "shape": "normal" },
+      "question": "Sample variance uses n − 1 to correct:",
+      "options": ["bias", "the mean", "correlation", "sample size"],
+      "correctAnswer": 0,
+      "explanations": { "A": "", "B": "", "C": "", "D": "" }
+    }
+  ]
+}
