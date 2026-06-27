@@ -10,11 +10,8 @@ export function TimerBar({ seconds, onExpire, paused }: TimerBarProps) {
   const [remaining, setRemaining] = useState(seconds);
 
   useEffect(() => {
+    if (paused || seconds <= 0) return;
     setRemaining(seconds);
-  }, [seconds]);
-
-  useEffect(() => {
-    if (paused || remaining <= 0) return;
     const id = window.setInterval(() => {
       setRemaining((r) => {
         if (r <= 1) {
@@ -26,7 +23,7 @@ export function TimerBar({ seconds, onExpire, paused }: TimerBarProps) {
       });
     }, 1000);
     return () => window.clearInterval(id);
-  }, [seconds, paused, onExpire, remaining]);
+  }, [seconds, paused, onExpire]);
 
   if (seconds <= 0) return null;
 
