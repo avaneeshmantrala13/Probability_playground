@@ -27,6 +27,8 @@ import { LearnMode } from "./pages/MarketMaking/LearnMode";
 import { PlayMode } from "./pages/MarketMaking/PlayMode";
 import { PokerTheory } from "./pages/PokerTheory";
 import { PokerTheoryPlayer } from "./pages/PokerTheoryPlayer";
+import { MentalMathHub } from "./pages/MentalMath/Hub";
+import { MentalMathDrill } from "./pages/MentalMath/Drill";
 import { AccentThemeApplier } from "./components/store/AccentThemeApplier";
 import { DailyRewardsGate } from "./components/dailyRewards/DailyRewardsGate";
 
@@ -67,6 +69,8 @@ export function App() {
         <Route path="/market-making" element={<Protected><MarketMaking /></Protected>} />
         <Route path="/market-making/learn" element={<Protected><LearnMode /></Protected>} />
         <Route path="/market-making/play" element={<Protected><PlayMode /></Protected>} />
+        <Route path="/mental-math" element={<Protected><MentalMathHub /></Protected>} />
+        <Route path="/mental-math/play/:difficulty" element={<Protected><MentalMathDrill /></Protected>} />
         <Route path="/calendar" element={<Protected><Calendar /></Protected>} />
         <Route path="/badges" element={<Protected><Badges /></Protected>} />
         <Route path="/leaderboard" element={<Protected><Leaderboard /></Protected>} />

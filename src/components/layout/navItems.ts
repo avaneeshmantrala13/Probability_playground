@@ -1,9 +1,12 @@
 import type { ComponentType, SVGProps } from "react";
 import {
   BookIcon,
+  BrainIcon,
   CalendarIcon,
   ChartIcon,
+  DiamondIcon,
   DiceIcon,
+  HeartIcon,
   HomeIcon,
   MedalIcon,
   SettingsIcon,
@@ -18,18 +21,108 @@ export interface NavItem {
   icon: ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
   /** Match nested routes (e.g. /lessons/lesson_1) as active. */
   matchPrefix?: boolean;
+  /** Tailwind classes for the icon color. */
+  iconClassName: string;
+  /** Tailwind classes when this nav item is active. */
+  activeClassName: string;
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { to: "/", label: "Home", icon: HomeIcon },
-  { to: "/lessons", label: "Lessons", icon: BookIcon, matchPrefix: true },
-  { to: "/poker-theory", label: "Poker Theory", icon: SpadeIcon, matchPrefix: true },
-  { to: "/market-making", label: "Market Making", icon: ChartIcon, matchPrefix: true },
-  { to: "/playground", label: "Playground", icon: DiceIcon, matchPrefix: true },
-  { to: "/poker", label: "Poker Night", icon: SpadeIcon, matchPrefix: true },
-  { to: "/store", label: "Store", icon: StoreIcon, matchPrefix: true },
-  { to: "/calendar", label: "Calendar", icon: CalendarIcon, matchPrefix: true },
-  { to: "/leaderboard", label: "Leaderboard", icon: MedalIcon, matchPrefix: true },
-  { to: "/badges", label: "Badges", icon: TrophyIcon, matchPrefix: true },
-  { to: "/settings", label: "Settings", icon: SettingsIcon },
+  {
+    to: "/",
+    label: "Home",
+    icon: HomeIcon,
+    iconClassName: "text-violet-500",
+    activeClassName: "bg-violet-500/15 text-primary ring-1 ring-violet-500/25",
+  },
+  {
+    to: "/lessons",
+    label: "Lessons",
+    icon: BookIcon,
+    matchPrefix: true,
+    iconClassName: "text-sky-500",
+    activeClassName: "bg-sky-500/15 text-primary ring-1 ring-sky-500/25",
+  },
+  {
+    to: "/poker-theory",
+    label: "Poker Theory",
+    icon: HeartIcon,
+    matchPrefix: true,
+    iconClassName: "text-red-500",
+    activeClassName: "bg-red-500/15 text-primary ring-1 ring-red-500/25",
+  },
+  {
+    to: "/market-making",
+    label: "Market Making",
+    icon: ChartIcon,
+    matchPrefix: true,
+    iconClassName: "text-emerald-500",
+    activeClassName: "bg-emerald-500/15 text-primary ring-1 ring-emerald-500/25",
+  },
+  {
+    to: "/mental-math",
+    label: "Mental Math",
+    icon: BrainIcon,
+    matchPrefix: true,
+    iconClassName: "text-orange-500",
+    activeClassName: "bg-orange-500/15 text-primary ring-1 ring-orange-500/25",
+  },
+  {
+    to: "/playground",
+    label: "Playground",
+    icon: DiceIcon,
+    matchPrefix: true,
+    iconClassName: "text-fuchsia-500",
+    activeClassName: "bg-fuchsia-500/15 text-primary ring-1 ring-fuchsia-500/25",
+  },
+  {
+    to: "/poker",
+    label: "Poker Night",
+    icon: SpadeIcon,
+    matchPrefix: true,
+    iconClassName: "text-neutral-900 dark:text-neutral-100",
+    activeClassName: "bg-neutral-500/15 text-primary ring-1 ring-neutral-500/30",
+  },
+  {
+    to: "/store",
+    label: "Store",
+    icon: StoreIcon,
+    matchPrefix: true,
+    iconClassName: "text-amber-500",
+    activeClassName: "bg-amber-500/15 text-primary ring-1 ring-amber-500/25",
+  },
+  {
+    to: "/calendar",
+    label: "Calendar",
+    icon: CalendarIcon,
+    matchPrefix: true,
+    iconClassName: "text-cyan-500",
+    activeClassName: "bg-cyan-500/15 text-primary ring-1 ring-cyan-500/25",
+  },
+  {
+    to: "/leaderboard",
+    label: "Leaderboard",
+    icon: MedalIcon,
+    matchPrefix: true,
+    iconClassName: "text-yellow-500",
+    activeClassName: "bg-yellow-500/15 text-primary ring-1 ring-yellow-500/25",
+  },
+  {
+    to: "/badges",
+    label: "Badges",
+    icon: TrophyIcon,
+    matchPrefix: true,
+    iconClassName: "text-lime-500",
+    activeClassName: "bg-lime-500/15 text-primary ring-1 ring-lime-500/25",
+  },
+  {
+    to: "/settings",
+    label: "Settings",
+    icon: SettingsIcon,
+    iconClassName: "text-slate-500",
+    activeClassName: "bg-slate-500/15 text-primary ring-1 ring-slate-500/25",
+  },
 ];
+
+/** Decorative suit used on home/marketing only — not in main nav. */
+export { DiamondIcon };

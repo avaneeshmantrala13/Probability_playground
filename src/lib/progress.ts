@@ -33,6 +33,8 @@ export interface LessonMastery {
 import type { MultiplayerAccess } from "./multiplayer/access";
 import type { ChestStats, PendingChest, StreakDay } from "./streak";
 import { EMPTY_CHEST_STATS } from "./streak";
+import type { MentalMathBestScores } from "./mentalMath/types";
+import { emptyMentalMathScores } from "./mentalMath/types";
 
 /** Currently equipped cosmetic ids, one per category. */
 export interface EquippedCosmetics {
@@ -131,6 +133,8 @@ export interface CourseProgress {
   badgesByDay?: Record<string, string[]>;
   /** Legacy/alternate per-day token deltas. */
   tokensByDay?: Record<string, { earned: number; lost: number }>;
+  /** Best correct-answer counts in 120s mental math drills, per difficulty. */
+  mentalMathBest?: MentalMathBestScores;
 }
 
 export function emptyProgress(): CourseProgress {
@@ -158,6 +162,18 @@ export function emptyProgress(): CourseProgress {
     loginHistory: {},
     chestBadgesEarned: [],
     chestStats: { ...EMPTY_CHEST_STATS },
+    mentalMathBest: emptyMentalMathScores(),
+  };
+}
+
+/** Fresh progress with the standard 1000-token starting balance. */
+export function freshProgressWithTokens(): CourseProgress {
+  return {
+    ...emptyProgress(),
+    tokens: 1000,
+    pokerSeeded: true,
+    peakTokens: 1000,
+    lifetimeTokens: 1000,
   };
 }
 

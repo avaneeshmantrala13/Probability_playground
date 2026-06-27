@@ -113,6 +113,12 @@ export function Home() {
               Poker theory
             </Link>
             <Link
+              to="/mental-math"
+              className="rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1.5 font-medium text-primary transition hover:border-orange-500/50 hover:text-orange-600"
+            >
+              Mental math
+            </Link>
+            <Link
               to="/poker"
               className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
             >

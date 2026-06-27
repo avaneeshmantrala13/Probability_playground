@@ -199,6 +199,45 @@ export const SpadeIcon = (p: IconProps) => (
   </svg>
 );
 
+export const HeartIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path
+      d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"
+      fill="currentColor"
+      stroke="none"
+    />
+  </svg>
+);
+
+export const ClubIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path
+      d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+      fill="currentColor"
+      stroke="none"
+    />
+    <path d="M12 16v5" />
+  </svg>
+);
+
+export const DiamondIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path
+      d="M12 2 4 8.5 12 22l8-13.5L12 2z"
+      fill="currentColor"
+      stroke="none"
+    />
+  </svg>
+);
+
+export const BrainIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M9 4a2.5 2.5 0 0 0-2.5 2.5v1A2.5 2.5 0 0 0 4 10v1a2.5 2.5 0 0 0 2.5 2.5V15A2.5 2.5 0 0 0 9 17.5h1.5" />
+    <path d="M15 4a2.5 2.5 0 0 1 2.5 2.5v1A2.5 2.5 0 0 1 20 10v1a2.5 2.5 0 0 1-2.5 2.5V15a2.5 2.5 0 0 1-2.5 2.5H13.5" />
+    <path d="M9 8.5h6M10 12h4M11 15.5h2" />
+  </svg>
+);
+
 export const CalendarIcon = (p: IconProps) => (
   <svg {...base(p)}>
     <rect x="3" y="4" width="18" height="18" rx="2" />

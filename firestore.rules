@@ -75,6 +75,17 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    match /mentalMathLeaderboard/{uid} {
+      allow read: if isSignedIn();
+      allow create, update: if isOwner(uid)
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.username is string
+        && request.resource.data.bestEasy is number
+        && request.resource.data.bestMedium is number
+        && request.resource.data.bestHard is number;
+      allow delete: if false;
+    }
+
     match /lessonAttempts/{uid}/attempts/{attemptId} {
       allow read, write: if isOwner(uid);
     }

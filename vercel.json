@@ -12,6 +12,12 @@
     },
     "api/leaderboard.ts": {
       "maxDuration": 30
+    },
+    "api/mental-math-leaderboard.ts": {
+      "maxDuration": 30
+    },
+    "api/admin-reset-progress.ts": {
+      "maxDuration": 30
     }
   },
   "rewrites": [

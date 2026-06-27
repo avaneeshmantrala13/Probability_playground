@@ -25,6 +25,9 @@ import {
 } from "../lib/progress";
 import { applyChestReward, processLoginRewards } from "../lib/dailyRewards";
 import { syncLeaderboardEntry } from "../lib/leaderboard";
+import { syncMentalMathLeaderboardEntry } from "../lib/mentalMathLeaderboard";
+import type { MentalMathDifficulty } from "../lib/mentalMath/types";
+import { emptyMentalMathScores } from "../lib/mentalMath/types";
 import { recordDayTokens } from "../lib/streak";
 import { isPassing, scoreToPercent } from "../lib/mastery";
 import { STARTING_TOKENS } from "../lib/tokens";
@@ -80,6 +83,8 @@ interface ProgressContextValue {
   unlockMultiplayer: (access: MultiplayerAccess) => void;
   /** Record one correctly answered problem (lessons, poker quizzes, games). */
   recordCorrectAnswer: () => void;
+  /** Save a mental math drill score if it beats the personal best for that mode. */
+  recordMentalMathScore: (difficulty: MentalMathDifficulty, score: number) => boolean;
   /** Reload progress from Firestore (does not overwrite server with stale local state). */
   refetchProgress: () => Promise<boolean>;
   claimPendingChest: () => void;
@@ -110,6 +115,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     (uid: string, snapshot: CourseProgress) => {
       void saveProgress(uid, snapshot).catch(() => undefined);
       void syncLeaderboardEntry(uid, username, snapshot).catch(() => undefined);
+      void syncMentalMathLeaderboardEntry(
+        uid,
+        username,
+        snapshot.mentalMathBest ?? emptyMentalMathScores(),
+      ).catch(() => undefined);
     },
     [username],
   );
@@ -472,6 +482,24 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }));
   }, [update]);
 
+  const recordMentalMathScore = useCallback(
+    (difficulty: MentalMathDifficulty, score: number): boolean => {
+      let improved = false;
+      update((prev) => {
+        const current = prev.mentalMathBest ?? emptyMentalMathScores();
+        const prevBest = current[difficulty];
+        if (score <= prevBest) return prev;
+        improved = true;
+        return {
+          ...prev,
+          mentalMathBest: { ...current, [difficulty]: score },
+        };
+      });
+      return improved;
+    },
+    [update],
+  );
+
   const value = useMemo<ProgressContextValue>(
     () => ({
       progress,
@@ -489,6 +517,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       equipCosmetic,
       recordPokerHand,
       recordCorrectAnswer,
+      recordMentalMathScore,
       unlockMultiplayer,
       refetchProgress,
       claimPendingChest,
@@ -513,6 +542,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       equipCosmetic,
       recordPokerHand,
       recordCorrectAnswer,
+      recordMentalMathScore,
       unlockMultiplayer,
       refetchProgress,
       claimPendingChest,
