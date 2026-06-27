@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_tournament_cash",
+  "order": 7,
+  "title": "Tournament vs Cash Game Strategy",
+  "subtitle": "ICM, stack survival, and when chips change value",
+  "topics": [
+    "ICM",
+    "Bubble play",
+    "Stack depth",
+    "Cash chip utility"
+  ],
+  "intro": [
+    "In cash games, every chip has the same dollar value — winning or losing $100 always means the same thing. You can reload at any time, so decisions are driven by expected value (EV) in pure chip terms.",
+    "Tournaments change the math. Your stack represents survival and ladder equity, not just raw chips. Independent Chip Model (ICM) adjusts for pay jumps: folding can be correct even with a strong hand when calling risks busting near the money.",
+    "Short stacks in tournaments often shift to push-or-fold strategy, while deep stacks in cash games can play more speculative hands. Recognizing which format you are in — and how stage, antes, and pay structure affect risk — is essential for choosing the right lines."
+  ],
+  "questions": [
+    {
+      "id": "pt_tc_q1",
+      "kind": "standard",
+      "concept": "chip_utility",
+      "question": "In a cash game, winning 1,000 chips is worth:",
+      "options": [
+        "The same dollar value regardless of stack size",
+        "More when you are short stacked",
+        "Less when blinds are small",
+        "Nothing until you leave the table"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — cash chips convert to dollars at a fixed rate.",
+        "B": "Stack depth doesn't change chip dollar value in cash.",
+        "C": "Blind size affects decisions, not chip redemption value.",
+        "D": "Chips have value while you play and when you cash out."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q1_r1",
+          "question": "Cash game chips differ from tournament chips because:",
+          "options": [
+            "Cash chips always map to real money at a fixed rate",
+            "Cash chips expire each orbit",
+            "Tournament chips are worth more per chip always",
+            "Only tournament chips can be rebought"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — $1 in chips is $1 in value.",
+            "B": "Cash chips don't expire mid-session.",
+            "C": "Tournament chip value is non-linear near pay jumps.",
+            "D": "Some cash games allow reloads; tournaments have set buy-ins."
+          }
+        },
+        {
+          "id": "pt_tc_q1_r2",
+          "question": "Reloading in a cash game means:",
+          "options": [
+            "You can add chips and keep playing at the same stakes",
+            "You must wait until the tournament ends",
+            "Your stack resets to starting tournament chips",
+            "All prior losses are erased from the deck"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — cash games allow buying more chips between hands.",
+            "B": "Tournaments don't allow mid-event rebuys in freezeouts.",
+            "C": "Tournament starting stacks are fixed per event.",
+            "D": "The deck isn't reset by reloading."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q2",
+      "kind": "standard",
+      "concept": "icm_def",
+      "question": "ICM (Independent Chip Model) primarily adjusts for:",
+      "options": [
+        "Pay jumps — chips worth less when busting costs a payout",
+        "Hole card strength only",
+        "Rake in cash games",
+        "Dealer button rotation speed"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — ICM converts chip EV into prize-pool equity.",
+        "B": "Hand strength is separate from ICM.",
+        "C": "Rake is a cash-game house fee, not ICM.",
+        "D": "Button rotation doesn't define ICM."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q2_r1",
+          "question": "Near the bubble, ICM makes players:",
+          "options": [
+            "More risk-averse to avoid busting before a pay jump",
+            "Always shove any two cards",
+            "Ignore pay structure entirely",
+            "Play identical to deep cash games"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — survival equity rises near pay jumps.",
+            "B": "ICM often tightens ranges, not widens to any two.",
+            "C": "Pay structure is central to ICM.",
+            "D": "Cash games lack tournament ladder equity."
+          }
+        },
+        {
+          "id": "pt_tc_q2_r2",
+          "question": "ICM equity measures:",
+          "options": [
+            "Your share of the remaining prize pool given stack sizes",
+            "Only your current blind level",
+            "The rake percentage",
+            "How many hands until break"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — stacks map to expected tournament payout.",
+            "B": "Blind level affects play but isn't ICM itself.",
+            "C": "Rake is unrelated to ICM math.",
+            "D": "Break timing doesn't define ICM."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q3",
+      "kind": "standard",
+      "concept": "bubble",
+      "question": "On the tournament bubble (one player left to bust before money):",
+      "options": [
+        "Medium stacks often tighten to survive into the money",
+        "Everyone should play loose to bust faster",
+        "ICM has no effect",
+        "Blinds stop increasing"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — medium stacks fear busting one spot from cashing.",
+        "B": "Short stacks may shove; medium stacks usually don't play loose.",
+        "C": "ICM is strongest on the bubble.",
+        "D": "Blinds still increase on schedule."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q3_r1",
+          "question": "Big stacks on the bubble can:",
+          "options": [
+            "Pressure medium stacks who can't call without busting",
+            "Only fold every hand",
+            "Never steal blinds",
+            "Ignore stack sizes entirely"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fold equity rises vs risk-averse medium stacks.",
+            "B": "Big stacks exploit with aggression, not pure folding.",
+            "C": "Steals are a key bubble weapon for chip leaders.",
+            "D": "Stack sizes drive bubble strategy."
+          }
+        },
+        {
+          "id": "pt_tc_q3_r2",
+          "question": "Short stacks on the bubble often:",
+          "options": [
+            "Shove wider because waiting bleeds chips to blinds",
+            "Fold every hand until ITM",
+            "Call off with any two cards regardless of ICM",
+            "Post extra blinds voluntarily"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — blind pressure forces push-or-fold lines.",
+            "B": "Pure folding guarantees blind death.",
+            "C": "ICM still matters but survival pressure dominates.",
+            "D": "You can't volunteer extra blinds."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q4",
+      "kind": "standard",
+      "concept": "push_fold",
+      "question": "With 10 big blinds in a tournament, optimal strategy often shifts to:",
+      "options": [
+        "Push-or-fold preflop — shove or fold, minimal flat calls",
+        "Limp-call every hand for deception",
+        "Slow play pocket aces only",
+        "Identical to 200bb cash deep strategy"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — short stacks can't afford multi-street postflop play.",
+        "B": "Limp-calling burns chips and invites isolation.",
+        "C": "Aces should be played aggressively, not only slow played.",
+        "D": "Deep cash strategy requires stack depth this hand lacks."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q4_r1",
+          "question": "Push-or-fold charts depend on:",
+          "options": [
+            "Stack size, position, and antes",
+            "Only your hole card suits",
+            "Whether it is a cash game always",
+            "The color of the felt"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — position and antes widen or tighten shove ranges.",
+            "B": "Suits matter slightly but stack and position dominate.",
+            "C": "Push-or-fold is primarily a tournament short-stack tool.",
+            "D": "Felt color is irrelevant."
+          }
+        },
+        {
+          "id": "pt_tc_q4_r2",
+          "question": "At 8bb, flat-calling a raise is often bad because:",
+          "options": [
+            "You commit too much of your stack without fold equity",
+            "It is illegal in tournaments",
+            "Flat calls always win bigger pots",
+            "Blinds don't matter at 8bb"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — calling leaves a tiny stack with no leverage.",
+            "B": "Flat calls are legal but usually -EV short.",
+            "C": "Small stacks can't realize implied odds well.",
+            "D": "Blinds are a major fraction of an 8bb stack."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q5",
+      "kind": "standard",
+      "concept": "antes",
+      "question": "Tournament antes (everyone posts each hand) mainly:",
+      "options": [
+        "Increase pot size and pressure short stacks to act",
+        "Replace blinds entirely",
+        "Only apply to the button",
+        "Exist only in cash games"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — antes bloat pots and accelerate blind pressure.",
+        "B": "Antes add to blinds, not replace them.",
+        "C": "All active players post antes in most formats.",
+        "D": "Antes are common in tournaments, rare in cash."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q5_r1",
+          "question": "When antes kick in, steal ranges typically:",
+          "options": [
+            "Widen because dead money in the pot rewards aggression",
+            "Narrow to only pocket aces",
+            "Disappear entirely",
+            "Apply only on the river"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — more dead money improves steal EV.",
+            "B": "Steals use wider hands than aces only.",
+            "C": "Steals become more important, not gone.",
+            "D": "Steals are preflop/postflop opens, not river-only."
+          }
+        },
+        {
+          "id": "pt_tc_q5_r2",
+          "question": "Antes affect short stacks by:",
+          "options": [
+            "Adding another forced cost each hand beyond blinds",
+            "Doubling their stack automatically",
+            "Removing blind levels",
+            "Guaranteeing a pay jump"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — antes bleed short stacks faster.",
+            "B": "Antes cost chips, they don't add stack.",
+            "C": "Blind levels continue with antes added.",
+            "D": "Pay jumps depend on eliminations, not antes alone."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q6",
+      "kind": "standard",
+      "concept": "cash_ev",
+      "question": "In cash games, the primary decision metric is usually:",
+      "options": [
+        "Chip EV — maximize long-run dollar expected value",
+        "ICM-adjusted fold equity only",
+        "Ladder equity in the prize pool",
+        "Min-cashing the session"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — each chip has fixed dollar value; play for +chip EV.",
+        "B": "ICM is a tournament concept, not standard cash play.",
+        "C": "Prize-pool ladders exist in tournaments, not cash.",
+        "D": "Cash has no min-cash threshold like tournaments."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q6_r1",
+          "question": "A +$50 EV call in cash means:",
+          "options": [
+            "Profitable long run if repeated in similar spots",
+            "You win $50 every single time",
+            "You must leave the table immediately",
+            "ICM says fold"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — EV is an average over many trials.",
+            "B": "EV is expected value, not a guaranteed outcome.",
+            "C": "No table exit required for +EV plays.",
+            "D": "ICM doesn't apply to cash chip EV."
+          }
+        },
+        {
+          "id": "pt_tc_q6_r2",
+          "question": "Cash game bankroll management focuses on:",
+          "options": [
+            "Having enough buy-ins to absorb variance at your stakes",
+            "Guaranteeing one tournament min-cash",
+            "Never reloading under any circumstance",
+            "Only playing when ICM favors you"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — variance requires adequate bankroll depth.",
+            "B": "Min-cash is tournament language.",
+            "C": "Reloads are normal in cash when bankroll allows.",
+            "D": "ICM is irrelevant to cash bankroll rules."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q7",
+      "kind": "standard",
+      "concept": "survival",
+      "question": "Tournament strategy sometimes sacrifices chip EV for:",
+      "options": [
+        "Survival equity — staying alive to reach higher pay jumps",
+        "Showing hole cards early",
+        "Increasing the rake",
+        "Slowing the dealer"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — busting costs future prize-pool equity.",
+        "B": "Showing cards isn't a strategic tradeoff.",
+        "C": "Players don't choose rake amounts.",
+        "D": "Dealer speed isn't a strategic goal."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q7_r1",
+          "question": "Folding a marginal spot ITM (in the money) can be correct because:",
+          "options": [
+            "Busting loses equity from higher pay rungs",
+            "Folding always wins more chips",
+            "Rules require folding on the river",
+            "Cash games use the same logic always"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — ladder equity can outweigh small chip EV edges.",
+            "B": "Folding wins zero chips that hand.",
+            "C": "No rule forces folds on the river.",
+            "D": "Cash rarely folds for ladder reasons."
+          }
+        },
+        {
+          "id": "pt_tc_q7_r2",
+          "question": "Chip EV vs ICM EV differs when:",
+          "options": [
+            "Pay jumps make busting costlier than chips suggest",
+            "Every hand is heads-up",
+            "Blinds are zero",
+            "All stacks are equal depth in cash"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — ICM discounts chip EV near pay ladders.",
+            "B": "Heads-up changes ranges but ICM still applies in MTTs.",
+            "C": "Blinds are never zero in real play.",
+            "D": "Equal stacks don't remove ICM in tournaments."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q8",
+      "kind": "standard",
+      "concept": "pay_jumps",
+      "question": "Larger pay jumps (e.g., 5th to 4th place) generally make players:",
+      "options": [
+        "More conservative about risking elimination",
+        "Always shove light without reads",
+        "Ignore stack sizes",
+        "Play identical to early tournament stages"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — bigger pay gaps increase cost of busting.",
+        "B": "Light shoves increase bust risk, opposite of ICM pressure.",
+        "C": "Stack sizes remain central to decisions.",
+        "D": "Early stages have weaker ICM pressure."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q8_r1",
+          "question": "Final-table pay jumps mean:",
+          "options": [
+            "Each elimination can be worth a large equity swing",
+            "All places pay the same amount",
+            "ICM disappears at final table",
+            "Blinds stop forever"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — top-heavy structures amplify ICM.",
+            "B": "Payouts increase with higher finishes.",
+            "C": "ICM is often strongest at final table.",
+            "D": "Blinds continue until a winner."
+          }
+        },
+        {
+          "id": "pt_tc_q8_r2",
+          "question": "Flat payout structures (small pay jumps) tend to:",
+          "options": [
+            "Reduce ICM pressure vs top-heavy structures",
+            "Make every fold mandatory",
+            "Eliminate blinds",
+            "Convert tournaments into cash games legally"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — smaller jumps mean less survival premium.",
+            "B": "Folds still depend on spots, not automatic.",
+            "C": "Blinds remain in all formats.",
+            "D": "Format rules differ even if ICM is milder."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q9",
+      "kind": "challenge",
+      "concept": "icm_fold",
+      "question": "Bubble: you have 15bb in MP with A♠ J♦. Chip-leader CO shoves 25bb. ICM-heavy field — best play often:",
+      "options": [
+        "Fold — calling risks busting one spot from money despite a decent hand",
+        "Always call — AJ is too strong to fold ever",
+        "Re-raise to 5bb and fold to shove",
+        "Show cards and ask dealer"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — ICM makes survival premium huge; AJ vs shove range can be a fold.",
+        "B": "Chip EV call can be -ICM EV on the bubble.",
+        "C": "Min-raise commits chips without resolving the spot.",
+        "D": "Showing cards is not a legal strategic option."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q9_r1",
+          "question": "ICM folding means:",
+          "options": [
+            "Passing chip-EV edges to preserve prize-pool equity",
+            "Never folding any pair",
+            "Only applies in cash games",
+            "Ignoring pay structure"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — survival can outweigh marginal chip EV.",
+            "B": "Pairs still fold in bad ICM spots.",
+            "C": "ICM is tournament-specific.",
+            "D": "Pay structure drives ICM folds."
+          }
+        },
+        {
+          "id": "pt_tc_q9_r2",
+          "question": "Vs chip-leader shove on bubble, medium stacks should:",
+          "options": [
+            "Tighten calling ranges significantly",
+            "Call wider because leader is bluffing always",
+            "Always go all-in first",
+            "Leave the table"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — busting costs massive equity near money.",
+            "B": "Leaders shove merged and strong ranges, not air always.",
+            "C": "First-in shoves differ from facing a shove.",
+            "D": "Leaving forfeits equity illegally mid-hand."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_tc_q10",
+      "kind": "challenge",
+      "concept": "final_table",
+      "question": "Final table: you are chip leader with 40bb. Three short stacks at 6–8bb. Best exploitative approach:",
+      "options": [
+        "Open wide and pressure short stacks — they can't call without busting risk",
+        "Only play AA and fold everything else",
+        "Check every hand to 'be nice'",
+        "Match short-stack strategy and push 72o"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — big stack vs short stacks uses ICM fold equity aggressively.",
+        "B": "Leaders widen to steal, not nit down to aces only.",
+        "C": "Checking away leverage burns chip EV and ICM edge.",
+        "D": "Leaders shouldn't mimic 8bb push charts."
+      },
+      "remediation": [
+        {
+          "id": "pt_tc_q10_r1",
+          "question": "Chip-leader ICM advantage means:",
+          "options": [
+            "Others fold more often, giving free chips",
+            "Leader must fold to any raise",
+            "Short stacks always call off",
+            "Blinds disappear"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fear of busting grants fold equity.",
+            "B": "Leaders apply pressure, not auto-fold.",
+            "C": "Short stacks call tighter, not wider.",
+            "D": "Blinds continue."
+          }
+        },
+        {
+          "id": "pt_tc_q10_r2",
+          "question": "Vs three short stacks, chip leader should avoid:",
+          "options": [
+            "Unnecessary confrontations with other big stacks early",
+            "Stealing blinds entirely",
+            "Using position",
+            "Opening from the button"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — big-vs-big fights help short stacks ladder.",
+            "B": "Steals are primary weapon vs shorts.",
+            "C": "Position remains valuable.",
+            "D": "Button opens are standard."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_tc_p1",
+      "concept": "chip_value",
+      "question": "Cash game chips:",
+      "options": [
+        "Have fixed dollar value",
+        "Change value with pay jumps",
+        "Expire each hand",
+        "Only count at showdown"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Pay jumps are tournament.",
+        "C": "Chips persist.",
+        "D": "Chips count always."
+      }
+    },
+    {
+      "id": "pt_tc_p2",
+      "concept": "icm",
+      "question": "ICM adjusts for:",
+      "options": [
+        "Prize-pool equity and pay jumps",
+        "Hole card suits only",
+        "Rake in cash",
+        "Button color"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Suits minor.",
+        "C": "Separate topic.",
+        "D": "Irrelevant."
+      }
+    },
+    {
+      "id": "pt_tc_p3",
+      "concept": "bubble",
+      "question": "On the bubble:",
+      "options": [
+        "Medium stacks often tighten",
+        "Everyone plays loose always",
+        "ICM vanishes",
+        "Blinds stop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Not always loose.",
+        "C": "ICM peaks.",
+        "D": "Blinds continue."
+      }
+    },
+    {
+      "id": "pt_tc_p4",
+      "concept": "short",
+      "question": "10bb tournament strategy:",
+      "options": [
+        "Push-or-fold often",
+        "Deep cash limp strategy",
+        "Only slow play",
+        "Ignore blinds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Needs depth.",
+        "C": "Too passive.",
+        "D": "Blinds matter more."
+      }
+    },
+    {
+      "id": "pt_tc_p5",
+      "concept": "antes",
+      "question": "Antes:",
+      "options": [
+        "Add dead money and pressure shorts",
+        "Replace blinds",
+        "Only for button",
+        "Cash-only rule"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Add to blinds.",
+        "C": "All players post.",
+        "D": "Tournament common."
+      }
+    },
+    {
+      "id": "pt_tc_p6",
+      "concept": "cash_ev",
+      "question": "Cash decisions focus on:",
+      "options": [
+        "Chip/dollar EV",
+        "Ladder min-cash only",
+        "ICM always",
+        "Pay jump fear"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Tournament idea.",
+        "C": "Tournament tool.",
+        "D": "Tournament pressure."
+      }
+    },
+    {
+      "id": "pt_tc_p7",
+      "concept": "survival",
+      "question": "Tournaments may trade chip EV for:",
+      "options": [
+        "Survival equity",
+        "Showing cards",
+        "Higher rake",
+        "Slower deals"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Not a tradeoff.",
+        "C": "House sets rake.",
+        "D": "Irrelevant."
+      }
+    },
+    {
+      "id": "pt_tc_p8",
+      "concept": "leader",
+      "question": "Chip leader vs short stacks:",
+      "options": [
+        "Apply ICM pressure with wide opens",
+        "Only play AA",
+        "Never steal",
+        "Fold to 2bb"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Too tight.",
+        "C": "Steals key.",
+        "D": "Leader has leverage."
+      }
+    }
+  ]
+}

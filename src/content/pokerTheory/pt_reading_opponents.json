@@ -1,0 +1,715 @@
+{
+  "lessonId": "pt_reading_opponents",
+  "order": 8,
+  "title": "Reading Opponents & Tells",
+  "subtitle": "Patterns, timing, and player types at the table",
+  "topics": [
+    "Betting patterns",
+    "Physical tells",
+    "Player types",
+    "Timing tells"
+  ],
+  "intro": [
+    "Reading opponents starts with observing how they play hands — not guessing one tell in isolation. Bet sizing, frequency of raises and folds, and which boards they continue on reveal player type long before any physical gesture does.",
+    "Live poker adds physical and verbal tells: chip handling, eye contact, speech patterns, and reaction time. Online poker replaces much of that with timing tells, bet-size patterns, and stats like VPIP (voluntarily put money in pot) and PFR (preflop raise).",
+    "Strong readers combine multiple data points and adjust for context. A nervous shake might mean strength or weakness depending on the player. Use reads to refine strategy — bluff less vs calling stations, value bet thinner vs nits — but avoid over-weighting a single observation."
+  ],
+  "questions": [
+    {
+      "id": "pt_ro_q1",
+      "kind": "standard",
+      "concept": "betting_patterns",
+      "question": "The most reliable long-term read usually comes from:",
+      "options": [
+        "Betting patterns and hand history over many hands",
+        "One physical gesture on the first hand",
+        "Card backs color",
+        "Seat number only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — repeated actions reveal tendencies.",
+        "B": "Single tells are noisy and unreliable alone.",
+        "C": "Card back design isn't strategic info.",
+        "D": "Seat number doesn't define play style."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q1_r1",
+          "question": "Betting pattern tells include:",
+          "options": [
+            "Always c-betting dry boards but checking wet ones",
+            "Shuffling deck order",
+            "Dealer button weight",
+            "Rake percentage felt"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — frequency and sizing patterns are reads.",
+            "B": "Deck shuffle isn't player pattern.",
+            "C": "Button is positional, not a tell by itself.",
+            "D": "Rake isn't a player tell."
+          }
+        },
+        {
+          "id": "pt_ro_q1_r2",
+          "question": "Tracking how often someone 3-bets preflop helps identify:",
+          "options": [
+            "Aggression level and range width",
+            "Their favorite food",
+            "Hole card order in deck",
+            "Tomorrow's blind level"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 3-bet frequency signals aggression.",
+            "B": "Irrelevant to poker reads.",
+            "C": "Deck order unknown.",
+            "D": "Blind schedule isn't a player read."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q2",
+      "kind": "standard",
+      "concept": "timing",
+      "question": "A 'timing tell' is:",
+      "options": [
+        "How fast or slow someone acts — snap vs tank",
+        "The clock on the wall",
+        "Blind level duration only",
+        "Shuffle time by dealer"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — decision speed can correlate with hand strength.",
+        "B": "Wall clock isn't a player tell.",
+        "C": "Blind structure isn't per-hand timing.",
+        "D": "Dealer shuffle isn't player decision time."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q2_r1",
+          "question": "Instant snap-call on river sometimes suggests:",
+          "options": [
+            "Premeditated call — often strong but player-dependent",
+            "Always a bluff",
+            "Always air",
+            "Illegal action"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — snap can mean trap or obvious call; know the player.",
+            "B": "Snaps aren't always bluffs.",
+            "C": "Snaps aren't always air.",
+            "D": "Fast calls are legal."
+          }
+        },
+        {
+          "id": "pt_ro_q2_r2",
+          "question": "Long tank then large raise sometimes indicates:",
+          "options": [
+            "Polarized decision — strong hand or elaborate bluff",
+            "Forced fold",
+            "Automatic check",
+            "Dealer error only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — tanks often mean a big decision point.",
+            "B": "Raise isn't a fold.",
+            "C": "Raise differs from check.",
+            "D": "Not necessarily dealer error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q3",
+      "kind": "standard",
+      "concept": "physical_tells",
+      "question": "Classic live physical tells include:",
+      "options": [
+        "Shaking hands, eye contact changes, chip stacking behavior",
+        "Community card order",
+        "Rake slip color",
+        "Blind chip denomination laws"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — body language and handling chips reveal stress or confidence.",
+        "B": "Board order is public, not a player tell.",
+        "C": "Rake slips aren't player behavior.",
+        "D": "Denomination rules aren't tells."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q3_r1",
+          "question": "Reverse tells are:",
+          "options": [
+            "Deliberately acting weak when strong or vice versa",
+            "Reading the board backwards",
+            "Dealer dealing in reverse",
+            "Checking out of turn always"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — skilled players fake tells to mislead.",
+            "B": "Not literal board reversal.",
+            "C": "Deal direction is standard.",
+            "D": "Out-of-turn is angle, not reverse tell definition."
+          }
+        },
+        {
+          "id": "pt_ro_q3_r2",
+          "question": "Physical tells are weakest when:",
+          "options": [
+            "Sample size is one hand and player is unknown",
+            "You have 500 hands of stats",
+            "Patterns repeat over sessions",
+            "Player is consistent"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — one-off gestures mislead without context.",
+            "B": "Stats strengthen reads, not weaken.",
+            "C": "Repeated patterns strengthen reads.",
+            "D": "Consistency helps reading."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q4",
+      "kind": "standard",
+      "concept": "calling_station",
+      "question": "A 'calling station' is a player who:",
+      "options": [
+        "Calls too often — hard to bluff, good to value bet",
+        "Folds every hand preflop",
+        "Only 3-bets aces",
+        "Never sees a flop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — stations call wide; reduce bluffs, increase value.",
+        "B": "Nits fold often; stations call.",
+        "C": "3-bet aces only is nitty/ tight aggressive.",
+        "D": "Stations see many flops by calling."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q4_r1",
+          "question": "Vs a calling station you should:",
+          "options": [
+            "Value bet thinner and bluff less",
+            "Triple-barrel air always",
+            "Never bet for value",
+            "Only check-raise bluff"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — they pay off; extract value.",
+            "B": "Stations call bluffs down.",
+            "C": "Value betting is primary exploit.",
+            "D": "Bluff-heavy lines lose."
+          }
+        },
+        {
+          "id": "pt_ro_q4_r2",
+          "question": "High VPIP and low fold-to-c-bet often signals:",
+          "options": [
+            "Station tendencies — wide calls postflop",
+            "Ultra-nit fold everything",
+            "Only plays when dealer changes",
+            "Cannot hold cards"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — loose and sticky postflop.",
+            "B": "Nits fold often, opposite profile.",
+            "C": "Dealer change irrelevant.",
+            "D": "They hold cards fine — they call too much."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q5",
+      "kind": "standard",
+      "concept": "nit",
+      "question": "A 'nit' is characterized by:",
+      "options": [
+        "Very tight range — folds often, shows up with strong hands",
+        "Plays every hand aggressively",
+        "Always bluffs river",
+        "Never folds preflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — nits enter pots selectively with premium holdings.",
+        "B": "Loose aggressive is opposite of nit.",
+        "C": "Nits under-bluff typically.",
+        "D": "Nits fold many preflop hands."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q5_r1",
+          "question": "Vs a nit who suddenly raises river, you should:",
+          "options": [
+            "Give credit — range is heavily value-weighted",
+            "Call with any high card always",
+            "Assume bluff always",
+            "Ignore their prior tightness"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — nit river raises are rarely bluffs.",
+            "B": "High card alone loses to nit value.",
+            "C": "Nits don't bluff river often.",
+            "D": "Prior tightness is the read."
+          }
+        },
+        {
+          "id": "pt_ro_q5_r2",
+          "question": "Exploit nits by:",
+          "options": [
+            "Stealing blinds and folding to their aggression",
+            "Calling them down light always",
+            "Never bluffing preflop",
+            "Showing aces every hand"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — they fold too much; respect their raises.",
+            "B": "Light calls lose vs nit value.",
+            "C": "Steals include preflop bluffs.",
+            "D": "Showing cards is not strategy."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q6",
+      "kind": "standard",
+      "concept": "online_stats",
+      "question": "Online HUD stat PFR (preflop raise %) measures:",
+      "options": [
+        "How often player raises preflop voluntarily",
+        "River call frequency only",
+        "Showdown win rate always",
+        "Chat message count"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — PFR tracks preflop raising frequency.",
+        "B": "River calls are separate stats.",
+        "C": "Showdown win rate differs from PFR.",
+        "D": "Chat isn't PFR."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q6_r1",
+          "question": "VPIP measures:",
+          "options": [
+            "Voluntarily put money in pot preflop — looseness indicator",
+            "Only blind defense",
+            "River bet size",
+            "Time bank remaining"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — high VPIP = plays many hands.",
+            "B": "Blind defense can be voluntary but VPIP is broader.",
+            "C": "River sizing is separate.",
+            "D": "Time bank isn't VPIP."
+          }
+        },
+        {
+          "id": "pt_ro_q6_r2",
+          "question": "High PFR + high VPIP suggests:",
+          "options": [
+            "Loose-aggressive (LAG) style",
+            "Ultra-nit",
+            "Never bluffs",
+            "Only limps"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — plays many hands and raises often.",
+            "B": "Nits have low VPIP/PFR.",
+            "C": "LAGs bluff more than nits.",
+            "D": "High PFR means raising, not limping."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q7",
+      "kind": "standard",
+      "concept": "sizing_tells",
+      "question": "Consistently betting 2x pot only with nuts and 1/3 pot with bluffs is:",
+      "options": [
+        "A sizing tell — exploitable once identified",
+        "Standard GTO mixed strategy always",
+        "Illegal in all casinos",
+        "Unrelated to hand strength"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — correlated sizing leaks information.",
+        "B": "GTO mixes sizes with both value and bluffs.",
+        "C": "Different sizes are legal.",
+        "D": "Pattern links size to strength."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q7_r1",
+          "question": "When you spot sizing tells, exploit by:",
+          "options": [
+            "Folding to big bets and calling small ones (if pattern holds)",
+            "Always calling",
+            "Always folding",
+            "Ignoring all bet sizes"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — adjust calls/folds to their size pattern.",
+            "B": "Always calling burns chips vs value.",
+            "C": "Always folding loses to bluffs.",
+            "D": "Sizing is key exploit data."
+          }
+        },
+        {
+          "id": "pt_ro_q7_r2",
+          "question": "Min-bet on river from unknown player sometimes means:",
+          "options": [
+            "Blocking bet or weak value — player-dependent",
+            "Always nuts",
+            "Always pure air",
+            "Forced all-in"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — min-bets serve multiple purposes; gather more data.",
+            "B": "Not always nuts.",
+            "C": "Not always air.",
+            "D": "Min-bet isn't all-in."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q8",
+      "kind": "standard",
+      "concept": "table_talk",
+      "question": "Speech play ('table talk') can be:",
+      "options": [
+        "A deliberate tell or misdirection — use with caution",
+        "Always binding confession of hand strength",
+        "Illegal everywhere",
+        "Only allowed online"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — talk can reveal or deceive; rules vary by room.",
+        "B": "Talk isn't always truthful.",
+        "C": "Many rooms allow table talk with limits.",
+        "D": "Live talk is common; online uses chat."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q8_r1",
+          "question": "When opponent says 'I guess I'll call' and snaps chips:",
+          "options": [
+            "Often strong — speech can feign weakness",
+            "Always bluffing",
+            "Must fold next street",
+            "Dealer mucks their hand"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — weak-sounding speech + fast call can mean strength.",
+            "B": "Not always bluff.",
+            "C": "No forced fold rule.",
+            "D": "Hand continues."
+          }
+        },
+        {
+          "id": "pt_ro_q8_r2",
+          "question": "Best response to unknown speech play:",
+          "options": [
+            "Weight it lightly until pattern confirmed",
+            "Always believe every word",
+            "Always inverse every word",
+            "Leave table immediately"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — one line isn't enough data.",
+            "B": "Blind belief is exploited.",
+            "C": "Blind inverse also exploited.",
+            "D": "No need to leave."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q9",
+      "kind": "challenge",
+      "concept": "leveling",
+      "question": "You bet river, opponent tanks 30 seconds, sighs, and raises. Leveling means:",
+      "options": [
+        "Thinking about what they think you have — can overcomplicate reads",
+        "Memorizing hand rankings",
+        "Counting outs only",
+        "Ignoring all behavior"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — leveling is meta-thinking that can lead to bad calls.",
+        "B": "Hand rankings aren't leveling.",
+        "C": "Outs are math, not leveling.",
+        "D": "Ignoring behavior loses info."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q9_r1",
+          "question": "Vs unknown opponent, avoid leveling by:",
+          "options": [
+            "Defaulting to population tendencies and pot odds first",
+            "Assuming every sigh is a hollywood bluff",
+            "Calling because they want you to fold",
+            "Only playing when psychic"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — fundamentals beat fancy mind games early.",
+            "B": "Assumptions without data mislead.",
+            "C": "Meta-guessing spirals.",
+            "D": "Reads come from evidence."
+          }
+        },
+        {
+          "id": "pt_ro_q9_r2",
+          "question": "Hollywood (acting weak/strong) is:",
+          "options": [
+            "Deliberate behavior to influence your decision",
+            "Dealer mistake",
+            "Automatic fold rule",
+            "Shuffle technique"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — act can be sincere or fake.",
+            "B": "Not dealer error.",
+            "C": "No auto fold.",
+            "D": "Unrelated to shuffle."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pt_ro_q10",
+      "kind": "challenge",
+      "concept": "combined_reads",
+      "question": "Player has 45% VPIP, 8% PFR, calls your c-bet 70% on dry boards, and min-raises river only twice (both nutted). You face river min-raise. Best adjustment:",
+      "options": [
+        "Fold marginal bluff-catchers — sizing + stats show value-heavy line",
+        "Call every time — min-raise is always bluff",
+        "Always re-bluff raise",
+        "Ignore stats because one sample"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct — passive preflop + sticky postflop + nutted min-raises = fold weak catchers.",
+        "B": "Their history shows value with this size.",
+        "C": "Re-bluff into station/value line loses.",
+        "D": "Multiple data points form a strong read."
+      },
+      "remediation": [
+        {
+          "id": "pt_ro_q10_r1",
+          "question": "Combining reads means:",
+          "options": [
+            "Stats + line + sizing together, not one tell alone",
+            "Only watching chip color",
+            "First hand only",
+            "Dealer position"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — convergence strengthens decisions.",
+            "B": "Chip color irrelevant.",
+            "C": "One hand too small.",
+            "D": "Dealer isn't the opponent."
+          }
+        },
+        {
+          "id": "pt_ro_q10_r2",
+          "question": "Passive preflop (low PFR) who raises river rarely suggests:",
+          "options": [
+            "Strong made hand — they don't raise light often",
+            "Always bluffing",
+            "Misclick every time live",
+            "Fold equity only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — passive players raise rivers with strength.",
+            "B": "Opposite of passive profile.",
+            "C": "Live has no misclick.",
+            "D": "Raise is for value often here."
+          }
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "pt_ro_p1",
+      "concept": "patterns",
+      "question": "Best long-term reads use:",
+      "options": [
+        "Betting patterns over many hands",
+        "One gesture once",
+        "Card back art",
+        "Seat number"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Too noisy.",
+        "C": "Irrelevant.",
+        "D": "Irrelevant."
+      }
+    },
+    {
+      "id": "pt_ro_p2",
+      "concept": "timing",
+      "question": "Timing tell is:",
+      "options": [
+        "Speed of decision",
+        "Wall clock",
+        "Blind schedule",
+        "Shuffle time"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Not player tell.",
+        "C": "Structure not tell.",
+        "D": "Dealer action."
+      }
+    },
+    {
+      "id": "pt_ro_p3",
+      "concept": "station",
+      "question": "Calling station:",
+      "options": [
+        "Calls too much — value bet more",
+        "Folds everything",
+        "Only 3-bets AA",
+        "Never sees flop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "That's a nit.",
+        "C": "Tight not station.",
+        "D": "Stations call flops."
+      }
+    },
+    {
+      "id": "pt_ro_p4",
+      "concept": "nit",
+      "question": "Nit profile:",
+      "options": [
+        "Tight — strong when aggressive",
+        "Plays every hand",
+        "Always bluffs river",
+        "Never folds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Loose profile.",
+        "C": "Nits under-bluff.",
+        "D": "Nits fold often."
+      }
+    },
+    {
+      "id": "pt_ro_p5",
+      "concept": "pfr",
+      "question": "PFR stat tracks:",
+      "options": [
+        "Preflop raise frequency",
+        "River calls only",
+        "Showdown wins",
+        "Chat lines"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Different stat.",
+        "C": "Different stat.",
+        "D": "Not PFR."
+      }
+    },
+    {
+      "id": "pt_ro_p6",
+      "concept": "sizing",
+      "question": "Sizing tell:",
+      "options": [
+        "Bet size correlated with strength",
+        "Always random legal",
+        "Illegal",
+        "Only preflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Leaks info if patterned.",
+        "C": "Legal sizes.",
+        "D": "Any street."
+      }
+    },
+    {
+      "id": "pt_ro_p7",
+      "concept": "reverse",
+      "question": "Reverse tell:",
+      "options": [
+        "Acting opposite of hand strength on purpose",
+        "Reading board backward",
+        "Dealer reverse deal",
+        "Out of turn check"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Not literal.",
+        "C": "Standard deal.",
+        "D": "Angle not definition."
+      }
+    },
+    {
+      "id": "pt_ro_p8",
+      "concept": "combine",
+      "question": "Strong reads combine:",
+      "options": [
+        "Stats, line, and behavior",
+        "One sigh only",
+        "Felt color",
+        "Blind chip metal"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct.",
+        "B": "Insufficient alone.",
+        "C": "Irrelevant.",
+        "D": "Irrelevant."
+      }
+    }
+  ]
+}

@@ -4291,568 +4291,568 @@ export const lessons = [
     ]
   },
   {
-    "lessonId": "pt_postflop",
+    "lessonId": "pt_tournament_cash",
     "order": 7,
-    "title": "Postflop Strategy",
-    "subtitle": "C-bets, board texture, and value versus bluff",
+    "title": "Tournament vs Cash Game Strategy",
+    "subtitle": "ICM, stack survival, and when chips change value",
     "topics": [
-      "Continuation bets",
-      "Board texture",
-      "Value vs bluff",
-      "Barreling"
+      "ICM",
+      "Bubble play",
+      "Stack depth",
+      "Cash chip utility"
     ],
     "intro": [
-      "A continuation bet (c-bet) is when the preflop aggressor bets the flop. It leverages range advantage and fold equity — opponents who flat-called preflop often miss low and medium boards.",
-      "Board texture describes how coordinated or dry the flop is. Wet boards (flush draws, straight draws, paired cards) connect with more ranges and demand careful sizing and frequency. Dry boards favor small c-bets with high frequency.",
-      "Every postflop bet is either for value (wanting calls from worse) or as a bluff (wanting folds from better). Mixed strategies use both — and the best players choose sizes and frequencies that keep opponents guessing while exploiting board and range factors."
+      "In cash games, every chip has the same dollar value — winning or losing $100 always means the same thing. You can reload at any time, so decisions are driven by expected value (EV) in pure chip terms.",
+      "Tournaments change the math. Your stack represents survival and ladder equity, not just raw chips. Independent Chip Model (ICM) adjusts for pay jumps: folding can be correct even with a strong hand when calling risks busting near the money.",
+      "Short stacks in tournaments often shift to push-or-fold strategy, while deep stacks in cash games can play more speculative hands. Recognizing which format you are in — and how stage, antes, and pay structure affect risk — is essential for choosing the right lines."
     ],
     "questions": [
       {
-        "id": "pt_pf_q1",
+        "id": "pt_tc_q1",
         "kind": "standard",
-        "concept": "cbet_def",
-        "question": "A continuation bet (c-bet) is:",
+        "concept": "chip_utility",
+        "question": "In a cash game, winning 1,000 chips is worth:",
         "options": [
-          "Preflop raise followed by flop bet by same player",
-          "Big blind check only",
-          "River show without betting",
-          "Posting antes"
+          "The same dollar value regardless of stack size",
+          "More when you are short stacked",
+          "Less when blinds are small",
+          "Nothing until you leave the table"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — aggressor continues story on flop.",
-          "B": "BB check isn't c-bet definition.",
-          "C": "Showdown follows betting.",
-          "D": "Antes aren't c-bets."
+          "A": "Correct — cash chips convert to dollars at a fixed rate.",
+          "B": "Stack depth doesn't change chip dollar value in cash.",
+          "C": "Blind size affects decisions, not chip redemption value.",
+          "D": "Chips have value while you play and when you cash out."
         },
         "remediation": [
           {
-            "id": "pt_pf_q1_r1",
-            "question": "Preflop raiser bets flop — that's a:",
+            "id": "pt_tc_q1_r1",
+            "question": "Cash game chips differ from tournament chips because:",
             "options": [
-              "C-bet",
-              "Slow play only",
-              "Muck",
-              "New deal"
+              "Cash chips always map to real money at a fixed rate",
+              "Cash chips expire each orbit",
+              "Tournament chips are worth more per chip always",
+              "Only tournament chips can be rebought"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — classic c-bet.",
-              "B": "Can be value or bluff, not only slow play.",
-              "C": "Muck is surrender.",
-              "D": "Same hand continues."
+              "A": "Correct — $1 in chips is $1 in value.",
+              "B": "Cash chips don't expire mid-session.",
+              "C": "Tournament chip value is non-linear near pay jumps.",
+              "D": "Some cash games allow reloads; tournaments have set buy-ins."
             }
           },
           {
-            "id": "pt_pf_q1_r2",
-            "question": "C-bet uses:",
+            "id": "pt_tc_q1_r2",
+            "question": "Reloading in a cash game means:",
             "options": [
-              "Preflop initiative and often range edge",
-              "Only seven-deuce",
-              "Forced check rule",
-              "Side pot math only"
+              "You can add chips and keep playing at the same stakes",
+              "You must wait until the tournament ends",
+              "Your stack resets to starting tournament chips",
+              "All prior losses are erased from the deck"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — initiative plus fold equity.",
-              "B": "Any hand can c-bet situationally.",
-              "C": "No forced check.",
-              "D": "Side pots separate topic."
+              "A": "Correct — cash games allow buying more chips between hands.",
+              "B": "Tournaments don't allow mid-event rebuys in freezeouts.",
+              "C": "Tournament starting stacks are fixed per event.",
+              "D": "The deck isn't reset by reloading."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q2",
+        "id": "pt_tc_q2",
         "kind": "standard",
-        "concept": "dry_board",
-        "question": "Dry flop K♠ 7♦ 2♣ is:",
+        "concept": "icm_def",
+        "question": "ICM (Independent Chip Model) primarily adjusts for:",
         "options": [
-          "Hard for callers to connect — favors c-bets",
-          "Wet with many draws",
-          "Paired twice",
-          "Always checks through"
+          "Pay jumps — chips worth less when busting costs a payout",
+          "Hole card strength only",
+          "Rake in cash games",
+          "Dealer button rotation speed"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — few draws, raiser range hits king often.",
-          "B": "Wet boards have many draws.",
-          "C": "Only one pair on board.",
-          "D": "Can bet or check."
+          "A": "Correct — ICM converts chip EV into prize-pool equity.",
+          "B": "Hand strength is separate from ICM.",
+          "C": "Rake is a cash-game house fee, not ICM.",
+          "D": "Button rotation doesn't define ICM."
         },
         "remediation": [
           {
-            "id": "pt_pf_q2_r1",
-            "question": "Dry boards often get:",
+            "id": "pt_tc_q2_r1",
+            "question": "Near the bubble, ICM makes players:",
             "options": [
-              "Small c-bets at high frequency",
-              "Huge bluffs only",
-              "No betting ever",
-              "Automatic fold"
+              "More risk-averse to avoid busting before a pay jump",
+              "Always shove any two cards",
+              "Ignore pay structure entirely",
+              "Play identical to deep cash games"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — cheap fold equity.",
-              "B": "Not only huge bluffs.",
-              "C": "Betting common.",
-              "D": "Many calls/folds possible."
+              "A": "Correct — survival equity rises near pay jumps.",
+              "B": "ICM often tightens ranges, not widens to any two.",
+              "C": "Pay structure is central to ICM.",
+              "D": "Cash games lack tournament ladder equity."
             }
           },
           {
-            "id": "pt_pf_q2_r2",
-            "question": "Rainbow flop means:",
+            "id": "pt_tc_q2_r2",
+            "question": "ICM equity measures:",
             "options": [
-              "Three different suits — no flush draw yet",
-              "Three spades",
-              "Four cards",
-              "Paired board"
+              "Your share of the remaining prize pool given stack sizes",
+              "Only your current blind level",
+              "The rake percentage",
+              "How many hands until break"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — no one-card flush draw.",
-              "B": "Three same suit is monotone.",
-              "C": "Flop is three cards.",
-              "D": "Pair is separate texture."
+              "A": "Correct — stacks map to expected tournament payout.",
+              "B": "Blind level affects play but isn't ICM itself.",
+              "C": "Rake is unrelated to ICM math.",
+              "D": "Break timing doesn't define ICM."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q3",
+        "id": "pt_tc_q3",
         "kind": "standard",
-        "concept": "wet_board",
-        "question": "Wet flop J♥ T♥ 9♠ is:",
+        "concept": "bubble",
+        "question": "On the tournament bubble (one player left to bust before money):",
         "options": [
-          "Connected with straight and flush draws",
-          "Dry ace-high",
-          "Rainbow rags only",
-          "Unplayable always"
+          "Medium stacks often tighten to survive into the money",
+          "Everyone should play loose to bust faster",
+          "ICM has no effect",
+          "Blinds stop increasing"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — many draws and made hands possible.",
-          "B": "Ace-high dry is different.",
-          "C": "Two hearts = flush draws.",
-          "D": "Playable with strategy."
+          "A": "Correct — medium stacks fear busting one spot from cashing.",
+          "B": "Short stacks may shove; medium stacks usually don't play loose.",
+          "C": "ICM is strongest on the bubble.",
+          "D": "Blinds still increase on schedule."
         },
         "remediation": [
           {
-            "id": "pt_pf_q3_r1",
-            "question": "On wet boards c-bet:",
+            "id": "pt_tc_q3_r1",
+            "question": "Big stacks on the bubble can:",
             "options": [
-              "Less often and sometimes bigger for protection",
-              "Always 100% tiny",
-              "Never",
-              "Only preflop"
+              "Pressure medium stacks who can't call without busting",
+              "Only fold every hand",
+              "Never steal blinds",
+              "Ignore stack sizes entirely"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — more caller equity, selective betting.",
-              "B": "Not always tiny.",
-              "C": "Still c-bet sometimes.",
-              "D": "Postflop concept."
+              "A": "Correct — fold equity rises vs risk-averse medium stacks.",
+              "B": "Big stacks exploit with aggression, not pure folding.",
+              "C": "Steals are a key bubble weapon for chip leaders.",
+              "D": "Stack sizes drive bubble strategy."
             }
           },
           {
-            "id": "pt_pf_q3_r2",
-            "question": "Wet boards favor:",
+            "id": "pt_tc_q3_r2",
+            "question": "Short stacks on the bubble often:",
             "options": [
-              "Hands with draws and strong made hands",
-              "Only 72o",
-              "Folded players",
-              "Dealer"
+              "Shove wider because waiting bleeds chips to blinds",
+              "Fold every hand until ITM",
+              "Call off with any two cards regardless of ICM",
+              "Post extra blinds voluntarily"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — connectivity helps many ranges.",
-              "B": "72o rarely connects.",
-              "C": "Folded out.",
-              "D": "Dealer doesn't play."
+              "A": "Correct — blind pressure forces push-or-fold lines.",
+              "B": "Pure folding guarantees blind death.",
+              "C": "ICM still matters but survival pressure dominates.",
+              "D": "You can't volunteer extra blinds."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q4",
+        "id": "pt_tc_q4",
         "kind": "standard",
-        "concept": "value_bet",
-        "question": "Value bet aims to:",
+        "concept": "push_fold",
+        "question": "With 10 big blinds in a tournament, optimal strategy often shifts to:",
         "options": [
-          "Get called by worse hands",
-          "Force folds from better always",
-          "Check every street",
-          "Split pot"
+          "Push-or-fold preflop — shove or fold, minimal flat calls",
+          "Limp-call every hand for deception",
+          "Slow play pocket aces only",
+          "Identical to 200bb cash deep strategy"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — thinner value wants calls from second-best.",
-          "B": "That's bluff goal.",
-          "C": "Value bets bet.",
-          "D": "Split needs tie."
+          "A": "Correct — short stacks can't afford multi-street postflop play.",
+          "B": "Limp-calling burns chips and invites isolation.",
+          "C": "Aces should be played aggressively, not only slow played.",
+          "D": "Deep cash strategy requires stack depth this hand lacks."
         },
         "remediation": [
           {
-            "id": "pt_pf_q4_r1",
-            "question": "Top pair good kicker on dry flop often:",
+            "id": "pt_tc_q4_r1",
+            "question": "Push-or-fold charts depend on:",
             "options": [
-              "Value bet",
-              "Pure bluff only",
-              "Must fold",
-              "Muck"
+              "Stack size, position, and antes",
+              "Only your hole card suits",
+              "Whether it is a cash game always",
+              "The color of the felt"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — likely best, wants calls.",
-              "B": "Has showdown value.",
-              "C": "Strong hand continues.",
-              "D": "Showdown later."
+              "A": "Correct — position and antes widen or tighten shove ranges.",
+              "B": "Suits matter slightly but stack and position dominate.",
+              "C": "Push-or-fold is primarily a tournament short-stack tool.",
+              "D": "Felt color is irrelevant."
             }
           },
           {
-            "id": "pt_pf_q4_r2",
-            "question": "Value bet sizing on dry board often:",
+            "id": "pt_tc_q4_r2",
+            "question": "At 8bb, flat-calling a raise is often bad because:",
             "options": [
-              "Smaller to get called by worse",
-              "All-in always",
-              "Zero",
-              "Only on river"
+              "You commit too much of your stack without fold equity",
+              "It is illegal in tournaments",
+              "Flat calls always win bigger pots",
+              "Blinds don't matter at 8bb"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — small bets get calls from middling hands.",
-              "B": "Overbet can fold out worse.",
-              "C": "Bets cost chips.",
-              "D": "Value on all streets possible."
+              "A": "Correct — calling leaves a tiny stack with no leverage.",
+              "B": "Flat calls are legal but usually -EV short.",
+              "C": "Small stacks can't realize implied odds well.",
+              "D": "Blinds are a major fraction of an 8bb stack."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q5",
+        "id": "pt_tc_q5",
         "kind": "standard",
-        "concept": "bluff_bet",
-        "question": "Bluff bet wants:",
+        "concept": "antes",
+        "question": "Tournament antes (everyone posts each hand) mainly:",
         "options": [
-          "Folds from better hands",
-          "Calls from worse",
-          "Showdown only",
-          "Ante increase"
+          "Increase pot size and pressure short stacks to act",
+          "Replace blinds entirely",
+          "Only apply to the button",
+          "Exist only in cash games"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — fold equity is the win condition.",
-          "B": "Calls from worse is value.",
-          "C": "Bluffs avoid showdown.",
-          "D": "Antes separate."
+          "A": "Correct — antes bloat pots and accelerate blind pressure.",
+          "B": "Antes add to blinds, not replace them.",
+          "C": "All active players post antes in most formats.",
+          "D": "Antes are common in tournaments, rare in cash."
         },
         "remediation": [
           {
-            "id": "pt_pf_q5_r1",
-            "question": "Missed c-bet bluff on scary turn means:",
+            "id": "pt_tc_q5_r1",
+            "question": "When antes kick in, steal ranges typically:",
             "options": [
-              "Check flop, bet turn when card favors your story",
-              "Bet flop always",
-              "Fold preflop",
-              "Show cards"
+              "Widen because dead money in the pot rewards aggression",
+              "Narrow to only pocket aces",
+              "Disappear entirely",
+              "Apply only on the river"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — delayed bluff on scare card.",
-              "B": "Missed c-bet skipped flop bet.",
-              "C": "Already postflop.",
-              "D": "Don't show early."
+              "A": "Correct — more dead money improves steal EV.",
+              "B": "Steals use wider hands than aces only.",
+              "C": "Steals become more important, not gone.",
+              "D": "Steals are preflop/postflop opens, not river-only."
             }
           },
           {
-            "id": "pt_pf_q5_r2",
-            "question": "Bluff c-bet on dry board works when:",
+            "id": "pt_tc_q5_r2",
+            "question": "Antes affect short stacks by:",
             "options": [
-              "Opponent range misses and folds often",
-              "They always have top pair",
-              "Pot is zero",
-              "You have nuts"
+              "Adding another forced cost each hand beyond blinds",
+              "Doubling their stack automatically",
+              "Removing blind levels",
+              "Guaranteeing a pay jump"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — fold equity on dry misses.",
-              "B": "Top pair calls.",
-              "C": "Pot exists.",
-              "D": "Nuts is value."
+              "A": "Correct — antes bleed short stacks faster.",
+              "B": "Antes cost chips, they don't add stack.",
+              "C": "Blind levels continue with antes added.",
+              "D": "Pay jumps depend on eliminations, not antes alone."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q6",
+        "id": "pt_tc_q6",
         "kind": "standard",
-        "concept": "texture_change",
-        "question": "Turn brings third heart on two-heart flop. This:",
+        "concept": "cash_ev",
+        "question": "In cash games, the primary decision metric is usually:",
         "options": [
-          "Increases flush completions — shifts range equities",
-          "Makes board drier",
-          "Removes all draws",
-          "Ends hand"
+          "Chip EV — maximize long-run dollar expected value",
+          "ICM-adjusted fold equity only",
+          "Ladder equity in the prize pool",
+          "Min-cashing the session"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — flush draws complete, equities shift.",
-          "B": "More draws = wetter.",
-          "C": "Draws can complete.",
-          "D": "Hand continues."
+          "A": "Correct — each chip has fixed dollar value; play for +chip EV.",
+          "B": "ICM is a tournament concept, not standard cash play.",
+          "C": "Prize-pool ladders exist in tournaments, not cash.",
+          "D": "Cash has no min-cash threshold like tournaments."
         },
         "remediation": [
           {
-            "id": "pt_pf_q6_r1",
-            "question": "Scare card on turn helps bluffs when:",
+            "id": "pt_tc_q6_r1",
+            "question": "A +$50 EV call in cash means:",
             "options": [
-              "It completes draws you can represent",
-              "Board is identical",
-              "You never raised preflop",
-              "Everyone showed cards"
+              "Profitable long run if repeated in similar spots",
+              "You win $50 every single time",
+              "You must leave the table immediately",
+              "ICM says fold"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — story matches board.",
-              "B": "Identical board isn't scary.",
-              "C": "Preflop action still matters.",
-              "D": "Betting before show."
+              "A": "Correct — EV is an average over many trials.",
+              "B": "EV is expected value, not a guaranteed outcome.",
+              "C": "No table exit required for +EV plays.",
+              "D": "ICM doesn't apply to cash chip EV."
             }
           },
           {
-            "id": "pt_pf_q6_r2",
-            "question": "Board texture affects:",
+            "id": "pt_tc_q6_r2",
+            "question": "Cash game bankroll management focuses on:",
             "options": [
-              "Which ranges connect and bet sizing",
-              "Hand ranking rules",
-              "Number of hole cards",
-              "Blind amounts"
+              "Having enough buy-ins to absorb variance at your stakes",
+              "Guaranteeing one tournament min-cash",
+              "Never reloading under any circumstance",
+              "Only playing when ICM favors you"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — connectivity drives strategy.",
-              "B": "Rankings fixed.",
-              "C": "Two hole cards always.",
-              "D": "Blinds pre-hand."
+              "A": "Correct — variance requires adequate bankroll depth.",
+              "B": "Min-cash is tournament language.",
+              "C": "Reloads are normal in cash when bankroll allows.",
+              "D": "ICM is irrelevant to cash bankroll rules."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q7",
+        "id": "pt_tc_q7",
         "kind": "standard",
-        "concept": "check_back",
-        "question": "Checking back flop with medium hand often:",
+        "concept": "survival",
+        "question": "Tournament strategy sometimes sacrifices chip EV for:",
         "options": [
-          "Pot controls and avoids bloating pot vs stronger hands",
-          "Always wins",
-          "Is illegal",
-          "Shows cards"
+          "Survival equity — staying alive to reach higher pay jumps",
+          "Showing hole cards early",
+          "Increasing the rake",
+          "Slowing the dealer"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — medium strength prefers cheap showdown.",
-          "B": "Doesn't guarantee win.",
-          "C": "Checking is legal.",
-          "D": "Showdown later."
+          "A": "Correct — busting costs future prize-pool equity.",
+          "B": "Showing cards isn't a strategic tradeoff.",
+          "C": "Players don't choose rake amounts.",
+          "D": "Dealer speed isn't a strategic goal."
         },
         "remediation": [
           {
-            "id": "pt_pf_q7_r1",
-            "question": "Pot control means:",
+            "id": "pt_tc_q7_r1",
+            "question": "Folding a marginal spot ITM (in the money) can be correct because:",
             "options": [
-              "Keeping pot small with marginal hands",
-              "Always betting huge",
-              "Folding nuts",
-              "All-in preflop"
+              "Busting loses equity from higher pay rungs",
+              "Folding always wins more chips",
+              "Rules require folding on the river",
+              "Cash games use the same logic always"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — manage pot size.",
-              "B": "Opposite of control.",
-              "C": "Nuts want value.",
-              "D": "Postflop concept."
+              "A": "Correct — ladder equity can outweigh small chip EV edges.",
+              "B": "Folding wins zero chips that hand.",
+              "C": "No rule forces folds on the river.",
+              "D": "Cash rarely folds for ladder reasons."
             }
           },
           {
-            "id": "pt_pf_q7_r2",
-            "question": "Check back on wet board with one pair:",
+            "id": "pt_tc_q7_r2",
+            "question": "Chip EV vs ICM EV differs when:",
             "options": [
-              "Reasonable — many turns bad",
-              "Mandatory all-in",
-              "Must bluff river always",
-              "Dealer wins"
+              "Pay jumps make busting costlier than chips suggest",
+              "Every hand is heads-up",
+              "Blinds are zero",
+              "All stacks are equal depth in cash"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — many scare cards ahead.",
-              "B": "Not mandatory.",
-              "C": "Bluff optional later.",
-              "D": "Best hand wins."
+              "A": "Correct — ICM discounts chip EV near pay ladders.",
+              "B": "Heads-up changes ranges but ICM still applies in MTTs.",
+              "C": "Blinds are never zero in real play.",
+              "D": "Equal stacks don't remove ICM in tournaments."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q8",
+        "id": "pt_tc_q8",
         "kind": "standard",
-        "concept": "barrel",
-        "question": "Double-barrel means:",
+        "concept": "pay_jumps",
+        "question": "Larger pay jumps (e.g., 5th to 4th place) generally make players:",
         "options": [
-          "Betting flop and turn",
-          "Only flop bet",
-          "Check-raise preflop",
-          "Three hole cards"
+          "More conservative about risking elimination",
+          "Always shove light without reads",
+          "Ignore stack sizes",
+          "Play identical to early tournament stages"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — firing twice postflop.",
-          "B": "Single barrel is flop only.",
-          "C": "Different line.",
-          "D": "Two hole cards in Hold'em."
+          "A": "Correct — bigger pay gaps increase cost of busting.",
+          "B": "Light shoves increase bust risk, opposite of ICM pressure.",
+          "C": "Stack sizes remain central to decisions.",
+          "D": "Early stages have weaker ICM pressure."
         },
         "remediation": [
           {
-            "id": "pt_pf_q8_r1",
-            "question": "Second barrel good when:",
+            "id": "pt_tc_q8_r1",
+            "question": "Final-table pay jumps mean:",
             "options": [
-              "Turn card improves your story or equity",
-              "You have zero fold equity",
-              "Board empty",
-              "Folded preflop"
+              "Each elimination can be worth a large equity swing",
+              "All places pay the same amount",
+              "ICM disappears at final table",
+              "Blinds stop forever"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — scare card or semi-bluff equity.",
-              "B": "No fold equity = bad barrel.",
-              "C": "Board has cards.",
-              "D": "Reached turn."
+              "A": "Correct — top-heavy structures amplify ICM.",
+              "B": "Payouts increase with higher finishes.",
+              "C": "ICM is often strongest at final table.",
+              "D": "Blinds continue until a winner."
             }
           },
           {
-            "id": "pt_pf_q8_r2",
-            "question": "Triple barrel is:",
+            "id": "pt_tc_q8_r2",
+            "question": "Flat payout structures (small pay jumps) tend to:",
             "options": [
-              "Flop, turn, and river bets",
-              "Three preflop raises only",
-              "Three side pots",
-              "Three boards"
+              "Reduce ICM pressure vs top-heavy structures",
+              "Make every fold mandatory",
+              "Eliminate blinds",
+              "Convert tournaments into cash games legally"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — three postflop streets.",
-              "B": "Different from three-bet.",
-              "C": "Side pots stack.",
-              "D": "One board."
+              "A": "Correct — smaller jumps mean less survival premium.",
+              "B": "Folds still depend on spots, not automatic.",
+              "C": "Blinds remain in all formats.",
+              "D": "Format rules differ even if ICM is milder."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q9",
+        "id": "pt_tc_q9",
         "kind": "challenge",
-        "concept": "value_bluff_split",
-        "question": "River: you have nuts. Betting is:",
+        "concept": "icm_fold",
+        "question": "Bubble: you have 15bb in MP with A♠ J♦. Chip-leader CO shoves 25bb. ICM-heavy field — best play often:",
         "options": [
-          "Value — want calls from worse",
-          "Pure bluff",
-          "Must check always",
-          "Fold"
+          "Fold — calling risks busting one spot from money despite a decent hand",
+          "Always call — AJ is too strong to fold ever",
+          "Re-raise to 5bb and fold to shove",
+          "Show cards and ask dealer"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — extract chips from second-best.",
-          "B": "Bluff wants folds; you have best hand.",
-          "C": "Nuts bet for value.",
-          "D": "Fold forfeits pot."
+          "A": "Correct — ICM makes survival premium huge; AJ vs shove range can be a fold.",
+          "B": "Chip EV call can be -ICM EV on the bubble.",
+          "C": "Min-raise commits chips without resolving the spot.",
+          "D": "Showing cards is not a legal strategic option."
         },
         "remediation": [
           {
-            "id": "pt_pf_q9_r1",
-            "question": "River with missed draw, blocker to nuts, scare card:",
+            "id": "pt_tc_q9_r1",
+            "question": "ICM folding means:",
             "options": [
-              "Possible bluff",
-              "Mandatory value bet",
-              "Always check nuts",
-              "Split automatic"
+              "Passing chip-EV edges to preserve prize-pool equity",
+              "Never folding any pair",
+              "Only applies in cash games",
+              "Ignoring pay structure"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — classic bluff profile.",
-              "B": "Missed draw isn't value.",
-              "C": "Nuts bet, not check.",
-              "D": "Split only if tied."
+              "A": "Correct — survival can outweigh marginal chip EV.",
+              "B": "Pairs still fold in bad ICM spots.",
+              "C": "ICM is tournament-specific.",
+              "D": "Pay structure drives ICM folds."
             }
           },
           {
-            "id": "pt_pf_q9_r2",
-            "question": "Same bet size can contain:",
+            "id": "pt_tc_q9_r2",
+            "question": "Vs chip-leader shove on bubble, medium stacks should:",
             "options": [
-              "Both value and bluffs (mixed strategy)",
-              "Only one hand ever",
-              "Folded cards",
-              "Dealer"
+              "Tighten calling ranges significantly",
+              "Call wider because leader is bluffing always",
+              "Always go all-in first",
+              "Leave the table"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — balance uses same sizes.",
-              "B": "Ranges mix hands.",
-              "C": "Folded out.",
-              "D": "Dealer doesn't bet."
+              "A": "Correct — busting costs massive equity near money.",
+              "B": "Leaders shove merged and strong ranges, not air always.",
+              "C": "First-in shoves differ from facing a shove.",
+              "D": "Leaving forfeits equity illegally mid-hand."
             }
           }
         ]
       },
       {
-        "id": "pt_pf_q10",
+        "id": "pt_tc_q10",
         "kind": "challenge",
-        "concept": "cbet_spot",
-        "question": "BTN raises, BB calls. Flop A♠ 8♦ 3♣. Best c-bet plan for BTN:",
+        "concept": "final_table",
+        "question": "Final table: you are chip leader with 40bb. Three short stacks at 6–8bb. Best exploitative approach:",
         "options": [
-          "Small c-bet often — range hits ace, board is dry",
-          "Never c-bet",
-          "Check-fold always",
-          "Pot-size bluff only with 72o always"
+          "Open wide and pressure short stacks — they can't call without busting risk",
+          "Only play AA and fold everything else",
+          "Check every hand to 'be nice'",
+          "Match short-stack strategy and push 72o"
         ],
         "correctAnswer": 0,
         "explanations": {
-          "A": "Correct — range advantage and dry board favor frequent small c-bets.",
-          "B": "C-betting is standard here.",
-          "C": "Too weak — BTN has edge.",
-          "D": "Not only 72o; strategy is range-based."
+          "A": "Correct — big stack vs short stacks uses ICM fold equity aggressively.",
+          "B": "Leaders widen to steal, not nit down to aces only.",
+          "C": "Checking away leverage burns chip EV and ICM edge.",
+          "D": "Leaders shouldn't mimic 8bb push charts."
         },
         "remediation": [
           {
-            "id": "pt_pf_q10_r1",
-            "question": "BB defender range on A-8-3 misses often with:",
+            "id": "pt_tc_q10_r1",
+            "question": "Chip-leader ICM advantage means:",
             "options": [
-              "Low connected hands that didn't flop pair",
-              "Every ace always",
-              "Nothing ever",
-              "Folded preflop"
+              "Others fold more often, giving free chips",
+              "Leader must fold to any raise",
+              "Short stacks always call off",
+              "Blinds disappear"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — many BB hands miss ace-high dry flops.",
-              "B": "BB has some ax.",
-              "C": "BB always has some hands.",
-              "D": "BB defended to see flop."
+              "A": "Correct — fear of busting grants fold equity.",
+              "B": "Leaders apply pressure, not auto-fold.",
+              "C": "Short stacks call tighter, not wider.",
+              "D": "Blinds continue."
             }
           },
           {
-            "id": "pt_pf_q10_r2",
-            "question": "Dry ace-high flop favors preflop aggressor because:",
+            "id": "pt_tc_q10_r2",
+            "question": "Vs three short stacks, chip leader should avoid:",
             "options": [
-              "Raiser range includes more big aces and strong hands",
-              "Caller always has nuts",
-              "Board is wet",
-              "Blinds only"
+              "Unnecessary confrontations with other big stacks early",
+              "Stealing blinds entirely",
+              "Using position",
+              "Opening from the button"
             ],
             "correctAnswer": 0,
             "explanations": {
-              "A": "Correct — raiser range hits this texture.",
-              "B": "Caller has some aces but wider weak hands.",
-              "C": "Dry, not wet.",
-              "D": "Both players contest pot."
+              "A": "Correct — big-vs-big fights help short stacks ladder.",
+              "B": "Steals are primary weapon vs shorts.",
+              "C": "Position remains valuable.",
+              "D": "Button opens are standard."
             }
           }
         ]
@@ -4860,147 +4860,862 @@ export const lessons = [
     ],
     "placementQuestions": [
       {
-        "id": "pt_pf_p1",
-        "concept": "cbet",
-        "question": "C-bet is:",
+        "id": "pt_tc_p1",
+        "concept": "chip_value",
+        "question": "Cash game chips:",
         "options": [
-          "Preflop raiser bets flop",
-          "BB check only",
-          "Showdown",
-          "Ante"
+          "Have fixed dollar value",
+          "Change value with pay jumps",
+          "Expire each hand",
+          "Only count at showdown"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "Different.",
-          "C": "Later.",
-          "D": "Forced bet."
+          "B": "Pay jumps are tournament.",
+          "C": "Chips persist.",
+          "D": "Chips count always."
         }
       },
       {
-        "id": "pt_pf_p2",
-        "concept": "dry",
-        "question": "Dry board:",
+        "id": "pt_tc_p2",
+        "concept": "icm",
+        "question": "ICM adjusts for:",
         "options": [
-          "Few draws",
-          "Monotone wet",
-          "Always paired",
-          "No flop"
+          "Prize-pool equity and pay jumps",
+          "Hole card suits only",
+          "Rake in cash",
+          "Button color"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "Wet.",
-          "C": "Can be unpaired.",
-          "D": "Flop exists."
+          "B": "Suits minor.",
+          "C": "Separate topic.",
+          "D": "Irrelevant."
         }
       },
       {
-        "id": "pt_pf_p3",
-        "concept": "wet",
-        "question": "Wet board has:",
+        "id": "pt_tc_p3",
+        "concept": "bubble",
+        "question": "On the bubble:",
         "options": [
-          "Many draws",
-          "No connectivity",
-          "Only rags",
-          "No betting"
+          "Medium stacks often tighten",
+          "Everyone plays loose always",
+          "ICM vanishes",
+          "Blinds stop"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "Wet = connected.",
-          "C": "Can have high cards.",
-          "D": "Still bet."
+          "B": "Not always loose.",
+          "C": "ICM peaks.",
+          "D": "Blinds continue."
         }
       },
       {
-        "id": "pt_pf_p4",
-        "concept": "value",
-        "question": "Value bet wants:",
+        "id": "pt_tc_p4",
+        "concept": "short",
+        "question": "10bb tournament strategy:",
         "options": [
-          "Calls from worse",
-          "Folds only",
-          "Split always",
-          "Muck"
+          "Push-or-fold often",
+          "Deep cash limp strategy",
+          "Only slow play",
+          "Ignore blinds"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "Bluff goal.",
-          "C": "Tie specific.",
-          "D": "Surrender."
+          "B": "Needs depth.",
+          "C": "Too passive.",
+          "D": "Blinds matter more."
         }
       },
       {
-        "id": "pt_pf_p5",
-        "concept": "bluff",
-        "question": "Bluff wants:",
+        "id": "pt_tc_p5",
+        "concept": "antes",
+        "question": "Antes:",
         "options": [
-          "Folds from better",
-          "Calls from worse",
-          "Showdown",
-          "Ante"
+          "Add dead money and pressure shorts",
+          "Replace blinds",
+          "Only for button",
+          "Cash-only rule"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "Value goal.",
-          "C": "Avoid showdown.",
-          "D": "Separate."
+          "B": "Add to blinds.",
+          "C": "All players post.",
+          "D": "Tournament common."
         }
       },
       {
-        "id": "pt_pf_p6",
-        "concept": "barrel",
-        "question": "Double-barrel:",
+        "id": "pt_tc_p6",
+        "concept": "cash_ev",
+        "question": "Cash decisions focus on:",
         "options": [
-          "Bet flop and turn",
-          "Flop only",
-          "Preflop 3-bet",
-          "Side pot"
+          "Chip/dollar EV",
+          "Ladder min-cash only",
+          "ICM always",
+          "Pay jump fear"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "Single barrel.",
-          "C": "Different.",
-          "D": "Stack related."
+          "B": "Tournament idea.",
+          "C": "Tournament tool.",
+          "D": "Tournament pressure."
         }
       },
       {
-        "id": "pt_pf_p7",
-        "concept": "check",
-        "question": "Check back medium hand:",
+        "id": "pt_tc_p7",
+        "concept": "survival",
+        "question": "Tournaments may trade chip EV for:",
         "options": [
-          "Pot control",
-          "Always win",
+          "Survival equity",
+          "Showing cards",
+          "Higher rake",
+          "Slower deals"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "Not a tradeoff.",
+          "C": "House sets rake.",
+          "D": "Irrelevant."
+        }
+      },
+      {
+        "id": "pt_tc_p8",
+        "concept": "leader",
+        "question": "Chip leader vs short stacks:",
+        "options": [
+          "Apply ICM pressure with wide opens",
+          "Only play AA",
+          "Never steal",
+          "Fold to 2bb"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "Too tight.",
+          "C": "Steals key.",
+          "D": "Leader has leverage."
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "pt_reading_opponents",
+    "order": 8,
+    "title": "Reading Opponents & Tells",
+    "subtitle": "Patterns, timing, and player types at the table",
+    "topics": [
+      "Betting patterns",
+      "Physical tells",
+      "Player types",
+      "Timing tells"
+    ],
+    "intro": [
+      "Reading opponents starts with observing how they play hands — not guessing one tell in isolation. Bet sizing, frequency of raises and folds, and which boards they continue on reveal player type long before any physical gesture does.",
+      "Live poker adds physical and verbal tells: chip handling, eye contact, speech patterns, and reaction time. Online poker replaces much of that with timing tells, bet-size patterns, and stats like VPIP (voluntarily put money in pot) and PFR (preflop raise).",
+      "Strong readers combine multiple data points and adjust for context. A nervous shake might mean strength or weakness depending on the player. Use reads to refine strategy — bluff less vs calling stations, value bet thinner vs nits — but avoid over-weighting a single observation."
+    ],
+    "questions": [
+      {
+        "id": "pt_ro_q1",
+        "kind": "standard",
+        "concept": "betting_patterns",
+        "question": "The most reliable long-term read usually comes from:",
+        "options": [
+          "Betting patterns and hand history over many hands",
+          "One physical gesture on the first hand",
+          "Card backs color",
+          "Seat number only"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — repeated actions reveal tendencies.",
+          "B": "Single tells are noisy and unreliable alone.",
+          "C": "Card back design isn't strategic info.",
+          "D": "Seat number doesn't define play style."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q1_r1",
+            "question": "Betting pattern tells include:",
+            "options": [
+              "Always c-betting dry boards but checking wet ones",
+              "Shuffling deck order",
+              "Dealer button weight",
+              "Rake percentage felt"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — frequency and sizing patterns are reads.",
+              "B": "Deck shuffle isn't player pattern.",
+              "C": "Button is positional, not a tell by itself.",
+              "D": "Rake isn't a player tell."
+            }
+          },
+          {
+            "id": "pt_ro_q1_r2",
+            "question": "Tracking how often someone 3-bets preflop helps identify:",
+            "options": [
+              "Aggression level and range width",
+              "Their favorite food",
+              "Hole card order in deck",
+              "Tomorrow's blind level"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — 3-bet frequency signals aggression.",
+              "B": "Irrelevant to poker reads.",
+              "C": "Deck order unknown.",
+              "D": "Blind schedule isn't a player read."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q2",
+        "kind": "standard",
+        "concept": "timing",
+        "question": "A 'timing tell' is:",
+        "options": [
+          "How fast or slow someone acts — snap vs tank",
+          "The clock on the wall",
+          "Blind level duration only",
+          "Shuffle time by dealer"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — decision speed can correlate with hand strength.",
+          "B": "Wall clock isn't a player tell.",
+          "C": "Blind structure isn't per-hand timing.",
+          "D": "Dealer shuffle isn't player decision time."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q2_r1",
+            "question": "Instant snap-call on river sometimes suggests:",
+            "options": [
+              "Premeditated call — often strong but player-dependent",
+              "Always a bluff",
+              "Always air",
+              "Illegal action"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — snap can mean trap or obvious call; know the player.",
+              "B": "Snaps aren't always bluffs.",
+              "C": "Snaps aren't always air.",
+              "D": "Fast calls are legal."
+            }
+          },
+          {
+            "id": "pt_ro_q2_r2",
+            "question": "Long tank then large raise sometimes indicates:",
+            "options": [
+              "Polarized decision — strong hand or elaborate bluff",
+              "Forced fold",
+              "Automatic check",
+              "Dealer error only"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — tanks often mean a big decision point.",
+              "B": "Raise isn't a fold.",
+              "C": "Raise differs from check.",
+              "D": "Not necessarily dealer error."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q3",
+        "kind": "standard",
+        "concept": "physical_tells",
+        "question": "Classic live physical tells include:",
+        "options": [
+          "Shaking hands, eye contact changes, chip stacking behavior",
+          "Community card order",
+          "Rake slip color",
+          "Blind chip denomination laws"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — body language and handling chips reveal stress or confidence.",
+          "B": "Board order is public, not a player tell.",
+          "C": "Rake slips aren't player behavior.",
+          "D": "Denomination rules aren't tells."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q3_r1",
+            "question": "Reverse tells are:",
+            "options": [
+              "Deliberately acting weak when strong or vice versa",
+              "Reading the board backwards",
+              "Dealer dealing in reverse",
+              "Checking out of turn always"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — skilled players fake tells to mislead.",
+              "B": "Not literal board reversal.",
+              "C": "Deal direction is standard.",
+              "D": "Out-of-turn is angle, not reverse tell definition."
+            }
+          },
+          {
+            "id": "pt_ro_q3_r2",
+            "question": "Physical tells are weakest when:",
+            "options": [
+              "Sample size is one hand and player is unknown",
+              "You have 500 hands of stats",
+              "Patterns repeat over sessions",
+              "Player is consistent"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — one-off gestures mislead without context.",
+              "B": "Stats strengthen reads, not weaken.",
+              "C": "Repeated patterns strengthen reads.",
+              "D": "Consistency helps reading."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q4",
+        "kind": "standard",
+        "concept": "calling_station",
+        "question": "A 'calling station' is a player who:",
+        "options": [
+          "Calls too often — hard to bluff, good to value bet",
+          "Folds every hand preflop",
+          "Only 3-bets aces",
+          "Never sees a flop"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — stations call wide; reduce bluffs, increase value.",
+          "B": "Nits fold often; stations call.",
+          "C": "3-bet aces only is nitty/ tight aggressive.",
+          "D": "Stations see many flops by calling."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q4_r1",
+            "question": "Vs a calling station you should:",
+            "options": [
+              "Value bet thinner and bluff less",
+              "Triple-barrel air always",
+              "Never bet for value",
+              "Only check-raise bluff"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — they pay off; extract value.",
+              "B": "Stations call bluffs down.",
+              "C": "Value betting is primary exploit.",
+              "D": "Bluff-heavy lines lose."
+            }
+          },
+          {
+            "id": "pt_ro_q4_r2",
+            "question": "High VPIP and low fold-to-c-bet often signals:",
+            "options": [
+              "Station tendencies — wide calls postflop",
+              "Ultra-nit fold everything",
+              "Only plays when dealer changes",
+              "Cannot hold cards"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — loose and sticky postflop.",
+              "B": "Nits fold often, opposite profile.",
+              "C": "Dealer change irrelevant.",
+              "D": "They hold cards fine — they call too much."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q5",
+        "kind": "standard",
+        "concept": "nit",
+        "question": "A 'nit' is characterized by:",
+        "options": [
+          "Very tight range — folds often, shows up with strong hands",
+          "Plays every hand aggressively",
+          "Always bluffs river",
+          "Never folds preflop"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — nits enter pots selectively with premium holdings.",
+          "B": "Loose aggressive is opposite of nit.",
+          "C": "Nits under-bluff typically.",
+          "D": "Nits fold many preflop hands."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q5_r1",
+            "question": "Vs a nit who suddenly raises river, you should:",
+            "options": [
+              "Give credit — range is heavily value-weighted",
+              "Call with any high card always",
+              "Assume bluff always",
+              "Ignore their prior tightness"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — nit river raises are rarely bluffs.",
+              "B": "High card alone loses to nit value.",
+              "C": "Nits don't bluff river often.",
+              "D": "Prior tightness is the read."
+            }
+          },
+          {
+            "id": "pt_ro_q5_r2",
+            "question": "Exploit nits by:",
+            "options": [
+              "Stealing blinds and folding to their aggression",
+              "Calling them down light always",
+              "Never bluffing preflop",
+              "Showing aces every hand"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — they fold too much; respect their raises.",
+              "B": "Light calls lose vs nit value.",
+              "C": "Steals include preflop bluffs.",
+              "D": "Showing cards is not strategy."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q6",
+        "kind": "standard",
+        "concept": "online_stats",
+        "question": "Online HUD stat PFR (preflop raise %) measures:",
+        "options": [
+          "How often player raises preflop voluntarily",
+          "River call frequency only",
+          "Showdown win rate always",
+          "Chat message count"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — PFR tracks preflop raising frequency.",
+          "B": "River calls are separate stats.",
+          "C": "Showdown win rate differs from PFR.",
+          "D": "Chat isn't PFR."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q6_r1",
+            "question": "VPIP measures:",
+            "options": [
+              "Voluntarily put money in pot preflop — looseness indicator",
+              "Only blind defense",
+              "River bet size",
+              "Time bank remaining"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — high VPIP = plays many hands.",
+              "B": "Blind defense can be voluntary but VPIP is broader.",
+              "C": "River sizing is separate.",
+              "D": "Time bank isn't VPIP."
+            }
+          },
+          {
+            "id": "pt_ro_q6_r2",
+            "question": "High PFR + high VPIP suggests:",
+            "options": [
+              "Loose-aggressive (LAG) style",
+              "Ultra-nit",
+              "Never bluffs",
+              "Only limps"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — plays many hands and raises often.",
+              "B": "Nits have low VPIP/PFR.",
+              "C": "LAGs bluff more than nits.",
+              "D": "High PFR means raising, not limping."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q7",
+        "kind": "standard",
+        "concept": "sizing_tells",
+        "question": "Consistently betting 2x pot only with nuts and 1/3 pot with bluffs is:",
+        "options": [
+          "A sizing tell — exploitable once identified",
+          "Standard GTO mixed strategy always",
+          "Illegal in all casinos",
+          "Unrelated to hand strength"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — correlated sizing leaks information.",
+          "B": "GTO mixes sizes with both value and bluffs.",
+          "C": "Different sizes are legal.",
+          "D": "Pattern links size to strength."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q7_r1",
+            "question": "When you spot sizing tells, exploit by:",
+            "options": [
+              "Folding to big bets and calling small ones (if pattern holds)",
+              "Always calling",
+              "Always folding",
+              "Ignoring all bet sizes"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — adjust calls/folds to their size pattern.",
+              "B": "Always calling burns chips vs value.",
+              "C": "Always folding loses to bluffs.",
+              "D": "Sizing is key exploit data."
+            }
+          },
+          {
+            "id": "pt_ro_q7_r2",
+            "question": "Min-bet on river from unknown player sometimes means:",
+            "options": [
+              "Blocking bet or weak value — player-dependent",
+              "Always nuts",
+              "Always pure air",
+              "Forced all-in"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — min-bets serve multiple purposes; gather more data.",
+              "B": "Not always nuts.",
+              "C": "Not always air.",
+              "D": "Min-bet isn't all-in."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q8",
+        "kind": "standard",
+        "concept": "table_talk",
+        "question": "Speech play ('table talk') can be:",
+        "options": [
+          "A deliberate tell or misdirection — use with caution",
+          "Always binding confession of hand strength",
+          "Illegal everywhere",
+          "Only allowed online"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — talk can reveal or deceive; rules vary by room.",
+          "B": "Talk isn't always truthful.",
+          "C": "Many rooms allow table talk with limits.",
+          "D": "Live talk is common; online uses chat."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q8_r1",
+            "question": "When opponent says 'I guess I'll call' and snaps chips:",
+            "options": [
+              "Often strong — speech can feign weakness",
+              "Always bluffing",
+              "Must fold next street",
+              "Dealer mucks their hand"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — weak-sounding speech + fast call can mean strength.",
+              "B": "Not always bluff.",
+              "C": "No forced fold rule.",
+              "D": "Hand continues."
+            }
+          },
+          {
+            "id": "pt_ro_q8_r2",
+            "question": "Best response to unknown speech play:",
+            "options": [
+              "Weight it lightly until pattern confirmed",
+              "Always believe every word",
+              "Always inverse every word",
+              "Leave table immediately"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — one line isn't enough data.",
+              "B": "Blind belief is exploited.",
+              "C": "Blind inverse also exploited.",
+              "D": "No need to leave."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q9",
+        "kind": "challenge",
+        "concept": "leveling",
+        "question": "You bet river, opponent tanks 30 seconds, sighs, and raises. Leveling means:",
+        "options": [
+          "Thinking about what they think you have — can overcomplicate reads",
+          "Memorizing hand rankings",
+          "Counting outs only",
+          "Ignoring all behavior"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — leveling is meta-thinking that can lead to bad calls.",
+          "B": "Hand rankings aren't leveling.",
+          "C": "Outs are math, not leveling.",
+          "D": "Ignoring behavior loses info."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q9_r1",
+            "question": "Vs unknown opponent, avoid leveling by:",
+            "options": [
+              "Defaulting to population tendencies and pot odds first",
+              "Assuming every sigh is a hollywood bluff",
+              "Calling because they want you to fold",
+              "Only playing when psychic"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — fundamentals beat fancy mind games early.",
+              "B": "Assumptions without data mislead.",
+              "C": "Meta-guessing spirals.",
+              "D": "Reads come from evidence."
+            }
+          },
+          {
+            "id": "pt_ro_q9_r2",
+            "question": "Hollywood (acting weak/strong) is:",
+            "options": [
+              "Deliberate behavior to influence your decision",
+              "Dealer mistake",
+              "Automatic fold rule",
+              "Shuffle technique"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — act can be sincere or fake.",
+              "B": "Not dealer error.",
+              "C": "No auto fold.",
+              "D": "Unrelated to shuffle."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pt_ro_q10",
+        "kind": "challenge",
+        "concept": "combined_reads",
+        "question": "Player has 45% VPIP, 8% PFR, calls your c-bet 70% on dry boards, and min-raises river only twice (both nutted). You face river min-raise. Best adjustment:",
+        "options": [
+          "Fold marginal bluff-catchers — sizing + stats show value-heavy line",
+          "Call every time — min-raise is always bluff",
+          "Always re-bluff raise",
+          "Ignore stats because one sample"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct — passive preflop + sticky postflop + nutted min-raises = fold weak catchers.",
+          "B": "Their history shows value with this size.",
+          "C": "Re-bluff into station/value line loses.",
+          "D": "Multiple data points form a strong read."
+        },
+        "remediation": [
+          {
+            "id": "pt_ro_q10_r1",
+            "question": "Combining reads means:",
+            "options": [
+              "Stats + line + sizing together, not one tell alone",
+              "Only watching chip color",
+              "First hand only",
+              "Dealer position"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — convergence strengthens decisions.",
+              "B": "Chip color irrelevant.",
+              "C": "One hand too small.",
+              "D": "Dealer isn't the opponent."
+            }
+          },
+          {
+            "id": "pt_ro_q10_r2",
+            "question": "Passive preflop (low PFR) who raises river rarely suggests:",
+            "options": [
+              "Strong made hand — they don't raise light often",
+              "Always bluffing",
+              "Misclick every time live",
+              "Fold equity only"
+            ],
+            "correctAnswer": 0,
+            "explanations": {
+              "A": "Correct — passive players raise rivers with strength.",
+              "B": "Opposite of passive profile.",
+              "C": "Live has no misclick.",
+              "D": "Raise is for value often here."
+            }
+          }
+        ]
+      }
+    ],
+    "placementQuestions": [
+      {
+        "id": "pt_ro_p1",
+        "concept": "patterns",
+        "question": "Best long-term reads use:",
+        "options": [
+          "Betting patterns over many hands",
+          "One gesture once",
+          "Card back art",
+          "Seat number"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "Too noisy.",
+          "C": "Irrelevant.",
+          "D": "Irrelevant."
+        }
+      },
+      {
+        "id": "pt_ro_p2",
+        "concept": "timing",
+        "question": "Timing tell is:",
+        "options": [
+          "Speed of decision",
+          "Wall clock",
+          "Blind schedule",
+          "Shuffle time"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "Not player tell.",
+          "C": "Structure not tell.",
+          "D": "Dealer action."
+        }
+      },
+      {
+        "id": "pt_ro_p3",
+        "concept": "station",
+        "question": "Calling station:",
+        "options": [
+          "Calls too much — value bet more",
+          "Folds everything",
+          "Only 3-bets AA",
+          "Never sees flop"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "That's a nit.",
+          "C": "Tight not station.",
+          "D": "Stations call flops."
+        }
+      },
+      {
+        "id": "pt_ro_p4",
+        "concept": "nit",
+        "question": "Nit profile:",
+        "options": [
+          "Tight — strong when aggressive",
+          "Plays every hand",
+          "Always bluffs river",
+          "Never folds"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "Loose profile.",
+          "C": "Nits under-bluff.",
+          "D": "Nits fold often."
+        }
+      },
+      {
+        "id": "pt_ro_p5",
+        "concept": "pfr",
+        "question": "PFR stat tracks:",
+        "options": [
+          "Preflop raise frequency",
+          "River calls only",
+          "Showdown wins",
+          "Chat lines"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "Different stat.",
+          "C": "Different stat.",
+          "D": "Not PFR."
+        }
+      },
+      {
+        "id": "pt_ro_p6",
+        "concept": "sizing",
+        "question": "Sizing tell:",
+        "options": [
+          "Bet size correlated with strength",
+          "Always random legal",
           "Illegal",
-          "Show cards"
+          "Only preflop"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "No guarantee.",
-          "C": "Legal.",
-          "D": "Later."
+          "B": "Leaks info if patterned.",
+          "C": "Legal sizes.",
+          "D": "Any street."
         }
       },
       {
-        "id": "pt_pf_p8",
-        "concept": "texture",
-        "question": "Board texture affects:",
+        "id": "pt_ro_p7",
+        "concept": "reverse",
+        "question": "Reverse tell:",
         "options": [
-          "Range connection and sizing",
-          "Hand rank rules",
-          "Hole card count",
-          "Rake only"
+          "Acting opposite of hand strength on purpose",
+          "Reading board backward",
+          "Dealer reverse deal",
+          "Out of turn check"
         ],
         "correctAnswer": 0,
         "explanations": {
           "A": "Correct.",
-          "B": "Fixed rules.",
-          "C": "Always two.",
-          "D": "Separate."
+          "B": "Not literal.",
+          "C": "Standard deal.",
+          "D": "Angle not definition."
+        }
+      },
+      {
+        "id": "pt_ro_p8",
+        "concept": "combine",
+        "question": "Strong reads combine:",
+        "options": [
+          "Stats, line, and behavior",
+          "One sigh only",
+          "Felt color",
+          "Blind chip metal"
+        ],
+        "correctAnswer": 0,
+        "explanations": {
+          "A": "Correct.",
+          "B": "Insufficient alone.",
+          "C": "Irrelevant.",
+          "D": "Irrelevant."
         }
       }
     ]
