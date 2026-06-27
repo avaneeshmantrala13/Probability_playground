@@ -70,6 +70,11 @@ export interface Lesson {
   /** Preparatory overview paragraphs shown before the first question. */
   intro?: string[];
   questions: Question[];
+  /**
+   * Optional fast-track quiz (typically 8 questions). Score ≥80% marks the lesson
+   * passed without working through all primary questions.
+   */
+  placementQuestions?: Omit<Question, "remediation" | "kind">[];
 }
 
 /** A question-like object that can be rendered (primary or remediation). */

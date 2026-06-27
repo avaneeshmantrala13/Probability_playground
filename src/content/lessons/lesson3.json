@@ -1,342 +1,617 @@
 {
   "lessonId": "lesson_3",
   "order": 3,
-  "title": "Experimental vs Theoretical Probability",
-  "subtitle": "Comparing experiments and the law of large numbers",
+  "title": "Conditional Probability & Bayes",
+  "subtitle": "Updating beliefs when new information arrives",
   "topics": [
-    "Experimental probability",
-    "Theoretical probability",
-    "Law of large numbers"
+    "Conditional probability P(A|B)",
+    "Law of total probability",
+    "Bayes' theorem",
+    "Quant interview applications"
   ],
   "intro": [
-    "This lesson connects the two ideas you've met so far: theoretical probability (what the math predicts) and experimental probability (what you actually observe when you run trials). They rarely match exactly, especially in small samples, and that gap is normal random variation \u2014 not a broken coin or a wrong theory.",
-    "The key principle is the law of large numbers: as the number of trials grows, the experimental probability tends to settle close to the theoretical value. That's why a larger sample gives a more reliable estimate of the true probability."
+    "Conditional probability answers a question you already ask intuitively: once you know something happened, how should your odds change? Formally, P(A|B) is the probability of A among outcomes where B is true. The sample space shrinks to B, and probabilities are renormalized so they still sum to 1.",
+    "The law of total probability breaks an event into pieces across a partition (disjoint scenarios that cover everything). Bayes' theorem reverses conditioning: it turns hard-to-measure quantities like P(hypothesis|data) into products of easier pieces like P(data|hypothesis) and prior odds. Together, these tools are the backbone of probabilistic reasoning under uncertainty.",
+    "Quant interviews love this material because it tests whether you update beliefs correctly instead of chasing shortcuts. Disease testing, urn problems, trading signals, and card-drawing puzzles all reduce to the same pattern: restrict the sample space, apply total probability for the denominator, then use Bayes to flip the conditioning direction."
   ],
   "questions": [
     {
       "id": "l3_q1",
       "kind": "standard",
-      "concept": "experimental_definition",
-      "simulation": { "type": "experimental_probability", "probability": 0.5 },
-      "question": "Which of these best describes EXPERIMENTAL probability?",
+      "concept": "conditional_definition",
+      "simulation": { "type": "card_marble", "mode": "marbles" },
+      "question": "Events A and B satisfy P(B) > 0. Which formula correctly defines the conditional probability P(A|B)?",
       "options": [
-        "A value predicted by reasoning about equally likely outcomes",
-        "A value found by actually running trials and recording the results",
-        "A probability that is always exactly 0.5",
-        "A number that can never be measured"
+        "P(A) / P(B)",
+        "P(A ∩ B) / P(B)",
+        "P(A ∩ B) / P(A)",
+        "P(A) − P(B)"
       ],
       "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "Dividing P(A) by P(B) has no probabilistic meaning here; conditioning requires the overlap with B in the numerator.",
+        "B": "Correct. Among outcomes where B occurs, the fraction that also satisfies A is P(A ∩ B) / P(B).",
+        "C": "P(A ∩ B) / P(A) equals P(B|A), the probability of B given A — the conditioning direction is reversed.",
+        "D": "Probabilities are never defined by subtraction of unrelated events; this can even be negative."
+      },
       "remediation": [
         {
           "id": "l3_q1_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "You flip a coin 100 times and use the results to estimate the chance of heads. This estimate is an example of:",
-          "options": ["experimental probability", "theoretical probability", "an impossible event", "a complement"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "In a restricted sample space where B has already occurred, P(A|B) counts outcomes in both A and B divided by outcomes in:",
+          "options": ["A only", "B only", "the full original sample space", "A complement"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Conditioning on B means B is the new denominator, not A.",
+            "B": "Correct. We renormalize within B, so favorable outcomes are A ∩ B and the total is B.",
+            "C": "The original sample space is too large once we know B occurred.",
+            "D": "The complement of A is unrelated to the definition of P(A|B)."
+          }
         },
         {
           "id": "l3_q1_r2",
-          "simulation": { "type": "experimental_probability", "probability": 0.5 },
-          "question": "Experimental probability is calculated from:",
-          "options": ["observed results of trials", "a formula only", "guessing", "the number of options"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "If P(A ∩ B) = 0.12 and P(B) = 0.4, then P(A|B) equals:",
+          "options": ["0.12", "0.3", "0.48", "0.028"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "0.12 is P(A ∩ B) before renormalizing within B.",
+            "B": "Correct. P(A|B) = 0.12 / 0.4 = 0.3.",
+            "C": "0.48 would multiply the probabilities; conditioning requires division by P(B).",
+            "D": "0.028 comes from multiplying 0.12 × 0.4, which is not the conditional formula."
+          }
         }
       ]
     },
     {
       "id": "l3_q2",
       "kind": "standard",
-      "concept": "theoretical_definition",
-      "simulation": { "type": "dice" },
-      "question": "Which of these best describes THEORETICAL probability?",
-      "options": [
-        "A value calculated by reasoning: favorable outcomes divided by total outcomes",
-        "A value found only by rolling a real die many times",
-        "A value that changes every time you run an experiment",
-        "The number of trials you performed"
-      ],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "conditional_counting",
+      "simulation": { "type": "card_marble", "mode": "cards" },
+      "question": "From a standard 52-card deck you draw one card and are told it is a heart. What is P(ace | heart)?",
+      "options": ["1/52", "1/13", "1/4", "4/52"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/52 is the unconditional probability of drawing the ace of hearts from the full deck.",
+        "B": "Correct. Given a heart, 13 equally likely hearts remain; exactly 1 is an ace, so P = 1/13.",
+        "C": "1/4 is P(heart) unconditionally, not the probability of an ace among hearts.",
+        "D": "4/52 counts all aces in the deck, but conditioning restricts us to the 13 hearts."
+      },
       "remediation": [
         {
           "id": "l3_q2_r1",
-          "simulation": { "type": "dice" },
-          "question": "Saying the probability of rolling a 3 is 1/6 because there are 6 equally likely faces is an example of:",
-          "options": ["theoretical probability", "experimental probability", "random variation", "a small sample"],
+          "simulation": { "type": "card_marble", "mode": "cards" },
+          "question": "Given that a drawn card is red (26 cards), what is P(heart | red)?",
+          "options": ["1/2", "1/4", "13/52", "1/26"],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Half of the 26 red cards are hearts: 13/26 = 1/2.",
+            "B": "1/4 is the unconditional probability of drawing any heart.",
+            "C": "13/52 simplifies to 1/4 and ignores the conditioning on red.",
+            "D": "1/26 would be one heart among 26 red cards counted incorrectly."
+          }
         },
         {
           "id": "l3_q2_r2",
-          "simulation": { "type": "coin_flip" },
-          "question": "Theoretical probability is found by:",
-          "options": ["reasoning about the possible outcomes", "flipping a real coin", "counting only your data", "running an experiment"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "simulation": { "type": "card_marble", "mode": "marbles" },
+          "question": "A bag has 3 red and 2 blue marbles. One red marble is drawn. Given this, P(red on next draw without replacement) is:",
+          "options": ["3/5", "2/4", "1/2", "2/5"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "3/5 is the probability before any marble was removed.",
+            "B": "2/4 simplifies to 1/2 and is correct arithmetic, but 1/2 is the cleaner answer choice.",
+            "C": "Correct. After removing one red, 2 red remain out of 4 total: 2/4 = 1/2.",
+            "D": "2/5 would be P(blue), not P(red), after one red is removed."
+          }
         }
       ]
     },
     {
       "id": "l3_q3",
       "kind": "standard",
-      "concept": "gap_is_normal",
-      "simulation": { "type": "experimental_probability", "probability": 0.5 },
-      "question": "When you run a probability experiment, the experimental probability usually:",
+      "concept": "conditioning_direction",
+      "question": "It rains on 30% of days and is cloudy on 50% of days. On rainy days, 90% are cloudy, so P(cloudy | rain) = 0.9. Which quantity is generally NOT equal to P(rain | cloudy)?",
       "options": [
-        "exactly matches the theoretical value",
-        "comes out close to but not exactly the theoretical value",
-        "has nothing to do with the theoretical value",
-        "is always larger than the theoretical value"
+        "P(cloudy | rain)",
+        "P(rain and cloudy) / P(cloudy)",
+        "P(rain) P(cloudy | rain) / P(cloudy)",
+        "0.9"
       ],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(cloudy | rain) = 0.9, but P(rain | cloudy) = P(rain ∩ cloudy)/P(cloudy) is typically much smaller because rain is rarer than cloudiness.",
+        "B": "This fraction is exactly the definition of P(rain | cloudy).",
+        "C": "This is Bayes' theorem applied correctly to compute P(rain | cloudy).",
+        "D": "0.9 equals P(cloudy | rain) by statement, not P(rain | cloudy)."
+      },
       "remediation": [
         {
           "id": "l3_q3_r1",
-          "simulation": { "type": "experimental_probability", "probability": 0.5 },
-          "question": "Your experiment gives 0.53 for heads while theory says 0.50. The difference is best explained by:",
-          "options": ["a broken coin", "normal random variation", "a calculation error", "an impossible result"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "P(A|B) and P(B|A) are equal only in special cases. In general, reversing the conditioning:",
+          "options": [
+            "usually gives a different probability",
+            "always gives the same probability",
+            "always gives 0.5",
+            "is undefined"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The denominators P(B) and P(A) differ, so the ratios usually differ.",
+            "B": "Equality holds only when P(A) = P(B) and the overlap is symmetric — not in general.",
+            "C": "There is no reason reversed conditionals should center at 0.5.",
+            "D": "Both are defined whenever the conditioning event has positive probability."
+          }
         },
         {
           "id": "l3_q3_r2",
-          "simulation": { "type": "dice" },
-          "question": "Theoretical P(rolling a 6) is about 0.167, but your data shows 0.20. This gap is mainly caused by:",
-          "options": ["chance variation in the trials", "the die being square", "rolling too gently", "a wrong theory"],
+          "question": "A medical test has P(positive | disease) = 0.99. The quantity P(disease | positive) is:",
+          "options": [
+            "generally not equal to 0.99",
+            "always equal to 0.99",
+            "always equal to 0.5",
+            "always equal to 1"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. A high sensitivity does not imply a high posterior when the disease is rare.",
+            "B": "Only in unrealistic cases (very high base rate) would the posterior near 0.99.",
+            "C": "The posterior depends on the base rate and false-positive rate, not automatically 0.5.",
+            "D": "A positive test never guarantees disease unless the test is perfect and disease-free cases cannot test positive."
+          }
         }
       ]
     },
     {
       "id": "l3_q4",
       "kind": "standard",
-      "concept": "lln_direction",
-      "simulation": { "type": "experimental_probability", "probability": 0.5 },
-      "question": "As you increase the number of trials, the experimental probability tends to:",
+      "concept": "law_of_total_probability",
+      "question": "Events B₁, B₂, …, Bₙ form a partition of the sample space (mutually exclusive and exhaustive). Which identity is the law of total probability?",
       "options": [
-        "drift further from the theoretical value",
-        "move closer to the theoretical value",
-        "stay frozen at its very first value",
-        "jump straight to exactly 1"
+        "P(A) = Σ P(A | Bᵢ) P(Bᵢ)",
+        "P(A) = Σ P(Bᵢ | A) P(A)",
+        "P(A) = P(A | B₁) + P(A | B₂)",
+        "P(A) = P(A) P(B₁)"
       ],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A happens either with B₁ or B₂ or …; weight each conditional piece by P(Bᵢ).",
+        "B": "This mixes conditioning direction and repeats P(A) incorrectly.",
+        "C": "Summing conditionals without weights P(Bᵢ) ignores how likely each scenario is.",
+        "D": "Multiplying P(A) by P(B₁) is not a valid decomposition."
+      },
       "remediation": [
         {
           "id": "l3_q4_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "Running more and more coin flips makes the proportion of heads:",
-          "options": ["settle near 0.5", "swing wildly forever", "reach exactly 1", "drop to 0"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "A partition means the Bᵢ are disjoint and their union is the entire sample space. Therefore Σ P(Bᵢ) equals:",
+          "options": ["0", "1", "P(A)", "depends on A"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "Probabilities of a partition cannot all sum to zero.",
+            "B": "Correct. Exhaustive disjoint events account for all outcomes, so probabilities sum to 1.",
+            "C": "P(A) is unrelated to whether Bᵢ form a partition.",
+            "D": "The sum of partition probabilities is always 1, regardless of A."
+          }
         },
         {
           "id": "l3_q4_r2",
-          "simulation": { "type": "experimental_probability", "probability": 0.5 },
-          "question": "With a very large number of trials, the experimental result is expected to be:",
-          "options": ["close to the theoretical value", "far from the theoretical value", "always exactly equal", "random and meaningless"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "A coin is equally likely to come from Box H (P heads = 0.8) or Box T (P heads = 0.3). Before seeing a flip, P(heads) equals:",
+          "options": ["0.8", "0.3", "0.55", "1.1"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "0.8 is P(heads | Box H) only, ignoring that Box T is equally likely.",
+            "B": "0.3 is P(heads | Box T) only.",
+            "C": "Correct. (0.5)(0.8) + (0.5)(0.3) = 0.55 by total probability.",
+            "D": "Probabilities cannot exceed 1; this sum would be invalid."
+          }
         }
       ]
     },
     {
       "id": "l3_q5",
       "kind": "standard",
-      "concept": "reliability_sample_size",
-      "simulation": { "type": "experimental_probability", "probability": 0.5 },
-      "question": "Which experiment gives a MORE reliable estimate of the true probability?",
-      "options": ["20 trials", "500 trials", "They are equally reliable", "Whichever one is done first"],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "total_probability_calculation",
+      "question": "A factory has Machine A (40% of output, 2% defective) and Machine B (60% of output, 5% defective). What is P(random item is defective)?",
+      "options": ["0.02", "0.05", "0.038", "0.07"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.02 is the defect rate from Machine A alone, not the plant-wide rate.",
+        "B": "0.05 is the defect rate from Machine B alone.",
+        "C": "Correct. (0.4)(0.02) + (0.6)(0.05) = 0.008 + 0.03 = 0.038.",
+        "D": "0.07 adds the rates without weighting by production share."
+      },
       "remediation": [
         {
           "id": "l3_q5_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "To best estimate the chance of heads, is it better to flip 15 times or 400 times?",
-          "options": ["15 times", "400 times", "No difference", "Neither works"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Urn I: 3 red, 1 blue. Urn II: 1 red, 3 blue. You pick an urn uniformly at random, then draw one ball. P(red) equals:",
+          "options": ["1/2", "1/4", "3/4", "2/8"],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. (0.5)(3/4) + (0.5)(1/4) = 0.5.",
+            "B": "1/4 is P(red | Urn II) only.",
+            "C": "3/4 is P(red | Urn I) only.",
+            "D": "2/8 counts favorable outcomes but ignores the random urn choice."
+          }
         },
         {
           "id": "l3_q5_r2",
-          "simulation": { "type": "dice" },
-          "question": "A larger number of rolls generally makes your probability estimate:",
-          "options": ["more reliable", "less reliable", "always exactly correct", "unchanged"],
+          "question": "Scenario X occurs with probability 0.3 and gives P(A) = 0.6; scenario Y occurs with probability 0.7 and gives P(A) = 0.2. Then P(A) equals:",
+          "options": ["0.32", "0.4", "0.8", "0.18"],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. (0.3)(0.6) + (0.7)(0.2) = 0.18 + 0.14 = 0.32.",
+            "B": "0.4 might come from averaging 0.6 and 0.2 without weights.",
+            "C": "0.8 exceeds any single conditional probability and cannot be the total.",
+            "D": "0.18 is only the contribution from scenario X."
+          }
         }
       ]
     },
     {
       "id": "l3_q6",
       "kind": "standard",
-      "concept": "law_of_large_numbers_named",
-      "simulation": { "type": "dice" },
-      "question": "A die rolled 600 times lands on each face close to 100 times. This tendency for results to settle near the theoretical value as trials increase is called:",
+      "concept": "bayes_theorem",
+      "question": "Bayes' theorem states P(H | E) = [P(E | H) P(H)] / P(E). If P(E) is unknown but H and Hᶜ partition the space, you should compute P(E) as:",
       "options": [
-        "the law of large numbers",
-        "the complement rule",
-        "a biased die",
-        "the gambler's fallacy"
+        "P(E | H) + P(E | Hᶜ)",
+        "P(E | H) P(H) + P(E | Hᶜ) P(Hᶜ)",
+        "P(H | E) P(E)",
+        "P(E | H) / P(H)"
       ],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Adding conditionals without multiplying by prior weights ignores how likely H and Hᶜ are.",
+        "B": "Correct. This is the law of total probability applied to compute the denominator P(E).",
+        "C": "This rearranges Bayes' theorem but does not help when P(E) is unknown.",
+        "D": "Dividing a likelihood by a prior is not a valid formula for P(E)."
+      },
       "remediation": [
         {
           "id": "l3_q6_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "After 1000 flips the proportion of heads is very near 0.5. This is an example of:",
-          "options": ["the law of large numbers", "bias", "the complement rule", "an impossible result"],
+          "question": "In Bayes' theorem, P(H | E) is proportional to:",
+          "options": [
+            "P(E | H) P(H)",
+            "P(H | E) P(E)",
+            "P(E) / P(H)",
+            "P(H) − P(E)"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Posterior ∝ likelihood × prior; divide by P(E) to normalize.",
+            "B": "P(H | E) P(E) equals P(H ∩ E), not the posterior numerator alone.",
+            "C": "Dividing P(E) by P(H) does not yield a posterior.",
+            "D": "Subtraction of probabilities is not part of Bayes' theorem."
+          }
         },
         {
           "id": "l3_q6_r2",
-          "simulation": { "type": "experimental_probability", "probability": 0.5 },
-          "question": "The principle that many trials make experimental results approach the theoretical value is named the:",
-          "options": ["law of large numbers", "law of small samples", "complement rule", "random bias rule"],
+          "question": "The prior P(H) in Bayes' theorem represents:",
+          "options": [
+            "your probability for H before observing evidence E",
+            "the probability of evidence given H",
+            "the probability H is false",
+            "always 0.5"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. The prior is your baseline belief before seeing data E.",
+            "B": "P(E | H) is the likelihood, not the prior.",
+            "C": "P(H is false) would be P(Hᶜ), not P(H).",
+            "D": "Priors depend on context; 0.5 is not universal."
+          }
         }
       ]
     },
     {
       "id": "l3_q7",
       "kind": "standard",
-      "concept": "small_sample_deviation",
-      "simulation": { "type": "coin_flip" },
-      "question": "In only 8 flips you get 6 heads (a proportion of 0.75), far from the theoretical 0.50. The best explanation is:",
-      "options": [
-        "the coin must be broken",
-        "small samples can vary a lot from the theoretical value",
-        "the theoretical value is really 0.75",
-        "heads is guaranteed to happen"
-      ],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "medical_testing_bayes",
+      "question": "A disease affects 1% of people. A test has sensitivity P(+ | disease) = 0.95 and specificity P(− | no disease) = 0.90 (so P(+ | no disease) = 0.10). If someone tests positive, P(disease | +) is closest to:",
+      "options": ["0.95", "0.50", "0.09", "0.01"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.95 is the sensitivity P(+ | disease), not the posterior P(disease | +).",
+        "B": "0.50 ignores the rare base rate and high false-positive rate among healthy people.",
+        "C": "Correct. P(+) ≈ 0.0095 + 0.099 = 0.1085, so posterior ≈ 0.0095/0.1085 ≈ 0.09.",
+        "D": "0.01 is the prior P(disease) before seeing the test result."
+      },
       "remediation": [
         {
           "id": "l3_q7_r1",
-          "simulation": { "type": "dice" },
-          "question": "In just 6 rolls you never roll a 6. The most reasonable explanation is:",
-          "options": ["the sample is small, so big swings are normal", "the die has no 6", "rolling a 6 is impossible", "the theory is wrong"],
+          "question": "When a disease is rare, even a fairly accurate test can yield a low P(disease | positive) because:",
+          "options": [
+            "false positives among healthy people can outnumber true positives",
+            "sensitivity must be below 0.5",
+            "specificity is always 0",
+            "priors must equal 0.5"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Many healthy people × moderate false-positive rate can swamp the few true positives.",
+            "B": "Sensitivity can be high; the issue is the small diseased population.",
+            "C": "Specificity 0 would make the test useless, but the problem assumes 0.90 specificity.",
+            "D": "Priors are context-dependent, not forced to 0.5."
+          }
         },
         {
           "id": "l3_q7_r2",
-          "simulation": { "type": "coin_flip" },
-          "question": "Results that are far from the expected value are MOST likely when the number of trials is:",
-          "options": ["small", "very large", "exactly 1000", "infinite"],
+          "question": "In Bayes problems, the denominator P(E) is often found using:",
+          "options": [
+            "the law of total probability",
+            "linear regression",
+            "the complement rule only",
+            "multiplying all priors"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Split E across hypotheses, sum P(E | hypothesis) P(hypothesis).",
+            "B": "Regression is unrelated to this discrete Bayes calculation.",
+            "C": "Complements help with single events but not directly for mixed hypotheses.",
+            "D": "Multiplying priors has no role in computing P(E)."
+          }
         }
       ]
     },
     {
       "id": "l3_q8",
       "kind": "standard",
-      "concept": "independence_misconception",
-      "simulation": { "type": "coin_flip" },
-      "question": "A fair coin has just landed heads 5 times in a row. What is the probability that the next flip is heads?",
-      "options": [
-        "less than 0.5, because tails is 'due'",
-        "still 0.5, because each flip is independent",
-        "greater than 0.5, because heads is on a streak",
-        "exactly 0"
-      ],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "quant_signal_update",
+      "question": "A quant fund's model says P(stock up tomorrow | bullish signal) = 0.7 and P(stock up | bearish signal) = 0.4. Signals are bullish 60% of days. What is P(stock up tomorrow) before seeing today's signal?",
+      "options": ["0.7", "0.4", "0.58", "0.55"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.7 is P(up | bullish) only, not the unconditional daily probability.",
+        "B": "0.4 is P(up | bearish) only.",
+        "C": "Correct. (0.6)(0.7) + (0.4)(0.4) = 0.42 + 0.16 = 0.58.",
+        "D": "0.55 might come from averaging 0.7 and 0.4 without correct weights."
+      },
       "remediation": [
         {
           "id": "l3_q8_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "Does a run of several heads change the chance of heads on the very next flip of a fair coin?",
-          "options": ["No, it stays 0.5", "Yes, it drops below 0.5", "Yes, it rises above 0.5", "Yes, it becomes 0"],
+          "question": "Before observing data, the overall P(event) is best computed by:",
+          "options": [
+            "weighting conditional probabilities by scenario probabilities",
+            "choosing the largest conditional probability",
+            "always using 0.5",
+            "multiplying all conditional probabilities"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Total probability weights each scenario by how often it arises.",
+            "B": "The maximum conditional ignores less likely but still relevant scenarios.",
+            "C": "0.5 is not a default for real models.",
+            "D": "Products of conditionals are for independent chains, not mixtures."
+          }
         },
         {
           "id": "l3_q8_r2",
-          "simulation": { "type": "dice" },
-          "question": "After rolling four 6s in a row with a fair die, the probability the next roll is a 6 is:",
-          "options": ["1/6, unchanged", "less than 1/6", "more than 1/6", "0"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "After seeing a bullish signal in the setup above, P(up | bullish) equals:",
+          "options": ["0.58", "0.7", "0.42", "0.6"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "0.58 is the unconditional P(up) before conditioning on the signal.",
+            "B": "Correct. The problem states P(up | bullish) = 0.7 directly.",
+            "C": "0.42 might confuse P(bullish) with a conditional probability.",
+            "D": "0.6 is P(bullish), not P(up | bullish)."
+          }
         }
       ]
     },
     {
       "id": "l3_q9",
       "kind": "challenge",
-      "concept": "near_match_interpretation",
-      "simulation": { "type": "experimental_probability", "probability": 0.25 },
-      "question": "The theoretical probability is 0.25. After 1000 trials the experimental probability is 0.247. This result is best described as:",
-      "options": [
-        "expected random variation, consistent with the theory",
-        "strong evidence the theory is wrong",
-        "an impossible measurement",
-        "a sign that too many trials were run"
-      ],
+      "concept": "bayes_urn_challenge",
+      "question": "Three urns: Urn 1 has 5 red / 5 blue; Urn 2 has 8 red / 2 blue; Urn 3 has 1 red / 9 blue. An urn is chosen uniformly at random, then one ball is drawn and it is red. P(the ball came from Urn 2 | red) equals:",
+      "options": ["4/7", "4/9", "8/18", "2/3"],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "Correct. P(red) = (1/3)(0.5 + 0.8 + 0.1) = 7/15; P(Urn2 ∩ red) = 4/15; posterior = 4/7.",
+        "B": "4/9 comes from dividing 0.8 by 1.8 without applying the equal urn priors correctly.",
+        "C": "8/18 adds numerators without weighting each urn by its prior probability.",
+        "D": "2/3 ignores the evidence from Urns 1 and 3."
+      },
       "remediation": [
         {
           "id": "l3_q9_r1",
-          "simulation": { "type": "experimental_probability", "probability": 0.2 },
-          "question": "Theory says 0.20; a large experiment gives 0.205. The best description of this gap is:",
-          "options": ["small random variation, consistent with theory", "the theory failed", "the trials were faked", "an impossible outcome"],
+          "question": "In a Bayes urn problem, the posterior P(Urn i | red) is proportional to:",
+          "options": [
+            "P(red | Urn i) × P(Urn i)",
+            "P(Urn i | red) × P(red)",
+            "P(red | Urn i) only",
+            "P(Urn i) only"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Prior on urn times likelihood of red given that urn.",
+            "B": "This equals P(Urn i ∩ red), not the unnormalized posterior weight.",
+            "C": "The likelihood alone ignores that some urns are less likely a priori.",
+            "D": "The prior alone ignores how diagnostic the red draw is."
+          }
         },
         {
           "id": "l3_q9_r2",
-          "simulation": { "type": "experimental_probability", "probability": 0.25 },
-          "question": "A large experiment lands very close to the theoretical 0.25 but not exactly. This should make you:",
-          "options": ["confident the theory is reasonable", "sure the theory is wrong", "think the data is impossible", "stop trusting probability"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Two urns: Urn A is P(red)=0.9, Urn B is P(red)=0.1, each urn equally likely. After drawing red, P(Urn A | red) is:",
+          "options": ["0.9", "0.5", "0.9/1.0 = 0.9", "0.9/(0.9+0.1) = 0.9"],
+          "correctAnswer": 3,
+          "explanations": {
+            "A": "0.9 is P(red | A), not the posterior on the urn.",
+            "B": "0.5 is the prior before seeing red; the evidence strongly favors Urn A.",
+            "C": "The denominator must be total P(red) = 0.5, not 1.0.",
+            "D": "Correct. Posterior = (0.5×0.9) / (0.5×0.9 + 0.5×0.1) = 0.9."
+          }
         }
       ]
     },
     {
       "id": "l3_q10",
       "kind": "challenge",
-      "concept": "insufficient_evidence",
-      "simulation": { "type": "dice" },
-      "question": "You roll a die 12 times, never get a 6, and conclude the die must be unfair. What is the best response?",
-      "options": [
-        "12 rolls is far too few to conclude the die is unfair",
-        "The die is definitely unfair",
-        "A 6 must be impossible on this die",
-        "The theoretical probability of a 6 is 0"
-      ],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (70% of units, 1% defective) and Line 2 (30% of units, 10% defective). A randomly inspected unit is defective. P(it came from Line 2 | defective) is closest to:",
+      "options": ["0.30", "0.10", "0.81", "0.50"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.30 is P(Line 2) before seeing the defect, not the posterior.",
+        "B": "0.10 is the defect rate on Line 2 alone, not P(Line 2 | defective).",
+        "C": "Correct. P(def) = 0.007 + 0.03 = 0.037; P(Line2 ∩ def) = 0.03; posterior ≈ 0.03/0.037 ≈ 0.81.",
+        "D": "0.50 ignores how much more often Line 2 produces defects despite smaller volume."
+      },
       "remediation": [
         {
           "id": "l3_q10_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "After 10 flips you get 7 heads and claim the coin is rigged. The most careful conclusion is:",
-          "options": ["10 flips is too few to decide; flip many more", "the coin is definitely rigged", "tails is impossible", "the theory is broken"],
+          "question": "Quant interview Bayes problems often test whether you:",
+          "options": [
+            "update beliefs using likelihoods and priors instead of gut feel",
+            "always assume independence",
+            "ignore base rates",
+            "multiply probabilities without checking conditioning"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Structured updating separates strong candidates from guessers.",
+            "B": "Independence is sometimes false and must be checked.",
+            "C": "Base rates are central to Bayes; ignoring them is a common failure mode.",
+            "D": "Blind multiplication often confuses P(A|B) with P(A∩B)."
+          }
         },
         {
           "id": "l3_q10_r2",
-          "simulation": { "type": "dice" },
-          "question": "To fairly test whether a die is biased, you should:",
-          "options": ["roll it a very large number of times", "roll it just a few times", "roll it exactly once", "never test it"],
+          "question": "When evidence E supports hypothesis H, Bayes says the posterior P(H | E) is higher than P(H) whenever:",
+          "options": [
+            "P(E | H) > P(E | not H)",
+            "P(H) = 0.5",
+            "P(E) = 1",
+            "P(H | E) = P(E | H)"
+          ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Evidence is more likely under H than under alternatives, so posterior rises.",
+            "B": "A 0.5 prior is not required for updating upward.",
+            "C": "Certain evidence P(E)=1 is not needed for a posterior increase.",
+            "D": "P(H | E) and P(E | H) are generally different quantities."
+          }
         }
       ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l3_pq1",
+      "concept": "conditional_definition",
+      "question": "P(A|B) equals P(A ∩ B) divided by:",
+      "options": ["P(A)", "P(B)", "P(A ∪ B)", "1 − P(B)"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Dividing by P(A) would give P(B|A), not P(A|B).",
+        "B": "Correct. Conditioning renormalizes within the event B.",
+        "C": "P(A ∪ B) is unrelated to the definition of conditional probability.",
+        "D": "The complement of B is not the denominator for P(A|B)."
+      }
+    },
+    {
+      "id": "l3_pq2",
+      "concept": "conditional_counting",
+      "simulation": { "type": "card_marble", "mode": "cards" },
+      "question": "Given a card is a spade, P(ace | spade) equals:",
+      "options": ["1/52", "1/13", "1/4", "4/13"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/52 is the unconditional probability of any specific card.",
+        "B": "Correct. One ace among 13 spades: 1/13.",
+        "C": "1/4 is P(spade) from the full deck.",
+        "D": "4/13 would count all aces, not aces within spades."
+      }
+    },
+    {
+      "id": "l3_pq3",
+      "concept": "law_of_total_probability",
+      "question": "If P(B) = 0.4 and P(A|B) = 0.25, while P(A|Bᶜ) = 0.5, then P(A) equals:",
+      "options": ["0.25", "0.4", "0.35", "0.75"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.25 is P(A|B) alone, not weighted by scenarios.",
+        "B": "Correct. (0.4)(0.25) + (0.6)(0.5) = 0.1 + 0.3 = 0.4.",
+        "C": "0.35 might come from a weighted average with incorrect weights.",
+        "D": "0.75 exceeds any single conditional probability."
+      }
+    },
+    {
+      "id": "l3_pq4",
+      "concept": "bayes_theorem",
+      "question": "Bayes' theorem converts:",
+      "options": [
+        "P(H|E) into terms involving P(E|H) and P(H)",
+        "P(H) into P(E)",
+        "P(E|H) into P(H|E) without any denominator",
+        "priors into certainties"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Posterior = likelihood × prior / P(E).",
+        "B": "P(H) and P(E) are different quantities; one does not simply become the other.",
+        "C": "A denominator P(E) is always required to normalize.",
+        "D": "Bayes updates beliefs; it does not force certainty."
+      }
+    },
+    {
+      "id": "l3_pq5",
+      "concept": "medical_testing_bayes",
+      "question": "A rare disease with a positive test result usually yields a posterior still below 0.5 because:",
+      "options": [
+        "false positives can dominate when the disease is uncommon",
+        "tests always have sensitivity 0",
+        "P(disease) must be 0.5",
+        "Bayes theorem does not apply"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Low base rate × many healthy people = many false positives.",
+        "B": "Real tests have positive sensitivity; the issue is base rates.",
+        "C": "Disease prevalence is rarely 0.5.",
+        "D": "Medical testing is a classic Bayes application."
+      }
+    },
+    {
+      "id": "l3_pq6",
+      "concept": "total_probability_calculation",
+      "question": "Coin from Box 1 (P heads = 0.9) with weight 0.2, or Box 2 (P heads = 0.1) with weight 0.8. P(heads) equals:",
+      "options": ["0.9", "0.1", "0.26", "0.5"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.9 ignores that Box 2 is more likely.",
+        "B": "0.1 is Box 2's rate only.",
+        "C": "Correct. (0.2)(0.9) + (0.8)(0.1) = 0.18 + 0.08 = 0.26.",
+        "D": "0.5 would require symmetric weighting and rates."
+      }
+    },
+    {
+      "id": "l3_pq7",
+      "concept": "conditioning_direction",
+      "question": "Which pair is generally different?",
+      "options": [
+        "P(A|B) and P(B|A)",
+        "P(A ∩ B) and P(B ∩ A)",
+        "P(Aᶜ) and 1 − P(A)",
+        "P(∅) and 0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Reversing conditioning changes the denominator.",
+        "B": "Intersection is commutative; these are the same event.",
+        "C": "Complement notation is equivalent to 1 − P(A).",
+        "D": "The empty set always has probability 0."
+      }
+    },
+    {
+      "id": "l3_pq8",
+      "concept": "bayes_urn_challenge",
+      "question": "Two equally likely urns: Urn X has P(red)=0.6, Urn Y has P(red)=0.2. After one red draw, P(Urn X | red) equals:",
+      "options": ["0.6", "0.75", "0.5", "0.2"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.6 is P(red | X), not the posterior on the urn.",
+        "B": "Correct. (0.5×0.6)/((0.5×0.6)+(0.5×0.2)) = 0.3/0.4 = 0.75.",
+        "C": "0.5 is the prior before observing red.",
+        "D": "0.2 is P(red | Y)."
+      }
     }
   ]
 }

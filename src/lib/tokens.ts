@@ -1,15 +1,15 @@
 import { LESSONS } from "../content";
 import type { CourseProgress } from "./progress";
 
-/** Starting stake granted once when the poker capstone is first unlocked. */
+/** Starting stake granted once when Poker Night (quant capstone practice) unlocks. */
 export const STARTING_TOKENS = 1000;
 
-/** TEMP: set false to restore the all-6-lessons mastery gate on /poker. */
+/** TEMP: set false to restore the all-lessons mastery gate on /poker. */
 export const BYPASS_POKER_NIGHT_GATE = true;
 
 /**
- * The poker capstone ("Poker Night") is the final reward: it unlocks only once
- * EVERY lesson has been passed/mastered.
+ * Poker Night is the live-practice capstone: it unlocks once every quant lesson
+ * has been passed/mastered.
  */
 export function isPokerNightUnlocked(progress: CourseProgress): boolean {
   if (BYPASS_POKER_NIGHT_GATE) return true;
@@ -84,8 +84,8 @@ export function getTableTier(id: string): TableTier | undefined {
 export const BANKRUPTCY_THRESHOLD = 0;
 
 /**
- * Token milestone badges — earned by reaching a peak balance. The badge UI is
- * built by the badges worker; thresholds/names live here so they're shared.
+ * Token milestone badges — earned by reaching a peak Poker Night balance.
+ * Thresholds and names live here so badges.ts can stay in sync.
  */
 export interface TokenMilestone {
   id: string;

@@ -1,368 +1,561 @@
 {
   "lessonId": "lesson_1",
   "order": 1,
-  "title": "Randomness & Probability Basics",
-  "subtitle": "Random events, outcomes, and probability intuition",
+  "title": "Probability Basics for Quants",
+  "subtitle": "Sample spaces, axioms, counting, and expected value",
   "topics": [
-    "Random events",
-    "Outcomes",
-    "Probability intuition",
-    "Experimental probability"
+    "Sample spaces",
+    "Probability axioms",
+    "Counting principles",
+    "Expected value"
   ],
   "intro": [
-    "This lesson builds your intuition for randomness. You'll explore the possible outcomes of simple experiments like flipping a coin or rolling a die, and you'll see that a probability is just a number between 0 (impossible) and 1 (certain).",
-    "The big idea is experimental probability: you actually run trials, count how often an outcome happens, and divide by the total number of trials. Watch how these observed proportions bounce around in small samples but settle near a stable value as you run more and more trials."
+    "Probability is the language of uncertainty—and every quant uses it daily. Whether you are pricing an option, sizing a bet, or stress-testing a portfolio, you start by naming what can happen (the sample space) and assigning numbers to events that obey the probability axioms.",
+    "The axioms are simple but non-negotiable: probabilities live between 0 and 1, the whole sample space has probability 1, and for disjoint events, probabilities add. From these three rules you get complements, bounds on intersections, and the logic behind every interview brain-teaser.",
+    "Before you can compute a probability, you often need to count outcomes. The multiplication rule handles sequential choices; equally likely outcomes let you divide favorable by total. Once you have probabilities, expected value (EV) tells you the long-run average payoff—the single number traders use to decide whether a strategy is worth the risk.",
+    "This lesson builds that foundation with concrete examples drawn from dice, coins, and simple trading games. Master sample spaces and axioms here, and the combinatorics in the next lesson will feel like bookkeeping rather than magic."
   ],
   "questions": [
     {
       "id": "l1_q1",
       "kind": "standard",
-      "concept": "long_run_frequency",
-      "simulation": { "type": "coin_flip" },
-      "question": "Run the coin-flip simulation many times. As the number of flips grows, the fraction of heads tends to get closer to what value?",
-      "options": ["0.25", "0.5", "0.75", "It never settles"],
+      "concept": "sample_space",
+      "question": "A fair coin is flipped once. Which set correctly describes the sample space S?",
+      "options": [
+        "{Heads}",
+        "{Heads, Tails}",
+        "{Heads, Tails, Edge}",
+        "{HH, HT, TH, TT}"
+      ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "Consider the sample space (total possible outcomes) when flipping a coin. There are two possible cases: either the coin lands on heads, or the coin lands on tails. This means that the chance of any 1 specific outcome, such as a flip landing on heads or a flip landing on tails, each has a chance of 1 (head or tail) divided by 2 (sample space size), which amounts to 0.5. Additionally, if you observe the simulation, as more trials are done and the probability stabilizes, the number of tails starts to equal the number of heads, or get very close to it.",
-        "C": "",
-        "D": ""
+        "A": "This set lists only one outcome. A single flip can also land tails, so the sample space must include every possible result of the experiment.",
+        "B": "Correct. One flip of a fair coin has exactly two mutually exclusive outcomes—heads or tails—and no others. The sample space is the complete list of what can happen.",
+        "C": "Landing on edge is sometimes discussed as a joke, but in standard probability models for a fair coin we treat edge cases as negligible. The conventional sample space has two outcomes.",
+        "D": "This is the sample space for two flips, not one. Each element here records an ordered pair of results; a single flip only produces one outcome."
       },
       "remediation": [
         {
           "id": "l1_q1_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "After flipping a fair coin a very large number of times, about what fraction of the flips do you expect to be tails?",
-          "options": ["0.1", "0.5", "0.9", "1.0"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "You roll one fair six-sided die once. How many outcomes are in the sample space?",
+          "options": ["1", "2", "6", "36"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "One outcome would mean the die always shows the same face, which is not true for a fair die with six distinct faces.",
+            "B": "Two outcomes would describe a coin flip, not a die. A standard die has six faces labeled 1 through 6.",
+            "C": "Correct. Each face {1, 2, 3, 4, 5, 6} is one outcome, giving six equally likely results in the sample space.",
+            "D": "Thirty-six is the number of outcomes when rolling two dice and recording ordered pairs, not one die."
+          }
         },
         {
           "id": "l1_q1_r2",
-          "simulation": { "type": "coin_flip" },
-          "question": "Flip the coin 1000 times. The proportion of heads is most likely to be closest to which value?",
-          "options": ["0.20", "0.50", "0.80", "1.00"],
-          "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Which list is a valid sample space for a single draw from a deck of 52 distinct cards?",
+          "options": [
+            "{Red, Black}",
+            "{Heart, Diamond, Club, Spade}",
+            "The set of all 52 individual cards",
+            "{Ace, King, Queen, Jack}"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Red and black are events (groups of cards), not individual outcomes. Many different cards are red.",
+            "B": "These four suits are categories, not atomic outcomes. Each suit contains thirteen distinct cards.",
+            "C": "Correct. Each specific card is one outcome; together all 52 cards form the complete sample space.",
+            "D": "These are ranks, not individual cards. For example, there are four different kings in a full deck."
+          }
         }
       ]
     },
     {
       "id": "l1_q2",
       "kind": "standard",
-      "concept": "outcomes",
-      "simulation": { "type": "dice" },
-      "question": "Roll a single fair six-sided die. How many equally likely outcomes are there in one roll?",
-      "options": ["1", "3", "6", "12"],
+      "concept": "probability_axioms",
+      "question": "Which statement is guaranteed by the probability axioms for any event A?",
+      "options": [
+        "P(A) ≥ 1",
+        "P(A) = 1 − P(A)",
+        "0 ≤ P(A) ≤ 1",
+        "P(A) + P(A) = 1"
+      ],
       "correctAnswer": 2,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "Once again, this is a question involving sample spaces. When you roll a single dice, you have six different faces (1, 2, 3, 4, 5, 6) which it can land on. This means that there are six outcomes, each of which is a unique face on the dice. On top of that, the problem mentions that the dice is FAIR, which means that all of the outcomes are equally likely, so in this case, all 6 outcomes are equally likely. Hence, the answer to our question would be 6, for each face of the dice. In regards to the simulation, we can see that as we increase the number of rolls, we start to get SIX leveled bars, because each of the six outcomes are equally likely and as we increase the trials, there starts to be an equal amount or nearly equal amount of all outcomes.",
-        "D": ""
+        "A": "Probabilities never exceed 1. An event cannot be more than certain, so P(A) ≥ 1 would violate the axioms for any event with probability less than 1.",
+        "B": "The complement rule is P(A^c) = 1 − P(A), not P(A) = 1 − P(A). This option incorrectly equates an event with its complement.",
+        "C": "Correct. Axioms require every probability to be non-negative and at most 1. This interval captures both bounds.",
+        "D": "Adding P(A) to itself gives 2P(A), which equals 1 only when P(A) = 0.5—not for every event."
       },
       "remediation": [
         {
           "id": "l1_q2_r1",
-          "simulation": { "type": "dice" },
-          "question": "When you roll one standard die, the possible results are the numbers 1 through 6. How many possible results is that?",
-          "options": ["4", "5", "6", "7"],
+          "question": "If S is the entire sample space, what must P(S) equal?",
+          "options": ["0", "0.5", "1", "Depends on the experiment"],
           "correctAnswer": 2,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Zero means the outcome is impossible. Something must happen in every trial, so the whole space cannot have probability 0.",
+            "B": "One-half would mean there is a 50% chance that nothing in the sample space occurs, which contradicts the definition of S.",
+            "C": "Correct. The second axiom states that the probability of the entire sample space is exactly 1—one of the outcomes always occurs.",
+            "D": "This is false. Regardless of the experiment, P(S) = 1 is required by the axioms."
+          }
         },
         {
           "id": "l1_q2_r2",
-          "simulation": { "type": "dice" },
-          "question": "A fair die is rolled once. The number of different faces that could land up is:",
-          "options": ["2", "6", "8", "12"],
+          "question": "Events A and B are disjoint (they cannot both occur). Which equation always holds?",
+          "options": [
+            "P(A) + P(B) = P(A ∩ B)",
+            "P(A ∪ B) = P(A) + P(B)",
+            "P(A) = P(B)",
+            "P(A) × P(B) = P(A ∪ B)"
+          ],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "For disjoint events, P(A ∩ B) = 0, not P(A) + P(B). This equation would only hold if both probabilities were zero.",
+            "B": "Correct. The third axiom (additivity for disjoint events) states that the probability of A or B equals the sum of their individual probabilities.",
+            "C": "Disjoint events can have very different probabilities. There is no requirement that P(A) equals P(B).",
+            "D": "Multiplying probabilities is relevant for independent events, not for adding probabilities of disjoint events."
+          }
         }
       ]
     },
     {
       "id": "l1_q3",
       "kind": "standard",
-      "concept": "coin_sample_space",
-      "simulation": { "type": "coin_flip" },
-      "question": "Before running the coin-flip simulation, list every possible result of a single flip. The complete set of outcomes is:",
-      "options": [
-        "Just heads",
-        "Heads or tails",
-        "Heads, tails, or landing on its edge",
-        "The numbers 1 through 6"
-      ],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is P(rolling an odd number)?",
+      "options": ["1/6", "1/3", "1/2", "2/3"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/6 is the probability of rolling one specific face, such as a 3. Odd numbers include three faces, not one.",
+        "B": "1/3 would be two faces out of six. The odd faces are 1, 3, and 5—three favorable outcomes.",
+        "C": "Correct. Odd outcomes {1, 3, 5} are 3 of 6 equally likely results, so P = 3/6 = 1/2.",
+        "D": "2/3 corresponds to four favorable outcomes. Only three faces are odd on a standard die."
+      },
       "remediation": [
         {
           "id": "l1_q3_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "How many different outcomes can a single coin flip land on in the simulation?",
-          "options": ["1", "2", "3", "6"],
+          "question": "On one roll of a fair die, what is P(rolling a number greater than 4)?",
+          "options": ["1/6", "1/3", "1/2", "2/3"],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "1/6 is one face out of six. Greater than 4 means faces 5 and 6—two outcomes.",
+            "B": "Correct. Favorable outcomes {5, 6} give 2/6 = 1/3.",
+            "C": "1/2 would require three favorable faces. Only two faces exceed 4.",
+            "D": "2/3 would require four favorable faces out of six, which is too many."
+          }
         },
         {
           "id": "l1_q3_r2",
-          "simulation": { "type": "coin_flip" },
-          "question": "In the coin-flip simulation, the two bars you build up are labeled:",
-          "options": [
-            "1 and 2",
-            "Heads and tails",
-            "Odd and even",
-            "Win and lose"
-          ],
+          "question": "A fair coin is flipped twice. Assuming all four ordered outcomes are equally likely, what is P(exactly one head)?",
+          "options": ["1/4", "1/2", "3/4", "1"],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "1/4 is the probability of one specific sequence, such as HT. Exactly one head also occurs as TH.",
+            "B": "Correct. Outcomes with exactly one head are {HT, TH}—two of four equally likely results, so P = 2/4 = 1/2.",
+            "C": "3/4 would mean three favorable outcomes. Only HT and TH have exactly one head.",
+            "D": "Probability 1 means certainty. Getting exactly one head does not happen on every flip pair."
+          }
         }
       ]
     },
     {
       "id": "l1_q4",
       "kind": "standard",
-      "concept": "experimental_probability_meaning",
-      "simulation": { "type": "coin_flip" },
-      "question": "You run the coin-flip simulation for 20 flips, get 9 heads, and compute 9/20 = 0.45. What does this 0.45 represent?",
-      "options": [
-        "The experimental probability of heads measured from this run",
-        "Proof the coin is broken because it is not exactly 0.5",
-        "The total number of heads you flipped",
-        "An impossible value because it is not a whole number"
-      ],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint with P(A) = 0.35 and P(B) = 0.20. What is P(A ∪ B)?",
+      "options": ["0.07", "0.15", "0.55", "1.00"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.07 equals 0.35 × 0.20. Multiplying is for independent joint events, not for adding disjoint probabilities.",
+        "B": "0.15 is the difference 0.35 − 0.20, not the sum. Disjoint events add, they do not subtract.",
+        "C": "Correct. Because A and B cannot overlap, P(A ∪ B) = P(A) + P(B) = 0.35 + 0.20 = 0.55.",
+        "D": "1.00 would mean A or B is certain. Their combined probability 0.55 leaves room for other outcomes."
+      },
       "remediation": [
         {
           "id": "l1_q4_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "After 50 flips you count 24 heads and compute 24/50 = 0.48. The number 0.48 is:",
-          "options": [
-            "the experimental probability of heads from these flips",
-            "the number of heads you got",
-            "a mistake, since the result must always be 0.5",
-            "the number of flips you made"
-          ],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Disjoint events C and D have P(C) = 0.12 and P(D) = 0.08. Find P(C ∪ D).",
+          "options": ["0.04", "0.20", "0.96", "1.20"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "0.04 is the difference, not the sum. For disjoint events you add the probabilities.",
+            "B": "Correct. P(C ∪ D) = 0.12 + 0.08 = 0.20.",
+            "C": "0.96 would be 1 minus the union. That is the probability that neither C nor D occurs, not the union itself.",
+            "D": "Probabilities cannot exceed 1. Adding two positive probabilities can never give 1.20."
+          }
         },
         {
           "id": "l1_q4_r2",
-          "simulation": { "type": "dice" },
-          "question": "You roll a die 30 times and a 4 comes up 7 times. Computing 7/30 gives you:",
-          "options": [
-            "the experimental probability of rolling a 4 in this run",
-            "the number of faces on the die",
-            "the count of 4s you rolled",
-            "an impossible result"
-          ],
+          "question": "In a sample space, E and F are disjoint and P(E ∪ F) = 0.70. If P(E) = 0.45, what is P(F)?",
+          "options": ["0.25", "0.35", "0.45", "0.70"],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. For disjoint events, P(F) = P(E ∪ F) − P(E) = 0.70 − 0.45 = 0.25.",
+            "B": "0.35 is half of 0.70 but ignores the given value of P(E). F is not necessarily half the union.",
+            "C": "0.45 repeats P(E). E and F are different disjoint events with separate probabilities.",
+            "D": "0.70 is the union, not P(F) alone. F contributes only part of the combined probability."
+          }
         }
       ]
     },
     {
       "id": "l1_q5",
       "kind": "standard",
-      "concept": "comparing_observed_frequencies",
-      "simulation": { "type": "dice" },
-      "question": "In a run of the dice simulation you count 22 ones and 14 twos. Based on this experiment, which outcome occurred more often?",
-      "options": [
-        "Rolling a 1",
-        "Rolling a 2",
-        "They occurred exactly the same number of times",
-        "There is no way to tell from the counts"
-      ],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "complement_rule",
+      "question": "The probability a stock finishes the day up is 0.42. What is the probability it does NOT finish up?",
+      "options": ["0.42", "0.48", "0.58", "1.42"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.42 is P(up). The complement 'not up' must account for the remaining probability mass.",
+        "B": "0.48 does not follow from any standard rule. The complement subtracts from 1, not from 0.50.",
+        "C": "Correct. 'Not up' is the complement, so P(not up) = 1 − 0.42 = 0.58.",
+        "D": "Probabilities cannot exceed 1. Adding 1 to 0.42 is not a valid operation for complements."
+      },
       "remediation": [
         {
           "id": "l1_q5_r1",
-          "simulation": { "type": "dice" },
-          "question": "In the dice simulation, the bar for 5 is taller than the bar for 3. So far, which number has come up more often?",
-          "options": ["5", "3", "They are tied", "It cannot be determined"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "P(it rains tomorrow) = 0.27. What is P(it does not rain)?",
+          "options": ["0.27", "0.63", "0.73", "1.27"],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "0.27 is the probability of rain, not its complement.",
+            "B": "0.63 has no basis in the complement rule. You subtract from 1, not from 0.90.",
+            "C": "Correct. P(no rain) = 1 − 0.27 = 0.73.",
+            "D": "Probabilities above 1 are impossible. Complements always reduce the value toward 0."
+          }
         },
         {
           "id": "l1_q5_r2",
-          "simulation": { "type": "coin_flip" },
-          "question": "After a run of flips you recorded 38 heads and 30 tails. Which outcome happened more often in this run?",
-          "options": [
-            "Heads",
-            "Tails",
-            "They happened equally often",
-            "It is impossible to say"
-          ],
+          "question": "An event G has P(G) = 0.91. What is P(G^c)?",
+          "options": ["0.09", "0.91", "0.19", "1.91"],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. P(G^c) = 1 − 0.91 = 0.09.",
+            "B": "0.91 is P(G) itself. The complement must be the leftover probability.",
+            "C": "0.19 has no basis in the complement rule. Subtract from 1, not from 0.91 + something.",
+            "D": "Adding probabilities does not yield complements, and results above 1 are invalid."
+          }
         }
       ]
     },
     {
       "id": "l1_q6",
       "kind": "standard",
-      "concept": "observed_proportion_behavior",
-      "simulation": { "type": "coin_flip" },
-      "question": "Watch the running fraction of heads as the coin-flip simulation adds more and more flips. What does this fraction typically do?",
-      "options": [
-        "Swings around a lot at first, then settles near a steady value",
-        "Stays locked at exactly 0.5 from the very first flip",
-        "Keeps climbing higher without ever stopping",
-        "Becomes more wildly jumpy the more flips you add"
-      ],
-      "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "multiplication_rule",
+      "question": "A lunch special offers 3 appetizers and 4 entrées. How many distinct appetizer–entrée combinations are possible?",
+      "options": ["7", "12", "24", "64"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 adds 3 + 4. The multiplication rule applies when choices are sequential and independent—each appetizer pairs with every entrée.",
+        "B": "Correct. For each of 3 appetizers there are 4 entrée choices, giving 3 × 4 = 12 combinations.",
+        "C": "24 might come from 4! (ordering four entrées) or other permutations, not from pairing two independent menus.",
+        "D": "64 equals 4³ or 8² in other contexts. Here you multiply two menu sizes, not raise them to powers."
+      },
       "remediation": [
         {
           "id": "l1_q6_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "In the first few flips the fraction of heads jumps around (such as 1.0, then 0.5, then 0.67). As you keep flipping, this jumping around tends to:",
-          "options": [
-            "get smaller as the fraction settles down",
-            "get bigger and bigger",
-            "never change at all",
-            "stop the simulation"
-          ],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "A password is two characters long: first pick 1 of 5 letters, then 1 of 10 digits. How many passwords are possible?",
+          "options": ["15", "50", "100", "510"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "15 adds 5 + 10. Each letter choice pairs with all 10 digits separately.",
+            "B": "Correct. 5 × 10 = 50 distinct letter-then-digit passwords.",
+            "C": "100 might confuse this with 10 × 10. The first stage has only 5 letter options.",
+            "D": "510 treats the counts as concatenated digits, not as a counting product."
+          }
         },
         {
           "id": "l1_q6_r2",
-          "simulation": { "type": "dice" },
-          "question": "In the dice simulation the six bars look very uneven after just a few rolls. After many rolls they tend to:",
-          "options": [
-            "become roughly even in height",
-            "all drop to zero",
-            "get more and more uneven",
-            "merge into a single bar"
-          ],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "You choose one shirt from 6 options and one tie from 5 options. How many shirt–tie outfits?",
+          "options": ["11", "30", "56", "65"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "11 adds the counts. Each shirt can pair with any tie, so multiply instead.",
+            "B": "Correct. 6 × 5 = 30 outfits.",
+            "C": "56 is C(8,3) or similar combinatorial numbers unrelated to this product.",
+            "D": "65 concatenates 6 and 5 as digits rather than multiplying the choice counts."
+          }
         }
       ]
     },
     {
       "id": "l1_q7",
       "kind": "standard",
-      "concept": "experimental_probability",
-      "simulation": { "type": "coin_flip" },
-      "question": "In 50 flips of a coin you record 30 heads. What is the experimental probability of heads for this data?",
-      "options": ["0.6", "0.5", "30", "0.3"],
+      "concept": "expected_value_definition",
+      "question": "Random variable X equals 100 with probability 0.25 and 0 with probability 0.75. What is E[X]?",
+      "options": ["25", "50", "75", "100"],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "Correct. E[X] = 100 × 0.25 + 0 × 0.75 = 25.",
+        "B": "50 would be the average of 100 and 0 without weighting by probability. EV requires probability-weighted values.",
+        "C": "75 equals 100 × 0.75, using the wrong probability for the $100 payoff.",
+        "D": "100 ignores the 75% chance of getting nothing. Expected value blends all outcomes."
+      },
       "remediation": [
         {
           "id": "l1_q7_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "Out of 20 flips you get 8 heads. The experimental probability of heads is:",
-          "options": ["0.4", "0.5", "8", "0.8"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "Y is 10 with probability 0.6 and −5 with probability 0.4. What is E[Y]?",
+          "options": ["2", "4", "5", "6"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "2 might come from 10 − 5 − 3 or other incorrect arithmetic. Compute 0.6 × 10 + 0.4 × (−5).",
+            "B": "Correct. E[Y] = 6 + (−2) = 4.",
+            "C": "5 is the unweighted midpoint between 10 and −5, not the probability-weighted average.",
+            "D": "6 uses only the positive term 0.6 × 10 and forgets the −5 outcome weighted by 0.4."
+          }
         },
         {
           "id": "l1_q7_r2",
-          "simulation": { "type": "dice" },
-          "question": "You roll a die 40 times and get a 3 a total of 6 times. The experimental probability of rolling a 3 is:",
-          "options": ["0.15", "0.6", "6", "0.3"],
+          "question": "A bet pays +$40 with probability 0.1 and −$10 with probability 0.9. What is the expected profit?",
+          "options": ["−$5", "−$4", "$4", "$5"],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. E = 0.1 × 40 + 0.9 × (−10) = 4 − 9 = −$5.",
+            "B": "−$4 might come from sign errors on the loss term. The 0.9 probability multiplies −10, not +10.",
+            "C": "+$4 ignores that losses occur 90% of the time and dominate the calculation.",
+            "D": "+$5 uses only the win term and neglects the much more frequent loss."
+          }
         }
       ]
     },
     {
       "id": "l1_q8",
       "kind": "standard",
-      "concept": "relative_frequency",
-      "simulation": { "type": "dice" },
-      "question": "To find the relative frequency of an outcome in an experiment, you divide the number of times it happened by:",
-      "options": [
-        "the total number of trials",
-        "the number of faces on the die",
-        "the value of the outcome",
-        "the number 6"
-      ],
+      "concept": "expected_value_game",
+      "question": "A quant interview game: you win $50 with probability 0.08 and lose $10 with probability 0.92. What is the expected dollar return?",
+      "options": ["−$6.00", "−$4.00", "$0.00", "$4.00"],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "Correct. E = 0.08 × 50 + 0.92 × (−10) = 4 − 9.2 = −$6.00. The game is unfavorable on average.",
+        "B": "−$4.00 might come from using 0.10 instead of 0.08 for the win probability, or from arithmetic slips.",
+        "C": "$0 would suggest a fair game. The frequent $10 losses outweigh the rare $50 wins.",
+        "D": "+$4 treats the win as more likely or larger than it is, ignoring the 92% loss rate."
+      },
       "remediation": [
         {
           "id": "l1_q8_r1",
-          "simulation": { "type": "dice" },
-          "question": "After 60 rolls, the relative frequency of rolling a 5 equals the count of 5s divided by:",
-          "options": ["60", "5", "6", "12"],
+          "question": "Flip a fair coin: heads wins $12, tails loses $8. What is E[profit]?",
+          "options": ["$2", "$4", "$10", "$20"],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. E = 0.5 × 12 + 0.5 × (−8) = 6 − 4 = $2.",
+            "B": "$4 might add 12 − 8 without halving for equal probabilities.",
+            "C": "$10 averages 12 and 8 as positive numbers, ignoring the loss on tails.",
+            "D": "$20 sums the absolute payoffs rather than computing a weighted average."
+          }
         },
         {
           "id": "l1_q8_r2",
-          "simulation": { "type": "coin_flip" },
-          "question": "The relative frequency of heads after 100 flips is the number of heads divided by:",
-          "options": ["100", "2", "50", "the number of tails"],
+          "question": "A lottery ticket costs $2. It pays $100 with probability 0.01 and $0 otherwise. What is E[net profit] after the $2 cost?",
+          "options": ["−$1", "$0", "$1", "$98"],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. Gross E = 0.01 × 100 = $1; net E = 1 − 2 = −$1. You lose a dollar on average per ticket.",
+            "B": "$0 would mean breaking even. The expected gross payout $1 is less than the $2 cost.",
+            "C": "+$1 is the gross expected payout, not net of the ticket price.",
+            "D": "$98 confuses the jackpot size with expected value and ignores the 99% chance of winning nothing."
+          }
         }
       ]
     },
     {
       "id": "l1_q9",
       "kind": "challenge",
-      "concept": "expected_count",
-      "simulation": { "type": "coin_flip" },
-      "question": "If you flip a fair coin 200 times, the number of heads is most likely to be close to:",
-      "options": ["50", "100", "150", "200"],
-      "correctAnswer": 1,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled and S is the sum. What is E[S]?",
+      "options": ["6", "6.5", "7", "7.5"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6 is too low. The minimum sum is 2 and the distribution is centered above 6 because many pairs exceed it.",
+        "B": "6.5 is the average of a single die (3.5) doubled incorrectly. Sums of two dice are not 2 × E[die].",
+        "C": "Correct. By symmetry, E[S] = 7. You can verify by pairing outcomes: (1,6) with (6,1), (2,5) with (5,2), etc., each pair averaging 7.",
+        "D": "7.5 exceeds the maximum possible sum of 12 divided by sensible centers. The true mean is exactly 7."
+      },
       "remediation": [
         {
           "id": "l1_q9_r1",
-          "simulation": { "type": "coin_flip" },
-          "question": "Flipping a fair coin 80 times, the number of heads should be around:",
-          "options": ["20", "40", "60", "80"],
+          "question": "One fair die is rolled. What is E[face value]?",
+          "options": ["3", "3.5", "4", "4.5"],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "3 is below the midpoint. Faces 4, 5, and 6 pull the average above 3.",
+            "B": "Correct. E = (1+2+3+4+5+6)/6 = 21/6 = 3.5.",
+            "C": "4 is above the true mean. The lower faces 1, 2, and 3 balance the upper ones around 3.5, not 4.",
+            "D": "4.5 would be the mean if faces were 1–8 or if you averaged 3 and 6 only."
+          }
         },
         {
           "id": "l1_q9_r2",
-          "simulation": { "type": "dice" },
-          "question": "Rolling a fair die 60 times, the number of times you would expect to see a 2 is closest to:",
-          "options": ["6", "10", "30", "60"],
+          "question": "Two dice are rolled. Which sum has the highest probability?",
+          "options": ["6", "7", "8", "12"],
           "correctAnswer": 1,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Sum 6 has five favorable ordered pairs out of 36. Sum 7 has six pairs and is more likely.",
+            "B": "Correct. Seven occurs as (1,6), (2,5), (3,4), (4,3), (5,2), (6,1)—six of 36 outcomes, the most of any sum.",
+            "C": "Sum 8 also has five pairs. It is less likely than 7, which sits at the center of the distribution.",
+            "D": "Sum 12 occurs only as (6,6)—one of 36 outcomes—making it the least likely high sum."
+          }
         }
       ]
     },
     {
       "id": "l1_q10",
       "kind": "challenge",
-      "concept": "sample_size_variation",
-      "simulation": { "type": "coin_flip" },
-      "question": "In which experiment are you MOST likely to see a proportion of heads far from 0.5 (such as 0.7 or higher)?",
-      "options": ["10 flips", "100 flips", "1000 flips", "5000 flips"],
+      "concept": "probability_bounds",
+      "question": "In a sample space of 36 equally likely ordered pairs from two dice, event A has 6 outcomes and event B has 8 outcomes. What is the maximum possible value of P(A ∩ B)?",
+      "options": [
+        "6/36",
+        "8/36",
+        "14/36",
+        "30/36"
+      ],
       "correctAnswer": 0,
-      "explanations": { "A": "", "B": "", "C": "", "D": "" },
+      "explanations": {
+        "A": "Correct. P(A ∩ B) ≤ min(P(A), P(B)) = min(6/36, 8/36) = 6/36. This upper bound is achieved when A ⊆ B.",
+        "B": "8/36 equals P(B) alone. The intersection cannot exceed P(A), which is smaller.",
+        "C": "14/36 adds the outcome counts as if they were disjoint. Overlap cannot exceed the smaller event.",
+        "D": "30/36 would require nearly all outcomes in both events simultaneously, far above what 6 outcomes allow."
+      },
       "remediation": [
         {
           "id": "l1_q10_r1",
-          "simulation": { "type": "dice" },
-          "question": "A far-from-expected result, like rolling a 6 on half of your rolls, is most likely to happen with only:",
-          "options": ["6 rolls", "60 rolls", "600 rolls", "6000 rolls"],
-          "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "question": "If P(A) = 0.40, what is the largest possible value of P(A ∩ B)?",
+          "options": ["0.20", "0.40", "0.60", "1.00"],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "0.20 is achievable but not the maximum. B could contain all of A, giving a larger intersection.",
+            "B": "Correct. P(A ∩ B) ≤ P(A) always. The maximum 0.40 occurs when A ⊆ B.",
+            "C": "0.60 exceeds P(A), violating the bound P(A ∩ B) ≤ min(P(A), P(B)).",
+            "D": "1.00 would require A ∩ B to be certain, impossible when P(A) = 0.40."
+          }
         },
         {
           "id": "l1_q10_r2",
-          "simulation": { "type": "coin_flip" },
-          "question": "Compared with small samples, larger samples tend to give a proportion of heads that is:",
+          "question": "For any events A and B, which inequality always holds?",
           "options": [
-            "closer to the true probability",
-            "further from the true probability",
-            "always exactly 0.5",
-            "completely unpredictable"
+            "P(A ∪ B) ≤ P(A) + P(B)",
+            "P(A ∩ B) ≥ P(A) + P(B)",
+            "P(A) + P(B) ≤ 1 always",
+            "P(A ∪ B) = P(A) × P(B)"
           ],
           "correctAnswer": 0,
-          "explanations": { "A": "", "B": "", "C": "", "D": "" }
+          "explanations": {
+            "A": "Correct. The union can be at most the sum of individual probabilities, with equality only when A and B are disjoint.",
+            "B": "P(A ∩ B) is at most each individual probability, not at least their sum. Their sum can exceed 1.",
+            "C": "P(A) + P(B) can exceed 1 when events overlap heavily, such as two high-probability events.",
+            "D": "Multiplication gives joint probability under independence, not union probability."
+          }
         }
       ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l1_pq1",
+      "concept": "sample_space",
+      "question": "Which is a sample space for one roll of a fair die?",
+      "options": [
+        "{Even, Odd}",
+        "{1, 2, 3, 4, 5, 6}",
+        "{1, 6}",
+        "{Low, High}"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Even and odd are groupings of outcomes, not the individual atomic results of one roll.",
+        "B": "Correct. Each face value is one outcome; all six faces form the complete sample space.",
+        "C": "Only the extreme faces are listed. A die also shows 2, 3, 4, and 5.",
+        "D": "Low and high are coarse events, not the full list of distinct outcomes."
+      }
+    },
+    {
+      "id": "l1_pq2",
+      "concept": "probability_axioms",
+      "question": "Which value cannot be a valid probability?",
+      "options": ["0", "0.5", "1", "1.2"],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Zero is valid—it means the event is impossible.",
+        "B": "0.5 is valid—it represents a fifty-fifty chance.",
+        "C": "One is valid—it means the event is certain.",
+        "D": "Correct. Probabilities must lie in [0, 1]. 1.2 exceeds the upper bound and violates the axioms."
+      }
+    },
+    {
+      "id": "l1_pq3",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped twice. What is P(both heads)?",
+      "options": ["1/2", "1/3", "1/4", "1/8"],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is P(exactly one head), not both heads.",
+        "B": "1/3 has no basis in the four equally likely outcomes {HH, HT, TH, TT}.",
+        "C": "Correct. Only HH satisfies 'both heads'—one of four equally likely outcomes.",
+        "D": "1/8 would apply to three flips (one of eight sequences), not two."
+      }
+    },
+    {
+      "id": "l1_pq4",
+      "concept": "complement_rule",
+      "question": "P(event M) = 0.63. What is P(M^c)?",
+      "options": ["0.37", "0.63", "0.73", "1.63"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(M^c) = 1 − 0.63 = 0.37.",
+        "B": "0.63 repeats P(M), not its complement.",
+        "C": "0.73 does not follow from the complement rule.",
+        "D": "Probabilities cannot exceed 1."
+      }
+    },
+    {
+      "id": "l1_pq5",
+      "concept": "multiplication_rule",
+      "question": "A meal has 2 soup choices and 6 main choices. How many soup–main combos?",
+      "options": ["8", "12", "18", "36"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "8 adds 2 + 6 instead of multiplying independent choices.",
+        "B": "Correct. 2 × 6 = 12 combinations.",
+        "C": "18 might come from 3 × 6 or other unrelated products.",
+        "D": "36 equals 6², not 2 × 6."
+      }
+    },
+    {
+      "id": "l1_pq6",
+      "concept": "expected_value_definition",
+      "question": "X = 20 with probability 0.5 and X = 0 with probability 0.5. What is E[X]?",
+      "options": ["0", "10", "15", "20"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0 ignores the 50% chance of winning 20.",
+        "B": "Correct. E[X] = 0.5 × 20 + 0.5 × 0 = 10.",
+        "C": "15 would require a higher probability on 20 or an additional positive outcome.",
+        "D": "20 ignores the half the time X equals zero."
+      }
+    },
+    {
+      "id": "l1_pq7",
+      "concept": "disjoint_union",
+      "question": "Disjoint events P and Q have P(P) = 0.22 and P(Q) = 0.31. Find P(P ∪ Q).",
+      "options": ["0.09", "0.53", "0.69", "0.91"],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.09 subtracts instead of adding disjoint probabilities.",
+        "B": "Correct. P(P ∪ Q) = 0.22 + 0.31 = 0.53.",
+        "C": "0.69 might confuse this with a complement calculation.",
+        "D": "0.91 is far too large and would nearly exhaust all probability without justification."
+      }
+    },
+    {
+      "id": "l1_pq8",
+      "concept": "expected_value_game",
+      "question": "Win $25 with probability 0.2; otherwise lose $5. Expected profit?",
+      "options": ["$0", "$1", "$5", "$25"],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.2 × 25 + 0.8 × (−5) = 5 − 4 = $0. This is a fair game.",
+        "B": "$1 might come from subtracting 5 − 4 in the wrong order or partial calculation.",
+        "C": "$5 uses only the win term 0.2 × 25 and ignores losses.",
+        "D": "$25 is the jackpot, not the weighted average across outcomes."
+      }
     }
   ]
 }

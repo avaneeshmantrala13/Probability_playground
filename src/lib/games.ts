@@ -2,8 +2,9 @@ import { getLesson } from "../content";
 import type { CourseProgress } from "./progress";
 
 /**
- * Playground games are unlocked as rewards for mastering a specific lesson.
- * Each game is paired with the lesson whose concept it reinforces.
+ * Playground games unlock after mastering the quant lesson they reinforce.
+ * Monty Hall → lesson_3 (Bayes / law of large numbers).
+ * Poker Scenario → lesson_5 (conditional probability).
  */
 export interface GameDef {
   id: string;

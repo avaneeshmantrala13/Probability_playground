@@ -25,6 +25,7 @@ import {
   PhoenixIcon,
   VaultIcon,
 } from "../components/badges/tokenIcons";
+import { LESSONS } from "../content";
 import { GAMES } from "./games";
 import { TOKEN_MILESTONES, peakTokens } from "./tokens";
 import { emptyPokerStats } from "./progress";
@@ -47,8 +48,8 @@ export interface Badge {
   earned(progress: CourseProgress): boolean;
 }
 
-/** All six lessons in id order. */
-const LESSON_IDS = ["lesson_1", "lesson_2", "lesson_3", "lesson_4", "lesson_5", "lesson_6"];
+/** Every registered lesson, in course order (grows as new JSON lessons are added). */
+const LESSON_IDS = LESSONS.map((lesson) => lesson.lessonId);
 
 /** Mirrors the predicate games.ts uses: mastery (passed) of a lesson. */
 function lessonPassed(lessonId: string, progress: CourseProgress): boolean {
@@ -56,6 +57,18 @@ function lessonPassed(lessonId: string, progress: CourseProgress): boolean {
     Boolean(progress.lessonMastery[lessonId]?.passed) ||
     progress.completedLessons.includes(lessonId)
   );
+}
+
+function allLessonsPassed(progress: CourseProgress): boolean {
+  return LESSON_IDS.every((id) => lessonPassed(id, progress));
+}
+
+/**
+ * Placeholder until market-making tracks its own hard-level completion.
+ * For now, full lesson mastery stands in for finishing the module.
+ */
+function marketMakingHardComplete(progress: CourseProgress): boolean {
+  return allLessonsPassed(progress);
 }
 
 /** True when any lesson has a recorded best finishing time under `ms`. */
@@ -68,57 +81,109 @@ function anyLessonUnder(progress: CourseProgress, ms: number): boolean {
 const requiredLessonFor = (gameId: string): string =>
   GAMES.find((g) => g.id === gameId)?.requiredLessonId ?? "";
 
-const LESSON_BADGE_META: Record<
-  string,
-  { title: string; description: string; icon: IconComponent; gradient: [string, string] }
-> = {
-  lesson_1: {
-    title: "First Steps",
-    description: "Pass your first lesson.",
+/** Quant-themed badge art keyed by lesson index (supports up to 10 lessons). */
+const QUANT_LESSON_BADGE_PRESETS: Array<{
+  title: string;
+  blurb: string;
+  icon: IconComponent;
+  gradient: [string, string];
+}> = [
+  {
+    title: "Sample Space Scout",
+    blurb: "Probability foundations — combinatorics and basic odds.",
     icon: SproutIcon,
     gradient: ["#39ff14", "#15a32e"],
   },
-  lesson_2: {
-    title: "Building Momentum",
-    description: "Pass Lesson 2.",
+  {
+    title: "EV Calculator",
+    blurb: "Expected value and fair-bet reasoning.",
     icon: RocketIcon,
     gradient: ["#22d3ee", "#0d9488"],
   },
-  lesson_3: {
-    title: "Halfway Hero",
-    description: "Pass Lesson 3.",
+  {
+    title: "Bayes Intuition",
+    blurb: "Updating beliefs with evidence and the law of large numbers.",
     icon: FlagIcon,
     gradient: ["#c4b5fd", "#8b5cf6"],
   },
-  lesson_4: {
-    title: "Four Down",
-    description: "Pass Lesson 4.",
+  {
+    title: "Independence Check",
+    blurb: "Compound events and when trials don't affect each other.",
     icon: TargetIcon,
     gradient: ["#fbbf24", "#f59e0b"],
   },
-  lesson_5: {
-    title: "On a Roll",
-    description: "Pass Lesson 5.",
+  {
+    title: "Conditional Edge",
+    blurb: "Restricted sample spaces and conditional probability.",
     icon: DiceIcon,
     gradient: ["#fb7185", "#e11d48"],
   },
-  lesson_6: {
-    title: "Going the Distance",
-    description: "Pass Lesson 6.",
+  {
+    title: "Distribution Reader",
+    blurb: "Center, spread, and reading data like a desk analyst.",
     icon: MountainIcon,
     gradient: ["#2dd4bf", "#0891b2"],
   },
-};
+  {
+    title: "Random Walk Ready",
+    blurb: "Stochastic intuition for paths and drift.",
+    icon: ZapIcon,
+    gradient: ["#a3e635", "#65a30d"],
+  },
+  {
+    title: "Market Maker Trainee",
+    blurb: "Spreads, inventory risk, and quoting under uncertainty.",
+    icon: ChipIcon,
+    gradient: ["#fcd34d", "#d97706"],
+  },
+  {
+    title: "Poker Theorist",
+    blurb: "Game theory, pot odds, and exploitative lines.",
+    icon: SpadeIcon,
+    gradient: ["#f87171", "#b91c1c"],
+  },
+  {
+    title: "Interview Stack",
+    blurb: "Full quant probability stack — ready for the hot seat.",
+    icon: CrownIcon,
+    gradient: ["#c084fc", "#9333ea"],
+  },
+];
 
-const lessonBadges: Badge[] = LESSON_IDS.map((lessonId) => ({
-  id: `lesson-${lessonId}`,
-  title: LESSON_BADGE_META[lessonId].title,
-  description: LESSON_BADGE_META[lessonId].description,
-  category: "lesson",
-  icon: LESSON_BADGE_META[lessonId].icon,
-  gradient: LESSON_BADGE_META[lessonId].gradient,
-  earned: (progress) => lessonPassed(lessonId, progress),
-}));
+function lessonBadgeMeta(lessonId: string, index: number) {
+  const lesson = LESSONS.find((l) => l.lessonId === lessonId);
+  const preset = QUANT_LESSON_BADGE_PRESETS[index];
+  const lessonLabel = lesson?.title ?? `Lesson ${index + 1}`;
+
+  if (preset) {
+    return {
+      title: preset.title,
+      description: `Pass "${lessonLabel}" — ${preset.blurb}`,
+      icon: preset.icon,
+      gradient: preset.gradient,
+    };
+  }
+
+  return {
+    title: `Quant Track ${index + 1}`,
+    description: `Pass "${lessonLabel}".`,
+    icon: GraduationCapIcon,
+    gradient: ["#fde047", "#eab308"] as [string, string],
+  };
+}
+
+const lessonBadges: Badge[] = LESSON_IDS.map((lessonId, index) => {
+  const meta = lessonBadgeMeta(lessonId, index);
+  return {
+    id: `lesson-${lessonId}`,
+    title: meta.title,
+    description: meta.description,
+    category: "lesson",
+    icon: meta.icon,
+    gradient: meta.gradient,
+    earned: (progress) => lessonPassed(lessonId, progress),
+  };
+});
 
 /** Per-milestone icon + gradient, keyed by the shared TOKEN_MILESTONES id. */
 const TOKEN_BADGE_META: Record<
@@ -221,21 +286,71 @@ const pokerStatBadges: Badge[] = [
   },
 ];
 
-export const BADGES: Badge[] = [
-  ...lessonBadges,
+const quantBadges: Badge[] = [
   {
-    id: "graduate",
-    title: "Probability Graduate",
-    description: "Pass all six lessons.",
-    category: "lesson",
+    id: "quant-master",
+    title: "Quant Master",
+    description: "Pass every lesson in the quant probability track.",
+    category: "quant",
     icon: GraduationCapIcon,
     gradient: ["#fde047", "#eab308"],
-    earned: (progress) => LESSON_IDS.every((id) => lessonPassed(id, progress)),
+    earned: allLessonsPassed,
   },
+  {
+    id: "market-making-complete",
+    title: "Market Making Complete",
+    description: "Finish the market-making module on hard difficulty.",
+    category: "quant",
+    icon: VaultIcon,
+    gradient: ["#a5f3fc", "#2563eb"],
+    earned: marketMakingHardComplete,
+  },
+  {
+    id: "poker-theory-progress",
+    title: "Poker Theory Progress",
+    description: "Complete the conditional-probability lesson that unlocks poker drills.",
+    category: "quant",
+    icon: SpadeIcon,
+    gradient: ["#f87171", "#b91c1c"],
+    earned: (progress) => lessonPassed(requiredLessonFor("poker"), progress),
+  },
+  {
+    id: "jane-street-ready",
+    title: "Jane Street Ready",
+    description: "Master every lesson and market-making hard mode (placeholder: full lesson mastery).",
+    category: "quant",
+    icon: DiamondIcon,
+    gradient: ["#67e8f9", "#0891b2"],
+    earned: (progress) => allLessonsPassed(progress) && marketMakingHardComplete(progress),
+  },
+  {
+    id: "citadel-calibrated",
+    title: "Citadel Calibrated",
+    description: "Full lesson mastery plus a 7-day practice streak.",
+    category: "quant",
+    icon: FlameIcon,
+    gradient: ["#f97316", "#dc2626"],
+    earned: (progress) => allLessonsPassed(progress) && progress.streak >= 7,
+  },
+  {
+    id: "sig-sharp",
+    title: "SIG Sharp",
+    description: "Full lesson mastery and finish any lesson in under 10 minutes.",
+    category: "quant",
+    icon: ClockIcon,
+    gradient: ["#a3e635", "#65a30d"],
+    earned: (progress) =>
+      allLessonsPassed(progress) && anyLessonUnder(progress, 10 * 60_000),
+  },
+];
+
+export const BADGES: Badge[] = [
+  ...lessonBadges,
+  ...quantBadges,
   {
     id: "monty-hall-unlocked",
     title: "Monty Hall Unlocked",
-    description: "Master the lesson that unlocks Monty Hall.",
+    description: "Master Bayes intuition to unlock the Monty Hall game.",
     category: "game",
     icon: DoorIcon,
     gradient: ["#818cf8", "#4f46e5"],
@@ -244,7 +359,7 @@ export const BADGES: Badge[] = [
   {
     id: "poker-unlocked",
     title: "Poker Table Unlocked",
-    description: "Master the lesson that unlocks the Poker Scenario.",
+    description: "Master conditional probability to unlock the Poker Scenario.",
     category: "game",
     icon: SpadeIcon,
     gradient: ["#f87171", "#b91c1c"],

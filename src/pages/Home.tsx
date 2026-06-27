@@ -32,8 +32,8 @@ export function Home() {
   const ctaLabel = resumeLesson
     ? "Pick up where you left off"
     : completedCount > 0
-      ? "Continue learning"
-      : "Start learning";
+      ? "Continue prep"
+      : "Start quant prep";
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -53,12 +53,13 @@ export function Home() {
 
           <div>
             <h1 className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-2xl font-extrabold tracking-tight text-transparent sm:text-3xl">
-              Hi {name}, learn probability by doing.
+              Hi {name}, train like a quant trader.
             </h1>
             <p className="mt-3 max-w-xl text-secondary">
-              Probability Playground teaches probability and intro statistics
-              through experimentation. Run a simulation, watch the results unfold
-              in real time, then answer questions and get instant feedback.
+              Probability Playground prepares you for probability-heavy quant
+              interviews — the kind asked at Jane Street, Citadel, SIG, and similar
+              firms. Drill interactive lessons, sharpen market-making instincts,
+              study poker theory, then put it all together at Poker Night.
             </p>
           </div>
 
@@ -85,6 +86,33 @@ export function Home() {
               <span className="font-medium text-primary">{resumeLesson.title}</span>
             </p>
           )}
+
+          <div className="flex w-full flex-wrap gap-2 border-t border-border/60 pt-4 text-sm">
+            <Link
+              to="/lessons"
+              className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
+            >
+              Lessons
+            </Link>
+            <Link
+              to="/playground"
+              className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
+            >
+              Playground games
+            </Link>
+            <span className="rounded-full border border-dashed border-border/80 px-3 py-1.5 text-muted">
+              Market making · coming soon
+            </span>
+            <span className="rounded-full border border-dashed border-border/80 px-3 py-1.5 text-muted">
+              Poker theory · coming soon
+            </span>
+            <Link
+              to="/poker"
+              className="rounded-full border border-border/80 bg-surface-muted/60 px-3 py-1.5 font-medium text-primary transition hover:border-accent/40 hover:text-accent"
+            >
+              Poker Night practice
+            </Link>
+          </div>
         </div>
       </section>
 
