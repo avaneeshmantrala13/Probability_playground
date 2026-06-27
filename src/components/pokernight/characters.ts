@@ -292,12 +292,46 @@ const FALLBACK: CharacterLook = {
   accessory: "none",
 };
 
+/**
+ * Upgrade an opponent's outfit to match the stakes of the table they're at.
+ * The SAME characters dress up as the buy-ins climb: the High Roller Lounge
+ * gives them sharper, glossier formalwear with silver trim, while the Whale
+ * Room puts everyone in opulent GOLD with a heavy chain. Skin, hair, face and
+ * build are untouched so each persona stays recognizably themselves.
+ */
+export function applyTierLook(look: CharacterLook, tierId?: string): CharacterLook {
+  if (tierId === "high") {
+    return {
+      ...look,
+      outfit: "#7a5a12",
+      outfitTrim: "#fde68a",
+      accent: "#fbbf24",
+      sheen: 0.97,
+      accessory: look.accessory === "none" ? "chain" : look.accessory,
+      hat:
+        look.hat === "none" && (look.hairStyle === "bald" || look.hairStyle === "buzz")
+          ? "none"
+          : look.hat,
+    };
+  }
+  if (tierId === "mid") {
+    return {
+      ...look,
+      outfitTrim: "#e2e8f0",
+      accent: "#cbd5e1",
+      sheen: Math.max(look.sheen ?? 0.4, 0.8),
+    };
+  }
+  return look;
+}
+
 /** Resolve the look for a seat's persona (human/unknown -> sensible defaults). */
 export function getLook(
   persona?: Persona,
   isHuman?: boolean,
   characterId?: string,
   multiplayerHuman?: boolean,
+  tierId?: string,
 ): CharacterLook {
   if (isHuman) {
     if (multiplayerHuman && characterId) {
@@ -306,6 +340,6 @@ export function getLook(
     }
     if (!multiplayerHuman) return HUMAN_LOOK;
   }
-  if (persona && LOOKS[persona.id]) return LOOKS[persona.id];
-  return FALLBACK;
+  const base = persona && LOOKS[persona.id] ? LOOKS[persona.id] : FALLBACK;
+  return isHuman ? base : applyTierLook(base, tierId);
 }

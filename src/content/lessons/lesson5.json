@@ -10,7 +10,6 @@
   "intro": [
     "Conditional probability is the chance of an event given that you already know something else has happened. That extra information shrinks the set of possibilities to a restricted sample space — for example, once you know a card is red, only 26 cards remain in play.",
     "You'll work with bags of marbles and a deck of cards, paying close attention to whether a draw is made with replacement (probabilities stay the same) or without replacement (the totals shrink, so later probabilities change). For two draws without replacement, multiply the first probability by the updated second probability.",
-    "Conditional probability is where intuition fails fastest in interviews: the sample space shrinks, and every count must be renormalized within that slice. Brainstellar-style card and urn puzzles exploit whether you treat draws as with or without replacement. Stat 110's mantra—P(A|B) = P(A ∩ B)/P(B)—sounds trivial until a problem hides B inside a story about 'given that the card is red' or 'knowing the first flip was tails.'",
     "Conditional probability is where intuition fails fastest in interviews: the sample space shrinks, and every count must be renormalized within that slice. Brainstellar-style card and urn puzzles exploit whether you treat draws as with or without replacement. Stat 110's mantra—P(A|B) = P(A ∩ B)/P(B)—sounds trivial until a problem hides B inside a story about 'given that the card is red' or 'knowing the first flip was tails.'"
   ],
   "questions": [
@@ -31,10 +30,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Every diamond is a red suit, so once you condition on 'diamond' the restricted sample space (13 diamonds) is entirely red and the probability is exactly 1.",
+        "B": "1/2 is P(red) before any conditioning, when red and black are equally likely. Knowing the card is a diamond removes all uncertainty about color.",
+        "C": "1/4 is the unconditional chance of drawing a diamond from the full 52-card deck, not the chance of red given a diamond.",
+        "D": "13/52 simplifies to 1/4, again the unconditional probability of a diamond—it ignores that you already conditioned on the suit."
       },
       "remediation": [
         {
@@ -52,10 +51,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Hearts are a red suit, so given the card is a heart it is red with probability 1.",
+            "B": "1/2 is the unconditional chance of red. The condition 'it is a heart' already guarantees the color.",
+            "C": "1/4 is the unconditional chance of drawing a heart, not P(red | heart).",
+            "D": "0 would mean a heart can never be red, but hearts are by definition a red suit."
           }
         },
         {
@@ -73,10 +72,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The marble is already known to be red, so the probability it is blue is 0—the two colors are mutually exclusive.",
+            "B": "1/2 ignores the conditioning. Once you know the marble is red, blue is impossible.",
+            "C": "1 would mean it is certainly blue, contradicting the fact that you were told it is red.",
+            "D": "1/4 has no basis here; a red marble cannot also be blue, so the probability is 0."
           }
         }
       ]
@@ -98,10 +97,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Conditioning on red leaves 26 cards—13 hearts and 13 diamonds—so P(heart | red) = 13/26 = 1/2.",
+        "B": "1/4 is the unconditional probability of a heart in the full 52-card deck; it forgets the sample space shrank to 26 red cards.",
+        "C": "1/13 is the chance of one specific rank, not the chance of a heart among the red cards.",
+        "D": "13/52 equals 1/4, the unconditional heart probability, not the conditional one given red."
       },
       "remediation": [
         {
@@ -119,10 +118,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Among the 26 red cards, 13 are diamonds, so P(diamond | red) = 13/26 = 1/2.",
+            "B": "1/4 is the unconditional diamond probability and ignores that we restricted to red cards.",
+            "C": "1/13 is a per-rank probability, not the share of diamonds among red cards.",
+            "D": "1/26 is the chance of one specific red card, not the chance of any diamond among the 26 red cards."
           }
         },
         {
@@ -140,10 +139,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Black cards are 13 clubs and 13 spades, so P(club | black) = 13/26 = 1/2.",
+            "B": "1/4 is the unconditional club probability; conditioning on black shrinks the space to 26 cards.",
+            "C": "1/13 is a single-rank probability, not the fraction of clubs among black cards.",
+            "D": "13/52 equals 1/4, the unconditional probability, not the conditional one given black."
           }
         }
       ]
@@ -165,10 +164,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. After removing one red, 1 red remains among 3 marbles, so P(red) = 1/3.",
+        "B": "1/2 forgets that the drawn red was not replaced; the count dropped from 2/4 to 1/3.",
+        "C": "1/4 is one marble out of the original four—it ignores both the removal and that a red still remains.",
+        "D": "2/4 is the probability before the first draw; the sample space shrank after removing a red."
       },
       "remediation": [
         {
@@ -186,10 +185,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Starting with 4 marbles and removing one leaves 3 marbles in the bag.",
+            "B": "4 is the original count before any marble was removed.",
+            "C": "2 would remove two marbles; only one red was taken out.",
+            "D": "1 drastically over-removes; taking out a single marble leaves 3, not 1."
           }
         },
         {
@@ -207,10 +206,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. After removing one red, 2 reds remain among 3 marbles, so P(red) = 2/3.",
+            "B": "3/4 is the chance of red before the draw (3 of 4); it ignores that a red was removed.",
+            "C": "1/2 understates it—2 of the 3 remaining marbles are red, giving 2/3.",
+            "D": "3/3 = 1 would mean every remaining marble is red, but a blue is still in the bag."
           }
         }
       ]
@@ -232,10 +231,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The red marble was put back, so the bag is unchanged at 5 red of 10, giving P(red) = 5/10 = 1/2.",
+        "B": "4/9 treats the draw as without replacement (4 red left of 9). Replacement restores the original counts.",
+        "C": "5/9 keeps 5 reds but wrongly shrinks the total to 9; replacement keeps the total at 10.",
+        "D": "0 would mean red is impossible, but half the replaced bag is still red."
       },
       "remediation": [
         {
@@ -253,10 +252,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Replacing the marble restores the bag to its original composition, so the next draw's probabilities are unchanged.",
+            "B": "Probabilities shrink only when you remove marbles without replacing them.",
+            "C": "Replacement does not increase any color's share; it simply restores the original counts.",
+            "D": "The probability is not zero—the bag is identical to before the draw."
           }
         },
         {
@@ -274,10 +273,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. With replacement the bag stays at 3 red of 10, so every draw has P(red) = 3/10.",
+            "B": "3/9 assumes a marble was removed without replacement, shrinking the total to 9.",
+            "C": "2/9 wrongly removes a red and shrinks the total; replacement keeps 3 red of 10.",
+            "D": "7/10 is the probability of blue, not red."
           }
         }
       ]
@@ -299,10 +298,10 @@
       ],
       "correctAnswer": 2,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "1/2 is not the right fraction; after removing one green, 5 of the 9 remaining marbles are red.",
+        "B": "5/10 is the chance of red before any draw; removing a green shrinks the total to 9.",
+        "C": "Correct. Removing one green leaves 9 marbles, still 5 of them red, so P(red) = 5/9.",
+        "D": "4/9 wrongly subtracts a red. A green was removed, so all 5 reds remain among 9 marbles."
       },
       "remediation": [
         {
@@ -320,10 +319,10 @@
           ],
           "correctAnswer": 1,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "4/10 is the chance of red before the draw; removing a blue shrinks the total to 9.",
+            "B": "Correct. Removing one blue leaves 9 marbles with all 4 reds intact, so P(red) = 4/9.",
+            "C": "3/9 wrongly removes a red; the marble taken out was blue.",
+            "D": "6/9 is the chance of blue among the remaining 9, not red."
           }
         },
         {
@@ -341,10 +340,10 @@
           ],
           "correctAnswer": 1,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "6/10 is the chance of red before the draw; one red was removed.",
+            "B": "Correct. After removing one red, 5 reds remain among 9 marbles, so P(red) = 5/9.",
+            "C": "6/9 keeps all 6 reds, but a red was removed, leaving only 5.",
+            "D": "5/10 uses the wrong total; the bag shrank to 9 after the draw."
           }
         }
       ]
@@ -366,10 +365,10 @@
       ],
       "correctAnswer": 2,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "4/52 is the unconditional chance of a King in the full deck; we already conditioned on a face card.",
+        "B": "1/13 is the per-rank probability in a full deck, not within the 12 face cards.",
+        "C": "Correct. Of the 12 face cards, 4 are Kings, so P(King | face card) = 4/12 = 1/3.",
+        "D": "1/4 would require 4 equally likely face ranks; there are only 3 (Jack, Queen, King), giving 1/3."
       },
       "remediation": [
         {
@@ -387,10 +386,10 @@
           ],
           "correctAnswer": 1,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "4/52 is the unconditional Queen probability, ignoring that we restricted to face cards.",
+            "B": "Correct. 4 of the 12 face cards are Queens, so P(Queen | face card) = 4/12 = 1/3.",
+            "C": "1/13 is a full-deck per-rank probability, not the conditional one among face cards.",
+            "D": "1/12 is the chance of one specific face card, not all four Queens."
           }
         },
         {
@@ -408,10 +407,10 @@
           ],
           "correctAnswer": 1,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "1/4 would require 4 face ranks; there are only 3, so the answer is 1/3.",
+            "B": "Correct. 4 of the 12 face cards are Jacks, so P(Jack | face card) = 4/12 = 1/3.",
+            "C": "1/13 is a full-deck per-rank probability, not conditional on a face card.",
+            "D": "4/52 is the unconditional Jack probability before conditioning on face cards."
           }
         }
       ]
@@ -433,10 +432,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "4/52 ignores that one Ace was already drawn and removed from the deck.",
+        "B": "Correct. With one Ace gone, 3 Aces remain among 51 cards, so P(second Ace | first Ace) = 3/51.",
+        "C": "4/51 correctly shrinks the deck to 51 but forgets that one of the four Aces is already gone.",
+        "D": "2/51 removes two Aces; only one Ace has been drawn so far."
       },
       "remediation": [
         {
@@ -454,10 +453,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 3 Aces remain among 51 cards, so the probability is 3/51.",
+            "B": "4/52 is the chance before any card was removed.",
+            "C": "3/52 uses 3 Aces but the wrong total; the deck now holds 51 cards.",
+            "D": "4/51 shrinks the deck but forgets one Ace is already gone."
           }
         },
         {
@@ -475,10 +474,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. With one heart removed, 12 hearts remain among 51 cards, so P = 12/51.",
+            "B": "13/52 is the unconditional heart probability before the first draw.",
+            "C": "13/51 shrinks the deck but forgets one heart was already drawn.",
+            "D": "12/52 correctly drops a heart but uses the original total of 52 instead of 51."
           }
         }
       ]
@@ -500,10 +499,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. 'Not green' restricts to 8 marbles (5 red, 3 blue), so P(red) = 5/8.",
+        "B": "5/10 ignores the conditioning; once green is ruled out the total drops from 10 to 8.",
+        "C": "1/2 is close but uses the wrong denominator—there are 8 non-green marbles, not 10.",
+        "D": "5/9 removes only one marble; ruling out green removes both greens, leaving 8."
       },
       "remediation": [
         {
@@ -521,10 +520,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Among the 8 non-green marbles, 3 are blue, so P(blue) = 3/8.",
+            "B": "3/10 ignores conditioning; the space shrank to 8 once green was excluded.",
+            "C": "1/3 is not the right ratio—3 blue out of 8 non-green marbles is 3/8.",
+            "D": "3/9 removes only one green; both greens (2 of them) are excluded, leaving 8."
           }
         },
         {
@@ -542,10 +541,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Excluding the 2 greens leaves 8 marbles, 4 of them red, so P(red) = 4/8 = 1/2.",
+            "B": "4/10 ignores the conditioning; the total drops to 8 once green is ruled out.",
+            "C": "4/9 removes only one marble; both greens are excluded, leaving 8.",
+            "D": "1/4 understates it—4 reds out of 8 non-green marbles is 1/2."
           }
         }
       ]
@@ -567,10 +566,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "9/25 = (3/5)² treats the draws as independent with replacement; without replacement the second probability drops to 2/4.",
+        "B": "Correct. P(both red) = (3/5)(2/4) = 6/20 = 3/10.",
+        "C": "6/10 forgets to reduce the denominator on the second draw; the product is 3/10, not 6/10.",
+        "D": "1/2 overstates it; the chained probabilities give 3/10."
       },
       "remediation": [
         {
@@ -588,10 +587,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. (3/5)(2/4) = 6/20 = 3/10.",
+            "B": "5/9 has no basis here; you multiply 3/5 by 2/4.",
+            "C": "6/9 mishandles the denominators; the product is 3/10.",
+            "D": "1/2 ignores the multiplication of the two draw probabilities."
           }
         },
         {
@@ -609,10 +608,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. (4/6)(3/5) = 12/30 = 2/5.",
+            "B": "1/2 overstates it; the chained product is 2/5.",
+            "C": "1/3 understates it; (4/6)(3/5) = 2/5, not 1/3.",
+            "D": "16/36 = (4/6)² assumes replacement; without replacement the second draw is 3/5."
           }
         }
       ]
@@ -634,10 +633,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "1/10 is P(both blue), the complement—subtract it from 1 to get P(at least one red).",
+        "B": "Correct. P(both blue) = (2/5)(1/4) = 1/10, so P(at least one red) = 1 − 1/10 = 9/10.",
+        "C": "2/5 is roughly a single-draw blue chance; it does not give the at-least-one-red probability.",
+        "D": "3/5 is P(first red) on a single draw, not P(at least one red) over two draws."
       },
       "remediation": [
         {
@@ -655,10 +654,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. (2/5)(1/4) = 2/20 = 1/10.",
+            "B": "2/9 mishandles the denominators; the product is 1/10.",
+            "C": "4/25 = (2/5)² assumes replacement; without replacement the second draw is 1/4.",
+            "D": "1/5 doubles the result; (2/5)(1/4) = 1/10."
           }
         },
         {
@@ -676,10 +675,10 @@
           ],
           "correctAnswer": 1,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "1/10 is P(both blue) itself, not its complement.",
+            "B": "Correct. P(at least one red) = 1 − P(both blue) = 1 − 1/10 = 9/10.",
+            "C": "1/2 does not follow; subtracting 1/10 from 1 gives 9/10.",
+            "D": "3/5 is a single-draw red probability, not the complement of both blue."
           }
         }
       ]
@@ -801,6 +800,152 @@
           }
         }
       ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l5_pq1",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You are told a drawn card is a club. What is the probability it is black?",
+      "options": [
+        "1",
+        "1/2",
+        "1/4",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Clubs are a black suit, so given a club the card is black with probability 1.",
+        "B": "1/2 is the unconditional chance of black; knowing it is a club removes the uncertainty.",
+        "C": "1/4 is the unconditional chance of drawing a club, not P(black | club).",
+        "D": "0 would say a club is never black, but clubs are a black suit."
+      }
+    },
+    {
+      "id": "l5_pq2",
+      "concept": "restricted_color",
+      "question": "Given a card is black, what is the probability it is a spade?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/13",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Black cards are 13 spades and 13 clubs, so P(spade | black) = 13/26 = 1/2.",
+        "B": "1/4 is the unconditional spade probability; conditioning on black shrinks the space to 26.",
+        "C": "1/13 is a per-rank probability, not the share of spades among black cards.",
+        "D": "1 would mean every black card is a spade, but half are clubs."
+      }
+    },
+    {
+      "id": "l5_pq3",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 2 red and 3 blue marbles. You draw a blue and keep it out. What is the probability the next draw is blue?",
+      "options": [
+        "1/2",
+        "3/5",
+        "2/5",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After removing one blue, 2 blue remain among 4 marbles, so P(blue) = 2/4 = 1/2.",
+        "B": "3/5 is the chance of blue before the draw; removing a blue lowers it.",
+        "C": "2/5 is the original red fraction, not the updated blue probability.",
+        "D": "1/4 understates it—2 of the 4 remaining marbles are blue."
+      }
+    },
+    {
+      "id": "l5_pq4",
+      "concept": "with_replacement",
+      "question": "A bag has 4 red and 6 blue marbles. You draw a red and put it BACK. What is the probability the next draw is red?",
+      "options": [
+        "2/5",
+        "4/9",
+        "3/9",
+        "6/10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Replacement keeps the bag at 4 red of 10, so P(red) = 4/10 = 2/5.",
+        "B": "4/9 treats the draw as without replacement; putting the marble back restores the total to 10.",
+        "C": "3/9 wrongly removes a red and shrinks the total; replacement changes nothing.",
+        "D": "6/10 is the probability of blue, not red."
+      }
+    },
+    {
+      "id": "l5_pq5",
+      "concept": "restricted_face_card",
+      "question": "Given a card is a face card (12 cards: Jack, Queen, King), what is the probability it is a Queen?",
+      "options": [
+        "1/3",
+        "1/4",
+        "1/13",
+        "4/52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the 12 face cards, 4 are Queens, so P(Queen | face card) = 4/12 = 1/3.",
+        "B": "1/4 would require 4 face ranks; there are only 3, giving 1/3.",
+        "C": "1/13 is a full-deck per-rank probability, not conditional on face cards.",
+        "D": "4/52 is the unconditional Queen probability before conditioning."
+      }
+    },
+    {
+      "id": "l5_pq6",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn without replacement. Given the first was a King, what is the probability the second is also a King?",
+      "options": [
+        "3/51",
+        "4/52",
+        "4/51",
+        "2/51"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. One King is gone, leaving 3 Kings among 51 cards: 3/51.",
+        "B": "4/52 ignores that one King was already removed.",
+        "C": "4/51 shrinks the deck but forgets a King is already gone.",
+        "D": "2/51 removes two Kings; only one has been drawn."
+      }
+    },
+    {
+      "id": "l5_pq7",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 4 red, 3 blue, and 3 green marbles. Given the marble is NOT green, what is the probability it is red?",
+      "options": [
+        "4/7",
+        "4/10",
+        "1/2",
+        "4/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Excluding the 3 greens leaves 7 marbles, 4 of them red, so P(red) = 4/7.",
+        "B": "4/10 ignores the conditioning; the total drops to 7 once green is excluded.",
+        "C": "1/2 is not the right ratio—4 red out of 7 non-green marbles is 4/7.",
+        "D": "4/9 removes only one green; all 3 greens are excluded, leaving 7."
+      }
+    },
+    {
+      "id": "l5_pq8",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 4 red and 2 blue marbles. You draw two without replacement. What is the probability both are red?",
+      "options": [
+        "2/5",
+        "4/9",
+        "1/2",
+        "16/36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both red) = (4/6)(3/5) = 12/30 = 2/5.",
+        "B": "4/9 has no basis here; chain (4/6)(3/5) instead.",
+        "C": "1/2 overstates it; the product is 2/5.",
+        "D": "16/36 = (4/6)² assumes replacement; the second draw is 3/5 without it."
+      }
     }
   ]
 }

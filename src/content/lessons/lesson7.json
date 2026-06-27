@@ -13,7 +13,6 @@
   "intro": [
     "Variance measures how far a random variable tends to spread around its mean: low variance means outcomes cluster tightly; high variance means wide swings. The standard deviation is the square root of the variance and shares the same units as the original variable, which makes it easier to interpret in practice.",
     "Covariance captures whether two variables move together (positive), move in opposite directions (negative), or show no linear relationship (zero). Correlation rescales covariance to a number between -1 and 1. The law of large numbers (LLN) says that as you repeat independent trials, the sample average converges to the true expected value — the foundation of Monte Carlo methods and statistical estimation in quant interviews.",
-    "Variance and the law of large numbers bridge classroom probability and real quant work: risk is spread, portfolios combine covariances, and Monte Carlo averages converge because sample means stabilize. Stat 110 pairs Var(X) computations with the LLN story—repeat independent trials and noise in the average shrinks. Interviewers love asking whether diversification lowers portfolio variance or why a simulation with 10 draws looks noisy but 10,000 draws does not.",
     "Variance and the law of large numbers bridge classroom probability and real quant work: risk is spread, portfolios combine covariances, and Monte Carlo averages converge because sample means stabilize. Stat 110 pairs Var(X) computations with the LLN story—repeat independent trials and noise in the average shrinks. Interviewers love asking whether diversification lowers portfolio variance or why a simulation with 10 draws looks noisy but 10,000 draws does not."
   ],
   "questions": [
@@ -34,10 +33,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Variance is the expected squared deviation from the mean, E[(X − μ)²], which measures how far outcomes typically fall from μ.",
+        "B": "E[X]² is just the squared mean — a measure of location, not spread. It can be large even when X never varies.",
+        "C": "(E[X])² is also the square of the mean, a fixed constant that says nothing about how X disperses around μ.",
+        "D": "This mixes moments incorrectly. The shortcut is E[X²] − (E[X])², squaring the full mean, not subtracting E[X] itself."
       },
       "remediation": [
         {
@@ -55,10 +54,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Variance is the average squared distance of outcomes from the mean μ, so the mean is its reference point.",
+            "B": "Spread in variance is measured from the mean, not the median. The median is a different center used in other robustness measures.",
+            "C": "The maximum is a single extreme value, not the balancing center that variance measures deviations from.",
+            "D": "The mode is the most frequent value; variance is defined around the mean, not the mode."
           }
         },
         {
@@ -76,10 +75,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Tightly clustered outcomes have small squared deviations from the mean, so the variance is low.",
+            "B": "High variance describes wide swings around the mean — the opposite of a tightly clustered distribution.",
+            "C": "Infinite variance arises only for heavy-tailed distributions, not for a tightly concentrated one.",
+            "D": "Variance is an average of squared terms, so it can never be negative."
           }
         }
       ]
@@ -101,10 +100,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Expanding E[(X − μ)²] gives E[X²] − (E[X])², the standard computational formula for variance.",
+        "B": "Adding the moments would inflate the result; variance subtracts the squared mean, it does not add it.",
+        "C": "This reverses the subtraction. (E[X])² − E[X²] is the negative of the variance and would be ≤ 0.",
+        "D": "E[X] − E[X²] mixes the first and second moments with no squaring of the mean, so it is not a valid variance identity."
       },
       "remediation": [
         {
@@ -122,10 +121,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. This is the computational (shortcut) formula for variance, derived by expanding E[(X − μ)²].",
+            "B": "Covariance involves two variables, Cov(X,Y) = E[XY] − E[X]E[Y], not a single variable's spread.",
+            "C": "Bayes rule relates conditional probabilities; it has nothing to do with computing variance.",
+            "D": "The LLN describes convergence of sample averages, not a moment-based variance identity."
           }
         },
         {
@@ -143,10 +142,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Var(X) = E[X²] − (E[X])² = 13 − 3² = 13 − 9 = 4.",
+            "B": "10 comes from 13 − 3, subtracting E[X] instead of (E[X])² = 9.",
+            "C": "16 adds the moments (13 + 3) or uses 4², neither of which is the variance.",
+            "D": "9 is (E[X])² alone; you must subtract it from E[X²], not report it as the variance."
           }
         }
       ]
@@ -168,10 +167,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Taking the square root of variance restores the original units, so a return in percent has a standard deviation in percent.",
+        "B": "Percent squared is the unit of the variance, not the standard deviation, which un-squares those units.",
+        "C": "Standard deviation keeps the units of the variable; it is not dimensionless. (Correlation is the dimensionless quantity.)",
+        "D": "Dollars would apply to a P&L measured in dollars, not to a return already expressed in percent."
       },
       "remediation": [
         {
@@ -189,10 +188,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. SD(X) = √Var(X), which puts the spread back into the variable's original units.",
+            "B": "Squaring the variance would give units to the fourth power — the wrong direction.",
+            "C": "The reciprocal of variance has no standard interpretation as spread.",
+            "D": "Logarithms are unrelated to the definition of standard deviation."
           }
         },
         {
@@ -210,10 +209,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. SD(X) = √9 = 3.",
+            "B": "9 is the variance itself; standard deviation is its square root.",
+            "C": "81 is 9², which squares the variance instead of taking its root.",
+            "D": "1.5 is 9/6 or half of 3; neither equals √9."
           }
         }
       ]
@@ -235,10 +234,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A constant never deviates from its mean (which is c), so every squared deviation is 0 and Var(X) = 0.",
+        "B": "c is the value (and the mean) of X, not its spread. A constant has no spread.",
+        "C": "c² is the square of the value; variance measures deviation from the mean, which is zero here.",
+        "D": "1 is an arbitrary nonzero number; a constant has exactly zero variance."
       },
       "remediation": [
         {
@@ -256,10 +255,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. With no randomness, outcomes never deviate from the mean, so the variance is 0.",
+            "B": "1 implies some spread; a degenerate (non-random) variable has none.",
+            "C": "The mean describes the value, not the spread, which is zero.",
+            "D": "The mean squared is still a location-based quantity, not the zero spread of a constant."
           }
         },
         {
@@ -277,10 +276,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. X is constant at 7, so Var(X) = 0 and SD(X) = √0 = 0.",
+            "B": "7 is the value of X, not its spread. A fixed value has no deviation.",
+            "C": "49 is 7²; squaring the value does not give standard deviation, which is zero here.",
+            "D": "1 implies variability, but X never changes, so its standard deviation is 0."
           }
         }
       ]
@@ -302,10 +301,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Positive covariance means that when X is above its mean, Y tends to be above its mean too — they move together on average.",
+        "B": "Opposite movement corresponds to negative covariance, not positive.",
+        "C": "Independence forces Cov(X,Y) = 0, not a positive value.",
+        "D": "A constant Y has zero variance and zero covariance with anything, contradicting Cov > 0."
       },
       "remediation": [
         {
@@ -323,10 +322,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Positive covariance pairs above-mean X with above-mean Y, so the deviation products are positive on average.",
+            "B": "Y below its mean while X is above would produce negative covariance.",
+            "C": "Y being exactly zero is unrelated to the sign of covariance; covariance compares deviations from means.",
+            "D": "A constant Y has zero covariance, not positive."
           }
         },
         {
@@ -344,10 +343,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Negative covariance means above-mean X pairs with below-mean Y, so they tend to move in opposite directions.",
+            "B": "Moving in the same direction is positive covariance.",
+            "C": "No pattern at all corresponds to zero covariance, not negative.",
+            "D": "Perfect lockstep is correlation +1 (positive covariance), the opposite of this case."
           }
         }
       ]
@@ -368,10 +367,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Independence gives E[XY] = E[X]E[Y], so Cov(X,Y) = E[XY] − E[X]E[Y] = 0.",
+        "B": "Covariance is not normalized to 1; only correlation is bounded, and independence drives covariance to 0.",
+        "C": "Var(X) is the covariance of X with itself, not the covariance between two independent variables.",
+        "D": "Var(Y) is the self-covariance of Y; independent variables share no covariance, so the answer is 0."
       },
       "remediation": [
         {
@@ -388,10 +387,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Independent variables have no linear association, so their covariance is exactly 0.",
+            "B": "A positive value would indicate they move together — that contradicts independence.",
+            "C": "A negative value would indicate opposite movement, which independence rules out.",
+            "D": "E[X]E[Y] is subtracted from E[XY] in the covariance formula; under independence those terms cancel to give 0."
           }
         },
         {
@@ -408,10 +407,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Separate dice rolls are independent, so their covariance is 0.",
+            "B": "1 would imply a relationship between the rolls; independent dice have none.",
+            "C": "3.5 is the expected value of a single die, not the covariance between two rolls.",
+            "D": "7 is the expected sum of two dice, not their covariance."
           }
         }
       ]
@@ -433,10 +432,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Dividing covariance by SD(X)·SD(Y) (Cauchy–Schwarz) bounds correlation to [−1, 1].",
+        "B": "[0, 1] omits negative correlation, but variables can move in opposite directions (ρ down to −1).",
+        "C": "Correlation is normalized, so it cannot be unbounded like raw covariance.",
+        "D": "[0, ∞] both excludes negatives and ignores the upper bound of +1."
       },
       "remediation": [
         {
@@ -454,10 +453,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. ρ = Cov(X,Y) / (SD(X)·SD(Y)), which rescales covariance into [−1, 1].",
+            "B": "Summing variances does not normalize the units the way the product of standard deviations does.",
+            "C": "Dividing by E[X]·E[Y] uses means, not the spread; that is not how correlation is defined.",
+            "D": "The denominator is the product, not the sum, of the standard deviations."
           }
         },
         {
@@ -475,10 +474,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. ρ = +1 means Y is an exact increasing linear function of X — they lie on an upward-sloping line.",
+            "B": "No relationship corresponds to ρ = 0, not +1.",
+            "C": "A perfect negative relationship is ρ = −1.",
+            "D": "Correlation measures only linear association; ρ = +1 is the strongest positive linear case, not a nonlinear one."
           }
         }
       ]
@@ -500,10 +499,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The WLLN says the sample mean converges in probability to the true expected value E[X].",
+        "B": "Var(X) describes spread; the sample mean targets the center E[X], not the variance.",
+        "C": "The limit is 0 only when E[X] happens to be 0 — the general target is E[X].",
+        "D": "The sample maximum grows with extreme draws; it is not the limit of the average."
       },
       "remediation": [
         {
@@ -520,10 +519,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. By the LLN, the sample proportion of heads converges to the true probability p = 0.5.",
+            "B": "0 would mean heads essentially never occur, contradicting a fair coin.",
+            "C": "1 would mean heads always occur, again impossible for a fair coin.",
+            "D": "The whole point of the LLN is that the long-run fraction stabilizes, not that it stays random."
           }
         },
         {
@@ -541,10 +540,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. More independent draws shrink the estimator's variance (σ²/n), so the average converges to the true value.",
+            "B": "Fewer simulations give a noisier estimate — the opposite of improvement.",
+            "C": "Monte Carlo relies on randomness; ignoring it defeats the method.",
+            "D": "A single trial has maximal sampling error; averaging many trials is what helps."
           }
         }
       ]
@@ -566,10 +565,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 4 + 9 = 13 (the covariance term is 0).",
+        "B": "5 is 9 − 4; variances of a sum add, they do not subtract.",
+        "C": "36 multiplies the variances (4 × 9); variance of a sum adds them.",
+        "D": "6.5 averages the variances, which is not the rule for the variance of a sum."
       },
       "remediation": [
         {
@@ -587,10 +586,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 2 + 3 = 5, since independence makes the covariance term vanish.",
+            "B": "1 is 3 − 2; variances add for a sum, they do not subtract.",
+            "C": "6 multiplies 2 × 3 instead of adding.",
+            "D": "2.5 averages the two variances rather than summing them."
           }
         },
         {
@@ -608,10 +607,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. With Cov(X,Y) = 0 the cross term drops out, leaving Var(X) + Var(Y).",
+            "B": "Subtraction would only appear for Var(X − Y) with a negative covariance, not here.",
+            "C": "Variances combine additively, not multiplicatively.",
+            "D": "0 would require both variances to vanish; dropping the covariance term still leaves Var(X) + Var(Y)."
           }
         }
       ]
@@ -624,19 +623,19 @@
         "type": "distribution_builder",
         "shape": "normal"
       },
-      "question": "Two assets each have variance 0.04 and correlation ρ = 0.5. For an equal-weight portfolio (50% each), the portfolio variance is 0.04 + 0.04 + 2(0.5)(0.2)(0.2)(0.5) = ?",
+      "question": "Two assets each have variance 0.04 (so σ = 0.2) and correlation ρ = 0.5. For an equal-weight portfolio (w = 0.5 each), the portfolio variance w²σ₁² + w²σ₂² + 2w²·ρσ₁σ₂ equals:",
       "options": [
-        "0.06",
+        "0.03",
         "0.04",
-        "0.08",
-        "0.10"
+        "0.06",
+        "0.02"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Cov = ρσ₁σ₂ = 0.5(0.2)(0.2) = 0.02. Var = 0.25(0.04) + 0.25(0.04) + 2(0.25)(0.02) = 0.01 + 0.01 + 0.01 = 0.03.",
+        "B": "0.04 is the variance of a single asset; combining two correlated assets with equal weights lowers it to 0.03.",
+        "C": "0.06 forgets the w² = 0.25 weighting on the variance terms, inflating the result.",
+        "D": "0.02 keeps only the two weighted variance terms (0.01 + 0.01) and drops the positive covariance contribution."
       },
       "remediation": [
         {
@@ -654,10 +653,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 0.25σ² + 0.25σ² = 0.5σ² = σ²/2 — diversification across two independent assets halves the variance.",
+            "B": "σ² is the variance of a single asset; equal-weighting two independent assets reduces it.",
+            "C": "2σ² would be the variance of the unweighted sum, not the equal-weight average.",
+            "D": "0 would require the assets to have no variance at all, which is not the case."
           }
         },
         {
@@ -675,10 +674,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Any ρ < 1 makes the combined volatility less than the weighted average, so imperfect correlation creates a diversification benefit.",
+            "B": "At ρ = 1 the assets move in lockstep and there is no risk reduction from combining them.",
+            "C": "Correlation cannot exceed 1, so this case is impossible.",
+            "D": "ρ = −1 maximizes the benefit, but diversification helps for any correlation below 1, not only at −1."
           }
         }
       ]
@@ -819,10 +818,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Variance is an average of squared deviations, so it is always ≥ 0.",
+        "B": "A squared quantity can never be negative, so variance cannot be negative.",
+        "C": "Variance is zero only for a constant; in general it is positive.",
+        "D": "Variance measures spread and is unrelated to the value of the mean."
       }
     },
     {
@@ -841,10 +840,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. SD(X) = √25 = 5.",
+        "B": "25 is the variance itself, not its square root.",
+        "C": "625 is 25², squaring instead of rooting.",
+        "D": "12.5 is half of 25, not √25."
       }
     },
     {
@@ -863,10 +862,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A constant never deviates from its mean, so Var(c) = 0.",
+        "B": "c is the value of the constant, not its spread.",
+        "C": "c² is the squared value, not the variance of a fixed number.",
+        "D": "1 implies variability, but a constant has none."
       }
     },
     {
@@ -885,10 +884,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Negative covariance pairs above-mean X with below-mean Y, so they move oppositely.",
+        "B": "Moving together is positive covariance.",
+        "C": "Independence gives zero covariance, not negative.",
+        "D": "Being equal would make them perfectly positively related, not negatively."
       }
     },
     {
@@ -906,10 +905,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Independence makes E[XY] = E[X]E[Y], so Cov(X,Y) = 0.",
+        "B": "Covariance is not normalized to 1; independence drives it to 0.",
+        "C": "Var(X) is the self-covariance of X, not the covariance between independent variables.",
+        "D": "E[XY] is only one term of the covariance; under independence it cancels with E[X]E[Y] to give 0."
       }
     },
     {
@@ -928,10 +927,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Correlation is bounded in [−1, 1] by the Cauchy–Schwarz inequality.",
+        "B": "This excludes negative correlation, which is possible down to −1.",
+        "C": "ρ can be negative, so ρ ≥ 0 is not always true.",
+        "D": "ρ = 0 holds only for uncorrelated variables, not in general."
       }
     },
     {
@@ -950,10 +949,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The law of large numbers guarantees the sample mean converges to E[X].",
+        "B": "The CLT describes the shape (normality) of the scaled error, not the convergence of the mean itself.",
+        "C": "Bayes theorem updates probabilities; it does not describe sample-mean convergence.",
+        "D": "The Markov property concerns memorylessness of processes, not sample averages."
       }
     },
     {
@@ -972,10 +971,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Independence zeroes the covariance term, so variances of a sum simply add.",
+        "B": "Subtraction is not the rule for summing independent variables.",
+        "C": "Variances combine additively, not by multiplication.",
+        "D": "0 would require both variances to be zero; in general the sum is Var(X) + Var(Y)."
       }
     }
   ]

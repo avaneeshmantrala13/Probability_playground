@@ -13,7 +13,6 @@
   "intro": [
     "Game theory models strategic interaction: each player chooses an action knowing that others are doing the same, and payoffs depend on everyone's choices. In quant and trading interviews you'll see games in market making, bidding, and adversarial scenarios where your best move depends on what others do.",
     "A Nash equilibrium is a profile of strategies where no player can improve their payoff by unilaterally changing their move. Sometimes the equilibrium involves mixed strategies — randomizing over actions with specific probabilities so opponents cannot exploit a predictable pattern. Recognizing dominant strategies, prisoner's dilemmas, and zero-sum structure is essential for quick interview reasoning.",
-    "Game theory models markets where your payoff depends on others' choices—auctions, bidding wars, and adversarial market making all fit. Quant interviews rarely ask you to solve a general game in full, but they do test Nash equilibrium, mixed strategies, and whether a game is zero-sum. Recognize when a dominant strategy exists, when randomization is optimal, and when bid shading beats bidding your true value.",
     "Game theory models markets where your payoff depends on others' choices—auctions, bidding wars, and adversarial market making all fit. Quant interviews rarely ask you to solve a general game in full, but they do test Nash equilibrium, mixed strategies, and whether a game is zero-sum. Recognize when a dominant strategy exists, when randomization is optimal, and when bid shading beats bidding your true value."
   ],
   "questions": [
@@ -21,19 +20,19 @@
       "id": "l9_q1",
       "kind": "standard",
       "concept": "nash_definition",
-      "question": "A Nash equilibrium is a set of strategies where:",
+      "question": "Two market makers simultaneously choose to quote Tight or Wide. The pair of quotes is a Nash equilibrium when:",
       "options": [
-        "no player can improve their payoff by changing only their own strategy",
-        "all players receive the same payoff",
-        "one player always wins",
-        "players cooperate to maximize total payoff"
+        "neither maker can increase their own payoff by changing only their own quote",
+        "both makers earn exactly the same payoff",
+        "one maker always captures the entire spread",
+        "the two makers coordinate to maximize their combined payoff"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A Nash equilibrium is a profile where each player's strategy is a best response to the others, so no unilateral switch can raise that player's payoff.",
+        "B": "Equilibrium says nothing about equal payoffs; players can earn very different amounts and still sit at a Nash equilibrium.",
+        "C": "One side dominating is not the definition. Equilibrium is about the absence of a profitable unilateral deviation, not about who wins.",
+        "D": "Jointly maximizing total payoff describes a cooperative or Pareto outcome, which often differs from the Nash equilibrium (as in the prisoner's dilemma)."
       },
       "remediation": [
         {
@@ -47,10 +46,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Each player's choice maximizes their payoff given what everyone else is doing — that mutual best-response property defines equilibrium.",
+            "B": "Strategies are chosen against opponents' play, not in a vacuum.",
+            "C": "Players respond to opponents' actual strategies, not arbitrary noise.",
+            "D": "A player can't always grab the highest payoff; the best response is constrained by others' choices."
           }
         },
         {
@@ -64,10 +63,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A profitable unilateral deviation means the profile fails the no-deviation test, so it is not a Nash equilibrium.",
+            "B": "It cannot be a Nash equilibrium precisely because a beneficial unilateral switch exists.",
+            "C": "If you can do better by deviating, the current profile is not optimal for you.",
+            "D": "A dominant strategy is a property of a single action across all opponent moves, not a description of an unstable profile."
           }
         }
       ]
@@ -76,19 +75,19 @@
       "id": "l9_q2",
       "kind": "standard",
       "concept": "dominant_strategy",
-      "question": "A strategy is dominant if:",
+      "question": "No matter what your competitor does, quoting Tight earns you more than quoting Wide. For you, quoting Tight is:",
       "options": [
-        "it gives a player the best payoff regardless of what others do",
-        "it is used by every player in equilibrium",
-        "it is never played",
-        "it requires randomization"
+        "a dominant strategy",
+        "a dominated strategy",
+        "a mixed strategy",
+        "irrelevant to your payoff"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A dominant strategy yields the best payoff regardless of opponents' choices, which is exactly what Tight does here.",
+        "B": "A dominated strategy is one you'd never play because something always beats it — that's Wide here, not Tight.",
+        "C": "A mixed strategy randomizes over actions; Tight is a single pure action that's always best.",
+        "D": "Tight strictly improves your payoff in every case, so it is highly relevant, not irrelevant."
       },
       "remediation": [
         {
@@ -102,10 +101,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Beating every alternative against all opponent choices is the definition of a strictly dominant strategy.",
+            "B": "Mixed means randomizing; a single always-best action is pure, not mixed.",
+            "C": "Pareto optimality compares joint outcomes; it is a different concept from dominance for one player.",
+            "D": "Zero-sum describes the payoff structure of a game, not a single action's dominance."
           }
         },
         {
@@ -119,10 +118,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. By definition it yields a strictly higher payoff in every scenario, so a rational player always plays it.",
+            "B": "Never choosing the best-in-all-cases action would be irrational.",
+            "C": "Randomizing throws away guaranteed gains from the dominant action.",
+            "D": "Copying the opponent ignores that you already have an action that's best regardless of their move."
           }
         }
       ]
@@ -131,19 +130,19 @@
       "id": "l9_q3",
       "kind": "standard",
       "concept": "zero_sum",
-      "question": "In a two-player zero-sum game, the sum of payoffs for any outcome is:",
+      "question": "Two desks trade only against each other, so every dollar one gains the other loses. Across both desks, the total payoff for any outcome is:",
       "options": [
-        "constant (often zero)",
+        "constant (here, zero)",
         "always positive",
         "always negative",
         "random"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. In a zero-sum (constant-sum) game the payoffs always add to the same total — zero here — because one side's gain is exactly the other's loss.",
+        "B": "If totals were always positive, gains wouldn't be offset by equal losses, contradicting zero-sum.",
+        "C": "Always-negative totals would mean both sides lose every round, which isn't a pure transfer.",
+        "D": "The sum is fixed by construction, not random; only the split between players varies."
       },
       "remediation": [
         {
@@ -157,10 +156,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. In a zero-sum game payoffs are a pure transfer: +x to one player is −x to the other.",
+            "B": "If both gained, the total would rise above zero, breaking the zero-sum condition.",
+            "C": "The transfer is exact, not random.",
+            "D": "Zero-sum games are purely competitive; there is no joint gain from cooperation."
           }
         },
         {
@@ -174,10 +173,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. One player's winnings are the other's losses (ignoring the rake), so the chips form a zero-sum transfer.",
+            "B": "Heads-up poker is adversarial, not cooperative.",
+            "C": "Poker is intensely strategic — bluffing and bet sizing are strategic choices.",
+            "D": "The pot is finite and fixed; payoffs sum to zero, not infinity."
           }
         }
       ]
@@ -195,10 +194,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Defect is dominant for each player, so mutual defection is the unique Nash equilibrium even though it is worse for both than mutual cooperation.",
+        "B": "Mutual cooperation gives a higher joint payoff but isn't stable — each player can gain by unilaterally defecting.",
+        "C": "An asymmetric profile isn't an equilibrium because the cooperator could improve by defecting too.",
+        "D": "An equilibrium does exist — it is mutual defection."
       },
       "remediation": [
         {
@@ -212,10 +211,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Whether the opponent cooperates or defects, defecting yields a strictly higher payoff for you.",
+            "B": "Cooperation only gives a higher joint payoff under mutual cooperation; it is never the individual best response.",
+            "C": "Payoffs differ across outcomes; that asymmetry is what creates the dilemma.",
+            "D": "Each player has well-defined strategies — cooperate or defect."
           }
         },
         {
@@ -229,10 +228,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Individually rational defection leads to mutual defection — a Nash equilibrium that's Pareto-dominated by cooperation.",
+            "B": "Mutual cooperation isn't a Nash equilibrium because each player can gain by defecting.",
+            "C": "The equilibrium here is a pure strategy (defect), not randomization.",
+            "D": "Players do act; the equilibrium is mutual defection, not abstention."
           }
         }
       ]
@@ -253,10 +252,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Mixing 50/50 makes the opponent indifferent between heads and tails, the only way neither player can be exploited.",
+        "B": "Always playing heads (probability 1) is a pure strategy the opponent can exploit by best-responding.",
+        "C": "Never playing heads (probability 0) is equally exploitable as a predictable pure strategy.",
+        "D": "1/4 is not symmetric and leaves a predictable bias the opponent can punish; the equilibrium is exactly 1/2."
       },
       "remediation": [
         {
@@ -273,10 +272,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A mixed strategy assigns probabilities to actions and randomizes accordingly.",
+            "B": "Always playing one action is a pure strategy, not a mixed one.",
+            "C": "Refusing to randomize is precisely a pure strategy.",
+            "D": "Copying the opponent is a reactive rule, not a probability distribution over your own actions."
           }
         },
         {
@@ -293,10 +292,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A predictable 'always heads' lets the mismatching opponent guarantee a win by always playing tails.",
+            "B": "Matching your heads would help you, not exploit you, when the opponent profits from mismatches.",
+            "C": "Randomizing is unnecessary once your move is perfectly predictable — a pure counter is strictly better.",
+            "D": "Doing nothing forfeits the free exploit your predictability hands the opponent."
           }
         }
       ]
@@ -314,10 +313,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A player only randomizes if the mixed-over actions give equal expected payoff; otherwise they would shift all weight to the better one.",
+        "B": "Indifference means equal expected payoffs, which need not be zero.",
+        "C": "If one action strictly maximized payoff, the player would play it purely, not mix.",
+        "D": "Randomization is not only possible but required for the mixed equilibrium."
       },
       "remediation": [
         {
@@ -331,10 +330,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A strictly better action would be played purely (probability 1), which breaks the mixing — so equilibrium mixing requires equal expected payoffs.",
+            "B": "Never playing the higher-payoff action is the opposite of rational.",
+            "C": "Uniform randomizing wastes the edge from the strictly better action.",
+            "D": "Quitting forgoes a positive-payoff opportunity."
           }
         },
         {
@@ -348,10 +347,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Setting the opponent's expected payoffs from each action equal lets you solve for the equilibrium mixing probabilities.",
+            "B": "Sample size is a statistics concept, unrelated to equilibrium mixing.",
+            "C": "Variance is not what the indifference condition pins down.",
+            "D": "Confidence intervals come from inference, not from equilibrium solving."
           }
         }
       ]
@@ -369,10 +368,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. You solve sequential games by backward induction — reasoning from the final decisions back to the first move.",
+        "B": "Random play ignores the structure that sequential information gives you.",
+        "C": "Ignoring later moves discards exactly the information backward induction uses.",
+        "D": "Rational players maximize their own payoff, not the opponent's."
       },
       "remediation": [
         {
@@ -386,10 +385,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. You solve the final subgames first, then fold those optimal choices back toward the root.",
+            "B": "Starting only at the first move ignores how later decisions constrain earlier ones.",
+            "C": "The method follows the game tree's order, not random nodes.",
+            "D": "It works from terminal decisions, not from arbitrary zero payoffs."
           }
         },
         {
@@ -403,10 +402,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Subgame perfection requires optimal play in every subgame, eliminating threats a player would not actually carry out.",
+            "B": "It refines, not rules out, Nash equilibria — every subgame perfect equilibrium is a Nash equilibrium.",
+            "C": "It enforces rational play in every subgame rather than ruling it out.",
+            "D": "Mixed strategies are still allowed within subgame perfect equilibria."
           }
         }
       ]
@@ -424,10 +423,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. In a first-price sealed-bid auction the winner pays exactly the amount they bid.",
+        "B": "Paying the second-highest bid describes a second-price (Vickrey) auction, not first-price.",
+        "C": "The winner does pay — first-price auctions are not free.",
+        "D": "Winners pay their own bid, not an average across all bidders."
       },
       "remediation": [
         {
@@ -441,10 +440,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The highest bidder wins but pays the second-highest bid, which makes truthful bidding a dominant strategy.",
+            "B": "Paying your own bid is the first-price rule, not Vickrey.",
+            "C": "The winner pays the runner-up's bid, not zero.",
+            "D": "There is no doubling — payment equals the second-highest bid."
           }
         },
         {
@@ -458,10 +457,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. In a second-price auction your payment depends on others' bids, so bidding your true value can never hurt and is dominant.",
+            "B": "In a first-price auction bidding true value yields zero surplus when you win, so rational bidders shade below value.",
+            "C": "A lottery has no strategic bidding of values.",
+            "D": "Truthful bidding being dominant is an auction-format property, not a zero-sum property."
           }
         }
       ]
@@ -482,10 +481,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Exactly one player wins each round and the other loses, so payoffs sum to zero — it is a zero-sum game.",
+        "B": "The players' interests are strictly opposed, the opposite of cooperative.",
+        "C": "No single strategy dominates; that is why the equilibrium is mixed.",
+        "D": "The game is highly strategic — each player tries to outguess the other."
       },
       "remediation": [
         {
@@ -502,10 +501,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Against any pure choice one player can always profit by reacting, so no pure profile is stable — there is no pure-strategy equilibrium.",
+            "B": "Payoffs are not equal across outcomes; one side wins and the other loses.",
+            "C": "Players don't always match; Column specifically wants to mismatch.",
+            "D": "Each player has two actions (heads or tails), not one."
           }
         },
         {
@@ -522,10 +521,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. With 50/50 play the game is symmetric and zero-sum, so each player's expected payoff is exactly 0.",
+            "B": "A payoff of 1 for Row would mean Row wins on average, impossible at the symmetric equilibrium.",
+            "C": "Likewise Column cannot expect +1 against an equal mixer.",
+            "D": "Expected payoffs are not positive for either side; they net to zero."
           }
         }
       ]
@@ -543,10 +542,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. You pay your bid, so you shade below your value to leave positive expected surplus, trading some win probability for profit when you win.",
+        "B": "Bidding your true value wins you zero surplus, so it is not optimal in a first-price format.",
+        "C": "Bidding above value risks paying more than the item is worth — a guaranteed loss when you win.",
+        "D": "Never bidding forfeits all expected surplus; the optimal bid is positive but shaded."
       },
       "remediation": [
         {
@@ -560,10 +559,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Shading lowers the price you pay when you win, reducing the chance of winning with little or negative surplus.",
+            "B": "Shading reduces overpayment, not your ability to ever win.",
+            "C": "Shading is a bidding tactic, not a reason to stop participating.",
+            "D": "Shading does not depend on observing others' private values."
           }
         },
         {
@@ -577,10 +576,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Bidding full value means you win only by a razor-thin margin and pay nearly your whole value, leaving essentially no surplus.",
+            "B": "Bidding true value does not make you always lose; it just erodes your surplus when you win.",
+            "C": "First-price auctions are not inherently zero-sum among bidders.",
+            "D": "The scenario is first-price; the second-price rule is what makes truthful bidding optimal."
           }
         }
       ]
@@ -712,10 +711,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. At a Nash equilibrium no player can improve their payoff by deviating alone.",
+        "B": "Cooperation may or may not help; the defining feature is no profitable unilateral deviation.",
+        "C": "Randomizing can be part of an equilibrium, not what is ruled out.",
+        "D": "Observing payoffs is just information, not a deviation that is blocked."
       }
     },
     {
@@ -730,10 +729,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A dominant strategy gives the best payoff no matter what opponents do.",
+        "B": "Being best only under cooperation is conditional, not dominant.",
+        "C": "Dominant strategies do exist (for example, defect in the prisoner's dilemma).",
+        "D": "Dominance is about pure best responses across all opponent moves, not specific to mixed equilibria."
       }
     },
     {
@@ -748,10 +747,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Zero-sum means payoffs are a pure transfer — one's gain equals the other's loss.",
+        "B": "If both gained, the sum would not be zero.",
+        "C": "The transfer is exact, not random.",
+        "D": "Zero-sum games are competitive, not cooperative."
       }
     },
     {
@@ -766,10 +765,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Defect dominates for both, so mutual defection is the unique Nash equilibrium.",
+        "B": "Mutual cooperation is better jointly but unstable to unilateral defection.",
+        "C": "One-of-each is not stable; the cooperator would switch to defect.",
+        "D": "An equilibrium exists — mutual defection."
       }
     },
     {
@@ -787,10 +786,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Equal 50/50 mixing makes the opponent indifferent and cannot be exploited.",
+        "B": "Probability 1 (always heads) is an exploitable pure strategy.",
+        "C": "Probability 0 (never heads) is equally exploitable.",
+        "D": "1/4 leaves a predictable bias; the equilibrium is exactly 1/2."
       }
     },
     {
@@ -805,10 +804,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A player mixes only when the actions they randomize over yield equal expected payoff.",
+        "B": "Different players can have different equilibrium payoffs.",
+        "C": "Mixed equilibria arise in many games, not only zero-sum ones.",
+        "D": "The condition concerns a player's own mixed actions, not cooperation."
       }
     },
     {
@@ -823,10 +822,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Backward induction reasons from the final decisions back to the first move.",
+        "B": "'Always defect' is a prisoner's-dilemma result, not a method for sequential games.",
+        "C": "Random play ignores the sequential structure.",
+        "D": "Ignoring later moves discards the information backward induction relies on."
       }
     },
     {
@@ -841,10 +840,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. In a first-price auction the winner pays exactly their own bid.",
+        "B": "Paying the second-highest bid is the second-price (Vickrey) rule.",
+        "C": "The winner does pay; the auction is not free.",
+        "D": "Winners pay their own bid, not an average."
       }
     }
   ]

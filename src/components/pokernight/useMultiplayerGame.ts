@@ -7,7 +7,7 @@ import {
   type GameState,
   type HandResult,
 } from "../../lib/poker";
-import { pickPersonas } from "../../lib/poker";
+import { pickPersonasForTier } from "../../lib/poker";
 import {
   filterGameStateForViewer,
   markActionApplied,
@@ -99,7 +99,7 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     return filterGameStateForViewer(room.gameState, mySeatIndex);
   }, [room?.gameState, mySeatIndex, seatKnown]);
 
-  const personas = useMemo(() => pickPersonas(Math.max(1, 6 - (room ? Object.values(room.players).filter((p) => p.active).length : 1))), [room]);
+  const personas = useMemo(() => pickPersonasForTier(Math.max(1, 6 - (room ? Object.values(room.players).filter((p) => p.active).length : 1)), tier.id), [room, tier.id]);
 
   const hostGame = usePokerGame({
     config,

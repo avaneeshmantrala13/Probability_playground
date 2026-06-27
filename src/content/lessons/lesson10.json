@@ -13,7 +13,6 @@
   "intro": [
     "Quant interviews often test how you break an impossible-seeming question into manageable pieces. Fermi estimation asks you to approximate an unknown quantity by multiplying sensible guesses for each factor — population × fraction × rate — and tracking units carefully.",
     "You'll also meet classic brain teasers: conditional probability traps, symmetry arguments, expected-value shortcuts, and combinatorial counting under constraints. The goal is not memorizing answers but recognizing patterns — when to use complement, when symmetry gives 1/2, and when to decompose a problem into independent sub-estimates.",
-    "Brain teasers reward pattern recognition over brute force: symmetry cuts a problem in half, complements avoid messy casework, and Fermi estimates show structured thinking under time pressure. Green Book and Brainstellar-style puzzles often disguise a simple invariant—equal odds for two symmetric players, or an expected value that linearity resolves in one line. Treat these as fluency drills: state the trick aloud, then compute.",
     "Brain teasers reward pattern recognition over brute force: symmetry cuts a problem in half, complements avoid messy casework, and Fermi estimates show structured thinking under time pressure. Green Book and Brainstellar-style puzzles often disguise a simple invariant—equal odds for two symmetric players, or an expected value that linearity resolves in one line. Treat these as fluency drills: state the trick aloud, then compute."
   ],
   "questions": [
@@ -30,10 +29,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A Fermi estimate decomposes the unknown into factors you can each approximate, then multiplies them — for example population × fraction × rate.",
+        "B": "A single blind guess has no structure and huge error; decomposition is the whole point.",
+        "C": "Exact census data isn't available for most estimates and defeats the purpose of a quick approximation.",
+        "D": "Tracking units at each step is essential to catch inconsistent decompositions."
       },
       "remediation": [
         {
@@ -47,10 +46,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Interviewers use Fermi problems to see whether you can reason in structured steps when exact data is missing.",
+            "B": "They specifically reward reasoning over memorized facts.",
+            "C": "Speed on a calculator is not the skill being tested.",
+            "D": "Exact knowledge is rarely available; structured estimation is the goal."
           }
         },
         {
@@ -64,10 +63,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Carrying units (people, years, cups) through each factor catches errors and keeps the estimate coherent.",
+            "B": "Only the final digit ignores the magnitude that matters most.",
+            "C": "Tracking nothing invites unit mismatches and order-of-magnitude blunders.",
+            "D": "Exact values aren't needed — consistent units and reasonable factors are."
           }
         }
       ]
@@ -85,10 +84,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Estimating annual demand for tunings (households × piano ownership × tunings per year) is the right first factor to build the estimate.",
+        "B": "Counting names in a phone book defeats the purpose of an estimate and isn't reliably available.",
+        "C": "Zero is obviously wrong — cities clearly employ some piano tuners.",
+        "D": "City area alone does not drive how many pianos need tuning."
       },
       "remediation": [
         {
@@ -102,10 +101,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Order-of-magnitude reasoning aims to land within a factor of about 10 of the true value.",
+            "B": "Being exact is not the goal of an order-of-magnitude estimate.",
+            "C": "One percent accuracy is far stricter than estimation requires.",
+            "D": "A factor of a trillion would be a wildly useless estimate."
           }
         },
         {
@@ -119,10 +118,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. In steady state, tuners needed ≈ total tunings per year ÷ tunings one tuner performs per year.",
+            "B": "Dividing by total population double-counts and ignores per-tuner capacity.",
+            "C": "Piano weight is irrelevant to how many tuners are needed.",
+            "D": "A random guess abandons the supply-equals-demand logic."
           }
         }
       ]
@@ -140,10 +139,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. 10% of 240 is 24, 5% is 12, so 15% = 24 + 12 = 36.",
+        "B": "24 is 10% of 240, not 15%.",
+        "C": "48 is 20% of 240 — too high by a third.",
+        "D": "12 is only 5% of 240."
       },
       "remediation": [
         {
@@ -157,10 +156,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 24 + 12 = 36.",
+            "B": "24 is just the 10% piece; you still must add the 5%.",
+            "C": "48 doubles the 24 instead of adding half of it.",
+            "D": "30 would be 12.5% of 240, not 15%."
           }
         },
         {
@@ -174,10 +173,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 15% = 10% + 5%, and 5% is half of 10%.",
+            "B": "Doubling 10% gives 30%, not 15%.",
+            "C": "Adding zero leaves 10%.",
+            "D": "15% of 1% is a tiny number unrelated to the trick."
           }
         }
       ]
@@ -198,10 +197,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. P(no six) = (5/6)² = 25/36, so P(at least one six) = 1 − 25/36 = 11/36.",
+        "B": "1/6 is the chance a single die shows a six, not the two-dice 'at least one' probability.",
+        "C": "1/36 is P(both dice show six), the wrong event.",
+        "D": "5/36 is not the complement result; the answer is 11/36."
       },
       "remediation": [
         {
@@ -218,10 +217,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 'At least one' problems are usually easier via the complement: 1 − P(none).",
+            "B": "'Exactly zero always' is not the kind of phrasing that signals the complement trick.",
+            "C": "The complement is exactly what helps here, so 'never use complement' is wrong.",
+            "D": "A single-outcome event does not need the complement shortcut."
           }
         },
         {
@@ -238,10 +237,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 36/36 − 25/36 = 11/36.",
+            "B": "25/36 is P(no six), the quantity you subtract, not the answer.",
+            "C": "1/36 is P(both sixes).",
+            "D": "5/36 is not 1 − 25/36."
           }
         }
       ]
@@ -262,10 +261,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. There are C(3,1) = 3 sequences with exactly one head, each with probability (1/2)³ = 1/8, giving 3/8.",
+        "B": "1/8 is the probability of one specific sequence like HTT, not all three.",
+        "C": "1/2 overstates it; only 3 of 8 equally likely sequences have exactly one head.",
+        "D": "3/4 would be six favorable sequences, more than exist."
       },
       "remediation": [
         {
@@ -282,10 +281,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 3 × 1/8 = 3/8.",
+            "B": "1/8 counts only one of the three favorable sequences.",
+            "C": "6/8 doubles the correct count of sequences.",
+            "D": "1/2 is not 3 × (1/2)³."
           }
         },
         {
@@ -302,10 +301,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Because swapping heads and tails leaves the setup unchanged, P(exactly one head) = P(exactly one tail) by symmetry.",
+            "B": "A Fermi estimate is an order-of-magnitude approximation, not this exact symmetry.",
+            "C": "Confidence intervals are an inference tool, unrelated here.",
+            "D": "Nash equilibrium is a game-theory concept, not a coin-symmetry argument."
           }
         }
       ]
@@ -323,10 +322,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. By linearity of expectation, E[sum] = E[X] + E[X] = 3.5 + 3.5 = 7.",
+        "B": "3.5 is the expectation of a single roll, not the sum of two.",
+        "C": "6 is not the doubled expectation; 2 × 3.5 = 7.",
+        "D": "12 is the maximum possible sum, not the average."
       },
       "remediation": [
         {
@@ -343,10 +342,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Linearity of expectation holds even when variables are dependent — independence is not required.",
+            "B": "It does not require the variables to be equal.",
+            "C": "It applies to random variables, not just constants.",
+            "D": "Expectations are defined for these variables, so 'never defined' is wrong."
           }
         },
         {
@@ -363,10 +362,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. E[2X] = 2 × E[X] = 2 × 3.5 = 7.",
+            "B": "3.5 is E[X], before scaling by 2.",
+            "C": "6 is not 2 × 3.5.",
+            "D": "2 ignores the expectation entirely."
           }
         }
       ]
@@ -388,10 +387,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Given a face card, the sample space is the 12 face cards, of which 4 are kings: 4/12 = 1/3.",
+        "B": "4/52 is the unconditional P(king), ignoring that we're told it's a face card.",
+        "C": "1/13 is also the unconditional king probability, not the conditional one.",
+        "D": "1/4 would be 3 kings among 12 or a miscount; there are 4 kings, giving 1/3."
       },
       "remediation": [
         {
@@ -409,10 +408,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Among the 12 face cards there are 4 kings (one per suit).",
+            "B": "52 is the full deck, not kings among face cards.",
+            "C": "13 is the number of cards in a suit, not the king count.",
+            "D": "There are 4 kings, not 1."
           }
         },
         {
@@ -430,10 +429,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 4/12 simplifies to 1/3.",
+            "B": "4/52 is the unconditional probability, not 4/12.",
+            "C": "1/13 is the unconditional king probability.",
+            "D": "1/2 would require 6 kings among 12 face cards."
           }
         }
       ]
@@ -451,10 +450,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. 3.3×10⁸ people × 3.65×10² days × 1 cup ≈ 1.2×10¹¹, on the order of 10¹¹ (about 100 billion) cups.",
+        "B": "10³ (a thousand) is far too small for a nation's annual coffee consumption.",
+        "C": "10⁶ (a million) still vastly undercounts hundreds of millions of daily drinkers.",
+        "D": "10¹⁵ overshoots by about four orders of magnitude."
       },
       "remediation": [
         {
@@ -468,10 +467,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 3.3×10⁸ × 3.65×10² ≈ 1.2×10¹¹, so with ~1 cup/day the total is on the order of 10¹¹.",
+            "B": "10² is absurdly small for this product.",
+            "C": "10⁰ (about 1) ignores the population entirely.",
+            "D": "10²⁰ is far larger than the factors support."
           }
         },
         {
@@ -485,10 +484,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Multiplying powers of ten adds their exponents: 10ᵃ × 10ᵇ = 10ᵃ⁺ᵇ.",
+            "B": "Exponents subtract when dividing, not multiplying.",
+            "C": "Exponents do not stay zero when you multiply nonzero powers.",
+            "D": "They combine by adding, not cancel."
           }
         }
       ]
@@ -506,10 +505,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. With 23 people there are C(23,2) = 253 distinct pairs, and each pair is a chance for a match — far more opportunities than 23 suggests.",
+        "B": "Everyone sharing one birthday isn't assumed; the surprise comes from the number of pairs.",
+        "C": "365 is large relative to 23 people, yet the many pairs still drive the probability up.",
+        "D": "Birthdays are treated as independent and uniform; the effect isn't from dependence."
       },
       "remediation": [
         {
@@ -523,10 +522,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The probability accumulates over all pairs of people, which is why it grows so fast.",
+            "B": "It is not limited to adjacent people; every pair counts.",
+            "C": "A single person can't share a birthday with no one else.",
+            "D": "It compares birthdays (day-level), not just months."
           }
         },
         {
@@ -540,10 +539,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. C(23,2) = 23 × 22 / 2 = 253.",
+            "B": "23 is the number of people, not pairs.",
+            "C": "46 is 2 × 23, not the count of pairs.",
+            "D": "365 is the number of days, unrelated to the pair count."
           }
         }
       ]
@@ -561,10 +560,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Your first pick stays at 1/3, so the host's reveal concentrates the remaining 2/3 on the other closed door — switch.",
+        "B": "1/3 is your original door's probability, which does not improve by staying.",
+        "C": "1/2 wrongly assumes the two remaining doors are equally likely after the reveal.",
+        "D": "Probability 1 would mean a guaranteed win, which switching does not give."
       },
       "remediation": [
         {
@@ -578,10 +577,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. You pick the wrong door 2/3 of the time, and switching wins exactly in those cases.",
+            "B": "1/3 is the chance your initial pick was right, not wrong.",
+            "C": "1/2 ignores that there were three doors at the start.",
+            "D": "0 would mean you're never wrong initially, which is false."
           }
         },
         {
@@ -595,10 +594,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The host's informed reveal never touches the prize, shifting the 2/3 onto the other unopened door.",
+            "B": "The doors aren't made equal; the reveal is informative, not random.",
+            "C": "It changes plenty — that is why switching wins 2/3 of the time.",
+            "D": "The reveal makes switching better, not worse."
           }
         }
       ]
@@ -707,7 +706,7 @@
           "explanations": {
             "A": "Correct. Households with pianos × one tuning each year (assuming ~1 household per person factor absorbed in framing).",
             "B": "Multiplying by 50 overcounts by orders of magnitude.",
-            "C": "Dividing by 365 introduces daily rate without justification.",
+            "C": "Dividing by 365 introduces a daily rate without justification.",
             "D": "50 tunings total ignores population scale entirely."
           }
         }
@@ -727,10 +726,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Fermi estimation multiplies a few reasonable factor estimates to approximate an unknown.",
+        "B": "Exact census tables aren't needed and defeat the quick-estimate purpose.",
+        "C": "Random digits have no structure or accuracy.",
+        "D": "Multiplying nothing yields no estimate at all."
       }
     },
     {
@@ -745,10 +744,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Order-of-magnitude accuracy means landing within roughly a factor of ten.",
+        "B": "Being exact is not the aim of an estimate.",
+        "C": "One unit is far too strict for order-of-magnitude work.",
+        "D": "One trillionth precision is unattainable and unnecessary."
       }
     },
     {
@@ -763,10 +762,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. 10% of 200 is 20 and 5% is 10, so 15% = 30.",
+        "B": "20 is 10% of 200, not 15%.",
+        "C": "15 would be 7.5% of 200.",
+        "D": "40 is 20% of 200."
       }
     },
     {
@@ -784,10 +783,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The complement of 'at least one six' is 'no six on either die,' which has probability (5/6)².",
+        "B": "(1/6)² is P(both sixes), not P(no six).",
+        "C": "1/6 is one die's chance of a six, not the complement event.",
+        "D": "5/6 is one die's chance of no six; for two dice you square it."
       }
     },
     {
@@ -805,10 +804,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. C(3,1) = 3 sequences each of probability 1/8 give 3/8.",
+        "B": "1/8 is one specific sequence, not all three.",
+        "C": "1/2 overcounts the favorable sequences.",
+        "D": "6/8 doubles the correct count of 3 sequences."
       }
     },
     {
@@ -826,10 +825,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. E[sum] = 3.5 + 3.5 = 7 by linearity of expectation.",
+        "B": "3.5 is the mean of one die, not two.",
+        "C": "6 is not 2 × 3.5.",
+        "D": "12 is the maximum sum, not the average."
       }
     },
     {
@@ -848,10 +847,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. 4 kings out of 12 face cards gives 4/12 = 1/3.",
+        "B": "4/52 is the unconditional king probability.",
+        "C": "1/13 is also unconditional, ignoring the face-card condition.",
+        "D": "1/4 miscounts; there are 4 kings among 12 face cards, giving 1/3."
       }
     },
     {
@@ -866,10 +865,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Switching wins whenever your first pick was wrong, which happens 2/3 of the time.",
+        "B": "1/3 is the staying win probability.",
+        "C": "1/2 wrongly treats the remaining doors as equally likely.",
+        "D": "Switching isn't a guaranteed win (probability 1)."
       }
     }
   ]

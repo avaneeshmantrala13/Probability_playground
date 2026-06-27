@@ -372,6 +372,11 @@ export function MarketMakingLessonPlayer() {
               selectedIndex={selected}
               correctIndex={correctIndex}
               explanations={current.explanations}
+              aiContext={{
+                lessonTitle: lesson.title,
+                questionText: current.question,
+                options: current.options,
+              }}
             />
           ) : null
         }

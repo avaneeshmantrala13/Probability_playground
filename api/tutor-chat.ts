@@ -1,6 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { verifyBearerToken } from "./_lib/firebase-auth";
-import { chatCompletion } from "./_lib/openai";
 import { checkRateLimit } from "./_lib/rate-limit";
 import { QUANT_TUTOR_SYSTEM } from "./_lib/prompts";
 

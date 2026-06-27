@@ -25,6 +25,8 @@ interface PokerTableProps {
   gazeOverride?: GazeOverride;
   quizGateResults?: QuizGateResults;
   multiplayer?: boolean;
+  /** Table tier id — opponents dress up at higher buy-ins (gold Whale Room). */
+  tierId?: string;
 }
 
 type Pos = { top: string; left: string; scale?: number };
@@ -83,7 +85,7 @@ function layoutSlotForSeat(
   return (seatIndex - viewerSeatIndex + seatCount) % seatCount;
 }
 
-export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride, quizGateResults, multiplayer = false }: PokerTableProps) {
+export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride, quizGateResults, multiplayer = false, tierId }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
 
@@ -233,6 +235,7 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
             gazeOverride={gazeOverride}
             quizGateResults={quizGateResults}
             multiplayer={multiplayer}
+            tierId={tierId}
           />
           );
         })}

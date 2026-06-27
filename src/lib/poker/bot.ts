@@ -14,10 +14,31 @@ import { pickLine } from "./personalities";
  *   3. POSITION — acting later (fewer players behind) widens the betting range.
  *   4. AGGRESSION / BLUFF — per-persona knobs, scaled by the table `botSkill`,
  *      that decide bet/raise SIZING and how often to fire bluffs/semi-bluffs.
+ *   5. OPPONENT READ — an optional, evolving model of the human's tendencies
+ *      (fold-to-bet, aggression, looseness). Bots EXPLOIT it the way real
+ *      players do: bluff more into folders, value-bet thinner into stations,
+ *      and call down lighter against maniacs. The strength of the adjustment
+ *      scales with the table `botSkill` and how much data we've gathered, so
+ *      the Beginner's Table barely adapts while the Whale Room reads you hard.
  *
  * Personality quips are attached purely for flavor (`action.meta.quip`) and can
  * never change which action the math selects. Everything is client-side.
  */
+
+/**
+ * A live, session-local read on a single opponent (the human). All fields are
+ * 0..1 and optional until enough hands have been observed.
+ */
+export interface OpponentModel {
+  /** Fraction of faced bets the opponent folds (higher = more bluffable). */
+  foldToBet?: number;
+  /** How often the opponent bets/raises vs calls (higher = maniac). */
+  aggression?: number;
+  /** How often the opponent voluntarily puts money in (higher = looser). */
+  looseness?: number;
+  /** Decisions observed — used to scale how confidently bots exploit. */
+  samples: number;
+}
 
 function clamp01(x: number): number {
   return x < 0 ? 0 : x > 1 ? 1 : x;
@@ -57,7 +78,11 @@ export interface BotDecision extends Action {
   equity: number;
 }
 
-export function decideBotAction(state: GameState, seatIndex: number): BotDecision {
+export function decideBotAction(
+  state: GameState,
+  seatIndex: number,
+  model?: OpponentModel,
+): BotDecision {
   const seat = state.seats[seatIndex];
   const la = legalActions(state);
   const persona = seat.persona;
@@ -76,13 +101,34 @@ export function decideBotAction(state: GameState, seatIndex: number): BotDecisio
   const behind = playersBehind(state, seatIndex);
   const positionFactor = totalActive > 1 ? 1 - behind / totalActive : 1;
 
+  // -------------------- opponent read (exploit strength) --------------------
+  // How hard this seat exploits the human: sharper tables exploit more, and
+  // only once we have a meaningful sample. Beginners (skill .45) top out around
+  // a third-strength read; the Whale Room (skill .92) reads you almost fully.
+  const confidence = model ? clamp01(model.samples / 12) : 0;
+  const exploit = clamp01(state.config.botSkill * confidence);
+  // Bluffs scale UP into a folder, DOWN into a calling station.
+  const foldRead = model?.foldToBet;
+  const bluffMult =
+    foldRead != null ? clamp(1 + exploit * (foldRead - 0.5) * 1.8, 0.35, 1.9) : 1;
+  // Against a station (low fold-to-bet) we value-bet & call thinner; against a
+  // nit (high fold-to-bet) we tighten our own value range a touch.
+  const valueShift = foldRead != null ? exploit * (0.5 - foldRead) * 0.14 : 0;
+  // Against a maniac (high aggression) we fold less to their pressure.
+  const aggroRead = model?.aggression;
+  const callBias = aggroRead != null ? exploit * (aggroRead - 0.5) * 0.6 : 0;
+
   const aggro = clamp01(
     knobs.aggression * (0.65 + 0.7 * state.config.botSkill) * (0.85 + 0.3 * positionFactor),
   );
   const bluff = clamp01(
-    knobs.bluffFreq * (0.4 + 0.9 * state.config.botSkill) * (0.55 + 0.9 * positionFactor),
+    knobs.bluffFreq *
+      (0.4 + 0.9 * state.config.botSkill) *
+      (0.55 + 0.9 * positionFactor) *
+      bluffMult,
   );
-  const tight = knobs.tightness;
+  // A nit reads tighter (we respect their range); a maniac reads looser.
+  const tight = clamp01(knobs.tightness - callBias * 0.5);
 
   const pot = state.pot;
   const callAmount = la.callAmount;
@@ -119,17 +165,25 @@ export function decideBotAction(state: GameState, seatIndex: number): BotDecisio
     return out;
   };
 
+  // Value thresholds slide down vs. a calling station (valueShift > 0) so the
+  // bot bets/raises a wider range for thin value; they slide up vs. a nit.
+  const tVeryStrong = 0.8 - valueShift;
+  const tStrong = 0.62 - valueShift;
+  const tMedium = 0.5 - valueShift;
+  const tRaiseBig = 0.82 - valueShift;
+  const tRaiseMed = 0.66 - valueShift;
+
   // --------------------------- no bet to call ---------------------------
   if (!facingBet) {
-    if (eq >= 0.8) {
+    if (eq >= tVeryStrong) {
       if (Math.random() < 0.15 * (1 - aggro)) return finalize("check"); // trap
       return finalize("bet", betTo(0.7 + 0.3 * aggro));
     }
-    if (eq >= 0.62) {
+    if (eq >= tStrong) {
       if (Math.random() < 0.25 + 0.55 * aggro) return finalize("bet", betTo(0.5 + 0.25 * aggro));
       return finalize("check");
     }
-    if (eq >= 0.5) {
+    if (eq >= tMedium) {
       if (Math.random() < 0.4 * aggro) return finalize("bet", betTo(0.45));
       return finalize("check");
     }
@@ -140,13 +194,13 @@ export function decideBotAction(state: GameState, seatIndex: number): BotDecisio
 
   // --------------------------- facing a bet ---------------------------
   // Value raise zones.
-  if (eq >= 0.82) {
+  if (eq >= tRaiseBig) {
     if (la.canRaise && Math.random() >= 0.18 * (1 - aggro)) {
       return finalize("raise", betTo(0.8 + 0.2 * aggro));
     }
     return finalize("call");
   }
-  if (eq >= 0.66) {
+  if (eq >= tRaiseMed) {
     if (la.canRaise && Math.random() < 0.45 + 0.4 * aggro) {
       return finalize("raise", betTo(0.55 + 0.15 * aggro));
     }
@@ -161,9 +215,12 @@ export function decideBotAction(state: GameState, seatIndex: number): BotDecisio
     return finalize("call");
   }
 
-  // Marginally profitable — tighter bots fold more of these.
-  if (eq >= potOdds) {
-    if (Math.random() < (1 - tight) * 0.75 + 0.2) return finalize("call");
+  // Marginally profitable — tighter bots fold more of these, but we call down
+  // lighter against an aggressive human (callBias > 0) since their bets bluff
+  // more often than their range warrants.
+  if (eq >= potOdds - Math.max(0, callBias) * 0.04) {
+    if (Math.random() < clamp01((1 - tight) * 0.75 + 0.2 + callBias * 0.5))
+      return finalize("call");
     return finalize("fold");
   }
 

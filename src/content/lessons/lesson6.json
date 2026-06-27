@@ -13,7 +13,6 @@
   "intro": [
     "This lesson summarizes data instead of single events. You'll measure the center with the mean (add the values and divide by how many there are) and the median (the middle value once the data is sorted), and you'll measure spread with the range (largest minus smallest).",
     "You'll also read the shape of a distribution from its histogram — symmetric, uniform, or skewed — and see how outliers (values far from the rest) pull the mean toward themselves much more than the median, which is why the median is often the more resistant measure of center.",
-    "Before you simulate or estimate, you must read a dataset's shape: center, spread, skew, and outliers tell you which summary statistics lie. Quant interviews rarely ask you to compute a median by hand, but they do ask whether the mean or median is pulled more by a fat tail, or whether a histogram looks symmetric versus right-skewed. That vocabulary connects directly to downstream modeling—log returns, PnL tails, and robust risk metrics all start here.",
     "Before you simulate or estimate, you must read a dataset's shape: center, spread, skew, and outliers tell you which summary statistics lie. Quant interviews rarely ask you to compute a median by hand, but they do ask whether the mean or median is pulled more by a fat tail, or whether a histogram looks symmetric versus right-skewed. That vocabulary connects directly to downstream modeling—log returns, PnL tails, and robust risk metrics all start here."
   ],
   "questions": [
@@ -25,7 +24,7 @@
         "type": "distribution_builder",
         "shape": "normal"
       },
-      "question": "How do you calculate the mean of a data set?",
+      "question": "A trading desk records each day's PnL. How do you calculate the mean (average) daily PnL?",
       "options": [
         "Add all the values and divide by how many there are",
         "Pick the middle value once the data is ordered",
@@ -34,10 +33,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The mean is the sum of all values divided by the count of values—the standard average.",
+        "B": "Picking the middle of the ordered data defines the median, not the mean.",
+        "C": "The most frequent value is the mode, not the mean.",
+        "D": "Largest minus smallest is the range, a measure of spread rather than center."
       },
       "remediation": [
         {
@@ -55,10 +54,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 'Mean' and 'average' refer to the same sum-divided-by-count measure.",
+            "B": "The middle value of ordered data is the median.",
+            "C": "The mode is the most frequent value, not the mean.",
+            "D": "The range measures spread, not the center."
           }
         },
         {
@@ -76,10 +75,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. With 5 values you divide the total by 5—the count of data points.",
+            "B": "Dividing by 2 only works for two values; here there are five.",
+            "C": "Dividing by 1 returns the sum, not the average.",
+            "D": "You divide by how many values there are, not by the largest value."
           }
         }
       ]
@@ -101,10 +100,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "The average of all values is the mean, not the median.",
+        "B": "Correct. The median is the middle value once the data is sorted in order.",
+        "C": "The most frequent value is the mode.",
+        "D": "That difference is the range, a measure of spread."
       },
       "remediation": [
         {
@@ -122,10 +121,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. You must order the values before locating the middle one.",
+            "B": "Adding values gives the mean, not the median.",
+            "C": "The largest value is needed for the range, not for the median.",
+            "D": "Doubling values changes the data and is unrelated to finding the median."
           }
         },
         {
@@ -143,10 +142,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The median splits ordered data so that half the values lie above it and half below.",
+            "B": "Values are generally not all equal to the median.",
+            "C": "Only about half are larger; the other half are smaller.",
+            "D": "The median does not remove any data; it marks the center."
           }
         }
       ]
@@ -168,10 +167,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The mode is the value that appears most frequently in the data.",
+        "B": "The average of all values is the mean.",
+        "C": "The middle value when ordered is the median.",
+        "D": "The largest value relates to the range, not the mode."
       },
       "remediation": [
         {
@@ -189,10 +188,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The value 3 appears three times—more than any other—so it is the mode.",
+            "B": "7 appears only once; the mode must be the most frequent value.",
+            "C": "9 appears only once and is not the most frequent value.",
+            "D": "2 appears only once; 3 occurs three times and is the mode."
           }
         },
         {
@@ -210,10 +209,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The mode is defined as the value occurring most frequently.",
+            "B": "The middle value is the median.",
+            "C": "A value occurring only once is the opposite of the most frequent.",
+            "D": "Position in the list does not define the mode; frequency does."
           }
         }
       ]
@@ -226,7 +225,7 @@
         "type": "distribution_builder",
         "shape": "uniform"
       },
-      "question": "What is the mean of the data set 2, 4, 6, 8, 10?",
+      "question": "A strategy's PnL over five days is 2, 4, 6, 8, 10 (in $k). What is the mean daily PnL?",
       "options": [
         "5",
         "6",
@@ -235,10 +234,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "5 is not the average; the sum is 30 and 30/5 = 6, not 5.",
+        "B": "Correct. (2 + 4 + 6 + 8 + 10)/5 = 30/5 = 6.",
+        "C": "8 is one of the data points, not the average of all five.",
+        "D": "30 is the sum of the values; you must still divide by the count of 5."
       },
       "remediation": [
         {
@@ -256,10 +255,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. (1 + 2 + 3 + 4 + 5)/5 = 15/5 = 3.",
+            "B": "5 is the largest value and the count, not the mean.",
+            "C": "15 is the sum; divide by 5 to get the mean of 3.",
+            "D": "2.5 would divide the sum by 6; there are only 5 values."
           }
         },
         {
@@ -277,10 +276,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. (10 + 20 + 30)/3 = 60/3 = 20.",
+            "B": "30 is the largest value, not the average.",
+            "C": "60 is the sum; divide by 3 to get 20.",
+            "D": "15 would divide 60 by 4; there are only 3 values."
           }
         }
       ]
@@ -293,7 +292,7 @@
         "type": "distribution_builder",
         "shape": "normal"
       },
-      "question": "What is the median of the data set 3, 7, 9, 12, 20?",
+      "question": "Five sorted daily returns are 3, 7, 9, 12, 20 (%). What is the median return?",
       "options": [
         "7",
         "9",
@@ -302,10 +301,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "7 is the second value, not the middle one of five.",
+        "B": "Correct. With five sorted values, the median is the 3rd value, which is 9.",
+        "C": "10.2 is the mean (51/5), which the large value 20 pulls above the median.",
+        "D": "12 is the fourth value, not the middle of five."
       },
       "remediation": [
         {
@@ -323,10 +322,10 @@
           ],
           "correctAnswer": 1,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "5 is the second value, not the middle of five.",
+            "B": "Correct. The 3rd of five sorted values is 8, the median.",
+            "C": "10 is the fourth value, not the center.",
+            "D": "7.6 is the mean (38/5), not the median."
           }
         },
         {
@@ -344,10 +343,10 @@
           ],
           "correctAnswer": 1,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "The first value is the minimum, not the center.",
+            "B": "Correct. For 5 ordered values the median is the 3rd (middle) one.",
+            "C": "The fifth value is the maximum, not the center.",
+            "D": "Averaging the 2nd and 4th is used for even counts; with 5 values the single middle is the 3rd."
           }
         }
       ]
@@ -369,10 +368,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The range is the largest value minus the smallest, measuring total spread.",
+        "B": "Adding all values relates to the mean, not the range.",
+        "C": "The middle value is the median.",
+        "D": "Counting values gives the sample size, not the range."
       },
       "remediation": [
         {
@@ -390,10 +389,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 15 − 4 = 11.",
+            "B": "9 is a middle value, not the spread between the extremes.",
+            "C": "15 is the largest value; the range subtracts the smallest from it.",
+            "D": "4 is the smallest value, not the range."
           }
         },
         {
@@ -411,10 +410,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The range describes how spread out the data is.",
+            "B": "Center is described by the mean or median, not the range.",
+            "C": "Frequency relates to the mode, not the range.",
+            "D": "The average is the mean; the range measures spread."
           }
         }
       ]
@@ -436,10 +435,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The tallest bar marks the value or interval with the highest frequency.",
+        "B": "Bar height shows frequency, not the size of the values on the axis.",
+        "C": "The tallest bar is the mode of the histogram, which need not equal the mean.",
+        "D": "The least frequent interval is the shortest bar, not the tallest."
       },
       "remediation": [
         {
@@ -457,10 +456,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Each bar's height is how many data values fall in that interval.",
+            "B": "Height encodes counts, not the magnitude of the values.",
+            "C": "Bar height is a frequency, not an average.",
+            "D": "The range is a single spread number, not a bar height."
           }
         },
         {
@@ -478,10 +477,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A short bar means few data values fall in that interval.",
+            "B": "The most-populated interval is the tallest bar, not the shortest.",
+            "C": "The median is a value, not represented by a single bar's shortness.",
+            "D": "The mean is a value, not indicated by a short bar."
           }
         }
       ]
@@ -503,10 +502,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A long tail stretching toward larger values on the right defines a right-skewed distribution.",
+        "B": "Left skew has the long tail toward smaller values, on the left.",
+        "C": "Symmetric distributions have balanced tails on both sides.",
+        "D": "A uniform distribution is flat with no tail at all."
       },
       "remediation": [
         {
@@ -524,10 +523,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A bell shape that looks the same on both sides is symmetric.",
+            "B": "Right skew has a long right tail, breaking symmetry.",
+            "C": "Left skew has a long left tail, breaking symmetry.",
+            "D": "'Random' is not a shape; symmetric describes the balanced bell."
           }
         },
         {
@@ -545,10 +544,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. When every value is about equally likely, the flat histogram is uniform.",
+            "B": "Skewed distributions have a long tail, not a flat shape.",
+            "C": "A bell shape peaks in the middle rather than being flat.",
+            "D": "The normal distribution is bell-shaped, not flat."
           }
         }
       ]
@@ -561,7 +560,7 @@
         "type": "distribution_builder",
         "shape": "normal"
       },
-      "question": "What is the median of the data set 4, 8, 10, 10, 12, 16?",
+      "question": "Six sorted daily PnL values are 4, 8, 10, 10, 12, 16. What is the median?",
       "options": [
         "9",
         "10",
@@ -570,10 +569,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "9 averages the wrong pair; the two middle values are both 10.",
+        "B": "Correct. With six values, the median is the average of the 3rd and 4th: (10 + 10)/2 = 10.",
+        "C": "11 would average 10 and 12, but the 3rd and 4th values are 10 and 10.",
+        "D": "12 is the fifth value, not the center pair's average."
       },
       "remediation": [
         {
@@ -591,10 +590,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The two middle values are 4 and 6, averaging to 5.",
+            "B": "4 is just the lower middle value; average it with 6.",
+            "C": "6 is the upper middle value; the median averages it with 4.",
+            "D": "8 is the maximum, not a middle value."
           }
         },
         {
@@ -612,10 +611,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The two middle values are 5 and 9, averaging to 7.",
+            "B": "5 is the lower middle value; average it with 9.",
+            "C": "9 is the upper middle value; average it with 5.",
+            "D": "6 would average 5 and 7, but the middle pair is 5 and 9."
           }
         }
       ]
@@ -637,10 +636,10 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "The mean uses every value, so a single huge outlier pulls it strongly—it is more affected, not less.",
+        "B": "Correct. The median depends on rank, not magnitude, so one extreme value barely moves it.",
+        "C": "The range is defined by the extremes, so an outlier changes it directly.",
+        "D": "The maximum becomes the outlier itself, so it is maximally affected."
       },
       "remediation": [
         {
@@ -658,10 +657,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. For skewed data with extreme values, the median resists distortion better than the mean.",
+            "B": "The mean is dragged toward the extreme values in skewed data.",
+            "C": "The range measures spread, not the typical central value.",
+            "D": "The largest value is an extreme, not a typical summary."
           }
         },
         {
@@ -679,10 +678,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The mean incorporates every value, so one huge addition pulls it toward itself.",
+            "B": "The median moves little unless the new value crosses the middle rank.",
+            "C": "The mode only changes if the new value becomes the most frequent.",
+            "D": "At least the mean changes when a large value is added."
           }
         }
       ]
@@ -804,6 +803,152 @@
           }
         }
       ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "l6_pq1",
+      "concept": "mean_definition",
+      "question": "What does the mean of a data set measure?",
+      "options": [
+        "The center, as the sum of values divided by the count",
+        "The middle of the sorted data",
+        "The most frequent value",
+        "The spread of the data"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The mean is a measure of center: the sum of values divided by how many there are.",
+        "B": "The middle of sorted data is the median, not the mean.",
+        "C": "The most frequent value is the mode.",
+        "D": "Spread is captured by range or variance, not the mean."
+      }
+    },
+    {
+      "id": "l6_pq2",
+      "concept": "compute_mean",
+      "question": "What is the mean of 3, 5, 7?",
+      "options": [
+        "5",
+        "7",
+        "15",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (3 + 5 + 7)/3 = 15/3 = 5.",
+        "B": "7 is the largest value, not the average.",
+        "C": "15 is the sum; divide by 3 to get 5.",
+        "D": "3 is the smallest value, not the mean."
+      }
+    },
+    {
+      "id": "l6_pq3",
+      "concept": "compute_median_odd",
+      "question": "What is the median of 2, 9, 4, 7, 5?",
+      "options": [
+        "5",
+        "4",
+        "7",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted, the values are 2, 4, 5, 7, 9; the middle one is 5.",
+        "B": "4 is the second value after sorting, not the middle.",
+        "C": "7 is the fourth value after sorting, not the center.",
+        "D": "2 is the minimum, not the median; remember to sort first."
+      }
+    },
+    {
+      "id": "l6_pq4",
+      "concept": "mode_definition",
+      "question": "What is the mode of 4, 4, 6, 9, 9, 9?",
+      "options": [
+        "9",
+        "4",
+        "6",
+        "7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 9 appears three times—more than any other value—so it is the mode.",
+        "B": "4 appears twice; 9 appears three times and is the mode.",
+        "C": "6 appears only once and cannot be the most frequent value.",
+        "D": "7 does not even appear in the data set."
+      }
+    },
+    {
+      "id": "l6_pq5",
+      "concept": "range_spread",
+      "question": "What is the range of 6, 2, 11, 8?",
+      "options": [
+        "9",
+        "11",
+        "2",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 11 − 2 = 9 is the spread between the largest and smallest values.",
+        "B": "11 is the largest value; the range subtracts the smallest.",
+        "C": "2 is the smallest value, not the range.",
+        "D": "8 is one of the data points, not the max minus min."
+      }
+    },
+    {
+      "id": "l6_pq6",
+      "concept": "histogram_reading",
+      "question": "On a histogram, a tall bar indicates that interval contains:",
+      "options": [
+        "many data values",
+        "few data values",
+        "the largest number",
+        "the mean"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bar height shows frequency, so a tall bar means many values fall there.",
+        "B": "Few values would produce a short bar, not a tall one.",
+        "C": "Height encodes counts, not the size of values.",
+        "D": "The tallest bar marks the mode, which need not equal the mean."
+      }
+    },
+    {
+      "id": "l6_pq7",
+      "concept": "distribution_shape",
+      "question": "A histogram with a long tail toward smaller values is:",
+      "options": [
+        "left-skewed",
+        "right-skewed",
+        "symmetric",
+        "uniform"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A tail stretching toward smaller (left) values indicates left skew.",
+        "B": "Right skew has the long tail toward larger values.",
+        "C": "Symmetric distributions have balanced tails.",
+        "D": "A uniform distribution is flat with no tail."
+      }
+    },
+    {
+      "id": "l6_pq8",
+      "concept": "outlier_robustness",
+      "question": "Adding one extreme outlier most strongly affects which measure of center?",
+      "options": [
+        "The mean",
+        "The median",
+        "The mode",
+        "None of them"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The mean averages every value, so an extreme outlier pulls it the most.",
+        "B": "The median is rank-based and resists single extreme values.",
+        "C": "The mode only shifts if the outlier becomes the most frequent value.",
+        "D": "The mean clearly moves, so at least one measure is affected."
+      }
     }
   ]
 }

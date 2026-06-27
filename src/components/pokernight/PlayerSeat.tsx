@@ -36,6 +36,8 @@ interface PlayerSeatProps {
   gazeOverride?: GazeOverride;
   quizGateResults?: QuizGateResults;
   multiplayer?: boolean;
+  /** Table tier id — drives the opponents' outfit upgrades (gold Whale Room). */
+  tierId?: string;
 }
 
 /** How long an action speech bubble stays up (calmer reading pace). */
@@ -88,6 +90,7 @@ function PlayerSeatImpl({
   gazeOverride,
   quizGateResults,
   multiplayer = false,
+  tierId,
 }: PlayerSeatProps) {
   const folded = seat.status === "folded";
   const out = seat.status === "out";
@@ -98,7 +101,13 @@ function PlayerSeatImpl({
   const showFaces = isViewer || reveal;
   const holeGateOk = !isViewer || !quizGateResults || canSeeHoleCards(quizGateResults);
   const dealAnim = reduced ? "" : "pn-anim-deal";
-  const look = getLook(seat.persona, seat.isHuman, seat.characterId, multiplayer && seat.isHuman);
+  const look = getLook(
+    seat.persona,
+    seat.isHuman,
+    seat.characterId,
+    multiplayer && seat.isHuman,
+    tierId,
+  );
   const bubble = useBubble(speech);
 
   // Body orientation as a function of the seat's ANGLE around the felt ellipse

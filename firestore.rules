@@ -89,17 +89,65 @@ service cloud.firestore {
         );
     }
 
+    // Streak feeds the leaderboard, so cap it: it may climb by at most one per
+    // write (one day at a time) and is hard-ceilinged; resets downward are fine.
+    function streakUpdateOk() {
+      return !('streak' in request.resource.data)
+        || (
+          request.resource.data.streak is number
+          && request.resource.data.streak >= 0
+          && request.resource.data.streak <= 3650
+          && (
+            !('streak' in resource.data)
+            || request.resource.data.streak <= resource.data.streak + 1
+          )
+        );
+    }
+
     function courseProgressWriteOk() {
       return numMonotonic('problemsCorrect', 25)
         && numMonotonic('lifetimeTokens', 5000)
+        && streakUpdateOk()
         && mentalMathFieldOk('easy', 120)
         && mentalMathFieldOk('medium', 90)
         && mentalMathFieldOk('hard', 70);
     }
 
+    // On the FIRST write a fresh account must look fresh — this blocks seeding an
+    // inflated leaderboard profile (tokens/streak/problems) at creation time.
+    function numMaxOnCreate(field, maxVal) {
+      return !(field in request.resource.data)
+        || (
+          request.resource.data[field] is number
+          && request.resource.data[field] >= 0
+          && request.resource.data[field] <= maxVal
+        );
+    }
+
+    function mentalMathCreateOk(field, maxScore) {
+      return !('mentalMathBest' in request.resource.data)
+        || !(field in request.resource.data.mentalMathBest)
+        || (
+          request.resource.data.mentalMathBest[field] is number
+          && request.resource.data.mentalMathBest[field] >= 0
+          && request.resource.data.mentalMathBest[field] <= maxScore
+        );
+    }
+
+    function courseProgressCreateOk() {
+      return numMaxOnCreate('problemsCorrect', 25)
+        && numMaxOnCreate('lifetimeTokens', 1000)
+        && numMaxOnCreate('tokens', 1000)
+        && numMaxOnCreate('peakTokens', 1000)
+        && numMaxOnCreate('streak', 1)
+        && mentalMathCreateOk('easy', 120)
+        && mentalMathCreateOk('medium', 90)
+        && mentalMathCreateOk('hard', 70);
+    }
+
     match /courseProgress/{uid} {
       allow read: if isOwner(uid);
-      allow create: if isOwner(uid);
+      allow create: if isOwner(uid) && courseProgressCreateOk();
       allow update: if isOwner(uid) && courseProgressWriteOk();
       allow delete: if false;
     }

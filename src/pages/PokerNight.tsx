@@ -463,6 +463,7 @@ function PokerSession({
           speeches={quizGates.activeGate ? {} : speeches}
           expressions={quizGates.activeGate ? {} : expressions}
           quizGateResults={quizGates.results}
+          tierId={tier.id}
         />
         </Suspense>
       </div>
@@ -605,6 +606,7 @@ function MultiplayerSession({
               viewerSeatIndex={mySeatIndex}
               quizGateResults={quizGates.results}
               multiplayer
+              tierId={tier.id}
             />
           </Suspense>
         </div>

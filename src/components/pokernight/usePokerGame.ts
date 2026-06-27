@@ -10,6 +10,7 @@ import {
   type GameState,
   type HandResult,
   type LegalActions,
+  type OpponentModel,
   type Persona,
   type Seat,
 } from "../../lib/poker";
@@ -213,14 +214,34 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
   }, [externalState]);
   const reportedHand = useRef(0);
   const speechId = useRef(0);
-  const humanFoldStats = useRef({ faced: 0, folded: 0 });
+  // Session-local read on the human: fold-to-bet, aggression, looseness.
+  const humanStats = useRef({
+    faced: 0,
+    folded: 0,
+    decisions: 0,
+    voluntary: 0,
+    aggressive: 0,
+    passive: 0,
+  });
   const onHandEndRef = useRef(onHandEnd);
   onHandEndRef.current = onHandEnd;
 
   const humanFoldRate = useCallback((): number | undefined => {
-    const { faced, folded } = humanFoldStats.current;
+    const { faced, folded } = humanStats.current;
     if (faced < 3) return undefined;
     return folded / faced;
+  }, []);
+
+  /** Build the evolving opponent read the bots exploit (see bot.ts). */
+  const opponentModel = useCallback((): OpponentModel => {
+    const s = humanStats.current;
+    const acts = s.aggressive + s.passive;
+    return {
+      foldToBet: s.faced >= 3 ? s.folded / s.faced : undefined,
+      aggression: acts >= 4 ? s.aggressive / acts : undefined,
+      looseness: s.decisions >= 4 ? s.voluntary / s.decisions : undefined,
+      samples: s.decisions,
+    };
   }, []);
 
   const pushSpeech = useCallback((seatIndex: number, text: string) => {
@@ -291,7 +312,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
     const timer = setTimeout(() => {
       const cur = stateRef.current;
       if (cur.toAct !== seatIndex || cur.stage === "complete") return;
-      const decision = decideBotAction(cur, seatIndex);
+      const decision = decideBotAction(cur, seatIndex, opponentModel());
       const next = applyAction(cur, decision);
       pushSpeech(seatIndex, speechFor(decision, next.seats[seatIndex]));
       maybeEnhanceSpeech(
@@ -309,7 +330,7 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       onStateChange?.(next);
     }, delay);
     return () => clearTimeout(timer);
-  }, [state, reduced, pushSpeech, maybeEnhanceSpeech, externalState, waitForExternal, driveBots, botDelayMs, pauseGame, onStateChange]);
+  }, [state, reduced, pushSpeech, maybeEnhanceSpeech, opponentModel, externalState, waitForExternal, driveBots, botDelayMs, pauseGame, onStateChange]);
 
   // ----------------- report each completed hand exactly once -----------------
   useEffect(() => {
@@ -332,8 +353,17 @@ export function usePokerGame(opts: UsePokerGameOpts): PokerGameApi {
       if (cur.toAct !== HUMAN_SEAT || cur.stage === "complete") return;
       const la = legalActions(cur);
       const facingBet = !la.canCheck && (la.canCall || la.callAmount > 0);
-      if (facingBet) humanFoldStats.current.faced += 1;
-      if (action.type === "fold" && facingBet) humanFoldStats.current.folded += 1;
+      const stats = humanStats.current;
+      stats.decisions += 1;
+      if (facingBet) stats.faced += 1;
+      if (action.type === "fold" && facingBet) stats.folded += 1;
+      if (action.type === "bet" || action.type === "raise") {
+        stats.voluntary += 1;
+        stats.aggressive += 1;
+      } else if (action.type === "call") {
+        stats.voluntary += 1;
+        stats.passive += 1;
+      }
       const next = applyAction(cur, action);
       pushSpeech(HUMAN_SEAT, speechFor(action, next.seats[HUMAN_SEAT]));
       setReactions((prev) => ({

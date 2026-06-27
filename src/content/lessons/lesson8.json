@@ -13,7 +13,6 @@
   "intro": [
     "Estimation is how you infer unknown population quantities from sample data. A point estimate is a single best guess — like using the sample mean x̄ to estimate the population mean μ. In quant interviews you'll constantly estimate expected returns, volatilities, and model parameters from finite data.",
     "Because samples vary, every estimate carries uncertainty. The standard error measures how much an estimator would bounce around if you repeated the sampling. A confidence interval wraps a point estimate with a margin that reflects that uncertainty — for example, a 95% CI means that if you repeated the experiment many times, about 95% of the intervals would contain the true parameter.",
-    "Estimation closes the loop from data to decisions: point estimates, confidence intervals, and bias corrections appear whenever quants infer parameters from samples. Stat 110's statistical inference thread and Green Book brain teasers both test whether you know what a 95% interval actually means—and whether dividing by n versus n−1 matters for unbiased variance. The challenges below stress interpretation and computation, not rote formula memorization.",
     "Estimation closes the loop from data to decisions: point estimates, confidence intervals, and bias corrections appear whenever quants infer parameters from samples. Stat 110's statistical inference thread and Green Book brain teasers both test whether you know what a 95% interval actually means—and whether dividing by n versus n−1 matters for unbiased variance. The challenges below stress interpretation and computation, not rote formula memorization."
   ],
   "questions": [
@@ -34,10 +33,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. A single number computed from the sample to estimate μ is a point estimate; x̄ estimates the population mean.",
+        "B": "A confidence interval is a range, not the single value 52.3.",
+        "C": "A p-value measures evidence against a hypothesis, not a central estimate.",
+        "D": "x̄ is a sample-based guess; it equals the true μ only by coincidence, not in general."
       },
       "remediation": [
         {
@@ -55,10 +54,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A point estimate is one number from the data used to approximate a population parameter.",
+            "B": "A hypothesis is a claim to be tested, not a numeric estimate.",
+            "C": "Variance is a specific measure of spread, not the general idea of a single-number estimate.",
+            "D": "Correlation measures association between two variables, not a single parameter estimate."
           }
         },
         {
@@ -76,10 +75,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The sample mean is the natural unbiased estimator of the population mean μ.",
+            "B": "Variance is estimated by s², not by the sample mean.",
+            "C": "The maximum is estimated by the sample maximum, not the average.",
+            "D": "The sample size n is known exactly; it is not something the mean estimates."
           }
         }
       ]
@@ -101,10 +100,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Var(x̄) = σ²/n, so the standard error is its square root, σ/√n.",
+        "B": "Multiplying by √n would make the estimate noisier as n grows — the opposite of reality.",
+        "C": "σ²/n is the variance of x̄, not its standard error (which takes the square root).",
+        "D": "σ/n shrinks too fast; the correct denominator is √n, not n."
       },
       "remediation": [
         {
@@ -122,10 +121,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The standard error is how much the estimator would vary if you repeatedly resampled.",
+            "B": "Within a single sample the estimate is just one number; SE describes variability across many samples.",
+            "C": "The population standard deviation σ describes individual values, not the estimator's sampling spread.",
+            "D": "SE reflects all the data through σ/√n, not just outliers."
           }
         },
         {
@@ -143,10 +142,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. SE = σ/√n = 10/√100 = 10/10 = 1.",
+            "B": "10 is σ itself; you must divide by √n = 10.",
+            "C": "0.1 divides by n = 100 instead of √n = 10.",
+            "D": "100 is n; it is not the standard error."
           }
         }
       ]
@@ -168,10 +167,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. SE ∝ 1/√n, so quadrupling n multiplies SE by 1/√4 = 1/2.",
+        "B": "SE shrinks, not grows; multiplying by 4 would happen if SE scaled with n directly.",
+        "C": "2 would double the SE, but more data reduces it.",
+        "D": "1/4 would be the effect on the variance (σ²/n), not on the standard error."
       },
       "remediation": [
         {
@@ -189,10 +188,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. SE = σ/√n decreases as n increases — more data means a more precise estimate.",
+            "B": "More data reduces uncertainty, so SE does not grow.",
+            "C": "SE explicitly depends on n through √n, so it does change.",
+            "D": "SE shrinks toward 0 as n grows; it never becomes infinite."
           }
         },
         {
@@ -210,10 +209,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. SE scales by √(25/100) = √(1/4) = 1/2 as n goes from 25 to 100.",
+            "B": "2 would increase SE; more data decreases it.",
+            "C": "4 is the factor by which n grew, not the SE multiplier.",
+            "D": "1/4 is the factor on the variance, not the standard error."
           }
         }
       ]
@@ -235,10 +234,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. 1.96 is the z-value that puts 95% of the standard normal area within ±1.96 of the mean.",
+        "B": "The sample mean sets the center of the interval, not the 1.96 critical value.",
+        "C": "The variance formula contributes σ, but the 1.96 multiplier comes from the normal distribution.",
+        "D": "The LLN explains convergence; the specific 1.96 is a normal-distribution quantile."
       },
       "remediation": [
         {
@@ -256,10 +255,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. ±1.96 standard deviations captures ~95% of the standard normal area.",
+            "B": "±1 standard deviation captures only about 68%.",
+            "C": "±3 standard deviations captures about 99.7%, more than 95%.",
+            "D": "±0.5 standard deviations captures roughly 38%, far less than 95%."
           }
         },
         {
@@ -277,10 +276,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. A wider interval means a larger margin of error and thus more uncertainty about μ.",
+            "B": "Less uncertainty produces a narrower interval, not a wider one.",
+            "C": "Small samples widen intervals, but width is driven by SE and confidence level, not sample size alone.",
+            "D": "Zero variance would collapse the interval to a point, the opposite of wide."
           }
         }
       ]
@@ -302,10 +301,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The 95% is a long-run property of the procedure: across many repeated samples, ~95% of the intervals cover μ.",
+        "B": "μ is fixed and the computed interval is fixed, so probability statements about this one interval are misleading.",
+        "C": "A CI estimates a parameter, not the fraction of raw data points inside the bounds.",
+        "D": "The sample mean is a point estimate; the 95% describes interval coverage, not the mean being 'correct'."
       },
       "remediation": [
         {
@@ -323,10 +322,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Confidence level is a property of the interval-building procedure across repeated samples.",
+            "B": "A single realized interval either contains μ or not; the 95% is not about that one interval.",
+            "C": "The sample mean is the center, not the thing the confidence level describes.",
+            "D": "The standard deviation feeds the width but is not what the 95% success rate refers to."
           }
         },
         {
@@ -344,10 +343,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The 95% describes how often the procedure captures μ over repeated sampling, not this one interval.",
+            "B": "It is not a 50/50 coin flip; coverage is a frequency property of the method.",
+            "C": "It is not the percentage of data inside the bounds.",
+            "D": "It is not a p-value, which measures evidence against a hypothesis."
           }
         }
       ]
@@ -369,10 +368,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Unbiasedness means the estimator equals the true parameter on average: E[θ̂] = θ.",
+        "B": "Zero variance describes a constant estimator, not unbiasedness, and is generally unattainable.",
+        "C": "Always equaling θ would require zero sampling error; unbiasedness is only about the average.",
+        "D": "Always overshooting θ would make the estimator biased upward, the opposite of unbiased."
       },
       "remediation": [
         {
@@ -390,10 +389,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Unbiased means the expected value lands exactly on θ — on target on average.",
+            "B": "Systematically too high is positive bias, not unbiased.",
+            "C": "Systematically too low is negative bias, not unbiased.",
+            "D": "An unbiased estimator centers on θ; 'never' would describe an extreme bias."
           }
         },
         {
@@ -411,10 +410,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. E[x̄] = μ, so the sample mean is an unbiased estimator of the population mean.",
+            "B": "Variance is estimated by s², not by the sample mean.",
+            "C": "x̄ estimates the mean; it equals the median only for symmetric distributions, not in general.",
+            "D": "The sample maximum estimates the maximum, not the mean."
           }
         }
       ]
@@ -436,10 +435,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. MLE picks the parameter that makes the observed data most probable under the model.",
+        "B": "Sample size is fixed by the data; MLE optimizes the parameter, not n.",
+        "C": "The MLE depends on the data and is generally nonzero.",
+        "D": "MLE is entirely data-driven; ignoring the data is the opposite of its logic."
       },
       "remediation": [
         {
@@ -457,10 +456,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. MLE selects the parameter that maximizes the likelihood of the observed data.",
+            "B": "Minimizing likelihood would choose the worst-fitting parameter, the opposite of MLE.",
+            "C": "MLE never aims to make the data impossible; it maximizes their probability.",
+            "D": "The data are given; MLE adjusts the parameter, it does not hold likelihood constant."
           }
         },
         {
@@ -478,10 +477,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Maximizing the normal likelihood for μ yields exactly the sample mean x̄.",
+            "B": "Zero is only the MLE if the data happen to average to zero; in general it is x̄.",
+            "C": "The median is the MLE for a Laplace distribution, not the normal mean.",
+            "D": "The range measures spread, not the location parameter μ."
           }
         }
       ]
@@ -503,10 +502,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The ± term is the margin of error: the critical value times the standard error.",
+        "B": "The sample mean x̄ is the center of the interval, not the ± term.",
+        "C": "Variance is σ²; the margin uses σ/√n scaled by 1.96, not the variance itself.",
+        "D": "Bias is a systematic estimation error, unrelated to the interval's half-width."
       },
       "remediation": [
         {
@@ -524,10 +523,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. The interval is x̄ ± margin, so the margin is exactly half its total width.",
+            "B": "A histogram displays data; its width is not defined by a margin of error.",
+            "C": "A sample is a set of observations, not an interval with a half-width.",
+            "D": "Variance is a single number, not an interval with a width."
           }
         },
         {
@@ -545,10 +544,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Margin ∝ 1/√n, so halving it requires √n to double, i.e. n must grow by a factor of 4.",
+            "B": "Doubling n only shrinks the margin by 1/√2 ≈ 0.71, not by half.",
+            "C": "Halving n would widen the margin, not narrow it.",
+            "D": "1.96 is the z critical value, not the sample-size scaling factor."
           }
         }
       ]
@@ -570,10 +569,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. SE = 8/√64 = 1, margin = 1.96, so the interval is 50 ± 1.96 = [48.04, 51.96].",
+        "B": "[42, 58] uses ±8, treating σ as the margin instead of the standard error σ/√n.",
+        "C": "[49, 51] uses a ±1 margin (the SE) but omits the 1.96 multiplier.",
+        "D": "[40, 60] uses ±10, far larger than the correct 1.96 margin."
       },
       "remediation": [
         {
@@ -591,10 +590,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. 100 ± 3.92 gives [96.08, 103.92].",
+            "B": "[98, 102] uses ±2 (the SE), omitting the 1.96 multiplier.",
+            "C": "[100, 100] treats the estimate as exact, ignoring uncertainty.",
+            "D": "[90, 110] uses ±10, far wider than the 3.92 margin."
           }
         },
         {
@@ -612,10 +611,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. SE = 12/√36 = 12/6 = 2.",
+            "B": "12 is σ itself; you must divide by √n = 6.",
+            "C": "6 is √36, the denominator, not the full ratio.",
+            "D": "0.5 inverts the calculation; the correct value is 12/6 = 2."
           }
         }
       ]
@@ -637,10 +636,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Dividing by n − 1 (Bessel's correction) compensates for using x̄ in place of μ, making E[s²] = σ².",
+        "B": "Dividing by n − 1 makes s² larger than the n-divisor version, not smaller.",
+        "C": "It corrects bias; it does not eliminate variance.",
+        "D": "The denominator adjusts for the lost degree of freedom, not to match the sample mean."
       },
       "remediation": [
         {
@@ -658,10 +657,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Using n understates the spread because deviations are measured from x̄ (not μ), biasing s² downward.",
+            "B": "Dividing by the larger n gives a smaller value, so it underestimates, not overestimates.",
+            "C": "The n-divisor version is biased; the n − 1 version is the unbiased one.",
+            "D": "It produces a positive estimate (unless all data are identical), not zero."
           }
         },
         {
@@ -679,10 +678,10 @@
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Correct. Estimating the mean uses up one degree of freedom, leaving n − 1 for the variance.",
+            "B": "Margin of error is the ± half-width of a confidence interval, unrelated to this denominator.",
+            "C": "Correlation measures association between two variables, not a variance denominator.",
+            "D": "The MLE of variance actually divides by n; the n − 1 form is the bias-corrected version, not an 'MLE term'."
           }
         }
       ]
@@ -823,10 +822,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The sample mean estimates the population mean μ.",
+        "B": "σ is estimated by the sample standard deviation, not the mean.",
+        "C": "n is the known sample size, not something the mean estimates.",
+        "D": "A p-value comes from hypothesis testing, not from a point estimate of the mean."
       }
     },
     {
@@ -845,10 +844,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. SE = σ/√n, the square root of Var(x̄) = σ²/n.",
+        "B": "σ√n grows with n, but the standard error shrinks as data accumulate.",
+        "C": "σ² is the population variance, not the standard error of the mean.",
+        "D": "n/σ has the wrong form entirely; the SE divides σ by √n."
       }
     },
     {
@@ -867,10 +866,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. SE = σ/√n falls as n rises, so larger samples give more precise estimates.",
+        "B": "More data reduces uncertainty; SE does not increase.",
+        "C": "SE depends on n, so it changes as the sample grows.",
+        "D": "SE tends toward 0, not infinity, as n increases."
       }
     },
     {
@@ -889,10 +888,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The z-value 1.96 captures the central 95% of the standard normal distribution.",
+        "B": "0.5 is not a normal quantile for any standard confidence level.",
+        "C": "n is the sample size, not a critical value.",
+        "D": "σ² is the variance, not the multiplier used in the margin."
       }
     },
     {
@@ -911,10 +910,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Across repeated samples, ~95% of intervals built by the procedure contain μ.",
+        "B": "The sample mean is a point estimate; capture rate is a property of the interval method.",
+        "C": "The population is fixed; the confidence level describes the procedure, not the population.",
+        "D": "The standard deviation feeds the width but is not what the 95% capture rate refers to."
       }
     },
     {
@@ -933,10 +932,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Unbiasedness means the estimator's expected value equals the true parameter θ.",
+        "B": "E[θ̂] = 0 only if the true parameter is 0; in general the target is θ.",
+        "C": "1 is an arbitrary constant, not the definition of unbiasedness.",
+        "D": "Variance measures spread; unbiasedness is about the expected value equaling θ."
       }
     },
     {
@@ -955,10 +954,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. Margin of error = z* × standard error, e.g. 1.96 × (σ/√n) for a 95% interval.",
+        "B": "Var(X) is the variance; the margin uses the standard error, not the variance.",
+        "C": "n is the sample size, not the quantity multiplied by z*.",
+        "D": "x̄ is the center of the interval, not the term scaled by the critical value."
       }
     },
     {
@@ -977,10 +976,10 @@
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "",
-        "B": "",
-        "C": "",
-        "D": ""
+        "A": "Correct. The n − 1 divisor (Bessel's correction) removes the downward bias from estimating with x̄.",
+        "B": "The mean is computed separately; n − 1 corrects the variance estimate, not the mean.",
+        "C": "Correlation is unrelated to the variance denominator.",
+        "D": "n is known exactly; the adjustment fixes bias, not the sample size."
       }
     }
   ]
