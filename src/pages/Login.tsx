@@ -1,8 +1,13 @@
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Brand } from "../components/Brand";
 import { GoogleButton } from "../components/GoogleButton";
-import { AuthError, signInWithGoogle, signInWithIdentifier } from "../lib/auth";
+import {
+  AuthError,
+  consumeStoredAuthError,
+  signInWithGoogle,
+  signInWithIdentifier,
+} from "../lib/auth";
 
 export function Login() {
   const navigate = useNavigate();
@@ -13,6 +18,12 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [googleLabel, setGoogleLabel] = useState("Continue with Google");
+
+  useEffect(() => {
+    const stored = consumeStoredAuthError();
+    if (stored) setError(stored);
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -31,12 +42,14 @@ export function Login() {
   async function handleGoogle() {
     setError(null);
     setBusy(true);
+    setGoogleLabel("Redirecting to Google…");
     try {
       await signInWithGoogle();
       navigate(redirectTo, { replace: true });
     } catch (err) {
+      if (err instanceof AuthError && err.code === "redirect") return;
       setError(err instanceof AuthError ? err.message : "Unable to sign in.");
-    } finally {
+      setGoogleLabel("Continue with Google");
       setBusy(false);
     }
   }
@@ -100,7 +113,7 @@ export function Login() {
             <span className="h-px flex-1 bg-subtle" />
           </div>
 
-          <GoogleButton onClick={handleGoogle} disabled={busy} label="Continue with Google" />
+          <GoogleButton onClick={handleGoogle} disabled={busy} label={googleLabel} />
         </div>
 
         <p className="mt-6 text-center text-sm text-secondary">
