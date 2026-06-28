@@ -18,8 +18,6 @@
     "This capstone lesson mixes integrated scenarios: compute fair, choose spread, react to clues, and recognize when a counterparty's trade tells you something about your quote. Treat each question like a compressed game round.",
     "Finish this track and you are ready to practice in Learn Mode and Play Mode with the same vocabulary and instincts.",
     "Capstone rounds compress everything: compute fair from a verbal spec, choose spread width given volatility and your confidence, update after public clues, and skew when fills pile on one side. Interviewers watch whether you speak your reasoning aloud while adjusting — silence with a wrong quote is worse than a slow correct one.",
-    "Treat each scenario as a live game tick: state fair, state bid and ask, and when the moderator announces news, pause fills mentally, recompute conditional fair, then replace your quote entirely. The winners are rarely the fastest mental calculators alone — they are the ones who keep quotes coherent under pressure.",
-    "Capstone rounds compress everything: compute fair from a verbal spec, choose spread width given volatility and your confidence, update after public clues, and skew when fills pile on one side. Interviewers watch whether you speak your reasoning aloud while adjusting — silence with a wrong quote is worse than a slow correct one.",
     "Treat each scenario as a live game tick: state fair, state bid and ask, and when the moderator announces news, pause fills mentally, recompute conditional fair, then replace your quote entirely. The winners are rarely the fastest mental calculators alone — they are the ones who keep quotes coherent under pressure."
   ],
   "questions": [

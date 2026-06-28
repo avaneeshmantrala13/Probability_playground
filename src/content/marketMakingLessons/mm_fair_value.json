@@ -18,8 +18,6 @@
     "Interview puzzles love clean EV calculations: expected sum of two dice is 7; a fair coin pays 1 with probability 1/2 so EV is 0.5 per flip for a $1-on-heads contract; drawing one card from a shuffled deck, the expected rank depends on the payoff rule.",
     "This lesson builds the arithmetic habit of computing fair value before you ever state a bid or ask.",
     "Before you widen or skew, you need a number to anchor on. In dice-sum games fair is 7; in 'product of two fair dice' games fair is 12.25. Card games specify payoffs per rank — your job is to turn those rules into an expected value, then quote around it.",
-    "Brainstellar-style puzzles often hide fair value inside a story: 'You draw until you see a red face,' or 'Payoff equals the maximum of two rolls.' The market-making twist is that once you state fair, the room will test whether your bid and ask bracket it symmetrically unless inventory or information says otherwise.",
-    "Before you widen or skew, you need a number to anchor on. In dice-sum games fair is 7; in 'product of two fair dice' games fair is 12.25. Card games specify payoffs per rank — your job is to turn those rules into an expected value, then quote around it.",
     "Brainstellar-style puzzles often hide fair value inside a story: 'You draw until you see a red face,' or 'Payoff equals the maximum of two rolls.' The market-making twist is that once you state fair, the room will test whether your bid and ask bracket it symmetrically unless inventory or information says otherwise."
   ],
   "questions": [

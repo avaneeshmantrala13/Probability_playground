@@ -17,8 +17,6 @@
     "Good market makers treat new information as mandatory repricing. They also respect what the room has learned — if everyone saw the same clue, your edge is only in speed and spread, not in secret knowledge.",
     "This lesson practices fair value updates under partial information — a staple of prop-firm interview games.",
     "Bayesian updating in interview games is usually arithmetic, not notation: someone reveals a die face, shows a card suit, or announces one coin result. Fair value jumps to the conditional expectation given that clue — and stale quotes are an invitation to be picked off.",
-    "Calibration under partial information means widening when residual uncertainty is still large. If one die shows 2, the sum's fair is 5.5 but still has variance from the hidden die — a tight quote around 5.5 ignores that you could still land anywhere from 3 to 8.",
-    "Bayesian updating in interview games is usually arithmetic, not notation: someone reveals a die face, shows a card suit, or announces one coin result. Fair value jumps to the conditional expectation given that clue — and stale quotes are an invitation to be picked off.",
     "Calibration under partial information means widening when residual uncertainty is still large. If one die shows 2, the sum's fair is 5.5 but still has variance from the hidden die — a tight quote around 5.5 ignores that you could still land anywhere from 3 to 8."
   ],
   "questions": [

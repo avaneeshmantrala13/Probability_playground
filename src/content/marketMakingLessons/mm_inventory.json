@@ -17,8 +17,6 @@
     "In interview games you often face position limits. Hitting the limit may force you to quote one-sided or widen dramatically. Ignoring inventory is a common way to blow up in mock trading.",
     "This lesson connects position to quote adjustments — the bridge between fair value math and practical market making.",
     "Harris describes inventory risk as the chance that prices move while you hold position. In a fast interview game you might go long three contracts in thirty seconds — your quote should stop looking symmetric around abstract fair and start pulling you flat.",
-    "Skew is not panic. You shift prices to make the relieving trade attractive: if you are long, you might shade both sides down slightly but tighten your ask to invite buyers, or widen your bid so you stop accumulating. The art is moving enough to reduce risk without donating edge on every fill.",
-    "Harris describes inventory risk as the chance that prices move while you hold position. In a fast interview game you might go long three contracts in thirty seconds — your quote should stop looking symmetric around abstract fair and start pulling you flat.",
     "Skew is not panic. You shift prices to make the relieving trade attractive: if you are long, you might shade both sides down slightly but tighten your ask to invite buyers, or widen your bid so you stop accumulating. The art is moving enough to reduce risk without donating edge on every fill."
   ],
   "questions": [

@@ -18,8 +18,6 @@
     "Edge is not guaranteed profit on every fill. You earn the spread on average when you are centered on fair value and manage inventory. When customers know more than you, they pick off the wrong side of your quote — that is adverse selection, and the spread is partly payment for that risk.",
     "This lesson trains you to compute spreads, reason about width, and connect spread choice to uncertainty.",
     "Larry Harris emphasizes that the spread compensates market makers for three costs: order-processing, inventory holding, and adverse selection. In interview dice games you feel all three at once: fills arrive fast, position swings quickly, and sharper classmates trade when your quote is stale.",
-    "Calibration matters as much as width. A spread that looks tight on paper but sits far from fair value gets picked off; a wide spread centered on fair may earn less gross edge per trade but survive longer. Practice judging spread in units of uncertainty — widen when variance or information risk rises.",
-    "Larry Harris emphasizes that the spread compensates market makers for three costs: order-processing, inventory holding, and adverse selection. In interview dice games you feel all three at once: fills arrive fast, position swings quickly, and sharper classmates trade when your quote is stale.",
     "Calibration matters as much as width. A spread that looks tight on paper but sits far from fair value gets picked off; a wide spread centered on fair may earn less gross edge per trade but survive longer. Practice judging spread in units of uncertainty — widen when variance or information risk rises."
   ],
   "questions": [

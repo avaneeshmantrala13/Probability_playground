@@ -18,8 +18,6 @@
     "In trading interviews, clarity about direction matters. 'I'm a buyer at 10' means your bid is 10. 'I'm an offer at 12' means your ask is 12. Mixing these up is one of the fastest ways to lose credibility in a mock trading game.",
     "This lesson builds the vocabulary and mechanics you need before you ever compute fair value or manage inventory.",
     "In live interview games, quotes are shouted in compressed form: '47 at 49' or 'I'm 47 bid, 49 offer.' The moderator may call 'sold!' when someone hits a bid or 'done!' when someone lifts an offer. Your first job is to parse direction instantly — confusing buy and sell language is the most common early mistake.",
-    "Jane Street-style dice and card games treat the quote as a standing limit order on both sides. You are not negotiating each trade from scratch; you publish prices and let the room choose which side to take. That discipline — always know your bid, always know your ask — is what separates practiced market makers from candidates who only compute fair value.",
-    "In live interview games, quotes are shouted in compressed form: '47 at 49' or 'I'm 47 bid, 49 offer.' The moderator may call 'sold!' when someone hits a bid or 'done!' when someone lifts an offer. Your first job is to parse direction instantly — confusing buy and sell language is the most common early mistake.",
     "Jane Street-style dice and card games treat the quote as a standing limit order on both sides. You are not negotiating each trade from scratch; you publish prices and let the room choose which side to take. That discipline — always know your bid, always know your ask — is what separates practiced market makers from candidates who only compute fair value."
   ],
   "questions": [
