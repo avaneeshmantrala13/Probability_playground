@@ -1,8 +1,6 @@
 import { type CSSProperties, useEffect, useRef, useState } from "react";
 import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { GameState } from "../../lib/poker";
-import type { QuizGateResults } from "../../lib/poker/quizGate";
-import { canSeeBoardCard } from "../../lib/poker/quizGate";
 import { PlayingCard } from "./PlayingCard";
 import { PlayerSeat } from "./PlayerSeat";
 import { Dealer } from "./Dealer";
@@ -23,7 +21,6 @@ interface PokerTableProps {
   viewerSeatIndex?: number;
   /** Harness-only: force a fixed gaze target across all seats for screenshots. */
   gazeOverride?: GazeOverride;
-  quizGateResults?: QuizGateResults;
   multiplayer?: boolean;
   /** Table tier id — opponents dress up at higher buy-ins (gold Whale Room). */
   tierId?: string;
@@ -85,7 +82,7 @@ function layoutSlotForSeat(
   return (seatIndex - viewerSeatIndex + seatCount) % seatCount;
 }
 
-export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride, quizGateResults, multiplayer = false, tierId }: PokerTableProps) {
+export function PokerTable({ state, deck, theme, reduced, speeches, expressions, viewerSeatIndex, gazeOverride, multiplayer = false, tierId }: PokerTableProps) {
   const n = state.seats.length;
   const positions = layoutFor(n);
 
@@ -188,8 +185,7 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
                   card={c}
                   deck={deck}
                   size="md"
-                  flip={!reduced && (!quizGateResults || canSeeBoardCard(i, quizGateResults))}
-                  masked={!!quizGateResults && !canSeeBoardCard(i, quizGateResults)}
+                  flip={!reduced}
                   style={
                     !reduced && state.board.length === 3
                       ? { animationDelay: `${i * 150}ms` }
@@ -202,6 +198,7 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
           <div
             className={`pn-pot ${potBump ? "pn-anim-pot-bump" : ""}`}
             style={{ color: theme.text, border: `1px solid ${theme.glow}` }}
+            aria-label={`Pot ${state.pot.toLocaleString()}`}
           >
             <span aria-hidden>💰</span>
             Pot {state.pot.toLocaleString()}
@@ -233,7 +230,6 @@ export function PokerTable({ state, deck, theme, reduced, speeches, expressions,
             expression={expressions[seat.index] ?? "idle"}
             boardLen={state.board.length}
             gazeOverride={gazeOverride}
-            quizGateResults={quizGateResults}
             multiplayer={multiplayer}
             tierId={tierId}
           />

@@ -5,7 +5,6 @@ import { displayRank, isRedCard, suitSymbol } from "../../lib/poker";
 interface PlayingCardProps {
   card?: string;
   faceDown?: boolean;
-  masked?: boolean;
   deck: DeckSkin;
   size?: "sm" | "md" | "lg";
   /** Deal animation class to apply (suppressed under reduced motion upstream). */
@@ -29,15 +28,6 @@ const TXT: Record<NonNullable<PlayingCardProps["size"]>, string> = {
   md: "text-sm",
   lg: "text-base",
 };
-
-function MaskedFace({ txt }: { txt: string }) {
-  return (
-    <span className={`pn-card pn-card-face pn-card-masked ${txt}`} aria-label="Hidden card">
-      <span className="pn-card-rank">?</span>
-      <span className="pn-card-suit">?</span>
-    </span>
-  );
-}
 
 function Face({ card, txt }: { card: string; txt: string }) {
   const red = isRedCard(card);
@@ -72,7 +62,6 @@ function Back({ deck, txt }: { deck: DeckSkin; txt: string }) {
 function PlayingCardImpl({
   card,
   faceDown,
-  masked,
   deck,
   size = "md",
   animClass,
@@ -81,14 +70,6 @@ function PlayingCardImpl({
 }: PlayingCardProps) {
   const dim = DIM[size];
   const txt = TXT[size];
-
-  if (masked && card) {
-    return (
-      <span className={`pn-card pn-card-masked-wrap ${dim} ${animClass ?? ""}`} style={style}>
-        <MaskedFace txt={txt} />
-      </span>
-    );
-  }
 
   // Real 3D flip: a two-sided card that rotates from back to face on mount.
   if (flip && card && !faceDown) {

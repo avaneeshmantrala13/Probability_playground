@@ -32,8 +32,6 @@ import { TableChat } from "../components/pokernight/TableChat";
 import { TokenPurchaseModal } from "../components/pokernight/TokenPurchaseModal";
 import { FreePlayExpiredModal } from "../components/pokernight/FreePlayExpiredModal";
 import { FreePlayBanner } from "../components/dailyRewards/FreePlayBanner";
-import { useQuizGates, useQuizFrozenTableState } from "../components/pokernight/useQuizGates";
-import { QuizGateModal } from "../components/pokernight/QuizGateModal";
 
 const PokerTable = lazy(() => import("../components/pokernight/PokerTable"));
 
@@ -201,21 +199,29 @@ function PokerNightUnlocked({
             streakDay={progress.streak}
           />
 
-          <div className="mb-4 inline-flex gap-1 rounded-xl bg-surface-muted p-1">
+          <div
+            className="mb-4 inline-flex gap-1 rounded-xl bg-surface-muted p-1"
+            role="tablist"
+            aria-label="Game mode"
+          >
             <button
               type="button"
+              role="tab"
+              aria-selected={mode === "single"}
               onClick={() => setMode("single")}
-              className={`rounded-lg px-4 py-2 text-sm font-semibold ${
-                mode === "single" ? "bg-surface text-accent shadow-card" : "text-secondary"
+              className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
+                mode === "single" ? "bg-surface text-accent shadow-card" : "text-secondary hover:text-primary"
               }`}
             >
               Single player
             </button>
             <button
               type="button"
+              role="tab"
+              aria-selected={mode === "multiplayer"}
               onClick={() => setMode("multiplayer")}
-              className={`rounded-lg px-4 py-2 text-sm font-semibold ${
-                mode === "multiplayer" ? "bg-surface text-accent shadow-card" : "text-secondary"
+              className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
+                mode === "multiplayer" ? "bg-surface text-accent shadow-card" : "text-secondary hover:text-primary"
               }`}
             >
               Multiplayer
@@ -325,7 +331,6 @@ function PokerSession({
   };
 
   const personasRef = useRef(pickPersonasForTier(tier.opponents, tier.id));
-  const [pauseForQuiz, setPauseForQuiz] = useState(false);
 
   const handleHandEnd = (info: { result: HandResult; humanStack: number }) => {
     const won = (info.result.netBySeat[0] ?? 0) > 0;
@@ -359,7 +364,6 @@ function PokerSession({
     humanStack: buyIn,
     personas: personasRef.current,
     reduced,
-    pauseGame: pauseForQuiz,
     onHandEnd: handleHandEnd,
   });
 
@@ -374,7 +378,6 @@ function PokerSession({
     act,
     dealNext,
     rebuy,
-    humanSeatIndex,
   } = game;
 
   stackRef.current = humanSeat.stack;
@@ -384,18 +387,6 @@ function PokerSession({
     expiredHandled.current = true;
     onFreePlayExpired?.(stackRef.current);
   }, [freePlay, freePlayMinutesRemaining, onFreePlayExpired]);
-
-  const quizGates = useQuizGates({
-    state,
-    viewerSeatIndex: humanSeatIndex,
-    enabled: phase === "playing",
-  });
-
-  useEffect(() => {
-    setPauseForQuiz(!!quizGates.activeGate);
-  }, [quizGates.activeGate]);
-
-  const tableState = useQuizFrozenTableState(state, !!quizGates.activeGate);
 
   const handComplete = state.stage === "complete";
 
@@ -456,13 +447,12 @@ function PokerSession({
           }
         >
         <PokerTable
-          state={tableState}
+          state={state}
           deck={deck}
           theme={theme}
           reduced={reduced}
-          speeches={quizGates.activeGate ? {} : speeches}
-          expressions={quizGates.activeGate ? {} : expressions}
-          quizGateResults={quizGates.results}
+          speeches={speeches}
+          expressions={expressions}
           tierId={tier.id}
         />
         </Suspense>
@@ -482,21 +472,12 @@ function PokerSession({
           <ActionBar
             state={state}
             legal={legal}
-          enabled={isHumanTurn && !quizGates.activeGate}
-          thinking={thinking && !quizGates.activeGate}
+            enabled={isHumanTurn}
+            thinking={thinking}
             onAction={act}
           />
         )}
       </div>
-
-      {quizGates.activeGate && (
-        <QuizGateModal
-          key={`${state.handNumber}-${quizGates.activeGate.gate}`}
-          gate={quizGates.activeGate.gate}
-          question={quizGates.activeGate.question}
-          onResolve={quizGates.resolveGate}
-        />
-      )}
 
       {showPurchase && (
         <TokenPurchaseModal kind="sp_tokens" onClose={() => setShowPurchase(false)} />
@@ -530,7 +511,6 @@ function MultiplayerSession({
   const deck = getDeckSkin(deckSkinId);
   const theme = getTableTheme(tableThemeId);
   const mySeatIndexRef = useRef(0);
-  const [pauseForQuiz, setPauseForQuiz] = useState(false);
 
   const game = useMultiplayerGame({
     roomId,
@@ -538,7 +518,6 @@ function MultiplayerSession({
     tier,
     buyIn,
     reduced,
-    pauseGame: pauseForQuiz,
     onHandEnd: ({ result, humanStack }) => {
       recordPokerHand({
         won: (result.netBySeat[mySeatIndexRef.current] ?? 0) > 0,
@@ -550,19 +529,7 @@ function MultiplayerSession({
 
   mySeatIndexRef.current = game.mySeatIndex;
 
-  const { room, state, legal, isHumanTurn, thinking, speeches, expressions, act, dealNext, mySeatIndex, isHost, seatKnown, humanSeatIndex } = game;
-
-  const quizGates = useQuizGates({
-    state,
-    viewerSeatIndex: humanSeatIndex,
-    enabled: seatKnown && !!room?.gameState,
-  });
-
-  useEffect(() => {
-    setPauseForQuiz(!!quizGates.activeGate);
-  }, [quizGates.activeGate]);
-
-  const tableState = useQuizFrozenTableState(state, !!quizGates.activeGate);
+  const { room, state, legal, isHumanTurn, thinking, speeches, expressions, act, dealNext, mySeatIndex, isHost, seatKnown } = game;
 
   const handComplete = state.stage === "complete";
   const myStack = seatKnown ? (state.seats[mySeatIndex]?.stack ?? 0) : 0;
@@ -597,14 +564,13 @@ function MultiplayerSession({
             }
           >
             <PokerTable
-              state={tableState}
+              state={state}
               deck={deck}
               theme={theme}
               reduced={reduced}
-              speeches={quizGates.activeGate ? {} : speeches}
-              expressions={quizGates.activeGate ? {} : expressions}
+              speeches={speeches}
+              expressions={expressions}
               viewerSeatIndex={mySeatIndex}
-              quizGateResults={quizGates.results}
               multiplayer
               tierId={tier.id}
             />
@@ -621,26 +587,23 @@ function MultiplayerSession({
       </div>
       <div className="pn-viewport-controls shrink-0">
         {handComplete ? (
-          <HandResultBanner state={state} canDeal={isHost} onNext={dealNext} />
+          <HandResultBanner
+            state={state}
+            canDeal={isHost}
+            onNext={dealNext}
+            humanSeatIndex={mySeatIndex}
+          />
         ) : (
           <ActionBar
             state={state}
             legal={legal}
-          enabled={isHumanTurn && !quizGates.activeGate}
-          thinking={thinking && !quizGates.activeGate}
+            enabled={isHumanTurn}
+            thinking={thinking}
             onAction={act}
             humanSeatIndex={mySeatIndex}
           />
         )}
       </div>
-      {quizGates.activeGate && (
-        <QuizGateModal
-          key={`${state.handNumber}-${quizGates.activeGate.gate}`}
-          gate={quizGates.activeGate.gate}
-          question={quizGates.activeGate.question}
-          onResolve={quizGates.resolveGate}
-        />
-      )}
     </div>
   );
 }

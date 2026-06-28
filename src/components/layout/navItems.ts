@@ -60,14 +60,6 @@ export const NAV_ITEMS: NavItem[] = [
     activeClassName: "bg-emerald-500/15 text-primary ring-1 ring-emerald-500/25",
   },
   {
-    to: "/market-making/lessons",
-    label: "MM Lessons",
-    icon: BookIcon,
-    matchPrefix: true,
-    iconClassName: "text-teal-500",
-    activeClassName: "bg-teal-500/15 text-primary ring-1 ring-teal-500/25",
-  },
-  {
     to: "/mental-math",
     label: "Mental Math",
     icon: BrainIcon,

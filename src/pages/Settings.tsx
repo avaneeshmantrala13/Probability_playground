@@ -1,6 +1,5 @@
 import { useAuth } from "../context/AuthContext";
 import { useTheme, type ThemePreference } from "../context/ThemeContext";
-import { QuizDifficultyPicker } from "../components/pokernight/QuizDifficultyPicker";
 import { MoonIcon, SettingsIcon, SunIcon } from "../components/icons";
 
 const THEME_OPTIONS: { value: ThemePreference; label: string; hint: string }[] = [
@@ -67,17 +66,6 @@ export function Settings() {
               </button>
             );
           })}
-        </div>
-      </section>
-
-      <section className="pp-card mt-4 p-6">
-        <h2 className="font-semibold text-primary">Poker quiz gates</h2>
-        <p className="mt-1 text-sm text-secondary">
-          Before hole cards, flop, turn, and river, answer a quick probability question to see
-          the cards. Default is easy.
-        </p>
-        <div className="mt-4">
-          <QuizDifficultyPicker />
         </div>
       </section>
 

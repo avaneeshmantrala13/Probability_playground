@@ -61,6 +61,10 @@ export function Home() {
               firms. Drill interactive lessons, sharpen market-making instincts,
               study poker theory, then put it all together at Poker Night.
             </p>
+            <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-secondary">
+              <span aria-hidden className="text-emerald-500">✓</span>
+              Every answer is verified with code — no guesswork, no wrong keys.
+            </p>
           </div>
 
           <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center">

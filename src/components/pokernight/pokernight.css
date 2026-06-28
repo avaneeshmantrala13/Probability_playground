@@ -925,17 +925,6 @@ html.pn-immersive footer {
   transform: translateZ(0);
 }
 .pn-card-face { flex-direction: column; }
-.pn-card-masked,
-.pn-card-masked-wrap .pn-card-masked {
-  background: linear-gradient(145deg, #2a2a3a 0%, #1a1a28 100%);
-  border-color: #4a4a5a;
-  color: #9ca3af;
-}
-.pn-card-masked .pn-card-rank,
-.pn-card-masked .pn-card-suit {
-  font-weight: 800;
-  opacity: 0.85;
-}
 .pn-card-rank { font-size: 1.05em; }
 .pn-card-suit { font-size: 0.9em; }
 .pn-card-red { color: #c81e2b; }

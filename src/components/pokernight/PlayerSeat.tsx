@@ -1,8 +1,6 @@
 import { type CSSProperties, memo, useEffect, useRef, useState } from "react";
 import type { DeckSkin, TableTheme } from "../../lib/cosmetics";
 import type { Seat } from "../../lib/poker";
-import type { QuizGateResults } from "../../lib/poker/quizGate";
-import { canSeeHoleCards } from "../../lib/poker/quizGate";
 import { getLook, type Expression } from "./characters";
 import { PlayingCard } from "./PlayingCard";
 import { PokerFigure, figureScale } from "./PokerFigure";
@@ -34,7 +32,6 @@ interface PlayerSeatProps {
   boardLen: number;
   /** Harness-only: force a fixed gaze target for screenshots. */
   gazeOverride?: GazeOverride;
-  quizGateResults?: QuizGateResults;
   multiplayer?: boolean;
   /** Table tier id — drives the opponents' outfit upgrades (gold Whale Room). */
   tierId?: string;
@@ -88,7 +85,6 @@ function PlayerSeatImpl({
   expression,
   boardLen,
   gazeOverride,
-  quizGateResults,
   multiplayer = false,
   tierId,
 }: PlayerSeatProps) {
@@ -99,7 +95,6 @@ function PlayerSeatImpl({
       ? seat.index === viewerSeatIndex
       : seat.isHuman;
   const showFaces = isViewer || reveal;
-  const holeGateOk = !isViewer || !quizGateResults || canSeeHoleCards(quizGateResults);
   const dealAnim = reduced ? "" : "pn-anim-deal";
   const look = getLook(
     seat.persona,
@@ -169,7 +164,7 @@ function PlayerSeatImpl({
       <span className="flex items-center gap-1">
         <span className="max-w-[7rem] truncate font-semibold">{seat.name}</span>
         {isButton && (
-          <span className="pn-dealer-btn" title="Dealer button">
+          <span className="pn-dealer-btn" title="Dealer button" aria-label="Dealer button">
             D
           </span>
         )}
@@ -197,7 +192,6 @@ function PlayerSeatImpl({
             key={`${dealKey}-${i}-${c}`}
             card={c}
             faceDown={!showFaces}
-            masked={showFaces && isViewer && !holeGateOk}
             deck={deck}
             size={isHero ? "lg" : "sm"}
             animClass={isHero ? "" : dealAnim}

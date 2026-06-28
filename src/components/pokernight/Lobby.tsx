@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TABLE_TIERS, type TableTier } from "../../lib/tokens";
-import { QuizDifficultyPicker } from "./QuizDifficultyPicker";
 import { TokenPurchaseModal } from "./TokenPurchaseModal";
 
 interface LobbyProps {
@@ -57,8 +56,6 @@ export function Lobby({ bankroll, onSit }: LobbyProps) {
           </Link>
         </div>
       </div>
-
-      <QuizDifficultyPicker compact />
 
       <div className="grid gap-3 sm:grid-cols-3">
         {TABLE_TIERS.map((t) => {

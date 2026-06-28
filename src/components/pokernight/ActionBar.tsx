@@ -44,13 +44,18 @@ export function ActionBar({
 
   if (!enabled) {
     return (
-      <div className="pp-card flex items-center justify-center gap-3 p-4 text-sm text-secondary">
+      <div
+        className="pp-card flex items-center justify-center gap-3 p-4 text-sm text-secondary"
+        aria-live="polite"
+      >
         {state.stage === "complete" ? (
           <span>Hand complete.</span>
         ) : thinking ? (
           <span className="inline-flex items-center gap-2">
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />
-            {state.toAct != null ? `${state.seats[state.toAct].name} is thinking…` : "Waiting…"}
+            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden />
+            {state.toAct != null
+              ? `${state.seats[state.toAct]?.name ?? "Opponent"} is thinking…`
+              : "Waiting…"}
           </span>
         ) : (
           <span>Waiting for your turn…</span>

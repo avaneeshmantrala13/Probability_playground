@@ -27,13 +27,11 @@ export interface UseMultiplayerGameOpts {
   tier: TableTier;
   buyIn: number;
   reduced: boolean;
-  /** Pause host bot loop while local viewer answers a quiz gate. */
-  pauseGame?: boolean;
   onHandEnd?: (info: { result: HandResult; humanStack: number }) => void;
 }
 
 export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
-  const { roomId, uid, tier, buyIn, reduced, pauseGame = false, onHandEnd } = opts;
+  const { roomId, uid, tier, buyIn, reduced, onHandEnd } = opts;
   const [room, setRoom] = useState<PokerRoom | null>(null);
   const actionSeqRef = useRef(0);
   const gameStateRef = useRef<GameState | null>(null);
@@ -112,7 +110,6 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     waitForExternal: !isHost,
     driveBots: isHost,
     botDelayMs: reduced ? [90, 90] : [200, 700],
-    pauseGame,
     onStateChange: isHost ? handleHostStateChange : undefined,
     onHandEnd,
   });
@@ -148,12 +145,11 @@ export function useMultiplayerGame(opts: UseMultiplayerGameOpts) {
     displayState.toAct === mySeatIndex;
 
   const thinking =
-    !pauseGame &&
-    (hostGame.thinking ||
-      (!isHost &&
-        displayState.stage !== "complete" &&
-        displayState.toAct != null &&
-        displayState.toAct !== mySeatIndex));
+    hostGame.thinking ||
+    (!isHost &&
+      displayState.stage !== "complete" &&
+      displayState.toAct != null &&
+      displayState.toAct !== mySeatIndex);
 
   return {
     room,

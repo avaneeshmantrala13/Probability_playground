@@ -4,15 +4,17 @@ interface HandResultBannerProps {
   state: GameState;
   canDeal: boolean;
   onNext: () => void;
+  /** Local human seat index — drives the "you won/lost" line (default 0). */
+  humanSeatIndex?: number;
 }
 
-export function HandResultBanner({ state, canDeal, onNext }: HandResultBannerProps) {
+export function HandResultBanner({ state, canDeal, onNext, humanSeatIndex = 0 }: HandResultBannerProps) {
   const result = state.result;
   if (!result) return null;
 
-  const humanNet = result.netBySeat[0] ?? 0;
+  const humanNet = result.netBySeat[humanSeatIndex] ?? 0;
   const winnerNames = Array.from(
-    new Set(result.pots.flatMap((p) => p.winners.map((w) => state.seats[w].name))),
+    new Set(result.pots.flatMap((p) => p.winners.map((w) => state.seats[w]?.name).filter(Boolean))),
   );
   const descr = result.pots.find((p) => p.descr)?.descr;
 
