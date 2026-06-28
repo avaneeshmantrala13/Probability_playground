@@ -6,6 +6,9 @@ import { isLessonUnlocked } from "../lib/mastery";
 import { Brand } from "../components/Brand";
 import { ChevronRightIcon } from "../components/icons";
 import { FreePlayBanner } from "../components/dailyRewards/FreePlayBanner";
+import verifiedManifest from "../content/verified.json";
+
+const VERIFIED_COUNT = verifiedManifest.totalChecked.toLocaleString();
 
 export function Home() {
   const { user } = useAuth();
@@ -63,7 +66,8 @@ export function Home() {
             </p>
             <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-secondary">
               <span aria-hidden className="text-emerald-500">✓</span>
-              Every answer is verified with code — no guesswork, no wrong keys.
+              All {VERIFIED_COUNT} answers are checked by code — one correct key, a
+              matching explanation, no wrong keys.
             </p>
           </div>
 

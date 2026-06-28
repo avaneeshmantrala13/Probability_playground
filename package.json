@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run verify && tsc -b && vite build",
+    "build:fast": "tsc -b && vite build",
     "preview": "vite preview",
     "validate:content": "node scripts/validate-content.mjs",
+    "verify:answers": "node scripts/verify-answers.mjs",
+    "verify": "node scripts/validate-content.mjs && node scripts/verify-answers.mjs",
     "merge:expansions": "node scripts/merge-lesson-expansions.mjs"
   },
   "dependencies": {

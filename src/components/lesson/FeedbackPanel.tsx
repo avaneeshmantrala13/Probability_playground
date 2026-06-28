@@ -66,9 +66,18 @@ export function FeedbackPanel({
         aria-label="Explanation"
         className="rounded-xl border border-subtle bg-surface-muted/50 p-4"
       >
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-secondary">
-          Explanation
-        </h3>
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-secondary">
+            Explanation
+          </h3>
+          <span
+            title="This question's answer key is checked by code for a single correct option and a matching explanation."
+            className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-600 ring-1 ring-emerald-500/20 dark:text-emerald-400"
+          >
+            <CheckIcon size={11} />
+            Code-verified
+          </span>
+        </div>
 
         {isCorrect ? (
           <ExplanationBody
