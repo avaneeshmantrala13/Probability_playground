@@ -1,13 +1,15 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Brand } from "../Brand";
 import { ThemeToggle } from "../ThemeToggle";
 import { useAuth } from "../../context/AuthContext";
+import { useProgress } from "../../context/ProgressContext";
+import { hasSprint, type SprintProgressLike } from "../../lib/sprints";
 import { signOut } from "../../lib/auth";
 import { useThemeSync } from "../../hooks/useThemeSync";
 import { CloseIcon, LogOutIcon, MenuIcon } from "../icons";
 import { FallingCards } from "../home/FallingCards";
-import { NAV_ITEMS, type NavItem } from "./navItems";
+import { NAV_ITEMS, SPRINT_NAV_ITEM, type NavItem } from "./navItems";
 
 function navLinkClass(isActive: boolean, item: NavItem): string {
   return [
@@ -34,9 +36,20 @@ function NavItemLink({ item, onNavigate }: { item: NavItem; onNavigate?: () => v
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { user } = useAuth();
+  const { progress } = useProgress();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   useThemeSync();
+
+  // Surface the Sprint dashboard in nav only while a sprint is active, right
+  // after Home so it's the first thing a sprinter reaches for.
+  const navItems = useMemo<NavItem[]>(() => {
+    // Plan/sprint fields live on the courseProgress doc at runtime but aren't on
+    // the client CourseProgress type yet (same cast the Sprint dashboard uses).
+    const planLike = progress as unknown as SprintProgressLike;
+    if (!hasSprint(planLike)) return NAV_ITEMS;
+    return [NAV_ITEMS[0], SPRINT_NAV_ITEM, ...NAV_ITEMS.slice(1)];
+  }, [progress]);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -57,7 +70,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               className="hidden min-w-0 flex-1 items-center gap-1 overflow-x-auto pb-0.5 md:flex [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-accent/30"
               aria-label="Primary"
             >
-              {NAV_ITEMS.map((item) => (
+              {navItems.map((item) => (
                 <NavItemLink key={item.to} item={item} />
               ))}
             </nav>
@@ -92,7 +105,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               aria-label="Mobile"
               style={{ WebkitOverflowScrolling: "touch" }}
             >
-              {NAV_ITEMS.map((item) => (
+              {navItems.map((item) => (
                 <NavItemLink key={item.to} item={item} onNavigate={() => setMenuOpen(false)} />
               ))}
             </nav>

@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { verifyBearerToken } from "./_lib/firebase-auth";
 import { checkRateLimit } from "./_lib/rate-limit";
 import { consumeDailyQuota } from "./_lib/usage";
-import { QUANT_TUTOR_SYSTEM } from "./_lib/prompts";
+import { QUANT_TUTOR_SYSTEM, tutorStateInstruction } from "./_lib/prompts";
 
 // Mirrors src/lib/billing/plans.ts FREE_LIMITS.aiTutorPerDay (api bundles separately).
 const FREE_TUTOR_PER_DAY = 5;
@@ -35,6 +35,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const messages = Array.isArray(body.messages) ? body.messages : [];
   const selectedIndex =
     typeof body.selectedIndex === "number" ? body.selectedIndex : null;
+  // Whether the student has submitted/checked their answer for this question.
+  // Defaults to false (most restrictive) so a missing flag never leaks answers.
+  const answered = body.answered === true;
 
   if (!questionText || options.length < 2) {
     return res.status(400).json({ error: "Missing question context" });
@@ -45,7 +48,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `Question: ${questionText}`,
     `Options:`,
     ...options.map((o, i) => `${String.fromCharCode(65 + i)}. ${o}`),
-    selectedIndex != null
+    // Only surface the student's selection once they've committed to it.
+    answered && selectedIndex != null
       ? `Student selected: ${String.fromCharCode(65 + selectedIndex)}`
       : "",
   ]
@@ -85,6 +89,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               role: m.role as "user" | "assistant",
               content: m.content.slice(0, 2000),
             })),
+          // Placed LAST so the gate is the most recent instruction the model sees.
+          { role: "system", content: tutorStateInstruction(answered) },
         ],
       }),
     });

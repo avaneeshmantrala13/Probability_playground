@@ -120,6 +120,7 @@ export function PracticeSession() {
         questionText={current.question}
         options={current.options}
         selectedIndex={selected}
+        answered={checked}
       />
 
       <div className="mt-5 flex justify-end gap-3">

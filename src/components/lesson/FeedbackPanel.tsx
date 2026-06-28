@@ -148,6 +148,9 @@ function ExplanationBody({
         questionText: aiContext.questionText,
         options: aiContext.options,
         selectedIndex: null,
+        // The feedback panel only renders after the answer is checked, so the
+        // tutor is allowed to discuss why options are right/wrong here.
+        answered: true,
         messages: [{ role: "user", content: ask }],
       });
       setAiText(reply);

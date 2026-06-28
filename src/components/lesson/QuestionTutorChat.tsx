@@ -11,6 +11,8 @@ interface QuestionTutorChatProps {
   questionText: string;
   options: string[];
   selectedIndex: number | null;
+  /** True once the student has checked their answer for this question. */
+  answered: boolean;
 }
 
 export function QuestionTutorChat({
@@ -18,6 +20,7 @@ export function QuestionTutorChat({
   questionText,
   options,
   selectedIndex,
+  answered,
 }: QuestionTutorChatProps) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -40,6 +43,7 @@ export function QuestionTutorChat({
         questionText,
         options,
         selectedIndex,
+        answered,
         messages: history,
       });
       setMessages((m) => [...m, { role: "assistant", content: reply }]);
@@ -51,6 +55,10 @@ export function QuestionTutorChat({
     }
   }
 
+  const chips = answered
+    ? ["Explain step by step", "Why are the wrong answers wrong?", "Give a similar problem"]
+    : ["Explain the key concept", "What approach should I take?", "Define the terms used"];
+
   if (!open) {
     return (
       <button
@@ -58,7 +66,7 @@ export function QuestionTutorChat({
         className="mt-4 w-full rounded-xl border border-accent/30 bg-accent/5 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/10"
         onClick={() => setOpen(true)}
       >
-        Ask the quant tutor about this problem
+        {answered ? "Ask the quant tutor about this problem" : "Ask the quant tutor for a concept hint"}
       </button>
     );
   }
@@ -76,10 +84,19 @@ export function QuestionTutorChat({
         </button>
       </div>
 
+      {!answered && (
+        <p className="mb-3 rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-xs font-medium text-amber-700 dark:text-amber-400">
+          Heads up: until you submit, the tutor only clarifies concepts — it
+          won't reveal or hint at the answer.
+        </p>
+      )}
+
       <div className="max-h-52 space-y-2 overflow-y-auto text-sm">
         {messages.length === 0 && (
           <p className="text-secondary">
-            Ask anything — why an answer works, similar problems, or the underlying theory.
+            {answered
+              ? "Ask anything — why an answer works, similar problems, or the underlying theory."
+              : "Ask about a concept, definition, or the general approach. The answer stays hidden until you submit."}
           </p>
         )}
         {messages.map((m, i) => (
@@ -110,7 +127,11 @@ export function QuestionTutorChat({
       >
         <input
           className="pp-input flex-1 text-sm"
-          placeholder="Why is C wrong? Give me a similar problem…"
+          placeholder={
+            answered
+              ? "Why is C wrong? Give me a similar problem…"
+              : "Explain the concept or approach (no answers!)…"
+          }
           value={input}
           disabled={busy}
           onChange={(e) => setInput(e.target.value)}
@@ -121,19 +142,17 @@ export function QuestionTutorChat({
       </form>
 
       <div className="mt-2 flex flex-wrap gap-2">
-        {["Explain step by step", "Why are the wrong answers wrong?", "Give a similar problem"].map(
-          (chip) => (
-            <button
-              key={chip}
-              type="button"
-              disabled={busy}
-              className="rounded-full border border-subtle px-2.5 py-1 text-xs text-secondary hover:border-accent/40 hover:text-accent"
-              onClick={() => void send(chip)}
-            >
-              {chip}
-            </button>
-          ),
-        )}
+        {chips.map((chip) => (
+          <button
+            key={chip}
+            type="button"
+            disabled={busy}
+            className="rounded-full border border-subtle px-2.5 py-1 text-xs text-secondary hover:border-accent/40 hover:text-accent"
+            onClick={() => void send(chip)}
+          >
+            {chip}
+          </button>
+        ))}
       </div>
     </div>
   );

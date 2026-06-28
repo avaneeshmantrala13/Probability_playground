@@ -11,6 +11,7 @@ import {
   HeartIcon,
   HomeIcon,
   MedalIcon,
+  RocketIcon,
   SettingsIcon,
   SpadeIcon,
   StoreIcon,
@@ -158,6 +159,19 @@ export const NAV_ITEMS: NavItem[] = [
     activeClassName: "bg-slate-500/15 text-primary ring-1 ring-slate-500/25",
   },
 ];
+
+/**
+ * Sprint dashboard entry. Only shown when the user has an active sprint (see
+ * `hasSprint`), so pure subscribers and free users don't see a dead link.
+ */
+export const SPRINT_NAV_ITEM: NavItem = {
+  to: "/sprint",
+  label: "My Sprint",
+  icon: RocketIcon,
+  matchPrefix: true,
+  iconClassName: "text-pink-500",
+  activeClassName: "bg-pink-500/15 text-primary ring-1 ring-pink-500/25",
+};
 
 /** Decorative suit used on home/marketing only — not in main nav. */
 export { DiamondIcon };

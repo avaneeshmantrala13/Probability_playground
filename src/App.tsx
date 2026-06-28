@@ -35,6 +35,7 @@ import { Pricing } from "./pages/Pricing";
 import { Readiness } from "./pages/Readiness/Dashboard";
 import { MockInterview } from "./pages/MockInterview/Hub";
 import { MockInterviewSession } from "./pages/MockInterview/Session";
+import { SprintDashboard } from "./pages/Sprint/Dashboard";
 import { RequirePlan } from "./lib/billing";
 // Practice banks are large (5k+ questions); lazy-load so they don't bloat the
 // initial bundle for users who never open the Practice tab.
@@ -139,6 +140,7 @@ export function App() {
             </Protected>
           }
         />
+        <Route path="/sprint" element={<Protected><SprintDashboard /></Protected>} />
         <Route path="/calendar" element={<Protected><Calendar /></Protected>} />
         <Route path="/badges" element={<Protected><Badges /></Protected>} />
         <Route path="/leaderboard" element={<Protected><Leaderboard /></Protected>} />

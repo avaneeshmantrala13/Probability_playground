@@ -12,6 +12,8 @@ export interface LessonTimer {
   getElapsedMs: () => number;
   /** Stop accruing and persisting; returns the final elapsed time (ms). */
   stop: () => number;
+  /** Reset elapsed time back to zero (e.g. when the lesson is restarted). */
+  reset: () => void;
 }
 
 /**
@@ -132,5 +134,24 @@ export function useLessonTimer(lessonId: string, active = true): LessonTimer {
     return baseMsRef.current;
   }, []);
 
-  return { elapsedMs, getElapsedMs, stop };
+  // Zero the clock and persist that immediately, then resume counting from now
+  // if the timer is currently allowed to run. Used when restarting a lesson so
+  // the displayed time doesn't keep climbing from the previous attempt.
+  const reset = useCallback(() => {
+    baseMsRef.current = 0;
+    stoppedRef.current = false;
+    lastPersistRef.current = Date.now();
+    const canRun =
+      active && !!user && document.visibilityState === "visible";
+    segmentStartRef.current = canRun ? Date.now() : null;
+    setElapsedMs(0);
+    if (user && active) {
+      update((prev) => ({
+        ...prev,
+        lessonTimers: { ...prev.lessonTimers, [lessonId]: 0 },
+      }));
+    }
+  }, [user, active, lessonId, update]);
+
+  return { elapsedMs, getElapsedMs, stop, reset };
 }

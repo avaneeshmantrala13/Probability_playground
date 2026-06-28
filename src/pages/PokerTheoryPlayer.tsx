@@ -306,6 +306,8 @@ export function PokerTheoryPlayer() {
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
     saveAttempt(lesson.lessonId, round, fresh);
+    // A restart is a clean run — the clock starts over too.
+    timer.reset();
   }
 
   function beginPlacement() {
@@ -474,6 +476,7 @@ export function PokerTheoryPlayer() {
             questionText={current.question}
             options={current.options}
             selectedIndex={selected}
+            answered={checked}
           />
 
           {aiError && (
