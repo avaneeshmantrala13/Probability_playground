@@ -139,14 +139,14 @@ export function Pricing() {
           aria-label="Toggle annual billing"
           onClick={() => setBillingInterval(annual ? "monthly" : "annual")}
           className={[
-            "relative h-7 w-12 rounded-full transition-colors",
+            "relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors",
             annual ? "bg-accent" : "bg-surface-muted",
           ].join(" ")}
         >
           <span
             className={[
-              "absolute top-0.5 h-6 w-6 rounded-full bg-surface shadow transition-transform",
-              annual ? "translate-x-5" : "translate-x-0.5",
+              "inline-block h-5 w-5 transform rounded-full bg-surface shadow transition-transform",
+              annual ? "translate-x-[1.375rem]" : "translate-x-0.5",
             ].join(" ")}
           />
         </button>

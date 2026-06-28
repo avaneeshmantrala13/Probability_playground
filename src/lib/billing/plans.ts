@@ -461,3 +461,93 @@ export const FEATURE_LABELS: Record<Feature, string> = {
   mock_interview: "AI mock interviews",
   firm_diagnostics: "Per-firm diagnostics",
 };
+
+/** Benefit-focused upsell copy shown when a feature is locked. */
+export interface FeatureUpsell {
+  headline: string;
+  blurb: string;
+  bullets: string[];
+}
+
+export const FEATURE_UPSELL: Record<Feature, FeatureUpsell> = {
+  readiness_dashboard: {
+    headline: "Know exactly how close you are",
+    blurb:
+      "Turn “am I ready?” into a number. The readiness dashboard scores you against each firm's real bar and tells you what to fix next.",
+    bullets: [
+      "Live readiness % for Jane Street, Citadel, SIG & more",
+      "Pinpoints your weakest competencies",
+      "Watch your score climb as you practice",
+    ],
+  },
+  mock_interview: {
+    headline: "Rehearse the real thing — unlimited",
+    blurb:
+      "Run full AI mock interviews tuned to each firm's style, with fresh questions every time and feedback on your reasoning. A single human mock runs ~$200; here they're unlimited.",
+    bullets: [
+      "Firm-specific question style & difficulty",
+      "New questions every session — nothing to memorize",
+      "Instant feedback so you actually improve",
+    ],
+  },
+  firm_diagnostics: {
+    headline: "Prep for one firm, precisely",
+    blurb:
+      "Go beyond a general score with a per-firm breakdown of what that specific desk weighs most — and a focused plan to close the gap.",
+    bullets: [
+      "Competency weights for your target firm",
+      "A ranked, firm-specific to-do list",
+      "Mock interviews matched to that firm",
+    ],
+  },
+  unlimited_practice: {
+    headline: "Practice without limits",
+    blurb:
+      "The free tier caps you at 10 questions a day. Pro unlocks the full 5,000+ verified bank so you can grind as much as you want.",
+    bullets: [
+      "5,000+ code-verified questions",
+      "No daily cap",
+      "Every concept and difficulty",
+    ],
+  },
+  all_lessons: {
+    headline: "Unlock every lesson",
+    blurb:
+      "Free gives you the first lesson of each track. Pro opens the full quant, poker-theory, and market-making curriculum end to end.",
+    bullets: [
+      "Every quant, poker & market-making lesson",
+      "Full structured progression",
+      "Mastery tracking across tracks",
+    ],
+  },
+  full_mental_math: {
+    headline: "Train the full mental-math arena",
+    blurb:
+      "Free includes arithmetic drills. Pro adds estimation and brainteasers under real time pressure — the way firms actually test you.",
+    bullets: [
+      "Estimation + brainteasers, not just arithmetic",
+      "Pressure timer & leaderboard",
+      "Endless fresh questions",
+    ],
+  },
+  full_poker_night: {
+    headline: "Play Poker Night without the cap",
+    blurb:
+      "Free is one session a day. Pro removes the cap so you can keep sharpening reads and bet-sizing against the AI table.",
+    bullets: [
+      "Unlimited Poker Night sessions",
+      "All tables and stakes",
+      "Adaptive bots that read your play",
+    ],
+  },
+  ai_tutor: {
+    headline: "An AI tutor that never sleeps",
+    blurb:
+      "Free includes 5 tutor messages a day. Pro makes the tutor unlimited everywhere — explanations, hints, and similar questions on demand.",
+    bullets: [
+      "Unlimited AI tutor messages",
+      "Deeper, on-demand explanations",
+      "Generate similar questions instantly",
+    ],
+  },
+};

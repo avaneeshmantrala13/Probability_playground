@@ -9,8 +9,10 @@ import {
   type PlanProgressLike,
 } from "./entitlements";
 import {
-  FEATURE_LABELS,
+  FEATURE_UPSELL,
   PLAN_NAMES,
+  formatUsd,
+  getPlan,
   type Feature,
   type PlanId,
 } from "./plans";
@@ -38,33 +40,63 @@ export function useEntitlement() {
 }
 
 interface UpsellCardProps {
-  /** What's being unlocked (drives the headline). */
-  title?: string;
-  description?: string;
+  /** What's being unlocked (drives the rich benefit copy). */
+  feature?: Feature;
   /** Plan we suggest upgrading to. */
   suggestedPlan?: PlanId | null;
+  /** Optional overrides. */
+  title?: string;
+  description?: string;
 }
 
 /** Tasteful inline upsell shown when a user lacks access. */
-export function UpsellCard({ title, description, suggestedPlan }: UpsellCardProps) {
+export function UpsellCard({ feature, suggestedPlan, title, description }: UpsellCardProps) {
   const planName = suggestedPlan && suggestedPlan !== "free" ? PLAN_NAMES[suggestedPlan] : null;
+  const upsell = feature ? FEATURE_UPSELL[feature] : undefined;
+  const plan = suggestedPlan && suggestedPlan !== "free" ? getPlan(suggestedPlan) : undefined;
+  const monthly = plan?.price?.monthly;
+
+  const headline =
+    title ?? upsell?.headline ?? (planName ? `Unlock with ${planName}` : "Upgrade to unlock this");
+  const blurb =
+    description ??
+    upsell?.blurb ??
+    (planName ? `This is part of ${planName}.` : "This feature is part of a paid plan.");
+
   return (
     <div className="pp-card mx-auto max-w-md p-8 text-center">
       <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-2xl">
         <span aria-hidden>🔒</span>
       </div>
-      <h2 className="text-lg font-extrabold text-primary">
-        {title ?? "Upgrade to unlock this"}
-      </h2>
-      <p className="mt-2 text-sm text-secondary">
-        {description ??
-          (planName
-            ? `This is part of ${planName}. Upgrade to keep going.`
-            : "This feature is part of a paid plan.")}
-      </p>
-      <Link to="/pricing" className="pp-btn-primary mt-5 w-full">
-        {planName ? `Upgrade to ${planName}` : "See plans"}
+      {planName && (
+        <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-accent">
+          {planName}
+        </span>
+      )}
+      <h2 className="mt-3 text-lg font-extrabold text-primary">{headline}</h2>
+      <p className="mt-2 text-sm text-secondary">{blurb}</p>
+
+      {upsell && (
+        <ul className="mx-auto mt-4 max-w-xs space-y-2 text-left text-sm text-primary">
+          {upsell.bullets.map((b) => (
+            <li key={b} className="flex gap-2">
+              <span className="mt-0.5 text-accent" aria-hidden>
+                ✓
+              </span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <Link to="/pricing" className="pp-btn-primary mt-6 w-full">
+        {planName
+          ? monthly != null
+            ? `Upgrade to ${planName} — from ${formatUsd(monthly)}/mo`
+            : `Upgrade to ${planName}`
+          : "See plans"}
       </Link>
+      <p className="mt-2 text-xs text-muted">Cancel anytime.</p>
     </div>
   );
 }
@@ -105,14 +137,11 @@ export function RequirePlan({
   if (fallback !== undefined) return <>{fallback}</>;
 
   const suggestedPlan = feature ? minimumPlanFor(feature) : plan ?? null;
-  const featureLabel = feature ? FEATURE_LABELS[feature] : undefined;
 
   return (
     <UpsellCard
-      title={
-        upsellTitle ??
-        (featureLabel ? `Upgrade to unlock ${featureLabel.toLowerCase()}` : undefined)
-      }
+      feature={feature}
+      title={upsellTitle}
       description={upsellDescription}
       suggestedPlan={suggestedPlan}
     />
