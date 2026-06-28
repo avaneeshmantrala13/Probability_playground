@@ -1,0 +1,3175 @@
+{
+  "lessonId": "pt_postflop",
+  "track": "poker-theory",
+  "title": "Postflop Strategy",
+  "questions": [
+    {
+      "id": "pr_ptpf_001",
+      "concept": "cbet_def",
+      "question": "What is a continuation bet (c-bet)?",
+      "options": [
+        "A bet on the flop made by the player who was the preflop aggressor",
+        "Any bet made by the player in the big blind",
+        "A mandatory bet required before the flop is dealt",
+        "A bet that can only be made on the river"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The preflop raiser 'continues' their aggression by betting the flop, leveraging initiative and range advantage.",
+        "B": "The c-bet is defined by preflop initiative, not by which blind a player posted.",
+        "C": "Nothing forces a flop bet; a c-bet is a voluntary continuation of preflop aggression.",
+        "D": "A c-bet is specifically a flop bet by the preflop raiser, not a river action."
+      }
+    },
+    {
+      "id": "pr_ptpf_002",
+      "concept": "cbet_def",
+      "question": "The main strategic edge that makes c-betting profitable is:",
+      "options": [
+        "The fact that c-bets are free and cost no chips",
+        "A combination of range advantage and fold equity from preflop initiative",
+        "A rule that opponents must fold to any flop bet",
+        "The guarantee that the c-bettor holds the best hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "C-bets risk chips like any other bet; the edge comes from range advantage and fold equity.",
+        "B": "Correct. The raiser usually has the stronger range and opponents often missed the flop, so betting wins folds or builds value.",
+        "C": "Opponents are never forced to fold; c-bets work because many hands genuinely miss the flop.",
+        "D": "C-bets are frequently bluffs; the bettor does not need the best hand to profit."
+      }
+    },
+    {
+      "id": "pr_ptpf_003",
+      "concept": "cbet_def",
+      "question": "Which scenario is NOT a continuation bet?",
+      "options": [
+        "The preflop raiser bets a dry ace-high flop after a single caller",
+        "The preflop raiser bets a wet flop for protection",
+        "The big blind, who only called preflop, leads out betting the flop",
+        "The preflop 3-bettor bets the flop in a 3-bet pot"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is a textbook c-bet: the preflop raiser bets the flop.",
+        "B": "This is still a c-bet; the raiser is continuing on the flop.",
+        "C": "Correct. A lead by the preflop caller is a donk bet, not a c-bet, because that player was not the preflop aggressor.",
+        "D": "The 3-bettor is the preflop aggressor, so a flop bet here is a c-bet."
+      }
+    },
+    {
+      "id": "pr_ptpf_004",
+      "concept": "cbet_def",
+      "question": "A 'missed c-bet' refers to:",
+      "options": [
+        "The preflop raiser betting too large on the flop",
+        "A bet that fails to make the opponent fold",
+        "Folding the flop after betting it",
+        "The preflop raiser checking the flop instead of betting"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Sizing too large is not a 'missed' c-bet; the bet still happened.",
+        "B": "A c-bet that gets called still occurred; 'missed' refers to not betting at all.",
+        "C": "You cannot fold a bet you just made on the same street; 'missed' means the bet was skipped.",
+        "D": "Correct. When the aggressor declines to bet the flop, that spot is described as a checked-back or missed c-bet."
+      }
+    },
+    {
+      "id": "pr_ptpf_005",
+      "concept": "cbet_def",
+      "question": "In a single-raised pot heads-up, who typically holds preflop initiative on the flop?",
+      "options": [
+        "The player who made the last raise before the flop",
+        "The player who posted the small blind",
+        "Whichever player acts first on the flop",
+        "The player with the larger remaining stack"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Initiative belongs to the last preflop aggressor, who is then positioned to c-bet.",
+        "B": "Posting a blind is a forced action, not the initiative that comes from raising.",
+        "C": "Acting order depends on position, not on who holds preflop initiative.",
+        "D": "Stack size does not determine who took the aggressive preflop line."
+      }
+    },
+    {
+      "id": "pr_ptpf_006",
+      "concept": "dry_board",
+      "question": "A 'dry' flop is best described as:",
+      "options": [
+        "A board with three cards of the same suit",
+        "An uncoordinated board with few draws that connects with few hands",
+        "A board containing two connected high cards",
+        "Any flop that contains an ace"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Three of a suit is a monotone, very wet texture, not a dry one.",
+        "B": "Correct. Dry boards like K-7-2 rainbow offer almost no draws and miss most calling ranges.",
+        "C": "Connected high cards create straight potential, which makes a board wetter, not dry.",
+        "D": "An ace alone does not make a board dry; texture depends on connectivity and suits."
+      }
+    },
+    {
+      "id": "pr_ptpf_007",
+      "concept": "dry_board",
+      "question": "On a dry flop like K♠ 7♥ 2♦, the preflop raiser usually prefers to:",
+      "options": [
+        "Bet very large to deny equity",
+        "Check the entire range",
+        "C-bet small at a high frequency",
+        "Only bet with complete air"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "There is little draw equity to deny on a dry board, so large sizing is rarely needed.",
+        "B": "Checking everything surrenders the range and initiative advantage the dry board provides.",
+        "C": "Correct. Few draws exist and the raiser's range hits the king often, so cheap, frequent c-bets are efficient.",
+        "D": "Betting only air is unbalanced and exploitable; the raiser bets a mix of value and bluffs."
+      }
+    },
+    {
+      "id": "pr_ptpf_008",
+      "concept": "dry_board",
+      "question": "Why is a small c-bet sizing effective on dry boards?",
+      "options": [
+        "It guarantees the opponent will always call",
+        "It is the only legal bet size on the flop",
+        "It builds a huge pot to maximize variance",
+        "It risks few chips while still folding out the many hands that completely missed"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Small sizing tends to fold out air, not guarantee calls; it is cheap fold equity.",
+        "B": "Players may choose any legal size; small sizing is a strategic choice, not a rule.",
+        "C": "Small bets keep the pot modest; building a huge pot is the opposite effect.",
+        "D": "Correct. On dry textures there is little draw equity to protect, so a small bet captures fold equity cheaply."
+      }
+    },
+    {
+      "id": "pr_ptpf_009",
+      "concept": "dry_board",
+      "question": "A rainbow flop means:",
+      "options": [
+        "The three flop cards are all different suits, so no flush draw is possible yet",
+        "All three cards are the same suit",
+        "Two of the three cards share a suit",
+        "The board is paired"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With three distinct suits, no two cards share a suit, so a one-card flush draw cannot exist on the flop.",
+        "B": "Three of one suit is monotone, the opposite of rainbow.",
+        "C": "Two of a suit creates a flush draw; rainbow means all three suits differ.",
+        "D": "A pair describes ranks, not suits; rainbow refers to having three different suits."
+      }
+    },
+    {
+      "id": "pr_ptpf_010",
+      "concept": "dry_board",
+      "question": "Against a capped big-blind range on K♠ 8♣ 3♦, the raiser benefits because:",
+      "options": [
+        "The caller is guaranteed to hold top pair",
+        "The raiser's range contains more kings and strong pairs than the caller's",
+        "The board gives the caller many flush draws",
+        "Position is irrelevant on dry boards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The capped caller misses this board far more often than they hit a king.",
+        "B": "Correct. The preflop raiser holds more big broadway and pair combos, giving a clear range and nut advantage on this dry king-high board.",
+        "C": "A rainbow K-8-3 offers no flush draws at all.",
+        "D": "Position still matters; the point here is the range advantage, not its absence."
+      }
+    },
+    {
+      "id": "pr_ptpf_011",
+      "concept": "wet_board",
+      "question": "A 'wet' flop is characterized by:",
+      "options": [
+        "Three completely unconnected low cards of different suits",
+        "The total absence of any possible draws",
+        "High connectivity with many straight and flush draws available",
+        "Any board where the high card is an ace"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That description fits a dry board, not a wet one.",
+        "B": "A wet board is defined by the abundance of draws, not their absence.",
+        "C": "Correct. Coordinated boards like J♠ T♠ 9♣ connect with many hands and produce numerous draws.",
+        "D": "An ace-high board can be dry; wetness depends on connectivity and suits, not the top card."
+      }
+    },
+    {
+      "id": "pr_ptpf_012",
+      "concept": "wet_board",
+      "question": "On a wet flop such as 9♥ 8♥ 7♣, the preflop raiser often shifts toward:",
+      "options": [
+        "A tiny bet with the entire range",
+        "Never betting under any circumstance",
+        "Betting only the weakest hands in the range",
+        "A lower c-bet frequency, using larger sizing with strong hands and draws"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Tiny sizing fails to charge the many draws a wet board creates.",
+        "B": "Strong hands and good draws still want to bet for value and protection.",
+        "C": "Betting only air is unbalanced; value hands and draws are the core of a wet-board betting range.",
+        "D": "Correct. Because the caller's range connects well, the raiser bets more selectively and larger to charge draws."
+      }
+    },
+    {
+      "id": "pr_ptpf_013",
+      "concept": "wet_board",
+      "question": "Why does larger c-bet sizing make sense on wet boards?",
+      "options": [
+        "It charges opponents' many draws a higher price and builds the pot with value hands",
+        "It is the only way to bluff on any board",
+        "It removes the opponent's ability to ever fold",
+        "It prevents the turn card from being dealt"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With heavy draw density, bigger bets deny equity and grow the pot when you are ahead.",
+        "B": "Bluffs can use many sizes; large sizing on wet boards is about charging draws.",
+        "C": "Larger bets generally increase folds from weak hands, not eliminate folding.",
+        "D": "Bet sizing has no effect on whether future cards appear."
+      }
+    },
+    {
+      "id": "pr_ptpf_014",
+      "concept": "wet_board",
+      "question": "Which flop is the wettest?",
+      "options": [
+        "A♠ 7♦ 2♣",
+        "Q♦ J♦ T♣",
+        "K♣ 8♥ 3♠",
+        "Q♥ 6♣ 2♦"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Ace-high rainbow with gaps is a classic dry board.",
+        "B": "Correct. This board offers an open-ended straight structure plus a diamond flush draw, the most connected of the options.",
+        "C": "King-high rainbow with no connectivity is dry.",
+        "D": "Queen-high rainbow with large gaps offers very few draws."
+      }
+    },
+    {
+      "id": "pr_ptpf_015",
+      "concept": "wet_board",
+      "question": "On a monotone flop (three of one suit), a key adjustment is:",
+      "options": [
+        "Treating it exactly like a dry rainbow board",
+        "Assuming no one can ever have a flush",
+        "Recognizing that flushes and flush draws are already live, often favoring controlled sizing",
+        "Always shoving all-in regardless of holding"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A monotone board is wet by nature and must not be played like a dry rainbow.",
+        "B": "A made flush is possible the moment three suited cards appear.",
+        "C": "Correct. Monotone boards mean a made flush or one-card flush draw is immediately possible, so ranges and sizing shift accordingly.",
+        "D": "Blind shoving ignores the nuanced range interactions a monotone board creates."
+      }
+    },
+    {
+      "id": "pr_ptpf_016",
+      "concept": "value_bet",
+      "question": "The goal of a value bet is to:",
+      "options": [
+        "Make every better hand fold immediately",
+        "Reach showdown without putting in chips",
+        "Force the pot to be split evenly",
+        "Get called by hands that are worse than yours"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding out better hands is the goal of a bluff, not a value bet.",
+        "B": "A value bet by definition wagers chips; checking is what avoids betting.",
+        "C": "A split requires tied hands and is not the purpose of value betting.",
+        "D": "Correct. Value betting extracts chips from second-best hands that are willing to call."
+      }
+    },
+    {
+      "id": "pr_ptpf_017",
+      "concept": "value_bet",
+      "question": "A 'thin' value bet refers to:",
+      "options": [
+        "Betting a hand that is only slightly ahead of the hands likely to call",
+        "Betting the absolute nuts for maximum size",
+        "Betting purely as a bluff with no equity",
+        "Checking a strong hand to induce bluffs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Thin value targets marginal calls where you are a small favorite against the calling range.",
+        "B": "Betting the nuts is value, but it is not thin; thin value involves marginal edges.",
+        "C": "A value bet, even a thin one, expects to be ahead of calls; that is not a bluff.",
+        "D": "Checking to induce is not a bet at all, let alone a thin value bet."
+      }
+    },
+    {
+      "id": "pr_ptpf_018",
+      "concept": "value_bet",
+      "question": "When choosing value-bet sizing on a dry board against a capped range, a common choice is:",
+      "options": [
+        "The maximum overbet, to fold out all worse hands",
+        "A smaller bet, because worse hands are more willing to call a cheaper price",
+        "A check, since value hands should never bet",
+        "A bet only on the river and never earlier"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Overbetting often folds out the very hands you want to value bet against on a dry board.",
+        "B": "Correct. On dry boards a small size keeps weak made hands and bluff-catchers in, maximizing called value.",
+        "C": "Value hands bet to extract chips; checking forfeits that value.",
+        "D": "Value can and should be taken across multiple streets, not just the river."
+      }
+    },
+    {
+      "id": "pr_ptpf_019",
+      "concept": "value_bet",
+      "question": "Top pair top kicker on K♠ 7♦ 2♣ against a single caller should usually:",
+      "options": [
+        "Check and give up, treating it as a weak hand",
+        "Only bluff with it because it cannot win at showdown",
+        "Bet for value, since many worse pairs and draws will call",
+        "Fold to any aggression immediately"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Top pair top kicker is strong and should be betting for value, not surrendering.",
+        "B": "It is a clear made hand with strong showdown value, not a bluff.",
+        "C": "Correct. This is a strong made hand on a dry board; betting extracts value from worse kings, second pairs, and floats.",
+        "D": "Folding the near-top of your range to a single caller is far too weak."
+      }
+    },
+    {
+      "id": "pr_ptpf_020",
+      "concept": "value_bet",
+      "question": "Choosing a larger value size on the river is most justified when:",
+      "options": [
+        "Your opponent is known to fold everything but the nuts",
+        "You are bluffing and want folds",
+        "The pot is already empty with no chips in play",
+        "Your opponent's range is wide and contains many strong second-best hands that can call big"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Against a nit who only calls with the nuts, large value sizing gets no worse hands to call.",
+        "B": "Sizing discussion here is about value; getting folds is the bluff objective.",
+        "C": "There is always a pot to contest postflop; an empty pot is not a real scenario here.",
+        "D": "Correct. A wide, call-happy range with strong-but-beaten hands lets you size up and still get paid."
+      }
+    },
+    {
+      "id": "pr_ptpf_021",
+      "concept": "bluff_bet",
+      "question": "A bluff bet succeeds primarily by:",
+      "options": [
+        "Generating fold equity so better hands give up the pot",
+        "Getting called by worse hands for value",
+        "Always producing the best hand at showdown",
+        "Guaranteeing a split pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A bluff profits when better hands fold, since it cannot win at showdown.",
+        "B": "Being called by worse is the value-bet outcome, not the bluff's goal.",
+        "C": "A bluff usually holds a weak hand; its profit comes from folds, not showdown strength.",
+        "D": "Bluffs aim to win the whole pot via folds, not to force a tie."
+      }
+    },
+    {
+      "id": "pr_ptpf_022",
+      "concept": "bluff_bet",
+      "question": "The best bluffing candidates on the flop often have:",
+      "options": [
+        "Strong made hands with no need to fold anyone out",
+        "Some backdoor equity or blockers, so they can improve or reduce villain's strong combos",
+        "Exactly the nuts every single time",
+        "No relationship to the board or villain's range"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Strong made hands prefer to value bet; they are not ideal pure bluffs.",
+        "B": "Correct. Bluffs with backdoor draws or key blockers retain equity and unblock folds, improving their EV.",
+        "C": "The nuts is a value hand, the opposite of a bluffing candidate.",
+        "D": "Good bluffs are chosen precisely for their equity and blocker interaction with the board and range."
+      }
+    },
+    {
+      "id": "pr_ptpf_023",
+      "concept": "bluff_bet",
+      "question": "A bluff c-bet on a dry board works best when:",
+      "options": [
+        "The opponent almost always flopped a strong pair",
+        "You already hold the nuts",
+        "The opponent's range largely misses and folds at a high rate",
+        "There are no chips in the pot to win"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If villain frequently has a strong pair, fold equity collapses and the bluff loses value.",
+        "B": "Holding the nuts means you should value bet, not bluff.",
+        "C": "Correct. Dry boards leave callers with many unpaired hands that fold to pressure.",
+        "D": "A bluff needs a pot worth taking; an empty pot makes the bluff pointless."
+      }
+    },
+    {
+      "id": "pr_ptpf_024",
+      "concept": "bluff_bet",
+      "question": "Bluffing too frequently relative to your value bets makes you:",
+      "options": [
+        "Unbeatable, since opponents can never adjust",
+        "Guaranteed to win every pot",
+        "Immune to pot odds considerations",
+        "Exploitable, because an observant opponent can profitably call you down"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Opponents readily adjust by calling lighter when you bluff too much.",
+        "B": "Excessive bluffing leads to getting caught and losing pots, not winning them all.",
+        "C": "Pot odds always apply and in fact reward opponents who call your over-bluffs.",
+        "D": "Correct. An over-bluffed range lets opponents widen their calls and capture EV against you."
+      }
+    },
+    {
+      "id": "pr_ptpf_025",
+      "concept": "bluff_bet",
+      "question": "A 'give-up' decision means:",
+      "options": [
+        "Choosing to check or fold a bluff because fold equity has become too low to continue",
+        "Betting larger to force the issue regardless of equity",
+        "Always calling down with a busted hand",
+        "Showing your cards to the table"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. When barreling further is unlikely to fold out better hands, abandoning the bluff is correct.",
+        "B": "Betting bigger with no fold equity only burns chips; giving up means stopping.",
+        "C": "Calling with a busted bluff has no showdown value and is not 'giving up'.",
+        "D": "Giving up refers to ending the bluff, not exposing your hand."
+      }
+    },
+    {
+      "id": "pr_ptpf_026",
+      "concept": "bet_sizing",
+      "question": "All else equal, a larger bet size relative to the pot tends to:",
+      "options": [
+        "Encourage more calls from weak hands",
+        "Apply more pressure and fold out more of the opponent's weak hands",
+        "Have no effect on the opponent's pot odds",
+        "Make the hand end immediately in a chop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Larger bets generally fold out weak hands rather than attracting them.",
+        "B": "Correct. Bigger bets give worse pot odds to call, increasing folds from marginal hands.",
+        "C": "Bet size directly changes the price and therefore the opponent's pot odds.",
+        "D": "Sizing does not force a chop; it influences fold and call decisions."
+      }
+    },
+    {
+      "id": "pr_ptpf_027",
+      "concept": "bet_sizing",
+      "question": "A polarized betting range (only strong value and bluffs) generally prefers:",
+      "options": [
+        "The smallest legal bet size every time",
+        "Only checking, never betting",
+        "A larger bet size, often up to or above pot",
+        "A size that exactly matches the opponent's stack name"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Tiny sizing underuses the leverage that a polarized range is built to exploit.",
+        "B": "A polarized range is by definition a betting range, not a checking one.",
+        "C": "Correct. Polarized ranges leverage big sizing to maximize value and apply maximum bluff pressure.",
+        "D": "Sizing is chosen from range structure and pot, not from any 'stack name'."
+      }
+    },
+    {
+      "id": "pr_ptpf_028",
+      "concept": "bet_sizing",
+      "question": "A merged or 'medium-strength' value range typically uses:",
+      "options": [
+        "A massive overbet to fold everyone out",
+        "No bet at all under any circumstance",
+        "A size based solely on the dealer button color",
+        "A smaller bet size to get called by the many worse hands it beats"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Overbetting folds out the worse hands a merged range wants to get called by.",
+        "B": "Merged value hands still bet; they just choose smaller sizing.",
+        "C": "Sizing derives from range and pot dynamics, not arbitrary table features.",
+        "D": "Correct. Merged ranges value-bet thinner hands, so a smaller size keeps weaker calls in."
+      }
+    },
+    {
+      "id": "pr_ptpf_029",
+      "concept": "bet_sizing",
+      "question": "If the pot is $100 and you bet $50, your opponent is being offered pot odds of:",
+      "options": [
+        "Needing about 25% equity to call ($50 to win $200)",
+        "Needing about 50% equity to call",
+        "Needing about 10% equity to call",
+        "No equity at all, since calls are always free"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. They call $50 into a $150 pot, risking 50 to win 200 total, which is 50/200 = 25%.",
+        "B": "Half-pot bets require only ~25% equity, not 50%.",
+        "C": "10% understates it; the correct break-even for a half-pot bet is ~25%.",
+        "D": "Calls cost chips; the opponent must have sufficient equity to justify the call."
+      }
+    },
+    {
+      "id": "pr_ptpf_030",
+      "concept": "bet_sizing",
+      "question": "A pot-sized bet ($100 into $100) gives the caller a break-even equity of about:",
+      "options": [
+        "25%",
+        "33%, since they call $100 to win $300 total",
+        "50%",
+        "66%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "25% corresponds to a half-pot bet, not a full pot-sized bet.",
+        "B": "Correct. Calling 100 into a 200 pot risks 100 to win 300, so 100/300 ≈ 33%.",
+        "C": "50% would require a 2x-pot overbet, not a pot-sized bet.",
+        "D": "66% is far too high; a pot bet needs only ~33% equity to call."
+      }
+    },
+    {
+      "id": "pr_ptpf_031",
+      "concept": "bet_sizing",
+      "question": "An overbet of twice the pot ($200 into $100) requires the caller to have at least:",
+      "options": [
+        "About 25% equity",
+        "About 10% equity",
+        "About 40% equity ($200 to win $500 total)",
+        "About 66% equity"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "25% applies to a half-pot bet; a 2x overbet demands far more.",
+        "B": "10% drastically understates the equity needed against a 2x-pot overbet.",
+        "C": "Correct. They risk 200 to win 500, so 200/500 = 40% break-even equity.",
+        "D": "66% overstates it; the correct break-even for a 2x-pot bet is 40%."
+      }
+    },
+    {
+      "id": "pr_ptpf_032",
+      "concept": "pot_odds",
+      "question": "Pot odds tell you:",
+      "options": [
+        "The exact two cards your opponent is holding",
+        "How many players remain in the tournament",
+        "The rake the house will collect",
+        "The minimum equity your hand needs to make calling a bet break even"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Pot odds are a price calculation, not a read on specific hole cards.",
+        "B": "Pot odds describe the current bet-to-pot price, unrelated to field size.",
+        "C": "Rake is a separate fee; pot odds concern the equity needed to call.",
+        "D": "Correct. Pot odds convert the price of a call into the equity threshold required to continue profitably."
+      }
+    },
+    {
+      "id": "pr_ptpf_033",
+      "concept": "pot_odds",
+      "question": "Facing a $25 bet into a $75 pot, you must call $25 to win:",
+      "options": [
+        "$100, needing 25/125 = 20% equity to break even",
+        "$25, needing 50% equity",
+        "$75, needing 33% equity",
+        "$200, needing 12.5% equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The pot becomes $100 after the bet, you call $25, so 25/125 = 20% break-even.",
+        "B": "You win the whole pot plus the bet, $100, not just your own $25.",
+        "C": "The total you can win is the $75 pot plus the $25 bet = $100.",
+        "D": "The math overstates the pot; the relevant figure is $100 to win, giving 20%."
+      }
+    },
+    {
+      "id": "pr_ptpf_034",
+      "concept": "pot_odds",
+      "question": "A flush draw with 9 outs on the flop has roughly what chance to complete by the river?",
+      "options": [
+        "About 19%",
+        "About 35%",
+        "About 50%",
+        "About 8%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "19% is the chance with one card to come, not from flop through river.",
+        "B": "Correct. Nine outs over two cards is approximately 35% (the 'rule of 4' gives 9×4 ≈ 36%).",
+        "C": "9 outs do not reach a coinflip; ~35% is the flop-to-river figure.",
+        "D": "8% would be a gutshot for one card, far below a flush draw's two-card equity."
+      }
+    },
+    {
+      "id": "pr_ptpf_035",
+      "concept": "pot_odds",
+      "question": "An open-ended straight draw (8 outs) has about what equity from flop to river?",
+      "options": [
+        "About 17%",
+        "About 45%",
+        "About 32%",
+        "About 4%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "17% is the one-card equity for an open-ender, not the full flop-to-river figure.",
+        "B": "8 outs fall short of 45%; the two-card equity is about 32%.",
+        "C": "Correct. Eight outs over two cards is roughly 8×4 = 32% by the rule of 4.",
+        "D": "4% is far too low; that is closer to a single overcard-pair shot, not an open-ender."
+      }
+    },
+    {
+      "id": "pr_ptpf_036",
+      "concept": "pot_odds",
+      "question": "A gutshot straight draw (4 outs) hitting on the next single card is approximately:",
+      "options": [
+        "About 17%",
+        "About 35%",
+        "About 50%",
+        "About 8.5%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "17% is closer to an open-ended draw's one-card chance, not a 4-out gutshot.",
+        "B": "35% is a flush draw's two-card equity, far above a single-card gutshot.",
+        "C": "A 4-out gutshot is nowhere near a coinflip on one card.",
+        "D": "Correct. Four outs for one card is roughly 4×2 = 8% by the rule of 2."
+      }
+    },
+    {
+      "id": "pr_ptpf_037",
+      "concept": "pot_odds",
+      "question": "If a bet gives you 25% pot odds but your draw only has 18% equity to hit, you should generally:",
+      "options": [
+        "Fold, unless implied odds or fold equity change the math",
+        "Always call, since any draw is worth chasing",
+        "Always raise, because raising fixes bad odds",
+        "Ignore the numbers and go by feel"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Raw equity below the required 25% means a pure call is unprofitable absent extra value.",
+        "B": "Chasing draws below the required equity loses chips over time.",
+        "C": "Raising risks more chips with insufficient equity unless it carries fold equity.",
+        "D": "Disregarding pot odds undermines disciplined, profitable decisions."
+      }
+    },
+    {
+      "id": "pr_ptpf_038",
+      "concept": "pot_odds",
+      "question": "Implied odds refer to:",
+      "options": [
+        "The chips already in the pot only",
+        "The extra chips you expect to win on later streets if your draw completes",
+        "The rake taken once the hand ends",
+        "The number of players who have folded"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Those are direct pot odds; implied odds look ahead to future betting.",
+        "B": "Correct. Implied odds account for future value beyond the immediate pot, which can justify a call with raw equity below the bet's price.",
+        "C": "Rake is unrelated to the future winnings implied odds describe.",
+        "D": "Implied odds concern future chip gains, not the count of folded players."
+      }
+    },
+    {
+      "id": "pr_ptpf_039",
+      "concept": "equity_realization",
+      "question": "Equity realization describes:",
+      "options": [
+        "The exact percentage of pots the dealer wins",
+        "The number of chips in the starting stack",
+        "How much of a hand's raw equity you actually capture by showdown given position and playability",
+        "A rule that all hands realize 100% of their equity"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The dealer does not contest pots; realization is about your captured equity.",
+        "B": "Stack size is not what equity realization measures.",
+        "C": "Correct. Raw equity is theoretical; realization measures the share you actually win after betting and position effects.",
+        "D": "Many hands realize less than their raw equity, especially out of position."
+      }
+    },
+    {
+      "id": "pr_ptpf_040",
+      "concept": "equity_realization",
+      "question": "Being in position improves equity realization mainly because:",
+      "options": [
+        "It forces opponents to show their cards early",
+        "It increases the size of every pot automatically",
+        "It guarantees you the best hand at showdown",
+        "You act last, gaining information and controlling the pot size more effectively"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Position does not reveal hole cards; its value is informational and pot-control based.",
+        "B": "Position helps control pot size; it does not inflate every pot.",
+        "C": "Position improves decisions but never guarantees the winning hand.",
+        "D": "Correct. Acting last lets you check behind, value bet precisely, and realize more of your equity."
+      }
+    },
+    {
+      "id": "pr_ptpf_041",
+      "concept": "equity_realization",
+      "question": "A hand that is hard to play out of position, like a weak suited connector, tends to:",
+      "options": [
+        "Realize less than its raw equity",
+        "Realize more than 100% of its equity always",
+        "Have zero equity in every pot",
+        "Be unaffected by position"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Out-of-position playability problems mean such hands capture less of their theoretical equity.",
+        "B": "No hand reliably exceeds its raw equity; tough OOP hands under-realize.",
+        "C": "Suited connectors have meaningful equity; the issue is realizing it OOP.",
+        "D": "Position strongly affects how well such marginal hands realize equity."
+      }
+    },
+    {
+      "id": "pr_ptpf_042",
+      "concept": "equity_realization",
+      "question": "Checking back a marginal made hand in position can improve realization by:",
+      "options": [
+        "Forcing the opponent to fold the best hand",
+        "Reaching a cheaper showdown and avoiding being raised off the hand",
+        "Guaranteeing you win the pot at showdown",
+        "Adding extra chips to the pot for value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Checking does not fold out a better hand; it simply controls the pot.",
+        "B": "Correct. Controlling the pot lets a marginal hand realize its showdown equity without overcommitting.",
+        "C": "Checking back controls risk but does not guarantee a win.",
+        "D": "Checking adds no chips; it is the pot-control alternative to betting."
+      }
+    },
+    {
+      "id": "pr_ptpf_043",
+      "concept": "equity_realization",
+      "question": "Denying equity refers to:",
+      "options": [
+        "Letting opponents see every card for free",
+        "Refusing to ever bet your strong hands",
+        "Betting to make hands with outs fold before they can improve",
+        "A rule preventing draws from existing"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Giving free cards lets opponents realize equity, the opposite of denying it.",
+        "B": "Strong hands deny equity by betting, not by always checking.",
+        "C": "Correct. By charging draws or folding out overcards, you prevent opponents from realizing their equity.",
+        "D": "Draws still exist; denying equity is about charging or folding them out via betting."
+      }
+    },
+    {
+      "id": "pr_ptpf_044",
+      "concept": "range_advantage",
+      "question": "Range advantage on a given flop means:",
+      "options": [
+        "One player happens to hold the single best hand right now",
+        "Both players have exactly equal equity",
+        "The player with more chips automatically has it",
+        "One player's overall range has more equity across the whole board than the other's"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That is a specific holding (nut advantage at the top), not whole-range advantage.",
+        "B": "Equal equity is the absence of a range advantage.",
+        "C": "Range advantage is about hand-equity distribution, not stack size.",
+        "D": "Correct. Range advantage compares aggregate equity of entire ranges, guiding who can bet aggressively."
+      }
+    },
+    {
+      "id": "pr_ptpf_045",
+      "concept": "range_advantage",
+      "question": "Nut advantage (as distinct from range advantage) refers to:",
+      "options": [
+        "Holding a larger share of the strongest possible hands on a board",
+        "Having the higher overall range equity but no strong hands",
+        "Posting the big blind",
+        "Always having the worst hands in the deck"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Nut advantage concerns the top of the range, which supports large and overbet sizings.",
+        "B": "That describes a range edge without a nut edge; nut advantage is specifically about the strongest combos.",
+        "C": "Posting blinds is unrelated to who holds the nut combos.",
+        "D": "Holding the worst hands is the opposite of a nut advantage."
+      }
+    },
+    {
+      "id": "pr_ptpf_046",
+      "concept": "range_advantage",
+      "question": "On A♠ K♦ 4♣, the preflop raiser typically has a range advantage because:",
+      "options": [
+        "The caller is guaranteed two pair",
+        "Their range contains more AK, AQ, AA, and KK combinations than the caller's",
+        "The board provides a flush draw to the caller",
+        "Range advantage cannot exist on ace-high boards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The caller rarely holds two pair here; the raiser's broadway-heavy range dominates.",
+        "B": "Correct. High broadway boards favor the raiser, whose range is dense in big aces and kings.",
+        "C": "A♠ K♦ 4♣ is rainbow with no flush draw.",
+        "D": "Ace-high broadway boards are precisely where raisers often hold a strong range advantage."
+      }
+    },
+    {
+      "id": "pr_ptpf_047",
+      "concept": "range_advantage",
+      "question": "On a low, connected board like 6♥ 5♥ 4♣, the big-blind caller's range may be relatively strong because:",
+      "options": [
+        "The raiser always has the nuts on low boards",
+        "The caller folded before the flop",
+        "The caller defends many small and connected hands that hit this texture",
+        "Range advantage is fixed and never changes by board"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The raiser's high-card-heavy range often misses low connected boards.",
+        "B": "A caller who reached the flop is contesting it, not folded.",
+        "C": "Correct. Low coordinated boards connect with the caller's suited connectors and small pairs, narrowing the raiser's edge.",
+        "D": "Range advantage shifts dramatically with board texture, including toward the caller here."
+      }
+    },
+    {
+      "id": "pr_ptpf_048",
+      "concept": "range_advantage",
+      "question": "When you have both range and nut advantage, you can often:",
+      "options": [
+        "Only check, since strong ranges should never bet",
+        "Bet only the minimum to invite calls",
+        "Fold the majority of your hands",
+        "Bet large or overbet at a high frequency to maximize pressure"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Strong, nutted ranges are exactly the ones that bet large, not check.",
+        "B": "Min-betting underuses the leverage a nut-advantaged range possesses.",
+        "C": "Folding a dominant range away forfeits its built-in edge.",
+        "D": "Correct. Holding more of the strongest hands plus higher overall equity supports aggressive, large sizing."
+      }
+    },
+    {
+      "id": "pr_ptpf_049",
+      "concept": "polarization",
+      "question": "A polarized range consists of:",
+      "options": [
+        "Strong value hands and bluffs, with few medium-strength hands",
+        "Only medium-strength hands and nothing else",
+        "Exclusively the single best hand possible",
+        "A random selection unrelated to hand strength"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Polarized ranges split into clear value and bluff categories, which favors larger sizing.",
+        "B": "That is a condensed or merged range, the opposite of polarized.",
+        "C": "One hand is not a range; polarization includes both value and bluffs.",
+        "D": "Polarization is a deliberate split by strength, not randomness."
+      }
+    },
+    {
+      "id": "pr_ptpf_050",
+      "concept": "polarization",
+      "question": "A condensed (capped) range is one that:",
+      "options": [
+        "Is full of nutted hands and pure bluffs",
+        "Contains mostly medium-strength hands and lacks the very top of the range",
+        "Always includes every possible strong hand",
+        "Cannot ever call a bet"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That describes a polarized range, not a capped one.",
+        "B": "Correct. Capped ranges miss the strongest combos, making them vulnerable to large bets and overbets.",
+        "C": "A capped range specifically lacks the strongest hands.",
+        "D": "Capped ranges can and do call; they are simply missing top-tier holdings."
+      }
+    },
+    {
+      "id": "pr_ptpf_051",
+      "concept": "polarization",
+      "question": "Why does a polarized range justify larger bet sizing?",
+      "options": [
+        "Because medium hands need a small bet for protection",
+        "Because large bets are required by the rules",
+        "Big bets maximize value from the strong hands and apply maximum pressure with the bluffs",
+        "Because it guarantees opponents always fold"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A polarized range has few medium hands, so protection sizing is not the driver.",
+        "B": "Sizing is a strategic choice, not a rule imposed on polarized ranges.",
+        "C": "Correct. Since the range has no medium hands needing protection, large sizing leverages the value-and-bluff split.",
+        "D": "Large polarized bets get called by value-catchers too; they do not guarantee folds."
+      }
+    },
+    {
+      "id": "pr_ptpf_052",
+      "concept": "polarization",
+      "question": "An opponent whose range is capped on the river is especially vulnerable to:",
+      "options": [
+        "A tiny blocker bet that they always fold to",
+        "Checking the river every time",
+        "A min-raise that offers great odds",
+        "An overbet, since they hold no hands strong enough to comfortably call big"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A capped range can often call small bets; the real pressure comes from large sizing.",
+        "B": "Checking lets a capped range realize its showdown equity for free.",
+        "C": "Min-raises give the capped range cheap continues, reducing the pressure.",
+        "D": "Correct. Capped ranges lack the nutted hands needed to call large sizing, so overbets pressure them effectively."
+      }
+    },
+    {
+      "id": "pr_ptpf_053",
+      "concept": "polarization",
+      "question": "Putting medium-strength hands into a checking range rather than betting them helps because:",
+      "options": [
+        "It protects the checking range and lets those hands realize showdown value",
+        "It maximizes value, since medium hands fold out worse",
+        "It guarantees they win at showdown",
+        "It is required because medium hands cannot legally bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Checking medium hands keeps the check range from being too weak and captures cheap showdowns.",
+        "B": "Medium hands betting often fold out worse and get called by better, so checking is usually better.",
+        "C": "Checking controls the pot but does not guarantee winning.",
+        "D": "Any hand may bet; checking medium hands is a strategic choice."
+      }
+    },
+    {
+      "id": "pr_ptpf_054",
+      "concept": "blockers",
+      "question": "A blocker is a card in your hand that:",
+      "options": [
+        "Physically prevents the dealer from dealing",
+        "Reduces the number of strong combinations your opponent can hold",
+        "Guarantees you the best hand at showdown",
+        "Adds extra chips to your stack"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Blockers are an informational concept, not a physical obstruction.",
+        "B": "Correct. Holding a key card removes combos from villain's range, informing bluffs and calls.",
+        "C": "A blocker shifts combinatorics; it does not guarantee a winning hand.",
+        "D": "Blockers affect range reading, not your chip count."
+      }
+    },
+    {
+      "id": "pr_ptpf_055",
+      "concept": "blockers",
+      "question": "On a board where a flush is possible, holding the ace of the flush suit is valuable as a bluff because:",
+      "options": [
+        "It makes your own flush unbeatable",
+        "It forces the villain to call",
+        "It blocks the nut flush, so villain is less likely to hold it and more likely to fold",
+        "It changes the board cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Holding one suited ace without four flush cards does not make a flush; the value is the blocker effect.",
+        "B": "Blocking the nuts encourages folds, not calls.",
+        "C": "Correct. The nut-flush blocker removes villain's strongest calling combos, boosting bluff fold equity.",
+        "D": "Your hole cards do not alter the community board."
+      }
+    },
+    {
+      "id": "pr_ptpf_056",
+      "concept": "blockers",
+      "question": "When deciding to bluff-raise, holding a blocker to the nuts is good because it:",
+      "options": [
+        "Increases the chance the opponent flopped a set",
+        "Forces the dealer to reshuffle",
+        "Makes your bluff a value bet automatically",
+        "Lowers the chance the opponent has a hand strong enough to continue"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A blocker reduces, not increases, the combos villain can have.",
+        "B": "Blockers are about combinatorics, not dealer actions.",
+        "C": "A blocker improves a bluff's fold equity; it does not convert a weak hand into value.",
+        "D": "Correct. Removing combos of the nuts from villain's range increases the odds they fold to your raise."
+      }
+    },
+    {
+      "id": "pr_ptpf_057",
+      "concept": "blockers",
+      "question": "For a thin river value bet, you ideally want to:",
+      "options": [
+        "Block the hands that would raise or beat you while unblocking the worse hands that call",
+        "Block all the worse hands so they cannot call",
+        "Hold cards that have no bearing on villain's range",
+        "Always hold the exact nuts"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Good value blockers remove strong combos that beat you and keep the worse calling combos live.",
+        "B": "Blocking the worse hands reduces your called value, the opposite of the goal.",
+        "C": "Irrelevant cards provide no blocker benefit for thin value.",
+        "D": "Thin value is by definition not the nuts; blocker selection still matters."
+      }
+    },
+    {
+      "id": "pr_ptpf_058",
+      "concept": "blockers",
+      "question": "Holding the K♠ on a three-spade board when bluffing is useful because:",
+      "options": [
+        "It means you already have a made flush",
+        "It blocks the second-nut flush and represents the spade you could be holding",
+        "It prevents villain from ever folding",
+        "It has no effect because spades are irrelevant"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A single spade is not a flush; its value is as a blocker and representation.",
+        "B": "Correct. The K♠ removes a strong flush combo from villain and supports your story of holding spades.",
+        "C": "Blocking strong flushes increases folds, not the reverse.",
+        "D": "On a three-spade board, holding a high spade is a highly relevant blocker."
+      }
+    },
+    {
+      "id": "pr_ptpf_059",
+      "concept": "semi_bluff",
+      "question": "A semi-bluff is a bet made with:",
+      "options": [
+        "The nuts, intending to get called",
+        "A hand with literally no way to improve",
+        "A drawing hand that can win by folds now or by improving later",
+        "A made full house wanting protection"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Betting the nuts is value, not a semi-bluff.",
+        "B": "A pure bluff with no outs is not a semi-bluff; semi-bluffs have draw equity.",
+        "C": "Correct. Semi-bluffs combine fold equity with the backup of completing a draw.",
+        "D": "A full house is a value hand, not a drawing semi-bluff."
+      }
+    },
+    {
+      "id": "pr_ptpf_060",
+      "concept": "semi_bluff",
+      "question": "Semi-bluffing a flush draw is often better than checking because:",
+      "options": [
+        "A flush draw is already the best hand",
+        "Checking is against the rules with a draw",
+        "It guarantees the flush will complete",
+        "You can win immediately via folds and still have outs when called"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A flush draw is usually behind made hands; its strength is its potential, not current value.",
+        "B": "Checking a draw is perfectly legal; betting is a strategic choice.",
+        "C": "Semi-bluffing does not change the odds of completing the draw.",
+        "D": "Correct. The dual way to win, fold equity plus draw equity, makes semi-bluffing high-EV."
+      }
+    },
+    {
+      "id": "pr_ptpf_061",
+      "concept": "semi_bluff",
+      "question": "The ideal semi-bluff candidate among these is:",
+      "options": [
+        "An open-ended straight flush draw with two ways to improve to the nuts",
+        "A pair of deuces with no draw on a dangerous board",
+        "Ace-high with no draw and no backdoor",
+        "A made straight that is already the nuts"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Maximum outs and nut potential give strong equity to back up the fold-equity play.",
+        "B": "Bottom pair with no draw lacks the equity that defines a good semi-bluff.",
+        "C": "Pure ace-high has minimal equity and is closer to a stone bluff than a semi-bluff.",
+        "D": "The nuts is a value hand, not a semi-bluff."
+      }
+    },
+    {
+      "id": "pr_ptpf_062",
+      "concept": "semi_bluff",
+      "question": "Why are semi-bluffs valuable for balancing a betting range?",
+      "options": [
+        "They remove the need to ever value bet",
+        "They let you bet draws that improve to value, disguising your made hands",
+        "They make your range entirely face-up",
+        "They only work when you hold the nuts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Semi-bluffs complement value bets; they do not replace them.",
+        "B": "Correct. Mixing draws into your betting range balances value and keeps opponents from reading your strength.",
+        "C": "Mixing draws actually conceals your range rather than exposing it.",
+        "D": "Semi-bluffs by definition do not hold the nuts; they hold draws."
+      }
+    },
+    {
+      "id": "pr_ptpf_063",
+      "concept": "semi_bluff",
+      "question": "A semi-bluff loses much of its value when:",
+      "options": [
+        "You have many outs and deep stacks",
+        "The opponent folds frequently to bets",
+        "Stacks are so shallow that there is little to win if the draw hits",
+        "Your draw is to the nuts"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Many outs and deep stacks strengthen, not weaken, a semi-bluff.",
+        "B": "High fold frequency increases a semi-bluff's value.",
+        "C": "Correct. With low implied odds and thin fold equity, the draw's backup payoff shrinks, weakening the semi-bluff.",
+        "D": "Drawing to the nuts improves a semi-bluff's expected value."
+      }
+    },
+    {
+      "id": "pr_ptpf_064",
+      "concept": "check_raise",
+      "question": "A check-raise is:",
+      "options": [
+        "Betting first and then folding to a raise",
+        "Calling a bet and then betting the next street",
+        "A forced action whenever you are out of position",
+        "Checking first, then raising after an opponent bets"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That sequence is a bet-fold, not a check-raise.",
+        "B": "That is a call followed by a lead, not a check-raise.",
+        "C": "Check-raising is optional and strategic, never forced by position.",
+        "D": "Correct. The player checks to induce a bet, then raises, often for value or as a strong bluff."
+      }
+    },
+    {
+      "id": "pr_ptpf_065",
+      "concept": "check_raise",
+      "question": "A common reason to check-raise as the out-of-position player is to:",
+      "options": [
+        "Build the pot with strong hands and add pressure with selected bluffs",
+        "Give the opponent a free card with a strong hand",
+        "Guarantee the opponent folds every time",
+        "Avoid putting any chips in the pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Check-raising lets the OOP player seize aggression, growing the pot with value and applying fold equity with bluffs.",
+        "B": "Check-raising charges the opponent rather than offering a free card.",
+        "C": "Opponents continue with strong holdings; check-raises do not guarantee folds.",
+        "D": "A check-raise adds chips; it is an aggressive action."
+      }
+    },
+    {
+      "id": "pr_ptpf_066",
+      "concept": "check_raise",
+      "question": "Good check-raise bluff candidates often have:",
+      "options": [
+        "Made full houses with no need to fold anyone",
+        "Draws or blockers that give equity and reduce villain's strong continues",
+        "No equity and no blocker relevance",
+        "The exact nuts every time"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Full houses prefer to extract value, not to bluff-raise.",
+        "B": "Correct. Equity and blockers make check-raise bluffs profitable by combining outs with fold equity.",
+        "C": "Stone-cold air with no blockers makes for a poor check-raise bluff.",
+        "D": "The nuts is a value check-raise, not a bluff."
+      }
+    },
+    {
+      "id": "pr_ptpf_067",
+      "concept": "check_raise",
+      "question": "Check-raising for value works best when:",
+      "options": [
+        "Your opponent never bets the flop",
+        "You hold the weakest hand in your range",
+        "Your opponent c-bets at a high frequency, so they often have something to commit",
+        "You are guaranteed to be drawing dead"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If the opponent never bets, there is nothing to check-raise.",
+        "B": "Value check-raising requires a strong hand, not the weakest one.",
+        "C": "Correct. A high c-bet frequency means the opponent regularly bets hands that will pay off your check-raise.",
+        "D": "Drawing dead is the worst possible situation to commit chips, not a value spot."
+      }
+    },
+    {
+      "id": "pr_ptpf_068",
+      "concept": "check_raise",
+      "question": "On a wet board, check-raising a strong made hand is often preferred to calling because:",
+      "options": [
+        "It lets all the draws see the turn for free",
+        "It signals weakness to fold out worse hands",
+        "It is the only legal response to a bet",
+        "It charges the many draws and avoids giving cheap cards"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Calling, not raising, gives cheaper cards; raising charges the draws.",
+        "B": "A check-raise represents strength and is not designed to fold out worse hands for free.",
+        "C": "Calling and folding are also legal; check-raising is a strategic choice.",
+        "D": "Correct. Raising denies equity to draws and builds the pot while you are ahead on a coordinated board."
+      }
+    },
+    {
+      "id": "pr_ptpf_069",
+      "concept": "delayed_cbet",
+      "question": "A delayed continuation bet is:",
+      "options": [
+        "Checking the flop as the preflop raiser, then betting the turn",
+        "Betting the flop and then checking the turn",
+        "Raising preflop a second time",
+        "A bet that must always be pot-sized"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The aggressor declines the flop bet and instead bets the turn, often with showdown value or improved equity.",
+        "B": "That is a flop c-bet followed by a check, not a delayed c-bet.",
+        "C": "A delayed c-bet is a postflop concept, unrelated to a second preflop raise.",
+        "D": "Delayed c-bets can use any size; the defining trait is the flop check then turn bet."
+      }
+    },
+    {
+      "id": "pr_ptpf_070",
+      "concept": "delayed_cbet",
+      "question": "A delayed c-bet is often useful when:",
+      "options": [
+        "The opponent has already folded the hand",
+        "You checked back the flop and the turn improves your hand or your perceived range",
+        "You want to give away your exact hand",
+        "You are forced to bet the turn by the rules"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "If the opponent folded, there is no one left to bet into.",
+        "B": "Correct. Delaying lets you bet a turn that favors your story or after your hand picks up equity.",
+        "C": "A delayed c-bet conceals rather than reveals your holding.",
+        "D": "Betting the turn is optional; the delayed line is a strategic choice."
+      }
+    },
+    {
+      "id": "pr_ptpf_071",
+      "concept": "delayed_cbet",
+      "question": "One benefit of checking back the flop and delaying the c-bet is:",
+      "options": [
+        "It guarantees you win the pot at showdown",
+        "It forces the opponent to fold the flop",
+        "It can induce bluffs and lets you bet a turn where the opponent's range is weaker",
+        "It always wins more than betting the flop"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Delaying controls the line but does not guarantee a win.",
+        "B": "Checking back does not fold anyone out; it passes the action.",
+        "C": "Correct. Checking back caps your appearance of strength, inducing action and setting up a profitable turn bet.",
+        "D": "Delaying is situational; it is not universally superior to a flop c-bet."
+      }
+    },
+    {
+      "id": "pr_ptpf_072",
+      "concept": "delayed_cbet",
+      "question": "Checking back a medium hand on the flop and then betting a blank turn is often:",
+      "options": [
+        "Always a mistake because you must c-bet every flop",
+        "Only correct with the absolute nuts",
+        "A sign you should have folded preflop",
+        "A reasonable thin value or protection line against capped ranges"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "C-betting every flop is unbalanced; checking back has clear merit.",
+        "B": "Delayed lines are frequently taken with medium hands, not just the nuts.",
+        "C": "Reaching the turn with a medium hand is normal; it does not imply a preflop error.",
+        "D": "Correct. The turn bet extracts value from worse hands while the flop check controlled the pot."
+      }
+    },
+    {
+      "id": "pr_ptpf_073",
+      "concept": "delayed_cbet",
+      "question": "Delaying the c-bet is especially attractive on flops where:",
+      "options": [
+        "Your range is not strong enough to bet at a high frequency profitably",
+        "You hold a massive range and nut advantage",
+        "The opponent has already shown their cards",
+        "You want to inflate the pot as fast as possible"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. When the flop favors the caller, checking back and reassessing on the turn protects your range.",
+        "B": "With a big range advantage, an immediate c-bet is usually preferred over delaying.",
+        "C": "Opponents do not reveal hole cards midhand; this is not a real condition.",
+        "D": "Delaying controls the pot; it is not the fastest way to inflate it."
+      }
+    },
+    {
+      "id": "pr_ptpf_074",
+      "concept": "probe_bet",
+      "question": "A probe bet is:",
+      "options": [
+        "A bet by the preflop raiser on the flop",
+        "A bet by the out-of-position player on the turn after the preflop raiser checked back the flop",
+        "A mandatory minimum bet on every street",
+        "A preflop limp followed by a call"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That is a standard c-bet, not a probe bet.",
+        "B": "Correct. When the aggressor passes on the flop, the OOP player can lead the turn to probe at the now-capped range.",
+        "C": "Probe bets are optional and situational, not mandatory.",
+        "D": "A probe bet is a postflop turn lead, unrelated to limping."
+      }
+    },
+    {
+      "id": "pr_ptpf_075",
+      "concept": "probe_bet",
+      "question": "Probe betting is profitable largely because:",
+      "options": [
+        "The opponent is guaranteed to hold the nuts",
+        "It forces a chop pot",
+        "The preflop raiser's flop check often caps their range, leaving them weak on the turn",
+        "It is required after every checked flop"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A capped, checked-back range rarely holds the nuts, which is why probing works.",
+        "B": "Probe bets aim to win the pot, not to split it.",
+        "C": "Correct. A checked-back flop signals a capped range, so leading the turn applies pressure to a weak holding.",
+        "D": "Probing is a strategic option, not a requirement."
+      }
+    },
+    {
+      "id": "pr_ptpf_076",
+      "concept": "probe_bet",
+      "question": "Good probe-bet candidates on the turn include:",
+      "options": [
+        "Only the absolute nuts and nothing else",
+        "Exclusively hands that are drawing dead",
+        "Hands you have already folded",
+        "Hands with some equity or blockers plus weak made hands that benefit from folds"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Probing uses a balanced range, not solely the nuts.",
+        "B": "Drawing dead hands without fold equity are poor probe candidates.",
+        "C": "Folded hands cannot bet; probing requires live cards.",
+        "D": "Correct. Probing works with a mix of value, equity, and blocker hands against a capped opponent."
+      }
+    },
+    {
+      "id": "pr_ptpf_077",
+      "concept": "probe_bet",
+      "question": "When the flop goes check-check and you are out of position on the turn, leading out:",
+      "options": [
+        "Targets the opponent's capped range and denies a free showdown to medium hands",
+        "Should never be done since you must always check to the raiser",
+        "Guarantees the opponent folds the best hand",
+        "Is only legal with a flush"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The opponent's flop check suggests weakness, so a turn probe pressures their capped holdings.",
+        "B": "Continuing to check to a raiser who already declined to bet wastes the chance to attack a capped range.",
+        "C": "Probing applies pressure but does not guarantee folding out the best hand.",
+        "D": "Leading the turn is legal with any holding; it is a strategic choice."
+      }
+    },
+    {
+      "id": "pr_ptpf_078",
+      "concept": "donk_bet",
+      "question": "A donk bet is:",
+      "options": [
+        "A c-bet by the preflop raiser",
+        "A flop lead by the player who is not the preflop aggressor, into that aggressor",
+        "A check made out of position",
+        "A preflop raise from the button"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A c-bet is the aggressor betting; a donk bet comes from the non-aggressor.",
+        "B": "Correct. Donking means betting into the preflop raiser instead of checking to them.",
+        "C": "Donk betting is a bet, not a check.",
+        "D": "Donk betting is a postflop lead, not a preflop raise."
+      }
+    },
+    {
+      "id": "pr_ptpf_079",
+      "concept": "donk_bet",
+      "question": "Donk betting is most defensible when:",
+      "options": [
+        "The flop is ace-high and favors the raiser",
+        "You always want to surrender initiative",
+        "The flop strongly favors the caller's range more than the preflop raiser's",
+        "You hold the worst possible hand with no plan"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Ace-high boards favor the raiser, making a donk lead generally weak.",
+        "B": "Donking is an attempt to seize initiative, not surrender it.",
+        "C": "Correct. On boards that hit the caller's range hard, leading out can be justified to seize value and initiative.",
+        "D": "Leading with pure air and no plan into the aggressor is typically a losing play."
+      }
+    },
+    {
+      "id": "pr_ptpf_080",
+      "concept": "donk_bet",
+      "question": "A common downside of frequent, unbalanced donk betting is that it:",
+      "options": [
+        "Guarantees a profit on every flop",
+        "Forces the raiser to fold every time",
+        "Prevents the turn card from appearing",
+        "Tends to be exploitable because it often represents a narrow, readable range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Unbalanced donking is exploitable and does not guarantee profit.",
+        "B": "The raiser can raise or call; donking does not force folds.",
+        "C": "Bet choices have no effect on whether the turn is dealt.",
+        "D": "Correct. Poorly constructed donk leads can be face-up, letting observant opponents respond optimally."
+      }
+    },
+    {
+      "id": "pr_ptpf_081",
+      "concept": "donk_bet",
+      "question": "On a low connected board like 7♥ 6♥ 5♣ where you are the big-blind caller, a small donk lead can:",
+      "options": [
+        "Make sense, since this texture favors your range and pressures the raiser's overcards",
+        "Never be correct because donk bets are always wrong",
+        "Only be done with the stone-cold nuts",
+        "Be required by the rules of the game"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Low coordinated boards hit the BB defending range well, so a lead can be a sound, range-based play.",
+        "B": "Donk betting is situational; on caller-favoring boards it can be a valid strategy.",
+        "C": "Donk leads on favorable textures use a range, not just the nuts.",
+        "D": "There is no rule forcing a donk lead; it is a strategic choice."
+      }
+    },
+    {
+      "id": "pr_ptpf_082",
+      "concept": "barrel",
+      "question": "A double-barrel is:",
+      "options": [
+        "Betting only the flop",
+        "Betting both the flop and the turn",
+        "Raising preflop twice",
+        "Checking the flop and the turn"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A single flop bet is a single barrel, not a double-barrel.",
+        "B": "Correct. Firing a second bet on the turn after a flop c-bet is a double-barrel.",
+        "C": "Barreling is a postflop concept across streets, not a preflop action.",
+        "D": "Two checks are not barrels; barreling means betting."
+      }
+    },
+    {
+      "id": "pr_ptpf_083",
+      "concept": "barrel",
+      "question": "A triple-barrel is:",
+      "options": [
+        "Three preflop raises in a row",
+        "Betting only on the river",
+        "Betting the flop, turn, and river",
+        "Checking down all three streets"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Multiple preflop raises are 3-bets and 4-bets, not barrels.",
+        "B": "A single river bet is one barrel, not three.",
+        "C": "Correct. Three consecutive bets across all three postflop streets form a triple-barrel.",
+        "D": "Checking is not barreling; barreling requires bets."
+      }
+    },
+    {
+      "id": "pr_ptpf_084",
+      "concept": "barrel",
+      "question": "A good turn card to fire a second barrel as a bluff is one that:",
+      "options": [
+        "Obviously improves only the caller's range",
+        "Leaves the board completely unchanged",
+        "Has already been folded by the opponent",
+        "Favors your perceived range and lets you credibly represent a strong hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A card that helps the caller reduces fold equity, making the barrel worse.",
+        "B": "An identical board adds no new pressure for a bluff barrel.",
+        "C": "If the opponent has folded, there is no one to barrel.",
+        "D": "Correct. Scare cards that fit your story increase fold equity, making a second barrel effective."
+      }
+    },
+    {
+      "id": "pr_ptpf_085",
+      "concept": "barrel",
+      "question": "Continuing to barrel without fold equity or equity is generally:",
+      "options": [
+        "A losing play, because you neither fold out better hands nor have outs to improve",
+        "Always profitable, since aggression always wins",
+        "Required whenever you bet the flop",
+        "A guaranteed way to win at showdown"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Barreling with no fold equity and no draw simply burns chips.",
+        "B": "Aggression without fold equity or equity is not automatically profitable.",
+        "C": "There is no rule forcing continued barrels; giving up is often correct.",
+        "D": "Barreling air does not improve your showdown chances."
+      }
+    },
+    {
+      "id": "pr_ptpf_086",
+      "concept": "barrel",
+      "question": "Barreling a turn that gives you a strong draw (a semi-bluff barrel) is attractive because:",
+      "options": [
+        "You can never improve if you are called",
+        "You apply pressure now and can still win by completing your draw if called",
+        "It only works if you already have the nuts",
+        "It removes your opponent's ability to call"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A semi-bluff barrel specifically has outs to improve when called.",
+        "B": "Correct. The combination of fold equity and draw equity gives the barrel two ways to win.",
+        "C": "Semi-bluff barrels hold draws, not the nuts.",
+        "D": "Opponents can still call; the barrel relies on a mix of folds and draw equity."
+      }
+    },
+    {
+      "id": "pr_ptpf_087",
+      "concept": "texture_change",
+      "question": "When the turn brings a third card of one suit on a two-tone flop, range equities shift because:",
+      "options": [
+        "The board becomes drier with fewer draws",
+        "All possible draws are eliminated",
+        "Flush draws complete, so the made-flush combos in calling ranges increase",
+        "The hand must end immediately"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Completing a flush makes the board wetter and more dangerous, not drier.",
+        "B": "A flush card completes draws rather than eliminating possibilities.",
+        "C": "Correct. The completing card turns prior draws into made flushes, changing who is now strong.",
+        "D": "Play continues; the equity shift simply alters strategy."
+      }
+    },
+    {
+      "id": "pr_ptpf_088",
+      "concept": "texture_change",
+      "question": "A 'scare card' on the turn is one that:",
+      "options": [
+        "Never changes anyone's hand strength",
+        "Forces both players to check",
+        "Reduces the pot size automatically",
+        "Could plausibly improve hands and shifts perceived equity, prompting reevaluation"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A true scare card precisely does change perceived or actual strength.",
+        "B": "Scare cards influence strategy but do not force checks.",
+        "C": "Cards do not alter pot size; only betting does.",
+        "D": "Correct. Scare cards like overcards or flush-completers change the strength picture and bluffing dynamics."
+      }
+    },
+    {
+      "id": "pr_ptpf_089",
+      "concept": "texture_change",
+      "question": "An overcard turn (e.g., an ace) after a small-pair-heavy flop tends to:",
+      "options": [
+        "Favor the preflop raiser, who holds more aces and big cards",
+        "Favor the caller's small pairs every time",
+        "Have no effect on either range",
+        "Make the board paired"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. High-card turns generally help the raiser's range, supporting a continued barrel.",
+        "B": "An overcard usually beats small pairs, helping the raiser, not the caller.",
+        "C": "Overcards meaningfully shift equity toward the high-card-heavy range.",
+        "D": "An overcard is a new rank; it does not pair the board unless it matches an existing card."
+      }
+    },
+    {
+      "id": "pr_ptpf_090",
+      "concept": "texture_change",
+      "question": "When the turn pairs the bottom card of the board, a key effect is:",
+      "options": [
+        "Flush draws are guaranteed to complete",
+        "More combos can now make trips or a full house, slightly favoring hands that contain that rank",
+        "The board becomes impossible to bluff",
+        "All straights become the nuts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A pairing card does not complete flush draws; it changes pair-based combos.",
+        "B": "Correct. A pairing card adds full-house and trips potential, shifting equity toward hands holding that card.",
+        "C": "Paired boards are often good bluffing textures, not impossible ones.",
+        "D": "Pairing the board can actually devalue straights against full houses."
+      }
+    },
+    {
+      "id": "pr_ptpf_091",
+      "concept": "texture_change",
+      "question": "A river card that completes an obvious draw should make you:",
+      "options": [
+        "Always value bet bigger regardless",
+        "Ignore the board entirely",
+        "Reconsider value betting thinly and weigh whether your opponent just got there",
+        "Assume the opponent always missed"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A completing river can beat your hand, so blindly sizing up risks getting raised or called by better.",
+        "B": "Ignoring a draw-completing river leads to costly mistakes.",
+        "C": "Correct. Completing rivers raise the chance villain improved, so thin value and bluff-catching must be reassessed.",
+        "D": "Assuming villain missed on a completing river is an optimistic and dangerous read."
+      }
+    },
+    {
+      "id": "pr_ptpf_092",
+      "concept": "check_back",
+      "question": "Checking back the flop with a medium-strength hand in position is often done to:",
+      "options": [
+        "Maximize the pot with a marginal hand",
+        "Guarantee folding out all worse hands",
+        "Reveal your hand to the opponent",
+        "Control the pot and realize showdown value cheaply"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Bloating the pot with a marginal hand invites tough spots, not value.",
+        "B": "Checking does not fold out worse hands; it simply passes the action.",
+        "C": "Checking back conceals rather than reveals your holding.",
+        "D": "Correct. Medium hands prefer to keep the pot small and reach a cheaper showdown."
+      }
+    },
+    {
+      "id": "pr_ptpf_093",
+      "concept": "check_back",
+      "question": "Pot control means:",
+      "options": [
+        "Deliberately keeping the pot small with hands of marginal or medium strength",
+        "Always building the biggest pot possible",
+        "Folding every strong hand to stay safe",
+        "Going all-in on every street"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Pot control limits risk and helps marginal hands reach showdown affordably.",
+        "B": "That is the opposite of pot control.",
+        "C": "Strong hands want value; pot control applies to marginal hands.",
+        "D": "Maximal aggression is not pot control."
+      }
+    },
+    {
+      "id": "pr_ptpf_094",
+      "concept": "check_back",
+      "question": "A reason to check back rather than bet a strong-but-vulnerable hand can be to:",
+      "options": [
+        "Make sure the opponent always folds",
+        "Induce bluffs from a weaker range that would fold to a bet",
+        "Avoid ever winning the pot",
+        "Force the dealer to deal a new flop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Checking is intended to keep weak hands in, not fold them out.",
+        "B": "Correct. Checking can keep villain's bluffs and weak hands in, capturing value they would otherwise surrender.",
+        "C": "Checking back is still aimed at winning; it just chooses a different line.",
+        "D": "Checking does not change the community cards."
+      }
+    },
+    {
+      "id": "pr_ptpf_095",
+      "concept": "check_back",
+      "question": "Checking back the flop also benefits you by:",
+      "options": [
+        "Making your range completely face-up",
+        "Removing the turn and river from play",
+        "Protecting your checking range so it is not always weak",
+        "Guaranteeing you the best hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Mixing strong hands into checks conceals your range rather than exposing it.",
+        "B": "Checking does not end the hand or skip streets.",
+        "C": "Correct. Including some strong hands in the check-back range prevents opponents from attacking it freely.",
+        "D": "Checking back controls the pot but never guarantees the winning hand."
+      }
+    },
+    {
+      "id": "pr_ptpf_096",
+      "concept": "check_back",
+      "question": "With a weak top pair out of position on a wet board, a frequent choice is to:",
+      "options": [
+        "Bet large for value with no concern",
+        "Always shove all-in immediately",
+        "Fold every time without considering showdown",
+        "Check to control the pot, since betting bloats it against many better continues"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A vulnerable one-pair hand betting large on a wet board often gets called by better and raised off equity.",
+        "B": "Shoving a marginal hand over-commits and is rarely correct here.",
+        "C": "A made top pair retains showdown value; folding immediately is too weak.",
+        "D": "Correct. A vulnerable made hand OOP on a wet board prefers pot control to avoid difficult, large pots."
+      }
+    },
+    {
+      "id": "pr_ptpf_097",
+      "concept": "value_bluff_split",
+      "question": "A balanced river betting range mixes value and bluffs so that:",
+      "options": [
+        "Opponents cannot profitably always-call or always-fold against you",
+        "You always have the nuts when you bet",
+        "You never get called by worse",
+        "You only ever bluff and never value bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Proper balance makes the opponent indifferent, denying them an easy exploit.",
+        "B": "Always having the nuts is unbalanced and lets opponents fold everything but premiums.",
+        "C": "A balanced range explicitly wants calls from worse with value hands.",
+        "D": "An all-bluff range is wildly unbalanced and easily exploited by calls."
+      }
+    },
+    {
+      "id": "pr_ptpf_098",
+      "concept": "value_bluff_split",
+      "question": "On the river, betting a pot-sized bet theoretically wants a value-to-bluff ratio around:",
+      "options": [
+        "1:1 value to bluffs for any sizing",
+        "2:1 value to bluffs, making the opponent indifferent to calling",
+        "All bluffs and no value",
+        "No bluffs at all under any sizing"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The balanced ratio depends on sizing; pot-sized bets call for about 2:1, not 1:1.",
+        "B": "Correct. For a pot-sized river bet, roughly two value combos per bluff keeps a bluff-catcher indifferent.",
+        "C": "An all-bluff range is the opposite of balanced and is easily exploited.",
+        "D": "A range with zero bluffs lets opponents fold all but the nuts profitably."
+      }
+    },
+    {
+      "id": "pr_ptpf_099",
+      "concept": "value_bluff_split",
+      "question": "Larger bet sizing on the river requires:",
+      "options": [
+        "A higher proportion of bluffs than value",
+        "No relationship between size and ratio",
+        "A higher proportion of value relative to bluffs to stay balanced",
+        "Only value hands and never any bluffs"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Larger bets call for more value, not more bluffs, to remain balanced.",
+        "B": "Sizing directly determines the balanced value-to-bluff ratio.",
+        "C": "Correct. Bigger bets risk more, so the value-to-bluff ratio must increase to keep opponents indifferent.",
+        "D": "Even large bets retain some bluffs for balance; they are just outnumbered by value."
+      }
+    },
+    {
+      "id": "pr_ptpf_100",
+      "concept": "value_bluff_split",
+      "question": "When you bet the river with the nuts, you are:",
+      "options": [
+        "Bluffing, since you want folds",
+        "Required to check the nuts",
+        "Trying to force a split pot",
+        "Value betting, aiming to be called by worse hands"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You want calls, not folds, with the nuts; that is value, not a bluff.",
+        "B": "There is no rule requiring you to check; value betting the nuts is standard.",
+        "C": "The nuts wins outright; you are not aiming for a chop.",
+        "D": "Correct. The nuts cannot be beaten, so betting it seeks calls from second-best holdings."
+      }
+    },
+    {
+      "id": "pr_ptpf_101",
+      "concept": "value_bluff_split",
+      "question": "A river bluff with a busted draw is most credible when:",
+      "options": [
+        "The line and board let you represent the strong hands you are missing",
+        "Your line makes no sense for any strong hand",
+        "You hold the actual nuts",
+        "The pot contains no chips to win"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A bluff works when your story is consistent with the value hands you could plausibly hold.",
+        "B": "An incoherent story reduces fold equity and undermines the bluff.",
+        "C": "Holding the nuts means betting for value, not bluffing with a busted draw.",
+        "D": "A bluff needs a worthwhile pot; an empty pot makes it pointless."
+      }
+    },
+    {
+      "id": "pr_ptpf_102",
+      "concept": "river_decisions",
+      "question": "Facing a river bet with a bluff-catcher, your call is justified when:",
+      "options": [
+        "You always hold the nuts",
+        "Your equity against villain's betting range exceeds the pot odds offered",
+        "The opponent never bluffs",
+        "Calling is free and risks nothing"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A bluff-catcher is by definition not the nuts; the decision hinges on villain's bluff frequency.",
+        "B": "Correct. A bluff-catcher calls profitably when villain bluffs often enough to beat the required pot odds.",
+        "C": "If villain never bluffs, a bluff-catcher should fold, not call.",
+        "D": "Calling a river bet always risks chips; pot odds govern the decision."
+      }
+    },
+    {
+      "id": "pr_ptpf_103",
+      "concept": "river_decisions",
+      "question": "On the river you can no longer:",
+      "options": [
+        "Bet for value under any circumstance",
+        "Make any decision at all",
+        "Improve your hand with future cards, so decisions are made on current equity alone",
+        "Bluff because all bluffs are illegal"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Value betting the river is common and correct with strong hands.",
+        "B": "The river involves crucial bet, call, and fold decisions.",
+        "C": "Correct. With no more cards to come, river play depends on showdown value and bluff dynamics, not draws.",
+        "D": "River bluffs are a core, legal part of strategy."
+      }
+    },
+    {
+      "id": "pr_ptpf_104",
+      "concept": "river_decisions",
+      "question": "When deciding whether to value bet the river thinly, the key question is:",
+      "options": [
+        "Can I fold out better hands by betting?",
+        "Will the dealer give me another card?",
+        "Does betting force a chop pot?",
+        "Will worse hands call often enough to make the bet profitable?"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding out better hands is a bluff goal, not the value-bet question.",
+        "B": "There are no more cards after the river; that is irrelevant.",
+        "C": "Thin value seeks calls from worse, not a split pot.",
+        "D": "Correct. Thin river value depends on whether the worse part of villain's range calls enough to beat the times you are behind."
+      }
+    },
+    {
+      "id": "pr_ptpf_105",
+      "concept": "river_decisions",
+      "question": "Checking back a marginal hand on the river instead of betting can be correct because:",
+      "options": [
+        "Betting often only gets called by better and folds out worse, so showdown is more valuable",
+        "Marginal hands always have more value betting",
+        "Checking the river is against the rules",
+        "It guarantees the opponent folds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With a marginal hand, betting frequently isolates you against superior hands, so checking captures cheap showdown value.",
+        "B": "Marginal hands often lose value by betting into a range that calls with better.",
+        "C": "Checking the river is perfectly legal and frequently optimal.",
+        "D": "Checking does not fold anyone out; it goes to showdown."
+      }
+    },
+    {
+      "id": "pr_ptpf_106",
+      "concept": "river_decisions",
+      "question": "Against a player who never bluffs the river, you should:",
+      "options": [
+        "Call every river bet with any two cards",
+        "Fold your bluff-catchers, since their bets are almost always value",
+        "Always raise as a bluff",
+        "Assume they are always bluffing"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Calling wide against a bluff-free range bleeds chips.",
+        "B": "Correct. Without bluffs in villain's range, calling with a bluff-catcher is unprofitable.",
+        "C": "Bluff-raising a player who only value bets is unlikely to fold them out.",
+        "D": "Assuming bluffs against a no-bluff player is exactly the wrong read."
+      }
+    },
+    {
+      "id": "pr_ptpf_107",
+      "concept": "turn_decisions",
+      "question": "The turn is often called a critical street because:",
+      "options": [
+        "No betting is allowed on the turn",
+        "The turn ends the hand automatically",
+        "Bets are larger relative to the pot and set up the river decision",
+        "The turn card is always a blank"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Betting is fully allowed on the turn; it is a key decision point.",
+        "B": "The river still follows the turn; the hand is not over.",
+        "C": "Correct. Turn play shapes pot size and commitment, heavily influencing river dynamics.",
+        "D": "Turn cards frequently change equities; they are not always blanks."
+      }
+    },
+    {
+      "id": "pr_ptpf_108",
+      "concept": "turn_decisions",
+      "question": "When you c-bet the flop and get called, then the turn is a blank, continuing to bet for value is best with:",
+      "options": [
+        "Pure air with no equity and no fold equity",
+        "Hands you have already folded",
+        "The intention to chop the pot",
+        "Strong made hands that still want calls from worse and protection against draws"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Barreling stone air on a blank turn with low fold equity is usually a losing play.",
+        "B": "Folded hands cannot bet the turn.",
+        "C": "Value betting seeks to win the pot, not chop it.",
+        "D": "Correct. A blank turn lets strong hands keep value betting against the range that called the flop."
+      }
+    },
+    {
+      "id": "pr_ptpf_109",
+      "concept": "turn_decisions",
+      "question": "Checking the turn back after c-betting the flop is reasonable when:",
+      "options": [
+        "Your hand wants pot control or you lack equity to barrel profitably",
+        "You hold the absolute nuts and want max value",
+        "You are required to bet every turn",
+        "You want to inflate the pot with a weak hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Checking back the turn controls the pot with medium hands and avoids spew with low-equity holdings.",
+        "B": "The nuts usually keeps betting for value rather than checking back.",
+        "C": "There is no rule forcing a turn bet; checking is a valid option.",
+        "D": "Checking back keeps the pot small, the opposite of inflating it with a weak hand."
+      }
+    },
+    {
+      "id": "pr_ptpf_110",
+      "concept": "turn_decisions",
+      "question": "A turn 'delayed' decision after the flop checks through often involves:",
+      "options": [
+        "Assuming both players have the nuts",
+        "Reassessing ranges since both players showed some weakness on the flop",
+        "Ending the hand without a turn card",
+        "Ignoring all prior action"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A checked-through flop suggests weakness, not that both hold the nuts.",
+        "B": "Correct. A checked-through flop caps both ranges, so the turn requires fresh evaluation of who is now favored.",
+        "C": "The turn card is dealt regardless; the hand continues.",
+        "D": "Prior action informs the capped ranges and should not be ignored."
+      }
+    },
+    {
+      "id": "pr_ptpf_111",
+      "concept": "turn_decisions",
+      "question": "Sizing up on the turn with a polarized range (strong value plus draws) is justified because:",
+      "options": [
+        "It guarantees the opponent folds the best hand",
+        "Medium hands always need the biggest size",
+        "It charges draws and builds the pot to set up a large river bet",
+        "It is required after every flop c-bet"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Larger sizing applies pressure but does not guarantee folding out the best hand.",
+        "B": "Medium hands generally prefer smaller sizing or checks, not polarized overbets.",
+        "C": "Correct. Larger turn bets with a polarized range maximize value and leverage for a big river barrel.",
+        "D": "Turn sizing is a strategic choice, not a rule following a flop bet."
+      }
+    },
+    {
+      "id": "pr_ptpf_112",
+      "concept": "multiway",
+      "question": "In a multiway pot (three or more players), c-betting frequency should generally be:",
+      "options": [
+        "Higher and more bluff-heavy than heads-up",
+        "Identical to heads-up play in every way",
+        "Always an all-in regardless of holding",
+        "Lower and more value-heavy, since more players means more chances someone connected"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "More opponents reduce fold equity, so bluffing should decrease, not increase, multiway.",
+        "B": "Multiway dynamics differ significantly from heads-up; adjustments are required.",
+        "C": "Blind shoving multiway ignores the increased likelihood of strong opposing hands.",
+        "D": "Correct. With multiple opponents, fold equity drops and someone is more likely to hold a strong hand, so bluffing tightens."
+      }
+    },
+    {
+      "id": "pr_ptpf_113",
+      "concept": "multiway",
+      "question": "Bluffing tends to be less effective multiway because:",
+      "options": [
+        "You must get every opponent to fold, and more players means more strong combos",
+        "Each extra player makes opponents fold more often",
+        "The pot is always smaller multiway",
+        "Bluffing is illegal with three players"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Fold equity compounds against multiple players, so a bluff faces longer odds of success.",
+        "B": "More players make a successful bluff less likely, not more.",
+        "C": "Multiway pots are usually larger, not smaller.",
+        "D": "Bluffing remains legal multiway; it is simply less profitable."
+      }
+    },
+    {
+      "id": "pr_ptpf_114",
+      "concept": "multiway",
+      "question": "Value betting thresholds in multiway pots typically:",
+      "options": [
+        "Loosen, since more players means weaker ranges",
+        "Tighten, because the chance someone holds a strong hand rises with more players",
+        "Stay exactly the same as heads-up",
+        "Disappear because value betting is impossible"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Additional players raise the chance of a strong hand, so value standards tighten.",
+        "B": "Correct. You need a stronger hand to value bet confidently into multiple opponents.",
+        "C": "Multiway value betting requires stronger hands than heads-up.",
+        "D": "Value betting is still possible multiway; the bar is just higher."
+      }
+    },
+    {
+      "id": "pr_ptpf_115",
+      "concept": "multiway",
+      "question": "Protection betting a vulnerable made hand multiway is often:",
+      "options": [
+        "Unnecessary, since multiway draws never complete",
+        "Only correct heads-up and never multiway",
+        "More important, because more opponents mean more live draws to charge",
+        "A reason to check every made hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Multiway draws complete frequently; protection is more, not less, important.",
+        "B": "Protection is especially relevant multiway due to more live draws.",
+        "C": "Correct. With several players holding potential draws, charging them with a bet protects your made hand's equity.",
+        "D": "Vulnerable made hands often want to bet for protection multiway, not check."
+      }
+    },
+    {
+      "id": "pr_ptpf_116",
+      "concept": "position",
+      "question": "Acting in position (last to act postflop) is advantageous because:",
+      "options": [
+        "You are forced to act first every street",
+        "You must put in more chips than others",
+        "You always hold the best hand",
+        "You see opponents' actions before deciding, gaining information each street"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "In position means acting last, not first.",
+        "B": "Position does not require contributing more chips.",
+        "C": "Position improves decisions but never guarantees the best hand.",
+        "D": "Correct. Last action provides information and lets you control the pot and bluff or value bet more precisely."
+      }
+    },
+    {
+      "id": "pr_ptpf_117",
+      "concept": "position",
+      "question": "Out-of-position play is harder primarily because:",
+      "options": [
+        "You must act first without knowing the opponent's intended action",
+        "You always have a stronger range",
+        "You see the opponent's cards in advance",
+        "You are guaranteed to win more pots"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acting first cedes information, complicating value betting, bluffing, and pot control.",
+        "B": "Being OOP does not confer a stronger range; it is an informational disadvantage.",
+        "C": "OOP players do not see hole cards; they act with less information.",
+        "D": "OOP is a disadvantage, not a guarantee of winning more pots."
+      }
+    },
+    {
+      "id": "pr_ptpf_118",
+      "concept": "position",
+      "question": "A key in-position tool unavailable out of position is:",
+      "options": [
+        "Forcing the opponent to act after you",
+        "Checking behind to take a free card or a cheap showdown",
+        "Seeing the river before the turn",
+        "Posting a smaller blind"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "In position, the opponent acts before you; you cannot force them to act after.",
+        "B": "Correct. The in-position player can close the action with a check, controlling the pot precisely.",
+        "C": "Cards are dealt in order regardless of position.",
+        "D": "Position is not about blind sizes."
+      }
+    },
+    {
+      "id": "pr_ptpf_119",
+      "concept": "position",
+      "question": "Because position improves equity realization, you can profitably:",
+      "options": [
+        "Play only the very best hands in late position",
+        "Play any two cards from under the gun profitably",
+        "Open and continue with a wider range in late position than in early position",
+        "Ignore your hand strength entirely"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Position lets you widen your range, not restrict it to premiums.",
+        "B": "Early position with poor realization demands a tighter, not wider, range.",
+        "C": "Correct. Better realization in position justifies playing more hands than from early seats.",
+        "D": "Hand strength still matters; position adjusts ranges, not eliminates the need for strength."
+      }
+    },
+    {
+      "id": "pr_ptpf_120",
+      "concept": "overbet",
+      "question": "An overbet is a bet that:",
+      "options": [
+        "Is always smaller than half the pot",
+        "Equals exactly the size of the pot",
+        "Is illegal in no-limit games",
+        "Exceeds the size of the current pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That is a small bet; overbets are larger than the whole pot.",
+        "B": "A bet equal to the pot is pot-sized, not an overbet.",
+        "C": "Overbets are perfectly legal in no-limit; you may bet up to your stack.",
+        "D": "Correct. Overbets are larger than the pot and are used with very polarized, nut-advantaged ranges."
+      }
+    },
+    {
+      "id": "pr_ptpf_121",
+      "concept": "overbet",
+      "question": "Overbetting is most effective when you have:",
+      "options": [
+        "A nut advantage and a polarized range against a capped opponent",
+        "A merged range of only medium hands",
+        "The weakest range at the table",
+        "No strong hands in your range at all"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Overbets leverage strong nutted hands and bluffs against a range that cannot comfortably call big.",
+        "B": "Merged medium ranges prefer smaller sizing; they lack the nut hands overbets exploit.",
+        "C": "Overbetting from a weak, capped range is exploitable and unwise.",
+        "D": "Overbets need value hands at the top to be balanced and credible."
+      }
+    },
+    {
+      "id": "pr_ptpf_122",
+      "concept": "overbet",
+      "question": "Overbetting the river puts maximum pressure on a capped range because:",
+      "options": [
+        "The opponent always has the nuts to call",
+        "The opponent lacks hands strong enough to call comfortably, so folds increase",
+        "Overbets give the opponent great odds",
+        "It forces a chop pot"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A capped range by definition lacks the nutted hands needed to call an overbet.",
+        "B": "Correct. A capped range cannot profitably call large sizing, so an overbet generates more folds and folds out bluff-catchers.",
+        "C": "Overbets give worse odds to call, not better ones.",
+        "D": "Overbets aim to win the whole pot through folds or value, not to chop."
+      }
+    },
+    {
+      "id": "pr_ptpf_123",
+      "concept": "overbet",
+      "question": "A balanced overbetting range still includes bluffs because:",
+      "options": [
+        "Bluffs make the overbet a value bet",
+        "Bluffs are required by no-limit rules",
+        "Without bluffs, opponents could fold everything but the nuts profitably",
+        "Bluffs guarantee the pot is chopped"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bluffs do not convert to value; they balance the value hands.",
+        "B": "Including bluffs is strategic balance, not a rule.",
+        "C": "Correct. Including bluffs keeps the overbet credible and the opponent indifferent.",
+        "D": "Bluffs aim to win via folds, not to force a chop."
+      }
+    },
+    {
+      "id": "pr_ptpf_124",
+      "concept": "capped_range",
+      "question": "Your range is 'capped' when:",
+      "options": [
+        "Your range contains every nutted hand",
+        "You hold only the single best hand",
+        "You have folded all your hands",
+        "Your line excludes the strongest possible hands, leaving a ceiling on your strength"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Holding all the nutted hands is uncapped, the opposite of capped.",
+        "B": "One nut hand is not a capped range; capped means lacking the top hands.",
+        "C": "A capped range still contains live hands; it just lacks the strongest ones.",
+        "D": "Correct. A capped range has a maximum strength below the nuts, exposing it to large bets."
+      }
+    },
+    {
+      "id": "pr_ptpf_125",
+      "concept": "capped_range",
+      "question": "Checking back the flop frequently can cap your range because:",
+      "options": [
+        "You signal you likely lack the strongest hands that would have bet",
+        "It proves you hold the nuts",
+        "It removes your opponent's range",
+        "It guarantees you win the pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Always checking strong hands elsewhere makes your check-back range readably weaker.",
+        "B": "Checking back typically suggests the absence of the strongest hands, not their presence.",
+        "C": "Your checking has no effect on the opponent's range composition.",
+        "D": "A capped range often loses to pressure; it does not guarantee a win."
+      }
+    },
+    {
+      "id": "pr_ptpf_126",
+      "concept": "capped_range",
+      "question": "Recognizing a capped opponent lets you:",
+      "options": [
+        "Only ever check against them",
+        "Apply large sizing and overbets to pressure their ceiling of strength",
+        "Assume they always hold the nuts",
+        "Fold all your hands to them"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Checking lets a capped range realize equity for free; betting big exploits them better.",
+        "B": "Correct. Since they cannot hold the nuts, big bets exploit their inability to call comfortably.",
+        "C": "By definition a capped range lacks the nuts, so this assumption is wrong.",
+        "D": "Folding away your equity to a capped range forfeits the exploit."
+      }
+    },
+    {
+      "id": "pr_ptpf_127",
+      "concept": "capped_range",
+      "question": "Protecting your own range from being capped involves:",
+      "options": [
+        "Always betting every strong hand on every street",
+        "Never having strong hands in any line",
+        "Occasionally taking strong hands through lines that look weak, like checking some nutted hands",
+        "Folding strong hands to avoid attention"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Betting all strong hands face-up caps your checking lines and makes you exploitable.",
+        "B": "You cannot protect a range by removing all strength; you distribute strong hands across lines.",
+        "C": "Correct. Slow-playing some strong hands keeps your weaker-looking lines uncapped and harder to attack.",
+        "D": "Folding strong hands forfeits value and does nothing to protect your range structure."
+      }
+    },
+    {
+      "id": "pr_ptpf_128",
+      "concept": "float",
+      "question": "Floating means:",
+      "options": [
+        "Folding immediately to any flop bet",
+        "Betting the nuts for maximum value",
+        "Raising all-in preflop",
+        "Calling a bet with a weak or marginal hand, intending to take the pot away on a later street"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding is the opposite of floating, which involves calling to continue.",
+        "B": "Betting the nuts is value, not a float.",
+        "C": "Floating is a postflop call, not a preflop shove.",
+        "D": "Correct. A float calls now to bluff or seize the pot later, often when the opponent gives up."
+      }
+    },
+    {
+      "id": "pr_ptpf_129",
+      "concept": "float",
+      "question": "Floating in position is effective largely because:",
+      "options": [
+        "You can capitalize when the opponent checks the turn by betting to take the pot",
+        "You are forced to act first on every street",
+        "The opponent always has the nuts",
+        "It guarantees your hand improves"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Position lets you observe the turn check and apply pressure, winning pots where villain gives up.",
+        "B": "Floating in position means you act last, using that information.",
+        "C": "Floating targets the many times the opponent does not have a strong hand.",
+        "D": "Floating does not change your draw odds; it leverages fold equity and position."
+      }
+    },
+    {
+      "id": "pr_ptpf_130",
+      "concept": "float",
+      "question": "A good floating candidate often has:",
+      "options": [
+        "No equity, no position, and no plan",
+        "Some backdoor equity or overcards plus position to apply later pressure",
+        "The absolute nuts with no need to call",
+        "A hand already folded preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Floating with nothing and no positional edge is typically unprofitable.",
+        "B": "Correct. Extra equity and position improve a float's profitability by adding ways to win.",
+        "C": "The nuts prefers to raise or value bet, not float passively.",
+        "D": "A folded hand cannot float; floating requires continuing in the pot."
+      }
+    },
+    {
+      "id": "pr_ptpf_131",
+      "concept": "float",
+      "question": "Floating tends to be weaker out of position because:",
+      "options": [
+        "You always act last out of position",
+        "Out-of-position floats guarantee bigger pots",
+        "You cannot see the opponent's next action before deciding, reducing the float's leverage",
+        "Floating is only legal in position"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Out of position you act first, which undermines the float.",
+        "B": "OOP floating is harder, not a guarantee of bigger profitable pots.",
+        "C": "Correct. Without position, you lose the informational edge that makes floating profitable.",
+        "D": "Floating OOP is legal; it is simply less effective."
+      }
+    },
+    {
+      "id": "pr_ptpf_132",
+      "concept": "board_pairing",
+      "question": "A paired flop (e.g., K♠ K♦ 4♣) tends to:",
+      "options": [
+        "Create many flush draws automatically",
+        "Guarantee that someone has quads",
+        "Make the board impossible to c-bet",
+        "Reduce the number of strong two-pair and set combos, often favoring the preflop raiser's range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A paired rank does not create flush draws; suits determine that.",
+        "B": "Quads are extremely rare; a pair on board does not guarantee them.",
+        "C": "Paired boards are often excellent c-betting textures, not impossible ones.",
+        "D": "Correct. Paired boards lower the density of strong made hands and frequently let the raiser c-bet at a high frequency."
+      }
+    },
+    {
+      "id": "pr_ptpf_133",
+      "concept": "board_pairing",
+      "question": "Bluffing on a paired board can be effective because:",
+      "options": [
+        "The opponent has fewer strong combos and often cannot continue comfortably",
+        "The opponent always has trips on paired boards",
+        "Paired boards force the opponent all-in",
+        "Bluffing is illegal once the board pairs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Reduced strong-hand density on paired boards lowers villain's ability to call, boosting fold equity.",
+        "B": "Trips are relatively rare; most hands miss paired boards.",
+        "C": "Paired boards do not force any action; they simply shift combos.",
+        "D": "Bluffing remains legal on paired boards and is often profitable."
+      }
+    },
+    {
+      "id": "pr_ptpf_134",
+      "concept": "board_pairing",
+      "question": "When the turn pairs the top card, a hand like an unimproved overpair becomes:",
+      "options": [
+        "Worthless because the board is now scary",
+        "Relatively stronger, since fewer two-pair combos now beat it",
+        "Guaranteed to be the nuts",
+        "Forced to fold immediately"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An overpair often gains relative value when the top card pairs, not loses it.",
+        "B": "Correct. Pairing the top card removes many two-pair holdings, improving an overpair's relative strength.",
+        "C": "It is not the nuts; trips and full houses can still exist.",
+        "D": "An overpair on a paired top card is usually strong enough to continue."
+      }
+    },
+    {
+      "id": "pr_ptpf_135",
+      "concept": "board_pairing",
+      "question": "On a paired board, a player who suddenly check-raises should make you cautious because:",
+      "options": [
+        "Check-raises on paired boards are always pure bluffs",
+        "No strong hands are possible on paired boards",
+        "Trips and full houses, though fewer, are concentrated in the check-raising range",
+        "The hand ends when the board pairs"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "While bluffs exist, the value portion (trips and boats) is real and must be respected.",
+        "B": "Strong hands like trips and full houses remain possible and dangerous.",
+        "C": "Correct. Aggression on paired boards often signals the limited but powerful trips-or-better holdings.",
+        "D": "Play continues; pairing the board does not end the hand."
+      }
+    },
+    {
+      "id": "pr_ptpf_136",
+      "concept": "cbet_spot",
+      "question": "You raise from the button, the big blind calls, and the flop is Q♠ 7♦ 2♣. A standard plan is:",
+      "options": [
+        "Check the entire range and surrender initiative",
+        "Overbet only with complete air",
+        "Fold to any check-raise automatically",
+        "Small c-bet at high frequency, leveraging range advantage on this dry queen-high board"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Checking everything wastes a clear range advantage on a favorable board.",
+        "B": "Betting only air is unbalanced; you should mix value and bluffs.",
+        "C": "Auto-folding to check-raises is exploitable and ignores your strong holdings.",
+        "D": "Correct. The button's range hits queens and broadways well, and the dry board misses much of the BB's range."
+      }
+    },
+    {
+      "id": "pr_ptpf_137",
+      "concept": "cbet_spot",
+      "question": "You open the cutoff, the button calls, and the flop comes 9♥ 8♥ 7♦. Compared with a dry board, you should:",
+      "options": [
+        "C-bet less often and use larger sizing with your value and draws",
+        "C-bet small with your entire range at high frequency",
+        "Always check-fold the whole range",
+        "Overbet every hand including air"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. This wet, connected board favors the in-position caller's range, so you tighten and size up selectively.",
+        "B": "Small range-bets are for dry boards; this wet texture demands selectivity.",
+        "C": "Surrendering entirely ignores your strong hands and draws.",
+        "D": "Indiscriminate overbetting is unbalanced and -EV on this texture."
+      }
+    },
+    {
+      "id": "pr_ptpf_138",
+      "concept": "cbet_spot",
+      "question": "In a 3-bet pot, you are the preflop 3-bettor on A♦ K♣ 5♠. Your typical approach is:",
+      "options": [
+        "Check your whole range to look strong",
+        "C-bet at a high frequency, since your strong range smashes this ace-high board",
+        "Only bet hands worse than ace-high",
+        "Fold the flop to any bet"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Checking a range that dominates the board forfeits value and initiative.",
+        "B": "Correct. The 3-bettor's range is dense in big aces and broadways, giving a major edge on A-K-high boards.",
+        "C": "Betting only weak hands is unbalanced and gives up value with strong holdings.",
+        "D": "There is no bet to face as the aggressor; folding a dominant range is nonsensical."
+      }
+    },
+    {
+      "id": "pr_ptpf_139",
+      "concept": "cbet_spot",
+      "question": "As the preflop raiser on a low board like 5♦ 4♦ 3♣ against the big blind, you should be cautious because:",
+      "options": [
+        "Your high-card range smashes this board",
+        "You should overbet your entire range",
+        "This connected low board favors the big blind's defending range more than usual",
+        "The big blind always folds these flops"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "High-card hands often miss low connected boards, reducing your advantage.",
+        "B": "Overbetting a board that favors the caller is exploitable and unwise.",
+        "C": "Correct. The BB defends many small and connected hands that hit this texture, narrowing your edge and warranting a lower c-bet frequency.",
+        "D": "The BB connects with low boards often and will not fold at a high rate."
+      }
+    },
+    {
+      "id": "pr_ptpf_140",
+      "concept": "cbet_spot",
+      "question": "You c-bet the flop and the big blind check-raises on a dry board. With a marginal made hand, a sound default is to:",
+      "options": [
+        "Always reraise all-in with any hand",
+        "Always fold even your strongest hands",
+        "Ignore villain's range entirely",
+        "Often call or fold based on the strength of your hand and villain's check-raise range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Blindly shoving over a polarized check-raise commits chips with no plan and is exploitable.",
+        "B": "Folding your entire range overfolds and lets villain exploit you.",
+        "C": "Villain's check-raising range is central to the correct response.",
+        "D": "Correct. A dry-board check-raise is polarized, so you continue with your stronger holdings and fold the weakest, rather than blindly stacking off."
+      }
+    },
+    {
+      "id": "pr_ptpf_141",
+      "concept": "dry_cbet",
+      "question": "The 'range bet' concept on dry boards refers to:",
+      "options": [
+        "Betting a small size with your entire range because the board favors you uniformly",
+        "Betting only your strongest hands and checking the rest",
+        "Betting the maximum with every hand",
+        "Never betting and checking the whole range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. On boards that hit your range across the board, a small bet with everything is efficient and hard to exploit.",
+        "B": "That is a polarized approach; a range bet uses the whole range at one small size.",
+        "C": "Range bets use small sizing, not maximum sizing.",
+        "D": "A range bet is a bet, not a universal check."
+      }
+    },
+    {
+      "id": "pr_ptpf_142",
+      "concept": "dry_cbet",
+      "question": "Small high-frequency c-bets on dry boards are hard to exploit because:",
+      "options": [
+        "The opponent can always raise for value",
+        "The opponent cannot raise profitably against a range that is strong across the whole board",
+        "Small bets give the opponent perfect odds to bluff",
+        "They guarantee the opponent never folds"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "On a board that favors your range, the opponent has few profitable raises.",
+        "B": "Correct. Since your range connects well everywhere, the opponent lacks good raising spots, so your cheap bets print.",
+        "C": "A small range bet does not hand the opponent an easy bluffing edge across the board.",
+        "D": "Small c-bets still fold out many missed hands; folds happen frequently."
+      }
+    },
+    {
+      "id": "pr_ptpf_143",
+      "concept": "dry_cbet",
+      "question": "On K♠ 7♥ 2♦, a quarter-pot c-bet aims to:",
+      "options": [
+        "Charge a large price to nonexistent draws",
+        "Build a massive pot with a marginal hand",
+        "Win folds from the many missed hands cheaply while keeping bluffs and value balanced",
+        "Fold out the opponent's entire range including pairs"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "There are essentially no draws on this dry board to charge, so a big bet is unnecessary.",
+        "B": "A quarter-pot bet keeps the pot small, the opposite of building a massive pot.",
+        "C": "Correct. The tiny size risks little, exploits the BB's missed range, and is part of a balanced range bet.",
+        "D": "Small bets fold out air but keep many pairs and bluff-catchers in."
+      }
+    },
+    {
+      "id": "pr_ptpf_144",
+      "concept": "dry_cbet",
+      "question": "If an opponent over-folds to small c-bets on dry boards, the exploit is to:",
+      "options": [
+        "Stop c-betting entirely to avoid risk",
+        "Only c-bet your strongest hands",
+        "Check your whole range to induce bluffs",
+        "Increase your c-bet bluffing frequency to attack their excessive folding"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Refusing to c-bet against an over-folder forfeits free fold equity.",
+        "B": "Against over-folders you should bluff more, not restrict to value.",
+        "C": "Checking everything against an over-folder wastes the chance to exploit their folds.",
+        "D": "Correct. Against someone who folds too much, widening your c-bet bluffs captures extra fold equity."
+      }
+    },
+    {
+      "id": "pr_ptpf_145",
+      "concept": "protection_bet",
+      "question": "A protection bet is made primarily to:",
+      "options": [
+        "Charge drawing hands and deny them a cheap or free card to improve",
+        "Get called by hands that are already beating you",
+        "Guarantee you reach showdown for free",
+        "Force a split pot regardless of cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Protection betting prices out draws so opponents cannot realize their equity cheaply.",
+        "B": "Getting called by better is not the goal; protection denies equity to worse drawing hands.",
+        "C": "A protection bet costs chips and aims to deny equity, not secure a free showdown.",
+        "D": "Protection betting seeks to win the pot, not chop it."
+      }
+    },
+    {
+      "id": "pr_ptpf_146",
+      "concept": "protection_bet",
+      "question": "Protection betting is most valuable with a hand like:",
+      "options": [
+        "The stone-cold nuts on a blank board",
+        "A vulnerable top pair on a board with several live draws",
+        "A pure bluff with no showdown value",
+        "A hand already drawing dead"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The nuts has no equity to protect and can choose sizing purely for value.",
+        "B": "Correct. A strong-but-beatable made hand benefits from charging the many draws that could outdraw it.",
+        "C": "A bluff has no made-hand equity to protect; its goal is folds, not protection.",
+        "D": "A dead hand has no equity worth protecting."
+      }
+    },
+    {
+      "id": "pr_ptpf_147",
+      "concept": "protection_bet",
+      "question": "On a wet board, betting a vulnerable made hand rather than checking is often correct because:",
+      "options": [
+        "Checking always wins more with vulnerable hands",
+        "Betting guarantees the opponent folds the best hand",
+        "Checking gives free cards that let draws complete and outdraw you",
+        "Wet boards have no draws to protect against"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Checking a vulnerable hand on a wet board frequently lets opponents draw out for free.",
+        "B": "Protection bets charge draws; they do not guarantee folding out better made hands.",
+        "C": "Correct. A protection bet denies those draws their equity, whereas checking risks being outdrawn cheaply.",
+        "D": "Wet boards are defined by abundant draws, which is exactly why protection matters."
+      }
+    },
+    {
+      "id": "pr_ptpf_148",
+      "concept": "protection_bet",
+      "question": "The tension in protection betting a medium hand is that:",
+      "options": [
+        "There is never any downside to betting",
+        "Checking always denies the most equity",
+        "Medium hands cannot legally bet",
+        "Betting denies equity but can fold out worse and get called by better"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Protection bets can fold out worse hands and face better ones, so downsides exist.",
+        "B": "Checking gives free cards, which is the opposite of denying equity.",
+        "C": "Any hand may bet; the decision is strategic, not a legality.",
+        "D": "Correct. You must weigh the value of charging draws against the risk of isolating yourself against superior hands."
+      }
+    },
+    {
+      "id": "pr_ptpf_149",
+      "concept": "bluff_freq",
+      "question": "When an opponent folds far too often to flop c-bets, the correct adjustment is to:",
+      "options": [
+        "C-bet more bluffs, since every fold prints chips",
+        "C-bet only premium value hands",
+        "Stop betting and check everything",
+        "Fold your own strong hands"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Against an over-folder, widening your bluffing frequency directly exploits their excessive folding.",
+        "B": "Restricting to value misses the fold equity an over-folder hands you.",
+        "C": "Checking against an over-folder forgoes easy profit from their folds.",
+        "D": "Folding strong hands against an over-folder is a clear mistake."
+      }
+    },
+    {
+      "id": "pr_ptpf_150",
+      "concept": "bluff_freq",
+      "question": "Against a 'calling station' who rarely folds, you should:",
+      "options": [
+        "Bluff every street relentlessly",
+        "Value bet more and bluff far less",
+        "Check your strong hands to trap",
+        "Fold all your made hands"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bluffing a station who never folds simply burns chips.",
+        "B": "Correct. Since fold equity is low, you profit by betting strong hands thinly and abandoning most bluffs.",
+        "C": "Against a station, betting strong hands for value beats checking, since they pay off.",
+        "D": "Folding made hands against a loose caller forfeits clear value."
+      }
+    },
+    {
+      "id": "pr_ptpf_151",
+      "concept": "bluff_freq",
+      "question": "The GTO motivation for mixing bluffs with value is to:",
+      "options": [
+        "Ensure you always have the best hand when betting",
+        "Guarantee opponents fold every time",
+        "Make the opponent indifferent so they cannot exploit you by always calling or folding",
+        "Avoid ever getting called"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Always having value is unbalanced and lets opponents fold all but the nuts.",
+        "B": "Balanced betting does not guarantee folds; it removes exploitability.",
+        "C": "Correct. Balanced frequencies remove the opponent's profitable pure strategy, protecting you from exploitation.",
+        "D": "Value bets specifically want calls; balance is not about avoiding calls."
+      }
+    },
+    {
+      "id": "pr_ptpf_152",
+      "concept": "bluff_freq",
+      "question": "Exploitative deviations from balanced frequencies are justified when:",
+      "options": [
+        "You have no information about the opponent",
+        "The opponent is playing perfectly balanced",
+        "You simply feel like gambling",
+        "You have a reliable read that the opponent over-folds or over-calls"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Without reads, default balanced play is safer than guessing at exploits.",
+        "B": "Against a balanced opponent there is no leak to exploit, so deviation loses EV.",
+        "C": "Profitable exploits require evidence of a leak, not a gambling impulse.",
+        "D": "Correct. Strong reads let you profitably deviate from balance to attack the opponent's specific leak."
+      }
+    },
+    {
+      "id": "pr_ptpf_153",
+      "concept": "spr",
+      "question": "Stack-to-pot ratio (SPR) on the flop measures:",
+      "options": [
+        "The effective stack divided by the size of the pot",
+        "The number of players still in the hand",
+        "The total rake taken by the house",
+        "The size of the big blind only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SPR compares remaining chips to the pot, guiding how committable a hand is.",
+        "B": "SPR is a ratio of chips to pot, not a player count.",
+        "C": "Rake is unrelated to SPR.",
+        "D": "SPR uses effective stacks and pot size, not just the blind."
+      }
+    },
+    {
+      "id": "pr_ptpf_154",
+      "concept": "spr",
+      "question": "A low SPR (e.g., 2) on the flop generally means:",
+      "options": [
+        "You should fold all top pairs immediately",
+        "Strong made hands are happy to commit stacks quickly",
+        "Drawing hands have huge implied odds",
+        "Bluffing is always mandatory"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Low SPR makes strong top pairs more committable, not folds.",
+        "B": "Correct. With little behind relative to the pot, top pair or an overpair can comfortably get the money in.",
+        "C": "Low SPR limits implied odds because little money remains to be won.",
+        "D": "Low SPR does not mandate bluffing; it favors committing strong made hands."
+      }
+    },
+    {
+      "id": "pr_ptpf_155",
+      "concept": "spr",
+      "question": "A high SPR (deep stacks) increases the value of:",
+      "options": [
+        "Marginal one-pair hands wanting to stack off",
+        "Pure bluffs with no equity",
+        "Hands with strong implied odds, like sets and big draws",
+        "Hands that can never improve"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "High SPR makes marginal one-pair hands harder to play, not easier to commit.",
+        "B": "Deep stacks raise the risk of bluffing into a hand that can call big.",
+        "C": "Correct. Deep stacks let hands that flop or draw to the nuts win large pots when they connect.",
+        "D": "High SPR rewards hands with upside; static no-improvement hands gain little."
+      }
+    },
+    {
+      "id": "pr_ptpf_156",
+      "concept": "spr",
+      "question": "Planning bet sizing across streets with SPR in mind helps you:",
+      "options": [
+        "Avoid ever putting chips in the pot",
+        "Guarantee the opponent folds the river",
+        "Ignore the strength of your hand",
+        "Set up a smooth path to commit the right amount by the river with your strong hands"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "SPR planning is about how to commit chips effectively, not avoiding bets.",
+        "B": "SPR planning shapes commitment; it does not guarantee folds.",
+        "C": "SPR planning works together with hand strength, not instead of it.",
+        "D": "Correct. Considering SPR lets you size flop and turn bets so stacks go in naturally when you want them to."
+      }
+    },
+    {
+      "id": "pr_ptpf_157",
+      "concept": "thin_value",
+      "question": "Thin value betting the river is correct when:",
+      "options": [
+        "More than half of the hands that call are worse than yours",
+        "Only better hands will ever call",
+        "You hold a busted draw",
+        "The opponent has folded already"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. If the calling range is weighted toward worse hands, betting gains value even by a small margin.",
+        "B": "If only better hands call, betting loses value; you should check instead.",
+        "C": "A busted draw has no showdown value to extract; that is a bluff or a check, not thin value.",
+        "D": "There is no one to extract value from if the opponent folded."
+      }
+    },
+    {
+      "id": "pr_ptpf_158",
+      "concept": "thin_value",
+      "question": "The risk of a thin value bet is that:",
+      "options": [
+        "It always gets folds from worse hands",
+        "You may get raised or called by better, losing the value you sought",
+        "It guarantees a chopped pot",
+        "It can never be wrong"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Thin value seeks calls from worse, and usually gets some; it does not always fold them out.",
+        "B": "Correct. Thin value walks a fine line; a raise or a call from better can turn a profitable bet into a loss.",
+        "C": "Thin value aims to win extra chips, not to chop.",
+        "D": "Thin value is a delicate judgment that can be wrong if the calling range is too strong."
+      }
+    },
+    {
+      "id": "pr_ptpf_159",
+      "concept": "thin_value",
+      "question": "Checking back instead of thin value betting is better when:",
+      "options": [
+        "Worse hands call your bet very often",
+        "You hold the absolute nuts",
+        "The hands that would call are mostly equal or better than yours",
+        "The board is completely blank with no callers"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If worse hands call often, betting for thin value is correct, not checking.",
+        "B": "The nuts wants to bet big for value, not check for showdown.",
+        "C": "Correct. If betting only gets action from hands that beat or tie you, checking captures showdown value more safely.",
+        "D": "If no one will call, the bet simply fails, but that is a bluffing concern, not a thin-value one."
+      }
+    },
+    {
+      "id": "pr_ptpf_160",
+      "concept": "cbet_def",
+      "question": "Heads-up, the small blind raises preflop and the big blind calls. On the flop, who is positioned to make a c-bet?",
+      "options": [
+        "The big blind, because they act first",
+        "Whoever has fewer chips",
+        "Neither player, since c-bets need three players",
+        "The small blind, who was the preflop aggressor"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Acting first does not make a bet a c-bet; the c-bet belongs to the preflop aggressor, here the small blind.",
+        "B": "Stack size does not determine who holds preflop initiative.",
+        "C": "C-bets occur heads-up just fine; the aggressor can continue.",
+        "D": "Correct. The small blind raised preflop, so a flop bet from them is the continuation bet."
+      }
+    },
+    {
+      "id": "pr_ptpf_161",
+      "concept": "value_bet",
+      "question": "Betting a set on a wet flop is primarily a:",
+      "options": [
+        "Value bet that also denies equity to the many draws",
+        "Pure bluff hoping for folds",
+        "Pot-control check disguised as a bet",
+        "Move that only makes sense out of position"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A set is a strong made hand wanting calls from worse while charging the board's draws.",
+        "B": "A set is near the top of your range; betting it seeks value, not folds.",
+        "C": "A set on a wet board usually bets for value and protection rather than controlling the pot.",
+        "D": "Betting a set for value is correct from any position."
+      }
+    },
+    {
+      "id": "pr_ptpf_162",
+      "concept": "wet_board",
+      "question": "On a two-tone, connected flop, including draws in your c-betting range helps because:",
+      "options": [
+        "They guarantee you the best hand right now",
+        "They provide equity when called and balance your value bets",
+        "They make your range entirely face-up",
+        "They remove the opponent's ability to call"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Draws are usually behind made hands; their value is potential and balance.",
+        "B": "Correct. Semi-bluffing draws gives backup equity and disguises your strong made hands.",
+        "C": "Mixing draws conceals your range rather than revealing it.",
+        "D": "Opponents can still call; draws simply add equity to your bets."
+      }
+    },
+    {
+      "id": "pr_ptpf_163",
+      "concept": "bet_sizing",
+      "question": "If the pot is $80 and you bet $20, the opponent must call $20 to win $100, needing about:",
+      "options": [
+        "33% equity",
+        "50% equity",
+        "17% equity",
+        "25% equity"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "33% corresponds to a pot-sized bet, far larger than this quarter-pot bet.",
+        "B": "50% would require a 2x-pot overbet, not a small quarter-pot bet.",
+        "C": "Correct. They risk $20 to win $100 total, so 20/120 ≈ 17% break-even equity.",
+        "D": "25% is the half-pot figure; a quarter-pot bet needs only ~17%."
+      }
+    },
+    {
+      "id": "pr_ptpf_164",
+      "concept": "pot_odds",
+      "question": "You hold a flush draw (9 outs) on the turn with one card to come. Your chance to hit is roughly:",
+      "options": [
+        "About 35%",
+        "About 50%",
+        "About 8%",
+        "About 19.6%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "35% is the two-card flop-to-river figure, not one card on the turn.",
+        "B": "A single-card flush draw is far from a coinflip.",
+        "C": "8% is a one-card gutshot, well below a flush draw's single-card equity.",
+        "D": "Correct. Nine outs among 46 unseen cards is about 9/46 ≈ 19.6% (the rule of 2 gives ~18%)."
+      }
+    },
+    {
+      "id": "pr_ptpf_165",
+      "concept": "equity_realization",
+      "question": "A hand realizes more than 100% of its raw equity when:",
+      "options": [
+        "Its position and playability let it win more often than a coin-flip share would suggest",
+        "It always loses at showdown",
+        "It is played from out of position with poor playability",
+        "It folds before the flop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Strong position and the ability to apply pressure can let a hand over-realize its theoretical equity.",
+        "B": "Always losing means under-realizing, not exceeding raw equity.",
+        "C": "Poor OOP playability causes under-realization, not over-realization.",
+        "D": "Folding preflop realizes none of the hand's potential equity."
+      }
+    },
+    {
+      "id": "pr_ptpf_166",
+      "concept": "range_advantage",
+      "question": "On a disconnected high board like A♠ Q♦ 6♣, range advantage favors the preflop raiser because:",
+      "options": [
+        "The caller always flopped two pair",
+        "Their range is denser in aces, queens, and broadway combinations",
+        "The board provides a flush draw for the caller",
+        "Range advantage never exists on high boards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The caller rarely makes two pair here; the raiser's broadway range dominates.",
+        "B": "Correct. The raiser holds far more of the strong top-pair and overpair combos that smash this board.",
+        "C": "A♠ Q♦ 6♣ is rainbow with no flush draw.",
+        "D": "High disconnected boards are prime spots for raiser range advantage."
+      }
+    },
+    {
+      "id": "pr_ptpf_167",
+      "concept": "barrel",
+      "question": "After c-betting a flop and getting called, an ace on the turn is a good second-barrel card when:",
+      "options": [
+        "The ace clearly improved only the caller's range",
+        "You have already folded the hand",
+        "The ace favors your range and you can credibly represent strong aces",
+        "The pot has shrunk to zero"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If the ace helps the caller more, the barrel loses fold equity.",
+        "B": "A folded hand cannot barrel the turn.",
+        "C": "Correct. A turned overcard that fits your range increases fold equity for a barrel.",
+        "D": "Pots do not shrink to zero mid-hand; the barrel targets the live pot."
+      }
+    },
+    {
+      "id": "pr_ptpf_168",
+      "concept": "check_raise",
+      "question": "Check-raising the flop as a bluff is most credible when:",
+      "options": [
+        "You only ever check-raise with pure air",
+        "You never have value hands in the line",
+        "You hold the worst hand and have no plan",
+        "Your check-raise range is balanced with enough value hands to back up the bluffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "An all-bluff check-raise range is exploitable; balance with value is required.",
+        "B": "Without value, the check-raise is face-up as a bluff.",
+        "C": "Check-raising aimless air with no equity or blockers is typically unprofitable.",
+        "D": "Correct. A credible check-raise needs value combos so opponents cannot simply call or reraise your bluffs freely."
+      }
+    },
+    {
+      "id": "pr_ptpf_169",
+      "concept": "river_decisions",
+      "question": "A 'blocker bet' (small river bet out of position) is often used to:",
+      "options": [
+        "Set a cheap price and avoid facing a larger bet if you check",
+        "Maximize value with the absolute nuts",
+        "Guarantee the opponent folds every time",
+        "Force the opponent all-in"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A small lead can deny the opponent the chance to make a bigger bet, controlling the price with a marginal hand.",
+        "B": "The nuts prefers a larger sizing for value, not a tiny blocker bet.",
+        "C": "A small blocker bet often gets called; it does not guarantee folds.",
+        "D": "A tiny blocker bet does the opposite of forcing a shove."
+      }
+    },
+    {
+      "id": "pr_ptpf_170",
+      "concept": "position",
+      "question": "From early position you should open a tighter range than from the button because:",
+      "options": [
+        "Early position guarantees the best cards",
+        "More players remain to act, lowering your equity realization",
+        "The button must always fold to early position",
+        "Hand strength is irrelevant from early position"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Position does not change the cards dealt; it changes realization and required strength.",
+        "B": "Correct. With many players left who can wake up with strong hands, early-position hands realize less and require more strength.",
+        "C": "The button is not forced to fold; it actually enjoys positional advantage.",
+        "D": "Hand strength is more, not less, important from early position."
+      }
+    },
+    {
+      "id": "pr_ptpf_171",
+      "concept": "overbet",
+      "question": "An overbet bluff is most credible when:",
+      "options": [
+        "Your range contains only medium-strength hands",
+        "You could never have a strong hand in this line",
+        "Your range includes nutted hands that would also overbet for value",
+        "The opponent holds the nuts every time"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Medium hands do not support overbet sizing; the bluff lacks a credible value threat.",
+        "B": "If you can never be strong, the overbet bluff is not credible.",
+        "C": "Correct. The threat of the nuts in your overbetting range makes the bluff believable and pressures capped opponents.",
+        "D": "If the opponent always has the nuts, an overbet bluff will be called, not folded to."
+      }
+    },
+    {
+      "id": "pr_ptpf_172",
+      "concept": "multiway",
+      "question": "In a multiway pot, a marginal top pair should more often:",
+      "options": [
+        "Bet huge for thin value into everyone",
+        "Always shove all-in",
+        "Bluff every street regardless of opponents",
+        "Lean toward pot control, since more opponents raise the chance one is ahead"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Thin value into multiple players is risky because someone is more likely to have a strong hand.",
+        "B": "Shoving a marginal hand multiway over-commits against likely strong holdings.",
+        "C": "Multiway fold equity is low, so relentless bluffing with a marginal hand is unwise.",
+        "D": "Correct. With several players, a marginal made hand is more likely beaten, so controlling the pot is prudent."
+      }
+    },
+    {
+      "id": "pr_ptpf_173",
+      "concept": "texture_change",
+      "question": "A turn that pairs the board can be a good bluffing card for the aggressor because:",
+      "options": [
+        "It often misses the caller's range while you can still represent trips or a full house",
+        "It guarantees the caller now has trips",
+        "It forces the caller to call any bet",
+        "It ends the hand immediately"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Pairing cards reduce villain's strong combos and let the bettor credibly represent the newly possible big hands.",
+        "B": "Most calling hands miss the pairing card; trips are relatively rare.",
+        "C": "A pairing card tends to reduce, not force, the caller's continues.",
+        "D": "Play continues after the turn; the hand is not over."
+      }
+    },
+    {
+      "id": "pr_ptpf_174",
+      "concept": "semi_bluff",
+      "question": "A combo draw (flush draw plus open-ended straight draw) is a premium semi-bluff because:",
+      "options": [
+        "It has no outs and relies only on folds",
+        "It has so many outs that it is often a favorite or near-even against made hands",
+        "It is already the nuts and needs no improvement",
+        "It can only be played by checking"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A combo draw has many outs; that is exactly what makes it strong.",
+        "B": "Correct. With around 15 outs, a combo draw can be ahead of one pair, making aggressive semi-bluffing highly profitable.",
+        "C": "A draw is not yet made; its strength is the large number of outs.",
+        "D": "Combo draws are prime betting and raising hands, not check-only holdings."
+      }
+    },
+    {
+      "id": "pr_ptpf_175",
+      "concept": "dry_board",
+      "question": "On a dry, disconnected board, the preflop raiser's small c-bet is hard to attack because:",
+      "options": [
+        "The opponent can always raise for value cheaply",
+        "The bet size makes folding illegal",
+        "The opponent rarely has a hand strong enough to raise profitably",
+        "The opponent is guaranteed to hold the nuts"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Dry boards that favor the bettor leave the opponent with few profitable raises.",
+        "B": "Opponents are always free to fold; bet size does not change that.",
+        "C": "Correct. When the board favors the bettor's whole range, the opponent lacks good raising spots, so the cheap c-bet prints.",
+        "D": "On a dry board favoring the bettor, the opponent rarely holds a nutted hand."
+      }
+    },
+    {
+      "id": "pr_ptpf_176",
+      "concept": "turn_decisions",
+      "question": "Double-barreling a turn that improves your equity (e.g., picking up a flush draw) is good because:",
+      "options": [
+        "You can never win the pot if called",
+        "It only works with the nuts",
+        "It removes the opponent's option to fold",
+        "You gain fold equity now and outs to win if called"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Picking up a draw gives you outs precisely for when you are called.",
+        "B": "Semi-bluff barrels use draws, not the nuts.",
+        "C": "Opponents may still fold or call; the barrel mixes fold equity with draw equity.",
+        "D": "Correct. The combination of added pressure and new draw equity gives the barrel two ways to win."
+      }
+    }
+  ]
+}

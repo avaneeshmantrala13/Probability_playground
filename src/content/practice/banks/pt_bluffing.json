@@ -1,0 +1,3157 @@
+{
+  "lessonId": "pt_bluffing",
+  "track": "poker-theory",
+  "title": "Bluffing & Semi-Bluffs",
+  "questions": [
+    {
+      "id": "pr_ptbl_001",
+      "concept": "pure_bluff",
+      "question": "Which statement best defines a pure bluff?",
+      "options": [
+        "Betting a hand with almost no chance to win if called, relying on folds",
+        "Betting a strong made hand to get called by worse",
+        "Checking a draw to see a free card",
+        "Calling a river bet with a marginal hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A pure bluff has little or no showdown equity and wins almost exclusively through fold equity.",
+        "B": "That describes a value bet, which wants calls from worse hands, not a bluff.",
+        "C": "Checking to realize equity is a passive line, not a bluff.",
+        "D": "Calling is a bluff-catch or value decision, not a bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_002",
+      "concept": "pure_bluff",
+      "question": "A pure bluff makes money in exactly one way. What is it?",
+      "options": [
+        "You always improve on the river",
+        "Your opponent folds a better hand",
+        "The board pairs your kicker",
+        "You get to showdown cheaply"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "If you reliably improved you would not be bluffing — that would be a draw or made hand.",
+        "B": "Correct. A pure bluff has no meaningful backup equity, so its entire profit comes from making a better hand fold.",
+        "C": "Catching a pair gives the hand showdown value, which is not the pure-bluff win condition.",
+        "D": "Reaching showdown with air usually loses; bluffs need folds, not cheap showdowns."
+      }
+    },
+    {
+      "id": "pr_ptbl_003",
+      "concept": "semi_bluff",
+      "question": "What distinguishes a semi-bluff from a pure bluff?",
+      "options": [
+        "A semi-bluff is only made on the river",
+        "A semi-bluff never wants a fold",
+        "A semi-bluff can win the pot by improving even when called",
+        "A semi-bluff is always larger than a pure bluff"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A river bet has no more cards to come, so it cannot be a semi-bluff; semi-bluffs occur on the flop or turn.",
+        "B": "A semi-bluff is happy to win immediately via a fold; it simply also has backup equity.",
+        "C": "Correct. A semi-bluff bets a draw, so it wins immediately if villain folds and can still win by completing when called.",
+        "D": "Sizing is unrelated to whether a bet is a semi-bluff or a pure bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_004",
+      "concept": "fold_equity",
+      "question": "Fold equity refers to:",
+      "options": [
+        "The rake taken by the house",
+        "The size of the blinds in the pot",
+        "The raw strength of your hand at showdown",
+        "The value you gain from the probability your opponent folds"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Rake reduces winnings but has nothing to do with fold equity.",
+        "B": "Blinds are dead money already in the pot, not fold equity.",
+        "C": "Showdown strength is separate from how often a bet makes opponents fold.",
+        "D": "Correct. Fold equity is the expected value contributed by the chance the opponent folds to your aggression."
+      }
+    },
+    {
+      "id": "pr_ptbl_005",
+      "concept": "fold_equity",
+      "question": "Against which opponent do you have the LEAST fold equity?",
+      "options": [
+        "A calling station who rarely folds once involved",
+        "A tight player who folds to most aggression",
+        "A short stack scared to bust the tournament",
+        "A player whose range is mostly air"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A calling station folds infrequently, so your bluffs rarely take the pot down — minimal fold equity.",
+        "B": "Tight players fold often, giving you high fold equity.",
+        "C": "A scared short stack often folds more, increasing fold equity.",
+        "D": "An air-heavy range folds to pressure, giving you plenty of fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_006",
+      "concept": "bluff_ratio",
+      "question": "You bet $50 into a $100 pot as a pure bluff with no equity if called. What fold frequency do you need to break even?",
+      "options": [
+        "25%",
+        "33%",
+        "50%",
+        "67%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "25% corresponds to a quarter-pot bet, not a half-pot bet.",
+        "B": "Correct. Break-even fold % = bet / (bet + pot) = 50 / (50 + 100) = 1/3 ≈ 33%.",
+        "C": "50% is the break-even for a pot-sized bet, not a half-pot bet.",
+        "D": "67% is the defender's minimum defense frequency versus a half-pot bet, not the bluffer's break-even."
+      }
+    },
+    {
+      "id": "pr_ptbl_007",
+      "concept": "bluff_ratio",
+      "question": "A pure bluff of pot size (bet = pot) needs the opponent to fold at least:",
+      "options": [
+        "33% of the time",
+        "40% of the time",
+        "50% of the time",
+        "67% of the time"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "33% is the threshold for a half-pot bet, which risks less.",
+        "B": "40% is the break-even for a 2x-pot overbet, not a pot-sized bet.",
+        "C": "Correct. Break-even = bet / (bet + pot) = P / (P + P) = 1/2 = 50%.",
+        "D": "67% would apply to roughly a 2x-pot bet, not a pot-sized bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_008",
+      "concept": "board_texture",
+      "question": "Which flop is generally the best single-barrel bluffing texture for the preflop raiser heads-up?",
+      "options": [
+        "9♥ 8♥ 7♠ (very coordinated)",
+        "6♥ 5♥ 4♥ (monotone and connected)",
+        "J♠ T♠ 9♦ (wet, draw-heavy)",
+        "A♣ 7♦ 2♠ (dry, ace-high)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A coordinated 9-8-7 hits a caller's range hard and offers many draws to continue, lowering fold equity.",
+        "B": "A monotone connected board is loaded with made hands and draws that happily continue.",
+        "C": "A wet J-T-9 connects with many calling hands and draws, so bluffs get called or raised often.",
+        "D": "Correct. A dry ace-high board favors the raiser's range and gives the caller few strong hands or draws, so c-bet bluffs fold out plenty of air."
+      }
+    },
+    {
+      "id": "pr_ptbl_009",
+      "concept": "story",
+      "question": "Telling a 'credible story' with a bluff means:",
+      "options": [
+        "Choosing a line that matches hands your value range would also play this way",
+        "Betting a random amount so you are unpredictable",
+        "Only bluffing when you hold the nuts",
+        "Talking to convince the opponent you are strong"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A believable bluff represents a plausible value hand, so the opponent cannot easily rule out that you are strong.",
+        "B": "Random sizing often breaks the story and tips off observant opponents.",
+        "C": "If you held the nuts it would be a value bet, not a bluff.",
+        "D": "Table talk is unreliable; the story is told through sizing and line, not chatter."
+      }
+    },
+    {
+      "id": "pr_ptbl_010",
+      "concept": "blockers",
+      "question": "Holding the A♠ on a final board of K♠ 9♠ 4♠ 2♦ when bluffing is valuable because it:",
+      "options": [
+        "Guarantees you win the pot if called",
+        "Removes nut-flush combinations from the opponent's range",
+        "Means you already have a made flush",
+        "Has no effect on the opponent's holdings"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Holding one ace does not make a hand; if called by any made hand you typically lose.",
+        "B": "Correct. The A♠ blocks the nut flush, so the opponent holds fewer of the strongest hands and folds more often.",
+        "C": "A single A♠ is not a flush; you would need the ace plus the board's spades in your own hand.",
+        "D": "Card removal directly reduces the combos of strong spade hands villain can have."
+      }
+    },
+    {
+      "id": "pr_ptbl_011",
+      "concept": "mdf",
+      "question": "Minimum defense frequency (MDF) describes:",
+      "options": [
+        "How often the bettor should bluff",
+        "The percentage of pots you should win",
+        "The fraction of range a defender must continue with to stop any-two-card bluffs from auto-profiting",
+        "How often you should fold to a preflop 3-bet"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "How often to bluff is the bettor's value-to-bluff question, not MDF.",
+        "B": "MDF is about defending against bets, not a target win rate.",
+        "C": "Correct. MDF = pot / (pot + bet); defending at least this fraction makes a pure any-two bluff unprofitable.",
+        "D": "MDF is a general defense concept, not a specific preflop rule."
+      }
+    },
+    {
+      "id": "pr_ptbl_012",
+      "concept": "mdf",
+      "question": "Facing a half-pot bet, a defender's minimum defense frequency is approximately:",
+      "options": [
+        "33%",
+        "50%",
+        "80%",
+        "67%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "33% is the bluffer's break-even fold target versus a half-pot bet — the complement of MDF.",
+        "B": "50% MDF corresponds to a pot-sized bet, not a half-pot bet.",
+        "C": "80% MDF applies to a quarter-pot bet, which is much smaller.",
+        "D": "Correct. MDF = pot / (pot + bet) = 1 / (1 + 0.5) ≈ 67%, so you defend about two-thirds of your range."
+      }
+    },
+    {
+      "id": "pr_ptbl_013",
+      "concept": "semi_bluff_ev",
+      "question": "Why can a semi-bluff be profitable even when villain folds less than a pure bluff would require?",
+      "options": [
+        "Because the draw's equity adds value on the times you get called",
+        "Because the rules give semi-bluffs a discount",
+        "Because semi-bluffs are always checked",
+        "Because draws never lose at showdown"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A semi-bluff wins when villain folds and retains chances to win by completing when called, lowering the required fold frequency.",
+        "B": "There is no rule discount; the advantage is purely the added equity.",
+        "C": "A semi-bluff is by definition a bet or raise, not a check.",
+        "D": "Draws often miss and lose; they merely add some equity, not a guarantee."
+      }
+    },
+    {
+      "id": "pr_ptbl_014",
+      "concept": "draw_equity",
+      "question": "A flush draw on the flop has 9 outs. Using the rule of 4, roughly what is its chance to complete by the river?",
+      "options": [
+        "About 18%",
+        "About 36%",
+        "About 24%",
+        "About 50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "18% is the rule-of-2 estimate for a single card (turn only), not flop-to-river.",
+        "B": "Correct. Rule of 4: 9 × 4 ≈ 36% (the precise figure is about 35%) to hit by the river.",
+        "C": "24% understates it; that is closer to two overcards.",
+        "D": "50% greatly overstates a nine-out flush draw's two-card equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_015",
+      "concept": "give_up",
+      "question": "When is giving up on a bluff usually the best decision?",
+      "options": [
+        "Whenever you have already invested chips, keep firing to justify them",
+        "Only before the flop",
+        "When fold equity has disappeared and your story no longer makes sense",
+        "Never — good players always triple barrel"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Already-invested chips are sunk cost; chasing them with more bluffs compounds losses.",
+        "B": "Bluffs and give-ups happen across all postflop streets, not just preflop.",
+        "C": "Correct. If villain shows strength or your line stops representing value, more bluffs burn chips with little fold equity.",
+        "D": "Reflexively triple-barreling without fold equity is a classic losing leak."
+      }
+    },
+    {
+      "id": "pr_ptbl_016",
+      "concept": "multiway",
+      "question": "Why are bluffs generally worse in multiway pots than heads-up?",
+      "options": [
+        "The pot is too small to matter",
+        "Bluffing is against the rules multiway",
+        "Multiway pots have no fold equity at all",
+        "Each extra opponent is another player who can wake up with a hand and call"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Multiway pots are usually larger, and size is not the core issue.",
+        "B": "Bluffing is legal; it is simply less effective against multiple opponents.",
+        "C": "There is still some fold equity multiway, just far less than heads-up.",
+        "D": "Correct. You need everyone to fold, so the chance all opponents fold drops sharply with each added player."
+      }
+    },
+    {
+      "id": "pr_ptbl_017",
+      "concept": "position",
+      "question": "Why is bluffing typically easier in position than out of position?",
+      "options": [
+        "Acting last lets you see the opponent's action before deciding",
+        "Out of position you can never bet",
+        "Position has no impact on bluff success",
+        "In position you are forced to bluff every hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acting last lets you bluff when weakness is shown and shut down when strength appears.",
+        "B": "You can bet out of position; it is just harder to control the pot.",
+        "C": "Position strongly affects information and pot control, which drive bluff EV.",
+        "D": "Position is an advantage, not an obligation to bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_018",
+      "concept": "bet_sizing",
+      "question": "All else equal, a larger pure-bluff bet relative to the pot:",
+      "options": [
+        "Requires the opponent to fold less often to break even",
+        "Requires the opponent to fold more often to break even",
+        "Has no effect on the break-even fold frequency",
+        "Is always the most profitable choice"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This reverses the math; larger bets need a higher fold frequency, not lower.",
+        "B": "Correct. Break-even fold % = bet/(bet+pot), which rises with bet size, so bigger bluffs must succeed more often.",
+        "C": "Bet size clearly changes the break-even fold frequency.",
+        "D": "Bigger is not automatically better; profitability depends on how often the opponent folds."
+      }
+    },
+    {
+      "id": "pr_ptbl_019",
+      "concept": "value_to_bluff",
+      "question": "For a balanced pot-sized river bet, what value-to-bluff ratio makes a bluff-catcher indifferent?",
+      "options": [
+        "1:1 (equal value and bluffs)",
+        "3:1 (three value bets per bluff)",
+        "2:1 (two value bets per bluff)",
+        "1:2 (two bluffs per value bet)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Equal value and bluffs over-bluffs a pot-sized bet, making calls profitable.",
+        "B": "3:1 is the balanced ratio for a half-pot bet, not a pot-sized bet.",
+        "C": "Correct. For a pot-sized river bet, bluffs are about 1/3 of the betting range — a 2:1 value-to-bluff ratio.",
+        "D": "Bluffing more than you value bet is wildly exploitable."
+      }
+    },
+    {
+      "id": "pr_ptbl_020",
+      "concept": "scare_card",
+      "question": "A 'scare card' that supports a turn or river barrel bluff is one that:",
+      "options": [
+        "Helps the caller's range more than yours",
+        "Is always the lowest card in the deck",
+        "Never changes either player's range",
+        "Improves a range you can represent while missing the caller's continuing range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A card that helps the caller is the opposite of a scare card for you.",
+        "B": "Low cards are usually blanks, not scare cards.",
+        "C": "A blank that changes nothing gives little extra fold equity.",
+        "D": "Correct. A card you can credibly represent that misses villain's range generates fold equity for a barrel."
+      }
+    },
+    {
+      "id": "pr_ptbl_021",
+      "concept": "pure_bluff",
+      "question": "A 'stone-cold bluff' on the river is best described as betting with:",
+      "options": [
+        "A hand that beats nothing in villain's calling range",
+        "The current best hand",
+        "Top pair top kicker",
+        "A flush draw with two cards to come"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A stone-cold bluff has no showdown value and only wins if villain folds.",
+        "B": "If you hold the best hand it is a value bet, not a bluff.",
+        "C": "Top pair top kicker bets for value and protection, not as a bluff.",
+        "D": "On the river there are no cards to come, so this cannot be a draw or semi-bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_022",
+      "concept": "semi_bluff",
+      "question": "Which holding is the strongest semi-bluff candidate to raise on a 8♠ 7♠ 2♦ flop?",
+      "options": [
+        "Q♣ Q♦ (overpair)",
+        "A♠ 9♠ (nut flush draw plus a gutshot)",
+        "3♥ 3♣ (small pair)",
+        "K♦ 2♣ (bottom pair)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An overpair is usually a value hand that prefers to bet/call rather than semi-bluff raise.",
+        "B": "Correct. The nut flush draw plus gutshot has many outs and blocks strong spade hands, ideal for a semi-bluff raise.",
+        "C": "A small pair has little equity to add and no draw — closer to a marginal call or fold.",
+        "D": "Bottom pair is a weak made hand, not a strong semi-bluff with outs."
+      }
+    },
+    {
+      "id": "pr_ptbl_023",
+      "concept": "fold_equity",
+      "question": "Fold equity tends to be HIGHEST when:",
+      "options": [
+        "Many players remain in the pot",
+        "The opponent has shown strength by raising",
+        "The opponent's range is capped and contains many weak hands",
+        "Stacks are extremely deep and the opponent is curious"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "More players means more chances someone holds a hand, lowering fold equity.",
+        "B": "A raise signals strength and a range that continues, reducing fold equity.",
+        "C": "Correct. A capped, weak range folds frequently to pressure, maximizing fold equity.",
+        "D": "Deep stacks and curiosity often mean more calls, not more folds."
+      }
+    },
+    {
+      "id": "pr_ptbl_024",
+      "concept": "bluff_ratio",
+      "question": "You bet $25 into a $100 pot as a pure bluff. What fold frequency breaks you even?",
+      "options": [
+        "50%",
+        "25%",
+        "33%",
+        "20%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50% is the pot-sized threshold, far larger than a quarter-pot bet.",
+        "B": "25% corresponds to a one-third-pot bet, not a quarter-pot bet.",
+        "C": "33% is the half-pot threshold.",
+        "D": "Correct. Break-even = bet/(bet+pot) = 25/125 = 20%."
+      }
+    },
+    {
+      "id": "pr_ptbl_025",
+      "concept": "bluff_ratio",
+      "question": "A 2x-pot overbet bluff with no equity if called needs the opponent to fold at least:",
+      "options": [
+        "67%",
+        "60%",
+        "50%",
+        "75%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Break-even = bet/(bet+pot) = 2/(2+1) = 2/3 ≈ 67%.",
+        "B": "60% is the break-even for a 1.5x-pot bet.",
+        "C": "50% is the pot-sized threshold; an overbet needs more.",
+        "D": "75% corresponds to a 3x-pot bet, larger than 2x pot."
+      }
+    },
+    {
+      "id": "pr_ptbl_026",
+      "concept": "board_texture",
+      "question": "On which river is a bluff most credible if you have been representing a flush draw?",
+      "options": [
+        "A blank that pairs the bottom card",
+        "The card that completes the flush you were drawing to",
+        "A brick that changes nothing",
+        "An offsuit ace unrelated to your draws"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A pairing blank doesn't complete the story you were telling about a flush draw.",
+        "B": "Correct. The flush-completing card lets you credibly represent the very hand your line suggested, maximizing fold equity.",
+        "C": "A brick fails to complete the draw you represented, so the story stalls.",
+        "D": "An unrelated ace does not complete the flush you were drawing to."
+      }
+    },
+    {
+      "id": "pr_ptbl_027",
+      "concept": "story",
+      "question": "You call preflop, then on a Q-7-2 flop you check-call, check-call turn, and lead a big river bet. The most credible story for this line is:",
+      "options": [
+        "A busted high-card bluff",
+        "Pure air with no plan",
+        "A slowplayed strong hand that woke up on the river",
+        "A missed flush draw"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A busted bluff usually cannot credibly lead big after passively calling down.",
+        "B": "Aimless air does not form a coherent narrative for a large river lead.",
+        "C": "Correct. Check-call lines that suddenly lead the river can credibly represent a trap or a hand that just improved.",
+        "D": "A missed flush draw has no showdown value and is a weaker story than a strong made hand for a value-style lead."
+      }
+    },
+    {
+      "id": "pr_ptbl_028",
+      "concept": "blockers",
+      "question": "On a J♥ T♥ 4♠ 2♥ 5♦ board, which blocker is BEST for a river bluff representing the nut flush?",
+      "options": [
+        "The 2♦ in your hand",
+        "The A♠ in your hand",
+        "The 4♣ in your hand",
+        "The A♥ in your hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The 2♦ blocks a low pair, not the nut flush combos.",
+        "B": "The A♠ is the wrong suit and blocks no flush combos on this heart board.",
+        "C": "The 4♣ blocks only a paired four, not the flushes you want to fold out.",
+        "D": "Correct. Holding the A♥ removes the nut flush from villain's range, so your bluff faces fewer calls from the strongest hands."
+      }
+    },
+    {
+      "id": "pr_ptbl_029",
+      "concept": "give_up",
+      "question": "You c-bet a bluff on the flop and get check-raised by a tight, straightforward opponent. The standard play with pure air is to:",
+      "options": [
+        "Fold, since the check-raise represents strength and your equity is low",
+        "Always 3-bet shove as a bigger bluff",
+        "Call to see another card with no plan",
+        "Slow-roll your air"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Against a straightforward player a check-raise means strength; with no equity and no fold equity, folding is best.",
+        "B": "Re-bluffing a tight player who just showed strength is high-risk and usually -EV.",
+        "C": "Calling with air and no draw simply donates chips.",
+        "D": "Slow-rolling is poor etiquette and irrelevant to the decision."
+      }
+    },
+    {
+      "id": "pr_ptbl_030",
+      "concept": "station",
+      "question": "The correct overall adjustment against a pure calling station is to:",
+      "options": [
+        "Bluff much more because they fear aggression",
+        "Bluff far less and value bet thinner and bigger",
+        "Check every strong hand for deception",
+        "Only play premium hands and never bet"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "More bluffs against a non-folder loses money quickly.",
+        "B": "Correct. Stations rarely fold, so cut bluffs and extract maximum value with wider, larger value bets.",
+        "C": "Checking strong hands forfeits value the station would have paid off.",
+        "D": "Only playing premiums leaves easy value on the table against a loose caller."
+      }
+    },
+    {
+      "id": "pr_ptbl_031",
+      "concept": "double_barrel",
+      "question": "You c-bet a bluff on K♦ 6♣ 3♠ and get called. Which turn card is the best second-barrel bluff card?",
+      "options": [
+        "A 3, pairing the bottom card and changing little for you",
+        "A 6, pairing the board and helping villain's trips",
+        "An ace, which you can represent and which scares the caller's middling hands",
+        "A blank deuce that helps neither range"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A 3 pairs the bottom and does little to scare the caller's range.",
+        "B": "A pairing 6 helps the caller's sixes and rarely improves your story.",
+        "C": "Correct. An ace adds a card to your representable range and pressures the caller's weak kings and pairs, generating fold equity.",
+        "D": "A pure blank gives no extra fold equity over the flop."
+      }
+    },
+    {
+      "id": "pr_ptbl_032",
+      "concept": "draw_equity",
+      "question": "An open-ended straight draw has 8 outs. By the river (two cards), its approximate equity is:",
+      "options": [
+        "About 17%",
+        "About 24%",
+        "About 45%",
+        "About 32%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "17% is the one-card (single street) estimate for 8 outs.",
+        "B": "24% understates the two-card equity of an open-ender.",
+        "C": "45% is closer to a 12-out combo draw, not a plain open-ender.",
+        "D": "Correct. Rule of 4: 8 × 4 ≈ 32% (about 31.5% precisely) by the river."
+      }
+    },
+    {
+      "id": "pr_ptbl_033",
+      "concept": "polarization",
+      "question": "A 'polarized' betting range is composed of:",
+      "options": [
+        "Strong value hands and bluffs, with few medium hands",
+        "Only medium-strength hands",
+        "Exclusively the nuts",
+        "A random mix unrelated to hand strength"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A polarized range pairs strong value with bluffs, which is why large bets and overbets fit it well.",
+        "B": "Medium hands belong to a merged or capped range, not a polarized one.",
+        "C": "Betting only the nuts is too narrow and easily exploited by folding.",
+        "D": "Polarization is defined precisely by hand strength, not randomness."
+      }
+    },
+    {
+      "id": "pr_ptbl_034",
+      "concept": "overbet",
+      "question": "Overbet bluffs (betting more than the pot) work best when:",
+      "options": [
+        "Your range is capped at one pair",
+        "Your range is polarized and the board favors your strong hands",
+        "You hold only medium-strength hands",
+        "The opponent's range is uncapped and very strong"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A capped range cannot credibly overbet, since you rarely hold the strongest hands.",
+        "B": "Correct. Overbets leverage a polarized range with nutted hands and bluffs on boards where you can credibly hold the nuts.",
+        "C": "Medium hands do not want to bloat the pot with an overbet.",
+        "D": "If villain's range is uncapped and strong, an overbet finds too many calls."
+      }
+    },
+    {
+      "id": "pr_ptbl_035",
+      "concept": "value_to_bluff",
+      "question": "For a balanced half-pot river bet, the value-to-bluff ratio that makes a bluff-catcher indifferent is about:",
+      "options": [
+        "1:1",
+        "2:1",
+        "3:1",
+        "3:2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1:1 over-bluffs a half-pot bet.",
+        "B": "2:1 is the balanced ratio for a pot-sized bet.",
+        "C": "Correct. Bluffs are about B/(P+2B) = 0.5/2 = 25% of the range, giving 3 value bets per bluff.",
+        "D": "3:2 is the balanced ratio for a 2x-pot overbet."
+      }
+    },
+    {
+      "id": "pr_ptbl_036",
+      "concept": "check_raise_bluff",
+      "question": "A check-raise bluff out of position is most effective when:",
+      "options": [
+        "Five players are still in the pot",
+        "The bettor only continuation-bets the nuts",
+        "You hold the absolute worst possible hand with no blockers",
+        "You can credibly represent strong hands and the bettor's c-bet range is wide and weak"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A crowded multiway pot makes any bluff, including check-raises, far less effective.",
+        "B": "If the bettor only c-bets the nuts, your raise gets called or re-raised by strength.",
+        "C": "Bluffing without any blockers and the worst hand is the least efficient choice.",
+        "D": "Correct. Check-raise bluffs punish wide, weak c-betting ranges while representing the nutted hands you can have."
+      }
+    },
+    {
+      "id": "pr_ptbl_037",
+      "concept": "draw_equity",
+      "question": "On the flop, a gutshot straight draw has 4 outs. Its approximate equity to hit by the river is:",
+      "options": [
+        "About 16%",
+        "About 8%",
+        "About 25%",
+        "About 32%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Rule of 4: 4 × 4 ≈ 16% (about 16.5%) by the river.",
+        "B": "8% is roughly the single-card (one street) chance for a gutshot.",
+        "C": "25% overstates a four-out draw's two-card equity.",
+        "D": "32% is closer to an eight-out open-ender."
+      }
+    },
+    {
+      "id": "pr_ptbl_038",
+      "concept": "range_advantage",
+      "question": "Having a 'range advantage' on a flop means:",
+      "options": [
+        "You always have the single best hand",
+        "Your overall range is stronger than the opponent's on that board",
+        "You have more chips than the opponent",
+        "You acted first preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Range advantage is about the whole range, not any one hand.",
+        "B": "Correct. Range advantage means your distribution of hands fares better than villain's on that texture, supporting more betting and bluffing.",
+        "C": "Stack size is not the same as range strength.",
+        "D": "Acting order is position, not range advantage."
+      }
+    },
+    {
+      "id": "pr_ptbl_039",
+      "concept": "capped_range",
+      "question": "A range is 'capped' when:",
+      "options": [
+        "It has exactly four combinations",
+        "It contains only the nuts",
+        "It cannot contain the strongest possible hands",
+        "It is always all-in"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Cap describes strength ceiling, not a fixed combo count.",
+        "B": "Containing only the nuts is the opposite of capped — it is the uncapped extreme.",
+        "C": "Correct. A capped range lacks the top of the distribution, making it vulnerable to large bets and overbet bluffs.",
+        "D": "Being all-in is unrelated to whether a range is capped."
+      }
+    },
+    {
+      "id": "pr_ptbl_040",
+      "concept": "blocker_bluff",
+      "question": "On a 9♠ 8♠ 5♠ 2♣ 2♦ board, which hand is the best pure bluff to fire the river representing a flush?",
+      "options": [
+        "2♥ 3♥ (trip deuces — actually a value hand)",
+        "K♥ Q♥ (no spade)",
+        "7♣ 6♣ (busted straight, no spade)",
+        "A♠ K♦ (holds the nut-flush blocker)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Trip deuces is a made value hand, not a bluff.",
+        "B": "K♥ Q♥ holds no spade and blocks none of villain's flushes.",
+        "C": "A busted straight with no spade blocks nothing relevant to the flush you represent.",
+        "D": "Correct. The A♠ blocks the nut flush, so villain holds the strongest flushes less often and folds more to your bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_041",
+      "concept": "semi_bluff_ev",
+      "question": "Compared with checking a flush draw, semi-bluff betting it adds value primarily by:",
+      "options": [
+        "Creating fold equity on top of the draw's existing equity",
+        "Guaranteeing the flush completes",
+        "Removing the opponent's ability to ever have a hand",
+        "Reducing your own number of outs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Betting the draw can win immediately via folds while still retaining the chance to hit, combining two ways to win.",
+        "B": "Betting does not change the odds of completing the draw.",
+        "C": "Betting cannot remove villain's holdings; it only pressures them.",
+        "D": "Your out count is unchanged by betting versus checking."
+      }
+    },
+    {
+      "id": "pr_ptbl_042",
+      "concept": "bluff_ratio",
+      "question": "A bluffer risks $80 to win a $160 pot (half-pot). The break-even fold frequency is closest to:",
+      "options": [
+        "40%",
+        "33%",
+        "50%",
+        "67%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "40% would correspond to a two-thirds-pot bet.",
+        "B": "Correct. 80/(80+160) = 80/240 = 1/3 ≈ 33%.",
+        "C": "50% is the pot-sized threshold.",
+        "D": "67% is the defender's MDF here, not the bluffer's break-even."
+      }
+    },
+    {
+      "id": "pr_ptbl_043",
+      "concept": "donk_bluff",
+      "question": "A 'donk bet' bluff is when the player who:",
+      "options": [
+        "Checks and then calls",
+        "Raised preflop continues betting",
+        "Did not take the betting lead on the prior street leads into the previous aggressor",
+        "Folds out of turn"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Checking and calling is passive, not a donk lead.",
+        "B": "The preflop raiser continuing is a standard c-bet, not a donk bet.",
+        "C": "Correct. A donk bet is an out-of-turn lead by the player who was not the previous aggressor, often used as a bluff on cards that favor the caller.",
+        "D": "Folding out of turn is a procedural error, not a bluffing line."
+      }
+    },
+    {
+      "id": "pr_ptbl_044",
+      "concept": "float",
+      "question": "Floating the flop as a bluff plan means:",
+      "options": [
+        "Checking back the nuts for value",
+        "Folding immediately to any bet",
+        "Raising all-in on the flop",
+        "Calling a flop bet with a weak hand intending to take the pot away on a later street"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Checking back the nuts is a slowplay, not a float bluff.",
+        "B": "Folding is the opposite of floating.",
+        "C": "Shoving the flop is a different, more committed line.",
+        "D": "Correct. A float calls the flop with little made-hand value, planning to bluff later when villain shows weakness."
+      }
+    },
+    {
+      "id": "pr_ptbl_045",
+      "concept": "fold_equity",
+      "question": "Fold equity in a semi-bluff all-in is most relevant because:",
+      "options": [
+        "Folds let you win without needing to complete the draw",
+        "All-ins remove the value of your draw",
+        "Fold equity only matters preflop",
+        "Once all-in there are no more decisions, so folds cannot happen"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The shove can win immediately if villain folds, and you still have draw equity when called — two ways to win.",
+        "B": "An all-in does not erase the draw's equity when called.",
+        "C": "Fold equity applies on every street, not just preflop.",
+        "D": "When you shove, the opponent still chooses to call or fold, so fold equity exists."
+      }
+    },
+    {
+      "id": "pr_ptbl_046",
+      "concept": "triple_barrel",
+      "question": "A successful triple-barrel bluff most depends on:",
+      "options": [
+        "Random sizing on each street",
+        "A consistent story and runouts that favor your representable range",
+        "Holding the nuts the whole way",
+        "The pot staying small"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Erratic sizing undermines the story and invites calls.",
+        "B": "Correct. Three streets of pressure require a coherent narrative and cards that keep credibly representing strong hands.",
+        "C": "Holding the nuts makes it value betting, not bluffing.",
+        "D": "Triple barrels build a large pot; a small pot is not the goal."
+      }
+    },
+    {
+      "id": "pr_ptbl_047",
+      "concept": "board_texture",
+      "question": "Why are paired boards (e.g., K♣ K♦ 5♠) often good single-barrel bluff spots heads-up?",
+      "options": [
+        "Paired boards have the most draws",
+        "The board guarantees you a full house",
+        "The caller connects with fewer combos, so a bet folds out air frequently",
+        "Bluffing is impossible on paired boards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Paired dry boards typically have FEW draws, which is why they favor bluffs.",
+        "B": "The board does not give you any specific hand.",
+        "C": "Correct. Paired, dry boards miss most of the caller's range, giving a c-bet bluff plenty of fold equity.",
+        "D": "Bluffing is very much possible — often profitable — on such textures."
+      }
+    },
+    {
+      "id": "pr_ptbl_048",
+      "concept": "unblocker",
+      "question": "When choosing a river bluff, you ideally want a hand that blocks villain's calls and UN-blocks their folds. That means you prefer to:",
+      "options": [
+        "Hold no relevant cards at all",
+        "Hold cards in villain's folding range",
+        "Hold the exact cards villain needs to fold",
+        "Hold cards in villain's continuing range and not hold cards in their folding range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Ignoring removal entirely forfeits a key bluff-selection edge.",
+        "B": "Holding cards in their folding range means you remove hands that would have folded — bad for a bluff.",
+        "C": "Blocking the hands that fold reduces the number of folds you get.",
+        "D": "Correct. Blocking value/continuing combos lowers the chance of a call, while not blocking folding hands keeps those folds available."
+      }
+    },
+    {
+      "id": "pr_ptbl_049",
+      "concept": "draw_equity",
+      "question": "A combo draw of a flush draw plus an open-ended straight draw has about 15 outs. Its rough equity by the river is:",
+      "options": [
+        "About 54%",
+        "About 45%",
+        "About 32%",
+        "About 70%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Rule of 4 gives 15 × 4 = 60% as a rough cap, with the true figure near 54% by the river.",
+        "B": "45% is closer to a 12-out draw.",
+        "C": "32% is closer to a plain open-ender, not a 15-out monster.",
+        "D": "70% overstates even a 15-out combo draw's equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_050",
+      "concept": "equity_realization",
+      "question": "Semi-bluffing a draw rather than check-calling improves equity realization mainly because:",
+      "options": [
+        "It always completes your draw faster",
+        "Folds let you realize the pot immediately, and betting can deny the opponent free improvement",
+        "It removes the rake",
+        "It forces the dealer to give better cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Betting does not change the speed or odds of hitting a draw.",
+        "B": "Correct. Aggression adds fold equity and can charge or fold out hands that would otherwise outdraw or outlast you.",
+        "C": "Betting does not eliminate rake.",
+        "D": "Card distribution is random and unaffected by your action."
+      }
+    },
+    {
+      "id": "pr_ptbl_051",
+      "concept": "pure_bluff",
+      "question": "A pure bluff differs from a value bet because the bluff wants the opponent to ___ while the value bet wants the opponent to ___.",
+      "options": [
+        "fold; fold",
+        "call; fold",
+        "fold; call",
+        "call; call"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A value bet wants calls, not folds.",
+        "B": "This reverses the goals of each bet type.",
+        "C": "Correct. Bluffs profit from folds; value bets profit from calls by worse hands.",
+        "D": "A bluff wants folds, not calls."
+      }
+    },
+    {
+      "id": "pr_ptbl_052",
+      "concept": "semi_bluff",
+      "question": "Which is NOT a semi-bluff?",
+      "options": [
+        "Raising a flop with a flush draw and two overcards",
+        "Betting the turn with an open-ended straight draw",
+        "Raising the flop with a gutshot plus backdoor flush draw",
+        "Betting the river with a busted draw and no equity"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A flush draw with overcards is a classic semi-bluff with significant equity.",
+        "B": "Betting an open-ender has both fold equity and draw equity — a semi-bluff.",
+        "C": "A gutshot plus backdoor flush adds equity, qualifying as a (light) semi-bluff.",
+        "D": "Correct. On the river with a busted draw and no equity, there is no draw left, so it is a pure bluff, not a semi-bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_053",
+      "concept": "fold_equity",
+      "question": "Adding fold equity to a draw's pot equity means the total break-even bar for a semi-bluff bet is:",
+      "options": [
+        "Lower than for a pure bluff of the same size",
+        "Higher than for a pure bluff of the same size",
+        "Exactly the same as a pure bluff",
+        "Always 50% regardless of equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The draw's equity when called reduces how often villain must fold for the bet to break even.",
+        "B": "Backup equity lowers, not raises, the required fold frequency.",
+        "C": "Pure bluffs have no backup equity, so their bar is higher.",
+        "D": "The threshold depends on bet size and equity, not a fixed 50%."
+      }
+    },
+    {
+      "id": "pr_ptbl_054",
+      "concept": "bluff_ratio",
+      "question": "A three-quarter-pot pure bluff needs the opponent to fold approximately:",
+      "options": [
+        "33%",
+        "43%",
+        "50%",
+        "60%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "33% corresponds to a half-pot bet.",
+        "B": "Correct. 0.75/(0.75+1) = 0.75/1.75 ≈ 43%.",
+        "C": "50% is the pot-sized threshold.",
+        "D": "60% corresponds to a 1.5x-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_055",
+      "concept": "mdf",
+      "question": "Against a pot-sized bet, the defender's minimum defense frequency is:",
+      "options": [
+        "33%",
+        "67%",
+        "50%",
+        "75%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "33% MDF would correspond to a 2x-pot bet.",
+        "B": "67% MDF corresponds to a half-pot bet.",
+        "C": "Correct. MDF = pot/(pot+bet) = 1/(1+1) = 50%.",
+        "D": "75% MDF corresponds to a one-third-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_056",
+      "concept": "mdf",
+      "question": "MDF is an EXPLOITATIVE defense concept that can be ignored when:",
+      "options": [
+        "It is always mandatory regardless of opponent",
+        "The bettor is perfectly balanced",
+        "You are forced to defend by the rules",
+        "The bettor under-bluffs and almost never has air"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "MDF is a guideline, not a mandate; exploit imbalanced opponents instead.",
+        "B": "Against a balanced bettor, defending near MDF is appropriate.",
+        "C": "There is no rule forcing defense; it is a strategic choice.",
+        "D": "Correct. If a player rarely bluffs, you can over-fold below MDF because their bets are mostly value."
+      }
+    },
+    {
+      "id": "pr_ptbl_057",
+      "concept": "value_to_bluff",
+      "question": "As your bet size increases on the river, the share of bluffs in a balanced betting range should:",
+      "options": [
+        "Increase",
+        "Decrease",
+        "Stay the same",
+        "Drop to zero"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Larger bets give the caller worse odds, so you can include a higher proportion of bluffs (e.g., overbets allow ~40% bluffs).",
+        "B": "Smaller, not larger, bets support fewer bluffs.",
+        "C": "The balanced bluff fraction B/(P+2B) changes with bet size.",
+        "D": "You never drop bluffs to zero in a balanced polarized range."
+      }
+    },
+    {
+      "id": "pr_ptbl_058",
+      "concept": "double_barrel",
+      "question": "You bluff a flop and get called by a likely middle-pair-type range. The turn pairs the top card. This card:",
+      "options": [
+        "Always gives the caller trips",
+        "Mostly helps your representable range and pressures the caller's pairs",
+        "Is a blank that changes nothing",
+        "Forces you to check"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The caller only rarely holds the exact card to make trips.",
+        "B": "Correct. A top-card pair is a card you can represent (you could hold trips), and it threatens the caller's one-pair hands.",
+        "C": "Pairing the top card is a meaningful range-shifting card, not a blank.",
+        "D": "Nothing forces a check; barreling is often correct here."
+      }
+    },
+    {
+      "id": "pr_ptbl_059",
+      "concept": "story",
+      "question": "Which line tells the LEAST credible bluff story for a big river bet?",
+      "options": [
+        "Raise flop, bet turn, bet river representing a set or straight",
+        "Bet flop, bet turn, bet river on a coordinated runout",
+        "Check flop, check turn, then suddenly overbet a blank river",
+        "Call flop, bet turn after a scare card, bet river"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Raise-bet-bet credibly represents strong made hands.",
+        "B": "A consistent three-street bet line on a coordinated board tells a coherent story.",
+        "C": "Correct. Two checks then a sudden overbet on a blank rarely matches a value line, so observant opponents call more.",
+        "D": "Calling then leading after a scare card can credibly represent improvement."
+      }
+    },
+    {
+      "id": "pr_ptbl_060",
+      "concept": "blockers",
+      "question": "Blockers improve a bluff by:",
+      "options": [
+        "Improving your own hand strength to the nuts",
+        "Increasing the size of the pot automatically",
+        "Guaranteeing the opponent folds",
+        "Reducing the number of strong-hand combinations the opponent can hold"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A blocker is a single card and does not make your hand the nuts.",
+        "B": "Blockers do not change pot size.",
+        "C": "Blockers raise fold frequency but never guarantee a fold.",
+        "D": "Correct. By removing key cards, blockers shrink villain's continuing combos and raise the chance they fold."
+      }
+    },
+    {
+      "id": "pr_ptbl_061",
+      "concept": "semi_bluff",
+      "question": "On the turn you hold a bare flush draw (9 outs) and decide to semi-bluff shove. The shove has fold equity PLUS roughly what one-card equity if called?",
+      "options": [
+        "About 19%",
+        "About 9%",
+        "About 35%",
+        "About 50%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Rule of 2: 9 × 2 ≈ 18-19% to hit on the river (one card).",
+        "B": "9% is far too low for a nine-out draw on a single card.",
+        "C": "35% is the two-card (flop-to-river) figure, but only one card remains after the turn.",
+        "D": "50% massively overstates a one-card flush draw."
+      }
+    },
+    {
+      "id": "pr_ptbl_062",
+      "concept": "opponent_type",
+      "question": "Against a tight, fit-or-fold opponent, the best general adjustment is to:",
+      "options": [
+        "Bluff less and only value bet",
+        "Bluff more often, since they fold too much",
+        "Never bet at all",
+        "Slowplay every strong hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Cutting bluffs against an over-folder wastes their biggest leak.",
+        "B": "Correct. Players who fold too often hand you high fold equity, so increase bluff frequency.",
+        "C": "Never betting forfeits both fold equity and value.",
+        "D": "Slowplaying everything fails to pressure an opponent who folds readily."
+      }
+    },
+    {
+      "id": "pr_ptbl_063",
+      "concept": "bet_sizing",
+      "question": "When bluffing a draw on the flop, a reason to choose a LARGER size is:",
+      "options": [
+        "Because larger bets reduce your draw's equity",
+        "To guarantee you see the river for free",
+        "To maximize fold equity and charge worse draws/hands when you do get folds",
+        "To make the opponent's call always correct"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bet size does not change your draw's equity.",
+        "B": "Betting does not give you a free card.",
+        "C": "Correct. A bigger semi-bluff applies more pressure and folds out more equity, though it risks more chips.",
+        "D": "Larger bets give the caller worse odds, not automatically correct calls."
+      }
+    },
+    {
+      "id": "pr_ptbl_064",
+      "concept": "bluff_ratio",
+      "question": "A bluffer bets $30 into a $60 pot. The break-even fold frequency equals:",
+      "options": [
+        "25%",
+        "50%",
+        "40%",
+        "33%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "25% would be a one-third-pot bet ($20 into $60).",
+        "B": "50% is the pot-sized threshold.",
+        "C": "40% corresponds to a two-thirds-pot bet.",
+        "D": "Correct. 30/(30+60) = 30/90 = 1/3 ≈ 33%, a half-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_065",
+      "concept": "scare_card",
+      "question": "A turn card that is a great scare card for the in-position bettor on K♠ 8♦ 3♣ is:",
+      "options": [
+        "An ace, which you can represent and which beats the caller's kings",
+        "A 3, pairing the bottom of the board",
+        "An 8, pairing middle and aiding the caller",
+        "A 2, a meaningless blank"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The ace adds top pair to your range and threatens the caller's weaker kings and pairs, generating fold equity.",
+        "B": "Pairing the bottom 3 changes little and rarely scares the caller.",
+        "C": "An 8 helps the caller's middle pairs more than your bluff story.",
+        "D": "A blank deuce adds no fold equity beyond the flop."
+      }
+    },
+    {
+      "id": "pr_ptbl_066",
+      "concept": "multiway",
+      "question": "In a four-way pot, the probability that all three opponents fold to your bluff, even if each folds 60% independently, is roughly:",
+      "options": [
+        "60%",
+        "About 22%",
+        "About 36%",
+        "About 80%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "60% is the chance a single opponent folds, not all three.",
+        "B": "Correct. 0.6 × 0.6 × 0.6 ≈ 0.216 ≈ 22%, illustrating how multiway crushes fold equity.",
+        "C": "36% would be two opponents folding (0.6 × 0.6).",
+        "D": "80% overstates it; combining three folds lowers the joint probability sharply."
+      }
+    },
+    {
+      "id": "pr_ptbl_067",
+      "concept": "position",
+      "question": "A delayed c-bet bluff (checking flop in position, betting turn after villain checks again) gains value because:",
+      "options": [
+        "Checking the flop is always mandatory",
+        "It guarantees villain has the nuts",
+        "Villain's two checks suggest weakness, raising your fold equity",
+        "It removes your positional advantage"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Checking the flop is a choice, not a requirement.",
+        "B": "Checks usually indicate weakness, not the nuts.",
+        "C": "Correct. Two checks cap and weaken villain's range, so a turn stab finds plenty of folds.",
+        "D": "Acting last preserves, not removes, your positional edge."
+      }
+    },
+    {
+      "id": "pr_ptbl_068",
+      "concept": "draw_equity",
+      "question": "Two overcards on the flop (e.g., A-K on a low board) represent roughly how many outs to make top pair, and what two-card equity?",
+      "options": [
+        "12 outs, about 45%",
+        "3 outs, about 12%",
+        "9 outs, about 35%",
+        "6 outs, about 24%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "12 outs is closer to a combo draw, far more than two overcards.",
+        "B": "3 outs would be a single overcard, not two.",
+        "C": "9 outs and 35% describe a flush draw, not bare overcards.",
+        "D": "Correct. Two overcards have 6 outs (3 each), giving about 6 × 4 = 24% by the river."
+      }
+    },
+    {
+      "id": "pr_ptbl_069",
+      "concept": "polarization",
+      "question": "Why does a polarized range justify a large bet size?",
+      "options": [
+        "Big bets pressure bluff-catchers while your value hands still get paid",
+        "Big bets only make sense with medium hands",
+        "Polarized ranges contain no bluffs",
+        "Large bets reduce your value hands' winnings"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With nutted hands and bluffs, big bets maximize value and fold equity, putting bluff-catchers to a tough decision.",
+        "B": "Medium hands prefer small bets or checks, not large ones.",
+        "C": "Polarized ranges are defined by including bluffs alongside value.",
+        "D": "Large bets increase, not reduce, the winnings from value hands that get called."
+      }
+    },
+    {
+      "id": "pr_ptbl_070",
+      "concept": "give_up",
+      "question": "You triple-barrel bluff and villain tank-calls the river. Going forward, the lesson is to:",
+      "options": [
+        "Bluff them even bigger next time",
+        "Recognize this villain calls down light and reduce future bluffs against them",
+        "Never value bet them again",
+        "Assume all opponents play identically"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Escalating bluffs against a proven caller compounds losses.",
+        "B": "Correct. A light call-down signals low fold equity, so dial back bluffs and value bet them more.",
+        "C": "You should value bet a caller more, not stop entirely.",
+        "D": "Opponents differ; profiling each one is the point of adjusting."
+      }
+    },
+    {
+      "id": "pr_ptbl_071",
+      "concept": "blocker_bluff",
+      "question": "On a 7♥ 6♥ 2♣ 9♥ 4♠ board, which hand best blocks villain's nut flush for a river bluff?",
+      "options": [
+        "T♣ 8♦ (busted straight)",
+        "A♠ K♠",
+        "A♥ x (any ace of hearts)",
+        "K♦ Q♦"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A busted straight with no heart blocks nothing relevant.",
+        "B": "A♠ K♠ holds no heart and blocks none of the flush combos.",
+        "C": "Correct. The A♥ blocks the nut heart flush, the strongest hand villain can call with, increasing fold equity.",
+        "D": "K♦ Q♦ holds no heart, so it blocks no flush combos."
+      }
+    },
+    {
+      "id": "pr_ptbl_072",
+      "concept": "semi_bluff_ev",
+      "question": "A semi-bluff's expected value can be written as fold% × (pot won) plus called% × (equity-based EV when called). The second term is what distinguishes it from a pure bluff because for a pure bluff it is:",
+      "options": [
+        "Equal to the pot",
+        "Always larger than the first term",
+        "Always positive and large",
+        "Approximately zero (or negative) since there is no backup equity"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Pure bluffs do not win the pot when called, so it is not equal to the pot.",
+        "B": "For a pure bluff the called branch is a loss, not larger than the fold branch.",
+        "C": "Pure bluffs lose when called; the term is not positive.",
+        "D": "Correct. A pure bluff has negligible equity when called, so the called-branch EV is near zero or negative."
+      }
+    },
+    {
+      "id": "pr_ptbl_073",
+      "concept": "board_texture",
+      "question": "Why does a draw-heavy turn often REDUCE your fold equity when continuing a bluff?",
+      "options": [
+        "The opponent has many drawing hands that can profitably continue",
+        "Draws are illegal to call with",
+        "Wet boards always fold out everyone",
+        "Draw-heavy boards have no made hands"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Coordinated cards give villain straight/flush draws and made hands that call, lowering fold equity.",
+        "B": "Players routinely and legally call with draws.",
+        "C": "Wet boards generate continues, not mass folds.",
+        "D": "Wet boards have plenty of made hands plus draws."
+      }
+    },
+    {
+      "id": "pr_ptbl_074",
+      "concept": "bluff_ratio",
+      "question": "If a half-pot bluff needs villain to fold 33% to break even and villain actually folds 50%, the bluff is:",
+      "options": [
+        "Break-even exactly",
+        "Profitable, since actual folds exceed the break-even point",
+        "Unprofitable",
+        "Impossible to evaluate"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Break-even is at 33%; 50% is above it.",
+        "B": "Correct. Folding more than the 33% break-even makes the bluff +EV.",
+        "C": "Exceeding the break-even fold rate is profitable, not losing.",
+        "D": "With the numbers given the EV is clearly positive."
+      }
+    },
+    {
+      "id": "pr_ptbl_075",
+      "concept": "unblocker",
+      "question": "When river bluffing, holding a card that is in villain's FOLDING range is bad because it:",
+      "options": [
+        "Always makes villain call",
+        "Increases the pot",
+        "Removes a hand that would have folded, shrinking your fold equity",
+        "Improves your hand to a flush"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "It reduces folds, but does not force a call every time.",
+        "B": "Card removal does not change the pot size.",
+        "C": "Correct. Holding cards villain would fold means fewer of those folding combos remain in their range, reducing folds.",
+        "D": "A single removed card does not make you a flush."
+      }
+    },
+    {
+      "id": "pr_ptbl_076",
+      "concept": "overbet",
+      "question": "An overbet bluff on a brick river is most credible when the runout:",
+      "options": [
+        "Makes your range entirely bluffs",
+        "Has put four to a flush on a board you cannot have",
+        "Clearly favors the caller's range",
+        "Favors your range and you can hold the nutted hands you represent"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "An all-bluff overbetting range is exploitable by always calling.",
+        "B": "If you cannot credibly have the flush, the overbet story collapses.",
+        "C": "A caller-favoring runout undercuts your overbet representation.",
+        "D": "Correct. Overbets require nut advantage so your representation is believable and bluff-catchers fear the worst."
+      }
+    },
+    {
+      "id": "pr_ptbl_077",
+      "concept": "check_raise_bluff",
+      "question": "Good hands to check-raise bluff on a flush-draw flop are typically:",
+      "options": [
+        "Draws and backdoor combos that block value and improve when called",
+        "Made full houses",
+        "The absolute nuts only",
+        "Pure air with no equity and no blockers"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Semi-bluff check-raises with draws block value, add equity, and apply pressure — the ideal mix.",
+        "B": "Full houses prefer to keep villain's range in, not blast them out with a raise bluff.",
+        "C": "Raising only the nuts is value, not a check-raise bluff.",
+        "D": "Pure air with no equity is the weakest, least efficient check-raise bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_078",
+      "concept": "pure_bluff",
+      "question": "The biggest risk of habitually bluffing too much is that:",
+      "options": [
+        "You will always win the pot",
+        "Observant opponents start calling you down lighter, collapsing your fold equity",
+        "Your value bets get paid more",
+        "Nothing — bluffing more is always better"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Over-bluffing does not guarantee wins; it invites calls.",
+        "B": "Correct. Over-bluffing makes your bets less believable, so opponents call more and your bluffs fail.",
+        "C": "Over-bluffing can actually get value paid more, but the dominant cost is being called down — the leak is over-bluffing.",
+        "D": "There is a balance; bluffing too much is exploitable."
+      }
+    },
+    {
+      "id": "pr_ptbl_079",
+      "concept": "draw_equity",
+      "question": "Approximately what is the river-card (one-card) equity of an 8-out open-ended straight draw on the turn?",
+      "options": [
+        "About 8%",
+        "About 31%",
+        "About 17%",
+        "About 50%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "8% is closer to a four-out gutshot on one card.",
+        "B": "31% is the two-card equity, but only one card remains after the turn.",
+        "C": "Correct. Rule of 2: 8 × 2 ≈ 16-17% to complete on the river.",
+        "D": "50% massively overstates a one-card open-ender."
+      }
+    },
+    {
+      "id": "pr_ptbl_080",
+      "concept": "range_advantage",
+      "question": "Why does the preflop raiser usually have a range (and nut) advantage on an A-K-x flop?",
+      "options": [
+        "Range advantage never applies on ace-high boards",
+        "The caller always folds aces",
+        "High cards favor the blinds' range",
+        "Their raising range contains more strong aces and big broadways than the caller's"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Range advantage applies strongly precisely on high-card boards.",
+        "B": "The caller does not categorically fold aces.",
+        "C": "High broadway cards favor the raiser's range, not the blinds'.",
+        "D": "Correct. Raisers hold AA, AK, AQ, KK more often, so high boards favor them and support aggressive bluffing."
+      }
+    },
+    {
+      "id": "pr_ptbl_081",
+      "concept": "semi_bluff",
+      "question": "Which is the better semi-bluff RAISE on the flop, all else equal?",
+      "options": [
+        "A naked gutshot with a backdoor flush draw and two overcards",
+        "Bottom pair with no draw",
+        "A made set",
+        "Ace-high with no draw"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The gutshot plus backdoor flush plus overcards has multiple equity sources, making it a strong semi-bluff candidate.",
+        "B": "Bottom pair has weak equity and little upside as a raise bluff.",
+        "C": "A set is a value raise, not a semi-bluff.",
+        "D": "Ace-high with no draw lacks the backup equity that defines a good semi-bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_082",
+      "concept": "fold_equity",
+      "question": "If your bluff has zero fold equity AND zero equity when called, its EV is:",
+      "options": [
+        "Positive",
+        "Negative — you simply lose the chips you bet",
+        "Zero",
+        "Equal to the pot"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "There is no path to profit without folds or equity.",
+        "B": "Correct. With no folds and no way to win at showdown, betting only loses the wagered chips.",
+        "C": "You lose chips, so EV is negative, not zero.",
+        "D": "You do not win the pot; you forfeit your bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_083",
+      "concept": "bluff_ratio",
+      "question": "A 1.5x-pot overbet pure bluff needs the opponent to fold at least:",
+      "options": [
+        "50%",
+        "67%",
+        "60%",
+        "75%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "50% corresponds to a pot-sized bet.",
+        "B": "67% corresponds to a 2x-pot bet.",
+        "C": "Correct. 1.5/(1.5+1) = 1.5/2.5 = 60%.",
+        "D": "75% corresponds to a 3x-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_084",
+      "concept": "mdf",
+      "question": "Against a two-thirds-pot bet, the defender's MDF is closest to:",
+      "options": [
+        "50%",
+        "57%",
+        "67%",
+        "60%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50% MDF is for a pot-sized bet.",
+        "B": "57% MDF corresponds to a three-quarter-pot bet.",
+        "C": "67% MDF corresponds to a half-pot bet.",
+        "D": "Correct. MDF = 1/(1+0.667) ≈ 0.60 = 60%."
+      }
+    },
+    {
+      "id": "pr_ptbl_085",
+      "concept": "value_to_bluff",
+      "question": "For a balanced 2x-pot overbet on the river, the bluff fraction of the betting range is closest to:",
+      "options": [
+        "40%",
+        "33%",
+        "25%",
+        "50%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bluffs = B/(P+2B) = 2/(1+4) = 2/5 = 40% for a 2x-pot bet.",
+        "B": "33% is the pot-sized bluff fraction.",
+        "C": "25% is the half-pot bluff fraction.",
+        "D": "50% would over-bluff even an overbet."
+      }
+    },
+    {
+      "id": "pr_ptbl_086",
+      "concept": "capped_range",
+      "question": "You face an opponent whose line caps them at one pair (they checked back a draw-heavy flop). The best exploit on a scary turn is to:",
+      "options": [
+        "Check and give up",
+        "Bet large/overbet as a bluff, since they cannot have the strongest hands",
+        "Only bet your own one-pair hands",
+        "Fold all your bluffs"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Checking forfeits the exploit against a capped, foldable range.",
+        "B": "Correct. A capped range struggles versus big bets, so polarized large bluffs apply maximum pressure.",
+        "C": "Betting only one pair misses the chance to leverage your nut advantage with bluffs.",
+        "D": "Folding bluffs against a capped opponent wastes their vulnerability."
+      }
+    },
+    {
+      "id": "pr_ptbl_087",
+      "concept": "double_barrel",
+      "question": "A second-barrel bluff is generally WEAKER when the turn:",
+      "options": [
+        "Completes a draw you have been representing",
+        "Brings a scare card you can represent",
+        "Is a blank that does not change either range",
+        "Pairs the top card"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A completing card lets you credibly represent the made hand.",
+        "B": "A scare card you can represent boosts fold equity for a barrel.",
+        "C": "Correct. A blank shifts no ranges and adds no new fold equity, so the caller continues at the same rate.",
+        "D": "Pairing the top card is a representable, range-shifting card that aids barreling."
+      }
+    },
+    {
+      "id": "pr_ptbl_088",
+      "concept": "story",
+      "question": "Sizing tells in a bluff story matter because:",
+      "options": [
+        "Only the river size matters",
+        "Bigger is always more believable",
+        "Sizing has no information",
+        "Sizes that mismatch your value bets in similar spots can expose the bluff"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Sizes across all streets contribute to the story, not just the river.",
+        "B": "Bigger is not automatically believable; it must match a credible value size.",
+        "C": "Sizing carries significant information about your range.",
+        "D": "Correct. If you size bluffs differently from value in the same situation, observant opponents detect it and adjust."
+      }
+    },
+    {
+      "id": "pr_ptbl_089",
+      "concept": "blockers",
+      "question": "When bluffing to make villain fold a straight, the ideal blocker is a card that:",
+      "options": [
+        "Reduces the combos of the straight villain can hold",
+        "Pairs your own kicker",
+        "Is a low card unrelated to the straight",
+        "Is in your opponent's folding range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Holding a key card of the straight removes those combos, so villain less often has the hand and folds more.",
+        "B": "Pairing your kicker does not block villain's straight.",
+        "C": "An unrelated low card blocks none of the target straights.",
+        "D": "Blocking folding hands is counterproductive — you want to block calls."
+      }
+    },
+    {
+      "id": "pr_ptbl_090",
+      "concept": "semi_bluff_ev",
+      "question": "A turn semi-bluff shove with a flush draw is +EV when:",
+      "options": [
+        "Only when villain always folds",
+        "The combination of fold equity and draw equity exceeds the risk of the shove",
+        "Only when the flush is already complete",
+        "Never, because shoving draws is always bad"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You do not need villain to always fold; equity when called lowers the requirement.",
+        "B": "Correct. The two ways to win — folds now plus completing when called — together can clear the break-even bar.",
+        "C": "If the flush were complete it would be a value shove, not a semi-bluff.",
+        "D": "Semi-bluff shoves are frequently profitable, not always bad."
+      }
+    },
+    {
+      "id": "pr_ptbl_091",
+      "concept": "board_texture",
+      "question": "Which texture most favors a high c-bet bluff frequency for the preflop raiser?",
+      "options": [
+        "7♠ 7♥ 6♦ (paired and connected)",
+        "T♦ 9♦ 8♣ (very wet)",
+        "A♥ 6♣ 2♦ (dry, ace-high)",
+        "5♥ 4♥ 3♥ (monotone, connected)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A paired connected board gives the caller trips and straight draws to defend.",
+        "B": "A wet T-9-8 hits the caller's range and offers many draws to continue.",
+        "C": "Correct. A dry ace-high board favors the raiser's range and gives the caller few continues, supporting frequent small c-bet bluffs.",
+        "D": "A monotone connected board is rich in made hands and draws."
+      }
+    },
+    {
+      "id": "pr_ptbl_092",
+      "concept": "fold_equity",
+      "question": "Stack-to-pot ratio (SPR) affects fold equity because:",
+      "options": [
+        "Fold equity only exists at SPR exactly 1",
+        "SPR has no effect on folds",
+        "A high SPR means opponents never fold",
+        "A low SPR means smaller remaining bets generate less fold equity since opponents are pot-committed"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Fold equity exists across a wide range of SPRs, not a single value.",
+        "B": "SPR strongly influences commitment and therefore fold frequency.",
+        "C": "High SPR generally allows MORE fold equity, not none.",
+        "D": "Correct. With a low SPR, opponents are often committed and fold less, reducing fold equity; high SPR leaves room for meaningful pressure."
+      }
+    },
+    {
+      "id": "pr_ptbl_093",
+      "concept": "bluff_ratio",
+      "question": "You bet $100 into a $100 pot and your opponent must fold 50% for your bluff to break even. If they fold only 40%, the bluff is:",
+      "options": [
+        "Unprofitable, since 40% is below the 50% break-even",
+        "Profitable",
+        "Break-even",
+        "Impossible to evaluate"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Folding less than the break-even threshold makes the pure bluff lose money on average.",
+        "B": "Below the break-even fold rate the bluff is -EV.",
+        "C": "Break-even is at 50%; 40% is below it.",
+        "D": "The numbers clearly show a negative EV."
+      }
+    },
+    {
+      "id": "pr_ptbl_094",
+      "concept": "draw_equity",
+      "question": "A flush draw plus a gutshot gives roughly 12 outs. Its approximate two-card (flop-to-river) equity is:",
+      "options": [
+        "About 24%",
+        "About 45%",
+        "About 32%",
+        "About 60%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "24% is closer to two overcards (6 outs).",
+        "B": "Correct. Rule of 4: 12 × 4 = 48%, with the true figure near 45% by the river.",
+        "C": "32% is closer to a plain open-ender (8 outs).",
+        "D": "60% overstates a 12-out draw; that is closer to a 15-out monster."
+      }
+    },
+    {
+      "id": "pr_ptbl_095",
+      "concept": "give_up",
+      "question": "You bluff the flop and turn; the river is a brick and villain has called twice and looks committed. With pure air, the best play is usually to:",
+      "options": [
+        "Min-bet to 'block'",
+        "Always blast a big third barrel",
+        "Give up and check/fold rather than fire a third barrel into a sticky range",
+        "Open-fold before villain acts"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A block bet still risks chips with little fold equity and weak representation here.",
+        "B": "Firing into a committed caller with no fold equity is -EV.",
+        "C": "Correct. Two calls into a brick river signal low fold equity; an extra bluff barrel mostly burns chips.",
+        "D": "You cannot fold out of turn when it is your action to check or bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_096",
+      "concept": "blocker_bluff",
+      "question": "On Q♠ J♠ 4♦ 8♠ 2♥, you want to bluff representing the nut flush. Which blocker is most powerful?",
+      "options": [
+        "4♣ in your hand",
+        "K♥ in your hand",
+        "Q♦ in your hand",
+        "A♠ in your hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4♣ blocks a low pair, irrelevant to the flush you represent.",
+        "B": "K♥ blocks no spade flush; wrong suit.",
+        "C": "Q♦ blocks a top pair, not the nut flush.",
+        "D": "Correct. The A♠ blocks the nut flush combos, the very hands that would call, boosting fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_097",
+      "concept": "opponent_type",
+      "question": "A 'maniac' who raises and bets relentlessly is best countered by:",
+      "options": [
+        "Bluffing them less and inducing/value betting, since they bluff themselves",
+        "Out-bluffing them at every turn",
+        "Folding every hand",
+        "Only checking the nuts"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A maniac supplies the aggression; you profit by trapping and value betting rather than out-bluffing them.",
+        "B": "Trying to out-bluff a maniac leads to wild variance and spew.",
+        "C": "Folding everything surrenders the value their over-aggression offers.",
+        "D": "Checking only the nuts forfeits value from their constant bluffing."
+      }
+    },
+    {
+      "id": "pr_ptbl_098",
+      "concept": "semi_bluff",
+      "question": "The main downside of semi-bluffing very aggressively with weak draws is:",
+      "options": [
+        "You can never win the pot",
+        "You can get raised off your equity by stronger hands",
+        "Draws are illegal to bet",
+        "It always reduces variance"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Semi-bluffs can win by folds or by hitting; they certainly can win.",
+        "B": "Correct. Aggressive semi-bluffs risk facing a raise that forces you to fold your draw's equity.",
+        "C": "Betting draws is legal and standard.",
+        "D": "Aggressive semi-bluffing typically increases variance, not reduces it."
+      }
+    },
+    {
+      "id": "pr_ptbl_099",
+      "concept": "bet_sizing",
+      "question": "Using the SAME size for value bets and bluffs in a given spot is important because:",
+      "options": [
+        "It is required by poker rules",
+        "It guarantees more folds",
+        "It prevents opponents from reading your hand strength from your sizing",
+        "It lowers the pot every time"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Sizing is a strategic choice, not a rule.",
+        "B": "Matching sizes does not by itself create more folds.",
+        "C": "Correct. Consistent sizing keeps your range balanced and disguised, so opponents cannot exploit a 'big = value, small = bluff' tell.",
+        "D": "Bet size affects the pot, but consistency does not lower it."
+      }
+    },
+    {
+      "id": "pr_ptbl_100",
+      "concept": "mdf",
+      "question": "Against a quarter-pot bet, a defender's MDF is approximately:",
+      "options": [
+        "50%",
+        "67%",
+        "75%",
+        "80%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50% MDF is for a pot-sized bet.",
+        "B": "67% MDF is for a half-pot bet.",
+        "C": "75% MDF is for a one-third-pot bet.",
+        "D": "Correct. MDF = 1/(1+0.25) = 1/1.25 = 80% against a quarter-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_101",
+      "concept": "pure_bluff",
+      "question": "Which best captures why a pure bluff and a thin value bet are NOT the same?",
+      "options": [
+        "A bluff profits only when better hands fold; thin value profits when worse hands call",
+        "They both want folds",
+        "They both want calls",
+        "They are identical in every way"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The win conditions are opposite: bluffs want folds from better, thin value wants calls from worse.",
+        "B": "Thin value wants calls, not folds.",
+        "C": "A pure bluff wants folds, not calls.",
+        "D": "Their goals are opposite, so they are not identical."
+      }
+    },
+    {
+      "id": "pr_ptbl_102",
+      "concept": "fold_equity",
+      "question": "Increasing your bet size raises fold equity only up to a point because:",
+      "options": [
+        "Bigger bets always fold out everyone",
+        "Eventually opponents only continue with hands that beat you, so extra size just risks more",
+        "Fold equity grows without limit",
+        "Size has no relationship to folds"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Even huge bets get called by the top of villain's range.",
+        "B": "Correct. Past a threshold, only strong hands call, so larger bluffs risk more chips without proportionally more folds.",
+        "C": "Fold equity is bounded; you cannot fold out hands that beat you indefinitely.",
+        "D": "Size does affect folds, just with diminishing returns."
+      }
+    },
+    {
+      "id": "pr_ptbl_103",
+      "concept": "double_barrel",
+      "question": "A profitable double-barrel bluff plan is best set up by:",
+      "options": [
+        "Betting flop with hands that can never barrel any turn",
+        "Only c-betting the nuts",
+        "C-betting flop with hands and bluffs that can credibly continue on many turns",
+        "Checking the flop with the whole range"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bluffs that cannot continue on any turn waste flop fold equity and must give up.",
+        "B": "C-betting only the nuts is unbalanced and forfeits fold equity from bluffs.",
+        "C": "Correct. Choosing flop bluffs with backdoor equity and good barreling cards keeps fold equity alive on later streets.",
+        "D": "Checking the entire range surrenders flop initiative and fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_104",
+      "concept": "draw_equity",
+      "question": "On the flop with a set, you have about 10 outs to a full house or quads by the river. This is roughly:",
+      "options": [
+        "About 75%",
+        "Exactly 50%",
+        "About 5%",
+        "About 22-34% to improve"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "75% wildly overstates the chance to fill up.",
+        "B": "50% overstates the improvement odds for a set.",
+        "C": "5% is far too low for a flopped set's improvement to a full house.",
+        "D": "Correct. Around 10 outs by the river gives roughly 33% by rule of 4 (the precise boat/quads figure for a flopped set is about 33% by the river)."
+      }
+    },
+    {
+      "id": "pr_ptbl_105",
+      "concept": "value_to_bluff",
+      "question": "If you are betting a half-pot river with 6 value combos in your range, how many bluff combos keep you balanced (3:1)?",
+      "options": [
+        "2 bluff combos",
+        "1 bluff combo",
+        "3 bluff combos",
+        "6 bluff combos"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A 3:1 value-to-bluff ratio with 6 value combos calls for 2 bluff combos.",
+        "B": "1 bluff would be a 6:1 ratio — under-bluffed for a half-pot bet.",
+        "C": "3 bluffs would make it 2:1, the pot-sized ratio, over-bluffing a half-pot bet.",
+        "D": "6 bluffs would be 1:1, heavily over-bluffed."
+      }
+    },
+    {
+      "id": "pr_ptbl_106",
+      "concept": "scare_card",
+      "question": "On a turn that brings a third flush card, the player who can MOST credibly bluff is the one who:",
+      "options": [
+        "Has shown weakness by checking twice",
+        "Has been the aggressor and can represent the flush given their range",
+        "Holds the lowest card of the flush suit only",
+        "Cannot have any flush in their range"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A player who showed weakness has a capped, less believable range.",
+        "B": "Correct. The aggressor whose range includes suited combos can represent the completed flush, gaining fold equity.",
+        "C": "A single low flush card does not let you represent the made flush convincingly.",
+        "D": "If your range cannot contain a flush, the flush-card bluff is not credible."
+      }
+    },
+    {
+      "id": "pr_ptbl_107",
+      "concept": "blockers",
+      "question": "Holding a card that blocks villain's value combos but NOT their bluff-catchers is ideal because it:",
+      "options": [
+        "Improves your hand to a straight",
+        "Guarantees a fold every time",
+        "Reduces the hands that would call without removing hands that would fold",
+        "Makes the pot bigger"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A single blocker card does not make your hand a straight.",
+        "B": "Blockers raise fold frequency but never guarantee folds.",
+        "C": "Correct. You want to remove calls and preserve folds, which exactly this blocker pattern accomplishes.",
+        "D": "Card removal does not change pot size."
+      }
+    },
+    {
+      "id": "pr_ptbl_108",
+      "concept": "multiway",
+      "question": "In a multiway pot, a good adjustment for your bluffing range is to:",
+      "options": [
+        "Treat it exactly like a heads-up pot",
+        "Bluff every hand because more dead money is in the pot",
+        "Always overbet as a bluff",
+        "Bluff much less and only with high-equity semi-bluffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Multiway dynamics differ sharply from heads-up and require fewer bluffs.",
+        "B": "More opponents means lower fold equity, so bluffing every hand loses.",
+        "C": "Overbet bluffing into multiple players is usually high-risk and low-reward.",
+        "D": "Correct. With more players, pure bluffs rarely get through, so favor strong semi-bluffs and tighten bluffing overall."
+      }
+    },
+    {
+      "id": "pr_ptbl_109",
+      "concept": "story",
+      "question": "Your line is: 3-bet preflop, c-bet flop, check turn, bet river big. On a dry board, the river bet is hardest to believe as value if:",
+      "options": [
+        "Your turn check usually means giving up, so your range is capped",
+        "You can credibly hold many slowplayed monsters after checking turn",
+        "The board pairs and you can represent a full house",
+        "You have shown consistent aggression"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. If checking the turn typically caps your range, a sudden big river bet looks more like a bluff and gets called.",
+        "B": "If you DO have many slowplays, the bet is more believable, not less — the opposite of the question.",
+        "C": "A pairing board that lets you represent a boat makes the bet MORE credible.",
+        "D": "Consistent aggression strengthens, not weakens, a value story."
+      }
+    },
+    {
+      "id": "pr_ptbl_110",
+      "concept": "bluff_ratio",
+      "question": "A min-bet bluff (very small relative to pot) is risky as a pure bluff because:",
+      "options": [
+        "It needs the opponent to fold over 90%",
+        "Although the break-even fold % is low, opponents get great odds and rarely fold enough",
+        "Small bets are illegal",
+        "It always wins the pot"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A min-bet's break-even fold rate is low, not above 90%.",
+        "B": "Correct. A tiny bet has a low break-even fold rate, but it offers the opponent such good pot odds that they call very wide.",
+        "C": "Small bets are legal within table minimums.",
+        "D": "Small bluffs do not guarantee winning; they often get called."
+      }
+    },
+    {
+      "id": "pr_ptbl_111",
+      "concept": "semi_bluff_ev",
+      "question": "All else equal, a semi-bluff with MORE outs is better than one with fewer outs because:",
+      "options": [
+        "More outs reduce your fold equity",
+        "More outs guarantee a fold",
+        "The extra equity when called raises EV and lowers the required fold frequency",
+        "Outs do not affect semi-bluff EV"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "More outs do not reduce fold equity; they add a second way to win.",
+        "B": "Outs improve the called branch but do not force folds.",
+        "C": "Correct. More outs mean higher equity when called, so the bet profits at a lower fold rate.",
+        "D": "Outs directly increase the called-branch equity and thus EV."
+      }
+    },
+    {
+      "id": "pr_ptbl_112",
+      "concept": "position",
+      "question": "Why does being out of position make triple-barrel bluffing harder?",
+      "options": [
+        "Position is irrelevant to multi-street bluffs",
+        "You can never bet out of position",
+        "Out of position you always have the nuts",
+        "You must commit chips before seeing villain's response, and they can float and take pots away"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Position significantly affects multi-street bluff success.",
+        "B": "You can bet OOP; it is simply less effective.",
+        "C": "Being OOP says nothing about your hand strength.",
+        "D": "Correct. Acting first means you bet blind to villain's reaction, and in-position floats can punish your barrels."
+      }
+    },
+    {
+      "id": "pr_ptbl_113",
+      "concept": "board_texture",
+      "question": "Why is bluffing a low, connected flop (e.g., 6♣ 5♦ 4♠) often bad for the preflop raiser heads-up vs a big-blind caller?",
+      "options": [
+        "The board hits the caller's range of small/connected hands harder than the raiser's",
+        "The raiser always flops the nuts there",
+        "Low boards have no draws",
+        "The caller always folds low boards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Big-blind defending ranges contain many small connectors that smash 6-5-4, so c-bet bluffs face more continues.",
+        "B": "The raiser rarely has the nuts on a low connected board.",
+        "C": "Low connected boards are loaded with straight and pair-plus-draw combos.",
+        "D": "The caller defends low connected boards widely, not folding readily."
+      }
+    },
+    {
+      "id": "pr_ptbl_114",
+      "concept": "fold_equity",
+      "question": "Equity denial via a semi-bluff bet means:",
+      "options": [
+        "Giving the opponent a free card",
+        "Folding out hands that had outs to beat you, capturing the pot before they realize equity",
+        "Reducing your own equity to zero",
+        "Guaranteeing you hit your draw"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Betting charges the opponent rather than giving a free card.",
+        "B": "Correct. Betting denies opponents the chance to outdraw you for free, an important benefit of semi-bluffing.",
+        "C": "Your equity is unchanged by betting.",
+        "D": "Betting does not change whether your draw completes."
+      }
+    },
+    {
+      "id": "pr_ptbl_115",
+      "concept": "bluff_ratio",
+      "question": "On the river you bet pot with 8 value combos. To stay balanced at 2:1, how many bluff combos should you have?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2 bluffs would be a 4:1 ratio, under-bluffing a pot-sized bet.",
+        "B": "3 bluffs is closer to 8:3, still slightly under-bluffed for pot.",
+        "C": "Correct. 2:1 with 8 value combos calls for 4 bluff combos.",
+        "D": "8 bluffs would be 1:1, heavily over-bluffed for a pot-sized bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_116",
+      "concept": "overbet",
+      "question": "A common reason an overbet generates extra fold equity is that:",
+      "options": [
+        "Overbets are never called",
+        "It guarantees the opponent is drawing dead",
+        "It reduces the opponent's pot odds to call below zero",
+        "It puts maximum pressure on bluff-catchers, who must risk many chips to call"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Overbets do get called by strong hands; they are not uncallable.",
+        "B": "An overbet says nothing about the opponent being drawing dead.",
+        "C": "Pot odds cannot be below zero; the overbet simply makes them worse for the caller.",
+        "D": "Correct. The large size threatens the opponent's stack, making marginal bluff-catchers fold more often."
+      }
+    },
+    {
+      "id": "pr_ptbl_117",
+      "concept": "give_up",
+      "question": "A disciplined bluffer treats chips already bet on earlier streets as:",
+      "options": [
+        "Sunk cost, irrelevant to whether the next bluff is +EV",
+        "A reason to keep bluffing to recover them",
+        "A guarantee the bluff will work",
+        "Money that must always be protected with another barrel"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Past bets are sunk; each new decision should be judged on its own forward-looking EV.",
+        "B": "Chasing sunk costs leads to spewy, losing bluffs.",
+        "C": "Prior bets do not make a future bluff succeed.",
+        "D": "Protecting sunk chips with more bluffs is a classic fallacy."
+      }
+    },
+    {
+      "id": "pr_ptbl_118",
+      "concept": "blocker_bluff",
+      "question": "You want to bluff-raise the river representing a straight on 9♠ 8♦ 5♣ 7♥ 2♣. Which holding has the best straight blocker?",
+      "options": [
+        "A hand containing a 2",
+        "A hand containing a T or a 6 (blocks the nut straights)",
+        "A hand containing a 9 only",
+        "A hand containing two clubs"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A 2 blocks only a low pair, irrelevant to the straights.",
+        "B": "Correct. A T or 6 blocks the J-T / 6-x straight combos, reducing the strong straights villain can hold.",
+        "C": "A single 9 blocks a pair of nines, not the key straights.",
+        "D": "Two clubs is relevant to a flush, not the straight you are representing."
+      }
+    },
+    {
+      "id": "pr_ptbl_119",
+      "concept": "opponent_type",
+      "question": "Against a strong, balanced regular, your bluffing should be:",
+      "options": [
+        "Eliminated entirely",
+        "Heavily over-weighted because regs always fold",
+        "Reasonably balanced, since exploitative over-bluffing will be punished",
+        "Random with no thought to ratios"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Removing all bluffs makes your value bets easy to fold to.",
+        "B": "Strong regs do not always fold; over-bluffing them gets snapped off.",
+        "C": "Correct. A balanced opponent cannot be easily exploited, so balanced bluffing protects you from counter-exploitation.",
+        "D": "Random bluffing ignores balance and is exploitable."
+      }
+    },
+    {
+      "id": "pr_ptbl_120",
+      "concept": "semi_bluff",
+      "question": "A backdoor flush draw with two overcards on the flop is best categorized as:",
+      "options": [
+        "A made flush",
+        "A pure bluff with zero equity",
+        "A value hand",
+        "A light semi-bluff with modest backup equity and good barreling potential"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A backdoor draw is not a completed flush.",
+        "B": "It has real, if modest, equity, so it is not a pure bluff.",
+        "C": "It is not a made hand, so it is not value yet.",
+        "D": "Correct. Backdoor equity plus overcards gives some way to improve and many good turn barrel cards, making it a light semi-bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_121",
+      "concept": "fold_equity",
+      "question": "Two bluffs of the same size differ in fold equity mainly due to:",
+      "options": [
+        "The opponent's range and tendencies, plus the board and your representable hands",
+        "The color of the chips",
+        "The time of day",
+        "Nothing — size alone determines fold equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Fold equity depends on who you face, their range, the texture, and how credibly you represent value — not just size.",
+        "B": "Chip color is irrelevant to fold equity.",
+        "C": "Time of day does not affect the math of fold equity.",
+        "D": "Size matters, but range, board, and story also drive fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_122",
+      "concept": "bluff_ratio",
+      "question": "A pure bluff that risks 1 unit to win a 4-unit pot (quarter-pot bet) breaks even at what fold frequency?",
+      "options": [
+        "25%",
+        "20%",
+        "33%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "25% corresponds to a one-third-pot bet.",
+        "B": "Correct. Break-even = bet/(bet+pot) = 1/(1+4) = 1/5 = 20%.",
+        "C": "33% corresponds to a half-pot bet.",
+        "D": "50% corresponds to a pot-sized bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_123",
+      "concept": "mdf",
+      "question": "Why does MDF DECREASE as the bettor's size increases?",
+      "options": [
+        "MDF actually increases with bet size",
+        "Larger bets mean the defender must call everything",
+        "Larger bets give better immediate odds to the bettor, so the defender can fold more before bluffs become free",
+        "MDF is constant regardless of size"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "MDF decreases, not increases, with larger sizes.",
+        "B": "Bigger bets allow MORE folding, not mandatory calling.",
+        "C": "Correct. MDF = pot/(pot+bet) falls as bet grows, so against bigger bets you may fold more of your range.",
+        "D": "MDF clearly varies with bet size."
+      }
+    },
+    {
+      "id": "pr_ptbl_124",
+      "concept": "draw_equity",
+      "question": "A pair hoping to improve to a set has 2 outs. Its rough equity to hit by the river from the flop is:",
+      "options": [
+        "About 35%",
+        "About 16%",
+        "About 25%",
+        "About 8%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "35% is the equity of a nine-out flush draw.",
+        "B": "16% corresponds to a four-out gutshot.",
+        "C": "25% greatly overstates a two-out draw.",
+        "D": "Correct. Rule of 4: 2 × 4 = 8% (about 8.4%) to make a set by the river."
+      }
+    },
+    {
+      "id": "pr_ptbl_125",
+      "concept": "double_barrel",
+      "question": "After c-betting K-7-2 rainbow and getting called, the WORST turn card to barrel as a bluff is usually:",
+      "options": [
+        "A blank like the 3, which changes nothing for either range",
+        "An ace, which you can represent",
+        "A queen, which adds equity and pressures kings",
+        "A jack, a clean overcard you can rep"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A low blank does not shift ranges or add fold equity, so it is the least effective barrel card.",
+        "B": "An ace is a strong overcard you can represent for fold equity.",
+        "C": "A queen is an overcard that pressures the caller's weaker kings.",
+        "D": "A jack is a clean overcard that supports a barrel."
+      }
+    },
+    {
+      "id": "pr_ptbl_126",
+      "concept": "story",
+      "question": "Representing a flush when you hold a card of that suit (a blocker) makes your bluff:",
+      "options": [
+        "Less credible, since you cannot have a flush",
+        "More credible, since villain is less likely to hold the made flush",
+        "Irrelevant to credibility",
+        "Always a value bet"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Holding one suit card does not preclude representing a flush; it strengthens the bluff.",
+        "B": "Correct. Blocking a flush card removes some of villain's made flushes, so your story is harder to call down.",
+        "C": "Blocker effects directly influence credibility and fold equity.",
+        "D": "Holding a single suited card is not a made flush; it remains a bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_127",
+      "concept": "value_to_bluff",
+      "question": "If you NEVER bluff your big river bets, an observant opponent should:",
+      "options": [
+        "Raise as a bluff every time",
+        "Call every time",
+        "Fold all bluff-catchers, since your bets are pure value",
+        "Do nothing differently"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Raise-bluffing into a pure value range is suicidal.",
+        "B": "Calling a never-bluff range with bluff-catchers loses to your value.",
+        "C": "Correct. Without bluffs, your bets are all value, so bluff-catchers should simply fold.",
+        "D": "An exploitable, un-bluffed range demands adjustment — over-folding."
+      }
+    },
+    {
+      "id": "pr_ptbl_128",
+      "concept": "check_raise_bluff",
+      "question": "A check-raise bluff usually represents MORE strength than a flat call because:",
+      "options": [
+        "Check-raises can only be value",
+        "Calling always means the nuts",
+        "Raising means you must have air",
+        "Raising shows a hand willing to build the pot, narrowing to strong made hands and draws"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Check-raises can be value or bluffs in a balanced range.",
+        "B": "A flat call usually represents medium strength, not the nuts.",
+        "C": "A raise represents strength; it is not a tell for air.",
+        "D": "Correct. A raise credibly represents strong hands, generating fold equity that a passive call cannot."
+      }
+    },
+    {
+      "id": "pr_ptbl_129",
+      "concept": "semi_bluff_ev",
+      "question": "A semi-bluff bet of $50 into $100 with a flush draw (about 35% to hit by river) is more attractive than the same bet with 7-2 offsuit air because:",
+      "options": [
+        "The draw adds ~35% equity on the called branch, lowering the needed fold frequency",
+        "7-2 offsuit folds out more hands",
+        "Air has more equity than a flush draw",
+        "The draw reduces your fold equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The flush draw wins a meaningful share when called, so it clears break-even at a lower fold rate than pure air.",
+        "B": "7-2 offsuit does not fold out more hands than a flush draw at the same size.",
+        "C": "A flush draw has far more equity than 7-2 offsuit air.",
+        "D": "The draw does not reduce fold equity; it adds backup equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_130",
+      "concept": "bet_sizing",
+      "question": "A reason to bluff with a SMALL size on a dry board is:",
+      "options": [
+        "Small bets always fold out more than big bets",
+        "A small bet achieves a high enough fold rate cheaply because villain's range is weak",
+        "Small bets are required on dry boards",
+        "Small bets have no fold equity"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Big bets generally fold out more; small bets simply risk less.",
+        "B": "Correct. On dry boards villain misses often, so a small c-bet bluff folds out enough air at low risk.",
+        "C": "Sizing is a choice, not a requirement.",
+        "D": "Small bets do generate fold equity, just at lower risk and reward."
+      }
+    },
+    {
+      "id": "pr_ptbl_131",
+      "concept": "blockers",
+      "question": "On a final board with two pair possible, holding a card that pairs the board in your hand:",
+      "options": [
+        "Guarantees you a full house",
+        "Has no removal effect",
+        "Blocks villain's two-pair and trips combos, aiding a bluff",
+        "Makes villain call more"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A single paired card is not a full house.",
+        "B": "It does have a removal effect on villain's paired holdings.",
+        "C": "Correct. Holding a board card reduces the trips/two-pair combos villain can make, improving fold equity.",
+        "D": "Reducing villain's strong combos tends to increase folds, not calls."
+      }
+    },
+    {
+      "id": "pr_ptbl_132",
+      "concept": "range_advantage",
+      "question": "The player WITHOUT range advantage on a given flop should generally:",
+      "options": [
+        "Never fold",
+        "Bluff every hand to seize initiative",
+        "Always overbet",
+        "Bluff less frequently and check more, deferring to the range-advantaged player"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Refusing to fold from a weak range bleeds chips.",
+        "B": "Bluffing every hand without range support is easily exploited.",
+        "C": "Overbetting from a disadvantaged range invites calls and raises.",
+        "D": "Correct. Lacking range advantage means fewer strong hands to back bluffs, so a higher check frequency is correct."
+      }
+    },
+    {
+      "id": "pr_ptbl_133",
+      "concept": "fold_equity",
+      "question": "A bluff into a player who has shown extreme commitment (e.g., shoved most of their stack earlier) has:",
+      "options": [
+        "Very low fold equity, since they are pot-committed",
+        "Maximum fold equity",
+        "No relationship to commitment",
+        "Guaranteed success"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A committed opponent rarely folds, so further bluffs find little fold equity.",
+        "B": "Commitment reduces, not maximizes, fold equity.",
+        "C": "Commitment level strongly affects fold frequency.",
+        "D": "No bluff is guaranteed, least of all against a committed player."
+      }
+    },
+    {
+      "id": "pr_ptbl_134",
+      "concept": "bluff_ratio",
+      "question": "You bet two-thirds pot ($40 into $60) as a pure bluff. The break-even fold frequency is:",
+      "options": [
+        "33%",
+        "40%",
+        "50%",
+        "60%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "33% corresponds to a half-pot bet.",
+        "B": "Correct. 40/(40+60) = 40/100 = 40%.",
+        "C": "50% corresponds to a pot-sized bet.",
+        "D": "60% corresponds to a 1.5x-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_135",
+      "concept": "scare_card",
+      "question": "Which runout most increases the in-position bettor's bluffing fold equity on the river after they barreled a draw-heavy turn?",
+      "options": [
+        "A card that improves the caller's likely pairs",
+        "A blank that bricks all draws",
+        "A card completing the obvious draw they represented",
+        "A board pair that helps the caller's trips"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A card helping the caller's pairs reduces their fold frequency.",
+        "B": "A brick fails to complete the story and adds no extra fold equity.",
+        "C": "Correct. Completing the represented draw lets the bettor credibly hold the nuts, maximizing fold equity.",
+        "D": "A board pair aiding the caller's trips lowers fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_136",
+      "concept": "polarization",
+      "question": "Why are medium-strength hands usually bet SMALL or checked rather than used as big bluffs/value?",
+      "options": [
+        "They always belong in a polarized range",
+        "They are the strongest hands",
+        "They have zero equity",
+        "They want to control the pot and realize showdown value, not get raised off it"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Medium hands fit a merged/condensed range, not a polarized one.",
+        "B": "Medium hands are not the strongest; that is the polarized value tier.",
+        "C": "Medium hands have meaningful showdown equity, not zero.",
+        "D": "Correct. Medium hands prefer pot control and showdown rather than bloating the pot where they get blown off equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_137",
+      "concept": "give_up",
+      "question": "Which is a sound trigger to ABANDON a planned multi-street bluff?",
+      "options": [
+        "Villain check-raises or leads into you, representing real strength",
+        "Villain checks to you again, showing weakness",
+        "A scare card you can represent arrives",
+        "Villain visibly looks uncomfortable"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Aggression from villain signals strength and kills fold equity, so giving up is wise.",
+        "B": "Another check shows weakness, a reason to CONTINUE the bluff.",
+        "C": "A representable scare card is a reason to keep barreling.",
+        "D": "Physical tells are unreliable and not a sound primary trigger."
+      }
+    },
+    {
+      "id": "pr_ptbl_138",
+      "concept": "semi_bluff",
+      "question": "A semi-bluff's two ways to win are:",
+      "options": [
+        "Opponent calls now, or the board pairs",
+        "Opponent folds now, or you complete your draw later",
+        "You always have the best hand, or you fold",
+        "The pot shrinks, or the dealer mucks"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Wanting calls is value betting; board pairing is not the semi-bluff win path.",
+        "B": "Correct. A semi-bluff captures fold equity immediately and retains draw equity if called.",
+        "C": "Semi-bluffs rarely already have the best hand; that would be value.",
+        "D": "Pot shrinking and dealer mucks are not the ways a semi-bluff wins."
+      }
+    },
+    {
+      "id": "pr_ptbl_139",
+      "concept": "opponent_type",
+      "question": "A 'nit' who only continues with very strong hands should be bluffed:",
+      "options": [
+        "Only with the nuts",
+        "Never, because they call too much",
+        "More often on later streets, since they over-fold everything but premiums",
+        "Exactly as often as a calling station"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bluffing requires not having the nuts; that would be value.",
+        "B": "A nit folds too much, not calls too much.",
+        "C": "Correct. A nit folds frequently, so they offer high fold equity and can be bluffed more, especially on big streets.",
+        "D": "A nit and a station are opposites; you bluff them very differently."
+      }
+    },
+    {
+      "id": "pr_ptbl_140",
+      "concept": "draw_equity",
+      "question": "On the turn, a combo draw of a flush draw plus an open-ender (about 15 outs) has roughly what ONE-card equity?",
+      "options": [
+        "About 8%",
+        "About 54%",
+        "About 19%",
+        "About 32%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "8% is far too low for a 15-out draw.",
+        "B": "54% is the two-card (flop-to-river) figure, but only one card remains.",
+        "C": "19% is a single nine-out flush draw on one card, fewer outs than this combo.",
+        "D": "Correct. Rule of 2: 15 × 2 = 30%, with the true one-card figure around 32%."
+      }
+    },
+    {
+      "id": "pr_ptbl_141",
+      "concept": "mdf",
+      "question": "A defender who folds MORE than MDF against a balanced bettor is:",
+      "options": [
+        "Over-folding, allowing the bettor's bluffs to profit",
+        "Playing perfectly",
+        "Under-folding",
+        "Immune to bluffs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Folding above MDF means the bettor can profitably bluff any two cards.",
+        "B": "Against a balanced bettor, perfect defense is near MDF, not above it.",
+        "C": "Folding more than MDF is over-folding, not under-folding.",
+        "D": "Over-folding makes you MORE vulnerable to bluffs, not immune."
+      }
+    },
+    {
+      "id": "pr_ptbl_142",
+      "concept": "blocker_bluff",
+      "question": "When choosing river bluffs, you generally prefer hands that BLOCK villain's value and do NOT block their:",
+      "options": [
+        "Strongest possible hands",
+        "Folding (bluff-catching) range",
+        "Nut combos",
+        "Drawing hands that missed"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Blocking villain's strongest hands is exactly what you DO want.",
+        "B": "Correct. You want to keep villain's folding hands in their range, so you should not hold those cards.",
+        "C": "Blocking nut combos is desirable, not something to avoid.",
+        "D": "Missed draws that fold are part of the folding range you want to preserve."
+      }
+    },
+    {
+      "id": "pr_ptbl_143",
+      "concept": "board_texture",
+      "question": "A board that strongly favors bluffing is one where:",
+      "options": [
+        "The opponent has all the nutted combos",
+        "Both ranges are equally strong",
+        "Your range is uncapped/strong and the opponent's range is weak and capped",
+        "Your range is entirely bluffs"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If the opponent owns the nutted hands, bluffing into them is poor.",
+        "B": "Equal ranges give no special bluffing edge.",
+        "C": "Correct. A nut and range advantage lets your bluffs credibly represent strength against a foldable, capped opponent.",
+        "D": "A pure-bluff range is exploitable and not what 'favors bluffing' means."
+      }
+    },
+    {
+      "id": "pr_ptbl_144",
+      "concept": "value_to_bluff",
+      "question": "Why do you include MORE bluffs (proportionally) when overbetting than when betting small on the river?",
+      "options": [
+        "Bet size does not affect the bluff share",
+        "Small bets need more bluffs",
+        "Overbets should never be bluffed",
+        "Larger bets give the caller worse odds, so a higher bluff share keeps them indifferent"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Bet size directly changes the indifference bluff fraction.",
+        "B": "Small bets carry a smaller, not larger, bluff share.",
+        "C": "Overbets are bluffed at a HIGHER rate when balanced.",
+        "D": "Correct. The balanced bluff fraction B/(P+2B) rises with size, so overbets carry a higher bluff percentage."
+      }
+    },
+    {
+      "id": "pr_ptbl_145",
+      "concept": "pure_bluff",
+      "question": "The single most important variable determining whether a pure bluff is +EV is:",
+      "options": [
+        "How often the opponent will fold relative to the break-even threshold",
+        "Whether you feel confident",
+        "The suit of your cards",
+        "How many chips you have left"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A pure bluff's EV hinges on fold frequency versus the break-even point set by bet size.",
+        "B": "Confidence does not change the underlying math.",
+        "C": "Card suits matter only via blockers, not directly to the fold-rate math.",
+        "D": "Remaining stack affects sizing options but is not the core EV driver of a single bluff."
+      }
+    },
+    {
+      "id": "pr_ptbl_146",
+      "concept": "semi_bluff_ev",
+      "question": "Consider a flop semi-bluff shove with a flush draw worth ~35% when called. If villain folds 40% of the time, the bet:",
+      "options": [
+        "Can only win when villain folds",
+        "Wins outright 40% AND wins ~35% of the remaining 60%, making it very likely +EV",
+        "Is identical to shoving 7-2 offsuit",
+        "Has no equity when called"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Unlike a pure bluff, the draw also wins a share when called.",
+        "B": "Correct. The shove wins 40% via folds and roughly 35% of the called 60%, stacking two paths to profit.",
+        "C": "7-2 offsuit has almost no equity when called, unlike a flush draw.",
+        "D": "A flush draw has substantial equity when called, about 35%."
+      }
+    },
+    {
+      "id": "pr_ptbl_147",
+      "concept": "double_barrel",
+      "question": "You hold A♥ K♥ on Q♥ 7♠ 3♦ (nut flush draw + two overcards) after c-betting and getting called. The turn is the 2♥, completing your flush. The correct categorization of a turn bet now is:",
+      "options": [
+        "A pure bluff",
+        "A semi-bluff",
+        "A value bet — your hand is now the nut flush, not a bluff",
+        "A check-fold"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You hold the nuts, so it cannot be a pure bluff.",
+        "B": "A semi-bluff implies an unmade draw; your flush is already made.",
+        "C": "Correct. With the flush completed, betting is for value; it is no longer a bluff or semi-bluff.",
+        "D": "Check-folding the nut flush would forfeit huge value."
+      }
+    },
+    {
+      "id": "pr_ptbl_148",
+      "concept": "fold_equity",
+      "question": "Fold equity and pot equity together determine a bet's total EV. A pure bluff relies almost entirely on:",
+      "options": [
+        "Position alone",
+        "Pot equity when called",
+        "Rake",
+        "Fold equity"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Position helps but is not the source of a pure bluff's EV.",
+        "B": "Pot equity when called is near zero for a pure bluff.",
+        "C": "Rake is a cost, not a source of bluff EV.",
+        "D": "Correct. With negligible showdown equity, a pure bluff's EV comes from fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_149",
+      "concept": "bluff_ratio",
+      "question": "A pure bluff is +EV in the long run precisely when the opponent's fold frequency is:",
+      "options": [
+        "Greater than bet/(bet+pot)",
+        "Less than bet/(bet+pot)",
+        "Exactly 50% always",
+        "Equal to the MDF"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The bluff profits whenever folds exceed the break-even threshold bet/(bet+pot).",
+        "B": "Folding less than the threshold makes the bluff -EV.",
+        "C": "The threshold is 50% only for a pot-sized bet, not always.",
+        "D": "MDF (1 − threshold) is the defender's continuing frequency, not the bluffer's profit point."
+      }
+    },
+    {
+      "id": "pr_ptbl_150",
+      "concept": "story",
+      "question": "A coherent bluffing line on a board of A♣ Q♦ 5♠ 5♦ 9♣ representing trip fives is hard to tell if you:",
+      "options": [
+        "Limped a wide range containing many fives",
+        "Raised preflop and only barreled big after the board paired, with a range that rarely contains a five",
+        "Called preflop in the big blind with fives in range",
+        "Have a credible reason to hold a five"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A wide limping range plausibly contains fives, making the story believable.",
+        "B": "Correct. A tight preflop raising range rarely contains a five, so representing trips is not credible and gets called.",
+        "C": "A big-blind defending range can include fives, supporting the rep.",
+        "D": "If you can credibly hold a five, the trips story is sound."
+      }
+    },
+    {
+      "id": "pr_ptbl_151",
+      "concept": "blockers",
+      "question": "A subtle danger of choosing a bluff that holds too many of villain's missed draws is that you:",
+      "options": [
+        "Guarantee a win",
+        "Always get more folds",
+        "Block hands that would have folded, so villain's remaining range is stronger and calls more",
+        "Improve your equity when called"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "No bluff is guaranteed, especially one with poor unblocking.",
+        "B": "Blocking folds reduces, not increases, the folds you get.",
+        "C": "Correct. Holding their folding hands removes folds and leaves a stronger calling range, hurting your bluff.",
+        "D": "Blocker selection for folds does not change your equity when called."
+      }
+    },
+    {
+      "id": "pr_ptbl_152",
+      "concept": "position",
+      "question": "A check-back in position on the flop can set up a future bluff because it:",
+      "options": [
+        "Forces villain to fold immediately",
+        "Always gives villain the nuts",
+        "Forfeits all future fold equity",
+        "Disguises your range and lets you stab later when villain shows weakness"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A check does not force a fold; it sets up later pressure.",
+        "B": "Checking back does not give villain any specific hand.",
+        "C": "It preserves, not forfeits, later fold equity by keeping options open.",
+        "D": "Correct. Checking back keeps medium hands and bluffs in your range, enabling profitable turn/river stabs."
+      }
+    },
+    {
+      "id": "pr_ptbl_153",
+      "concept": "semi_bluff",
+      "question": "Why are semi-bluffs sometimes preferred over slowplaying a strong draw?",
+      "options": [
+        "Aggression adds fold equity and denies free cards, often beating a passive line",
+        "Slowplaying always wins more",
+        "Draws can never be bet",
+        "Semi-bluffs remove your equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Betting the draw combines fold equity with equity realization, usually outperforming a purely passive line.",
+        "B": "Slowplaying forfeits fold equity and lets opponents draw cheaply.",
+        "C": "Betting draws is standard and effective.",
+        "D": "Semi-bluffing keeps your draw equity intact while adding fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_154",
+      "concept": "opponent_type",
+      "question": "Against an opponent who folds too much to RIVER bets specifically, the best exploit is to:",
+      "options": [
+        "Stop bluffing rivers",
+        "Increase river bluffing frequency and size to attack their over-folding",
+        "Only value bet rivers",
+        "Check every river"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Stopping river bluffs ignores their exploitable leak.",
+        "B": "Correct. River over-folders hand you fold equity, so bluff rivers more and larger to exploit them.",
+        "C": "Only value betting forfeits the profit from their over-folding.",
+        "D": "Checking every river surrenders the chance to attack their folds."
+      }
+    },
+    {
+      "id": "pr_ptbl_155",
+      "concept": "bet_sizing",
+      "question": "Choosing bluff sizing to match how you'd bet your value hands in the same spot is called:",
+      "options": [
+        "Limp-reraising",
+        "Sandbagging",
+        "Balancing your sizing so bluffs and value are indistinguishable",
+        "Donk betting"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Limp-reraising is a specific preflop line, not a sizing-balance concept.",
+        "B": "Sandbagging is slowplaying a strong hand, unrelated to sizing balance.",
+        "C": "Correct. Matching value and bluff sizes keeps your range balanced and unreadable.",
+        "D": "Donk betting is leading out of position, not about size balance."
+      }
+    },
+    {
+      "id": "pr_ptbl_156",
+      "concept": "mdf",
+      "question": "MDF assumes the bettor can bluff with hands that have NO equity. Why does real-world defense often differ?",
+      "options": [
+        "Defenders should always defend far above MDF",
+        "MDF is always exactly correct",
+        "Bluffs never have equity in practice",
+        "Bettors' bluffs frequently have equity (draws), so defenders can fold slightly more than MDF suggests"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Over-defending well above MDF is usually a leak, not a rule.",
+        "B": "MDF is an idealized guideline that real ranges modify.",
+        "C": "Many bluffs are semi-bluffs with real equity.",
+        "D": "Correct. When bluffs carry equity, the defender's bluff-catchers are worth less, allowing slightly more folding than pure MDF."
+      }
+    },
+    {
+      "id": "pr_ptbl_157",
+      "concept": "scare_card",
+      "question": "Why is an ace on the turn a classic barreling card for the preflop raiser?",
+      "options": [
+        "The raiser holds aces more often, so it credibly improves their range and scares the caller",
+        "Aces always make a flush",
+        "The caller always has an ace",
+        "Aces are blanks"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The preflop raiser's range is ace-heavy, so an ace turn is a believable scare card that pressures the caller.",
+        "B": "An ace does not by itself make a flush.",
+        "C": "The caller does not always hold an ace; that is the point of the scare.",
+        "D": "An ace is a high, range-shifting card, not a blank."
+      }
+    },
+    {
+      "id": "pr_ptbl_158",
+      "concept": "give_up",
+      "question": "A bluff that 'gives up' on the river by checking back can still be best because:",
+      "options": [
+        "Checking always wins the pot",
+        "When fold equity is gone, checking realizes any small showdown equity and saves chips",
+        "You must always bet the river",
+        "Giving up is never correct"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Checking does not guarantee winning the pot.",
+        "B": "Correct. Without fold equity, checking captures any residual showdown chance and avoids losing more by betting into calls.",
+        "C": "You are not obligated to bet every river; checking is a valid choice.",
+        "D": "Giving up is frequently the highest-EV decision when bluffs stop working."
+      }
+    },
+    {
+      "id": "pr_ptbl_159",
+      "concept": "draw_equity",
+      "question": "Which draw is the best PURE semi-bluffing draw because it has both the most outs and nut potential?",
+      "options": [
+        "Gutshot only",
+        "Bottom pair, no draw",
+        "Nut flush draw plus open-ended straight draw",
+        "Two undercards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A gutshot alone has only 4 outs, far fewer than a combo draw.",
+        "B": "Bottom pair with no draw has minimal semi-bluff upside.",
+        "C": "Correct. A nut flush draw plus open-ender has up to 15 outs and makes the nuts when it hits — the premier semi-bluff.",
+        "D": "Two undercards have little equity and no draw."
+      }
+    },
+    {
+      "id": "pr_ptbl_160",
+      "concept": "value_to_bluff",
+      "question": "A bettor who is perfectly balanced on the river makes a bluff-catcher:",
+      "options": [
+        "Unable to ever call",
+        "Always profit by calling",
+        "Always profit by folding",
+        "Indifferent between calling and folding"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Balanced play does not forbid calling; it just makes it break-even.",
+        "B": "If calling always profited, the bettor would be over-bluffing, not balanced.",
+        "C": "If folding always profited, the bettor would be under-bluffing.",
+        "D": "Correct. Balanced value-to-bluff ratios set the bluff-catcher's EV of calling equal to folding — indifference."
+      }
+    },
+    {
+      "id": "pr_ptbl_161",
+      "concept": "multiway",
+      "question": "Why is a semi-bluff often preferable to a pure bluff specifically in multiway pots?",
+      "options": [
+        "The backup equity matters more when fold equity is split among several opponents",
+        "Pure bluffs always work multiway",
+        "Semi-bluffs have no equity",
+        "Multiway pots increase fold equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With low multiway fold equity, the draw's equity provides the main source of EV, favoring semi-bluffs.",
+        "B": "Pure bluffs are especially weak multiway.",
+        "C": "Semi-bluffs are defined by having backup equity.",
+        "D": "Multiway pots reduce, not increase, fold equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_162",
+      "concept": "board_texture",
+      "question": "On a monotone flop (three of one suit), a player WITHOUT a card of that suit bluffing should be cautious because:",
+      "options": [
+        "Monotone boards always fold everyone",
+        "They cannot represent or hold the flush and lack the blocker, so fold equity drops",
+        "Flushes are impossible on monotone boards",
+        "They are guaranteed the nuts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Monotone boards give many players flushes and flush draws that continue.",
+        "B": "Correct. Without a suit card you neither block the flush nor credibly represent it, weakening the bluff.",
+        "C": "Flushes are very much possible — even already made — on monotone boards.",
+        "D": "Lacking a suit card does not give you the nuts."
+      }
+    },
+    {
+      "id": "pr_ptbl_163",
+      "concept": "fold_equity",
+      "question": "A bluff's fold equity is dynamic across streets. It generally peaks when:",
+      "options": [
+        "Many players remain to act",
+        "The opponent has already committed most chips",
+        "You apply pressure on a card that meaningfully threatens the opponent's range",
+        "The board has bricked all your representable hands"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "More players reduce the chance everyone folds.",
+        "B": "A committed opponent folds less, lowering fold equity.",
+        "C": "Correct. Fold equity is highest when a scare card credibly threatens the opponent's holdings.",
+        "D": "If you can no longer represent strength, fold equity falls."
+      }
+    },
+    {
+      "id": "pr_ptbl_164",
+      "concept": "bluff_ratio",
+      "question": "Two bluffs win the same pot but one risks half-pot and the other risks pot. Compared to the half-pot bluff, the pot-sized bluff:",
+      "options": [
+        "Can never be profitable",
+        "Needs fewer folds to break even",
+        "Has the same break-even fold frequency",
+        "Needs the opponent to fold more often but wins/keeps the same pot when it works"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A pot-sized bluff is profitable whenever folds exceed 50%.",
+        "B": "Larger bets require MORE folds to break even, not fewer.",
+        "C": "The two sizes have different break-even fold frequencies.",
+        "D": "Correct. The larger bet's break-even fold rate (50%) exceeds the half-pot's (33%), so it needs more folds."
+      }
+    },
+    {
+      "id": "pr_ptbl_165",
+      "concept": "semi_bluff_ev",
+      "question": "When called on a flop semi-bluff, your realized equity may be LOWER than your raw equity because:",
+      "options": [
+        "You can face further bets that make you fold before realizing your draw",
+        "Raw equity always equals realized equity",
+        "Being called increases your outs",
+        "Draws always realize 100% of equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Future aggression can force you off the draw, so realized equity falls below the raw figure.",
+        "B": "Realized equity often differs from raw equity, especially out of position.",
+        "C": "Being called does not add outs.",
+        "D": "Draws frequently realize less than their full equity."
+      }
+    },
+    {
+      "id": "pr_ptbl_166",
+      "concept": "blocker_bluff",
+      "question": "On A♠ K♠ 9♦ 4♠ 2♣, you bluff the river representing the nut flush. The best blocker hand is:",
+      "options": [
+        "K♥ K♦ (no spade)",
+        "Q♠ J♦ (holds a high spade reducing nut/strong flushes)",
+        "T♣ 9♥ (no spade)",
+        "A♦ A♥ (no spade)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Pocket kings holds no spade and blocks none of villain's flushes.",
+        "B": "Correct. Holding the Q♠ removes strong spade-flush combos from villain's range, improving fold equity (the A♠/K♠ are on the board).",
+        "C": "T-9 with no spade blocks no flush combos.",
+        "D": "Pocket aces holds no spade here and does not block flushes."
+      }
+    },
+    {
+      "id": "pr_ptbl_167",
+      "concept": "story",
+      "question": "Consistent bet sizing across streets helps a triple-barrel bluff because:",
+      "options": [
+        "Sizing is invisible to opponents",
+        "Bigger and bigger random bets are more convincing",
+        "It mirrors how value hands are bet, keeping the story believable",
+        "Only the flop size matters for the story"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Opponents read sizing closely; it is far from invisible.",
+        "B": "Random escalating bets break the pattern of credible value lines.",
+        "C": "Correct. When bluff sizing matches value sizing, opponents cannot distinguish the two and the story holds.",
+        "D": "Sizing on every street contributes to a coherent narrative."
+      }
+    },
+    {
+      "id": "pr_ptbl_168",
+      "concept": "pure_bluff",
+      "question": "A 'snap bluff' fired instantly is dangerous mostly because:",
+      "options": [
+        "Snap actions guarantee folds",
+        "Fast actions are against the rules",
+        "Speed always increases fold equity",
+        "Acting without considering range, board, and fold equity often turns +EV spots into -EV bluffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "No bluff guarantees folds, snap or otherwise.",
+        "B": "Acting quickly is legal.",
+        "C": "Speed by itself does not raise fold equity.",
+        "D": "Correct. Bluffing requires assessing fold equity and story; skipping that analysis leads to spots where the bluff loses."
+      }
+    },
+    {
+      "id": "pr_ptbl_169",
+      "concept": "draw_equity",
+      "question": "A hand with a pair plus a flush draw (e.g., bottom pair + flush draw) semi-bluffing has equity from:",
+      "options": [
+        "Both the flush outs and the chance the pair is already/becomes best",
+        "Only the flush completing",
+        "No outs at all",
+        "Solely fold equity"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Pair-plus-draw combines flush outs with the pair's showdown potential, giving robust equity when called.",
+        "B": "The pair adds equity beyond just the flush.",
+        "C": "Such a hand clearly has multiple outs.",
+        "D": "Beyond fold equity, the hand has real pot equity when called."
+      }
+    },
+    {
+      "id": "pr_ptbl_170",
+      "concept": "value_to_bluff",
+      "question": "A river-betting range that is 50% bluffs and 50% value with a pot-sized bet is:",
+      "options": [
+        "Perfectly balanced",
+        "Over-bluffed — bluff-catchers can profitably call",
+        "Under-bluffed",
+        "Pure value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Balance for a pot bet is 2:1 value-to-bluff (33% bluffs), not 50%.",
+        "B": "Correct. A balanced pot-sized bet wants ~33% bluffs; 50% is too many, so calls become profitable.",
+        "C": "50% bluffs is more than balanced, the opposite of under-bluffed.",
+        "D": "Half the range being bluffs is far from pure value."
+      }
+    },
+    {
+      "id": "pr_ptbl_171",
+      "concept": "double_barrel",
+      "question": "You barrel a flush draw on the turn and miss on a brick river. With no showdown value and a sticky opponent, the standard line is to:",
+      "options": [
+        "Min-bet to induce a fold",
+        "Always fire a large third barrel",
+        "Give up and check, since fold equity is low and you have no equity left",
+        "Open-fold"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A min-bet still risks chips with poor fold equity and weak representation.",
+        "B": "Firing into a sticky opponent with no equity burns chips.",
+        "C": "Correct. Against a sticky player on a brick, a missed draw has little fold equity and zero showdown value, so checking is best.",
+        "D": "You cannot fold when it is your turn to check or bet with no bet facing you."
+      }
+    },
+    {
+      "id": "pr_ptbl_172",
+      "concept": "fold_equity",
+      "question": "Increasing the number of streets you can credibly barrel increases total fold equity because:",
+      "options": [
+        "Fold equity is fixed preflop",
+        "Barrels reduce fold equity each street",
+        "Only one street can ever generate folds",
+        "Each additional barrel gives another chance for the opponent to fold"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Fold equity changes with each street and action, not fixed preflop.",
+        "B": "Credible barrels add, not subtract, fold-equity opportunities.",
+        "C": "Folds can occur on any street you bet.",
+        "D": "Correct. More credible barrels mean more opportunities to make the opponent fold across the hand."
+      }
+    },
+    {
+      "id": "pr_ptbl_173",
+      "concept": "mdf",
+      "question": "If a defender wants to make any-two-card bluffing break-even against a half-pot bet, they must defend (not fold) about:",
+      "options": [
+        "67% of their range",
+        "33% of their range",
+        "50% of their range",
+        "80% of their range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF vs a half-pot bet = pot/(pot+bet) = 1/1.5 ≈ 67%.",
+        "B": "33% is the maximum they may FOLD, the complement of MDF.",
+        "C": "50% defense corresponds to a pot-sized bet.",
+        "D": "80% defense corresponds to a quarter-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptbl_174",
+      "concept": "semi_bluff",
+      "question": "The defining feature that makes a bet a SEMI-bluff rather than a value bet is that:",
+      "options": [
+        "You only want calls from worse hands",
+        "You expect better hands to fold AND you still hold a meaningful draw if called",
+        "You already have the best hand",
+        "You have no equity whatsoever"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Wanting calls from worse hands describes a value bet.",
+        "B": "Correct. A semi-bluff bets a not-yet-best hand, wanting folds from better hands while retaining draw equity.",
+        "C": "If you already had the best hand it would be value, not a semi-bluff.",
+        "D": "A semi-bluff specifically does have equity (the draw)."
+      }
+    },
+    {
+      "id": "pr_ptbl_175",
+      "concept": "bluff_ratio",
+      "question": "Putting it together: a profitable bluffing strategy ultimately requires that, across all your bluffs, the fold equity (plus any backup equity for semi-bluffs) exceeds:",
+      "options": [
+        "The size of the blinds only",
+        "Zero in all cases regardless of sizing",
+        "The break-even threshold set by your bet sizing",
+        "100% fold frequency"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Blinds are unrelated to the postflop break-even threshold.",
+        "B": "The bar is set by sizing, not a flat zero.",
+        "C": "Correct. A bluff profits when realized fold equity (plus draw equity if any) clears the bet/(bet+pot) break-even bar.",
+        "D": "You never need 100% folds; you need to beat the break-even fraction."
+      }
+    }
+  ]
+}

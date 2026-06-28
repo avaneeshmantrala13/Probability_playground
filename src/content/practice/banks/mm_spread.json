@@ -1,0 +1,2977 @@
+{
+  "lessonId": "mm_spread",
+  "track": "market-making",
+  "title": "Spread & Edge",
+  "questions": [
+    {
+      "id": "pr_mmsp_001",
+      "concept": "spread_width",
+      "question": "You quote 38 at 42. What is your spread?",
+      "options": [
+        "4",
+        "80",
+        "38",
+        "42"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. spread = ask − bid = 42 − 38 = 4.",
+        "B": "80 is the sum of bid and ask, not the spread.",
+        "C": "38 is the bid price, not the distance between bid and ask.",
+        "D": "42 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_002",
+      "concept": "spread_width",
+      "question": "You quote 55 at 58. What is your spread?",
+      "options": [
+        "113",
+        "3",
+        "55",
+        "58"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. spread = ask − bid = 58 − 55 = 3.",
+        "A": "113 is the sum of bid and ask, not the spread.",
+        "C": "55 is the bid price, not the distance between bid and ask.",
+        "D": "58 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_003",
+      "concept": "spread_width",
+      "question": "You quote 100 at 105. What is your spread?",
+      "options": [
+        "205",
+        "100",
+        "5",
+        "105"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. spread = ask − bid = 105 − 100 = 5.",
+        "A": "205 is the sum of bid and ask, not the spread.",
+        "B": "100 is the bid price, not the distance between bid and ask.",
+        "D": "105 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_004",
+      "concept": "spread_width",
+      "question": "You quote 10 at 14. What is your spread?",
+      "options": [
+        "24",
+        "10",
+        "14",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. spread = ask − bid = 14 − 10 = 4.",
+        "A": "24 is the sum of bid and ask, not the spread.",
+        "B": "10 is the bid price, not the distance between bid and ask.",
+        "C": "14 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_005",
+      "concept": "spread_width",
+      "question": "You quote 48 at 52. What is your spread?",
+      "options": [
+        "4",
+        "100",
+        "48",
+        "52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. spread = ask − bid = 52 − 48 = 4.",
+        "B": "100 is the sum of bid and ask, not the spread.",
+        "C": "48 is the bid price, not the distance between bid and ask.",
+        "D": "52 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_006",
+      "concept": "spread_width",
+      "question": "You quote 20 at 23. What is your spread?",
+      "options": [
+        "43",
+        "3",
+        "20",
+        "23"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. spread = ask − bid = 23 − 20 = 3.",
+        "A": "43 is the sum of bid and ask, not the spread.",
+        "C": "20 is the bid price, not the distance between bid and ask.",
+        "D": "23 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_007",
+      "concept": "spread_width",
+      "question": "You quote 90 at 96. What is your spread?",
+      "options": [
+        "186",
+        "90",
+        "6",
+        "96"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. spread = ask − bid = 96 − 90 = 6.",
+        "A": "186 is the sum of bid and ask, not the spread.",
+        "B": "90 is the bid price, not the distance between bid and ask.",
+        "D": "96 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_008",
+      "concept": "spread_width",
+      "question": "You quote 12 at 13. What is your spread?",
+      "options": [
+        "25",
+        "12",
+        "13",
+        "1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. spread = ask − bid = 13 − 12 = 1.",
+        "A": "25 is the sum of bid and ask, not the spread.",
+        "B": "12 is the bid price, not the distance between bid and ask.",
+        "C": "13 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_009",
+      "concept": "spread_width",
+      "question": "You quote 200 at 210. What is your spread?",
+      "options": [
+        "10",
+        "410",
+        "200",
+        "210"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. spread = ask − bid = 210 − 200 = 10.",
+        "B": "410 is the sum of bid and ask, not the spread.",
+        "C": "200 is the bid price, not the distance between bid and ask.",
+        "D": "210 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_010",
+      "concept": "spread_width",
+      "question": "You quote 33 at 41. What is your spread?",
+      "options": [
+        "74",
+        "8",
+        "33",
+        "41"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. spread = ask − bid = 41 − 33 = 8.",
+        "A": "74 is the sum of bid and ask, not the spread.",
+        "C": "33 is the bid price, not the distance between bid and ask.",
+        "D": "41 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_011",
+      "concept": "spread_width",
+      "question": "You quote 7 at 11. What is your spread?",
+      "options": [
+        "18",
+        "7",
+        "4",
+        "11"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. spread = ask − bid = 11 − 7 = 4.",
+        "A": "18 is the sum of bid and ask, not the spread.",
+        "B": "7 is the bid price, not the distance between bid and ask.",
+        "D": "11 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_012",
+      "concept": "spread_width",
+      "question": "You quote 149 at 152. What is your spread?",
+      "options": [
+        "301",
+        "149",
+        "152",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. spread = ask − bid = 152 − 149 = 3.",
+        "A": "301 is the sum of bid and ask, not the spread.",
+        "B": "149 is the bid price, not the distance between bid and ask.",
+        "C": "152 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_013",
+      "concept": "spread_width",
+      "question": "You quote 64 at 70. What is your spread?",
+      "options": [
+        "6",
+        "134",
+        "64",
+        "70"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. spread = ask − bid = 70 − 64 = 6.",
+        "B": "134 is the sum of bid and ask, not the spread.",
+        "C": "64 is the bid price, not the distance between bid and ask.",
+        "D": "70 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_014",
+      "concept": "spread_width",
+      "question": "You quote 5 at 6. What is your spread?",
+      "options": [
+        "11",
+        "1",
+        "5",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. spread = ask − bid = 6 − 5 = 1.",
+        "A": "11 is the sum of bid and ask, not the spread.",
+        "C": "5 is the bid price, not the distance between bid and ask.",
+        "D": "6 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_015",
+      "concept": "spread_width",
+      "question": "You quote 118 at 126. What is your spread?",
+      "options": [
+        "244",
+        "118",
+        "8",
+        "126"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. spread = ask − bid = 126 − 118 = 8.",
+        "A": "244 is the sum of bid and ask, not the spread.",
+        "B": "118 is the bid price, not the distance between bid and ask.",
+        "D": "126 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_016",
+      "concept": "spread_width",
+      "question": "You quote 250 at 262. What is your spread?",
+      "options": [
+        "512",
+        "250",
+        "262",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. spread = ask − bid = 262 − 250 = 12.",
+        "A": "512 is the sum of bid and ask, not the spread.",
+        "B": "250 is the bid price, not the distance between bid and ask.",
+        "C": "262 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_017",
+      "concept": "spread_width",
+      "question": "You quote 81 at 88. What is your spread?",
+      "options": [
+        "7",
+        "169",
+        "81",
+        "88"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. spread = ask − bid = 88 − 81 = 7.",
+        "B": "169 is the sum of bid and ask, not the spread.",
+        "C": "81 is the bid price, not the distance between bid and ask.",
+        "D": "88 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_018",
+      "concept": "spread_width",
+      "question": "You quote 15 at 25. What is your spread?",
+      "options": [
+        "40",
+        "10",
+        "15",
+        "25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. spread = ask − bid = 25 − 15 = 10.",
+        "A": "40 is the sum of bid and ask, not the spread.",
+        "C": "15 is the bid price, not the distance between bid and ask.",
+        "D": "25 is the ask price, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_019",
+      "concept": "midpoint",
+      "question": "You quote 10 at 14. What is the midpoint of your quote?",
+      "options": [
+        "10",
+        "14",
+        "12",
+        "24"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. mid = (bid + ask) / 2 = (10 + 14) / 2 = 12.",
+        "A": "10 is the bid, not the center of the quote.",
+        "B": "14 is the ask, not the center of the quote.",
+        "D": "24 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_020",
+      "concept": "midpoint",
+      "question": "You quote 20 at 30. What is the midpoint of your quote?",
+      "options": [
+        "20",
+        "30",
+        "50",
+        "25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. mid = (bid + ask) / 2 = (20 + 30) / 2 = 25.",
+        "A": "20 is the bid, not the center of the quote.",
+        "B": "30 is the ask, not the center of the quote.",
+        "C": "50 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_021",
+      "concept": "midpoint",
+      "question": "You quote 99 at 101. What is the midpoint of your quote?",
+      "options": [
+        "100",
+        "99",
+        "101",
+        "200"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. mid = (bid + ask) / 2 = (99 + 101) / 2 = 100.",
+        "B": "99 is the bid, not the center of the quote.",
+        "C": "101 is the ask, not the center of the quote.",
+        "D": "200 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_022",
+      "concept": "midpoint",
+      "question": "You quote 48 at 52. What is the midpoint of your quote?",
+      "options": [
+        "48",
+        "50",
+        "52",
+        "100"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. mid = (bid + ask) / 2 = (48 + 52) / 2 = 50.",
+        "A": "48 is the bid, not the center of the quote.",
+        "C": "52 is the ask, not the center of the quote.",
+        "D": "100 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_023",
+      "concept": "midpoint",
+      "question": "You quote 40 at 60. What is the midpoint of your quote?",
+      "options": [
+        "40",
+        "60",
+        "50",
+        "100"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. mid = (bid + ask) / 2 = (40 + 60) / 2 = 50.",
+        "A": "40 is the bid, not the center of the quote.",
+        "B": "60 is the ask, not the center of the quote.",
+        "D": "100 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_024",
+      "concept": "midpoint",
+      "question": "You quote 8 at 12. What is the midpoint of your quote?",
+      "options": [
+        "8",
+        "12",
+        "20",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. mid = (bid + ask) / 2 = (8 + 12) / 2 = 10.",
+        "A": "8 is the bid, not the center of the quote.",
+        "B": "12 is the ask, not the center of the quote.",
+        "C": "20 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_025",
+      "concept": "midpoint",
+      "question": "You quote 95 at 105. What is the midpoint of your quote?",
+      "options": [
+        "100",
+        "95",
+        "105",
+        "200"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. mid = (bid + ask) / 2 = (95 + 105) / 2 = 100.",
+        "B": "95 is the bid, not the center of the quote.",
+        "C": "105 is the ask, not the center of the quote.",
+        "D": "200 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_026",
+      "concept": "midpoint",
+      "question": "You quote 1 at 3. What is the midpoint of your quote?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. mid = (bid + ask) / 2 = (1 + 3) / 2 = 2.",
+        "A": "1 is the bid, not the center of the quote.",
+        "C": "3 is the ask, not the center of the quote.",
+        "D": "4 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_027",
+      "concept": "midpoint",
+      "question": "You quote 70 at 90. What is the midpoint of your quote?",
+      "options": [
+        "70",
+        "90",
+        "80",
+        "160"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. mid = (bid + ask) / 2 = (70 + 90) / 2 = 80.",
+        "A": "70 is the bid, not the center of the quote.",
+        "B": "90 is the ask, not the center of the quote.",
+        "D": "160 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_028",
+      "concept": "midpoint",
+      "question": "You quote 44 at 48. What is the midpoint of your quote?",
+      "options": [
+        "44",
+        "48",
+        "92",
+        "46"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. mid = (bid + ask) / 2 = (44 + 48) / 2 = 46.",
+        "A": "44 is the bid, not the center of the quote.",
+        "B": "48 is the ask, not the center of the quote.",
+        "C": "92 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_029",
+      "concept": "midpoint",
+      "question": "You quote 118 at 122. What is the midpoint of your quote?",
+      "options": [
+        "120",
+        "118",
+        "122",
+        "240"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. mid = (bid + ask) / 2 = (118 + 122) / 2 = 120.",
+        "B": "118 is the bid, not the center of the quote.",
+        "C": "122 is the ask, not the center of the quote.",
+        "D": "240 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_030",
+      "concept": "midpoint",
+      "question": "You quote 200 at 240. What is the midpoint of your quote?",
+      "options": [
+        "200",
+        "220",
+        "240",
+        "440"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. mid = (bid + ask) / 2 = (200 + 240) / 2 = 220.",
+        "A": "200 is the bid, not the center of the quote.",
+        "C": "240 is the ask, not the center of the quote.",
+        "D": "440 is the sum of the prices, not their average."
+      }
+    },
+    {
+      "id": "pr_mmsp_031",
+      "concept": "spread_calibration",
+      "question": "Fair value is 50. You want a symmetric quote with spread 4 centered on fair. Which quote is right?",
+      "options": [
+        "50 at 54",
+        "46 at 50",
+        "48 at 52",
+        "49 at 51"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "C": "Correct. bid = 50 − 2 = 48, ask = 50 + 2 = 52; midpoint 50, width 4.",
+        "D": "is centered on 50 but its width is only 2, not 4."
+      }
+    },
+    {
+      "id": "pr_mmsp_032",
+      "concept": "spread_calibration",
+      "question": "Fair value is 100. You want a symmetric quote with spread 8 centered on fair. Which quote is right?",
+      "options": [
+        "100 at 108",
+        "92 at 100",
+        "98 at 102",
+        "96 at 104"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "C": "is centered on 100 but its width is only 4, not 8.",
+        "D": "Correct. bid = 100 − 4 = 96, ask = 100 + 4 = 104; midpoint 100, width 8."
+      }
+    },
+    {
+      "id": "pr_mmsp_033",
+      "concept": "spread_calibration",
+      "question": "Fair value is 60. You want a symmetric quote with spread 10 centered on fair. Which quote is right?",
+      "options": [
+        "55 at 65",
+        "60 at 70",
+        "50 at 60",
+        "57.5 at 62.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. bid = 60 − 5 = 55, ask = 60 + 5 = 65; midpoint 60, width 10.",
+        "B": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "C": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "D": "is centered on 60 but its width is only 5, not 10."
+      }
+    },
+    {
+      "id": "pr_mmsp_034",
+      "concept": "spread_calibration",
+      "question": "Fair value is 20. You want a symmetric quote with spread 6 centered on fair. Which quote is right?",
+      "options": [
+        "20 at 26",
+        "17 at 23",
+        "14 at 20",
+        "18.5 at 21.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "Correct. bid = 20 − 3 = 17, ask = 20 + 3 = 23; midpoint 20, width 6.",
+        "C": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "D": "is centered on 20 but its width is only 3, not 6."
+      }
+    },
+    {
+      "id": "pr_mmsp_035",
+      "concept": "spread_calibration",
+      "question": "Fair value is 80. You want a symmetric quote with spread 4 centered on fair. Which quote is right?",
+      "options": [
+        "80 at 84",
+        "76 at 80",
+        "78 at 82",
+        "79 at 81"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "C": "Correct. bid = 80 − 2 = 78, ask = 80 + 2 = 82; midpoint 80, width 4.",
+        "D": "is centered on 80 but its width is only 2, not 4."
+      }
+    },
+    {
+      "id": "pr_mmsp_036",
+      "concept": "spread_calibration",
+      "question": "Fair value is 30. You want a symmetric quote with spread 2 centered on fair. Which quote is right?",
+      "options": [
+        "30 at 32",
+        "28 at 30",
+        "29.5 at 30.5",
+        "29 at 31"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "C": "is centered on 30 but its width is only 1, not 2.",
+        "D": "Correct. bid = 30 − 1 = 29, ask = 30 + 1 = 31; midpoint 30, width 2."
+      }
+    },
+    {
+      "id": "pr_mmsp_037",
+      "concept": "spread_calibration",
+      "question": "Fair value is 150. You want a symmetric quote with spread 20 centered on fair. Which quote is right?",
+      "options": [
+        "140 at 160",
+        "150 at 170",
+        "130 at 150",
+        "145 at 155"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. bid = 150 − 10 = 140, ask = 150 + 10 = 160; midpoint 150, width 20.",
+        "B": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "C": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "D": "is centered on 150 but its width is only 10, not 20."
+      }
+    },
+    {
+      "id": "pr_mmsp_038",
+      "concept": "spread_calibration",
+      "question": "Fair value is 12. You want a symmetric quote with spread 4 centered on fair. Which quote is right?",
+      "options": [
+        "12 at 16",
+        "10 at 14",
+        "8 at 12",
+        "11 at 13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "Correct. bid = 12 − 2 = 10, ask = 12 + 2 = 14; midpoint 12, width 4.",
+        "C": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "D": "is centered on 12 but its width is only 2, not 4."
+      }
+    },
+    {
+      "id": "pr_mmsp_039",
+      "concept": "spread_calibration",
+      "question": "Fair value is 200. You want a symmetric quote with spread 10 centered on fair. Which quote is right?",
+      "options": [
+        "200 at 210",
+        "190 at 200",
+        "195 at 205",
+        "197.5 at 202.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "C": "Correct. bid = 200 − 5 = 195, ask = 200 + 5 = 205; midpoint 200, width 10.",
+        "D": "is centered on 200 but its width is only 5, not 10."
+      }
+    },
+    {
+      "id": "pr_mmsp_040",
+      "concept": "spread_calibration",
+      "question": "Fair value is 45. You want a symmetric quote with spread 6 centered on fair. Which quote is right?",
+      "options": [
+        "45 at 51",
+        "39 at 45",
+        "43.5 at 46.5",
+        "42 at 48"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "C": "is centered on 45 but its width is only 3, not 6.",
+        "D": "Correct. bid = 45 − 3 = 42, ask = 45 + 3 = 48; midpoint 45, width 6."
+      }
+    },
+    {
+      "id": "pr_mmsp_041",
+      "concept": "spread_calibration",
+      "question": "Fair value is 70. You want a symmetric quote with spread 8 centered on fair. Which quote is right?",
+      "options": [
+        "66 at 74",
+        "70 at 78",
+        "62 at 70",
+        "68 at 72"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. bid = 70 − 4 = 66, ask = 70 + 4 = 74; midpoint 70, width 8.",
+        "B": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "C": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "D": "is centered on 70 but its width is only 4, not 8."
+      }
+    },
+    {
+      "id": "pr_mmsp_042",
+      "concept": "spread_calibration",
+      "question": "Fair value is 500. You want a symmetric quote with spread 40 centered on fair. Which quote is right?",
+      "options": [
+        "500 at 540",
+        "480 at 520",
+        "460 at 500",
+        "490 at 510"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "puts the bid at fair instead of centering — midpoint sits above fair.",
+        "B": "Correct. bid = 500 − 20 = 480, ask = 500 + 20 = 520; midpoint 500, width 40.",
+        "C": "puts the ask at fair instead of centering — midpoint sits below fair.",
+        "D": "is centered on 500 but its width is only 20, not 40."
+      }
+    },
+    {
+      "id": "pr_mmsp_043",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 3. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "1.5",
+        "6",
+        "3",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. a full round-trip captures the entire spread: 3.",
+        "A": "1.5 is the half-spread — edge from only one leg, not the full round-trip.",
+        "B": "6 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_044",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 4. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "2",
+        "8",
+        "0",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. a full round-trip captures the entire spread: 4.",
+        "A": "2 is the half-spread — edge from only one leg, not the full round-trip.",
+        "B": "8 double-counts the spread; a round-trip earns it once.",
+        "C": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_045",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 5. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "5",
+        "2.5",
+        "10",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. a full round-trip captures the entire spread: 5.",
+        "B": "2.5 is the half-spread — edge from only one leg, not the full round-trip.",
+        "C": "10 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_046",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 6. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "3",
+        "6",
+        "12",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. a full round-trip captures the entire spread: 6.",
+        "A": "3 is the half-spread — edge from only one leg, not the full round-trip.",
+        "C": "12 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_047",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 2. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "1",
+        "4",
+        "2",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. a full round-trip captures the entire spread: 2.",
+        "A": "1 is the half-spread — edge from only one leg, not the full round-trip.",
+        "B": "4 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_048",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 8. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "4",
+        "16",
+        "0",
+        "8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. a full round-trip captures the entire spread: 8.",
+        "A": "4 is the half-spread — edge from only one leg, not the full round-trip.",
+        "B": "16 double-counts the spread; a round-trip earns it once.",
+        "C": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_049",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 10. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "10",
+        "5",
+        "20",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. a full round-trip captures the entire spread: 10.",
+        "B": "5 is the half-spread — edge from only one leg, not the full round-trip.",
+        "C": "20 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_050",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 1. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "0.5",
+        "1",
+        "2",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. a full round-trip captures the entire spread: 1.",
+        "A": "0.5 is the half-spread — edge from only one leg, not the full round-trip.",
+        "C": "2 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_051",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 7. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "3.5",
+        "14",
+        "7",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. a full round-trip captures the entire spread: 7.",
+        "A": "3.5 is the half-spread — edge from only one leg, not the full round-trip.",
+        "B": "14 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_052",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 12. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "6",
+        "24",
+        "0",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. a full round-trip captures the entire spread: 12.",
+        "A": "6 is the half-spread — edge from only one leg, not the full round-trip.",
+        "B": "24 double-counts the spread; a round-trip earns it once.",
+        "C": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_053",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 9. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "9",
+        "4.5",
+        "18",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. a full round-trip captures the entire spread: 9.",
+        "B": "4.5 is the half-spread — edge from only one leg, not the full round-trip.",
+        "C": "18 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_054",
+      "concept": "round_trip_edge",
+      "question": "Your spread is 20. You complete one round-trip of size 1 (buy at the bid, sell at the ask) with fair value unchanged. Gross edge before costs?",
+      "options": [
+        "10",
+        "20",
+        "40",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. a full round-trip captures the entire spread: 20.",
+        "A": "10 is the half-spread — edge from only one leg, not the full round-trip.",
+        "C": "40 double-counts the spread; a round-trip earns it once.",
+        "D": "0 ignores the spread you captured when fair value did not move."
+      }
+    },
+    {
+      "id": "pr_mmsp_055",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 5. You complete one round-trip of size 2 units, fair value unchanged. Gross edge?",
+      "options": [
+        "5",
+        "2",
+        "10",
+        "20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. edge = spread × size = 5 × 2 = 10.",
+        "A": "5 ignores the size multiplier — that is the per-unit spread.",
+        "B": "2 is the size traded, not the edge.",
+        "D": "20 double-counts the captured spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_056",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 3. You complete one round-trip of size 4 units, fair value unchanged. Gross edge?",
+      "options": [
+        "3",
+        "4",
+        "6",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. edge = spread × size = 3 × 4 = 12.",
+        "A": "3 ignores the size multiplier — that is the per-unit spread.",
+        "B": "4 is the size traded, not the edge.",
+        "C": "6 counts only one leg of the round-trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_057",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 4. You complete one round-trip of size 5 units, fair value unchanged. Gross edge?",
+      "options": [
+        "20",
+        "4",
+        "5",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. edge = spread × size = 4 × 5 = 20.",
+        "B": "4 ignores the size multiplier — that is the per-unit spread.",
+        "C": "5 is the size traded, not the edge.",
+        "D": "10 counts only one leg of the round-trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_058",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 6. You complete one round-trip of size 3 units, fair value unchanged. Gross edge?",
+      "options": [
+        "6",
+        "18",
+        "3",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. edge = spread × size = 6 × 3 = 18.",
+        "A": "6 ignores the size multiplier — that is the per-unit spread.",
+        "C": "3 is the size traded, not the edge.",
+        "D": "9 counts only one leg of the round-trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_059",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 2. You complete one round-trip of size 10 units, fair value unchanged. Gross edge?",
+      "options": [
+        "2",
+        "10",
+        "20",
+        "40"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. edge = spread × size = 2 × 10 = 20.",
+        "A": "2 ignores the size multiplier — that is the per-unit spread.",
+        "B": "10 is the size traded, not the edge.",
+        "D": "40 double-counts the captured spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_060",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 8. You complete one round-trip of size 2 units, fair value unchanged. Gross edge?",
+      "options": [
+        "8",
+        "2",
+        "32",
+        "16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. edge = spread × size = 8 × 2 = 16.",
+        "A": "8 ignores the size multiplier — that is the per-unit spread.",
+        "B": "2 is the size traded, not the edge.",
+        "C": "32 double-counts the captured spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_061",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 10. You complete one round-trip of size 6 units, fair value unchanged. Gross edge?",
+      "options": [
+        "60",
+        "10",
+        "6",
+        "30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. edge = spread × size = 10 × 6 = 60.",
+        "B": "10 ignores the size multiplier — that is the per-unit spread.",
+        "C": "6 is the size traded, not the edge.",
+        "D": "30 counts only one leg of the round-trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_062",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 7. You complete one round-trip of size 3 units, fair value unchanged. Gross edge?",
+      "options": [
+        "7",
+        "21",
+        "3",
+        "10.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. edge = spread × size = 7 × 3 = 21.",
+        "A": "7 ignores the size multiplier — that is the per-unit spread.",
+        "C": "3 is the size traded, not the edge.",
+        "D": "10.5 counts only one leg of the round-trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_063",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 12. You complete one round-trip of size 5 units, fair value unchanged. Gross edge?",
+      "options": [
+        "12",
+        "5",
+        "60",
+        "30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. edge = spread × size = 12 × 5 = 60.",
+        "A": "12 ignores the size multiplier — that is the per-unit spread.",
+        "B": "5 is the size traded, not the edge.",
+        "D": "30 counts only one leg of the round-trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_064",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 1. You complete one round-trip of size 9 units, fair value unchanged. Gross edge?",
+      "options": [
+        "1",
+        "4.5",
+        "18",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. edge = spread × size = 1 × 9 = 9.",
+        "A": "1 ignores the size multiplier — that is the per-unit spread.",
+        "B": "4.5 counts only one leg of the round-trip.",
+        "C": "18 double-counts the captured spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_065",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 9. You complete one round-trip of size 4 units, fair value unchanged. Gross edge?",
+      "options": [
+        "36",
+        "9",
+        "4",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. edge = spread × size = 9 × 4 = 36.",
+        "B": "9 ignores the size multiplier — that is the per-unit spread.",
+        "C": "4 is the size traded, not the edge.",
+        "D": "18 counts only one leg of the round-trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_066",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 15. You complete one round-trip of size 2 units, fair value unchanged. Gross edge?",
+      "options": [
+        "15",
+        "30",
+        "2",
+        "60"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. edge = spread × size = 15 × 2 = 30.",
+        "A": "15 ignores the size multiplier — that is the per-unit spread.",
+        "C": "2 is the size traded, not the edge.",
+        "D": "60 double-counts the captured spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_067",
+      "concept": "half_spread",
+      "question": "Fair value is 20. You quote 18 at 22 (spread 4). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "4",
+        "1",
+        "2",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. your ask 22 sits 2 above fair 20; a one-sided sell captures the half-spread = 2.",
+        "A": "4 is the full spread; you only sold once, you did not round-trip.",
+        "B": "1 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_068",
+      "concept": "half_spread",
+      "question": "Fair value is 50. You quote 47 at 53 (spread 6). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "6",
+        "1.5",
+        "0",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. your ask 53 sits 3 above fair 50; a one-sided sell captures the half-spread = 3.",
+        "A": "6 is the full spread; you only sold once, you did not round-trip.",
+        "B": "1.5 undercounts the distance from fair to your ask.",
+        "C": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_069",
+      "concept": "half_spread",
+      "question": "Fair value is 100. You quote 95 at 105 (spread 10). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "5",
+        "10",
+        "2.5",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. your ask 105 sits 5 above fair 100; a one-sided sell captures the half-spread = 5.",
+        "B": "10 is the full spread; you only sold once, you did not round-trip.",
+        "C": "2.5 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_070",
+      "concept": "half_spread",
+      "question": "Fair value is 10. You quote 9 at 11 (spread 2). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "2",
+        "1",
+        "0.5",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. your ask 11 sits 1 above fair 10; a one-sided sell captures the half-spread = 1.",
+        "A": "2 is the full spread; you only sold once, you did not round-trip.",
+        "C": "0.5 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_071",
+      "concept": "half_spread",
+      "question": "Fair value is 30. You quote 26 at 34 (spread 8). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "8",
+        "2",
+        "4",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. your ask 34 sits 4 above fair 30; a one-sided sell captures the half-spread = 4.",
+        "A": "8 is the full spread; you only sold once, you did not round-trip.",
+        "B": "2 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_072",
+      "concept": "half_spread",
+      "question": "Fair value is 60. You quote 54 at 66 (spread 12). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "12",
+        "3",
+        "0",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. your ask 66 sits 6 above fair 60; a one-sided sell captures the half-spread = 6.",
+        "A": "12 is the full spread; you only sold once, you did not round-trip.",
+        "B": "3 undercounts the distance from fair to your ask.",
+        "C": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_073",
+      "concept": "half_spread",
+      "question": "Fair value is 200. You quote 190 at 210 (spread 20). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "10",
+        "20",
+        "5",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. your ask 210 sits 10 above fair 200; a one-sided sell captures the half-spread = 10.",
+        "B": "20 is the full spread; you only sold once, you did not round-trip.",
+        "C": "5 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_074",
+      "concept": "half_spread",
+      "question": "Fair value is 15. You quote 13 at 17 (spread 4). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "4",
+        "2",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. your ask 17 sits 2 above fair 15; a one-sided sell captures the half-spread = 2.",
+        "A": "4 is the full spread; you only sold once, you did not round-trip.",
+        "C": "1 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_075",
+      "concept": "half_spread",
+      "question": "Fair value is 80. You quote 72 at 88 (spread 16). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "16",
+        "4",
+        "8",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. your ask 88 sits 8 above fair 80; a one-sided sell captures the half-spread = 8.",
+        "A": "16 is the full spread; you only sold once, you did not round-trip.",
+        "B": "4 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_076",
+      "concept": "half_spread",
+      "question": "Fair value is 40. You quote 35 at 45 (spread 10). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "10",
+        "2.5",
+        "0",
+        "5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. your ask 45 sits 5 above fair 40; a one-sided sell captures the half-spread = 5.",
+        "A": "10 is the full spread; you only sold once, you did not round-trip.",
+        "B": "2.5 undercounts the distance from fair to your ask.",
+        "C": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_077",
+      "concept": "half_spread",
+      "question": "Fair value is 12. You quote 9 at 15 (spread 6). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "3",
+        "6",
+        "1.5",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. your ask 15 sits 3 above fair 12; a one-sided sell captures the half-spread = 3.",
+        "B": "6 is the full spread; you only sold once, you did not round-trip.",
+        "C": "1.5 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_078",
+      "concept": "half_spread",
+      "question": "Fair value is 150. You quote 143 at 157 (spread 14). A buyer lifts your ask once and fair value is unchanged. How many points of edge versus fair did you earn on that single sell?",
+      "options": [
+        "14",
+        "7",
+        "3.5",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. your ask 157 sits 7 above fair 150; a one-sided sell captures the half-spread = 7.",
+        "A": "14 is the full spread; you only sold once, you did not round-trip.",
+        "C": "3.5 undercounts the distance from fair to your ask.",
+        "D": "0 ignores that your ask is above fair, so the sell is profitable vs fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_079",
+      "concept": "expected_profit",
+      "question": "You expect to complete 5 round-trips, each capturing the full spread of 3, with fair value stable. Expected gross profit?",
+      "options": [
+        "3",
+        "5",
+        "15",
+        "7.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. profit = spread × trips = 3 × 5 = 15.",
+        "A": "3 is the edge from a single round-trip, not all 5 of them.",
+        "B": "5 is the number of trips, not the profit.",
+        "D": "7.5 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_080",
+      "concept": "expected_profit",
+      "question": "You expect to complete 10 round-trips, each capturing the full spread of 4, with fair value stable. Expected gross profit?",
+      "options": [
+        "4",
+        "10",
+        "20",
+        "40"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. profit = spread × trips = 4 × 10 = 40.",
+        "A": "4 is the edge from a single round-trip, not all 10 of them.",
+        "B": "10 is the number of trips, not the profit.",
+        "C": "20 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_081",
+      "concept": "expected_profit",
+      "question": "You expect to complete 8 round-trips, each capturing the full spread of 2, with fair value stable. Expected gross profit?",
+      "options": [
+        "16",
+        "2",
+        "8",
+        "32"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. profit = spread × trips = 2 × 8 = 16.",
+        "B": "2 is the edge from a single round-trip, not all 8 of them.",
+        "C": "8 is the number of trips, not the profit.",
+        "D": "32 double-counts the spread per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_082",
+      "concept": "expected_profit",
+      "question": "You expect to complete 4 round-trips, each capturing the full spread of 5, with fair value stable. Expected gross profit?",
+      "options": [
+        "5",
+        "20",
+        "4",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. profit = spread × trips = 5 × 4 = 20.",
+        "A": "5 is the edge from a single round-trip, not all 4 of them.",
+        "C": "4 is the number of trips, not the profit.",
+        "D": "10 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_083",
+      "concept": "expected_profit",
+      "question": "You expect to complete 3 round-trips, each capturing the full spread of 6, with fair value stable. Expected gross profit?",
+      "options": [
+        "6",
+        "3",
+        "18",
+        "9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. profit = spread × trips = 6 × 3 = 18.",
+        "A": "6 is the edge from a single round-trip, not all 3 of them.",
+        "B": "3 is the number of trips, not the profit.",
+        "D": "9 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_084",
+      "concept": "expected_profit",
+      "question": "You expect to complete 6 round-trips, each capturing the full spread of 10, with fair value stable. Expected gross profit?",
+      "options": [
+        "10",
+        "6",
+        "30",
+        "60"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. profit = spread × trips = 10 × 6 = 60.",
+        "A": "10 is the edge from a single round-trip, not all 6 of them.",
+        "B": "6 is the number of trips, not the profit.",
+        "C": "30 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_085",
+      "concept": "expected_profit",
+      "question": "You expect to complete 20 round-trips, each capturing the full spread of 1, with fair value stable. Expected gross profit?",
+      "options": [
+        "20",
+        "1",
+        "10",
+        "40"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. profit = spread × trips = 1 × 20 = 20.",
+        "B": "1 is the edge from a single round-trip, not all 20 of them.",
+        "C": "10 counts only one leg per trip.",
+        "D": "40 double-counts the spread per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_086",
+      "concept": "expected_profit",
+      "question": "You expect to complete 5 round-trips, each capturing the full spread of 8, with fair value stable. Expected gross profit?",
+      "options": [
+        "8",
+        "40",
+        "5",
+        "20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. profit = spread × trips = 8 × 5 = 40.",
+        "A": "8 is the edge from a single round-trip, not all 5 of them.",
+        "C": "5 is the number of trips, not the profit.",
+        "D": "20 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_087",
+      "concept": "expected_profit",
+      "question": "You expect to complete 9 round-trips, each capturing the full spread of 7, with fair value stable. Expected gross profit?",
+      "options": [
+        "7",
+        "9",
+        "63",
+        "31.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. profit = spread × trips = 7 × 9 = 63.",
+        "A": "7 is the edge from a single round-trip, not all 9 of them.",
+        "B": "9 is the number of trips, not the profit.",
+        "D": "31.5 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_088",
+      "concept": "expected_profit",
+      "question": "You expect to complete 4 round-trips, each capturing the full spread of 12, with fair value stable. Expected gross profit?",
+      "options": [
+        "12",
+        "4",
+        "24",
+        "48"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. profit = spread × trips = 12 × 4 = 48.",
+        "A": "12 is the edge from a single round-trip, not all 4 of them.",
+        "B": "4 is the number of trips, not the profit.",
+        "C": "24 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_089",
+      "concept": "expected_profit",
+      "question": "You expect to complete 7 round-trips, each capturing the full spread of 9, with fair value stable. Expected gross profit?",
+      "options": [
+        "63",
+        "9",
+        "7",
+        "31.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. profit = spread × trips = 9 × 7 = 63.",
+        "B": "9 is the edge from a single round-trip, not all 7 of them.",
+        "C": "7 is the number of trips, not the profit.",
+        "D": "31.5 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_090",
+      "concept": "expected_profit",
+      "question": "You expect to complete 6 round-trips, each capturing the full spread of 15, with fair value stable. Expected gross profit?",
+      "options": [
+        "15",
+        "90",
+        "6",
+        "45"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. profit = spread × trips = 15 × 6 = 90.",
+        "A": "15 is the edge from a single round-trip, not all 6 of them.",
+        "C": "6 is the number of trips, not the profit.",
+        "D": "45 counts only one leg per trip."
+      }
+    },
+    {
+      "id": "pr_mmsp_091",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 5 and round-trip costs (fees plus slippage) total 1. Net edge per round-trip?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. net = spread − costs = 5 − 1 = 4.",
+        "A": "5 ignores the round-trip costs that eat into gross edge.",
+        "B": "6 adds the costs instead of subtracting them.",
+        "D": "1 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_092",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 8 and round-trip costs (fees plus slippage) total 2. Net edge per round-trip?",
+      "options": [
+        "8",
+        "10",
+        "2",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. net = spread − costs = 8 − 2 = 6.",
+        "A": "8 ignores the round-trip costs that eat into gross edge.",
+        "B": "10 adds the costs instead of subtracting them.",
+        "C": "2 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_093",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 10 and round-trip costs (fees plus slippage) total 3. Net edge per round-trip?",
+      "options": [
+        "7",
+        "10",
+        "13",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. net = spread − costs = 10 − 3 = 7.",
+        "B": "10 ignores the round-trip costs that eat into gross edge.",
+        "C": "13 adds the costs instead of subtracting them.",
+        "D": "3 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_094",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 4 and round-trip costs (fees plus slippage) total 1. Net edge per round-trip?",
+      "options": [
+        "4",
+        "3",
+        "5",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. net = spread − costs = 4 − 1 = 3.",
+        "A": "4 ignores the round-trip costs that eat into gross edge.",
+        "C": "5 adds the costs instead of subtracting them.",
+        "D": "1 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_095",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 6 and round-trip costs (fees plus slippage) total 2. Net edge per round-trip?",
+      "options": [
+        "6",
+        "8",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. net = spread − costs = 6 − 2 = 4.",
+        "A": "6 ignores the round-trip costs that eat into gross edge.",
+        "B": "8 adds the costs instead of subtracting them.",
+        "D": "2 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_096",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 12 and round-trip costs (fees plus slippage) total 4. Net edge per round-trip?",
+      "options": [
+        "12",
+        "16",
+        "4",
+        "8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. net = spread − costs = 12 − 4 = 8.",
+        "A": "12 ignores the round-trip costs that eat into gross edge.",
+        "B": "16 adds the costs instead of subtracting them.",
+        "C": "4 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_097",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 3 and round-trip costs (fees plus slippage) total 1. Net edge per round-trip?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. net = spread − costs = 3 − 1 = 2.",
+        "B": "3 ignores the round-trip costs that eat into gross edge.",
+        "C": "4 adds the costs instead of subtracting them.",
+        "D": "1 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_098",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 20 and round-trip costs (fees plus slippage) total 5. Net edge per round-trip?",
+      "options": [
+        "20",
+        "15",
+        "25",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. net = spread − costs = 20 − 5 = 15.",
+        "A": "20 ignores the round-trip costs that eat into gross edge.",
+        "C": "25 adds the costs instead of subtracting them.",
+        "D": "5 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_099",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 7 and round-trip costs (fees plus slippage) total 2. Net edge per round-trip?",
+      "options": [
+        "7",
+        "9",
+        "5",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. net = spread − costs = 7 − 2 = 5.",
+        "A": "7 ignores the round-trip costs that eat into gross edge.",
+        "B": "9 adds the costs instead of subtracting them.",
+        "D": "2 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_100",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 9 and round-trip costs (fees plus slippage) total 3. Net edge per round-trip?",
+      "options": [
+        "9",
+        "12",
+        "3",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. net = spread − costs = 9 − 3 = 6.",
+        "A": "9 ignores the round-trip costs that eat into gross edge.",
+        "B": "12 adds the costs instead of subtracting them.",
+        "C": "3 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_101",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 15 and round-trip costs (fees plus slippage) total 6. Net edge per round-trip?",
+      "options": [
+        "9",
+        "15",
+        "21",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. net = spread − costs = 15 − 6 = 9.",
+        "B": "15 ignores the round-trip costs that eat into gross edge.",
+        "C": "21 adds the costs instead of subtracting them.",
+        "D": "6 is the cost, not the net edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_102",
+      "concept": "edge_per_trade",
+      "question": "Your spread is 2 and round-trip costs (fees plus slippage) total 1. Net edge per round-trip?",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. net = spread − costs = 2 − 1 = 1.",
+        "A": "2 ignores the round-trip costs that eat into gross edge.",
+        "C": "3 adds the costs instead of subtracting them.",
+        "D": "0 subtracts the cost twice."
+      }
+    },
+    {
+      "id": "pr_mmsp_103",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 2. With probability 0.2 a fill is informed and you instead lose 6. Expected profit per fill?",
+      "options": [
+        "2",
+        "1.6",
+        "0.4",
+        "-4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E = (1−p)·h − p·L = 0.8×2 − 0.2×6 = 0.4.",
+        "A": "2 ignores the adverse-selection loss when an informed trader fills you.",
+        "B": "1.6 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-4 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_104",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 3. With probability 0.25 a fill is informed and you instead lose 4. Expected profit per fill?",
+      "options": [
+        "3",
+        "2.25",
+        "-1",
+        "1.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E = (1−p)·h − p·L = 0.75×3 − 0.25×4 = 1.25.",
+        "A": "3 ignores the adverse-selection loss when an informed trader fills you.",
+        "B": "2.25 counts uninformed gains but forgets to subtract the informed losses.",
+        "C": "-1 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_105",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 2. With probability 0.1 a fill is informed and you instead lose 9. Expected profit per fill?",
+      "options": [
+        "0.9",
+        "2",
+        "1.8",
+        "-7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = (1−p)·h − p·L = 0.9×2 − 0.1×9 = 0.9.",
+        "B": "2 ignores the adverse-selection loss when an informed trader fills you.",
+        "C": "1.8 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-7 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_106",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 5. With probability 0.2 a fill is informed and you instead lose 10. Expected profit per fill?",
+      "options": [
+        "5",
+        "2",
+        "4",
+        "-5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E = (1−p)·h − p·L = 0.8×5 − 0.2×10 = 2.",
+        "A": "5 ignores the adverse-selection loss when an informed trader fills you.",
+        "C": "4 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-5 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_107",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 4. With probability 0.5 a fill is informed and you instead lose 4. Expected profit per fill?",
+      "options": [
+        "4",
+        "2",
+        "0",
+        "-2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E = (1−p)·h − p·L = 0.5×4 − 0.5×4 = 0.",
+        "A": "4 ignores the adverse-selection loss when an informed trader fills you.",
+        "B": "2 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-2 counts only the losses and drops the uninformed profit."
+      }
+    },
+    {
+      "id": "pr_mmsp_108",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 4. With probability 0.25 a fill is informed and you instead lose 8. Expected profit per fill?",
+      "options": [
+        "4",
+        "3",
+        "-4",
+        "1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E = (1−p)·h − p·L = 0.75×4 − 0.25×8 = 1.",
+        "A": "4 ignores the adverse-selection loss when an informed trader fills you.",
+        "B": "3 counts uninformed gains but forgets to subtract the informed losses.",
+        "C": "-4 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_109",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 3. With probability 0.2 a fill is informed and you instead lose 8. Expected profit per fill?",
+      "options": [
+        "0.8",
+        "3",
+        "2.4",
+        "-5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = (1−p)·h − p·L = 0.8×3 − 0.2×8 = 0.8.",
+        "B": "3 ignores the adverse-selection loss when an informed trader fills you.",
+        "C": "2.4 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-5 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_110",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 5. With probability 0.1 a fill is informed and you instead lose 20. Expected profit per fill?",
+      "options": [
+        "5",
+        "2.5",
+        "4.5",
+        "-15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E = (1−p)·h − p·L = 0.9×5 − 0.1×20 = 2.5.",
+        "A": "5 ignores the adverse-selection loss when an informed trader fills you.",
+        "C": "4.5 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-15 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_111",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 6. With probability 0.5 a fill is informed and you instead lose 6. Expected profit per fill?",
+      "options": [
+        "6",
+        "3",
+        "0",
+        "-3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E = (1−p)·h − p·L = 0.5×6 − 0.5×6 = 0.",
+        "A": "6 ignores the adverse-selection loss when an informed trader fills you.",
+        "B": "3 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-3 counts only the losses and drops the uninformed profit."
+      }
+    },
+    {
+      "id": "pr_mmsp_112",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 4. With probability 0.2 a fill is informed and you instead lose 12. Expected profit per fill?",
+      "options": [
+        "4",
+        "3.2",
+        "-8",
+        "0.8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E = (1−p)·h − p·L = 0.8×4 − 0.2×12 = 0.8.",
+        "A": "4 ignores the adverse-selection loss when an informed trader fills you.",
+        "B": "3.2 counts uninformed gains but forgets to subtract the informed losses.",
+        "C": "-8 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_113",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 2. With probability 0.25 a fill is informed and you instead lose 6. Expected profit per fill?",
+      "options": [
+        "0",
+        "2",
+        "1.5",
+        "-4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = (1−p)·h − p·L = 0.75×2 − 0.25×6 = 0.",
+        "B": "2 ignores the adverse-selection loss when an informed trader fills you.",
+        "C": "1.5 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "-4 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_114",
+      "concept": "adverse_selection",
+      "question": "Each uninformed fill earns you the half-spread of 5. With probability 0.4 a fill is informed and you instead lose 5. Expected profit per fill?",
+      "options": [
+        "5",
+        "1",
+        "3",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E = (1−p)·h − p·L = 0.6×5 − 0.4×5 = 1.",
+        "A": "5 ignores the adverse-selection loss when an informed trader fills you.",
+        "C": "3 counts uninformed gains but forgets to subtract the informed losses.",
+        "D": "0 weights the two outcomes equally and ignores the probabilities."
+      }
+    },
+    {
+      "id": "pr_mmsp_115",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.25 of your fills are informed and cost you 3 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "1",
+        "1.5",
+        "2",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 1; break-even spread = 2h = 2.",
+        "A": "1 is the break-even half-spread; the spread is twice that.",
+        "B": "1.5 drops the (1−p) denominator that accounts for the uninformed share.",
+        "D": "3 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_116",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.2 of your fills are informed and cost you 4 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "1",
+        "1.6",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 1; break-even spread = 2h = 2.",
+        "A": "1 is the break-even half-spread; the spread is twice that.",
+        "B": "1.6 drops the (1−p) denominator that accounts for the uninformed share.",
+        "C": "4 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_117",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.2 of your fills are informed and cost you 8 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "4",
+        "2",
+        "3.2",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 2; break-even spread = 2h = 4.",
+        "B": "2 is the break-even half-spread; the spread is twice that.",
+        "C": "3.2 drops the (1−p) denominator that accounts for the uninformed share.",
+        "D": "8 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_118",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.25 of your fills are informed and cost you 6 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 2; break-even spread = 2h = 4.",
+        "A": "2 is the break-even half-spread; the spread is twice that.",
+        "C": "3 drops the (1−p) denominator that accounts for the uninformed share.",
+        "D": "6 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_119",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.1 of your fills are informed and cost you 9 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "1",
+        "1.8",
+        "2",
+        "9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 1; break-even spread = 2h = 2.",
+        "A": "1 is the break-even half-spread; the spread is twice that.",
+        "B": "1.8 drops the (1−p) denominator that accounts for the uninformed share.",
+        "D": "9 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_120",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.4 of your fills are informed and cost you 3 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "2",
+        "2.4",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 2; break-even spread = 2h = 4.",
+        "A": "2 is the break-even half-spread; the spread is twice that.",
+        "B": "2.4 drops the (1−p) denominator that accounts for the uninformed share.",
+        "C": "3 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_121",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.25 of your fills are informed and cost you 12 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "8",
+        "4",
+        "6",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 4; break-even spread = 2h = 8.",
+        "B": "4 is the break-even half-spread; the spread is twice that.",
+        "C": "6 drops the (1−p) denominator that accounts for the uninformed share.",
+        "D": "12 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_122",
+      "concept": "adverse_selection",
+      "question": "A fraction 0.2 of your fills are informed and cost you 12 each; the rest earn the half-spread h. What break-even spread (= 2h) makes expected profit per fill zero?",
+      "options": [
+        "3",
+        "6",
+        "4.8",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. set (1−p)·h = p·L ⇒ h = p·L/(1−p) = 3; break-even spread = 2h = 6.",
+        "A": "3 is the break-even half-spread; the spread is twice that.",
+        "C": "4.8 drops the (1−p) denominator that accounts for the uninformed share.",
+        "D": "12 is the loss per pick-off, not the spread needed to offset it."
+      }
+    },
+    {
+      "id": "pr_mmsp_123",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 2 over your quoting horizon. You set the half-spread to cover ±2σ. What total spread width does that imply?",
+      "options": [
+        "4",
+        "2",
+        "8",
+        "12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. half-spread = 2σ = 2×2 = 4; total spread = 2 × 4 = 8.",
+        "A": "4 is just the half-spread (one side); the full width is twice that.",
+        "B": "2 is one σ, not the spread implied by ±2σ coverage.",
+        "D": "12 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_124",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 3 over your quoting horizon. You set the half-spread to cover ±1σ. What total spread width does that imply?",
+      "options": [
+        "3",
+        "9",
+        "1",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. half-spread = 1σ = 1×3 = 3; total spread = 2 × 3 = 6.",
+        "A": "3 is just the half-spread (one side); the full width is twice that.",
+        "B": "9 over-covers — that is 1.5× the required width.",
+        "C": "1 is the coverage multiplier, not a price width."
+      }
+    },
+    {
+      "id": "pr_mmsp_125",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 1.5 over your quoting horizon. You set the half-spread to cover ±2σ. What total spread width does that imply?",
+      "options": [
+        "6",
+        "3",
+        "1.5",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. half-spread = 2σ = 2×1.5 = 3; total spread = 2 × 3 = 6.",
+        "B": "3 is just the half-spread (one side); the full width is twice that.",
+        "C": "1.5 is one σ, not the spread implied by ±2σ coverage.",
+        "D": "9 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_126",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 4 over your quoting horizon. You set the half-spread to cover ±1σ. What total spread width does that imply?",
+      "options": [
+        "4",
+        "8",
+        "12",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. half-spread = 1σ = 1×4 = 4; total spread = 2 × 4 = 8.",
+        "A": "4 is just the half-spread (one side); the full width is twice that.",
+        "C": "12 over-covers — that is 1.5× the required width.",
+        "D": "1 is the coverage multiplier, not a price width."
+      }
+    },
+    {
+      "id": "pr_mmsp_127",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 2 over your quoting horizon. You set the half-spread to cover ±3σ. What total spread width does that imply?",
+      "options": [
+        "6",
+        "2",
+        "12",
+        "18"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. half-spread = 3σ = 3×2 = 6; total spread = 2 × 6 = 12.",
+        "A": "6 is just the half-spread (one side); the full width is twice that.",
+        "B": "2 is one σ, not the spread implied by ±3σ coverage.",
+        "D": "18 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_128",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 5 over your quoting horizon. You set the half-spread to cover ±2σ. What total spread width does that imply?",
+      "options": [
+        "10",
+        "5",
+        "30",
+        "20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. half-spread = 2σ = 2×5 = 10; total spread = 2 × 10 = 20.",
+        "A": "10 is just the half-spread (one side); the full width is twice that.",
+        "B": "5 is one σ, not the spread implied by ±2σ coverage.",
+        "C": "30 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_129",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 2.5 over your quoting horizon. You set the half-spread to cover ±2σ. What total spread width does that imply?",
+      "options": [
+        "10",
+        "5",
+        "2.5",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. half-spread = 2σ = 2×2.5 = 5; total spread = 2 × 5 = 10.",
+        "B": "5 is just the half-spread (one side); the full width is twice that.",
+        "C": "2.5 is one σ, not the spread implied by ±2σ coverage.",
+        "D": "15 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_130",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 1 over your quoting horizon. You set the half-spread to cover ±4σ. What total spread width does that imply?",
+      "options": [
+        "4",
+        "8",
+        "1",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. half-spread = 4σ = 4×1 = 4; total spread = 2 × 4 = 8.",
+        "A": "4 is just the half-spread (one side); the full width is twice that.",
+        "C": "1 is one σ, not the spread implied by ±4σ coverage.",
+        "D": "12 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_131",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 3 over your quoting horizon. You set the half-spread to cover ±2σ. What total spread width does that imply?",
+      "options": [
+        "6",
+        "3",
+        "12",
+        "18"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. half-spread = 2σ = 2×3 = 6; total spread = 2 × 6 = 12.",
+        "A": "6 is just the half-spread (one side); the full width is twice that.",
+        "B": "3 is one σ, not the spread implied by ±2σ coverage.",
+        "D": "18 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_132",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 2 over your quoting horizon. You set the half-spread to cover ±5σ. What total spread width does that imply?",
+      "options": [
+        "10",
+        "2",
+        "30",
+        "20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. half-spread = 5σ = 5×2 = 10; total spread = 2 × 10 = 20.",
+        "A": "10 is just the half-spread (one side); the full width is twice that.",
+        "B": "2 is one σ, not the spread implied by ±5σ coverage.",
+        "C": "30 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_133",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 4 over your quoting horizon. You set the half-spread to cover ±2σ. What total spread width does that imply?",
+      "options": [
+        "16",
+        "8",
+        "4",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. half-spread = 2σ = 2×4 = 8; total spread = 2 × 8 = 16.",
+        "B": "8 is just the half-spread (one side); the full width is twice that.",
+        "C": "4 is one σ, not the spread implied by ±2σ coverage.",
+        "D": "24 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_134",
+      "concept": "spread_vs_volatility",
+      "question": "Fair value can swing by σ = 1.5 over your quoting horizon. You set the half-spread to cover ±4σ. What total spread width does that imply?",
+      "options": [
+        "6",
+        "12",
+        "1.5",
+        "18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. half-spread = 4σ = 4×1.5 = 6; total spread = 2 × 6 = 12.",
+        "A": "6 is just the half-spread (one side); the full width is twice that.",
+        "C": "1.5 is one σ, not the spread implied by ±4σ coverage.",
+        "D": "18 over-covers — that is 1.5× the required width."
+      }
+    },
+    {
+      "id": "pr_mmsp_135",
+      "concept": "risk_compensation",
+      "question": "In Larry Harris's framework, the bid-ask spread compensates the market maker for three costs. Which set names them?",
+      "options": [
+        "Exchange fees, taxes, and rent",
+        "Slippage, commissions, and margin interest",
+        "Order-processing, inventory-holding, and adverse-selection costs",
+        "Volatility, liquidity, and momentum"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "these are business overheads, not the microstructure costs the spread is modeled to cover.",
+        "B": "these are trading frictions but not Harris's three spread components.",
+        "C": "Correct. Harris attributes the spread to processing fills, carrying inventory risk, and being picked off by informed traders.",
+        "D": "these describe market conditions, not the cost components of the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_136",
+      "concept": "adverse_selection",
+      "question": "An informed trader buys from you precisely when your ask is below the true value. This is an example of:",
+      "options": [
+        "Inventory skew",
+        "Order-processing cost",
+        "Positive round-trip edge",
+        "Adverse selection"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "inventory risk is about holding a position, not about being traded against on mispriced quotes.",
+        "B": "that is the fixed cost of handling a trade, not being picked off.",
+        "C": "being lifted below value is a loss, not the edge you earn when centered.",
+        "D": "Correct. informed flow trades against you when your quote is stale or wrong, so you transact on the losing side."
+      }
+    },
+    {
+      "id": "pr_mmsp_137",
+      "concept": "widen_spread",
+      "question": "Your uncertainty about fair value suddenly increases. All else equal, your spread should:",
+      "options": [
+        "Widen",
+        "Tighten",
+        "Stay exactly the same",
+        "Collapse to zero"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. a wider spread charges more edge to compensate for the greater chance of being wrong.",
+        "B": "tightening takes on more risk with less compensation — the wrong response to rising uncertainty.",
+        "C": "a good quote adapts to conditions; ignoring higher uncertainty invites pick-offs.",
+        "D": "a zero spread removes all compensation exactly when risk is highest."
+      }
+    },
+    {
+      "id": "pr_mmsp_138",
+      "concept": "quoting_discipline",
+      "question": "You are extremely confident in fair value with very little estimation error. A reasonable response is to:",
+      "options": [
+        "Quote a very wide spread",
+        "Quote a relatively tight spread",
+        "Stop quoting",
+        "Cross your quote"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "wide spreads are for high uncertainty; here you would just lose flow for no reason.",
+        "B": "Correct. low uncertainty means little adverse-selection risk to charge for, so you can compete on a tighter spread.",
+        "C": "confidence is a reason to quote, not to withdraw.",
+        "D": "a crossed quote (bid ≥ ask) is always invalid regardless of confidence."
+      }
+    },
+    {
+      "id": "pr_mmsp_139",
+      "concept": "crossed_avoid",
+      "question": "Which of the following two-sided quotes is crossed (and therefore invalid)?",
+      "options": [
+        "98 at 102",
+        "100 at 100",
+        "103 at 99",
+        "47 at 53"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "this is a normal quote with bid below ask.",
+        "B": "this is locked (zero spread), not crossed.",
+        "C": "Correct. the bid (103) is above the ask (99); a crossed quote is invalid.",
+        "D": "this is a normal quote with a positive spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_140",
+      "concept": "crossed_avoid",
+      "question": "A 'crossed' market specifically means:",
+      "options": [
+        "Bid is less than the ask",
+        "Spread equals exactly zero",
+        "Fair value is unknown",
+        "Bid is greater than the ask"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "that is a normal, valid market.",
+        "B": "bid = ask is locked, not crossed.",
+        "C": "uncertainty about fair value does not by itself cross a quote.",
+        "D": "Correct. when the bid exceeds the ask the quote is inverted and cannot stand."
+      }
+    },
+    {
+      "id": "pr_mmsp_141",
+      "concept": "recenter",
+      "question": "Fair value jumps from 60 up to 70. Your resting quote is 65 at 67. The best immediate action is to:",
+      "options": [
+        "Re-center near 70 with a sensible spread (e.g. 68 at 72)",
+        "Keep quoting 65 at 67",
+        "Quote 72 at 68",
+        "Withdraw quotes permanently"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. updating toward the new fair value avoids selling cheap and being picked off.",
+        "B": "your ask of 67 is now far below fair 70 — you will be lifted and lose.",
+        "C": "that is crossed (bid above ask) and invalid.",
+        "D": "you may pause briefly, but the skill is re-centering, not quitting the market."
+      }
+    },
+    {
+      "id": "pr_mmsp_142",
+      "concept": "recenter",
+      "question": "When the consensus fair value rises, a disciplined market maker most often:",
+      "options": [
+        "Lowers both bid and ask",
+        "Raises both bid and ask to track the new fair",
+        "Only widens without moving the center",
+        "Stops quoting the ask"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "that moves quotes the wrong way, deeper into being picked off.",
+        "B": "Correct. shifting the whole quote up keeps it centered on the updated value.",
+        "C": "widening alone leaves a stale midpoint below fair.",
+        "D": "you generally keep quoting both sides."
+      }
+    },
+    {
+      "id": "pr_mmsp_143",
+      "concept": "spread_comparison",
+      "question": "Alice quotes 97 at 103 (spread 6) and Bob quotes 99 at 101 (spread 2) on the same fair-100 product. Comparing them:",
+      "options": [
+        "Bob earns more per round-trip and is better protected",
+        "They earn identical edge per round-trip",
+        "Alice earns more gross edge per round-trip but Bob is more exposed to a fair-value shock on a one-sided fill",
+        "Alice has no protection advantage"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bob's spread is narrower, so he earns less and has a thinner cushion.",
+        "B": "their spreads differ (6 vs 2), so round-trip edge differs.",
+        "C": "Correct. Alice's wider spread earns 6 vs Bob's 2, while Bob's 1-point cushion offers less protection if fair moves.",
+        "D": "Alice's wider spread is precisely what cushions her against shocks."
+      }
+    },
+    {
+      "id": "pr_mmsp_144",
+      "concept": "spread_comparison",
+      "question": "Holding fair value fixed, a wider spread (versus a tighter one) generally gives you:",
+      "options": [
+        "Less edge per round-trip and more frequent fills",
+        "More edge and more fills simultaneously",
+        "No effect on edge per round-trip",
+        "More edge per round-trip but potentially fewer fills"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "that describes a tighter spread, not a wider one.",
+        "B": "you cannot generally maximize both; width trades flow for edge.",
+        "C": "the round-trip edge equals the spread, so width matters directly.",
+        "D": "Correct. a wider spread captures more per trade but is less competitive, so it trades less often."
+      }
+    },
+    {
+      "id": "pr_mmsp_145",
+      "concept": "widen_on_uncertainty",
+      "question": "A hidden card will be revealed in 10 seconds and could move fair value by ±15. You are currently quoting 49 at 51. The most defensible adjustment is to:",
+      "options": [
+        "Widen materially (e.g. 45 at 55) while staying centered on 50",
+        "Tighten to 49.5 at 50.5 to attract flow before the reveal",
+        "Keep 49 at 51 because the spread already compensates",
+        "Quote a one-sided bid only at 50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. large imminent information risk warrants a wider spread to cover pick-off risk while remaining near fair.",
+        "B": "tightening before a volatility event invites informed traders to hit the wrong side.",
+        "C": "a 2-point spread is tiny against a ±15 swing — you would be picked off.",
+        "D": "the priority is two-sided protection by widening, not removing a side."
+      }
+    },
+    {
+      "id": "pr_mmsp_146",
+      "concept": "spread_vs_volatility",
+      "question": "Realized volatility over your quoting horizon doubles, but everything else is unchanged. To keep the same coverage in σ-units, your spread should:",
+      "options": [
+        "Stay the same",
+        "Roughly double",
+        "Be halved",
+        "Go to zero"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "an unchanged spread would now cover only half as many σ — less protection.",
+        "B": "Correct. if the spread is set as a multiple of σ, doubling σ doubles the width needed for equal coverage.",
+        "C": "halving the spread when volatility rises increases pick-off risk sharply.",
+        "D": "zero spread offers no compensation, worst exactly when volatility is high."
+      }
+    },
+    {
+      "id": "pr_mmsp_147",
+      "concept": "risk_compensation",
+      "question": "Why is the spread NOT 'guaranteed profit' on every fill?",
+      "options": [
+        "Because exchanges forbid profits on fills",
+        "Because the spread is always negative",
+        "Because informed traders fill you when your quote is wrong, so some fills lose money",
+        "Because you can only ever buy, never sell"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "there is no such rule; the issue is economic, not regulatory.",
+        "B": "the spread is positive by construction (ask > bid).",
+        "C": "Correct. adverse selection means you only earn the spread on average, not on every individual trade.",
+        "D": "market makers quote and trade both sides."
+      }
+    },
+    {
+      "id": "pr_mmsp_148",
+      "concept": "spread_calibration",
+      "question": "Two quotes have the same width, but quote X is centered on fair value and quote Y sits 5 points off fair. Which is more likely to get picked off?",
+      "options": [
+        "Quote X, the centered one",
+        "Neither — width is all that matters",
+        "Both equally",
+        "Quote Y, the off-center one"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "a centered quote is balanced around fair and is the safer of the two.",
+        "B": "calibration matters as much as width; a mis-centered quote is exposed regardless of width.",
+        "C": "the off-center quote is clearly more exposed on its mispriced side.",
+        "D": "Correct. an off-center quote presents one side far from fair, which informed traders will hit."
+      }
+    },
+    {
+      "id": "pr_mmsp_149",
+      "concept": "adverse_selection",
+      "question": "In a dice-game setting, your classmates trade with you mostly when your quote is stale. The spread you charge is best understood as:",
+      "options": [
+        "Payment you collect for bearing adverse-selection and inventory risk",
+        "A tax the exchange imposes",
+        "Pure arbitrage with no risk",
+        "Irrelevant to profitability"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. the spread is the edge that, on average, offsets being picked off and carrying inventory.",
+        "B": "it is not an external fee; it is your compensation for risk.",
+        "C": "there is real risk; stale-quote pick-offs are losses.",
+        "D": "the spread is the core driver of a market maker's edge."
+      }
+    },
+    {
+      "id": "pr_mmsp_150",
+      "concept": "quoting_discipline",
+      "question": "You are flat (no inventory) and confident fair value is 100. Which is the most disciplined two-sided quote?",
+      "options": [
+        "100 at 100",
+        "99 at 101",
+        "90 at 110",
+        "101 at 99"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "a zero spread captures no edge and gives no cushion.",
+        "B": "Correct. a tight, symmetric quote around fair is appropriate when you are confident and flat.",
+        "C": "that is needlessly wide given high confidence and no inventory pressure.",
+        "D": "that quote is crossed (bid above ask) and invalid."
+      }
+    },
+    {
+      "id": "pr_mmsp_151",
+      "concept": "inventory_holding",
+      "question": "You have accumulated a large long position and are nervous about it. A natural quoting adjustment is to:",
+      "options": [
+        "Skew your quote up to buy even more",
+        "Widen symmetrically only",
+        "Skew your quote down (lower bid and ask) to encourage selling out of the long",
+        "Cross your quote"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "that would add to an already uncomfortable long position.",
+        "B": "widening alone does not address the directional inventory imbalance.",
+        "C": "Correct. shifting the quote down makes you more likely to sell and less likely to buy, reducing the unwanted long.",
+        "D": "a crossed quote is invalid and does not manage inventory."
+      }
+    },
+    {
+      "id": "pr_mmsp_152",
+      "concept": "round_trip_edge",
+      "question": "The gross edge from one completed round-trip (buy the bid, sell the ask, fair unchanged) equals:",
+      "options": [
+        "Half the spread",
+        "Twice the spread",
+        "Zero",
+        "The full spread"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "half the spread is the per-side edge, not the full round-trip.",
+        "B": "that double-counts; the round-trip earns the spread once.",
+        "C": "zero ignores the captured spread when fair value does not move.",
+        "D": "Correct. buying at the bid and selling at the ask captures the entire bid-ask difference."
+      }
+    },
+    {
+      "id": "pr_mmsp_153",
+      "concept": "half_spread",
+      "question": "On a single one-sided fill at your quote (no offsetting trade), the edge you earn relative to fair value is approximately:",
+      "options": [
+        "The half-spread",
+        "The full spread",
+        "Twice the spread",
+        "Always negative"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. one side of a symmetric quote sits half a spread from fair, so a single fill earns about the half-spread.",
+        "B": "the full spread requires completing both legs, not one.",
+        "C": "that overstates a single-leg fill by a factor of four.",
+        "D": "if fair is unchanged, filling on your quoted side is profitable versus fair."
+      }
+    },
+    {
+      "id": "pr_mmsp_154",
+      "concept": "spread_width",
+      "question": "If you quote a bid of 73 and an ask of 73 (bid equals ask), your market is best described as:",
+      "options": [
+        "Crossed",
+        "Locked, with zero spread",
+        "A normal positive spread",
+        "Invalid and impossible"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "crossed means bid above ask; here they are equal.",
+        "B": "Correct. equal bid and ask is a locked market with no spread to capture.",
+        "C": "there is no positive spread when bid equals ask.",
+        "D": "a locked market is possible, just not profitable on the spread."
+      }
+    },
+    {
+      "id": "pr_mmsp_155",
+      "concept": "spread_vs_volatility",
+      "question": "You quote spread in 'units of uncertainty.' A product with twice the fair-value uncertainty of another, all else equal, should be quoted with:",
+      "options": [
+        "The same spread",
+        "A tighter spread",
+        "A wider spread",
+        "A one-sided quote"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "equal spreads ignore the doubled uncertainty and underprice risk.",
+        "B": "tightening on a more uncertain product increases pick-off risk.",
+        "C": "Correct. more uncertainty calls for more spread to compensate for the larger chance of being wrong.",
+        "D": "the issue is width, not removing a side."
+      }
+    },
+    {
+      "id": "pr_mmsp_156",
+      "concept": "widen_on_uncertainty",
+      "question": "Before a scheduled announcement that could sharply move fair value, the prudent move for a market maker is usually to:",
+      "options": [
+        "Tighten spreads to grab pre-event flow",
+        "Lock the market at fair",
+        "Ignore the event entirely",
+        "Widen spreads (or briefly pull quotes) ahead of the event"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "tightening into known volatility maximizes the chance of being run over.",
+        "B": "a zero spread removes all protection right before a shock.",
+        "C": "ignoring known event risk is how stale quotes get picked off.",
+        "D": "Correct. uncertainty spikes around announcements, so charging more edge or stepping back limits pick-off risk."
+      }
+    },
+    {
+      "id": "pr_mmsp_157",
+      "concept": "quoting_discipline",
+      "question": "A spread that looks tight on paper but is centered far from fair value will most likely:",
+      "options": [
+        "Get picked off on its mispriced side",
+        "Earn steady edge",
+        "Be safer than a wide centered quote",
+        "Have no risk because it is tight"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. informed traders hit the side that is off fair, turning the 'tight' quote into a loss.",
+        "B": "being mis-centered means one side is exposed, so edge is not steady.",
+        "C": "a wide, well-centered quote is generally safer than a tight, mis-centered one.",
+        "D": "tightness without correct centering is dangerous, not safe."
+      }
+    },
+    {
+      "id": "pr_mmsp_158",
+      "concept": "edge_per_trade",
+      "question": "Round-trip costs (fees and slippage) exceed your spread. The net edge per round-trip is:",
+      "options": [
+        "Positive",
+        "Negative",
+        "Exactly zero",
+        "Equal to the spread"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "if costs exceed the spread, the gross edge cannot stay positive after costs.",
+        "B": "Correct. when costs are larger than the spread captured, the round-trip loses money.",
+        "C": "zero only happens when costs equal the spread, not when they exceed it.",
+        "D": "the spread is gross; net subtracts the (larger) costs."
+      }
+    },
+    {
+      "id": "pr_mmsp_159",
+      "concept": "spread_comparison",
+      "question": "All else equal, lowering your spread tends to:",
+      "options": [
+        "Increase both fill frequency and edge per fill",
+        "Reduce fill frequency",
+        "Increase fill frequency but reduce edge per fill",
+        "Have no effect on anything"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "you cannot generally raise both; tightening trades edge for flow.",
+        "B": "a tighter quote is more competitive, so it usually fills more, not less.",
+        "C": "Correct. a tighter, more competitive quote trades more often but earns less on each trade.",
+        "D": "spread directly drives both edge per fill and competitiveness."
+      }
+    },
+    {
+      "id": "pr_mmsp_160",
+      "concept": "adverse_selection",
+      "question": "A higher proportion of informed traders in your flow should push you to quote:",
+      "options": [
+        "Tighter, to win more flow",
+        "Exactly the same",
+        "At zero spread",
+        "Wider, to charge more for pick-off risk"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "more informed flow means more pick-offs; tightening makes the problem worse.",
+        "B": "ignoring a higher informed share underprices the risk.",
+        "C": "zero spread maximizes losses to informed flow.",
+        "D": "Correct. a larger informed share raises adverse-selection cost, which a wider spread compensates."
+      }
+    },
+    {
+      "id": "pr_mmsp_161",
+      "concept": "inventory_holding",
+      "question": "Inventory-holding cost in the spread reflects:",
+      "options": [
+        "The risk of carrying a position whose value can move before you offset it",
+        "The fee an exchange charges per share",
+        "The guaranteed profit on each fill",
+        "The midpoint of the quote"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. holding inventory exposes you to price moves, and the spread compensates for that risk.",
+        "B": "that is an explicit transaction fee, not inventory risk.",
+        "C": "there is no guaranteed profit; inventory carries risk.",
+        "D": "the midpoint is a price, not a cost component."
+      }
+    },
+    {
+      "id": "pr_mmsp_162",
+      "concept": "risk_compensation",
+      "question": "Two products have identical fair values, but Product A has stable value and Product B is highly volatile. You should quote:",
+      "options": [
+        "A wider spread on A and tighter on B",
+        "A tighter spread on A and a wider spread on B",
+        "Identical spreads on both",
+        "A zero spread on B"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "that reverses the risk relationship and underprices the volatile product.",
+        "B": "Correct. the volatile product carries more risk, so it earns a wider spread; the stable one can be tighter.",
+        "C": "identical spreads ignore the difference in risk between the products.",
+        "D": "zero spread on the riskier product invites the most pick-offs."
+      }
+    },
+    {
+      "id": "pr_mmsp_163",
+      "concept": "recenter",
+      "question": "You realize your quote midpoint has drifted 4 points below the true fair value. The most likely consequence if you do nothing is:",
+      "options": [
+        "Sellers hit your bid and you profit",
+        "Nothing, because spread alone protects you",
+        "Buyers lift your (too-low) ask, and you sell below fair",
+        "Your inventory automatically rebalances"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "with the quote too low, the danger is your ask, not a windfall on the bid.",
+        "B": "spread does not protect a quote that is centered away from fair.",
+        "C": "Correct. a midpoint below fair leaves the ask cheap, so informed buyers pick you off on the sell side.",
+        "D": "inventory does not self-correct; mispricing just gets exploited."
+      }
+    },
+    {
+      "id": "pr_mmsp_164",
+      "concept": "spread_calibration",
+      "question": "Which statement best captures the spread trade-off a market maker manages?",
+      "options": [
+        "Always quote the widest possible spread",
+        "Always quote the tightest possible spread",
+        "Spread choice does not matter if you are fast",
+        "Quote tight enough to trade yet wide enough to survive adverse selection"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "the widest spread wins almost no flow, so it forgoes volume and edge.",
+        "B": "the tightest spread maximizes pick-off risk and minimizes edge per trade.",
+        "C": "speed helps, but spread choice directly determines edge and protection.",
+        "D": "Correct. the craft is balancing competitiveness for flow against protection from being picked off."
+      }
+    },
+    {
+      "id": "pr_mmsp_165",
+      "concept": "spread_vs_volatility",
+      "question": "A market maker says 'I think in spread per unit of volatility.' The practical upshot is that, as volatility rises, the maker:",
+      "options": [
+        "Scales the spread up roughly in proportion to volatility",
+        "Keeps a fixed dollar spread regardless of volatility",
+        "Narrows the spread as volatility rises",
+        "Sets the spread purely from inventory and ignores volatility"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. expressing the spread as a multiple of σ means higher volatility mechanically widens the quoted width.",
+        "B": "a fixed spread covers fewer σ as volatility rises, leaving the maker under-protected.",
+        "C": "narrowing into higher volatility increases the chance of being run over.",
+        "D": "volatility is a primary input to spread width, not something to ignore."
+      }
+    }
+  ]
+}

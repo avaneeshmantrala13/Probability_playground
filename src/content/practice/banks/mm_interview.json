@@ -1,0 +1,3283 @@
+{
+  "lessonId": "mm_interview",
+  "track": "market-making",
+  "title": "Interview Scenario Puzzles",
+  "questions": [
+    {
+      "id": "pr_mmiv_001",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 2 fair 6-sided dice. Its fair value is:",
+      "options": [
+        "7",
+        "12",
+        "2",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = n·(d+1)/2 = 2·3.5 = 7.",
+        "B": "12 is the maximum possible sum (all 6s), not the average.",
+        "C": "2 is the minimum possible sum (all 1s), not the average.",
+        "D": "3.5 is the EV of a single die; you must multiply by 2 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_002",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 3 fair 6-sided dice. Its fair value is:",
+      "options": [
+        "18",
+        "10.5",
+        "3",
+        "3.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[sum] = n·(d+1)/2 = 3·3.5 = 10.5.",
+        "A": "18 is the maximum possible sum (all 6s), not the average.",
+        "C": "3 is the minimum possible sum (all 1s), not the average.",
+        "D": "3.5 is the EV of a single die; you must multiply by 3 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_003",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 2 fair 4-sided dice. Its fair value is:",
+      "options": [
+        "8",
+        "2",
+        "5",
+        "2.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[sum] = n·(d+1)/2 = 2·2.5 = 5.",
+        "A": "8 is the maximum possible sum (all 4s), not the average.",
+        "B": "2 is the minimum possible sum (all 1s), not the average.",
+        "D": "2.5 is the EV of a single die; you must multiply by 2 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_004",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 2 fair 8-sided dice. Its fair value is:",
+      "options": [
+        "16",
+        "2",
+        "4.5",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[sum] = n·(d+1)/2 = 2·4.5 = 9.",
+        "A": "16 is the maximum possible sum (all 8s), not the average.",
+        "B": "2 is the minimum possible sum (all 1s), not the average.",
+        "C": "4.5 is the EV of a single die; you must multiply by 2 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_005",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 3 fair 8-sided dice. Its fair value is:",
+      "options": [
+        "13.5",
+        "24",
+        "3",
+        "4.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = n·(d+1)/2 = 3·4.5 = 13.5.",
+        "B": "24 is the maximum possible sum (all 8s), not the average.",
+        "C": "3 is the minimum possible sum (all 1s), not the average.",
+        "D": "4.5 is the EV of a single die; you must multiply by 3 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_006",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 2 fair 10-sided dice. Its fair value is:",
+      "options": [
+        "20",
+        "11",
+        "2",
+        "5.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[sum] = n·(d+1)/2 = 2·5.5 = 11.",
+        "A": "20 is the maximum possible sum (all 10s), not the average.",
+        "C": "2 is the minimum possible sum (all 1s), not the average.",
+        "D": "5.5 is the EV of a single die; you must multiply by 2 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_007",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 2 fair 12-sided dice. Its fair value is:",
+      "options": [
+        "24",
+        "2",
+        "13",
+        "6.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[sum] = n·(d+1)/2 = 2·6.5 = 13.",
+        "A": "24 is the maximum possible sum (all 12s), not the average.",
+        "B": "2 is the minimum possible sum (all 1s), not the average.",
+        "D": "6.5 is the EV of a single die; you must multiply by 2 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_008",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 2 fair 20-sided dice. Its fair value is:",
+      "options": [
+        "40",
+        "2",
+        "10.5",
+        "21"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[sum] = n·(d+1)/2 = 2·10.5 = 21.",
+        "A": "40 is the maximum possible sum (all 20s), not the average.",
+        "B": "2 is the minimum possible sum (all 1s), not the average.",
+        "C": "10.5 is the EV of a single die; you must multiply by 2 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_009",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 4 fair 6-sided dice. Its fair value is:",
+      "options": [
+        "14",
+        "24",
+        "4",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = n·(d+1)/2 = 4·3.5 = 14.",
+        "B": "24 is the maximum possible sum (all 6s), not the average.",
+        "C": "4 is the minimum possible sum (all 1s), not the average.",
+        "D": "3.5 is the EV of a single die; you must multiply by 4 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_010",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 3 fair 4-sided dice. Its fair value is:",
+      "options": [
+        "12",
+        "7.5",
+        "3",
+        "2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[sum] = n·(d+1)/2 = 3·2.5 = 7.5.",
+        "A": "12 is the maximum possible sum (all 4s), not the average.",
+        "C": "3 is the minimum possible sum (all 1s), not the average.",
+        "D": "2.5 is the EV of a single die; you must multiply by 3 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_011",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 3 fair 10-sided dice. Its fair value is:",
+      "options": [
+        "30",
+        "3",
+        "16.5",
+        "5.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[sum] = n·(d+1)/2 = 3·5.5 = 16.5.",
+        "A": "30 is the maximum possible sum (all 10s), not the average.",
+        "B": "3 is the minimum possible sum (all 1s), not the average.",
+        "D": "5.5 is the EV of a single die; you must multiply by 3 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_012",
+      "concept": "dice_sum_ev",
+      "question": "A contract pays the sum of 5 fair 6-sided dice. Its fair value is:",
+      "options": [
+        "30",
+        "5",
+        "3.5",
+        "17.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[sum] = n·(d+1)/2 = 5·3.5 = 17.5.",
+        "A": "30 is the maximum possible sum (all 6s), not the average.",
+        "B": "5 is the minimum possible sum (all 1s), not the average.",
+        "C": "3.5 is the EV of a single die; you must multiply by 5 dice."
+      }
+    },
+    {
+      "id": "pr_mmiv_013",
+      "concept": "dice_product_ev",
+      "question": "A contract pays the product of two independent fair 4-sided dice. Fair value is:",
+      "options": [
+        "6.25",
+        "5",
+        "16",
+        "2.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By independence E[XY] = E[X]·E[Y] = 2.5·2.5 = 6.25.",
+        "B": "5 is the expected sum, not the product.",
+        "C": "16 is the maximum product (4×4), not the average.",
+        "D": "2.5 is one die's EV; the product multiplies the two means."
+      }
+    },
+    {
+      "id": "pr_mmiv_014",
+      "concept": "dice_product_ev",
+      "question": "A contract pays the product of two independent fair 6-sided dice. Fair value is:",
+      "options": [
+        "7",
+        "12.25",
+        "36",
+        "3.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. By independence E[XY] = E[X]·E[Y] = 3.5·3.5 = 12.25.",
+        "A": "7 is the expected sum, not the product.",
+        "C": "36 is the maximum product (6×6), not the average.",
+        "D": "3.5 is one die's EV; the product multiplies the two means."
+      }
+    },
+    {
+      "id": "pr_mmiv_015",
+      "concept": "dice_product_ev",
+      "question": "A contract pays the product of two independent fair 8-sided dice. Fair value is:",
+      "options": [
+        "9",
+        "64",
+        "20.25",
+        "4.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. By independence E[XY] = E[X]·E[Y] = 4.5·4.5 = 20.25.",
+        "A": "9 is the expected sum, not the product.",
+        "B": "64 is the maximum product (8×8), not the average.",
+        "D": "4.5 is one die's EV; the product multiplies the two means."
+      }
+    },
+    {
+      "id": "pr_mmiv_016",
+      "concept": "dice_product_ev",
+      "question": "A contract pays the product of two independent fair 10-sided dice. Fair value is:",
+      "options": [
+        "11",
+        "100",
+        "5.5",
+        "30.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. By independence E[XY] = E[X]·E[Y] = 5.5·5.5 = 30.25.",
+        "A": "11 is the expected sum, not the product.",
+        "B": "100 is the maximum product (10×10), not the average.",
+        "C": "5.5 is one die's EV; the product multiplies the two means."
+      }
+    },
+    {
+      "id": "pr_mmiv_017",
+      "concept": "dice_product_ev",
+      "question": "A contract pays the product of two independent fair 12-sided dice. Fair value is:",
+      "options": [
+        "42.25",
+        "13",
+        "144",
+        "6.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By independence E[XY] = E[X]·E[Y] = 6.5·6.5 = 42.25.",
+        "B": "13 is the expected sum, not the product.",
+        "C": "144 is the maximum product (12×12), not the average.",
+        "D": "6.5 is one die's EV; the product multiplies the two means."
+      }
+    },
+    {
+      "id": "pr_mmiv_018",
+      "concept": "dice_max_ev",
+      "question": "Two fair 4-sided dice are rolled; the contract pays the larger of the two faces. Fair value is closest to:",
+      "options": [
+        "2.5",
+        "3.125",
+        "4",
+        "1.875"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[max] = Σ k·(2k−1)/4² = 3.125; the max skews above the single-die mean.",
+        "A": "2.5 is one die's mean; the max of two is higher.",
+        "C": "4 is the maximum possible face, not the average of the larger face.",
+        "D": "1.875 is E[min], the smaller face — below the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_019",
+      "concept": "dice_max_ev",
+      "question": "Two fair 6-sided dice are rolled; the contract pays the larger of the two faces. Fair value is closest to:",
+      "options": [
+        "3.5",
+        "6",
+        "4.472",
+        "2.528"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[max] = Σ k·(2k−1)/6² = 4.472; the max skews above the single-die mean.",
+        "A": "3.5 is one die's mean; the max of two is higher.",
+        "B": "6 is the maximum possible face, not the average of the larger face.",
+        "D": "2.528 is E[min], the smaller face — below the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_020",
+      "concept": "dice_max_ev",
+      "question": "Two fair 8-sided dice are rolled; the contract pays the larger of the two faces. Fair value is closest to:",
+      "options": [
+        "4.5",
+        "8",
+        "3.188",
+        "5.813"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[max] = Σ k·(2k−1)/8² = 5.813; the max skews above the single-die mean.",
+        "A": "4.5 is one die's mean; the max of two is higher.",
+        "B": "8 is the maximum possible face, not the average of the larger face.",
+        "C": "3.188 is E[min], the smaller face — below the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_021",
+      "concept": "dice_max_ev",
+      "question": "Two fair 10-sided dice are rolled; the contract pays the larger of the two faces. Fair value is closest to:",
+      "options": [
+        "7.15",
+        "5.5",
+        "10",
+        "3.85"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[max] = Σ k·(2k−1)/10² = 7.15; the max skews above the single-die mean.",
+        "B": "5.5 is one die's mean; the max of two is higher.",
+        "C": "10 is the maximum possible face, not the average of the larger face.",
+        "D": "3.85 is E[min], the smaller face — below the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_022",
+      "concept": "dice_max_ev",
+      "question": "Two fair 12-sided dice are rolled; the contract pays the larger of the two faces. Fair value is closest to:",
+      "options": [
+        "6.5",
+        "8.486",
+        "12",
+        "4.514"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[max] = Σ k·(2k−1)/12² = 8.486; the max skews above the single-die mean.",
+        "A": "6.5 is one die's mean; the max of two is higher.",
+        "C": "12 is the maximum possible face, not the average of the larger face.",
+        "D": "4.514 is E[min], the smaller face — below the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_023",
+      "concept": "dice_min_ev",
+      "question": "Two fair 4-sided dice are rolled; the contract pays the smaller of the two faces. Fair value is closest to:",
+      "options": [
+        "2.5",
+        "1",
+        "1.875",
+        "3.125"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[min] = Σ k·(2(4−k)+1)/4² = 1.875; the min skews below the single-die mean.",
+        "A": "2.5 is one die's mean; the min of two is lower.",
+        "B": "1 is the minimum possible face, not the average of the smaller face.",
+        "D": "3.125 is E[max], the larger face — above the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_024",
+      "concept": "dice_min_ev",
+      "question": "Two fair 6-sided dice are rolled; the contract pays the smaller of the two faces. Fair value is closest to:",
+      "options": [
+        "3.5",
+        "1",
+        "4.472",
+        "2.528"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[min] = Σ k·(2(6−k)+1)/6² = 2.528; the min skews below the single-die mean.",
+        "A": "3.5 is one die's mean; the min of two is lower.",
+        "B": "1 is the minimum possible face, not the average of the smaller face.",
+        "C": "4.472 is E[max], the larger face — above the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_025",
+      "concept": "dice_min_ev",
+      "question": "Two fair 8-sided dice are rolled; the contract pays the smaller of the two faces. Fair value is closest to:",
+      "options": [
+        "3.188",
+        "4.5",
+        "1",
+        "5.813"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[min] = Σ k·(2(8−k)+1)/8² = 3.188; the min skews below the single-die mean.",
+        "B": "4.5 is one die's mean; the min of two is lower.",
+        "C": "1 is the minimum possible face, not the average of the smaller face.",
+        "D": "5.813 is E[max], the larger face — above the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_026",
+      "concept": "dice_min_ev",
+      "question": "Two fair 10-sided dice are rolled; the contract pays the smaller of the two faces. Fair value is closest to:",
+      "options": [
+        "5.5",
+        "3.85",
+        "1",
+        "7.15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[min] = Σ k·(2(10−k)+1)/10² = 3.85; the min skews below the single-die mean.",
+        "A": "5.5 is one die's mean; the min of two is lower.",
+        "C": "1 is the minimum possible face, not the average of the smaller face.",
+        "D": "7.15 is E[max], the larger face — above the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_027",
+      "concept": "dice_min_ev",
+      "question": "Two fair 12-sided dice are rolled; the contract pays the smaller of the two faces. Fair value is closest to:",
+      "options": [
+        "6.5",
+        "1",
+        "4.514",
+        "8.486"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[min] = Σ k·(2(12−k)+1)/12² = 4.514; the min skews below the single-die mean.",
+        "A": "6.5 is one die's mean; the min of two is lower.",
+        "B": "1 is the minimum possible face, not the average of the smaller face.",
+        "D": "8.486 is E[max], the larger face — above the single-die mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_028",
+      "concept": "dice_absdiff_ev",
+      "question": "Two fair 6-sided dice are rolled; the contract pays the absolute difference of the faces. Fair value is closest to:",
+      "options": [
+        "0",
+        "5",
+        "3.5",
+        "1.944"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[|a−b|] = (Σ|a−b|)/6² = 1.944 over all ordered pairs.",
+        "A": "0 is the most likely single value (a=b) but not the mean of |a−b|.",
+        "B": "5 is the maximum possible difference, not the average.",
+        "C": "3.5 is a single die's mean, unrelated to the difference."
+      }
+    },
+    {
+      "id": "pr_mmiv_029",
+      "concept": "dice_absdiff_ev",
+      "question": "Two fair 8-sided dice are rolled; the contract pays the absolute difference of the faces. Fair value is closest to:",
+      "options": [
+        "2.625",
+        "0",
+        "7",
+        "4.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[|a−b|] = (Σ|a−b|)/8² = 2.625 over all ordered pairs.",
+        "B": "0 is the most likely single value (a=b) but not the mean of |a−b|.",
+        "C": "7 is the maximum possible difference, not the average.",
+        "D": "4.5 is a single die's mean, unrelated to the difference."
+      }
+    },
+    {
+      "id": "pr_mmiv_030",
+      "concept": "dice_absdiff_ev",
+      "question": "Two fair 10-sided dice are rolled; the contract pays the absolute difference of the faces. Fair value is closest to:",
+      "options": [
+        "0",
+        "3.3",
+        "9",
+        "5.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[|a−b|] = (Σ|a−b|)/10² = 3.3 over all ordered pairs.",
+        "A": "0 is the most likely single value (a=b) but not the mean of |a−b|.",
+        "C": "9 is the maximum possible difference, not the average.",
+        "D": "5.5 is a single die's mean, unrelated to the difference."
+      }
+    },
+    {
+      "id": "pr_mmiv_031",
+      "concept": "dice_absdiff_ev",
+      "question": "Two fair 12-sided dice are rolled; the contract pays the absolute difference of the faces. Fair value is closest to:",
+      "options": [
+        "0",
+        "11",
+        "3.972",
+        "6.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[|a−b|] = (Σ|a−b|)/12² = 3.972 over all ordered pairs.",
+        "A": "0 is the most likely single value (a=b) but not the mean of |a−b|.",
+        "B": "11 is the maximum possible difference, not the average.",
+        "D": "6.5 is a single die's mean, unrelated to the difference."
+      }
+    },
+    {
+      "id": "pr_mmiv_032",
+      "concept": "card_ev",
+      "question": "Draw one card from a standard 52-card deck. The contract pays $10 if the card is red and $0 if black. Fair value is:",
+      "options": [
+        "$10",
+        "$2.5",
+        "$26",
+        "$5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. P(red) = 26/52 = 1/2, so EV = 0.5 × $10 = $5.",
+        "A": "$10 is the maximum payout (only on a red card), not the average.",
+        "B": "$2.5 assumes P(red) = 1/4, but half the deck is red.",
+        "C": "$26 is the count of red cards, not a dollar EV."
+      }
+    },
+    {
+      "id": "pr_mmiv_033",
+      "concept": "card_ev",
+      "question": "Draw one card from a standard 52-card deck. The contract pays $20 if the card is red and $0 if black. Fair value is:",
+      "options": [
+        "$10",
+        "$20",
+        "$5",
+        "$26"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(red) = 26/52 = 1/2, so EV = 0.5 × $20 = $10.",
+        "B": "$20 is the maximum payout (only on a red card), not the average.",
+        "C": "$5 assumes P(red) = 1/4, but half the deck is red.",
+        "D": "$26 is the count of red cards, not a dollar EV."
+      }
+    },
+    {
+      "id": "pr_mmiv_034",
+      "concept": "card_ev",
+      "question": "Draw one card from a standard 52-card deck. The contract pays $30 if the card is red and $0 if black. Fair value is:",
+      "options": [
+        "$30",
+        "$15",
+        "$7.5",
+        "$26"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. P(red) = 26/52 = 1/2, so EV = 0.5 × $30 = $15.",
+        "A": "$30 is the maximum payout (only on a red card), not the average.",
+        "C": "$7.5 assumes P(red) = 1/4, but half the deck is red.",
+        "D": "$26 is the count of red cards, not a dollar EV."
+      }
+    },
+    {
+      "id": "pr_mmiv_035",
+      "concept": "card_ev",
+      "question": "Draw one card from a standard 52-card deck. The contract pays $50 if the card is red and $0 if black. Fair value is:",
+      "options": [
+        "$50",
+        "$12.5",
+        "$25",
+        "$26"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. P(red) = 26/52 = 1/2, so EV = 0.5 × $50 = $25.",
+        "A": "$50 is the maximum payout (only on a red card), not the average.",
+        "B": "$12.5 assumes P(red) = 1/4, but half the deck is red.",
+        "D": "$26 is the count of red cards, not a dollar EV."
+      }
+    },
+    {
+      "id": "pr_mmiv_036",
+      "concept": "card_ev",
+      "question": "Draw one card from a standard 52-card deck. The contract pays $100 if the card is red and $0 if black. Fair value is:",
+      "options": [
+        "$100",
+        "$25",
+        "$26",
+        "$50"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. P(red) = 26/52 = 1/2, so EV = 0.5 × $100 = $50.",
+        "A": "$100 is the maximum payout (only on a red card), not the average.",
+        "B": "$25 assumes P(red) = 1/4, but half the deck is red.",
+        "C": "$26 is the count of red cards, not a dollar EV."
+      }
+    },
+    {
+      "id": "pr_mmiv_037",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $10 if it is a heart, else $0. The dealer reveals the card is red (suit class shown, rank hidden). Conditional fair value is:",
+      "options": [
+        "$5",
+        "$2.5",
+        "$10",
+        "$0.769"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Given red, half the red cards are hearts: P(heart|red) = 1/2, so EV = $5.",
+        "B": "$2.5 is the unconditional EV (P(heart)=1/4); the red clue updates it.",
+        "C": "$10 is the max payout; not every red card is a heart.",
+        "D": "$0.769 uses P=1/13, which ignores that suits split the deck into quarters."
+      }
+    },
+    {
+      "id": "pr_mmiv_038",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $20 if it is a heart, else $0. The dealer reveals the card is red (suit class shown, rank hidden). Conditional fair value is:",
+      "options": [
+        "$5",
+        "$10",
+        "$20",
+        "$1.538"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Given red, half the red cards are hearts: P(heart|red) = 1/2, so EV = $10.",
+        "A": "$5 is the unconditional EV (P(heart)=1/4); the red clue updates it.",
+        "C": "$20 is the max payout; not every red card is a heart.",
+        "D": "$1.538 uses P=1/13, which ignores that suits split the deck into quarters."
+      }
+    },
+    {
+      "id": "pr_mmiv_039",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $40 if it is a heart, else $0. The dealer reveals the card is red (suit class shown, rank hidden). Conditional fair value is:",
+      "options": [
+        "$10",
+        "$40",
+        "$20",
+        "$3.077"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Given red, half the red cards are hearts: P(heart|red) = 1/2, so EV = $20.",
+        "A": "$10 is the unconditional EV (P(heart)=1/4); the red clue updates it.",
+        "B": "$40 is the max payout; not every red card is a heart.",
+        "D": "$3.077 uses P=1/13, which ignores that suits split the deck into quarters."
+      }
+    },
+    {
+      "id": "pr_mmiv_040",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $60 if it is a heart, else $0. The dealer reveals the card is red (suit class shown, rank hidden). Conditional fair value is:",
+      "options": [
+        "$15",
+        "$60",
+        "$4.615",
+        "$30"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Given red, half the red cards are hearts: P(heart|red) = 1/2, so EV = $30.",
+        "A": "$15 is the unconditional EV (P(heart)=1/4); the red clue updates it.",
+        "B": "$60 is the max payout; not every red card is a heart.",
+        "C": "$4.615 uses P=1/13, which ignores that suits split the deck into quarters."
+      }
+    },
+    {
+      "id": "pr_mmiv_041",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $100 if it is a heart, else $0. The dealer reveals the card is red (suit class shown, rank hidden). Conditional fair value is:",
+      "options": [
+        "$50",
+        "$25",
+        "$100",
+        "$7.692"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Given red, half the red cards are hearts: P(heart|red) = 1/2, so EV = $50.",
+        "B": "$25 is the unconditional EV (P(heart)=1/4); the red clue updates it.",
+        "C": "$100 is the max payout; not every red card is a heart.",
+        "D": "$7.692 uses P=1/13, which ignores that suits split the deck into quarters."
+      }
+    },
+    {
+      "id": "pr_mmiv_042",
+      "concept": "card_rank_ev",
+      "question": "Cards are valued Ace=1 up to King=13. A contract pays the rank in dollars. Fair value is:",
+      "options": [
+        "$13",
+        "$7",
+        "$6.5",
+        "$1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[rank] = (1+…+13)/13 = 7, so EV = 1 × 7 = $7.",
+        "A": "$13 uses the King (max rank 13), not the average rank 7.",
+        "C": "$6.5 forgets the +1: the mean of 1..13 is (13+1)/2 = 7.",
+        "D": "$1 uses the Ace (rank 1), not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_043",
+      "concept": "card_rank_ev",
+      "question": "Cards are valued Ace=1 up to King=13. A contract pays 2× the rank in dollars. Fair value is:",
+      "options": [
+        "$26",
+        "$13",
+        "$14",
+        "$2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[rank] = (1+…+13)/13 = 7, so EV = 2 × 7 = $14.",
+        "A": "$26 uses the King (max rank 13), not the average rank 7.",
+        "B": "$13 forgets the +1: the mean of 1..13 is (13+1)/2 = 7.",
+        "D": "$2 uses the Ace (rank 1), not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_044",
+      "concept": "card_rank_ev",
+      "question": "Cards are valued Ace=1 up to King=13. A contract pays 5× the rank in dollars. Fair value is:",
+      "options": [
+        "$65",
+        "$32.5",
+        "$5",
+        "$35"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[rank] = (1+…+13)/13 = 7, so EV = 5 × 7 = $35.",
+        "A": "$65 uses the King (max rank 13), not the average rank 7.",
+        "B": "$32.5 forgets the +1: the mean of 1..13 is (13+1)/2 = 7.",
+        "C": "$5 uses the Ace (rank 1), not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_045",
+      "concept": "card_rank_ev",
+      "question": "Cards are valued Ace=1 up to King=13. A contract pays 10× the rank in dollars. Fair value is:",
+      "options": [
+        "$70",
+        "$130",
+        "$65",
+        "$10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[rank] = (1+…+13)/13 = 7, so EV = 10 × 7 = $70.",
+        "B": "$130 uses the King (max rank 13), not the average rank 7.",
+        "C": "$65 forgets the +1: the mean of 1..13 is (13+1)/2 = 7.",
+        "D": "$10 uses the Ace (rank 1), not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_046",
+      "concept": "coins_partial_info",
+      "question": "A contract pays the number of heads among 3 fair coins. So far 2 show heads and 0 show tails; 1 remain hidden. Fair value is:",
+      "options": [
+        "2",
+        "2.5",
+        "3",
+        "1.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Known heads 2 + E[hidden] = 2 + 0.5×1 = 2.5.",
+        "A": "2 counts only the revealed heads and ignores the 1 hidden coins (each worth 0.5).",
+        "C": "3 assumes every hidden coin is a head; each is only 0.5 in expectation.",
+        "D": "1.5 is the prior EV before any reveal; the shown faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_047",
+      "concept": "coins_partial_info",
+      "question": "A contract pays the number of heads among 3 fair coins. So far 1 show heads and 0 show tails; 2 remain hidden. Fair value is:",
+      "options": [
+        "1",
+        "3",
+        "2",
+        "1.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Known heads 1 + E[hidden] = 1 + 0.5×2 = 2.",
+        "A": "1 counts only the revealed heads and ignores the 2 hidden coins (each worth 0.5).",
+        "B": "3 assumes every hidden coin is a head; each is only 0.5 in expectation.",
+        "D": "1.5 is the prior EV before any reveal; the shown faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_048",
+      "concept": "coins_partial_info",
+      "question": "A contract pays the number of heads among 4 fair coins. So far 3 show heads and 0 show tails; 1 remain hidden. Fair value is:",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "3.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Known heads 3 + E[hidden] = 3 + 0.5×1 = 3.5.",
+        "A": "3 counts only the revealed heads and ignores the 1 hidden coins (each worth 0.5).",
+        "B": "4 assumes every hidden coin is a head; each is only 0.5 in expectation.",
+        "C": "2 is the prior EV before any reveal; the shown faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_049",
+      "concept": "coins_partial_info",
+      "question": "A contract pays the number of heads among 5 fair coins. So far 2 show heads and 1 show tails; 2 remain hidden. Fair value is:",
+      "options": [
+        "3",
+        "2",
+        "4",
+        "2.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Known heads 2 + E[hidden] = 2 + 0.5×2 = 3.",
+        "B": "2 counts only the revealed heads and ignores the 2 hidden coins (each worth 0.5).",
+        "C": "4 assumes every hidden coin is a head; each is only 0.5 in expectation.",
+        "D": "2.5 is the prior EV before any reveal; the shown faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_050",
+      "concept": "coins_partial_info",
+      "question": "A contract pays the number of heads among 5 fair coins. So far 0 show heads and 2 show tails; 3 remain hidden. Fair value is:",
+      "options": [
+        "0",
+        "1.5",
+        "3",
+        "2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Known heads 0 + E[hidden] = 0 + 0.5×3 = 1.5.",
+        "A": "0 counts only the revealed heads and ignores the 3 hidden coins (each worth 0.5).",
+        "C": "3 assumes every hidden coin is a head; each is only 0.5 in expectation.",
+        "D": "2.5 is the prior EV before any reveal; the shown faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_051",
+      "concept": "coins_partial_info",
+      "question": "A contract pays the number of heads among 5 fair coins. So far 4 show heads and 0 show tails; 1 remain hidden. Fair value is:",
+      "options": [
+        "4",
+        "5",
+        "4.5",
+        "2.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Known heads 4 + E[hidden] = 4 + 0.5×1 = 4.5.",
+        "A": "4 counts only the revealed heads and ignores the 1 hidden coins (each worth 0.5).",
+        "B": "5 assumes every hidden coin is a head; each is only 0.5 in expectation.",
+        "D": "2.5 is the prior EV before any reveal; the shown faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_052",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 7. Spread policy is 2 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "5 at 9",
+        "7 at 9",
+        "8 at 6",
+        "6 at 8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Center 7, half-spread 1 each side → 6 at 8.",
+        "A": "That is 4 wide (double the policy spread).",
+        "B": "Midpoint 8 — skewed high, not centered on fair.",
+        "C": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_053",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 12. Spread policy is 2 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "11 at 13",
+        "10 at 14",
+        "12 at 14",
+        "13 at 11"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Center 12, half-spread 1 each side → 11 at 13.",
+        "B": "That is 4 wide (double the policy spread).",
+        "C": "Midpoint 13 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_054",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 20. Spread policy is 4 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "16 at 24",
+        "18 at 22",
+        "20 at 24",
+        "22 at 18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Center 20, half-spread 2 each side → 18 at 22.",
+        "A": "That is 8 wide (double the policy spread).",
+        "C": "Midpoint 22 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_055",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 50. Spread policy is 4 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "46 at 54",
+        "50 at 54",
+        "48 at 52",
+        "52 at 48"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Center 50, half-spread 2 each side → 48 at 52.",
+        "A": "That is 8 wide (double the policy spread).",
+        "B": "Midpoint 52 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_056",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 12.5. Spread policy is 1 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "11.5 at 13.5",
+        "12.5 at 13.5",
+        "13 at 12",
+        "12 at 13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Center 12.5, half-spread 0.5 each side → 12 at 13.",
+        "A": "That is 2 wide (double the policy spread).",
+        "B": "Midpoint 13 — skewed high, not centered on fair.",
+        "C": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_057",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 30. Spread policy is 6 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "27 at 33",
+        "24 at 36",
+        "30 at 36",
+        "33 at 27"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Center 30, half-spread 3 each side → 27 at 33.",
+        "B": "That is 12 wide (double the policy spread).",
+        "C": "Midpoint 33 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_058",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 100. Spread policy is 10 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "90 at 110",
+        "95 at 105",
+        "100 at 110",
+        "105 at 95"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Center 100, half-spread 5 each side → 95 at 105.",
+        "A": "That is 20 wide (double the policy spread).",
+        "C": "Midpoint 105 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_059",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 8. Spread policy is 4 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "4 at 12",
+        "8 at 12",
+        "6 at 10",
+        "10 at 6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Center 8, half-spread 2 each side → 6 at 10.",
+        "A": "That is 8 wide (double the policy spread).",
+        "B": "Midpoint 10 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_060",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 15. Spread policy is 2 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "13 at 17",
+        "15 at 17",
+        "16 at 14",
+        "14 at 16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Center 15, half-spread 1 each side → 14 at 16.",
+        "A": "That is 4 wide (double the policy spread).",
+        "B": "Midpoint 16 — skewed high, not centered on fair.",
+        "C": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_061",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 40. Spread policy is 8 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "36 at 44",
+        "32 at 48",
+        "40 at 48",
+        "44 at 36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Center 40, half-spread 4 each side → 36 at 44.",
+        "B": "That is 16 wide (double the policy spread).",
+        "C": "Midpoint 44 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_062",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 25. Spread policy is 2 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "23 at 27",
+        "24 at 26",
+        "25 at 27",
+        "26 at 24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Center 25, half-spread 1 each side → 24 at 26.",
+        "A": "That is 4 wide (double the policy spread).",
+        "C": "Midpoint 26 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_063",
+      "concept": "integrated_quote",
+      "question": "You computed fair value 60. Spread policy is 4 wide, centered on fair. The correct two-sided quote (bid at ask) is:",
+      "options": [
+        "56 at 64",
+        "60 at 64",
+        "58 at 62",
+        "62 at 58"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Center 60, half-spread 2 each side → 58 at 62.",
+        "A": "That is 8 wide (double the policy spread).",
+        "B": "Midpoint 62 — skewed high, not centered on fair.",
+        "D": "Bid above ask is a crossed (invalid) market."
+      }
+    },
+    {
+      "id": "pr_mmiv_064",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 6-sided dice (prior fair 7). The first die is revealed = 3. The updated fair value is:",
+      "options": [
+        "7",
+        "3",
+        "6",
+        "6.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Known 3 + E[second die] = 3 + 3.5 = 6.5.",
+        "A": "7 is the prior fair before the reveal; it must be updated.",
+        "B": "3 uses only the revealed die and ignores the second die's 3.5 expectation.",
+        "C": "6 assumes the second die equals the first; its expectation is 3.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_065",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 6-sided dice (prior fair 7). The first die is revealed = 5. The updated fair value is:",
+      "options": [
+        "8.5",
+        "7",
+        "5",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Known 5 + E[second die] = 5 + 3.5 = 8.5.",
+        "B": "7 is the prior fair before the reveal; it must be updated.",
+        "C": "5 uses only the revealed die and ignores the second die's 3.5 expectation.",
+        "D": "10 assumes the second die equals the first; its expectation is 3.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_066",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 6-sided dice (prior fair 7). The first die is revealed = 2. The updated fair value is:",
+      "options": [
+        "7",
+        "5.5",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Known 2 + E[second die] = 2 + 3.5 = 5.5.",
+        "A": "7 is the prior fair before the reveal; it must be updated.",
+        "C": "2 uses only the revealed die and ignores the second die's 3.5 expectation.",
+        "D": "4 assumes the second die equals the first; its expectation is 3.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_067",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 8-sided dice (prior fair 9). The first die is revealed = 4. The updated fair value is:",
+      "options": [
+        "9",
+        "4",
+        "8.5",
+        "8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Known 4 + E[second die] = 4 + 4.5 = 8.5.",
+        "A": "9 is the prior fair before the reveal; it must be updated.",
+        "B": "4 uses only the revealed die and ignores the second die's 4.5 expectation.",
+        "D": "8 assumes the second die equals the first; its expectation is 4.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_068",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 10-sided dice (prior fair 11). The first die is revealed = 7. The updated fair value is:",
+      "options": [
+        "11",
+        "7",
+        "14",
+        "12.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Known 7 + E[second die] = 7 + 5.5 = 12.5.",
+        "A": "11 is the prior fair before the reveal; it must be updated.",
+        "B": "7 uses only the revealed die and ignores the second die's 5.5 expectation.",
+        "C": "14 assumes the second die equals the first; its expectation is 5.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_069",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 12-sided dice (prior fair 13). The first die is revealed = 9. The updated fair value is:",
+      "options": [
+        "15.5",
+        "13",
+        "9",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Known 9 + E[second die] = 9 + 6.5 = 15.5.",
+        "B": "13 is the prior fair before the reveal; it must be updated.",
+        "C": "9 uses only the revealed die and ignores the second die's 6.5 expectation.",
+        "D": "18 assumes the second die equals the first; its expectation is 6.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_070",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 6-sided dice (prior fair 7). The first die is revealed = 6. The updated fair value is:",
+      "options": [
+        "7",
+        "9.5",
+        "6",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Known 6 + E[second die] = 6 + 3.5 = 9.5.",
+        "A": "7 is the prior fair before the reveal; it must be updated.",
+        "C": "6 uses only the revealed die and ignores the second die's 3.5 expectation.",
+        "D": "12 assumes the second die equals the first; its expectation is 3.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_071",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 8-sided dice (prior fair 9). The first die is revealed = 1. The updated fair value is:",
+      "options": [
+        "9",
+        "1",
+        "5.5",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Known 1 + E[second die] = 1 + 4.5 = 5.5.",
+        "A": "9 is the prior fair before the reveal; it must be updated.",
+        "B": "1 uses only the revealed die and ignores the second die's 4.5 expectation.",
+        "D": "2 assumes the second die equals the first; its expectation is 4.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_072",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 10-sided dice (prior fair 11). The first die is revealed = 3. The updated fair value is:",
+      "options": [
+        "11",
+        "3",
+        "6",
+        "8.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Known 3 + E[second die] = 3 + 5.5 = 8.5.",
+        "A": "11 is the prior fair before the reveal; it must be updated.",
+        "B": "3 uses only the revealed die and ignores the second die's 5.5 expectation.",
+        "C": "6 assumes the second die equals the first; its expectation is 5.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_073",
+      "concept": "integrated_update",
+      "question": "Game pays the sum of two fair 20-sided dice (prior fair 21). The first die is revealed = 11. The updated fair value is:",
+      "options": [
+        "21.5",
+        "21",
+        "11",
+        "22"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Known 11 + E[second die] = 11 + 10.5 = 21.5.",
+        "B": "21 is the prior fair before the reveal; it must be updated.",
+        "C": "11 uses only the revealed die and ignores the second die's 10.5 expectation.",
+        "D": "22 assumes the second die equals the first; its expectation is 10.5."
+      }
+    },
+    {
+      "id": "pr_mmiv_074",
+      "concept": "integrated_inventory",
+      "question": "Fair value is 50 and you are long 3 (position limit +4) after repeated lifts of nothing — your bid kept getting hit. To manage inventory you should:",
+      "options": [
+        "Raise both bid and ask",
+        "Skew quotes down — lower bid and ask so selling your inventory is easier and buying more is less likely",
+        "Keep the symmetric quote unchanged",
+        "Widen symmetrically only"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Long near the limit: shade the whole market down so the ask is attractive to sell into and the bid is less likely to add length.",
+        "A": "Raising makes it harder to sell off your long and may add more length.",
+        "C": "An unchanged symmetric quote ignores that you are already near the long limit.",
+        "D": "Symmetric widening does not address the directional need to reduce a long."
+      }
+    },
+    {
+      "id": "pr_mmiv_075",
+      "concept": "integrated_inventory",
+      "question": "Fair value is 30 and you are long 2 (position limit +3) after repeated lifts of nothing — your bid kept getting hit. To manage inventory you should:",
+      "options": [
+        "Raise both bid and ask",
+        "Keep the symmetric quote unchanged",
+        "Skew quotes down — lower bid and ask so selling your inventory is easier and buying more is less likely",
+        "Widen symmetrically only"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Long near the limit: shade the whole market down so the ask is attractive to sell into and the bid is less likely to add length.",
+        "A": "Raising makes it harder to sell off your long and may add more length.",
+        "B": "An unchanged symmetric quote ignores that you are already near the long limit.",
+        "D": "Symmetric widening does not address the directional need to reduce a long."
+      }
+    },
+    {
+      "id": "pr_mmiv_076",
+      "concept": "integrated_inventory",
+      "question": "Fair value is 80 and you are long 4 (position limit +5) after repeated lifts of nothing — your bid kept getting hit. To manage inventory you should:",
+      "options": [
+        "Raise both bid and ask",
+        "Keep the symmetric quote unchanged",
+        "Widen symmetrically only",
+        "Skew quotes down — lower bid and ask so selling your inventory is easier and buying more is less likely"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Long near the limit: shade the whole market down so the ask is attractive to sell into and the bid is less likely to add length.",
+        "A": "Raising makes it harder to sell off your long and may add more length.",
+        "B": "An unchanged symmetric quote ignores that you are already near the long limit.",
+        "C": "Symmetric widening does not address the directional need to reduce a long."
+      }
+    },
+    {
+      "id": "pr_mmiv_077",
+      "concept": "integrated_inventory",
+      "question": "Fair value is 50 and you are short 3 (position limit −4) after your ask kept getting lifted. To manage inventory you should:",
+      "options": [
+        "Skew quotes up — raise bid and ask so buying back is easier and selling more is less likely",
+        "Lower both bid and ask",
+        "Keep the symmetric quote unchanged",
+        "Widen symmetrically only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Short near the limit: shade the whole market up so the bid is attractive to buy back into and the ask is less likely to add to the short.",
+        "B": "Lowering makes buying back to cover the short harder and may add more short.",
+        "C": "An unchanged symmetric quote ignores that you are already near the short limit.",
+        "D": "Symmetric widening does not address the directional need to cover a short."
+      }
+    },
+    {
+      "id": "pr_mmiv_078",
+      "concept": "integrated_inventory",
+      "question": "Fair value is 30 and you are short 2 (position limit −3) after your ask kept getting lifted. To manage inventory you should:",
+      "options": [
+        "Lower both bid and ask",
+        "Skew quotes up — raise bid and ask so buying back is easier and selling more is less likely",
+        "Keep the symmetric quote unchanged",
+        "Widen symmetrically only"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Short near the limit: shade the whole market up so the bid is attractive to buy back into and the ask is less likely to add to the short.",
+        "A": "Lowering makes buying back to cover the short harder and may add more short.",
+        "C": "An unchanged symmetric quote ignores that you are already near the short limit.",
+        "D": "Symmetric widening does not address the directional need to cover a short."
+      }
+    },
+    {
+      "id": "pr_mmiv_079",
+      "concept": "integrated_inventory",
+      "question": "Fair value is 80 and you are short 4 (position limit −5) after your ask kept getting lifted. To manage inventory you should:",
+      "options": [
+        "Lower both bid and ask",
+        "Keep the symmetric quote unchanged",
+        "Skew quotes up — raise bid and ask so buying back is easier and selling more is less likely",
+        "Widen symmetrically only"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Short near the limit: shade the whole market up so the bid is attractive to buy back into and the ask is less likely to add to the short.",
+        "A": "Lowering makes buying back to cover the short harder and may add more short.",
+        "B": "An unchanged symmetric quote ignores that you are already near the short limit.",
+        "D": "Symmetric widening does not address the directional need to cover a short."
+      }
+    },
+    {
+      "id": "pr_mmiv_080",
+      "concept": "trade_signal",
+      "question": "You quote 14 at 16. An aggressive, likely-informed trader immediately lifts your ask. The best inference and response is:",
+      "options": [
+        "They think fair is below your bid",
+        "Flow is random; ignore it and never update",
+        "Your spread is simply too wide",
+        "They value the contract above your ask; consider raising your quotes"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. A trader lifting your ask reveals they think fair is above 16; informed buy flow says lift your market up.",
+        "A": "If fair were below 14 they would sell to your bid, not buy your ask.",
+        "B": "Aggressive, immediate fills are usually directional information, not noise.",
+        "C": "Spread width does not explain a one-sided aggressive lift."
+      }
+    },
+    {
+      "id": "pr_mmiv_081",
+      "concept": "trade_signal",
+      "question": "You quote 20 at 24. An aggressive, likely-informed trader immediately lifts your ask. The best inference and response is:",
+      "options": [
+        "They value the contract above your ask; consider raising your quotes",
+        "They think fair is below your bid",
+        "Flow is random; ignore it and never update",
+        "Your spread is simply too wide"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A trader lifting your ask reveals they think fair is above 24; informed buy flow says lift your market up.",
+        "B": "If fair were below 20 they would sell to your bid, not buy your ask.",
+        "C": "Aggressive, immediate fills are usually directional information, not noise.",
+        "D": "Spread width does not explain a one-sided aggressive lift."
+      }
+    },
+    {
+      "id": "pr_mmiv_082",
+      "concept": "trade_signal",
+      "question": "You quote 48 at 52. An aggressive, likely-informed trader immediately hits your bid. The best inference and response is:",
+      "options": [
+        "They think fair is above your ask",
+        "They value the contract below your bid; consider lowering your quotes",
+        "Flow is random; ignore it and never update",
+        "Your spread is simply too wide"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. A trader hitting your bid reveals they think fair is below 48; informed sell flow says shade your market down.",
+        "A": "If fair were above 52 they would buy your ask, not sell to your bid.",
+        "C": "Aggressive, immediate fills are usually directional information, not noise.",
+        "D": "Spread width does not explain a one-sided aggressive hit."
+      }
+    },
+    {
+      "id": "pr_mmiv_083",
+      "concept": "trade_signal",
+      "question": "You quote 30 at 34. An aggressive, likely-informed trader immediately hits your bid. The best inference and response is:",
+      "options": [
+        "They think fair is above your ask",
+        "Flow is random; ignore it and never update",
+        "They value the contract below your bid; consider lowering your quotes",
+        "Your spread is simply too wide"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. A trader hitting your bid reveals they think fair is below 30; informed sell flow says shade your market down.",
+        "A": "If fair were above 34 they would buy your ask, not sell to your bid.",
+        "B": "Aggressive, immediate fills are usually directional information, not noise.",
+        "D": "Spread width does not explain a one-sided aggressive hit."
+      }
+    },
+    {
+      "id": "pr_mmiv_084",
+      "concept": "trade_signal",
+      "question": "You quote 9 at 11. An aggressive, likely-informed trader immediately lifts your ask. The best inference and response is:",
+      "options": [
+        "They think fair is below your bid",
+        "Flow is random; ignore it and never update",
+        "Your spread is simply too wide",
+        "They value the contract above your ask; consider raising your quotes"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. A trader lifting your ask reveals they think fair is above 11; informed buy flow says lift your market up.",
+        "A": "If fair were below 9 they would sell to your bid, not buy your ask.",
+        "B": "Aggressive, immediate fills are usually directional information, not noise.",
+        "C": "Spread width does not explain a one-sided aggressive lift."
+      }
+    },
+    {
+      "id": "pr_mmiv_085",
+      "concept": "trade_signal",
+      "question": "You quote 60 at 64. An aggressive, likely-informed trader immediately hits your bid. The best inference and response is:",
+      "options": [
+        "They value the contract below your bid; consider lowering your quotes",
+        "They think fair is above your ask",
+        "Flow is random; ignore it and never update",
+        "Your spread is simply too wide"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A trader hitting your bid reveals they think fair is below 60; informed sell flow says shade your market down.",
+        "B": "If fair were above 64 they would buy your ask, not sell to your bid.",
+        "C": "Aggressive, immediate fills are usually directional information, not noise.",
+        "D": "Spread width does not explain a one-sided aggressive hit."
+      }
+    },
+    {
+      "id": "pr_mmiv_086",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $12 if the sum is strictly greater than 7, else $0. Fair value is closest to:",
+      "options": [
+        "$6",
+        "$5",
+        "$12",
+        "$7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. P(sum>7) = 0.417, so EV = 0.417 × $12 = $5.",
+        "A": "$6 assumes a 50/50 chance; the true P(sum>7) = 0.417.",
+        "C": "$12 is the max payout, realized only when the sum exceeds 7.",
+        "D": "$7 prices the complement P(sum≤7), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_087",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $10 if the sum is strictly greater than 6, else $0. Fair value is closest to:",
+      "options": [
+        "$5",
+        "$10",
+        "$5.833",
+        "$4.167"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. P(sum>6) = 0.583, so EV = 0.583 × $10 = $5.833.",
+        "A": "$5 assumes a 50/50 chance; the true P(sum>6) = 0.583.",
+        "B": "$10 is the max payout, realized only when the sum exceeds 6.",
+        "D": "$4.167 prices the complement P(sum≤6), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_088",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $20 if the sum is strictly greater than 8, else $0. Fair value is closest to:",
+      "options": [
+        "$10",
+        "$20",
+        "$14.444",
+        "$5.556"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. P(sum>8) = 0.278, so EV = 0.278 × $20 = $5.556.",
+        "A": "$10 assumes a 50/50 chance; the true P(sum>8) = 0.278.",
+        "B": "$20 is the max payout, realized only when the sum exceeds 8.",
+        "C": "$14.444 prices the complement P(sum≤8), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_089",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $14 if the sum is strictly greater than 9, else $0. Fair value is closest to:",
+      "options": [
+        "$2.333",
+        "$7",
+        "$14",
+        "$11.667"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(sum>9) = 0.167, so EV = 0.167 × $14 = $2.333.",
+        "B": "$7 assumes a 50/50 chance; the true P(sum>9) = 0.167.",
+        "C": "$14 is the max payout, realized only when the sum exceeds 9.",
+        "D": "$11.667 prices the complement P(sum≤9), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_090",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $30 if the sum is strictly greater than 10, else $0. Fair value is closest to:",
+      "options": [
+        "$15",
+        "$2.5",
+        "$30",
+        "$27.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. P(sum>10) = 0.083, so EV = 0.083 × $30 = $2.5.",
+        "A": "$15 assumes a 50/50 chance; the true P(sum>10) = 0.083.",
+        "C": "$30 is the max payout, realized only when the sum exceeds 10.",
+        "D": "$27.5 prices the complement P(sum≤10), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_091",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $10 if the sum is strictly greater than 4, else $0. Fair value is closest to:",
+      "options": [
+        "$5",
+        "$10",
+        "$8.333",
+        "$1.667"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. P(sum>4) = 0.833, so EV = 0.833 × $10 = $8.333.",
+        "A": "$5 assumes a 50/50 chance; the true P(sum>4) = 0.833.",
+        "B": "$10 is the max payout, realized only when the sum exceeds 4.",
+        "D": "$1.667 prices the complement P(sum≤4), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_092",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $12 if the sum is strictly greater than 5, else $0. Fair value is closest to:",
+      "options": [
+        "$6",
+        "$12",
+        "$3.333",
+        "$8.667"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. P(sum>5) = 0.722, so EV = 0.722 × $12 = $8.667.",
+        "A": "$6 assumes a 50/50 chance; the true P(sum>5) = 0.722.",
+        "B": "$12 is the max payout, realized only when the sum exceeds 5.",
+        "C": "$3.333 prices the complement P(sum≤5), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_093",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice are rolled. A ticket pays $24 if the sum is strictly greater than 11, else $0. Fair value is closest to:",
+      "options": [
+        "$0.667",
+        "$12",
+        "$24",
+        "$23.333"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(sum>11) = 0.028, so EV = 0.028 × $24 = $0.667.",
+        "B": "$12 assumes a 50/50 chance; the true P(sum>11) = 0.028.",
+        "C": "$24 is the max payout, realized only when the sum exceeds 11.",
+        "D": "$23.333 prices the complement P(sum≤11), the losing side."
+      }
+    },
+    {
+      "id": "pr_mmiv_094",
+      "concept": "geometric_ev",
+      "question": "You roll a fair 4-sided die repeatedly until a specific target face appears. The expected number of rolls is:",
+      "options": [
+        "2",
+        "4",
+        "0.25",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. For a success probability p = 1/4, expected trials = 1/p = 4.",
+        "A": "2 halves the answer; the geometric mean of trials is 1/p, not 1/(2p).",
+        "C": "0.25 is the per-roll probability, not the expected number of rolls.",
+        "D": "5 adds one too many; E[geometric] = 1/p exactly."
+      }
+    },
+    {
+      "id": "pr_mmiv_095",
+      "concept": "geometric_ev",
+      "question": "You roll a fair 6-sided die repeatedly until a specific target face appears. The expected number of rolls is:",
+      "options": [
+        "3",
+        "0.167",
+        "6",
+        "7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. For a success probability p = 1/6, expected trials = 1/p = 6.",
+        "A": "3 halves the answer; the geometric mean of trials is 1/p, not 1/(2p).",
+        "B": "0.167 is the per-roll probability, not the expected number of rolls.",
+        "D": "7 adds one too many; E[geometric] = 1/p exactly."
+      }
+    },
+    {
+      "id": "pr_mmiv_096",
+      "concept": "geometric_ev",
+      "question": "You roll a fair 8-sided die repeatedly until a specific target face appears. The expected number of rolls is:",
+      "options": [
+        "4",
+        "0.125",
+        "9",
+        "8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. For a success probability p = 1/8, expected trials = 1/p = 8.",
+        "A": "4 halves the answer; the geometric mean of trials is 1/p, not 1/(2p).",
+        "B": "0.125 is the per-roll probability, not the expected number of rolls.",
+        "C": "9 adds one too many; E[geometric] = 1/p exactly."
+      }
+    },
+    {
+      "id": "pr_mmiv_097",
+      "concept": "geometric_ev",
+      "question": "You roll a fair 10-sided die repeatedly until a specific target face appears. The expected number of rolls is:",
+      "options": [
+        "10",
+        "5",
+        "0.1",
+        "11"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a success probability p = 1/10, expected trials = 1/p = 10.",
+        "B": "5 halves the answer; the geometric mean of trials is 1/p, not 1/(2p).",
+        "C": "0.1 is the per-roll probability, not the expected number of rolls.",
+        "D": "11 adds one too many; E[geometric] = 1/p exactly."
+      }
+    },
+    {
+      "id": "pr_mmiv_098",
+      "concept": "geometric_ev",
+      "question": "You roll a fair 20-sided die repeatedly until a specific target face appears. The expected number of rolls is:",
+      "options": [
+        "10",
+        "20",
+        "0.05",
+        "21"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. For a success probability p = 1/20, expected trials = 1/p = 20.",
+        "A": "10 halves the answer; the geometric mean of trials is 1/p, not 1/(2p).",
+        "C": "0.05 is the per-roll probability, not the expected number of rolls.",
+        "D": "21 adds one too many; E[geometric] = 1/p exactly."
+      }
+    },
+    {
+      "id": "pr_mmiv_099",
+      "concept": "geometric_ev",
+      "question": "An event occurs with probability 1/3 on each independent trial. The expected number of trials until the first occurrence is:",
+      "options": [
+        "0.333",
+        "0.667",
+        "3",
+        "9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Geometric mean = 1/p = 1/(1/3) = 3.",
+        "A": "0.333 is p itself, not the expected wait 1/p.",
+        "B": "0.667 is the failure probability, not the expected wait.",
+        "D": "9 squares the wait; E[trials] is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmiv_100",
+      "concept": "geometric_ev",
+      "question": "An event occurs with probability 1/4 on each independent trial. The expected number of trials until the first occurrence is:",
+      "options": [
+        "0.25",
+        "0.75",
+        "16",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Geometric mean = 1/p = 1/(1/4) = 4.",
+        "A": "0.25 is p itself, not the expected wait 1/p.",
+        "B": "0.75 is the failure probability, not the expected wait.",
+        "C": "16 squares the wait; E[trials] is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmiv_101",
+      "concept": "geometric_ev",
+      "question": "An event occurs with probability 2/3 on each independent trial. The expected number of trials until the first occurrence is:",
+      "options": [
+        "1.5",
+        "0.667",
+        "0.333",
+        "2.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Geometric mean = 1/p = 1/(2/3) = 1.5.",
+        "B": "0.667 is p itself, not the expected wait 1/p.",
+        "C": "0.333 is the failure probability, not the expected wait.",
+        "D": "2.25 squares the wait; E[trials] is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmiv_102",
+      "concept": "geometric_ev",
+      "question": "An event occurs with probability 1/6 on each independent trial. The expected number of trials until the first occurrence is:",
+      "options": [
+        "0.167",
+        "6",
+        "0.833",
+        "36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Geometric mean = 1/p = 1/(1/6) = 6.",
+        "A": "0.167 is p itself, not the expected wait 1/p.",
+        "C": "0.833 is the failure probability, not the expected wait.",
+        "D": "36 squares the wait; E[trials] is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmiv_103",
+      "concept": "nonlinear_ev",
+      "question": "A fair 4-sided die is rolled and the contract pays the square of the face. Fair value is closest to:",
+      "options": [
+        "6.25",
+        "16",
+        "7.5",
+        "2.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X²] = (d+1)(2d+1)/6 = 7.5, which exceeds (E[X])² by the variance.",
+        "A": "6.25 is (E[X])²; by Jensen's inequality E[X²] is larger.",
+        "B": "16 is the maximum square (4²), not the average.",
+        "D": "2.5 is E[X], not E[X²]."
+      }
+    },
+    {
+      "id": "pr_mmiv_104",
+      "concept": "nonlinear_ev",
+      "question": "A fair 6-sided die is rolled and the contract pays the square of the face. Fair value is closest to:",
+      "options": [
+        "12.25",
+        "36",
+        "3.5",
+        "15.167"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X²] = (d+1)(2d+1)/6 = 15.167, which exceeds (E[X])² by the variance.",
+        "A": "12.25 is (E[X])²; by Jensen's inequality E[X²] is larger.",
+        "B": "36 is the maximum square (6²), not the average.",
+        "C": "3.5 is E[X], not E[X²]."
+      }
+    },
+    {
+      "id": "pr_mmiv_105",
+      "concept": "nonlinear_ev",
+      "question": "A fair 8-sided die is rolled and the contract pays the square of the face. Fair value is closest to:",
+      "options": [
+        "25.5",
+        "20.25",
+        "64",
+        "4.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X²] = (d+1)(2d+1)/6 = 25.5, which exceeds (E[X])² by the variance.",
+        "B": "20.25 is (E[X])²; by Jensen's inequality E[X²] is larger.",
+        "C": "64 is the maximum square (8²), not the average.",
+        "D": "4.5 is E[X], not E[X²]."
+      }
+    },
+    {
+      "id": "pr_mmiv_106",
+      "concept": "nonlinear_ev",
+      "question": "A fair 10-sided die is rolled and the contract pays the square of the face. Fair value is closest to:",
+      "options": [
+        "30.25",
+        "38.5",
+        "100",
+        "5.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X²] = (d+1)(2d+1)/6 = 38.5, which exceeds (E[X])² by the variance.",
+        "A": "30.25 is (E[X])²; by Jensen's inequality E[X²] is larger.",
+        "C": "100 is the maximum square (10²), not the average.",
+        "D": "5.5 is E[X], not E[X²]."
+      }
+    },
+    {
+      "id": "pr_mmiv_107",
+      "concept": "bayesian_update",
+      "question": "A bag holds 3 fair coins and 1 double-headed coin. You pick one at random and flip heads. The probability you hold a double-headed coin is closest to:",
+      "options": [
+        "0.25",
+        "0.5",
+        "0.4",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Bayes: (1/4·1) / (3/4·½ + 1/4·1) = 0.4.",
+        "A": "0.25 is the prior P(double-headed); seeing heads raises it.",
+        "B": "0.5 ignores that a double-headed coin is twice as likely to show heads as a fair one.",
+        "D": "1 is wrong: a fair coin can also land heads, so the inference is not certain."
+      }
+    },
+    {
+      "id": "pr_mmiv_108",
+      "concept": "bayesian_update",
+      "question": "A bag holds 4 fair coins and 1 double-headed coin. You pick one at random and flip heads. The probability you hold a double-headed coin is closest to:",
+      "options": [
+        "0.2",
+        "0.5",
+        "1",
+        "0.333"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Bayes: (1/5·1) / (4/5·½ + 1/5·1) = 0.333.",
+        "A": "0.2 is the prior P(double-headed); seeing heads raises it.",
+        "B": "0.5 ignores that a double-headed coin is twice as likely to show heads as a fair one.",
+        "C": "1 is wrong: a fair coin can also land heads, so the inference is not certain."
+      }
+    },
+    {
+      "id": "pr_mmiv_109",
+      "concept": "edge_accounting",
+      "question": "You make a symmetric market 6 wide around true fair. If you complete a full round trip (buy on your bid and sell on your ask) with probability 0.5, your expected profit per quote in spread units is closest to:",
+      "options": [
+        "$3",
+        "$1.5",
+        "$6",
+        "$18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A round trip captures the full spread $6; times completion probability 0.5 → $3.",
+        "B": "$1.5 captures only half the spread; a full round trip earns the whole spread.",
+        "C": "$6 ignores that the round trip only completes with probability 0.5.",
+        "D": "$18 squares the spread, which is dimensionally wrong."
+      }
+    },
+    {
+      "id": "pr_mmiv_110",
+      "concept": "edge_accounting",
+      "question": "You make a symmetric market 8 wide around true fair. If you complete a full round trip (buy on your bid and sell on your ask) with probability 0.5, your expected profit per quote in spread units is closest to:",
+      "options": [
+        "$2",
+        "$4",
+        "$8",
+        "$32"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. A round trip captures the full spread $8; times completion probability 0.5 → $4.",
+        "A": "$2 captures only half the spread; a full round trip earns the whole spread.",
+        "C": "$8 ignores that the round trip only completes with probability 0.5.",
+        "D": "$32 squares the spread, which is dimensionally wrong."
+      }
+    },
+    {
+      "id": "pr_mmiv_111",
+      "concept": "edge_accounting",
+      "question": "You make a symmetric market 10 wide around true fair. If you complete a full round trip (buy on your bid and sell on your ask) with probability 0.25, your expected profit per quote in spread units is closest to:",
+      "options": [
+        "$1.25",
+        "$10",
+        "$2.5",
+        "$25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. A round trip captures the full spread $10; times completion probability 0.25 → $2.5.",
+        "A": "$1.25 captures only half the spread; a full round trip earns the whole spread.",
+        "B": "$10 ignores that the round trip only completes with probability 0.25.",
+        "D": "$25 squares the spread, which is dimensionally wrong."
+      }
+    },
+    {
+      "id": "pr_mmiv_112",
+      "concept": "binomial_ev",
+      "question": "A contract pays the number of heads in 3 fair coin flips. Its fair value is:",
+      "options": [
+        "3",
+        "0.75",
+        "0.866",
+        "1.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[heads] = n·p = 3·0.5 = 1.5.",
+        "A": "3 is the maximum (all heads), not the expectation.",
+        "B": "0.75 would be n·p with p=1/4; a fair coin has p=1/2.",
+        "C": "0.866 is the standard deviation, not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_113",
+      "concept": "binomial_ev",
+      "question": "A contract pays the number of heads in 5 fair coin flips. Its fair value is:",
+      "options": [
+        "2.5",
+        "5",
+        "1.25",
+        "1.118"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[heads] = n·p = 5·0.5 = 2.5.",
+        "B": "5 is the maximum (all heads), not the expectation.",
+        "C": "1.25 would be n·p with p=1/4; a fair coin has p=1/2.",
+        "D": "1.118 is the standard deviation, not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_114",
+      "concept": "binomial_ev",
+      "question": "A contract pays the number of heads in 7 fair coin flips. Its fair value is:",
+      "options": [
+        "7",
+        "3.5",
+        "1.75",
+        "1.323"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[heads] = n·p = 7·0.5 = 3.5.",
+        "A": "7 is the maximum (all heads), not the expectation.",
+        "C": "1.75 would be n·p with p=1/4; a fair coin has p=1/2.",
+        "D": "1.323 is the standard deviation, not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_115",
+      "concept": "binomial_ev",
+      "question": "A contract pays the number of heads in 10 fair coin flips. Its fair value is:",
+      "options": [
+        "10",
+        "2.5",
+        "5",
+        "1.581"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[heads] = n·p = 10·0.5 = 5.",
+        "A": "10 is the maximum (all heads), not the expectation.",
+        "B": "2.5 would be n·p with p=1/4; a fair coin has p=1/2.",
+        "D": "1.581 is the standard deviation, not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_116",
+      "concept": "binomial_ev",
+      "question": "A contract pays the number of heads in 20 fair coin flips. Its fair value is:",
+      "options": [
+        "20",
+        "5",
+        "2.236",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[heads] = n·p = 20·0.5 = 10.",
+        "A": "20 is the maximum (all heads), not the expectation.",
+        "B": "5 would be n·p with p=1/4; a fair coin has p=1/2.",
+        "C": "2.236 is the standard deviation, not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_117",
+      "concept": "binomial_ev",
+      "question": "A contract pays the number of heads in 8 fair coin flips. Its fair value is:",
+      "options": [
+        "4",
+        "8",
+        "2",
+        "1.414"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[heads] = n·p = 8·0.5 = 4.",
+        "B": "8 is the maximum (all heads), not the expectation.",
+        "C": "2 would be n·p with p=1/4; a fair coin has p=1/2.",
+        "D": "1.414 is the standard deviation, not the mean."
+      }
+    },
+    {
+      "id": "pr_mmiv_118",
+      "concept": "conditional_fair_value",
+      "question": "Sum of two fair 6-sided dice. The first die shows 5, and you are told the total is even. The conditional fair value of the sum is:",
+      "options": [
+        "8.5",
+        "8",
+        "10",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. For an even total the second die must match 5's parity; its conditional mean is 3, giving 5+3 = 8.",
+        "A": "8.5 ignores the even-total clue, using the unconditional second-die mean.",
+        "C": "10 assumes the second die equals the first.",
+        "D": "3 is only the second die's conditional mean; add the known 5."
+      }
+    },
+    {
+      "id": "pr_mmiv_119",
+      "concept": "spread_choice",
+      "question": "You are very confident in your fair-value estimate and volatility is low. Relative to a baseline, you should quote a spread that is:",
+      "options": [
+        "Wider",
+        "Crossed",
+        "Tighter",
+        "Zero, one-sided"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. High confidence and low volatility mean less adverse-selection risk, so you can quote tighter to win more flow.",
+        "A": "Widening is for uncertainty/volatility, not for high confidence.",
+        "B": "A crossed market (bid above ask) is always invalid.",
+        "D": "You still quote two-sided; a tighter spread is not a zero one-sided quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_120",
+      "concept": "spread_choice",
+      "question": "Your fair-value estimate is shaky and the payoff is highly volatile. Relative to a baseline, you should quote a spread that is:",
+      "options": [
+        "Tighter",
+        "Crossed",
+        "Unchanged regardless",
+        "Wider"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Greater uncertainty and volatility raise adverse-selection risk, so widen to protect against being picked off.",
+        "A": "Tightening under uncertainty invites informed traders to pick you off.",
+        "B": "A crossed market is invalid regardless of confidence.",
+        "C": "Spread should respond to uncertainty; ignoring it is poor risk control."
+      }
+    },
+    {
+      "id": "pr_mmiv_121",
+      "concept": "spread_choice",
+      "question": "Many informed-looking traders are active and news may drop any second. Your spread should be:",
+      "options": [
+        "Wider, and ready to re-center on news",
+        "As tight as possible to win flow",
+        "One-sided only",
+        "Crossed to attract trades"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Toxic flow plus pending news means high adverse selection; widen and update fast.",
+        "B": "Tight quotes against informed flow lose to adverse selection.",
+        "C": "You generally maintain a two-sided market; width, not sidedness, manages this risk.",
+        "D": "Crossing is invalid and guarantees losses."
+      }
+    },
+    {
+      "id": "pr_mmiv_122",
+      "concept": "integrated_scenario",
+      "question": "Fair was 50; you are flat with a 49 at 51 quote. The moderator announces public news that lifts fair to 55. Before any new fills, your best action is:",
+      "options": [
+        "Keep 49 at 51 since spread width is fine",
+        "Re-center to about 54 at 56, then resume quoting",
+        "Skew far down to 45 at 47",
+        "Stop quoting for the rest of the game"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Update fair to 55 first, then place a symmetric spread around it; the old 49 at 51 is now stale and would be picked off.",
+        "A": "Width is irrelevant when the center is 5 off; every buyer lifts your cheap 51.",
+        "C": "Skewing down contradicts the news that raised fair; you'd sell cheap.",
+        "D": "Withdrawing forfeits edge; the correct move is to re-center and continue."
+      }
+    },
+    {
+      "id": "pr_mmiv_123",
+      "concept": "integrated_scenario",
+      "question": "Fair 30, you are long 4 at a +5 limit, and a public clue just lowered fair to 27. Best next quote?",
+      "options": [
+        "Raise quotes to 30 at 32",
+        "Hold 29 at 31 unchanged",
+        "Re-center down near 26 at 28 and lean to sell",
+        "Buy more aggressively at 31"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Fair dropped to 27 and you are long, so both the news and inventory point the same way: shade down and prioritize selling.",
+        "A": "Raising fights both the bearish news and your need to reduce a long.",
+        "B": "Stale center above the new 27 fair invites buyers to lift you while you're already long.",
+        "D": "Adding length near the limit against bearish news compounds risk."
+      }
+    },
+    {
+      "id": "pr_mmiv_124",
+      "concept": "integrated_scenario",
+      "question": "Fair 100, you are short 3 (−4 limit). A trader keeps hitting your bid (you keep buying). This flow plus your short means you should:",
+      "options": [
+        "Raise your bid to buy even faster",
+        "Ignore the flow entirely",
+        "Flip to a long position deliberately",
+        "Welcome the buys to cover, but watch that repeated hits may signal fair is dropping"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Buying covers your short (good for inventory), yet persistent sell pressure can mean fair is falling, so re-evaluate fair before quoting again.",
+        "A": "Chasing fills ignores the adverse-selection signal in repeated one-sided hits.",
+        "B": "Persistent directional flow is information you must weigh.",
+        "C": "Overshooting from short to long adds unnecessary directional risk."
+      }
+    },
+    {
+      "id": "pr_mmiv_125",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $14 if the sum is at least 10, else $0. Fair value is closest to:",
+      "options": [
+        "$2.333",
+        "$7",
+        "$14",
+        "$11.667"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(sum≥10) = 0.167, so EV = 0.167 × $14 = $2.333.",
+        "B": "$7 assumes 50/50; the actual P(sum≥10) = 0.167.",
+        "C": "$14 is the max payout, not the probability-weighted EV.",
+        "D": "$11.667 prices the complement (sum<10)."
+      }
+    },
+    {
+      "id": "pr_mmiv_126",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $12 if the sum is at least 7, else $0. Fair value is closest to:",
+      "options": [
+        "$6",
+        "$7",
+        "$12",
+        "$5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. P(sum≥7) = 0.583, so EV = 0.583 × $12 = $7.",
+        "A": "$6 assumes 50/50; the actual P(sum≥7) = 0.583.",
+        "C": "$12 is the max payout, not the probability-weighted EV.",
+        "D": "$5 prices the complement (sum<7)."
+      }
+    },
+    {
+      "id": "pr_mmiv_127",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $18 if the sum is at least 9, else $0. Fair value is closest to:",
+      "options": [
+        "$9",
+        "$18",
+        "$5",
+        "$13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. P(sum≥9) = 0.278, so EV = 0.278 × $18 = $5.",
+        "A": "$9 assumes 50/50; the actual P(sum≥9) = 0.278.",
+        "B": "$18 is the max payout, not the probability-weighted EV.",
+        "D": "$13 prices the complement (sum<9)."
+      }
+    },
+    {
+      "id": "pr_mmiv_128",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $10 if the sum is at least 4, else $0. Fair value is closest to:",
+      "options": [
+        "$5",
+        "$10",
+        "$0.833",
+        "$9.167"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. P(sum≥4) = 0.917, so EV = 0.917 × $10 = $9.167.",
+        "A": "$5 assumes 50/50; the actual P(sum≥4) = 0.917.",
+        "B": "$10 is the max payout, not the probability-weighted EV.",
+        "C": "$0.833 prices the complement (sum<4)."
+      }
+    },
+    {
+      "id": "pr_mmiv_129",
+      "concept": "optionality_ev",
+      "question": "A fair 6-sided die is rolled; the contract pays max(face, 3) dollars. Fair value is closest to:",
+      "options": [
+        "$4",
+        "$3.5",
+        "$3",
+        "$6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (Σ max(f,3))/6 = $4; the floor at 3 lifts it above the plain mean.",
+        "B": "$3.5 is the plain die mean, ignoring the 3-dollar floor.",
+        "C": "$3 is the guaranteed floor, not the average payout.",
+        "D": "$6 is the max face, not the average of max(face,3)."
+      }
+    },
+    {
+      "id": "pr_mmiv_130",
+      "concept": "optionality_ev",
+      "question": "A fair 6-sided die is rolled; the contract pays max(face, 4) dollars. Fair value is closest to:",
+      "options": [
+        "$3.5",
+        "$4.5",
+        "$4",
+        "$6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. EV = (Σ max(f,4))/6 = $4.5; the floor at 4 lifts it above the plain mean.",
+        "A": "$3.5 is the plain die mean, ignoring the 4-dollar floor.",
+        "C": "$4 is the guaranteed floor, not the average payout.",
+        "D": "$6 is the max face, not the average of max(face,4)."
+      }
+    },
+    {
+      "id": "pr_mmiv_131",
+      "concept": "optionality_ev",
+      "question": "A fair 8-sided die is rolled; the contract pays max(face, 5) dollars. Fair value is closest to:",
+      "options": [
+        "$4.5",
+        "$5",
+        "$5.75",
+        "$8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. EV = (Σ max(f,5))/8 = $5.75; the floor at 5 lifts it above the plain mean.",
+        "A": "$4.5 is the plain die mean, ignoring the 5-dollar floor.",
+        "B": "$5 is the guaranteed floor, not the average payout.",
+        "D": "$8 is the max face, not the average of max(face,5)."
+      }
+    },
+    {
+      "id": "pr_mmiv_132",
+      "concept": "optionality_ev",
+      "question": "A fair 10-sided die is rolled; the contract pays max(face, 6) dollars. Fair value is closest to:",
+      "options": [
+        "$5.5",
+        "$6",
+        "$10",
+        "$7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. EV = (Σ max(f,6))/10 = $7; the floor at 6 lifts it above the plain mean.",
+        "A": "$5.5 is the plain die mean, ignoring the 6-dollar floor.",
+        "B": "$6 is the guaranteed floor, not the average payout.",
+        "C": "$10 is the max face, not the average of max(face,6)."
+      }
+    },
+    {
+      "id": "pr_mmiv_133",
+      "concept": "risk_sizing",
+      "question": "Sum of 2 fair 6-sided dice has fair value 7. Its standard deviation (a guide to how wide to quote) is closest to:",
+      "options": [
+        "2.415",
+        "5.833",
+        "7",
+        "11.664"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var = n(d²−1)/12 = 5.833; SD = √Var = 2.415.",
+        "B": "5.833 is the variance; the spread guide is its square root.",
+        "C": "7 is the mean, not a measure of dispersion.",
+        "D": "11.664 is unrelated; SD = √Var, not 2·Var."
+      }
+    },
+    {
+      "id": "pr_mmiv_134",
+      "concept": "risk_sizing",
+      "question": "Sum of 3 fair 6-sided dice has fair value 10.5. Its standard deviation (a guide to how wide to quote) is closest to:",
+      "options": [
+        "8.75",
+        "2.958",
+        "10.5",
+        "17.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Var = n(d²−1)/12 = 8.75; SD = √Var = 2.958.",
+        "A": "8.75 is the variance; the spread guide is its square root.",
+        "C": "10.5 is the mean, not a measure of dispersion.",
+        "D": "17.5 is unrelated; SD = √Var, not 2·Var."
+      }
+    },
+    {
+      "id": "pr_mmiv_135",
+      "concept": "risk_sizing",
+      "question": "Sum of 2 fair 10-sided dice has fair value 11. Its standard deviation (a guide to how wide to quote) is closest to:",
+      "options": [
+        "16.5",
+        "11",
+        "4.062",
+        "33"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Var = n(d²−1)/12 = 16.5; SD = √Var = 4.062.",
+        "A": "16.5 is the variance; the spread guide is its square root.",
+        "B": "11 is the mean, not a measure of dispersion.",
+        "D": "33 is unrelated; SD = √Var, not 2·Var."
+      }
+    },
+    {
+      "id": "pr_mmiv_136",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 4 independent fair 8-sided dice?",
+      "options": [
+        "32",
+        "4",
+        "4.5",
+        "18"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[sum] = 4 × (8+1)/2 = 18.",
+        "A": "32 is the maximum sum, not the mean.",
+        "B": "4 is the minimum sum, not the mean.",
+        "C": "4.5 is one die's mean; multiply by 4."
+      }
+    },
+    {
+      "id": "pr_mmiv_137",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 6 independent fair 6-sided dice?",
+      "options": [
+        "21",
+        "36",
+        "6",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = 6 × (6+1)/2 = 21.",
+        "B": "36 is the maximum sum, not the mean.",
+        "C": "6 is the minimum sum, not the mean.",
+        "D": "3.5 is one die's mean; multiply by 6."
+      }
+    },
+    {
+      "id": "pr_mmiv_138",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 2 independent fair 100-sided dice?",
+      "options": [
+        "200",
+        "101",
+        "2",
+        "50.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[sum] = 2 × (100+1)/2 = 101.",
+        "A": "200 is the maximum sum, not the mean.",
+        "C": "2 is the minimum sum, not the mean.",
+        "D": "50.5 is one die's mean; multiply by 2."
+      }
+    },
+    {
+      "id": "pr_mmiv_139",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 4 independent fair 4-sided dice?",
+      "options": [
+        "16",
+        "4",
+        "10",
+        "2.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[sum] = 4 × (4+1)/2 = 10.",
+        "A": "16 is the maximum sum, not the mean.",
+        "B": "4 is the minimum sum, not the mean.",
+        "D": "2.5 is one die's mean; multiply by 4."
+      }
+    },
+    {
+      "id": "pr_mmiv_140",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 3 independent fair 12-sided dice?",
+      "options": [
+        "36",
+        "3",
+        "6.5",
+        "19.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[sum] = 3 × (12+1)/2 = 19.5.",
+        "A": "36 is the maximum sum, not the mean.",
+        "B": "3 is the minimum sum, not the mean.",
+        "C": "6.5 is one die's mean; multiply by 3."
+      }
+    },
+    {
+      "id": "pr_mmiv_141",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 3 independent fair 20-sided dice?",
+      "options": [
+        "31.5",
+        "60",
+        "3",
+        "10.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = 3 × (20+1)/2 = 31.5.",
+        "B": "60 is the maximum sum, not the mean.",
+        "C": "3 is the minimum sum, not the mean.",
+        "D": "10.5 is one die's mean; multiply by 3."
+      }
+    },
+    {
+      "id": "pr_mmiv_142",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 6 independent fair 10-sided dice?",
+      "options": [
+        "60",
+        "33",
+        "6",
+        "5.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[sum] = 6 × (10+1)/2 = 33.",
+        "A": "60 is the maximum sum, not the mean.",
+        "C": "6 is the minimum sum, not the mean.",
+        "D": "5.5 is one die's mean; multiply by 6."
+      }
+    },
+    {
+      "id": "pr_mmiv_143",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 4 independent fair 10-sided dice?",
+      "options": [
+        "40",
+        "4",
+        "22",
+        "5.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[sum] = 4 × (10+1)/2 = 22.",
+        "A": "40 is the maximum sum, not the mean.",
+        "B": "4 is the minimum sum, not the mean.",
+        "D": "5.5 is one die's mean; multiply by 4."
+      }
+    },
+    {
+      "id": "pr_mmiv_144",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 5 independent fair 8-sided dice?",
+      "options": [
+        "40",
+        "5",
+        "4.5",
+        "22.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[sum] = 5 × (8+1)/2 = 22.5.",
+        "A": "40 is the maximum sum, not the mean.",
+        "B": "5 is the minimum sum, not the mean.",
+        "C": "4.5 is one die's mean; multiply by 5."
+      }
+    },
+    {
+      "id": "pr_mmiv_145",
+      "concept": "dice_sum_ev",
+      "question": "What is the fair value of a contract paying the sum of 10 independent fair 6-sided dice?",
+      "options": [
+        "35",
+        "60",
+        "10",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = 10 × (6+1)/2 = 35.",
+        "B": "60 is the maximum sum, not the mean.",
+        "C": "10 is the minimum sum, not the mean.",
+        "D": "3.5 is one die's mean; multiply by 10."
+      }
+    },
+    {
+      "id": "pr_mmiv_146",
+      "concept": "binomial_ev",
+      "question": "A fair 6-sided die is rolled 12 times. A contract pays the number of times a chosen face appears. Fair value is:",
+      "options": [
+        "12",
+        "2",
+        "6",
+        "0.167"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[count] = n·(1/6) = 12/6 = 2.",
+        "A": "12 is the maximum (every roll the target), not the expectation.",
+        "C": "6 would be n·p with p=1/2; here p=1/6.",
+        "D": "0.167 is the per-roll probability, not the expected count over 12 rolls."
+      }
+    },
+    {
+      "id": "pr_mmiv_147",
+      "concept": "binomial_ev",
+      "question": "A fair 6-sided die is rolled 6 times. A contract pays the number of times a chosen face appears. Fair value is:",
+      "options": [
+        "6",
+        "3",
+        "1",
+        "0.167"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[count] = n·(1/6) = 6/6 = 1.",
+        "A": "6 is the maximum (every roll the target), not the expectation.",
+        "B": "3 would be n·p with p=1/2; here p=1/6.",
+        "D": "0.167 is the per-roll probability, not the expected count over 6 rolls."
+      }
+    },
+    {
+      "id": "pr_mmiv_148",
+      "concept": "binomial_ev",
+      "question": "A fair 6-sided die is rolled 18 times. A contract pays the number of times a chosen face appears. Fair value is:",
+      "options": [
+        "18",
+        "9",
+        "0.167",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[count] = n·(1/6) = 18/6 = 3.",
+        "A": "18 is the maximum (every roll the target), not the expectation.",
+        "B": "9 would be n·p with p=1/2; here p=1/6.",
+        "C": "0.167 is the per-roll probability, not the expected count over 18 rolls."
+      }
+    },
+    {
+      "id": "pr_mmiv_149",
+      "concept": "binomial_ev",
+      "question": "A fair 4-sided die is rolled 8 times. A contract pays the number of times a chosen face appears. Fair value is:",
+      "options": [
+        "2",
+        "8",
+        "4",
+        "0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[count] = n·(1/4) = 8/4 = 2.",
+        "B": "8 is the maximum (every roll the target), not the expectation.",
+        "C": "4 would be n·p with p=1/2; here p=1/4.",
+        "D": "0.25 is the per-roll probability, not the expected count over 8 rolls."
+      }
+    },
+    {
+      "id": "pr_mmiv_150",
+      "concept": "binomial_ev",
+      "question": "A fair 10-sided die is rolled 20 times. A contract pays the number of times a chosen face appears. Fair value is:",
+      "options": [
+        "20",
+        "2",
+        "10",
+        "0.1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[count] = n·(1/10) = 20/10 = 2.",
+        "A": "20 is the maximum (every roll the target), not the expectation.",
+        "C": "10 would be n·p with p=1/2; here p=1/10.",
+        "D": "0.1 is the per-roll probability, not the expected count over 20 rolls."
+      }
+    },
+    {
+      "id": "pr_mmiv_151",
+      "concept": "binomial_ev",
+      "question": "A fair 6-sided die is rolled 30 times. A contract pays the number of times a chosen face appears. Fair value is:",
+      "options": [
+        "30",
+        "15",
+        "5",
+        "0.167"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[count] = n·(1/6) = 30/6 = 5.",
+        "A": "30 is the maximum (every roll the target), not the expectation.",
+        "B": "15 would be n·p with p=1/2; here p=1/6.",
+        "D": "0.167 is the per-roll probability, not the expected count over 30 rolls."
+      }
+    },
+    {
+      "id": "pr_mmiv_152",
+      "concept": "dice_max_ev",
+      "question": "Three fair 6-sided dice are rolled; the contract pays the largest face. Fair value is closest to:",
+      "options": [
+        "4.472",
+        "3.5",
+        "6",
+        "4.958"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Averaging max(a,b,c) over all 6³ outcomes gives 4.958; more dice push the max higher.",
+        "A": "4.472 is E[max] for only two dice; three dice raise it.",
+        "B": "3.5 is one die's mean, far below the max of three.",
+        "C": "6 is the largest possible face, not the average maximum."
+      }
+    },
+    {
+      "id": "pr_mmiv_153",
+      "concept": "dice_max_ev",
+      "question": "Three fair 4-sided dice are rolled; the contract pays the largest face. Fair value is closest to:",
+      "options": [
+        "3.438",
+        "3.125",
+        "2.5",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Averaging max(a,b,c) over all 4³ outcomes gives 3.438; more dice push the max higher.",
+        "B": "3.125 is E[max] for only two dice; three dice raise it.",
+        "C": "2.5 is one die's mean, far below the max of three.",
+        "D": "4 is the largest possible face, not the average maximum."
+      }
+    },
+    {
+      "id": "pr_mmiv_154",
+      "concept": "dice_max_ev",
+      "question": "Three fair 8-sided dice are rolled; the contract pays the largest face. Fair value is closest to:",
+      "options": [
+        "5.813",
+        "6.469",
+        "4.5",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Averaging max(a,b,c) over all 8³ outcomes gives 6.469; more dice push the max higher.",
+        "A": "5.813 is E[max] for only two dice; three dice raise it.",
+        "C": "4.5 is one die's mean, far below the max of three.",
+        "D": "8 is the largest possible face, not the average maximum."
+      }
+    },
+    {
+      "id": "pr_mmiv_155",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $36 only if the sum equals exactly 6. Fair value is closest to:",
+      "options": [
+        "$6",
+        "$36",
+        "$5",
+        "$31"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. P(sum=6) = 5/36 = 0.139, so EV = $5.",
+        "A": "$6 assumes probability 1/6; the exact-sum probability is 0.139.",
+        "B": "$36 is the max payout, hit only when the sum is exactly 6.",
+        "D": "$31 prices the complement (sum ≠ 6)."
+      }
+    },
+    {
+      "id": "pr_mmiv_156",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $360 only if the sum equals exactly 2. Fair value is closest to:",
+      "options": [
+        "$60",
+        "$360",
+        "$350",
+        "$10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. P(sum=2) = 1/36 = 0.028, so EV = $10.",
+        "A": "$60 assumes probability 1/6; the exact-sum probability is 0.028.",
+        "B": "$360 is the max payout, hit only when the sum is exactly 2.",
+        "C": "$350 prices the complement (sum ≠ 2)."
+      }
+    },
+    {
+      "id": "pr_mmiv_157",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $36 only if the sum equals exactly 10. Fair value is closest to:",
+      "options": [
+        "$3",
+        "$6",
+        "$36",
+        "$33"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(sum=10) = 3/36 = 0.083, so EV = $3.",
+        "B": "$6 assumes probability 1/6; the exact-sum probability is 0.083.",
+        "C": "$36 is the max payout, hit only when the sum is exactly 10.",
+        "D": "$33 prices the complement (sum ≠ 10)."
+      }
+    },
+    {
+      "id": "pr_mmiv_158",
+      "concept": "bet_fair_value",
+      "question": "Two fair 6-sided dice. A ticket pays $36 only if the sum equals exactly 8. Fair value is closest to:",
+      "options": [
+        "$6",
+        "$5",
+        "$36",
+        "$31"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. P(sum=8) = 5/36 = 0.139, so EV = $5.",
+        "A": "$6 assumes probability 1/6; the exact-sum probability is 0.139.",
+        "C": "$36 is the max payout, hit only when the sum is exactly 8.",
+        "D": "$31 prices the complement (sum ≠ 8)."
+      }
+    },
+    {
+      "id": "pr_mmiv_159",
+      "concept": "geometric_ev",
+      "question": "You flip a fair coin until it shows heads, and the contract pays the total number of flips made. Fair value is:",
+      "options": [
+        "1",
+        "0.5",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Flips until the first heads is geometric with p=1/2, so E = 1/p = 2.",
+        "A": "1 would mean it always stops on the first flip; with p=1/2 the mean is 2.",
+        "B": "0.5 is the per-flip success probability, not the expected number of flips.",
+        "D": "4 over-counts; E[geometric, p=1/2] = 2 exactly."
+      }
+    },
+    {
+      "id": "pr_mmiv_160",
+      "concept": "geometric_ev",
+      "question": "You flip a fair coin until it shows tails, and the contract pays the total number of flips made. Fair value is:",
+      "options": [
+        "1",
+        "0.5",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Flips until the first tails is geometric with p=1/2, so E = 1/p = 2.",
+        "A": "1 would mean it always stops on the first flip; with p=1/2 the mean is 2.",
+        "B": "0.5 is the per-flip success probability, not the expected number of flips.",
+        "C": "4 over-counts; E[geometric, p=1/2] = 2 exactly."
+      }
+    },
+    {
+      "id": "pr_mmiv_161",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $12 if it is a spade, else $0. The dealer reveals the card is black (suit class shown). Conditional fair value is:",
+      "options": [
+        "$6",
+        "$3",
+        "$12",
+        "$0.923"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Half of black cards are spades: P(spade|black)=1/2, EV = $6.",
+        "B": "$3 is the unconditional EV; the black clue doubles it.",
+        "C": "$12 is the max; not every black card is a spade.",
+        "D": "$0.923 uses P=1/13, ignoring the quarter-deck suit structure."
+      }
+    },
+    {
+      "id": "pr_mmiv_162",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $24 if it is a spade, else $0. The dealer reveals the card is black (suit class shown). Conditional fair value is:",
+      "options": [
+        "$6",
+        "$12",
+        "$24",
+        "$1.846"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Half of black cards are spades: P(spade|black)=1/2, EV = $12.",
+        "A": "$6 is the unconditional EV; the black clue doubles it.",
+        "C": "$24 is the max; not every black card is a spade.",
+        "D": "$1.846 uses P=1/13, ignoring the quarter-deck suit structure."
+      }
+    },
+    {
+      "id": "pr_mmiv_163",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $40 if it is a spade, else $0. The dealer reveals the card is black (suit class shown). Conditional fair value is:",
+      "options": [
+        "$10",
+        "$40",
+        "$20",
+        "$3.077"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Half of black cards are spades: P(spade|black)=1/2, EV = $20.",
+        "A": "$10 is the unconditional EV; the black clue doubles it.",
+        "B": "$40 is the max; not every black card is a spade.",
+        "D": "$3.077 uses P=1/13, ignoring the quarter-deck suit structure."
+      }
+    },
+    {
+      "id": "pr_mmiv_164",
+      "concept": "card_conditional_ev",
+      "question": "A card pays $52 if it is a spade, else $0. The dealer reveals the card is black (suit class shown). Conditional fair value is:",
+      "options": [
+        "$13",
+        "$52",
+        "$4",
+        "$26"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Half of black cards are spades: P(spade|black)=1/2, EV = $26.",
+        "A": "$13 is the unconditional EV; the black clue doubles it.",
+        "B": "$52 is the max; not every black card is a spade.",
+        "C": "$4 uses P=1/13, ignoring the quarter-deck suit structure."
+      }
+    },
+    {
+      "id": "pr_mmiv_165",
+      "concept": "coins_partial_info",
+      "question": "A ticket pays the number of heads among 3 fair coins. Currently 0 show heads, 1 show tails, and 2 are still hidden. Updated fair value:",
+      "options": [
+        "1",
+        "0",
+        "2",
+        "1.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0 known heads + 0.5×2 hidden = 1.",
+        "B": "0 ignores the 2 hidden coins worth 0.5 each.",
+        "C": "2 treats every hidden coin as a head.",
+        "D": "1.5 is the prior before reveals; revealed faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_166",
+      "concept": "coins_partial_info",
+      "question": "A ticket pays the number of heads among 5 fair coins. Currently 3 show heads, 0 show tails, and 2 are still hidden. Updated fair value:",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. 3 known heads + 0.5×2 hidden = 4.",
+        "A": "3 ignores the 2 hidden coins worth 0.5 each.",
+        "C": "5 treats every hidden coin as a head.",
+        "D": "2.5 is the prior before reveals; revealed faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_167",
+      "concept": "coins_partial_info",
+      "question": "A ticket pays the number of heads among 6 fair coins. Currently 4 show heads, 0 show tails, and 2 are still hidden. Updated fair value:",
+      "options": [
+        "4",
+        "6",
+        "5",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. 4 known heads + 0.5×2 hidden = 5.",
+        "A": "4 ignores the 2 hidden coins worth 0.5 each.",
+        "B": "6 treats every hidden coin as a head.",
+        "D": "3 is the prior before reveals; revealed faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_168",
+      "concept": "coins_partial_info",
+      "question": "A ticket pays the number of heads among 8 fair coins. Currently 3 show heads, 2 show tails, and 3 are still hidden. Updated fair value:",
+      "options": [
+        "3",
+        "6",
+        "4",
+        "4.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. 3 known heads + 0.5×3 hidden = 4.5.",
+        "A": "3 ignores the 3 hidden coins worth 0.5 each.",
+        "B": "6 treats every hidden coin as a head.",
+        "C": "4 is the prior before reveals; revealed faces are now fixed."
+      }
+    },
+    {
+      "id": "pr_mmiv_169",
+      "concept": "integrated_quote",
+      "question": "Fair value is 18; your spread policy is 2 wide and centered. State the correct bid at ask:",
+      "options": [
+        "17 at 19",
+        "16 at 20",
+        "16 at 18",
+        "19 at 17"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Half-spread 1 around 18 → 17 at 19.",
+        "B": "That market is 4 wide, twice the policy.",
+        "C": "Midpoint 17 — shifted low, not centered on fair.",
+        "D": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_170",
+      "concept": "integrated_quote",
+      "question": "Fair value is 35; your spread policy is 4 wide and centered. State the correct bid at ask:",
+      "options": [
+        "31 at 39",
+        "33 at 37",
+        "32 at 36",
+        "37 at 33"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Half-spread 2 around 35 → 33 at 37.",
+        "A": "That market is 8 wide, twice the policy.",
+        "C": "Midpoint 34 — shifted low, not centered on fair.",
+        "D": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_171",
+      "concept": "integrated_quote",
+      "question": "Fair value is 9; your spread policy is 2 wide and centered. State the correct bid at ask:",
+      "options": [
+        "7 at 11",
+        "7 at 9",
+        "8 at 10",
+        "10 at 8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Half-spread 1 around 9 → 8 at 10.",
+        "A": "That market is 4 wide, twice the policy.",
+        "B": "Midpoint 8 — shifted low, not centered on fair.",
+        "D": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_172",
+      "concept": "integrated_quote",
+      "question": "Fair value is 14; your spread policy is 4 wide and centered. State the correct bid at ask:",
+      "options": [
+        "10 at 18",
+        "11 at 15",
+        "16 at 12",
+        "12 at 16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Half-spread 2 around 14 → 12 at 16.",
+        "A": "That market is 8 wide, twice the policy.",
+        "B": "Midpoint 13 — shifted low, not centered on fair.",
+        "C": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_173",
+      "concept": "integrated_quote",
+      "question": "Fair value is 120; your spread policy is 10 wide and centered. State the correct bid at ask:",
+      "options": [
+        "115 at 125",
+        "110 at 130",
+        "114 at 124",
+        "125 at 115"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Half-spread 5 around 120 → 115 at 125.",
+        "B": "That market is 20 wide, twice the policy.",
+        "C": "Midpoint 119 — shifted low, not centered on fair.",
+        "D": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_174",
+      "concept": "integrated_quote",
+      "question": "Fair value is 22; your spread policy is 2 wide and centered. State the correct bid at ask:",
+      "options": [
+        "20 at 24",
+        "21 at 23",
+        "20 at 22",
+        "23 at 21"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Half-spread 1 around 22 → 21 at 23.",
+        "A": "That market is 4 wide, twice the policy.",
+        "C": "Midpoint 21 — shifted low, not centered on fair.",
+        "D": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_175",
+      "concept": "integrated_quote",
+      "question": "Fair value is 7.5; your spread policy is 1 wide and centered. State the correct bid at ask:",
+      "options": [
+        "6.5 at 8.5",
+        "6 at 7",
+        "7 at 8",
+        "8 at 7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Half-spread 0.5 around 7.5 → 7 at 8.",
+        "A": "That market is 2 wide, twice the policy.",
+        "B": "Midpoint 6.5 — shifted low, not centered on fair.",
+        "D": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_176",
+      "concept": "integrated_quote",
+      "question": "Fair value is 16; your spread policy is 8 wide and centered. State the correct bid at ask:",
+      "options": [
+        "8 at 24",
+        "11 at 19",
+        "20 at 12",
+        "12 at 20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Half-spread 4 around 16 → 12 at 20.",
+        "A": "That market is 16 wide, twice the policy.",
+        "B": "Midpoint 15 — shifted low, not centered on fair.",
+        "C": "Bid exceeds ask — a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmiv_177",
+      "concept": "integrated_update",
+      "question": "Two fair 6-sided dice are summed (prior fair 7). One die is now shown as 1. New fair value:",
+      "options": [
+        "4.5",
+        "7",
+        "1",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 (known) + 3.5 (other die's mean) = 4.5.",
+        "B": "7 is the stale prior fair.",
+        "C": "1 drops the second die's 3.5 expectation.",
+        "D": "2 assumes both dice equal 1."
+      }
+    },
+    {
+      "id": "pr_mmiv_178",
+      "concept": "integrated_update",
+      "question": "Two fair 6-sided dice are summed (prior fair 7). One die is now shown as 4. New fair value:",
+      "options": [
+        "7",
+        "7.5",
+        "4",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. 4 (known) + 3.5 (other die's mean) = 7.5.",
+        "A": "7 is the stale prior fair.",
+        "C": "4 drops the second die's 3.5 expectation.",
+        "D": "8 assumes both dice equal 4."
+      }
+    },
+    {
+      "id": "pr_mmiv_179",
+      "concept": "integrated_update",
+      "question": "Two fair 8-sided dice are summed (prior fair 9). One die is now shown as 6. New fair value:",
+      "options": [
+        "9",
+        "6",
+        "10.5",
+        "12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. 6 (known) + 4.5 (other die's mean) = 10.5.",
+        "A": "9 is the stale prior fair.",
+        "B": "6 drops the second die's 4.5 expectation.",
+        "D": "12 assumes both dice equal 6."
+      }
+    },
+    {
+      "id": "pr_mmiv_180",
+      "concept": "integrated_update",
+      "question": "Two fair 10-sided dice are summed (prior fair 11). One die is now shown as 2. New fair value:",
+      "options": [
+        "11",
+        "2",
+        "4",
+        "7.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. 2 (known) + 5.5 (other die's mean) = 7.5.",
+        "A": "11 is the stale prior fair.",
+        "B": "2 drops the second die's 5.5 expectation.",
+        "C": "4 assumes both dice equal 2."
+      }
+    },
+    {
+      "id": "pr_mmiv_181",
+      "concept": "integrated_update",
+      "question": "Two fair 12-sided dice are summed (prior fair 13). One die is now shown as 12. New fair value:",
+      "options": [
+        "18.5",
+        "13",
+        "12",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 12 (known) + 6.5 (other die's mean) = 18.5.",
+        "B": "13 is the stale prior fair.",
+        "C": "12 drops the second die's 6.5 expectation.",
+        "D": "24 assumes both dice equal 12."
+      }
+    },
+    {
+      "id": "pr_mmiv_182",
+      "concept": "integrated_update",
+      "question": "Two fair 4-sided dice are summed (prior fair 5). One die is now shown as 3. New fair value:",
+      "options": [
+        "5",
+        "5.5",
+        "3",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. 3 (known) + 2.5 (other die's mean) = 5.5.",
+        "A": "5 is the stale prior fair.",
+        "C": "3 drops the second die's 2.5 expectation.",
+        "D": "6 assumes both dice equal 3."
+      }
+    }
+  ]
+}

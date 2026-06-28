@@ -597,14 +597,14 @@
       "concept": "bayes_manufacturing",
       "question": "A factory runs Line A (60% of output, 2% defective), Line B (25%, 5% defective), and Line C (15%, 12% defective). A randomly inspected unit is defective. What is P(it came from Line C | defective)?",
       "options": [
-        "9/19",
+        "36/85",
         "3/10",
         "12/100",
         "15/100"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "Correct. P(D) = 0.6(0.02) + 0.25(0.05) + 0.15(0.12) = 0.0425. P(C ∩ D) = 0.018, so P(C|D) = 0.018/0.0425 = 9/19.",
+        "A": "Correct. P(D) = 0.6(0.02) + 0.25(0.05) + 0.15(0.12) = 0.0425. P(C ∩ D) = 0.018, so P(C|D) = 0.018/0.0425 = 36/85.",
         "B": "3/10 is P(C) before seeing the defect, not the posterior.",
         "C": "12/100 is the defect rate on Line C alone, not P(C | defective).",
         "D": "15/100 is the prior share of Line C, ignoring how diagnostic a defect is."
@@ -652,14 +652,14 @@
       "concept": "bayes_weather_forecast",
       "question": "Tomorrow's weather: P(rain) = 0.30. The forecast says 'rain' with P(forecast rain | rain) = 0.85 and P(forecast rain | no rain) = 0.20. The forecast predicts rain. What is P(actual rain | forecast rain)?",
       "options": [
-        "51/73",
+        "51/79",
         "0.30",
         "0.85",
         "17/20"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "Correct. P(FR) = 0.30(0.85) + 0.70(0.20) = 0.255 + 0.14 = 0.395. P(rain ∩ FR) = 0.255. Posterior = 0.255/0.395 = 51/73.",
+        "A": "Correct. P(FR) = 0.30(0.85) + 0.70(0.20) = 0.255 + 0.14 = 0.395. P(rain ∩ FR) = 0.255. Posterior = 0.255/0.395 = 51/79.",
         "B": "0.30 is the prior P(rain) before reading the forecast.",
         "C": "0.85 is P(forecast rain | rain), the likelihood—not the reversed conditional.",
         "D": "17/20 confuses the false-alarm rate with the posterior; 0.20 is P(FR | no rain)."

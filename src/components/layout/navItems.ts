@@ -76,6 +76,14 @@ export const NAV_ITEMS: NavItem[] = [
     activeClassName: "bg-orange-500/15 text-primary ring-1 ring-orange-500/25",
   },
   {
+    to: "/practice",
+    label: "Practice",
+    icon: BookIcon,
+    matchPrefix: true,
+    iconClassName: "text-indigo-500",
+    activeClassName: "bg-indigo-500/15 text-primary ring-1 ring-indigo-500/25",
+  },
+  {
     to: "/playground",
     label: "Playground",
     icon: DiceIcon,

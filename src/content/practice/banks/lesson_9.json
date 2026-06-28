@@ -1,0 +1,3157 @@
+{
+  "lessonId": "lesson_9",
+  "track": "quant",
+  "title": "Game Theory & Strategic Thinking",
+  "questions": [
+    {
+      "id": "pr_l9_001",
+      "concept": "nash_definition",
+      "question": "A Nash equilibrium is a strategy profile in which:",
+      "options": [
+        "the combined payoff of all players is maximized",
+        "every player earns the same payoff",
+        "no player can improve their payoff by unilaterally changing their own strategy",
+        "every player uses a random strategy"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Maximizing the joint payoff describes a cooperative/Pareto outcome, which often differs from the Nash equilibrium.",
+        "B": "Equilibrium says nothing about equal payoffs; players can earn very different amounts at a Nash equilibrium.",
+        "C": "Correct. Equilibrium means each player's strategy is a best response to the others, so no one can gain by deviating alone.",
+        "D": "Equilibria can be pure or mixed; randomization is not required for a profile to be a Nash equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_002",
+      "concept": "nash_definition",
+      "question": "Two market makers each pick a quote width. The current profile is NOT a Nash equilibrium if:",
+      "options": [
+        "at least one maker could raise their own profit by changing only their own quote",
+        "both happen to earn positive profit",
+        "the two quotes are different from each other",
+        "one maker earns more than the other"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A profitable unilateral deviation by any player means the profile fails the no-deviation test, so it is not a Nash equilibrium.",
+        "B": "Positive profit for both is fully compatible with equilibrium; profitability is not the test.",
+        "C": "Different quotes can absolutely be an equilibrium; identical strategies are not required.",
+        "D": "Unequal payoffs are common at equilibria and do not disqualify a profile."
+      }
+    },
+    {
+      "id": "pr_l9_003",
+      "concept": "best_response",
+      "question": "Player A's 'best response' to player B's strategy is the action that:",
+      "options": [
+        "minimizes player B's payoff",
+        "is chosen at random to stay unpredictable",
+        "matches whatever player B does",
+        "maximizes player A's own payoff given B's strategy"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Hurting B is only worthwhile if it helps A; a best response maximizes A's own payoff, not necessarily B's loss.",
+        "B": "Randomizing is sometimes optimal, but the best response is defined by payoff maximization, not by unpredictability for its own sake.",
+        "C": "Copying B is only a best response if it happens to maximize A's payoff; in general it does not.",
+        "D": "Correct. A best response is the action that gives A the highest payoff, taking B's strategy as fixed."
+      }
+    },
+    {
+      "id": "pr_l9_004",
+      "concept": "nash_definition",
+      "question": "A strategy profile is a Nash equilibrium exactly when:",
+      "options": [
+        "it is Pareto efficient",
+        "each player's strategy is a best response to the others' strategies",
+        "it uses only pure strategies",
+        "it gives the first mover an advantage"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Pareto efficiency is a separate property; many Nash equilibria (e.g. the prisoner's dilemma) are not Pareto efficient.",
+        "B": "Correct. Mutual best response is the defining condition: no player can do better given what everyone else plays.",
+        "C": "Equilibria can involve mixed strategies, so 'pure only' is not the criterion.",
+        "D": "First-mover advantage is a feature of some sequential games, not the definition of equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_005",
+      "concept": "dominant_strategy",
+      "question": "A strategy is strictly dominant for a player when it:",
+      "options": [
+        "guarantees the player wins the game",
+        "is best only when opponents cooperate",
+        "is the strategy opponents expect",
+        "gives a strictly higher payoff than any other strategy, no matter what opponents do"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A dominant strategy maximizes your payoff but need not guarantee 'winning' — payoffs can still be low.",
+        "B": "Being best only under cooperation is conditional superiority, not dominance.",
+        "C": "Dominance is about payoffs across all opponent actions, not about meeting expectations.",
+        "D": "Correct. Strict dominance means the strategy beats every alternative against every possible opponent choice."
+      }
+    },
+    {
+      "id": "pr_l9_006",
+      "concept": "dominant_strategy",
+      "question": "A strategy is dominated when:",
+      "options": [
+        "it is chosen by most players",
+        "it is the riskiest available option",
+        "another strategy does at least as well against every opponent action and strictly better against some",
+        "it requires randomization"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Popularity is irrelevant to dominance; many players could be playing a poor strategy.",
+        "B": "Riskiness alone does not make a strategy dominated; the comparison is about payoffs versus another strategy.",
+        "C": "Correct. A dominated strategy is weakly beaten everywhere and strictly beaten somewhere by an alternative, so a rational player avoids it.",
+        "D": "Domination is unrelated to whether the strategy is pure or mixed."
+      }
+    },
+    {
+      "id": "pr_l9_007",
+      "concept": "dominant_strategy",
+      "question": "No matter how a rival prices, lowering your spread always nets you more flow and more profit than keeping it wide. Lowering the spread is:",
+      "options": [
+        "a strictly dominant strategy",
+        "a mixed strategy",
+        "a dominated strategy",
+        "irrelevant to your payoff"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Since it beats the alternative regardless of the rival's price, lowering the spread is strictly dominant.",
+        "B": "A mixed strategy randomizes; this is a single pure action that is always best.",
+        "C": "A dominated strategy is one you'd never play; here lowering the spread is the one you'd always play.",
+        "D": "It strictly raises your profit in every case, so it is highly relevant."
+      }
+    },
+    {
+      "id": "pr_l9_008",
+      "concept": "iterated_dominance",
+      "question": "Iterated elimination of strictly dominated strategies works because:",
+      "options": [
+        "dominated strategies always yield zero payoff",
+        "a rational player never plays a strictly dominated strategy, and players know this about each other",
+        "it finds the cooperative outcome",
+        "it requires players to randomize uniformly"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Dominated strategies can yield any payoff; they are simply beaten by another strategy.",
+        "B": "Correct. Rational players drop strictly dominated strategies; common knowledge of rationality lets you remove them in rounds, sometimes pinning down the equilibrium.",
+        "C": "The procedure need not lead to the cooperative outcome — it predicts rational play, which can be Pareto-inferior.",
+        "D": "It is about removing bad strategies, not about uniform randomization."
+      }
+    },
+    {
+      "id": "pr_l9_009",
+      "concept": "dominant_strategy",
+      "question": "If both players in a two-player game have a strictly dominant strategy, then:",
+      "options": [
+        "the profile of dominant strategies is the unique Nash equilibrium",
+        "no Nash equilibrium exists",
+        "the game must be zero-sum",
+        "the equilibrium must be in mixed strategies"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each player's dominant strategy is a best response to anything, so the combination is the unique Nash equilibrium.",
+        "B": "An equilibrium does exist — each playing their dominant strategy is stable.",
+        "C": "Dominant strategies can exist in non-zero-sum games; the prisoner's dilemma is not zero-sum.",
+        "D": "Dominant strategies are pure, so the equilibrium is in pure strategies."
+      }
+    },
+    {
+      "id": "pr_l9_010",
+      "concept": "zero_sum",
+      "question": "A game is zero-sum when:",
+      "options": [
+        "all payoffs are negative",
+        "payoffs are decided randomly",
+        "both players can win simultaneously",
+        "the players' payoffs always sum to the same constant (zero), so one's gain is the other's loss"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Negative payoffs are not required; what matters is that gains and losses offset.",
+        "B": "The sum is fixed by structure; randomness in payoffs is a different matter.",
+        "C": "Mutual winning would make the sum positive, contradicting zero-sum.",
+        "D": "Correct. Zero-sum (constant-sum) means total payoff is fixed, so any gain to one player is an exactly equal loss to the other."
+      }
+    },
+    {
+      "id": "pr_l9_011",
+      "concept": "zero_sum",
+      "question": "Which situation is best modeled as (approximately) zero-sum?",
+      "options": [
+        "two firms investing jointly in a new market that grows the pie",
+        "two traders taking opposite sides of the same futures contract, ignoring fees",
+        "neighbors sharing the cost of a fence that benefits both",
+        "coworkers splitting a bonus pool that grows with total output"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Joint investment that grows the market is positive-sum: both can gain.",
+        "B": "Correct. One side's profit on the contract is the other side's loss, so ignoring fees the payoffs sum to zero.",
+        "C": "Cost-sharing for mutual benefit creates joint surplus, so it is not zero-sum.",
+        "D": "A bonus pool that grows with output is positive-sum, not a pure transfer."
+      }
+    },
+    {
+      "id": "pr_l9_012",
+      "concept": "zero_sum",
+      "question": "In a strictly zero-sum two-player game, if Row's expected payoff is +0.4, then Column's expected payoff is:",
+      "options": [
+        "0",
+        "+0.4",
+        "-0.4",
+        "indeterminate"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Zero would only follow if Row's payoff were also zero.",
+        "B": "Both being +0.4 would sum to +0.8, violating the zero-sum condition.",
+        "C": "Correct. Payoffs sum to zero, so Column's expected payoff is exactly the negative of Row's: -0.4.",
+        "D": "It is fully determined: Column = -Row = -0.4."
+      }
+    },
+    {
+      "id": "pr_l9_013",
+      "concept": "zero_sum",
+      "question": "Why can two desks in a zero-sum game never both profit on average against each other?",
+      "options": [
+        "because randomization is banned",
+        "because zero-sum games have no equilibrium",
+        "because total payoff is fixed at zero, so positive expected payoff for one forces negative for the other",
+        "because both must use dominant strategies"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Randomization is allowed in zero-sum games; that is not the reason.",
+        "B": "Zero-sum games do have equilibria (von Neumann's minimax theorem guarantees a value).",
+        "C": "Correct. With a fixed total of zero, the expected payoffs must be negatives of each other, so they cannot both be positive.",
+        "D": "Many zero-sum games have no dominant strategies; that is unrelated to the impossibility of mutual profit."
+      }
+    },
+    {
+      "id": "pr_l9_014",
+      "concept": "minimax",
+      "question": "The minimax theorem (von Neumann) guarantees that every finite two-player zero-sum game has:",
+      "options": [
+        "a value achievable with (possibly mixed) optimal strategies for both players",
+        "no equilibrium",
+        "a unique pure-strategy equilibrium",
+        "a dominant strategy for each player"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Every finite zero-sum game has a value, and each player has an optimal (possibly mixed) strategy securing it.",
+        "B": "The theorem guarantees an equilibrium exists, not that none does.",
+        "C": "Equilibria may require mixing (e.g. matching pennies has no pure equilibrium), so uniqueness in pure strategies is not guaranteed.",
+        "D": "Dominant strategies need not exist; the guarantee is about the game's value, not dominance."
+      }
+    },
+    {
+      "id": "pr_l9_015",
+      "concept": "prisoners_dilemma",
+      "question": "In the one-shot prisoner's dilemma, the unique Nash equilibrium is:",
+      "options": [
+        "both players cooperate",
+        "one cooperates, one defects",
+        "the players alternate",
+        "both players defect"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Mutual cooperation is jointly better but not stable — each player gains by defecting unilaterally.",
+        "B": "An asymmetric profile is unstable because the cooperator would switch to defect.",
+        "C": "Alternating requires repetition and coordination; in the one-shot game it is not an equilibrium.",
+        "D": "Correct. Defect strictly dominates cooperate for each player, so mutual defection is the unique Nash equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_016",
+      "concept": "prisoners_dilemma",
+      "question": "What makes the prisoner's dilemma a 'dilemma'?",
+      "options": [
+        "there is no Nash equilibrium",
+        "the dominant-strategy equilibrium is worse for both players than an available cooperative outcome",
+        "the game is zero-sum",
+        "players have no dominant strategy"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "There is an equilibrium (mutual defection); the dilemma is about its quality, not its absence.",
+        "B": "Correct. Individually rational defection leads to an outcome both players dislike compared to mutual cooperation — that tension is the dilemma.",
+        "C": "It is not zero-sum: mutual cooperation makes both better off, so total payoff varies.",
+        "D": "Each player does have a dominant strategy (defect); that's precisely what drives the bad outcome."
+      }
+    },
+    {
+      "id": "pr_l9_017",
+      "concept": "prisoners_dilemma",
+      "question": "Two traders set quotes; payoffs are: both cooperate (4,4), both defect (2,2), defect alone (6,1). What is the Nash equilibrium?",
+      "options": [
+        "both cooperate (4,4)",
+        "there is none",
+        "defect alone (6,1)",
+        "both defect (2,2)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Cooperate is not stable: against a cooperator, defecting earns 6 instead of 4.",
+        "B": "An equilibrium does exist — mutual defection.",
+        "C": "(6,1) is not an equilibrium because the player earning 1 would deviate to defect for 2.",
+        "D": "Correct. Defect dominates (6>4 vs cooperate, 2>1 vs defect), so mutual defection (2,2) is the unique Nash equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_018",
+      "concept": "repeated_games",
+      "question": "In an indefinitely repeated prisoner's dilemma, cooperation can be sustained as an equilibrium when:",
+      "options": [
+        "defection becomes a dominated strategy in each stage",
+        "the game is played exactly once",
+        "players are sufficiently patient and use strategies that punish defection",
+        "payoffs are zero-sum"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Defection is still dominant in each isolated stage; cooperation is sustained by future incentives, not by changing stage dominance.",
+        "B": "A single play removes any future to leverage, so cooperation cannot be enforced.",
+        "C": "Correct. With enough patience, the threat of future punishment (e.g. tit-for-tat or grim trigger) makes cooperation a best response.",
+        "D": "The prisoner's dilemma is not zero-sum; mutual cooperation benefits both."
+      }
+    },
+    {
+      "id": "pr_l9_019",
+      "concept": "mixed_strategy",
+      "question": "A mixed strategy is:",
+      "options": [
+        "a probability distribution over a player's available actions",
+        "always playing the same single action",
+        "copying the opponent's last move",
+        "a strategy that ignores payoffs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A mixed strategy assigns probabilities to actions and the player randomizes accordingly.",
+        "B": "Committing to one action is a pure strategy, the opposite of mixing.",
+        "C": "Copying the last move is a reactive rule, not a probability distribution over your own actions.",
+        "D": "Mixed strategies are chosen precisely to optimize expected payoff, so they do not ignore payoffs."
+      }
+    },
+    {
+      "id": "pr_l9_020",
+      "concept": "mixed_strategy",
+      "question": "In matching pennies, each player's unique-equilibrium probability of playing heads is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "2/3",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/3 leaves a predictable bias an opponent can exploit; it is not the equilibrium.",
+        "B": "Correct. Equal 50/50 mixing makes the opponent indifferent between heads and tails, the only unexploitable profile.",
+        "C": "2/3 is also exploitable and not symmetric with the equilibrium condition.",
+        "D": "Probability 0 (never heads) is a pure, fully predictable strategy that is easily exploited."
+      }
+    },
+    {
+      "id": "pr_l9_021",
+      "concept": "mixed_strategy",
+      "question": "Why might a market maker deliberately randomize whether to quote tight or wide?",
+      "options": [
+        "so a strategic counterparty cannot predict and exploit a fixed pattern",
+        "to guarantee a higher payoff every single round",
+        "because randomization is required by exchange rules",
+        "to make the game zero-sum"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Unpredictability prevents an adversary from best-responding to a known pattern, which is the whole point of mixing.",
+        "B": "Randomizing does not raise payoff every round; it protects expected payoff against exploitation.",
+        "C": "No exchange rule mandates randomization; it is a strategic choice.",
+        "D": "Mixing does not change whether the underlying game is zero-sum."
+      }
+    },
+    {
+      "id": "pr_l9_022",
+      "concept": "pure_strategy",
+      "question": "A pure strategy differs from a mixed strategy in that a pure strategy:",
+      "options": [
+        "is only valid in zero-sum games",
+        "always loses",
+        "must be randomized",
+        "specifies a single action with certainty"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Pure strategies appear in all kinds of games, not only zero-sum ones.",
+        "B": "Pure strategies can be optimal and winning; they don't always lose.",
+        "C": "Randomization is the hallmark of mixed strategies, not pure ones.",
+        "D": "Correct. A pure strategy commits to one action deterministically, with no randomization."
+      }
+    },
+    {
+      "id": "pr_l9_023",
+      "concept": "indifference_principle",
+      "question": "In a mixed-strategy equilibrium, a player who randomizes over two actions must find that the two actions give:",
+      "options": [
+        "zero payoff",
+        "equal expected payoff against the opponent's strategy",
+        "the maximum possible payoff for one of them only",
+        "different payoffs that change each round"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Equal expected payoffs need not be zero.",
+        "B": "Correct. A player only mixes if both actions yield equal expected payoff; otherwise they'd shift all weight to the better one.",
+        "C": "If one action were strictly best, the player would play it purely instead of mixing.",
+        "D": "At equilibrium the expected payoffs are equal and stable, not fluctuating."
+      }
+    },
+    {
+      "id": "pr_l9_024",
+      "concept": "indifference_principle",
+      "question": "To solve for a player's equilibrium mixing probabilities, you typically set:",
+      "options": [
+        "your own payoffs to zero",
+        "the variance of payoffs to one",
+        "the opponent's expected payoffs from each of their actions equal to each other",
+        "all probabilities to 1/2 by default"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Setting your own payoffs to zero is not how mixing probabilities are derived.",
+        "B": "Variance is not the quantity the indifference condition controls.",
+        "C": "Correct. You choose your mix so the opponent is indifferent — their actions yield equal expected payoff — which pins down your probabilities.",
+        "D": "1/2 is only the answer in symmetric games; in general the equilibrium mix is solved, not assumed."
+      }
+    },
+    {
+      "id": "pr_l9_025",
+      "concept": "indifference_principle",
+      "question": "Column's expected payoff from Left is 4p and from Right is 1 + 2p, where p is Row's probability of playing Up. The value of p that makes Column indifferent is:",
+      "options": [
+        "p = 1",
+        "p = 0",
+        "p = 1/2",
+        "p = 1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "At p = 1, Left gives 4 and Right gives 3, so Column strictly prefers Left; not indifferent.",
+        "B": "At p = 0, Left gives 0 and Right gives 1, so Column strictly prefers Right; not indifferent.",
+        "C": "Correct. Setting 4p = 1 + 2p gives 2p = 1, so p = 1/2 (both actions then pay 2).",
+        "D": "At p = 1/4, Left gives 1 and Right gives 1.5, so Column still prefers Right; not indifferent."
+      }
+    },
+    {
+      "id": "pr_l9_026",
+      "concept": "sequential_games",
+      "question": "The standard method for solving a finite sequential game of perfect information is:",
+      "options": [
+        "backward induction from the final decision nodes",
+        "ignoring all but the first move",
+        "flipping a coin at each node",
+        "maximizing the opponent's payoff at each node"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You solve the last subgames first and fold optimal choices back toward the root — that is backward induction.",
+        "B": "Ignoring later moves discards exactly the information that determines optimal earlier play.",
+        "C": "Random play throws away the structure that perfect information provides.",
+        "D": "Rational players maximize their own payoff, not the opponent's."
+      }
+    },
+    {
+      "id": "pr_l9_027",
+      "concept": "sequential_games",
+      "question": "A subgame perfect equilibrium is a refinement of Nash equilibrium that rules out:",
+      "options": [
+        "all randomization",
+        "first-mover advantage",
+        "every Nash equilibrium",
+        "non-credible threats — actions a player would not actually carry out"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Mixed strategies are still allowed in subgame perfect equilibria.",
+        "B": "First-mover advantage is a feature of some games, not something the refinement removes.",
+        "C": "It refines Nash equilibria; every subgame perfect equilibrium is itself a Nash equilibrium.",
+        "D": "Correct. Subgame perfection requires optimal play in every subgame, eliminating threats that would be irrational to execute."
+      }
+    },
+    {
+      "id": "pr_l9_028",
+      "concept": "sequential_games",
+      "question": "In a sequential game, Player 1 chooses In or Out. If In, Player 2 chooses Fight (-1,-1) or Accommodate (2,1); Out gives (0,3). By backward induction, Player 1:",
+      "options": [
+        "chooses Out, because Player 2 will Fight",
+        "chooses In, because Player 2 will Accommodate for payoff 1 > -1",
+        "is indifferent between In and Out",
+        "cannot decide without randomizing"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Fighting gives Player 2 only -1 versus 1 from accommodating, so a 'Fight' threat is not credible; Out is not forced.",
+        "B": "Correct. Player 2 prefers Accommodate (1 > -1), so Player 1 anticipates payoff 2 from In versus 0 from Out and chooses In.",
+        "C": "Player 1 strictly prefers In (2) to Out (0), so there is no indifference.",
+        "D": "The game has perfect information and a clear backward-induction solution; no randomization is needed."
+      }
+    },
+    {
+      "id": "pr_l9_029",
+      "concept": "credible_threats",
+      "question": "A threat is 'credible' in a sequential game when:",
+      "options": [
+        "it is announced loudly enough",
+        "it is made before the game starts",
+        "it would hurt the opponent the most",
+        "carrying it out is actually in the threatener's own interest when the moment arrives"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Volume or emphasis does not make a threat credible; incentives do.",
+        "B": "Timing of the announcement does not establish credibility; the on-path incentive does.",
+        "C": "Maximizing the opponent's harm is irrelevant if executing the threat hurts you more.",
+        "D": "Correct. A credible threat is one the player would rationally execute when called upon, so it survives subgame perfection."
+      }
+    },
+    {
+      "id": "pr_l9_030",
+      "concept": "first_mover_advantage",
+      "question": "In the sequential Stackelberg quantity game, the leader typically gains an advantage by:",
+      "options": [
+        "producing nothing",
+        "always matching the follower's output",
+        "committing to a larger quantity that forces the follower to produce less",
+        "waiting for the follower to move first"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Producing nothing surrenders the market and the advantage entirely.",
+        "B": "Matching the follower forfeits the commitment advantage of moving first.",
+        "C": "Correct. By committing first to a high quantity, the leader shifts the follower's best response downward and captures more profit.",
+        "D": "Waiting turns the leader into a follower, giving up the first-mover edge."
+      }
+    },
+    {
+      "id": "pr_l9_031",
+      "concept": "auction_first_price",
+      "question": "In a first-price sealed-bid auction, the winner is the highest bidder and pays:",
+      "options": [
+        "their own bid",
+        "the second-highest bid",
+        "the average of all bids",
+        "nothing"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. In a first-price auction the winner pays exactly the amount they bid.",
+        "B": "Paying the second-highest bid is the second-price (Vickrey) rule, not first-price.",
+        "C": "Winners pay their own bid, not an average across bidders.",
+        "D": "The winner does pay; the auction is not free."
+      }
+    },
+    {
+      "id": "pr_l9_032",
+      "concept": "auction_second_price",
+      "question": "In a second-price (Vickrey) sealed-bid auction, bidding your true value is:",
+      "options": [
+        "always a losing strategy",
+        "a weakly dominant strategy",
+        "only optimal if others underbid",
+        "irrational"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Truthful bidding is optimal here; it is not a losing strategy.",
+        "B": "Correct. Because you pay the second-highest bid, your own bid only affects whether you win, never the price — so truthful bidding can never hurt and is weakly dominant.",
+        "C": "Its optimality does not depend on others underbidding; it holds against any opponent bids.",
+        "D": "Truthful bidding is precisely the rational, dominant choice in a Vickrey auction."
+      }
+    },
+    {
+      "id": "pr_l9_033",
+      "concept": "bid_shading",
+      "question": "In a first-price auction with independent private values, a rational bidder should:",
+      "options": [
+        "shade their bid below their value",
+        "bid exactly their value",
+        "bid above their value to ensure winning",
+        "never bid"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Since you pay your bid, shading below value preserves positive expected surplus, trading some win probability for profit.",
+        "B": "Bidding your value leaves zero surplus when you win, so it is not optimal.",
+        "C": "Bidding above value risks paying more than the item is worth — a loss whenever you win.",
+        "D": "Never bidding forfeits all expected surplus; the optimal bid is positive but shaded."
+      }
+    },
+    {
+      "id": "pr_l9_034",
+      "concept": "bid_shading",
+      "question": "With n symmetric bidders whose values are uniform on [0,1], the symmetric first-price equilibrium bid is b(v) = v·(n-1)/n. As the number of bidders n grows large, optimal shading:",
+      "options": [
+        "increases toward bidding zero",
+        "reverses to bidding above value",
+        "stays constant at half of value",
+        "shrinks, so bids approach the true value"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The factor (n-1)/n rises toward 1, so bids rise toward value, not toward zero.",
+        "B": "Equilibrium bids stay below value; they never exceed it.",
+        "C": "Half of value corresponds only to n = 2; the fraction changes with n.",
+        "D": "Correct. (n-1)/n → 1 as n grows, so heavier competition forces bidders to shade less and bid closer to their true value."
+      }
+    },
+    {
+      "id": "pr_l9_035",
+      "concept": "auction_revenue_equivalence",
+      "question": "The revenue equivalence theorem says that, under standard assumptions (risk-neutral bidders, independent private values), first-price and second-price auctions yield:",
+      "options": [
+        "always higher revenue in the first-price format",
+        "the same expected revenue to the seller",
+        "always higher revenue in the second-price format",
+        "zero revenue"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shading in first-price exactly offsets the higher nominal payments, so it is not systematically higher.",
+        "B": "Correct. Under those assumptions both formats produce the same expected seller revenue, even though bidding behavior differs.",
+        "C": "Second-price collects the second-highest value in expectation, matching — not beating — first-price.",
+        "D": "Both formats generate positive expected revenue when bidders value the item."
+      }
+    },
+    {
+      "id": "pr_l9_036",
+      "concept": "winners_curse",
+      "question": "The winner's curse arises in common-value auctions because:",
+      "options": [
+        "bidding is banned above value",
+        "the seller always sets too high a reserve",
+        "the winner is the bidder who most overestimated the common value",
+        "values are perfectly known to all"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "No such ban exists; the curse occurs precisely because naive bidders can bid near their (inflated) estimates.",
+        "B": "The curse comes from estimation bias among bidders, not from the seller's reserve.",
+        "C": "Correct. When all bidders estimate a shared value, the winner tends to be the one with the highest (often too optimistic) estimate, so winning is bad news about the value.",
+        "D": "If values were perfectly known there would be no estimation error and no curse."
+      }
+    },
+    {
+      "id": "pr_l9_037",
+      "concept": "winners_curse",
+      "question": "A rational bidder in a common-value auction protects against the winner's curse by:",
+      "options": [
+        "bidding their raw estimate of value",
+        "bidding above their estimate",
+        "bidding as if their estimate is the highest of all bidders, i.e. shading down further",
+        "ignoring the number of competitors"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bidding the raw estimate ignores that winning means your estimate was likely too high.",
+        "B": "Bidding above the estimate worsens the curse.",
+        "C": "Correct. You should condition on the event of winning — that your estimate was the most optimistic — and shade your bid down accordingly.",
+        "D": "More competitors makes winning even more selective for over-optimism, so the count matters and should increase caution."
+      }
+    },
+    {
+      "id": "pr_l9_038",
+      "concept": "expected_value",
+      "question": "You can pay $3 to play a game that pays $10 with probability 0.2 and $0 otherwise. The expected net value of playing is:",
+      "options": [
+        "-$1",
+        "+$2",
+        "+$7",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected payout is 0.2×$10 = $2; subtracting the $3 cost gives a net of -$1, so the game is unfavorable.",
+        "B": "+$2 would be the gross expected payout (0.2×10) minus only part of the cost; it ignores the full $3 stake.",
+        "C": "+$7 misreads the payout as nearly certain; the win is only 20% likely.",
+        "D": "A break-even of $0 would require an expected payout of $3, but it is only $2."
+      }
+    },
+    {
+      "id": "pr_l9_039",
+      "concept": "expected_value",
+      "question": "A strategy A yields +$5 with probability 0.5 and -$3 with probability 0.5. Strategy B yields a sure +$1. A risk-neutral player should pick:",
+      "options": [
+        "strategy A, with expected value +$1... tie, but A is chosen by coin flip",
+        "strategy A, because its expected value is +$1 which is higher than B",
+        "strategy B, because it has lower variance",
+        "strategy B, because its expected value of +$1 equals A's, so a risk-neutral player is indifferent"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A's expected value is 0.5×5 + 0.5×(-3) = +$1, which ties B; there is no strict reason to pick A.",
+        "B": "A's expected value is +$1, equal to B's, not higher.",
+        "C": "Lower variance matters to a risk-averse player, but a risk-neutral player cares only about expected value, which is tied.",
+        "D": "Correct. A's expected value is 0.5×5 + 0.5×(-3) = +$1, exactly equal to B's sure +$1, so a risk-neutral player is indifferent."
+      }
+    },
+    {
+      "id": "pr_l9_040",
+      "concept": "matching_pennies_payoff",
+      "question": "In matching pennies, Row wins on a match (HH or TT) and Column wins on a mismatch (HT or TH). This game has:",
+      "options": [
+        "a dominant strategy for Row",
+        "no pure-strategy Nash equilibrium",
+        "two pure-strategy equilibria",
+        "a cooperative equilibrium"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Neither player has a dominant strategy; the best action depends entirely on the opponent's choice.",
+        "B": "Correct. Against any pure profile one player always wants to switch, so there is no pure-strategy equilibrium — only the 50/50 mixed one.",
+        "C": "There are zero pure equilibria, not two.",
+        "D": "Interests are strictly opposed (zero-sum), so there is no cooperative equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_041",
+      "concept": "coordination_game",
+      "question": "In a pure coordination game where both players prefer to pick the same option (and either matched outcome is equally good), the Nash equilibria are:",
+      "options": [
+        "only the mixed strategy",
+        "there are none",
+        "the profiles where they choose differently",
+        "the two profiles where both choose the same option"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "There is also a mixed equilibrium, but the salient pure equilibria are the matched profiles; 'only mixed' is wrong.",
+        "B": "Equilibria clearly exist: the two coordinated outcomes.",
+        "C": "Mismatched profiles are not equilibria — either player would switch to coordinate.",
+        "D": "Correct. Both-choose-A and both-choose-B are Nash equilibria, since given the other's choice each player wants to match."
+      }
+    },
+    {
+      "id": "pr_l9_042",
+      "concept": "stag_hunt",
+      "question": "In the stag hunt, hunting stag together yields the highest payoff but requires both to cooperate, while hunting hare is safe alone. The game has:",
+      "options": [
+        "a single dominant strategy (hare)",
+        "no equilibrium",
+        "two pure Nash equilibria: both stag (payoff-dominant) and both hare (risk-dominant)",
+        "a zero-sum structure"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Hare is not dominant; if you trust the other to hunt stag, stag is the better response.",
+        "B": "Multiple equilibria exist, so 'none' is wrong.",
+        "C": "Correct. Both-stag and both-hare are each Nash equilibria; stag is payoff-dominant while hare is the safer, risk-dominant choice.",
+        "D": "The stag hunt is a cooperation/coordination game, not zero-sum."
+      }
+    },
+    {
+      "id": "pr_l9_043",
+      "concept": "battle_of_sexes",
+      "question": "The Battle of the Sexes is a coordination game with conflicting preferences. It has:",
+      "options": [
+        "two pure-strategy equilibria plus one mixed equilibrium",
+        "no pure-strategy equilibrium",
+        "a single dominant strategy for each player",
+        "a zero-sum payoff structure"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are two pure equilibria (each player's preferred coordinated outcome) and a mixed equilibrium as well.",
+        "B": "Two pure equilibria exist — the players still prefer coordinating to mismatching.",
+        "C": "Neither player has a dominant strategy; the best action depends on the partner's choice.",
+        "D": "Both players gain from coordinating, so the game is not zero-sum."
+      }
+    },
+    {
+      "id": "pr_l9_044",
+      "concept": "pareto_efficiency",
+      "question": "An outcome is Pareto efficient when:",
+      "options": [
+        "all players earn equal payoffs",
+        "no player can be made better off without making another worse off",
+        "the total payoff is zero",
+        "it is the unique Nash equilibrium"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Equality of payoffs is unrelated to Pareto efficiency.",
+        "B": "Correct. Pareto efficiency means there is no alternative that improves someone's payoff without harming someone else.",
+        "C": "Zero total payoff describes zero-sum games, not Pareto efficiency.",
+        "D": "Nash equilibria can be Pareto inefficient (prisoner's dilemma), so the two concepts are distinct."
+      }
+    },
+    {
+      "id": "pr_l9_045",
+      "concept": "nash_definition",
+      "question": "In a game with multiple Nash equilibria, which statement is true?",
+      "options": [
+        "different equilibria can give different payoffs, and players may face a coordination problem over which one occurs",
+        "all equilibria must give identical payoffs",
+        "only one of them is actually a Nash equilibrium",
+        "the game becomes zero-sum"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Multiple equilibria can differ in payoffs, creating a selection/coordination problem about which one the players land on.",
+        "B": "Equilibria can yield very different payoffs (e.g. stag hunt's stag vs hare).",
+        "C": "All of them are genuine Nash equilibria by definition; multiplicity is allowed.",
+        "D": "Having multiple equilibria does not change whether payoffs are zero-sum."
+      }
+    },
+    {
+      "id": "pr_l9_046",
+      "concept": "dominant_strategy",
+      "question": "Which is the clearest sign that a player should NOT play a particular pure strategy?",
+      "options": [
+        "it is a mixed strategy",
+        "it has the highest possible payoff in one cell",
+        "the opponent also has that strategy available",
+        "another available strategy strictly dominates it"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Being mixed is not a reason to avoid a strategy; mixing can be optimal.",
+        "B": "A single high-payoff cell does not justify a strategy if it does poorly against other opponent actions.",
+        "C": "What strategies the opponent has does not by itself make yours unplayable.",
+        "D": "Correct. If another strategy strictly dominates it, the dominated strategy is never a best response and should not be played."
+      }
+    },
+    {
+      "id": "pr_l9_047",
+      "concept": "zero_sum",
+      "question": "Which is NOT a property of a two-player zero-sum game?",
+      "options": [
+        "the players' payoffs sum to a constant",
+        "both players can simultaneously improve their payoffs through cooperation",
+        "one player's gain is the other's loss",
+        "an optimal value exists by the minimax theorem"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Constant-sum payoffs is exactly the definition of zero-sum, so this IS a property.",
+        "B": "Correct. In zero-sum games there is no joint gain from cooperation — improving one player necessarily worsens the other, so this is NOT a property.",
+        "C": "Pure transfer of payoff is a defining property of zero-sum games.",
+        "D": "The minimax theorem guarantees a value for finite zero-sum games, so this IS a property."
+      }
+    },
+    {
+      "id": "pr_l9_048",
+      "concept": "mixed_strategy",
+      "question": "If a player's two actions give expected payoffs of 5 and 3 against the opponent's current strategy, a best-responding player should:",
+      "options": [
+        "mix the two actions equally",
+        "play only the action worth 3",
+        "play only the action worth 5",
+        "alternate them each round"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Mixing is only optimal when the actions tie in expected payoff; here they do not.",
+        "B": "Playing the worse action (3) is strictly suboptimal.",
+        "C": "Correct. With unequal expected payoffs the best response is the pure action with the higher value, 5.",
+        "D": "Alternating would put weight on the inferior action, lowering expected payoff."
+      }
+    },
+    {
+      "id": "pr_l9_049",
+      "concept": "indifference_principle",
+      "question": "In rock-paper-scissors, the symmetric Nash equilibrium has each player choosing each action with probability:",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        "depends on the opponent"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 cannot cover three actions summing to 1.",
+        "B": "1/4 each sums to 3/4, not a valid distribution over three actions.",
+        "C": "Correct. Equal 1/3-1/3-1/3 mixing makes the opponent indifferent across rock, paper, and scissors, the only unexploitable profile.",
+        "D": "At the symmetric equilibrium the mix is fixed at 1/3 each, independent of the opponent."
+      }
+    },
+    {
+      "id": "pr_l9_050",
+      "concept": "prisoners_dilemma",
+      "question": "Two rival HFT firms decide whether to over-invest in speed (an arms race). Each does better cutting the other off regardless of the rival's choice, but mutual over-investment wastes money for both. This is structurally:",
+      "options": [
+        "a prisoner's dilemma",
+        "a coordination game",
+        "a zero-sum game",
+        "a game with no equilibrium"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Over-investing is individually dominant yet mutual over-investment is worse for both than mutual restraint — the prisoner's dilemma structure.",
+        "B": "Coordination games reward matching choices; here each has a dominant move that leads to a jointly bad outcome.",
+        "C": "It is not zero-sum: mutual restraint would make both better off, so total payoff varies.",
+        "D": "There is an equilibrium — mutual over-investment."
+      }
+    },
+    {
+      "id": "pr_l9_051",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "A penalty taker can shoot Left or Right; the goalie can dive Left or Right. The taker scores if they pick the opposite side from the goalie's dive. In equilibrium, both randomize. This is structurally a:",
+      "options": [
+        "coordination game",
+        "game with a dominant strategy",
+        "prisoner's dilemma",
+        "matching-pennies-style zero-sum game"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The players' interests are opposed, not aligned, so it is not a coordination game.",
+        "B": "No action dominates; that is precisely why the equilibrium is mixed.",
+        "C": "There is no dominant 'defect' action; the best choice depends on the opponent, unlike a prisoner's dilemma.",
+        "D": "Correct. The taker wants to mismatch and the goalie wants to match — exactly the matching-pennies/zero-sum structure with a mixed equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_052",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "In a 2x2 zero-sum game with no pure equilibrium, the equilibrium mixing probabilities are found by:",
+      "options": [
+        "setting all payoffs equal to zero",
+        "making each player indifferent between their own actions via the opponent's mix",
+        "choosing the action with the single highest payoff",
+        "assuming both always play 50/50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Payoffs are given by the game; you do not set them to zero.",
+        "B": "Correct. Each player picks a mix that makes the other indifferent between their actions, which jointly determines the equilibrium probabilities.",
+        "C": "Picking the single highest-payoff cell ignores the opponent's response and is not how mixed equilibria are solved.",
+        "D": "50/50 is the answer only in symmetric games; in general the mix must be solved for."
+      }
+    },
+    {
+      "id": "pr_l9_053",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "Row's payoff to Up is 2q and to Down is 3 - q (q = Column's probability of Left). Row is made indifferent at q =",
+      "options": [
+        "q = 1/2",
+        "q = 0",
+        "q = 3/4",
+        "q = 1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "At q = 1/2, Up gives 1 and Down gives 2.5, so Row strictly prefers Down; not indifferent.",
+        "B": "At q = 0, Up gives 0 and Down gives 3, so Row strictly prefers Down.",
+        "C": "At q = 3/4, Up gives 1.5 and Down gives 2.25, so Row still prefers Down.",
+        "D": "Correct. Setting 2q = 3 - q gives 3q = 3, so q = 1 (both actions then pay 2)."
+      }
+    },
+    {
+      "id": "pr_l9_054",
+      "concept": "best_response",
+      "question": "A best-response function maps:",
+      "options": [
+        "a player's payoff to a probability",
+        "time to actions",
+        "the opponents' strategies to the player's optimal strategy",
+        "random noise to fixed actions"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "It outputs an optimal strategy, not a single probability from a payoff.",
+        "B": "Best responses depend on opponents' strategies, not on the clock.",
+        "C": "Correct. The best-response correspondence takes the opponents' strategies as input and returns the player's payoff-maximizing strategy.",
+        "D": "It is a deliberate optimization, not a mapping from noise."
+      }
+    },
+    {
+      "id": "pr_l9_055",
+      "concept": "nash_existence",
+      "question": "Nash's existence theorem guarantees that every finite game (finitely many players and actions) has:",
+      "options": [
+        "at least one Nash equilibrium, possibly in mixed strategies",
+        "exactly one pure-strategy equilibrium",
+        "a dominant strategy for every player",
+        "no equilibrium unless it is zero-sum"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Nash proved every finite game has at least one equilibrium, allowing mixed strategies.",
+        "B": "Many finite games have multiple equilibria or none in pure strategies; uniqueness and purity are not guaranteed.",
+        "C": "Dominant strategies often do not exist; the theorem does not promise them.",
+        "D": "The guarantee covers all finite games, not just zero-sum ones."
+      }
+    },
+    {
+      "id": "pr_l9_056",
+      "concept": "expected_value",
+      "question": "A coin pays $4 on heads and costs you $2 on tails, with a fair coin. The expected value per flip is:",
+      "options": [
+        "+$2",
+        "+$1",
+        "+$3",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "+$2 ignores the loss on tails.",
+        "B": "Correct. EV = 0.5×(+4) + 0.5×(-2) = 2 - 1 = +$1 per flip.",
+        "C": "+$3 double-counts the gain and omits the tail loss.",
+        "D": "$0 would require the gain and loss to cancel, but +4 and -2 do not."
+      }
+    },
+    {
+      "id": "pr_l9_057",
+      "concept": "expected_value",
+      "question": "A market maker captures a $0.02 edge on 70% of trades and loses $0.05 (adverse selection) on the other 30%. Expected edge per trade is:",
+      "options": [
+        "-$0.001",
+        "+$0.014",
+        "-$0.015",
+        "+$0.02"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.7×(0.02) + 0.3×(-0.05) = 0.014 - 0.015 = -$0.001, a slight expected loss.",
+        "B": "+$0.014 is only the favorable term; it omits the 30% loss.",
+        "C": "-$0.015 is only the adverse term; it omits the 70% gain.",
+        "D": "+$0.02 is the gross edge on a good trade, not the probability-weighted average."
+      }
+    },
+    {
+      "id": "pr_l9_058",
+      "concept": "expected_value",
+      "question": "You face a choice: a guaranteed $40, or a 50% chance at $100 (else $0). A risk-neutral decision maker should:",
+      "options": [
+        "take the guaranteed $40",
+        "refuse both",
+        "be indifferent",
+        "take the gamble, since its expected value $50 exceeds $40"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A risk-neutral player maximizes expected value, and $40 is below the gamble's $50.",
+        "B": "Both options have positive value; refusing forgoes gains.",
+        "C": "The expected values differ ($50 vs $40), so there is no indifference.",
+        "D": "Correct. The gamble's EV is 0.5×100 = $50, which beats the sure $40 for a risk-neutral player."
+      }
+    },
+    {
+      "id": "pr_l9_059",
+      "concept": "risk_aversion",
+      "question": "A risk-averse player might prefer a guaranteed $40 over a 50/50 gamble worth $50 in expectation because:",
+      "options": [
+        "they miscalculated the expected value",
+        "they value the reduction in uncertainty more than the extra expected $10",
+        "the gamble is actually worth less than $40 in expectation",
+        "risk aversion is irrational"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Risk aversion is not a math error; the player can correctly see the $50 EV and still decline.",
+        "B": "Correct. A risk-averse player's utility is concave, so the certainty premium can outweigh the higher expected money value.",
+        "C": "The gamble's expected value is genuinely $50; preference, not arithmetic, drives the choice.",
+        "D": "Risk aversion is a coherent, common preference, not irrationality."
+      }
+    },
+    {
+      "id": "pr_l9_060",
+      "concept": "dominant_strategy",
+      "question": "Weak dominance differs from strict dominance in that a weakly dominant strategy:",
+      "options": [
+        "is worse in every case",
+        "is strictly better in every case",
+        "is at least as good in every case and strictly better in at least one",
+        "requires randomization"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A dominant strategy is never worse; this describes a dominated strategy.",
+        "B": "Strictly-better-everywhere is the definition of strict dominance, not weak dominance.",
+        "C": "Correct. Weak dominance means never worse and sometimes strictly better, whereas strict dominance is strictly better everywhere.",
+        "D": "Dominance describes pure-action comparisons and does not require randomization."
+      }
+    },
+    {
+      "id": "pr_l9_061",
+      "concept": "commitment",
+      "question": "Why can the ability to publicly commit to an action be valuable in a strategic game?",
+      "options": [
+        "it never helps; flexibility is always better",
+        "it guarantees a zero-sum outcome",
+        "commitment can change opponents' best responses in your favor, even though it removes your own options",
+        "it forces the game to be simultaneous"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Flexibility is not always better; strategically tying your hands can improve outcomes (Schelling's insight).",
+        "B": "Commitment does not make a game zero-sum.",
+        "C": "Correct. A credible commitment alters what opponents expect and how they respond, which can raise your payoff despite reducing your own flexibility.",
+        "D": "Commitment typically introduces sequential structure, not simultaneity."
+      }
+    },
+    {
+      "id": "pr_l9_062",
+      "concept": "tit_for_tat",
+      "question": "In repeated prisoner's dilemma tournaments, tit-for-tat performs well because it is:",
+      "options": [
+        "nice (never defects first), retaliatory, forgiving, and clear",
+        "always defecting",
+        "purely random",
+        "always cooperating regardless of the opponent"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Tit-for-tat starts cooperatively, punishes defection immediately, forgives once cooperation resumes, and is simple to read — a robust combination.",
+        "B": "Always defecting forgoes the gains from sustained mutual cooperation.",
+        "C": "Random play cannot establish the stable cooperation that makes tit-for-tat strong.",
+        "D": "Unconditional cooperation is exploitable by defectors; tit-for-tat retaliates."
+      }
+    },
+    {
+      "id": "pr_l9_063",
+      "concept": "mixed_strategy",
+      "question": "A poker player who only ever bets with strong hands is exploitable because opponents can:",
+      "options": [
+        "force the player to randomize by rule",
+        "do nothing different",
+        "always call profitably",
+        "fold whenever the player bets, denying value and never paying off bluffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "No rule forces randomization; the player should mix voluntarily to avoid exploitation.",
+        "B": "Opponents can and should adapt to the predictable pattern.",
+        "C": "Always calling a value-only bettor loses money; the correct exploit is to fold.",
+        "D": "Correct. A perfectly predictable 'bet = strong' pattern lets opponents fold to bets, so the player wins less and can never bluff — mixing in some bluffs restores balance."
+      }
+    },
+    {
+      "id": "pr_l9_064",
+      "concept": "mixed_strategy",
+      "question": "In game theory optimal (GTO) poker, balancing your betting range with bluffs and value bets is meant to:",
+      "options": [
+        "guarantee you win every hand",
+        "make opponents indifferent between calling and folding, so they cannot exploit you",
+        "maximize variance",
+        "eliminate the need to ever fold"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "No strategy wins every hand; GTO secures an unexploitable expected outcome, not certainty.",
+        "B": "Correct. Proper bluff-to-value ratios make the opponent indifferent, removing any exploitable best response.",
+        "C": "Balancing is about unexploitability, not maximizing variance.",
+        "D": "Folding remains part of optimal play; balance does not eliminate it."
+      }
+    },
+    {
+      "id": "pr_l9_065",
+      "concept": "zero_sum",
+      "question": "Trading between two counterparties on a single contract (ignoring fees and external hedging) is closest to:",
+      "options": [
+        "a positive-sum game",
+        "a game with no strategy",
+        "a coordination game",
+        "a zero-sum game"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Without external value creation, one side's P&L on the contract is the other's loss, so it is not positive-sum.",
+        "B": "Pricing, sizing, and timing are all strategic decisions.",
+        "C": "Their interests are opposed, not aligned, so it is not a coordination game.",
+        "D": "Correct. The mark-to-market gain of one counterparty equals the loss of the other, making it a zero-sum transfer."
+      }
+    },
+    {
+      "id": "pr_l9_066",
+      "concept": "nash_definition",
+      "question": "Which of the following is always true of a strict Nash equilibrium?",
+      "options": [
+        "it is in mixed strategies",
+        "all players earn positive payoffs",
+        "each player's strategy is the unique best response to the others",
+        "it maximizes total welfare"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Strict Nash equilibria are in pure strategies; mixed equilibria are generally not strict.",
+        "B": "Payoffs can be negative; the equilibrium concept does not require positivity.",
+        "C": "Correct. In a strict Nash equilibrium each player's action is the unique best response, so any deviation strictly lowers their payoff.",
+        "D": "Equilibria need not maximize total welfare (prisoner's dilemma is a counterexample)."
+      }
+    },
+    {
+      "id": "pr_l9_067",
+      "concept": "iterated_dominance",
+      "question": "In the 'guess 2/3 of the average' game (numbers 0-100), iterated elimination of dominated strategies drives rational play toward:",
+      "options": [
+        "0",
+        "100",
+        "50",
+        "a random number"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each round of reasoning lowers the rational guess; iterating to the limit drives the equilibrium guess to 0.",
+        "B": "100 is dominated immediately since 2/3 of any average is at most ~67.",
+        "C": "50 is what naive (level-0) players might pick, but it is eliminated by further rounds of reasoning.",
+        "D": "Rational iterated reasoning converges to 0, not to randomness."
+      }
+    },
+    {
+      "id": "pr_l9_068",
+      "concept": "level_k_reasoning",
+      "question": "In the beauty-contest / 'guess 2/3 of the average' game, why might guessing exactly 0 be suboptimal against real human opponents?",
+      "options": [
+        "0 is a dominated strategy",
+        "real players use only a few levels of reasoning, so the average is usually above 0, making a small positive guess better",
+        "the Nash equilibrium is actually 100",
+        "guessing is not allowed"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0 is the Nash equilibrium, not a dominated strategy.",
+        "B": "Correct. Empirically, people reason only a few steps (level-k), so the winning guess is typically well above 0 — best-responding to actual behavior beats assuming full rationality.",
+        "C": "The Nash equilibrium is 0, not 100.",
+        "D": "Guessing is the entire game; it is certainly allowed."
+      }
+    },
+    {
+      "id": "pr_l9_069",
+      "concept": "prisoners_dilemma",
+      "question": "Two gas stations across the street can set a High or Low price. Each is tempted to undercut, but mutual Low prices erode both their margins versus mutual High. Without collusion, the likely equilibrium is:",
+      "options": [
+        "both Low",
+        "both High",
+        "one High, one Low forever",
+        "no stable outcome"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Undercutting is individually attractive regardless of the rival, so the prisoner's-dilemma logic pushes both to Low prices.",
+        "B": "Both-High is unstable: each can grab share by undercutting to Low.",
+        "C": "A permanent asymmetric split is not an equilibrium; the High-priced station would cut prices.",
+        "D": "There is a stable equilibrium — mutual Low pricing."
+      }
+    },
+    {
+      "id": "pr_l9_070",
+      "concept": "collusion",
+      "question": "Why is tacit collusion (both keeping prices High) easier to sustain in a repeated game than in a one-shot game?",
+      "options": [
+        "prices are irrelevant when repeated",
+        "repetition makes the game zero-sum",
+        "one-shot games have no Nash equilibrium",
+        "future punishment for undercutting can deter a present deviation if players are patient"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Prices remain central; repetition changes incentives, not relevance.",
+        "B": "Repetition does not turn a pricing game into a zero-sum game.",
+        "C": "One-shot games do have equilibria (mutual undercutting here); that is the problem repetition helps overcome.",
+        "D": "Correct. In repeated play the threat of losing future cooperative profits can outweigh the one-time gain from undercutting, sustaining high prices."
+      }
+    },
+    {
+      "id": "pr_l9_071",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "An inspector audits a trader with probability p; the trader cheats with probability q. The trader is deterred (indifferent) when the audit probability makes expected cheating payoff equal to honest payoff. This illustrates that:",
+      "options": [
+        "the inspector should always audit",
+        "in the mixed equilibrium each side randomizes to keep the other indifferent",
+        "the trader should always cheat",
+        "auditing is pointless"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Always auditing is costly; the equilibrium uses a calibrated probability, not certainty.",
+        "B": "Correct. Inspection games have mixed equilibria where the inspector audits just often enough to make cheating unprofitable and the trader cheats just enough to keep auditing worthwhile.",
+        "C": "Always cheating is deterred precisely by the equilibrium audit probability.",
+        "D": "Auditing with the right probability is exactly what deters cheating."
+      }
+    },
+    {
+      "id": "pr_l9_072",
+      "concept": "auction_second_price",
+      "question": "In a second-price auction your private value is $50. Bidding $60 instead of $50:",
+      "options": [
+        "always increases your profit",
+        "is the dominant strategy",
+        "can only hurt you: you might win and pay a price above $50",
+        "has no effect on outcomes ever"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Overbidding cannot increase profit; it only risks winning at a loss.",
+        "B": "The dominant strategy is to bid your true value $50, not $60.",
+        "C": "Correct. Overbidding can win cases where the second price is between $50 and $60, forcing you to pay more than the item is worth to you.",
+        "D": "It does change outcomes in the range where the second-highest bid falls between $50 and $60."
+      }
+    },
+    {
+      "id": "pr_l9_073",
+      "concept": "auction_first_price",
+      "question": "Two bidders have values uniform on [0,1]. The symmetric first-price equilibrium bid is half of value, b(v) = v/2. A bidder with value 0.8 bids:",
+      "options": [
+        "0.8",
+        "0.2",
+        "0.4",
+        "0.6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.8 is the true value; the equilibrium prescribes shading to half.",
+        "B": "0.2 would be v/4, more shading than the equilibrium rule.",
+        "C": "Correct. With two bidders, b(v) = v/2, so a value of 0.8 maps to a bid of 0.4.",
+        "D": "0.6 is between value and v/2 but not the equilibrium bid v/2 = 0.4."
+      }
+    },
+    {
+      "id": "pr_l9_074",
+      "concept": "bid_shading",
+      "question": "The fundamental trade-off a first-price bidder faces when choosing how much to shade is:",
+      "options": [
+        "lower bids raise surplus-if-win but lower the probability of winning",
+        "higher bids always raise total profit",
+        "shading has no effect on winning",
+        "there is no trade-off"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shading more increases your profit margin conditional on winning but reduces how often you win, and the optimum balances the two.",
+        "B": "Higher bids reduce surplus-when-winning, so they do not always raise profit.",
+        "C": "Shading directly lowers your win probability, so it certainly affects winning.",
+        "D": "The win-probability vs surplus trade-off is exactly what defines optimal shading."
+      }
+    },
+    {
+      "id": "pr_l9_075",
+      "concept": "sequential_games",
+      "question": "In an ultimatum game, the proposer offers a split of $10 and the responder accepts or rejects (rejection gives both $0). The subgame-perfect prediction is that the proposer offers:",
+      "options": [
+        "an even $5/$5 split",
+        "nothing, and the responder gets $10",
+        "the entire $10 to the responder",
+        "the smallest positive amount, expecting the responder to accept anything over $0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A 50/50 split is common in experiments due to fairness, but it is not the subgame-perfect prediction.",
+        "B": "If the proposer offers nothing, a self-interested responder is indifferent/may reject; the SPE offer is the smallest positive amount to the responder.",
+        "C": "Giving everything away is not payoff-maximizing for the proposer.",
+        "D": "Correct. A rational responder accepts any positive amount over $0, so backward induction has the proposer offer the minimal positive share and keep the rest."
+      }
+    },
+    {
+      "id": "pr_l9_076",
+      "concept": "sequential_games",
+      "question": "Real human responders in the ultimatum game often reject low offers. This shows that:",
+      "options": [
+        "the game has no equilibrium",
+        "backward induction with purely selfish, money-maximizing preferences does not fully predict behavior",
+        "rejection is always irrational",
+        "the proposer has a dominant strategy to offer zero"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The game does have a subgame-perfect equilibrium; the point is behavior deviates from it.",
+        "B": "Correct. Rejections reveal preferences over fairness, so the purely-selfish backward-induction prediction misses real behavior.",
+        "C": "Given fairness preferences, rejecting an insulting offer can be rational; it is not always irrational.",
+        "D": "Offering zero is not even the standard SPE (which is a minimal positive amount), and humans punish low offers."
+      }
+    },
+    {
+      "id": "pr_l9_077",
+      "concept": "expected_value",
+      "question": "A trade has a 60% chance of +$300 and a 40% chance of -$500. Its expected value is:",
+      "options": [
+        "+$100",
+        "+$180",
+        "-$200",
+        "-$20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "+$100 does not match the probability-weighted computation.",
+        "B": "+$180 is only the favorable term, ignoring the 40% loss.",
+        "C": "-$200 is only the loss term, ignoring the 60% gain.",
+        "D": "Correct. EV = 0.6×300 + 0.4×(-500) = 180 - 200 = -$20, so the trade is slightly negative."
+      }
+    },
+    {
+      "id": "pr_l9_078",
+      "concept": "expected_value",
+      "question": "For a positive-EV strategy with high variance, the main reason to size positions small (e.g. via the Kelly criterion) is to:",
+      "options": [
+        "lower the expected value",
+        "make the game zero-sum",
+        "avoid risk of ruin and maximize long-run growth despite positive EV",
+        "guarantee a profit every trade"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Sizing does not lower per-unit EV; it manages risk while keeping the edge.",
+        "B": "Position sizing has nothing to do with making a game zero-sum.",
+        "C": "Correct. Even with positive EV, oversizing risks ruin from variance; controlled sizing protects capital and maximizes long-run geometric growth.",
+        "D": "No sizing guarantees per-trade profit; variance still produces losing trades."
+      }
+    },
+    {
+      "id": "pr_l9_079",
+      "concept": "dominant_strategy",
+      "question": "Consider a 2x2 game. Row's payoffs: Up gives (4 vs L, 3 vs R); Down gives (2 vs L, 1 vs R). For Row, Up is:",
+      "options": [
+        "strictly dominant over Down",
+        "strictly dominated by Down",
+        "only better against L",
+        "only better against R"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Up beats Down whether Column plays L (4>2) or R (3>1), so Up strictly dominates Down.",
+        "B": "Down is dominated, not dominant; Up beats it everywhere.",
+        "C": "Up beats Down against both L and R, not only L.",
+        "D": "Up beats Down against both columns, not only R."
+      }
+    },
+    {
+      "id": "pr_l9_080",
+      "concept": "nash_definition",
+      "question": "In a 2x2 game, suppose (Up, Left) gives Row its best payoff in the Left column AND gives Column its best payoff in the Up row. Then (Up, Left) is:",
+      "options": [
+        "never an equilibrium",
+        "a Nash equilibrium",
+        "only an equilibrium if payoffs are equal",
+        "a dominated profile"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Mutual best responses always form an equilibrium, so 'never' is wrong.",
+        "B": "Correct. Each player is best-responding (Row best in Left, Column best in Up), which is exactly the mutual best-response definition of Nash equilibrium.",
+        "C": "Equal payoffs are not required for equilibrium.",
+        "D": "A profile of mutual best responses is not dominated by definition."
+      }
+    },
+    {
+      "id": "pr_l9_081",
+      "concept": "mixed_strategy",
+      "question": "Why does a Nash equilibrium in mixed strategies still satisfy the 'no profitable deviation' rule even though a player is randomizing?",
+      "options": [
+        "because every action in the mix yields equal expected payoff, so no pure or mixed deviation does better",
+        "because randomizing is always best",
+        "because the opponent cannot observe the mix",
+        "because mixed strategies ignore payoffs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At a mixed equilibrium the player is indifferent among the actions mixed over, so no deviation (pure or mixed) raises expected payoff.",
+        "B": "Randomizing is not always best; it is only best when the mixed actions tie in expected payoff.",
+        "C": "Equilibrium reasoning assumes the opponent knows your strategy; unobservability is not the reason.",
+        "D": "Mixed strategies are chosen precisely to optimize expected payoff."
+      }
+    },
+    {
+      "id": "pr_l9_082",
+      "concept": "zero_sum",
+      "question": "In a zero-sum game, a strategy that maximizes your minimum guaranteed payoff is called your:",
+      "options": [
+        "tit-for-tat strategy",
+        "dominated strategy",
+        "cooperative strategy",
+        "maximin (security) strategy"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Tit-for-tat is a repeated-game cooperation rule, unrelated to single-shot maximin.",
+        "B": "A dominated strategy is one to avoid, not a security strategy.",
+        "C": "Zero-sum games have no cooperative gains, so a cooperative strategy is not meaningful here.",
+        "D": "Correct. A maximin strategy maximizes the worst-case (minimum) payoff, and in zero-sum games it coincides with the equilibrium/minimax strategy."
+      }
+    },
+    {
+      "id": "pr_l9_083",
+      "concept": "matching_pennies_payoff",
+      "question": "In matching pennies, suppose Row deviates to playing heads 70% of the time while Column still mixes 50/50. Row's expected payoff:",
+      "options": [
+        "rises above zero",
+        "stays at zero",
+        "falls below zero",
+        "becomes undefined"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Against a 50/50 opponent every Row mix yields the same expected payoff, so it cannot rise above zero.",
+        "B": "Correct. When Column mixes 50/50, Row is indifferent among all mixes, so any deviation still yields expected payoff zero — illustrating the indifference condition.",
+        "C": "It does not fall either; the payoff is flat at zero against an equal mixer.",
+        "D": "The expected payoff is well-defined and equals zero."
+      }
+    },
+    {
+      "id": "pr_l9_084",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "In a 2x2 game, a player's equilibrium mixing probability is determined by:",
+      "options": [
+        "their own payoffs",
+        "the referee",
+        "the opponent's payoffs (via making the opponent indifferent)",
+        "the number of rounds"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Counterintuitively, your own payoffs do not set your own mix; they set the opponent's mix.",
+        "B": "There is no referee in the model; the mix follows from the indifference conditions.",
+        "C": "Correct. Your mix is chosen to make the opponent indifferent, so it is pinned down by the opponent's payoffs.",
+        "D": "In a one-shot 2x2 game the equilibrium mix does not depend on a round count."
+      }
+    },
+    {
+      "id": "pr_l9_085",
+      "concept": "prisoners_dilemma",
+      "question": "Which payoff ranking (for each player) defines a prisoner's dilemma, where T=temptation, R=reward, P=punishment, S=sucker?",
+      "options": [
+        "S > P > R > T",
+        "R > T > S > P",
+        "T > R > P > S",
+        "P > R > T > S"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ordering makes cooperation dominant, not a dilemma.",
+        "B": "If R > T, cooperation would be a best response and the dilemma disappears.",
+        "C": "Correct. T > R > P > S makes defecting dominant (T beats R, P beats S) while mutual cooperation R beats mutual defection P — the defining ordering.",
+        "D": "P > R would make mutual defection jointly preferred, removing the dilemma's tension."
+      }
+    },
+    {
+      "id": "pr_l9_086",
+      "concept": "expected_value",
+      "question": "An option-like bet pays $0 with probability 0.9 and $100 with probability 0.1. A fair price (zero expected profit) for entering it is:",
+      "options": [
+        "$10",
+        "$100",
+        "$0",
+        "$50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected payout = 0.1×$100 = $10, so paying $10 makes the bet break even.",
+        "B": "$100 is the max payout, far above the $10 expected value.",
+        "C": "$0 would give the buyer a free positive-EV bet, not a fair price.",
+        "D": "$50 overpays relative to the $10 expected payout."
+      }
+    },
+    {
+      "id": "pr_l9_087",
+      "concept": "dominant_strategy",
+      "question": "If a strategy is strictly dominated, then in any Nash equilibrium it is played with probability:",
+      "options": [
+        "1",
+        "depends on the opponent",
+        "1/2",
+        "0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A strictly dominated strategy is never a best response, so it cannot be played with certainty in equilibrium.",
+        "B": "Regardless of the opponent, a strictly dominated strategy is never optimal, so the weight is always zero.",
+        "C": "It gets zero weight, not one-half.",
+        "D": "Correct. A strictly dominated strategy is never a best response, so it receives zero probability in any Nash equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_088",
+      "concept": "sequential_games",
+      "question": "In the centipede game, backward induction predicts that the first player will:",
+      "options": [
+        "continue cooperating until the very end",
+        "take/stop at the very first opportunity",
+        "randomize each round",
+        "always pass to the opponent"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Backward induction unravels cooperation: anticipating the last-mover taking, each earlier player takes too.",
+        "B": "Correct. Folding back from the final node, each player prefers to take immediately, so the first player stops at the first chance.",
+        "C": "The backward-induction solution is a pure 'take' action, not randomization.",
+        "D": "Always passing is not subgame perfect; the player anticipates being exploited at the end."
+      }
+    },
+    {
+      "id": "pr_l9_089",
+      "concept": "nash_definition",
+      "question": "A trader claims 'we're at equilibrium because everyone is making money.' The flaw is that Nash equilibrium is about:",
+      "options": [
+        "profitability levels",
+        "maximizing total industry profit",
+        "equal profits across players",
+        "no player having a profitable unilateral deviation, regardless of profit levels"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Profitability does not determine equilibrium; a profitable situation can still have beneficial deviations.",
+        "B": "Maximizing total profit is a cooperative goal, distinct from Nash equilibrium.",
+        "C": "Equal profits are not required for equilibrium.",
+        "D": "Correct. Equilibrium is defined by the absence of any profitable unilateral deviation, not by how much anyone earns."
+      }
+    },
+    {
+      "id": "pr_l9_090",
+      "concept": "mixed_strategy",
+      "question": "The support of a mixed strategy is:",
+      "options": [
+        "the total payoff of the game",
+        "the player with the higher payoff",
+        "the set of actions assigned positive probability",
+        "the number of rounds played"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "It is a set of actions, not a payoff total.",
+        "B": "Support refers to actions, not to which player earns more.",
+        "C": "Correct. The support is exactly the set of actions the player plays with strictly positive probability.",
+        "D": "It has nothing to do with the number of rounds."
+      }
+    },
+    {
+      "id": "pr_l9_091",
+      "concept": "indifference_principle",
+      "question": "In equilibrium, a player assigns positive probability to two actions. This requires that, against the opponent's strategy, those two actions have:",
+      "options": [
+        "the same expected payoff, which is also at least as high as any unused action",
+        "different expected payoffs",
+        "zero payoff each",
+        "the highest variance"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Actions in the support must tie in expected payoff, and that common value must weakly exceed any action left out of the support.",
+        "B": "Different expected payoffs would make the player drop the worse action, contradicting mixing.",
+        "C": "The equal expected payoff need not be zero.",
+        "D": "Variance does not govern which actions enter the support; expected payoff does."
+      }
+    },
+    {
+      "id": "pr_l9_092",
+      "concept": "zero_sum",
+      "question": "Which transformation turns a constant-sum game (payoffs always sum to c) into an equivalent zero-sum game?",
+      "options": [
+        "doubling all payoffs",
+        "subtracting c/2 from each player's payoffs",
+        "adding c to each payoff",
+        "it cannot be done"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Doubling keeps the sum at 2c, not zero.",
+        "B": "Correct. Subtracting c/2 from each player's payoff makes the totals sum to zero while preserving all strategic incentives.",
+        "C": "Adding c raises the sum further, away from zero.",
+        "D": "Constant-sum games are strategically equivalent to zero-sum games via a constant shift, so it can be done."
+      }
+    },
+    {
+      "id": "pr_l9_093",
+      "concept": "bid_shading",
+      "question": "A market maker quoting a two-sided market 'shades' their bid below fair value primarily to:",
+      "options": [
+        "build in a margin against adverse selection and earn the spread",
+        "guarantee they never trade",
+        "lose money on purpose",
+        "make the market zero-sum"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bidding below fair value (and offering above) earns the spread and cushions against informed flow — the market-making analogue of bid shading.",
+        "B": "Quoting below fair value still attracts sellers; the goal is not to avoid trading.",
+        "C": "Shading is designed to protect profit, not to lose money.",
+        "D": "Quoting choices do not change whether the underlying game is zero-sum."
+      }
+    },
+    {
+      "id": "pr_l9_094",
+      "concept": "auction_second_price",
+      "question": "A key practical reason auction designers like the second-price (Vickrey) format is that it:",
+      "options": [
+        "makes bidders shade heavily",
+        "eliminates the need for any bids",
+        "always raises more revenue than any other format",
+        "induces truthful bidding, simplifying strategy for participants"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Second-price auctions remove the incentive to shade; truthful bidding is dominant.",
+        "B": "Bids are still required; they determine the winner and the price.",
+        "C": "By revenue equivalence it does not systematically beat other standard formats.",
+        "D": "Correct. Because payment depends on others' bids, truthful bidding is dominant, so participants don't need complex strategic shading."
+      }
+    },
+    {
+      "id": "pr_l9_095",
+      "concept": "expected_value",
+      "question": "Two strategies: X has EV +$2 with std dev $1; Y has EV +$2 with std dev $20. For a risk-neutral trader maximizing expected P&L only, they are:",
+      "options": [
+        "X is strictly better",
+        "equally good in expected value",
+        "Y is strictly better",
+        "both negative EV"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Lower variance appeals to a risk-averse trader, but a purely risk-neutral one ranks by EV, which ties.",
+        "B": "Correct. Both have EV +$2, so a risk-neutral trader (who ignores variance) is indifferent between them.",
+        "C": "Higher variance does not help a risk-neutral trader; the EVs are equal.",
+        "D": "Both have positive EV (+$2), not negative."
+      }
+    },
+    {
+      "id": "pr_l9_096",
+      "concept": "dominant_strategy",
+      "question": "A 'dominant strategy equilibrium' is especially robust because it:",
+      "options": [
+        "requires players to correctly predict opponents' strategies",
+        "only exists in zero-sum games",
+        "does not depend on beliefs about what opponents will do",
+        "requires randomization"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Its strength is precisely that it does NOT require predicting opponents.",
+        "B": "Dominant-strategy equilibria appear in many non-zero-sum games (e.g. prisoner's dilemma).",
+        "C": "Correct. Each player's dominant strategy is optimal regardless of others' choices, so the equilibrium holds without any beliefs about opponents.",
+        "D": "Dominant strategies are pure; no randomization is needed."
+      }
+    },
+    {
+      "id": "pr_l9_097",
+      "concept": "nash_definition",
+      "question": "Which statement about Nash equilibrium and dominant strategies is correct?",
+      "options": [
+        "every Nash equilibrium uses dominant strategies",
+        "dominant strategies and Nash equilibria are the same concept",
+        "if every player has a dominant strategy, the dominant-strategy profile is a Nash equilibrium, but Nash equilibria can exist without dominant strategies",
+        "Nash equilibria never involve dominant strategies"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Many Nash equilibria (e.g. matching pennies' mixed equilibrium) involve no dominant strategies.",
+        "B": "They are related but distinct: dominance is a stronger, action-level property.",
+        "C": "Correct. Dominant strategies imply a Nash equilibrium, but the converse fails — most games have Nash equilibria without any dominant strategy.",
+        "D": "When dominant strategies exist they do form a Nash equilibrium, so 'never' is false."
+      }
+    },
+    {
+      "id": "pr_l9_098",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "In the goalie-vs-kicker game, the kicker scores 90% kicking to their strong side if the goalie guesses wrong but only 60% to their weak side if wrong. A correct implication for equilibrium play is that the kicker:",
+      "options": [
+        "should mix, but the exact frequencies depend on both sides' success probabilities, not just the strong side",
+        "should always kick to the strong side",
+        "should always kick to the weak side",
+        "is indifferent regardless of probabilities"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The equilibrium requires mixing, and the optimal frequencies are pinned down by the full payoff matrix (both sides' success rates), keeping the goalie indifferent.",
+        "B": "Always kicking strong is predictable and exploitable; the goalie would always guess that side.",
+        "C": "Always kicking weak is also predictable and suboptimal.",
+        "D": "The kicker is not indifferent across all strategies; the equilibrium mix is specific to the probabilities."
+      }
+    },
+    {
+      "id": "pr_l9_099",
+      "concept": "zero_sum",
+      "question": "Why is poker (heads-up, fixed stakes, ignoring the rake) modeled as zero-sum but the broader trading ecosystem (with real investment) often positive-sum?",
+      "options": [
+        "both are always zero-sum",
+        "poker has no strategy",
+        "trading has no losers ever",
+        "poker chips are transferred between players, while productive investment can create new value for everyone"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The broader trading ecosystem is not always zero-sum, which is exactly the contrast.",
+        "B": "Poker is intensely strategic; that is not the distinction.",
+        "C": "Trading certainly has losers; the point is total value can still rise.",
+        "D": "Correct. In poker one player's winnings are another's losses (a pure transfer), whereas real investment can grow the total pie, making the broader system positive-sum."
+      }
+    },
+    {
+      "id": "pr_l9_100",
+      "concept": "prisoners_dilemma",
+      "question": "In a prisoner's dilemma, communication before a one-shot play (without enforcement) typically:",
+      "options": [
+        "guarantees cooperation",
+        "does not change the equilibrium, since promises to cooperate are not binding and defection remains dominant",
+        "makes cooperation a dominant strategy",
+        "turns the game zero-sum"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Cheap talk cannot guarantee cooperation when defection is still individually optimal.",
+        "B": "Correct. Without enforcement, defection remains the dominant strategy, so non-binding pre-play talk leaves the equilibrium (mutual defection) unchanged.",
+        "C": "Talking does not alter payoffs, so cooperation does not become dominant.",
+        "D": "Communication does not change the payoff structure to zero-sum."
+      }
+    },
+    {
+      "id": "pr_l9_101",
+      "concept": "nash_definition",
+      "question": "Two liquidity providers choose to post on Venue A or Venue B. Each earns more on the venue the other avoids (less competition). A profile where both post on the same venue is:",
+      "options": [
+        "a Nash equilibrium",
+        "impossible to analyze",
+        "always optimal",
+        "not a Nash equilibrium, since each would prefer to switch to the emptier venue"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "If both crowd one venue, each can profit by moving to the emptier one, so it fails the no-deviation test.",
+        "B": "This is a standard congestion-style game and is straightforward to analyze.",
+        "C": "Crowding the same venue lowers each one's profit, so it is not optimal.",
+        "D": "Correct. Because each provider does better where the other isn't, both-on-same-venue invites a profitable deviation and is not an equilibrium; the equilibria have them split."
+      }
+    },
+    {
+      "id": "pr_l9_102",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "Three identical liquidity providers can each enter a thin market that profitably supports only one. A symmetric equilibrium typically has each provider:",
+      "options": [
+        "always entering",
+        "never entering",
+        "entering with a probability less than 1 (a mixed entry strategy)",
+        "entering only if told to"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If all always enter, the market is overcrowded and each loses, so always-enter is not an equilibrium.",
+        "B": "If all stay out, any one could profitably enter, so never-enter is not an equilibrium either.",
+        "C": "Correct. Symmetric entry games have a mixed equilibrium where each enters with a probability that makes players indifferent between entering and staying out.",
+        "D": "There is no coordinator; the symmetric solution is a mixed strategy."
+      }
+    },
+    {
+      "id": "pr_l9_103",
+      "concept": "expected_value",
+      "question": "A signal predicts a stock will rise with probability 0.55 (gain $1) and fall with probability 0.45 (lose $1). Expected value per trade is:",
+      "options": [
+        "+$0.10",
+        "+$0.55",
+        "-$0.10",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.55×(+1) + 0.45×(-1) = 0.55 - 0.45 = +$0.10 per trade.",
+        "B": "+$0.55 is just the win probability times the gain, ignoring the losing side.",
+        "C": "-$0.10 reverses the sign; the edge is positive since wins are more likely.",
+        "D": "$0 would require equal win/loss probabilities, but 0.55 ≠ 0.45."
+      }
+    },
+    {
+      "id": "pr_l9_104",
+      "concept": "expected_value",
+      "question": "A lottery ticket costs $2 and pays $1,000,000 with probability 1 in 10,000,000. The expected value of buying one ticket (payout minus cost) is approximately:",
+      "options": [
+        "+$0.10",
+        "-$1.90",
+        "+$98",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The expected payout is only $0.10, but you must subtract the $2 cost, giving a negative net.",
+        "B": "Correct. Expected payout = 1,000,000/10,000,000 = $0.10; minus the $2 cost gives -$1.90.",
+        "C": "+$98 has no basis; the win is extraordinarily unlikely.",
+        "D": "Break-even would need an expected payout of $2, but it is only $0.10."
+      }
+    },
+    {
+      "id": "pr_l9_105",
+      "concept": "sequential_games",
+      "question": "In an entry-deterrence game, an incumbent's threat to flood the market and trigger losses for both is credible only if:",
+      "options": [
+        "the incumbent has pre-committed capacity that makes fighting its actual best response",
+        "the incumbent announces it loudly",
+        "the entrant is risk-averse",
+        "the threat is never credible under any condition"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A sunk commitment (e.g. installed capacity) can make fighting profitable after entry, turning an otherwise empty threat into a credible, subgame-perfect one.",
+        "B": "Mere announcements are cheap talk and do not establish credibility.",
+        "C": "The entrant's risk attitude does not make the incumbent's threat credible.",
+        "D": "Threats can be made credible via commitment, so 'never' is too strong."
+      }
+    },
+    {
+      "id": "pr_l9_106",
+      "concept": "auction_first_price",
+      "question": "In a first-price auction, holding your value fixed, lowering your bid:",
+      "options": [
+        "increases the price you pay if you win",
+        "guarantees you win",
+        "has no effect on your surplus",
+        "increases your surplus if you win but reduces your probability of winning"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Lowering your bid lowers, not raises, what you pay when you win.",
+        "B": "A lower bid makes winning less likely, certainly not guaranteed.",
+        "C": "It directly changes surplus-when-winning, so it does have an effect.",
+        "D": "Correct. A lower bid means more surplus (value minus bid) when you win, but you win less often — the central first-price trade-off."
+      }
+    },
+    {
+      "id": "pr_l9_107",
+      "concept": "auction_second_price",
+      "question": "In a second-price auction with values $30, $45, and $70 (all bidding truthfully), the winner and price are:",
+      "options": [
+        "the $70 bidder pays $70",
+        "the $70 bidder pays $45",
+        "the $45 bidder pays $30",
+        "the $70 bidder pays $30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Paying your own bid is the first-price rule, not second-price.",
+        "B": "Correct. The highest bidder ($70) wins and pays the second-highest bid, $45.",
+        "C": "The $45 bidder does not win; the $70 bidder is highest.",
+        "D": "The price is the second-highest bid ($45), not the third ($30)."
+      }
+    },
+    {
+      "id": "pr_l9_108",
+      "concept": "bid_shading",
+      "question": "All-pay auctions (every bidder pays their bid whether or not they win) model contests like lobbying. Compared to a standard auction, bidders here tend to:",
+      "options": [
+        "ignore the cost of losing",
+        "always bid their full value",
+        "shade bids to account for paying even when they lose",
+        "never participate"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Since you pay regardless, the cost of losing is central and cannot be ignored.",
+        "B": "Bidding full value ignores the risk of paying that amount while losing.",
+        "C": "Correct. Because losers also pay, rational bidders shade carefully to manage the expected cost of bidding without winning.",
+        "D": "Participation can still be worthwhile; the prize draws bids despite the all-pay rule."
+      }
+    },
+    {
+      "id": "pr_l9_109",
+      "concept": "mechanism_design",
+      "question": "Mechanism design is sometimes called 'reverse game theory' because it:",
+      "options": [
+        "predicts behavior in a fixed game",
+        "removes all strategy from games",
+        "designs the rules so that self-interested play leads to a desired outcome",
+        "only applies to zero-sum games"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Predicting behavior in a given game is ordinary game theory; mechanism design goes the other way.",
+        "B": "It works with strategic behavior, channeling it, rather than removing strategy.",
+        "C": "Correct. You start from a desired outcome and engineer the rules/incentives so rational, self-interested players produce it.",
+        "D": "Mechanism design applies broadly (auctions, voting, matching), not just zero-sum games."
+      }
+    },
+    {
+      "id": "pr_l9_110",
+      "concept": "mechanism_design",
+      "question": "A mechanism is 'incentive compatible' (truthful) when:",
+      "options": [
+        "each participant's best strategy is to report their true preferences/values",
+        "lying always pays",
+        "the designer must monitor every player",
+        "all players are forced to randomize"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. In an incentive-compatible mechanism, honest reporting is a best response (e.g. truthful bidding in a Vickrey auction).",
+        "B": "Incentive compatibility means the opposite — truth-telling, not lying, is optimal.",
+        "C": "The point is to avoid needing monitoring by aligning incentives with truth-telling.",
+        "D": "Truthful reporting is typically a pure strategy, not forced randomization."
+      }
+    },
+    {
+      "id": "pr_l9_111",
+      "concept": "expected_value",
+      "question": "You may pay $1 to flip a fair coin: heads returns $3 (net +$2), tails returns $0 (net -$1). Should a risk-neutral player play?",
+      "options": [
+        "no, the game is zero-sum",
+        "no, expected net value is -$0.50",
+        "indifferent, expected value is $0",
+        "yes, expected net value is +$0.50"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Whether the game is zero-sum is irrelevant to a single player's positive EV decision.",
+        "B": "The sign is wrong; the expected net value is positive.",
+        "C": "It is not break-even; the favorable payoff makes EV positive.",
+        "D": "Correct. EV = 0.5×(+2) + 0.5×(-1) = 1 - 0.5 = +$0.50, so a risk-neutral player should play."
+      }
+    },
+    {
+      "id": "pr_l9_112",
+      "concept": "nash_definition",
+      "question": "In the Cournot duopoly, each firm chooses a quantity; the Nash equilibrium is the pair of quantities where:",
+      "options": [
+        "the firms jointly maximize total profit",
+        "each firm's quantity is a best response to the other's quantity",
+        "one firm produces everything",
+        "both produce zero"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Joint profit maximization is the collusive (monopoly) outcome, which differs from and exceeds Cournot output.",
+        "B": "Correct. The Cournot equilibrium is where each firm's output maximizes its profit given the other's output — mutual best response.",
+        "C": "A single firm producing everything is the monopoly case, not the duopoly Nash equilibrium.",
+        "D": "Producing zero is not a best response when positive output is profitable."
+      }
+    },
+    {
+      "id": "pr_l9_113",
+      "concept": "collusion",
+      "question": "Relative to the Cournot (competitive) equilibrium, the collusive cartel outcome features:",
+      "options": [
+        "higher total output and lower prices",
+        "no profits for either firm",
+        "identical output and prices",
+        "lower total output and higher prices, but each firm is tempted to cheat by overproducing"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Collusion restricts output to raise prices, the opposite of higher output and lower prices.",
+        "B": "Collusion raises profits relative to competition; it does not eliminate them.",
+        "C": "Collusive output is strictly below the Cournot level, so they are not identical.",
+        "D": "Correct. Cartels cut output to lift prices and profits, but each member has a private incentive to overproduce — the instability at the heart of collusion."
+      }
+    },
+    {
+      "id": "pr_l9_114",
+      "concept": "mixed_strategy",
+      "question": "An options market maker who always widens quotes right before economic releases becomes predictable. A strategic counterparty could:",
+      "options": [
+        "do nothing useful with that information",
+        "be forced to pay wider spreads forever",
+        "time orders around the predictable pattern to trade at better prices against the maker",
+        "make the game cooperative"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Predictability is exploitable information, so 'nothing useful' is wrong.",
+        "B": "The counterparty can route around the predictable widening, so it is not forced to pay wider spreads.",
+        "C": "Correct. Knowing exactly when the maker widens lets a counterparty time trades to avoid the wide quotes or pick off stale ones — exactly why randomizing/varying behavior helps.",
+        "D": "Exploiting predictability is adversarial, not cooperative."
+      }
+    },
+    {
+      "id": "pr_l9_115",
+      "concept": "zero_sum",
+      "question": "Two algorithmic strategies trade exclusively against each other in a closed simulation with no external flow. Over time their combined P&L (ignoring costs) must be:",
+      "options": [
+        "zero",
+        "positive",
+        "negative",
+        "growing without bound"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. It is a closed zero-sum system: every dollar one strategy makes is lost by the other, so combined P&L is zero.",
+        "B": "With no external value source, gains for one are losses for the other, so the total cannot be positive.",
+        "C": "Combined P&L is exactly zero, not negative (there are no external costs in this setup).",
+        "D": "The total is fixed at zero; only the split changes, so it cannot grow."
+      }
+    },
+    {
+      "id": "pr_l9_116",
+      "concept": "expected_value",
+      "question": "A trade offers +$10 with probability 0.3, +$2 with probability 0.5, and -$20 with probability 0.2. Its expected value is:",
+      "options": [
+        "+$4",
+        "$0",
+        "-$4",
+        "+$8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "+$4 omits the -$20 loss contribution.",
+        "B": "Correct. EV = 0.3×10 + 0.5×2 + 0.2×(-20) = 3 + 1 - 4 = $0, exactly break-even.",
+        "C": "-$4 counts only the loss term and drops the two positive terms.",
+        "D": "+$8 overstates the positive contributions and ignores the loss."
+      }
+    },
+    {
+      "id": "pr_l9_117",
+      "concept": "dominant_strategy",
+      "question": "In a sealed-bid second-price auction, why is overbidding (above value) weakly dominated?",
+      "options": [
+        "it never helps and sometimes forces you to win at a price above your value",
+        "it always lowers the price you pay",
+        "it guarantees a loss every time",
+        "it is actually the dominant strategy"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Overbidding only changes outcomes by making you win when the second price exceeds your value — a money-losing win — and never helps, so it is weakly dominated.",
+        "B": "Your bid does not set the price you pay (the second-highest bid does), so overbidding does not lower your price.",
+        "C": "It does not lose every time; it only hurts in the range where the second price lies between your value and your bid.",
+        "D": "The dominant strategy is truthful bidding, not overbidding."
+      }
+    },
+    {
+      "id": "pr_l9_118",
+      "concept": "sequential_games",
+      "question": "Backward induction requires which informational assumption to apply cleanly?",
+      "options": [
+        "infinite horizon",
+        "simultaneous moves",
+        "zero-sum payoffs",
+        "perfect information (players observe all prior moves)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "It applies most cleanly to finite-horizon games; an infinite horizon complicates the last-node logic.",
+        "B": "Simultaneous moves create imperfect information, where simple backward induction over a tree does not directly apply.",
+        "C": "Backward induction works regardless of whether payoffs are zero-sum.",
+        "D": "Correct. Standard backward induction applies to finite games of perfect information, where each player sees the history before moving."
+      }
+    },
+    {
+      "id": "pr_l9_119",
+      "concept": "matching_pennies_payoff",
+      "question": "In matching pennies, if Column is known to play heads 60% of the time, Row (who wants to match) should best-respond by playing:",
+      "options": [
+        "tails with probability 1",
+        "heads with probability 1",
+        "50/50",
+        "heads 60%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Always tails minimizes matches against a heads-leaning Column, the worst choice for Row.",
+        "B": "Correct. Since Row wins by matching and Column favors heads, Row's best response is to always play heads to maximize matches.",
+        "C": "Mixing is only optimal when indifferent; against a 60% heads opponent Row strictly prefers heads.",
+        "D": "Copying the opponent's frequency is not a best response; pure heads scores more matches here."
+      }
+    },
+    {
+      "id": "pr_l9_120",
+      "concept": "indifference_principle",
+      "question": "If, against the opponent's equilibrium mix, your action A pays 5 and action B pays 7, then in equilibrium you must be:",
+      "options": [
+        "mixing equally over A and B",
+        "playing only A",
+        "playing only B, and the opponent's mix must actually make A and B equal if you are to mix",
+        "indifferent automatically"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You would never mix when B strictly pays more; equal mixing is not a best response here.",
+        "B": "You would not play the worse action A when B pays more.",
+        "C": "Correct. With B strictly better you play only B; for you to genuinely mix in equilibrium the opponent's strategy must equalize A and B, which it doesn't here.",
+        "D": "You are not indifferent — B strictly beats A — so the indifference condition is violated."
+      }
+    },
+    {
+      "id": "pr_l9_121",
+      "concept": "expected_value",
+      "question": "A bet wins $b with probability p and loses $1 with probability (1-p). It is break-even (zero EV) when:",
+      "options": [
+        "b = 1 - p",
+        "p = b",
+        "p·b = (1 - p)",
+        "p·b = p"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "b = 1 - p ignores the win probability multiplying b.",
+        "B": "p = b confuses a probability with a payoff and is not the zero-EV condition.",
+        "C": "Correct. EV = p·b - (1-p)·1; setting it to zero gives p·b = (1 - p), the break-even condition.",
+        "D": "p·b = p would force b = 1 regardless of p, which is not the general break-even rule."
+      }
+    },
+    {
+      "id": "pr_l9_122",
+      "concept": "expected_value",
+      "question": "Using break-even logic, if a trade risks $1 to make $3, the minimum win probability needed for non-negative EV is:",
+      "options": [
+        "25%",
+        "75%",
+        "50%",
+        "33%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Break-even: p×3 = (1-p)×1 → 3p = 1 - p → 4p = 1 → p = 25%.",
+        "B": "75% is far above the threshold; the favorable 3:1 payoff means you need far fewer wins.",
+        "C": "50% would be the threshold only for a 1:1 payoff, not 3:1.",
+        "D": "33% corresponds to a 2:1 payoff, not 3:1."
+      }
+    },
+    {
+      "id": "pr_l9_123",
+      "concept": "nash_definition",
+      "question": "Which is the most precise statement of why the prisoner's dilemma's (Defect, Defect) is a Nash equilibrium?",
+      "options": [
+        "because it maximizes joint payoff",
+        "because the players communicated",
+        "because both players earn their highest possible payoff",
+        "because given the other player defects, each player's best response is also to defect"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "(Defect, Defect) does not maximize joint payoff — mutual cooperation does.",
+        "B": "Communication is irrelevant; the equilibrium holds from incentives alone.",
+        "C": "Both players earn less than under mutual cooperation, so it is not their highest payoff.",
+        "D": "Correct. Each player defecting is a best response to the other's defection, satisfying the mutual best-response definition of Nash equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_124",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "A defender protects one of two assets; an attacker strikes one. The defender values asset 1 more. In the mixed equilibrium, the defender should:",
+      "options": [
+        "always defend asset 1",
+        "defend the higher-value asset more often, but still randomize to avoid predictability",
+        "always defend asset 2",
+        "ignore asset values"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Always defending asset 1 lets the attacker safely hit asset 2; pure defense is exploitable.",
+        "B": "Correct. The equilibrium tilts protection toward the more valuable asset while still randomizing so the attacker can't exploit a fixed pattern.",
+        "C": "Always defending the lower-value asset leaves the prized asset exposed.",
+        "D": "Asset values shape the optimal mix, so they cannot be ignored."
+      }
+    },
+    {
+      "id": "pr_l9_125",
+      "concept": "dominant_strategy",
+      "question": "In a Vickrey (second-price) auction, truthful bidding is dominant, which is valuable because it means a bidder:",
+      "options": [
+        "must research opponents' values carefully",
+        "is guaranteed to win",
+        "should always bid zero",
+        "needs no information about others' bids or values to play optimally"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The beauty of a dominant strategy is that opponent research is unnecessary.",
+        "B": "Truthful bidding does not guarantee winning; you win only if your value is highest.",
+        "C": "Bidding zero is not truthful unless your value is zero; truthful bidding means bidding your value.",
+        "D": "Correct. Since bidding your value is optimal no matter what others do, you need no information about rivals — a hallmark of a dominant strategy."
+      }
+    },
+    {
+      "id": "pr_l9_126",
+      "concept": "sequential_games",
+      "question": "A 'commitment device' (like burning bridges or installing irreversible capacity) helps a first mover by:",
+      "options": [
+        "increasing their flexibility",
+        "making the game simultaneous",
+        "credibly removing their own future options so opponents must adapt to the committed action",
+        "guaranteeing cooperation"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Commitment devices reduce, not increase, the committer's flexibility — that's the point.",
+        "B": "Commitment is a sequential-move tactic, not a way to make the game simultaneous.",
+        "C": "Correct. By making an action irreversible, the first mover changes opponents' best responses, gaining a strategic edge despite (because of) the lost flexibility.",
+        "D": "It does not guarantee cooperation; it shapes outcomes via credible constraint."
+      }
+    },
+    {
+      "id": "pr_l9_127",
+      "concept": "expected_value",
+      "question": "A risk-neutral trader compares: A) +$5 with p=0.4 else -$2, versus B) +$1 sure thing. Which has higher EV?",
+      "options": [
+        "B, with EV +$1.00",
+        "A, with EV +$0.80",
+        "they tie",
+        "A, with EV +$2.00"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A's EV is +$0.80 while B is a sure +$1.00, so B has the higher expected value.",
+        "B": "A's EV is 0.4×5 + 0.6×(-2) = 2 - 1.2 = +$0.80, which is less than B, so A is not higher.",
+        "C": "They do not tie: $0.80 < $1.00.",
+        "D": "+$2.00 is only the favorable term of A, not its probability-weighted EV."
+      }
+    },
+    {
+      "id": "pr_l9_128",
+      "concept": "zero_sum",
+      "question": "Which statement best distinguishes a constant-sum game from a general-sum game?",
+      "options": [
+        "constant-sum games have no equilibrium",
+        "in a constant-sum game total payoff is fixed; in a general-sum game it can vary with the outcome",
+        "general-sum games are always cooperative",
+        "they are identical concepts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Constant-sum games do have equilibria (minimax theorem).",
+        "B": "Correct. Constant-sum (including zero-sum) games keep total payoff fixed, whereas general-sum games allow the total to change across outcomes, enabling joint gains or losses.",
+        "C": "General-sum games can be competitive, cooperative, or mixed; they are not always cooperative.",
+        "D": "They are distinct: the fixed-versus-variable total is the key difference."
+      }
+    },
+    {
+      "id": "pr_l9_129",
+      "concept": "best_response",
+      "question": "A pure-strategy Nash equilibrium can be found by locating cells where:",
+      "options": [
+        "the row player's payoff is highest in its column AND the column player's payoff is highest in its row",
+        "the payoffs are equal",
+        "the sum of payoffs is zero",
+        "one payoff is the largest in the whole matrix"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A cell is a pure Nash equilibrium exactly when each player is best-responding — Row's payoff is best down its column and Column's is best across its row.",
+        "B": "Equal payoffs are neither necessary nor sufficient for equilibrium.",
+        "C": "A zero payoff sum identifies zero-sum structure, not equilibrium cells.",
+        "D": "The globally largest single payoff need not be a mutual best response."
+      }
+    },
+    {
+      "id": "pr_l9_130",
+      "concept": "prisoners_dilemma",
+      "question": "Adding a binding contract with penalties for defection to a one-shot prisoner's dilemma can:",
+      "options": [
+        "remove all equilibria",
+        "have no effect because defection is dominant",
+        "make the game zero-sum",
+        "make cooperation a Nash equilibrium by changing the payoffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The game still has an equilibrium — now potentially mutual cooperation.",
+        "B": "Defection is dominant only under the original payoffs; a binding penalty changes them.",
+        "C": "Contracts do not make the game zero-sum; they realign incentives.",
+        "D": "Correct. Enforceable penalties alter the payoffs so that defection is no longer dominant, enabling cooperation to become an equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_131",
+      "concept": "auction_first_price",
+      "question": "A Dutch (descending-price) auction is strategically equivalent to which sealed-bid format?",
+      "options": [
+        "the second-price auction",
+        "the first-price auction",
+        "an all-pay auction",
+        "a lottery"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The second-price auction is strategically equivalent to the English (ascending) auction, not the Dutch one.",
+        "B": "Correct. In a Dutch auction you commit to a price at which to claim the item, exactly mirroring choosing a sealed first-price bid.",
+        "C": "All-pay auctions charge every bidder; the Dutch auction charges only the winner.",
+        "D": "A lottery involves no strategic price choice, unlike the Dutch auction."
+      }
+    },
+    {
+      "id": "pr_l9_132",
+      "concept": "auction_second_price",
+      "question": "An English (ascending open-outcry) auction is strategically equivalent to which sealed-bid format, under private values?",
+      "options": [
+        "the first-price auction",
+        "the all-pay auction",
+        "the second-price (Vickrey) auction",
+        "none"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first-price sealed bid matches the Dutch auction, not the English one.",
+        "B": "All-pay charges losers too, unlike the English auction.",
+        "C": "Correct. In an English auction bidders drop out at their values, so the winner pays just above the second-highest value — equivalent to the second-price rule.",
+        "D": "There is a clear equivalence (to the second-price auction), so 'none' is wrong."
+      }
+    },
+    {
+      "id": "pr_l9_133",
+      "concept": "expected_value",
+      "question": "A market maker shows a bid at $99.98 and offer at $100.02 around a fair value of $100.00. If informed flow is rare, the expected profit per round-trip (buy at bid, sell at offer) is about:",
+      "options": [
+        "$0.00",
+        "$0.02",
+        "$0.04",
+        "$0.08"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$0.00 would require no spread, but the quotes straddle fair value by $0.04 total.",
+        "B": "$0.02 is only half the spread (one side); a full round-trip earns both sides.",
+        "C": "Correct. Buying $0.02 below and selling $0.02 above fair value captures the full $0.04 spread per round-trip when flow is uninformed.",
+        "D": "$0.08 double-counts; the bid-offer spread here is $0.04, not $0.08."
+      }
+    },
+    {
+      "id": "pr_l9_134",
+      "concept": "mixed_strategy",
+      "question": "Why is a mixed-strategy equilibrium often described as making opponents 'indifferent'?",
+      "options": [
+        "because your randomization equalizes the opponent's expected payoff across their actions, so they have no exploitable best response",
+        "because the opponent stops caring about payoffs",
+        "because payoffs become zero",
+        "because the opponent cannot compute anything"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Your equilibrium mix is chosen so each of the opponent's actions yields the same expected payoff, removing any profitable deviation for them.",
+        "B": "The opponent still cares about payoffs; they are simply made equal across options.",
+        "C": "Indifference means equal expected payoffs, not zero payoffs.",
+        "D": "It is about equalized incentives, not the opponent's inability to compute."
+      }
+    },
+    {
+      "id": "pr_l9_135",
+      "concept": "dominant_strategy",
+      "question": "Consider Row payoffs: Top (1 vs L, 5 vs R), Bottom (2 vs L, 4 vs R). For Row:",
+      "options": [
+        "Top is strictly dominant",
+        "both are dominated",
+        "Bottom is strictly dominant",
+        "neither action dominates; the best choice depends on Column's move"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Top is worse than Bottom against L (1<2), so Top is not dominant.",
+        "B": "Neither is dominated by the other since each wins in one column.",
+        "C": "Bottom is worse than Top against R (4<5), so Bottom is not dominant either.",
+        "D": "Correct. Top is better against R (5>4) but worse against L (1<2), so neither dominates and Row's best response depends on Column."
+      }
+    },
+    {
+      "id": "pr_l9_136",
+      "concept": "sequential_games",
+      "question": "In a two-stage game, a Nash equilibrium that is NOT subgame perfect typically relies on:",
+      "options": [
+        "a credible promise",
+        "a non-credible (empty) threat off the equilibrium path",
+        "perfect randomization",
+        "zero-sum payoffs"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Credible promises survive subgame perfection; the issue is non-credibility.",
+        "B": "Correct. Such Nash equilibria are sustained by threats the player would not actually carry out, which subgame perfection eliminates by requiring optimal play in every subgame.",
+        "C": "Randomization is not what distinguishes non-subgame-perfect equilibria.",
+        "D": "The distinction applies regardless of whether payoffs are zero-sum."
+      }
+    },
+    {
+      "id": "pr_l9_137",
+      "concept": "expected_value",
+      "question": "A strategy has 70% chance of +$1 and 30% chance of -$X. For the strategy to be exactly break-even (zero EV), X must equal:",
+      "options": [
+        "$1.00",
+        "$0.70",
+        "$3.00",
+        "$7/3 ≈ $2.33"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$1.00 would leave a positive EV (0.7 - 0.3 = +$0.40), not break-even.",
+        "B": "$0.70 is the expected gain term, not the required loss size.",
+        "C": "$3.00 would make EV negative (0.3×3 = 0.9 > 0.7).",
+        "D": "Correct. Set 0.7×1 = 0.3×X → X = 0.7/0.3 = 7/3 ≈ $2.33 for zero EV."
+      }
+    },
+    {
+      "id": "pr_l9_138",
+      "concept": "nash_definition",
+      "question": "Two firms set prices in a Bertrand duopoly with identical products and constant marginal cost c. The Nash equilibrium price is:",
+      "options": [
+        "the monopoly price",
+        "infinite",
+        "equal to marginal cost c (zero economic profit)",
+        "below marginal cost"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Each firm can undercut a high price to capture the whole market, so the monopoly price is not stable.",
+        "B": "Prices cannot be sustained arbitrarily high; undercutting drives them down to cost.",
+        "C": "Correct. Undercutting continues until price equals marginal cost, where neither firm can profitably deviate — the Bertrand paradox.",
+        "D": "Pricing below cost would mean losses, so a firm would deviate upward; the equilibrium sits exactly at cost."
+      }
+    },
+    {
+      "id": "pr_l9_139",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "In a symmetric mixed equilibrium of a 2x2 game, increasing the payoff a player gets from action A (holding the opponent's payoffs fixed) changes that player's OWN equilibrium probability by:",
+      "options": [
+        "not at all — the player's own mix is set by the opponent's payoffs, not their own",
+        "raising it a lot",
+        "setting it to 1",
+        "setting it to 0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A player's equilibrium mix is determined by making the opponent indifferent, so it depends on the opponent's payoffs, not the player's own.",
+        "B": "Counterintuitively, your own payoff change does not move your own equilibrium mix.",
+        "C": "The mix is generally interior, not forced to 1, by a payoff tweak.",
+        "D": "Likewise it is not driven to 0; the own-payoff change reallocates the opponent's mix instead."
+      }
+    },
+    {
+      "id": "pr_l9_140",
+      "concept": "bid_shading",
+      "question": "In a first-price auction, a bidder who believes there are FEWER competitors than there really are will tend to:",
+      "options": [
+        "shade too little and overpay",
+        "shade too much and win less often than optimal",
+        "bid optimally anyway",
+        "bid above value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Underestimating rivals leads to more shading, not less.",
+        "B": "Correct. Believing competition is weak, the bidder shades aggressively (bids low); facing real, stronger competition they win too rarely.",
+        "C": "A wrong belief about the number of bidders leads to suboptimal shading, not optimal bids.",
+        "D": "Rational bidders still bid below value; misjudging competitor count does not push bids above value."
+      }
+    },
+    {
+      "id": "pr_l9_141",
+      "concept": "expected_value",
+      "question": "A coin is flipped until the first heads; you win $2^n where n is the flip on which heads appears (St. Petersburg game). The expected payout is:",
+      "options": [
+        "infinite",
+        "$4",
+        "$2",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each term contributes 1/2 × 2 = $1 to the sum, and there are infinitely many terms, so the expected payout is infinite (the St. Petersburg paradox).",
+        "B": "$4 is finite, but the sum of (1/2^n)×2^n over all n diverges.",
+        "C": "$2 is just the first term's contribution; the full series diverges.",
+        "D": "The payout is always positive, so the expectation is not zero."
+      }
+    },
+    {
+      "id": "pr_l9_142",
+      "concept": "risk_aversion",
+      "question": "The St. Petersburg paradox (infinite expected payout, yet people pay little to play) is commonly resolved by appealing to:",
+      "options": [
+        "dominant strategies",
+        "the game being zero-sum",
+        "the absence of any equilibrium",
+        "diminishing marginal utility of wealth (risk aversion)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Dominant strategies are irrelevant to this single-player valuation puzzle.",
+        "B": "The paradox is about a single player's valuation, not a zero-sum interaction.",
+        "C": "It is a decision problem, not a question of game equilibria.",
+        "D": "Correct. With concave utility, the utility of huge payoffs grows slowly, so the expected UTILITY is finite and small even though expected money is infinite."
+      }
+    },
+    {
+      "id": "pr_l9_143",
+      "concept": "nash_definition",
+      "question": "A correlated equilibrium generalizes Nash equilibrium by allowing players to:",
+      "options": [
+        "ignore payoffs",
+        "condition their actions on a shared signal, provided no one wants to deviate given their recommendation",
+        "always cooperate",
+        "play only pure strategies"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Players still optimize payoffs; correlated equilibrium adds a coordinating signal.",
+        "B": "Correct. A trusted signal recommends actions, and it is a correlated equilibrium if each player prefers to follow their recommendation given the others do too.",
+        "C": "It does not force cooperation; it expands the set of self-enforcing outcomes via correlation.",
+        "D": "Correlated equilibria involve distributions over action profiles, not only pure strategies."
+      }
+    },
+    {
+      "id": "pr_l9_144",
+      "concept": "coordination_game",
+      "question": "A traffic-light is a real-world example of a correlated-equilibrium device because it:",
+      "options": [
+        "forces a zero-sum game",
+        "eliminates all strategy",
+        "sends a public signal (red/green) that everyone is happy to obey given others obey it",
+        "makes drivers indifferent to crashing"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Driving coordination is not zero-sum; everyone benefits from avoiding collisions.",
+        "B": "It coordinates strategic choices rather than removing them.",
+        "C": "Correct. The light is a shared signal coordinating who goes; given everyone follows it, no driver wants to deviate — a correlated equilibrium.",
+        "D": "Drivers strongly prefer not to crash; the signal helps them avoid it."
+      }
+    },
+    {
+      "id": "pr_l9_145",
+      "concept": "expected_value",
+      "question": "Two mutually exclusive trades: A has EV +$3 (needs $100 capital), B has EV +$1 (needs $20 capital). Ranking by return on capital, the better use of capital is:",
+      "options": [
+        "A, at 3% on capital",
+        "they are equal",
+        "B, at 5% on capital",
+        "neither, both are negative"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A returns 3/100 = 3% on capital, which is lower than B's rate.",
+        "B": "The return rates differ (5% vs 3%), so they are not equal.",
+        "C": "Correct. B returns 1/20 = 5% on capital versus A's 3/100 = 3%, so per dollar of capital B is more efficient.",
+        "D": "Both have positive EV; neither is negative."
+      }
+    },
+    {
+      "id": "pr_l9_146",
+      "concept": "dominant_strategy",
+      "question": "Which is the best test for whether action X strictly dominates action Y for a player?",
+      "options": [
+        "X gives a strictly higher payoff than Y in every opponent scenario",
+        "X gives a higher payoff than Y in at least one opponent scenario",
+        "X is more popular than Y",
+        "X has higher variance than Y"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Strict dominance requires X to strictly beat Y against every possible opponent choice.",
+        "B": "Beating Y in just one scenario is not enough for strict dominance; X could lose elsewhere.",
+        "C": "Popularity is irrelevant to dominance.",
+        "D": "Variance is unrelated to the payoff comparison that defines dominance."
+      }
+    },
+    {
+      "id": "pr_l9_147",
+      "concept": "sequential_games",
+      "question": "In a finite, perfect-information game with no ties in payoffs, backward induction yields:",
+      "options": [
+        "no equilibrium",
+        "only mixed equilibria",
+        "infinitely many equilibria",
+        "a unique subgame-perfect equilibrium"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Backward induction always produces an equilibrium in such games.",
+        "B": "The solution is in pure strategies, not necessarily mixed.",
+        "C": "Strict payoffs eliminate the multiplicity that ties could create.",
+        "D": "Correct. With strict payoffs (no ties), each decision node has a unique optimal choice, so backward induction gives a unique subgame-perfect equilibrium."
+      }
+    },
+    {
+      "id": "pr_l9_148",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "In a 2x2 game both players mix. If you discover your opponent is NOT at their equilibrium mix but leans toward one action, you should:",
+      "options": [
+        "keep playing your own equilibrium mix",
+        "abandon mixing and best-respond with the pure action that exploits their lean",
+        "always play 50/50",
+        "copy their lean exactly"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Your equilibrium mix is only required to be unexploitable; against a non-equilibrium opponent you can do strictly better by exploiting.",
+        "B": "Correct. A deviation by the opponent breaks your indifference, so a pure best response that exploits their lean earns more than continuing to mix.",
+        "C": "50/50 is not generally a best response and ignores the exploitable information.",
+        "D": "Copying their lean is not a best response; you should counter it, not mirror it."
+      }
+    },
+    {
+      "id": "pr_l9_149",
+      "concept": "zero_sum",
+      "question": "Why is a player's equilibrium (minimax) strategy in a zero-sum game also a 'safe' strategy?",
+      "options": [
+        "it maximizes the opponent's payoff",
+        "it always wins",
+        "it requires the opponent to cooperate",
+        "it guarantees at least the game's value regardless of how the opponent plays"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A minimax strategy protects your own payoff, not the opponent's.",
+        "B": "It guarantees the game's value, which may be a loss or a draw, not necessarily a win.",
+        "C": "It needs no cooperation; it works against an adversarial opponent.",
+        "D": "Correct. The minimax strategy secures at least the value of the game against any opponent play, which is exactly its safety property."
+      }
+    },
+    {
+      "id": "pr_l9_150",
+      "concept": "expected_value",
+      "question": "A trader has an edge of +$0.01 per share and trades 1,000,000 shares per day with independent outcomes. The expected daily profit is:",
+      "options": [
+        "$1,000",
+        "$100",
+        "$10,000",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$1,000 is off by a factor of ten from $0.01 × 1,000,000.",
+        "B": "$100 understates the volume by four orders of magnitude.",
+        "C": "Correct. Expected profit is edge × volume = $0.01 × 1,000,000 = $10,000 per day, by linearity of expectation.",
+        "D": "With a positive per-share edge the expected profit is positive, not zero."
+      }
+    },
+    {
+      "id": "pr_l9_151",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "In a 2x2 zero-sum game, Row's payoffs are: (Up, Left)=3, (Up, Right)=-1, (Down, Left)=-2, (Down, Right)=2. Solving for Column's mix q (prob of Left) that makes Row indifferent gives q =",
+      "options": [
+        "q = 3/8",
+        "q = 1/2",
+        "q = 5/8",
+        "q = 1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Row's Up payoff is 3q - 1(1-q) = 4q - 1; Down is -2q + 2(1-q) = 2 - 4q. Setting 4q - 1 = 2 - 4q gives 8q = 3, so q = 3/8.",
+        "B": "At q = 1/2, Up gives 1 and Down gives 0, so Row is not indifferent.",
+        "C": "q = 5/8 gives Up = 1.5 and Down = -0.5, not equal.",
+        "D": "q = 1/4 gives Up = 0 and Down = 1, not equal."
+      }
+    },
+    {
+      "id": "pr_l9_152",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "Continuing the previous game (Row payoffs (Up,L)=3, (Up,R)=-1, (Down,L)=-2, (Down,R)=2), the value of the game to Row at q = 3/8 is:",
+      "options": [
+        "0",
+        "1/2",
+        "-1/2",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Zero would require the indifference value to vanish, but it equals 1/2 here.",
+        "B": "Correct. Plugging q = 3/8 into Up: 4(3/8) - 1 = 3/2 - 1 = 1/2, which is Row's guaranteed value.",
+        "C": "-1/2 has the wrong sign; Row's value is positive at this q.",
+        "D": "1 overstates the value; the correct indifference payoff is 1/2."
+      }
+    },
+    {
+      "id": "pr_l9_153",
+      "concept": "indifference_principle",
+      "question": "A goalie saves a shot to their left 80% of the time when they dive left, and saves a right shot 80% when diving right (else 0). If the goalie dives left with probability g, the kicker is indifferent between shooting left and right when:",
+      "options": [
+        "g = 1/2",
+        "g = 0.8",
+        "g = 0.2",
+        "g = 1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By symmetry the kicker's scoring chances on each side are mirror images, so the kicker is indifferent exactly when the goalie dives 50/50, g = 1/2.",
+        "B": "g = 0.8 would make one side much safer to shoot, breaking indifference.",
+        "C": "g = 0.2 likewise tilts the kicker toward one side.",
+        "D": "g = 1 (always dive left) makes shooting right strictly better, not indifferent."
+      }
+    },
+    {
+      "id": "pr_l9_154",
+      "concept": "expected_value",
+      "question": "A market maker faces 80% noise traders (pays the $0.03 half-spread) and 20% informed traders (who pick the maker off for an average $0.10 loss). Expected profit per trade is:",
+      "options": [
+        "+$0.03",
+        "+$0.024",
+        "-$0.02",
+        "+$0.004"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "+$0.03 is the gross half-spread, before adverse selection is netted out.",
+        "B": "+$0.024 is only the noise-trader term; it omits the informed losses.",
+        "C": "-$0.02 is only the informed-loss term; it omits the noise-trader gains.",
+        "D": "Correct. EV = 0.8×(0.03) + 0.2×(-0.10) = 0.024 - 0.02 = +$0.004 per trade — thin but positive."
+      }
+    },
+    {
+      "id": "pr_l9_155",
+      "concept": "expected_value",
+      "question": "Given the previous setup ($0.03 gain from 80% noise, $X loss from 20% informed), the maximum informed-trader loss $X the maker can absorb and still break even is:",
+      "options": [
+        "$0.03",
+        "$0.12",
+        "$0.24",
+        "$0.06"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$0.03 is the half-spread, not the break-even informed loss.",
+        "B": "Correct. Break-even: 0.8×0.03 = 0.2×X → 0.024 = 0.2X → X = $0.12.",
+        "C": "$0.24 would produce a large expected loss (0.2×0.24 = 0.048 > 0.024).",
+        "D": "$0.06 leaves the maker profitable, so it is below the break-even threshold."
+      }
+    },
+    {
+      "id": "pr_l9_156",
+      "concept": "nash_definition",
+      "question": "Two firms decide whether to enter a niche that profitably supports only one. Payoffs (Firm1, Firm2): (Enter,Enter)=(0,0), (Enter,Stay)=(4,2), (Stay,Enter)=(2,4), (Stay,Stay)=(3,3). The pure Nash equilibria are:",
+      "options": [
+        "(Enter, Enter) only",
+        "(Stay, Stay) only",
+        "(Enter, Stay) and (Stay, Enter)",
+        "no equilibrium"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "At (Enter,Enter)=(0,0), either firm gains by switching to Stay (2>0), so it is not an equilibrium.",
+        "B": "At (Stay,Stay)=(3,3), either firm gains by switching to Enter (4>3), so it is not an equilibrium.",
+        "C": "Correct. At (Enter,Stay), Firm1 won't switch (4>3) and Firm2 won't switch (2>0); the symmetric (Stay,Enter) is likewise stable, so the two mismatched profiles are the pure equilibria of this anti-coordination game.",
+        "D": "Pure equilibria do exist — the two mismatched profiles."
+      }
+    },
+    {
+      "id": "pr_l9_157",
+      "concept": "expected_value",
+      "question": "You can buy information that improves your win rate on a $1-risk, $1-reward bet from 50% to 60%. The information is worth (per bet) at most:",
+      "options": [
+        "$0.60",
+        "$0.10",
+        "$0.20",
+        "$1.00"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$0.60 is the win probability, not the value of the edge.",
+        "B": "$0.10 is the increase in win probability, not the change in expected value (which doubles it due to the symmetric payoff).",
+        "C": "Correct. At 50% EV = 0; at 60% EV = 0.6 - 0.4 = +$0.20. The improvement is worth up to $0.20 per bet.",
+        "D": "$1.00 is the reward size, far above the marginal value of the information."
+      }
+    },
+    {
+      "id": "pr_l9_158",
+      "concept": "dominant_strategy",
+      "question": "In the game of chicken (two drivers, Swerve or Straight), is 'Straight' a dominant strategy?",
+      "options": [
+        "no — Straight is best only if the opponent swerves; if both go straight the outcome is disastrous",
+        "yes, Straight always wins",
+        "yes, because swerving is cowardly",
+        "Straight is strictly dominated"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The best action depends on the opponent (Straight vs a swerver, Swerve vs a straight-goer), so neither action is dominant — chicken is an anti-coordination game.",
+        "B": "Straight does not always win; if both go straight both crash, the worst outcome.",
+        "C": "Payoffs, not bravado, define strategy; mutual Straight is catastrophic.",
+        "D": "Straight is not dominated either; it is the best response when the opponent swerves."
+      }
+    },
+    {
+      "id": "pr_l9_159",
+      "concept": "sequential_games",
+      "question": "In a repeated game, a 'grim trigger' strategy sustains cooperation by:",
+      "options": [
+        "forgiving every defection immediately",
+        "always defecting",
+        "randomizing each period",
+        "cooperating until any defection, then defecting forever after"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Grim trigger never forgives; that is what makes its punishment maximally severe.",
+        "B": "It cooperates on the equilibrium path; permanent defection is only the off-path punishment.",
+        "C": "It is a deterministic conditional rule, not a randomized one.",
+        "D": "Correct. Grim trigger cooperates until the first defection and then punishes by defecting forever, deterring deviation if players are patient enough."
+      }
+    },
+    {
+      "id": "pr_l9_160",
+      "concept": "repeated_games",
+      "question": "The 'folk theorem' for infinitely repeated games says that, with patient enough players, the set of equilibrium payoffs includes:",
+      "options": [
+        "only the one-shot Nash payoff",
+        "essentially any feasible payoff profile that gives each player at least their minmax value",
+        "only the cooperative payoff",
+        "no payoffs at all"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The folk theorem expands far beyond the single one-shot Nash outcome.",
+        "B": "Correct. With sufficient patience, any individually rational, feasible payoff (each at least their minmax) can be supported as an equilibrium via punishment strategies.",
+        "C": "It supports a wide range of outcomes, not exclusively the cooperative one.",
+        "D": "Equilibria certainly exist; the theorem characterizes a large set of them."
+      }
+    },
+    {
+      "id": "pr_l9_161",
+      "concept": "zero_sum",
+      "question": "In a symmetric two-player zero-sum game (the payoff matrix is anti-symmetric), the value of the game to each player is:",
+      "options": [
+        "strictly positive for the first player",
+        "undefined",
+        "strictly negative for the first player",
+        "zero"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Symmetry gives no inherent advantage, so the first player cannot have a positive value.",
+        "B": "The minimax theorem guarantees a well-defined value, which symmetry pins at zero.",
+        "C": "There is no built-in disadvantage either; the value is exactly zero.",
+        "D": "Correct. By symmetry neither player has an edge, so the game's value is zero (e.g. rock-paper-scissors, matching pennies)."
+      }
+    },
+    {
+      "id": "pr_l9_162",
+      "concept": "mixed_strategy",
+      "question": "In rock-paper-scissors, if your opponent overplays rock (40% rock, 30% paper, 30% scissors), your single best pure response is:",
+      "options": [
+        "rock",
+        "scissors",
+        "paper",
+        "stay at 1/3 each"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Rock ties their most common throw and loses to their paper; it is not the best exploit.",
+        "B": "Scissors loses to their frequent rock, the worst choice here.",
+        "C": "Correct. Paper beats their over-weighted rock most often, maximizing expected score against this biased opponent.",
+        "D": "The equal mix is only unexploitable; against a known bias a pure best response earns more."
+      }
+    },
+    {
+      "id": "pr_l9_163",
+      "concept": "expected_value",
+      "question": "Playing paper against the opponent (40% rock, 30% paper, 30% scissors), with win=+1, tie=0, loss=-1, your expected payoff is:",
+      "options": [
+        "+0.10",
+        "0",
+        "-0.10",
+        "+0.40"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Paper beats rock (0.40×+1), ties paper (0.30×0), loses to scissors (0.30×-1): EV = 0.40 - 0.30 = +0.10.",
+        "B": "Zero would require equal win and loss probabilities, but rock (0.40) exceeds scissors (0.30).",
+        "C": "The sign is wrong; paper has a positive edge against this rock-heavy mix.",
+        "D": "+0.40 is just the win probability, ignoring the losses to scissors."
+      }
+    },
+    {
+      "id": "pr_l9_164",
+      "concept": "mechanism_design",
+      "question": "The revelation principle states that any outcome achievable by some mechanism can also be achieved by:",
+      "options": [
+        "a random dictatorship",
+        "a truthful (incentive-compatible) direct mechanism",
+        "a first-price auction only",
+        "eliminating all communication"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Random dictatorship is one specific mechanism, not the general guarantee of the revelation principle.",
+        "B": "Correct. The revelation principle says you can replicate any mechanism's equilibrium outcome with a direct mechanism in which truth-telling is optimal.",
+        "C": "It is format-agnostic, not limited to first-price auctions.",
+        "D": "Direct mechanisms involve reporting types, which is communication, not its elimination."
+      }
+    },
+    {
+      "id": "pr_l9_165",
+      "concept": "nash_definition",
+      "question": "A trader insists their strategy is 'optimal' because it beat the market last month. The game-theoretic flaw is that optimality (best response) must be evaluated:",
+      "options": [
+        "against the opponents' strategies and the distribution of outcomes, not a single realized sample",
+        "by past realized profit alone",
+        "by how confident the trader feels",
+        "only in zero-sum settings"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A best response maximizes expected payoff given others' strategies and the outcome distribution; one lucky realization does not establish optimality.",
+        "B": "A single month's realized profit is one noisy sample, not proof of best response.",
+        "C": "Confidence is not a criterion for strategic optimality.",
+        "D": "Best-response reasoning applies in all games, not only zero-sum ones."
+      }
+    },
+    {
+      "id": "pr_l9_166",
+      "concept": "bid_shading",
+      "question": "A risk-neutral bidder's optimal first-price bid maximizes (value − bid) × P(win | bid). Increasing the bid raises P(win) but lowers (value − bid). The optimum occurs where:",
+      "options": [
+        "P(win) = 1",
+        "bid = 0",
+        "bid = value",
+        "the marginal gain in win probability equals the marginal loss in surplus"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Guaranteeing a win (P=1) usually requires bidding so high that surplus is destroyed; that is not optimal.",
+        "B": "Bidding zero yields essentially no chance of winning and no surplus.",
+        "C": "Bidding your value leaves zero surplus when you win, which is not optimal in first-price.",
+        "D": "Correct. The first-order condition balances the marginal benefit of a higher win probability against the marginal cost of reduced surplus, defining the optimal shaded bid."
+      }
+    },
+    {
+      "id": "pr_l9_167",
+      "concept": "prisoners_dilemma",
+      "question": "Which real-world scenario is LEAST like a prisoner's dilemma?",
+      "options": [
+        "two firms deciding whether to cut prices",
+        "two drivers choosing the same uncongested route that both prefer to coordinate on",
+        "nations deciding whether to over-fish a shared ocean",
+        "rival labs deciding whether to dope/cheat in competition"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Price-cutting is a classic prisoner's dilemma: undercutting is individually tempting but jointly harmful.",
+        "B": "Correct. When both simply want to coordinate on a shared preferred route with no temptation to deviate, it is a coordination game, not a prisoner's dilemma.",
+        "C": "Over-fishing a commons is a multiplayer prisoner's dilemma (tragedy of the commons).",
+        "D": "Doping is a prisoner's dilemma: each is tempted to cheat, but mutual cheating leaves everyone worse off."
+      }
+    },
+    {
+      "id": "pr_l9_168",
+      "concept": "expected_value",
+      "question": "A 3:1 payout bet (win $3, lose $1) requires what true win probability to have positive expected value?",
+      "options": [
+        "above 75%",
+        "above 50%",
+        "above 25%",
+        "above 33%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "75% would correspond to needing the payout to be much smaller; it is well above the true threshold.",
+        "B": "50% is the threshold for a 1:1 payout, far stricter than needed for 3:1.",
+        "C": "Correct. Break-even is p×3 = (1-p)×1 → p = 25%, so any win probability above 25% gives positive EV.",
+        "D": "33% is the threshold for a 2:1 payout, not 3:1."
+      }
+    },
+    {
+      "id": "pr_l9_169",
+      "concept": "mixed_strategy_equilibrium",
+      "question": "An attacker chooses to attack System A or System B; a defender protects one. If undefended, A is breached for a $100 loss and B for a $50 loss. In equilibrium the defender protects A:",
+      "options": [
+        "exactly 50% of the time",
+        "less than 50% of the time",
+        "more than 50% of the time, since A is more valuable",
+        "never"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A symmetric 50/50 split ignores that A's higher loss warrants more protection.",
+        "B": "Protecting A less than half the time would make attacking A too attractive, not an equilibrium.",
+        "C": "Correct. To keep the attacker indifferent, the defender must guard the higher-value target A more often, so the protection probability on A exceeds 50%.",
+        "D": "Never protecting A would guarantee the attacker hits the $100 target; clearly not optimal."
+      }
+    },
+    {
+      "id": "pr_l9_170",
+      "concept": "indifference_principle",
+      "question": "In the attacker-defender game (A worth $100, B worth $50 if breached), the attacker's mix must make the DEFENDER indifferent between guarding A and B. This means the attacker attacks A:",
+      "options": [
+        "with probability proportional to keeping the defender's expected loss equal across choices",
+        "always",
+        "never",
+        "exactly in proportion to the asset values directly (2:1 toward A)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The attacker's equilibrium mix is set so the defender's expected loss is the same whether they guard A or B — the indifference principle applied to the defender.",
+        "B": "Always attacking A is predictable and lets the defender simply guard A.",
+        "C": "Never attacking A wastes the highest-value target and is exploitable.",
+        "D": "The equilibrium mix follows from equalizing the defender's expected loss, which is not generally the raw 2:1 value ratio."
+      }
+    },
+    {
+      "id": "pr_l9_171",
+      "concept": "nash_definition",
+      "question": "Two market makers set quote widths simultaneously. Payoffs (M1,M2): (Tight,Tight)=(2,2), (Tight,Wide)=(5,1), (Wide,Tight)=(1,5), (Wide,Wide)=(3,3). Is (Wide,Wide) a Nash equilibrium?",
+      "options": [
+        "yes, because (3,3) is the highest joint payoff",
+        "no, because there is no equilibrium at all",
+        "yes, because both earn the same",
+        "no, because each maker can deviate to Tight and earn 5 > 3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Highest joint payoff does not imply equilibrium; stability against unilateral deviation is the test, which (Wide,Wide) fails.",
+        "B": "An equilibrium does exist — (Tight,Tight) at (2,2).",
+        "C": "Equal payoffs do not make a profile an equilibrium.",
+        "D": "Correct. From (Wide,Wide), either maker switching to Tight earns 5 instead of 3, so it is not a Nash equilibrium — (Tight,Tight) is."
+      }
+    },
+    {
+      "id": "pr_l9_172",
+      "concept": "dominant_strategy",
+      "question": "In the market-maker game above ((Tight,Tight)=(2,2), (Tight,Wide)=(5,1), (Wide,Tight)=(1,5), (Wide,Wide)=(3,3)), Tight is:",
+      "options": [
+        "a dominated strategy",
+        "a strictly dominant strategy for each maker",
+        "a mixed strategy",
+        "irrelevant"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Tight is the one you'd always play, so it is dominant, not dominated.",
+        "B": "Correct. Tight beats Wide whether the rival plays Tight (2>1) or Wide (5>3), so Tight strictly dominates — making this a prisoner's dilemma.",
+        "C": "Tight is a single pure action that is always best, not a randomization.",
+        "D": "Tight strictly raises payoff in every case, so it is highly relevant."
+      }
+    },
+    {
+      "id": "pr_l9_173",
+      "concept": "expected_value",
+      "question": "A signal is right 65% of the time. You bet $1 to win $1 when you act on it. Over 200 independent trades, your expected profit is:",
+      "options": [
+        "$0",
+        "+$130",
+        "+$30",
+        "+$60"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "With a 65% edge on even-money bets the expectation is clearly positive.",
+        "B": "+$130 counts only wins (0.65×200) and ignores the losing trades.",
+        "C": "+$30 uses 100 trades, not 200.",
+        "D": "Correct. Per-trade EV = 0.65×(+1) + 0.35×(-1) = +$0.30; over 200 trades that is 200×0.30 = +$60."
+      }
+    },
+    {
+      "id": "pr_l9_174",
+      "concept": "mixed_strategy",
+      "question": "Why does adding occasional bluffs to a value-betting range in poker increase expected profit against a thinking opponent?",
+      "options": [
+        "bluffs win the most chips on average",
+        "they reduce variance to zero",
+        "they make the opponent unable to profitably fold to all bets, so your value bets get paid off more",
+        "they are required by the rules"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bluffs do not individually win the most; their value is in balancing the range.",
+        "B": "Bluffing adds variance; it does not eliminate it.",
+        "C": "Correct. A balanced range with bluffs means folding to every bet is no longer safe, so opponents call more and your strong hands extract value — the strategic payoff of mixing.",
+        "D": "No rule mandates bluffing; it is a voluntary strategic choice."
+      }
+    },
+    {
+      "id": "pr_l9_175",
+      "concept": "sequential_games",
+      "question": "An incumbent threatens a price war if a rival enters, but a price war would lose the incumbent more than accommodating. By subgame-perfect reasoning, the rival should:",
+      "options": [
+        "enter, because the price-war threat is not credible",
+        "stay out, fearing the war",
+        "randomize entry 50/50",
+        "never be able to decide"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Since fighting hurts the incumbent more than accommodating, the threat is not credible; backward induction predicts the rival enters and the incumbent accommodates.",
+        "B": "Staying out rewards an empty threat; the rival should see through it.",
+        "C": "There is a clear best response (enter), so randomizing is unnecessary.",
+        "D": "The subgame-perfect logic gives a definite answer: enter."
+      }
+    }
+  ]
+}

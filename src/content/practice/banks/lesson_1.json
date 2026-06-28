@@ -1,0 +1,3445 @@
+{
+  "lessonId": "lesson_1",
+  "track": "quant",
+  "title": "Probability Basics for Quants",
+  "questions": [
+    {
+      "id": "pr_l1_001",
+      "concept": "sample_space",
+      "question": "A fair coin is flipped 1 time and the ordered sequence of results is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each flip has 2 possibilities and the flips are independent, so the sample space has 2^1 = 2 ordered outcomes.",
+        "B": "This is one less than the correct count, an off-by-one slip.",
+        "C": "This is one more than the correct count, an off-by-one slip.",
+        "D": "This is 2^2, which counts one flip too many."
+      }
+    },
+    {
+      "id": "pr_l1_002",
+      "concept": "sample_space",
+      "question": "A fair coin is flipped 2 times and the ordered sequence of results is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "5",
+        "4",
+        "8",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is one more than the correct count, an off-by-one slip.",
+        "B": "Correct. Each flip has 2 possibilities and the flips are independent, so the sample space has 2^2 = 4 ordered outcomes.",
+        "C": "This is 2^3, which counts one flip too many.",
+        "D": "This is one less than the correct count, an off-by-one slip."
+      }
+    },
+    {
+      "id": "pr_l1_003",
+      "concept": "sample_space",
+      "question": "A fair coin is flipped 3 times and the ordered sequence of results is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "6",
+        "16",
+        "8",
+        "9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This multiplies 2 by the number of flips instead of raising 2 to the power of the number of flips.",
+        "B": "This is 2^4, which counts one flip too many.",
+        "C": "Correct. Each flip has 2 possibilities and the flips are independent, so the sample space has 2^3 = 8 ordered outcomes.",
+        "D": "This is one more than the correct count, an off-by-one slip."
+      }
+    },
+    {
+      "id": "pr_l1_004",
+      "concept": "sample_space",
+      "question": "A fair coin is flipped 4 times and the ordered sequence of results is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "8",
+        "17",
+        "32",
+        "16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This multiplies 2 by the number of flips instead of raising 2 to the power of the number of flips.",
+        "B": "This is one more than the correct count, an off-by-one slip.",
+        "C": "This is 2^5, which counts one flip too many.",
+        "D": "Correct. Each flip has 2 possibilities and the flips are independent, so the sample space has 2^4 = 16 ordered outcomes."
+      }
+    },
+    {
+      "id": "pr_l1_005",
+      "concept": "sample_space",
+      "question": "A fair coin is flipped 5 times and the ordered sequence of results is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "32",
+        "10",
+        "64",
+        "33"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each flip has 2 possibilities and the flips are independent, so the sample space has 2^5 = 32 ordered outcomes.",
+        "B": "This multiplies 2 by the number of flips instead of raising 2 to the power of the number of flips.",
+        "C": "This is 2^6, which counts one flip too many.",
+        "D": "This is one more than the correct count, an off-by-one slip."
+      }
+    },
+    {
+      "id": "pr_l1_006",
+      "concept": "sample_space",
+      "question": "A fair coin is flipped 6 times and the ordered sequence of results is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "128",
+        "64",
+        "65",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is 2^7, which counts one flip too many.",
+        "B": "Correct. Each flip has 2 possibilities and the flips are independent, so the sample space has 2^6 = 64 ordered outcomes.",
+        "C": "This is one more than the correct count, an off-by-one slip.",
+        "D": "This multiplies 2 by the number of flips instead of raising 2 to the power of the number of flips."
+      }
+    },
+    {
+      "id": "pr_l1_007",
+      "concept": "sample_space",
+      "question": "A fair coin is flipped 7 times and the ordered sequence of results is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "129",
+        "256",
+        "128",
+        "14"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is one more than the correct count, an off-by-one slip.",
+        "B": "This is 2^8, which counts one flip too many.",
+        "C": "Correct. Each flip has 2 possibilities and the flips are independent, so the sample space has 2^7 = 128 ordered outcomes.",
+        "D": "This multiplies 2 by the number of flips instead of raising 2 to the power of the number of flips."
+      }
+    },
+    {
+      "id": "pr_l1_008",
+      "concept": "sample_space",
+      "question": "Two distinguishable fair dice are rolled and the ordered pair of faces is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "11",
+        "6",
+        "12",
+        "36"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts the distinct possible sums (2 through 12), not the ordered outcomes that produce them.",
+        "B": "This counts the faces of a single die and ignores the second die entirely.",
+        "C": "This adds the two face counts (6 + 6) instead of multiplying them.",
+        "D": "Correct. Each die independently shows one of 6 faces, so by the multiplication rule there are 6 × 6 = 36 ordered pairs."
+      }
+    },
+    {
+      "id": "pr_l1_009",
+      "concept": "sample_space",
+      "question": "An experiment rolls one fair die and then flips one fair coin, recording both results. How many outcomes are in the sample space?",
+      "options": [
+        "12",
+        "36",
+        "8",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 6 die results and 2 coin results, and 6 × 2 = 12 combined outcomes.",
+        "B": "This is 6 × 6 (two dice); the coin contributes a factor of 2, not 6.",
+        "C": "This adds 6 + 2 instead of multiplying the two independent stages.",
+        "D": "This counts only the die outcomes and forgets the coin."
+      }
+    },
+    {
+      "id": "pr_l1_010",
+      "concept": "sample_space",
+      "question": "One card is drawn from a standard 52-card deck and its identity is recorded. How many outcomes are in the sample space?",
+      "options": [
+        "4",
+        "52",
+        "13",
+        "26"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts the suits, which are categories of cards rather than individual outcomes.",
+        "B": "Correct. Each specific card is one atomic outcome, and a standard deck holds 52 distinct cards.",
+        "C": "This counts the ranks within a single suit, not all individual cards.",
+        "D": "This counts only the red (or only the black) cards, which is half the deck."
+      }
+    },
+    {
+      "id": "pr_l1_011",
+      "concept": "sample_space",
+      "question": "Which of the following is a valid sample space for a single roll of a fair six-sided die?",
+      "options": [
+        "{Even, Odd}",
+        "{Low, High}",
+        "{1, 2, 3, 4, 5, 6}",
+        "{1, 6}"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Even and odd are events (groups of outcomes), not the individual atomic outcomes of a roll.",
+        "B": "Low and high are coarse events; they bundle several faces rather than list each outcome.",
+        "C": "Correct. These six face values are the mutually exclusive, exhaustive atomic outcomes of one roll.",
+        "D": "This omits the faces 2, 3, 4, and 5, so it is not the complete list of outcomes."
+      }
+    },
+    {
+      "id": "pr_l1_012",
+      "concept": "sample_space",
+      "question": "A trader records whether each of two independent trades is a Win (W) or Loss (L). Which set is the correct sample space?",
+      "options": [
+        "{WW, LL}",
+        "{0 wins, 1 win, 2 wins}",
+        "{W, L}",
+        "{WW, WL, LW, LL}"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This omits the mixed results WL and LW, so it is not exhaustive.",
+        "B": "These are events summarizing the number of wins, not the underlying ordered outcomes.",
+        "C": "This describes a single trade; with two trades each result is an ordered pair.",
+        "D": "Correct. Each trade is W or L, so the ordered outcomes for two trades are these four equally specified pairs."
+      }
+    },
+    {
+      "id": "pr_l1_013",
+      "concept": "sample_space",
+      "question": "Which statement best describes a sample space S for a random experiment?",
+      "options": [
+        "The set of all possible distinct outcomes of the experiment",
+        "The single most likely outcome of the experiment",
+        "The probability assigned to the most likely outcome",
+        "The set of only the favorable outcomes for a chosen event"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. S must list every outcome that can occur, with each outcome appearing exactly once.",
+        "B": "A sample space is a full collection of outcomes, not one selected result.",
+        "C": "That is a number, whereas the sample space is the set of outcomes.",
+        "D": "Favorable outcomes form an event inside S, not the sample space itself."
+      }
+    },
+    {
+      "id": "pr_l1_014",
+      "concept": "probability_axioms",
+      "question": "Which of the following values cannot be a valid probability?",
+      "options": [
+        "1",
+        "1.4",
+        "0.5",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1 lies within [0, 1], so it is a legitimate probability value.",
+        "B": "Correct. Probabilities must lie in the interval [0, 1], and 1.4 falls outside that range, violating the axioms.",
+        "C": "0.5 lies within [0, 1], so it is a legitimate probability value.",
+        "D": "0 lies within [0, 1], so it is a legitimate probability value."
+      }
+    },
+    {
+      "id": "pr_l1_015",
+      "concept": "probability_axioms",
+      "question": "Which of the following values cannot be a valid probability?",
+      "options": [
+        "0",
+        "0.25",
+        "−0.3",
+        "0.8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0 lies within [0, 1], so it is a legitimate probability value.",
+        "B": "0.25 lies within [0, 1], so it is a legitimate probability value.",
+        "C": "Correct. Probabilities must lie in the interval [0, 1], and −0.3 falls outside that range, violating the axioms.",
+        "D": "0.8 lies within [0, 1], so it is a legitimate probability value."
+      }
+    },
+    {
+      "id": "pr_l1_016",
+      "concept": "probability_axioms",
+      "question": "Which of the following values cannot be a valid probability?",
+      "options": [
+        "3/4",
+        "1/4",
+        "1/2",
+        "5/4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/4 lies within [0, 1], so it is a legitimate probability value.",
+        "B": "1/4 lies within [0, 1], so it is a legitimate probability value.",
+        "C": "1/2 lies within [0, 1], so it is a legitimate probability value.",
+        "D": "Correct. Probabilities must lie in the interval [0, 1], and 5/4 falls outside that range, violating the axioms."
+      }
+    },
+    {
+      "id": "pr_l1_017",
+      "concept": "probability_axioms",
+      "question": "Which of the following values cannot be a valid probability?",
+      "options": [
+        "1.01",
+        "0.5",
+        "0.99",
+        "0.01"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Probabilities must lie in the interval [0, 1], and 1.01 falls outside that range, violating the axioms.",
+        "B": "0.5 lies within [0, 1], so it is a legitimate probability value.",
+        "C": "0.99 lies within [0, 1], so it is a legitimate probability value.",
+        "D": "0.01 lies within [0, 1], so it is a legitimate probability value."
+      }
+    },
+    {
+      "id": "pr_l1_018",
+      "concept": "probability_axioms",
+      "question": "Which of the following values cannot be a valid probability?",
+      "options": [
+        "0.1",
+        "−0.5",
+        "0.9",
+        "0.6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.1 lies within [0, 1], so it is a legitimate probability value.",
+        "B": "Correct. Probabilities must lie in the interval [0, 1], and −0.5 falls outside that range, violating the axioms.",
+        "C": "0.9 lies within [0, 1], so it is a legitimate probability value.",
+        "D": "0.6 lies within [0, 1], so it is a legitimate probability value."
+      }
+    },
+    {
+      "id": "pr_l1_019",
+      "concept": "probability_axioms",
+      "question": "Which of the following values cannot be a valid probability?",
+      "options": [
+        "2/5",
+        "4/5",
+        "7/5",
+        "1/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2/5 lies within [0, 1], so it is a legitimate probability value.",
+        "B": "4/5 lies within [0, 1], so it is a legitimate probability value.",
+        "C": "Correct. Probabilities must lie in the interval [0, 1], and 7/5 falls outside that range, violating the axioms.",
+        "D": "1/5 lies within [0, 1], so it is a legitimate probability value."
+      }
+    },
+    {
+      "id": "pr_l1_020",
+      "concept": "probability_axioms",
+      "question": "Which statement is guaranteed by the probability axioms for every event A in a sample space S?",
+      "options": [
+        "P(A) = 1 − P(A)",
+        "P(A) + 1 = P(S)",
+        "P(A) > 0",
+        "0 ≤ P(A) ≤ 1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This would force P(A) = 0.5 for every event, which is false in general.",
+        "B": "Since P(S) = 1, this would make P(A) = 0 for all A, which is false.",
+        "C": "Impossible events have probability 0, so strictly positive probability is not guaranteed.",
+        "D": "Correct. The non-negativity and normalization axioms force every event's probability into the closed interval [0, 1]."
+      }
+    },
+    {
+      "id": "pr_l1_021",
+      "concept": "probability_axioms",
+      "question": "If S is the entire sample space of an experiment, what must P(S) equal?",
+      "options": [
+        "1",
+        "0.5",
+        "0",
+        "It depends on the experiment"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The normalization axiom states that the probability assigned to the whole sample space is exactly 1.",
+        "B": "This would imply a 50% chance that no outcome occurs, which is impossible.",
+        "C": "Probability 0 would mean nothing ever happens, contradicting that some outcome always occurs.",
+        "D": "Regardless of the experiment, the axioms fix P(S) = 1."
+      }
+    },
+    {
+      "id": "pr_l1_022",
+      "concept": "probability_axioms",
+      "question": "For two disjoint (mutually exclusive) events A and B, which equality is guaranteed by the axioms?",
+      "options": [
+        "P(A ∪ B) = P(A) × P(B)",
+        "P(A ∪ B) = P(A) + P(B)",
+        "P(A ∩ B) = P(A) + P(B)",
+        "P(A) = P(B)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Multiplication gives the joint probability under independence, not the union of disjoint events.",
+        "B": "Correct. The additivity axiom says probabilities of disjoint events add to give the probability of their union.",
+        "C": "Disjoint events never co-occur, so P(A ∩ B) = 0, not the sum.",
+        "D": "Disjoint events can have completely different probabilities."
+      }
+    },
+    {
+      "id": "pr_l1_023",
+      "concept": "probability_axioms",
+      "question": "What is P(∅), the probability of the empty (impossible) event?",
+      "options": [
+        "1",
+        "0.5",
+        "0",
+        "Undefined"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Probability 1 denotes certainty; the impossible event is the opposite of certain.",
+        "B": "There is no chance the impossible event occurs, so its probability is not one-half.",
+        "C": "Correct. The empty event contains no outcomes, so it can never occur and its probability is 0.",
+        "D": "The empty set is a perfectly well-defined event with probability 0."
+      }
+    },
+    {
+      "id": "pr_l1_024",
+      "concept": "probability_axioms",
+      "question": "If event A is a subset of event B (every outcome in A is also in B), which must hold?",
+      "options": [
+        "P(A) ≥ P(B)",
+        "P(A) = P(B)",
+        "P(A) + P(B) = 1",
+        "P(A) ≤ P(B)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A smaller event cannot have larger probability than the event that contains it.",
+        "B": "Equality only holds if the extra outcomes in B carry zero probability, which is not guaranteed.",
+        "C": "Containment says nothing about the two probabilities summing to 1.",
+        "D": "Correct. Monotonicity follows from the axioms: adding the outcomes in B but not A can only increase probability."
+      }
+    },
+    {
+      "id": "pr_l1_025",
+      "concept": "probability_axioms",
+      "question": "Across a partition of the sample space into disjoint events that cover S, what must the probabilities sum to?",
+      "options": [
+        "1",
+        "It varies with the partition",
+        "The number of blocks",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A partition's blocks are disjoint and exhaustive, so by additivity and normalization their probabilities sum to P(S) = 1.",
+        "B": "Any exhaustive disjoint partition of S has probabilities summing to exactly 1.",
+        "C": "Probabilities are not counts; they sum to 1 regardless of how many blocks there are.",
+        "D": "Summing to 0 would require every block to be impossible, contradicting that they cover S."
+      }
+    },
+    {
+      "id": "pr_l1_026",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling an even number?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "1/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts one too many favorable faces.",
+        "B": "Correct. There are 3 favorable faces out of 6 equally likely outcomes, so the probability is 3/6 = 1/2.",
+        "C": "This counts one too few favorable faces.",
+        "D": "This treats the event as a single specific face rather than counting all favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_027",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a number less than 3?",
+      "options": [
+        "1/2",
+        "2/3",
+        "1/3",
+        "1/6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts one too many favorable faces.",
+        "B": "This computes the probability of the complementary event instead of the event itself.",
+        "C": "Correct. There are 2 favorable faces out of 6 equally likely outcomes, so the probability is 2/6 = 1/3.",
+        "D": "This treats the event as a single specific face rather than counting all favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_028",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a number greater than 4?",
+      "options": [
+        "1/2",
+        "1/6",
+        "2/3",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts one too many favorable faces.",
+        "B": "This treats the event as a single specific face rather than counting all favorable faces.",
+        "C": "This computes the probability of the complementary event instead of the event itself.",
+        "D": "Correct. There are 2 favorable faces out of 6 equally likely outcomes, so the probability is 2/6 = 1/3."
+      }
+    },
+    {
+      "id": "pr_l1_029",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a prime number?",
+      "options": [
+        "1/2",
+        "1/3",
+        "2/3",
+        "1/6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 3 favorable faces out of 6 equally likely outcomes, so the probability is 3/6 = 1/2.",
+        "B": "This counts one too few favorable faces.",
+        "C": "This counts one too many favorable faces.",
+        "D": "This treats the event as a single specific face rather than counting all favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_030",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a multiple of 3?",
+      "options": [
+        "1/6",
+        "1/3",
+        "2/3",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the event as a single specific face rather than counting all favorable faces.",
+        "B": "Correct. There are 2 favorable faces out of 6 equally likely outcomes, so the probability is 2/6 = 1/3.",
+        "C": "This computes the probability of the complementary event instead of the event itself.",
+        "D": "This counts one too many favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_031",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a perfect square?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "1/6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This computes the probability of the complementary event instead of the event itself.",
+        "B": "This counts one too many favorable faces.",
+        "C": "Correct. There are 2 favorable faces out of 6 equally likely outcomes, so the probability is 2/6 = 1/3.",
+        "D": "This treats the event as a single specific face rather than counting all favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_032",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a 1 or a 2?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/6",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This computes the probability of the complementary event instead of the event itself.",
+        "B": "This counts one too many favorable faces.",
+        "C": "This treats the event as a single specific face rather than counting all favorable faces.",
+        "D": "Correct. There are 2 favorable faces out of 6 equally likely outcomes, so the probability is 2/6 = 1/3."
+      }
+    },
+    {
+      "id": "pr_l1_033",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a number other than 6?",
+      "options": [
+        "5/6",
+        "1",
+        "2/3",
+        "1/6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 5 favorable faces out of 6 equally likely outcomes, so the probability is 5/6 = 5/6.",
+        "B": "This counts one too many favorable faces.",
+        "C": "This counts one too few favorable faces.",
+        "D": "This treats the event as a single specific face rather than counting all favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_034",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a number divisible by 2 or 3?",
+      "options": [
+        "1/3",
+        "2/3",
+        "5/6",
+        "1/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This computes the probability of the complementary event instead of the event itself.",
+        "B": "Correct. There are 4 favorable faces out of 6 equally likely outcomes, so the probability is 4/6 = 2/3.",
+        "C": "This counts one too many favorable faces.",
+        "D": "This treats the event as a single specific face rather than counting all favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_035",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling at most a 2?",
+      "options": [
+        "1/2",
+        "2/3",
+        "1/3",
+        "1/6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts one too many favorable faces.",
+        "B": "This computes the probability of the complementary event instead of the event itself.",
+        "C": "Correct. There are 2 favorable faces out of 6 equally likely outcomes, so the probability is 2/6 = 1/3.",
+        "D": "This treats the event as a single specific face rather than counting all favorable faces."
+      }
+    },
+    {
+      "id": "pr_l1_036",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling a number in the set {3, 4, 5}?",
+      "options": [
+        "1/6",
+        "1/3",
+        "2/3",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the event as a single specific face rather than counting all favorable faces.",
+        "B": "This counts one too few favorable faces.",
+        "C": "This counts one too many favorable faces.",
+        "D": "Correct. There are 3 favorable faces out of 6 equally likely outcomes, so the probability is 3/6 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l1_037",
+      "concept": "equally_likely_outcomes",
+      "question": "A single card is drawn at random from a standard 52-card deck. What is the probability of drawing a heart?",
+      "options": [
+        "1/4",
+        "3/4",
+        "1/52",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 13 favorable cards out of 52 equally likely cards, so the probability is 13/52 = 1/4.",
+        "B": "This computes the complement instead of the event itself.",
+        "C": "This treats the event as drawing one specific named card rather than all favorable cards.",
+        "D": "This divides by 13 (one suit) instead of by the full deck of 52."
+      }
+    },
+    {
+      "id": "pr_l1_038",
+      "concept": "equally_likely_outcomes",
+      "question": "A single card is drawn at random from a standard 52-card deck. What is the probability of drawing a face card (Jack, Queen, or King)?",
+      "options": [
+        "1/52",
+        "3/13",
+        "12/13",
+        "10/13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the event as drawing one specific named card rather than all favorable cards.",
+        "B": "Correct. There are 12 favorable cards out of 52 equally likely cards, so the probability is 12/52 = 3/13.",
+        "C": "This divides by 13 (one suit) instead of by the full deck of 52.",
+        "D": "This computes the complement instead of the event itself."
+      }
+    },
+    {
+      "id": "pr_l1_039",
+      "concept": "equally_likely_outcomes",
+      "question": "A single card is drawn at random from a standard 52-card deck. What is the probability of drawing an ace?",
+      "options": [
+        "12/13",
+        "1/52",
+        "1/13",
+        "4/13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This computes the complement instead of the event itself.",
+        "B": "This treats the event as drawing one specific named card rather than all favorable cards.",
+        "C": "Correct. There are 4 favorable cards out of 52 equally likely cards, so the probability is 4/52 = 1/13.",
+        "D": "This divides by 13 (one suit) instead of by the full deck of 52."
+      }
+    },
+    {
+      "id": "pr_l1_040",
+      "concept": "equally_likely_outcomes",
+      "question": "A single card is drawn at random from a standard 52-card deck. What is the probability of drawing a red card?",
+      "options": [
+        "1/52",
+        "2",
+        "27/52",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the event as drawing one specific named card rather than all favorable cards.",
+        "B": "This divides by 13 (one suit) instead of by the full deck of 52.",
+        "C": "This counts one too many favorable cards.",
+        "D": "Correct. There are 26 favorable cards out of 52 equally likely cards, so the probability is 26/52 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l1_041",
+      "concept": "equally_likely_outcomes",
+      "question": "A single card is drawn at random from a standard 52-card deck. What is the probability of drawing a black face card?",
+      "options": [
+        "3/26",
+        "23/26",
+        "6/13",
+        "1/52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 6 favorable cards out of 52 equally likely cards, so the probability is 6/52 = 3/26.",
+        "B": "This computes the complement instead of the event itself.",
+        "C": "This divides by 13 (one suit) instead of by the full deck of 52.",
+        "D": "This treats the event as drawing one specific named card rather than all favorable cards."
+      }
+    },
+    {
+      "id": "pr_l1_042",
+      "concept": "equally_likely_outcomes",
+      "question": "A single card is drawn at random from a standard 52-card deck. What is the probability of drawing a card that is not a heart?",
+      "options": [
+        "1/52",
+        "3/4",
+        "1/4",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the event as drawing one specific named card rather than all favorable cards.",
+        "B": "Correct. There are 39 favorable cards out of 52 equally likely cards, so the probability is 39/52 = 3/4.",
+        "C": "This computes the complement instead of the event itself.",
+        "D": "This divides by 13 (one suit) instead of by the full deck of 52."
+      }
+    },
+    {
+      "id": "pr_l1_043",
+      "concept": "equally_likely_outcomes",
+      "question": "A single card is drawn at random from a standard 52-card deck. What is the probability of drawing a spade?",
+      "options": [
+        "1/52",
+        "1",
+        "1/4",
+        "3/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the event as drawing one specific named card rather than all favorable cards.",
+        "B": "This divides by 13 (one suit) instead of by the full deck of 52.",
+        "C": "Correct. There are 13 favorable cards out of 52 equally likely cards, so the probability is 13/52 = 1/4.",
+        "D": "This computes the complement instead of the event itself."
+      }
+    },
+    {
+      "id": "pr_l1_044",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped twice and the ordered sequence is recorded. What is the probability of exactly one head?",
+      "options": [
+        "3/4",
+        "1",
+        "1/4",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts one too many favorable sequences.",
+        "B": "This overcounts the favorable sequences.",
+        "C": "This counts only one specific sequence rather than all sequences matching the description.",
+        "D": "Correct. Of the 4 equally likely sequences, 2 give exactly one head, so the probability is 2/4 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l1_045",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped twice and the ordered sequence is recorded. What is the probability of two heads?",
+      "options": [
+        "1/4",
+        "3/4",
+        "1/2",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the 4 equally likely sequences, 1 give two heads, so the probability is 1/4 = 1/4.",
+        "B": "This is the probability of the complementary event, not the event asked about.",
+        "C": "This counts one too many favorable sequences.",
+        "D": "This counts one too few favorable sequences."
+      }
+    },
+    {
+      "id": "pr_l1_046",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped twice and the ordered sequence is recorded. What is the probability of at least one head?",
+      "options": [
+        "1",
+        "3/4",
+        "1/4",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts one too many favorable sequences.",
+        "B": "Correct. Of the 4 equally likely sequences, 3 give at least one head, so the probability is 3/4 = 3/4.",
+        "C": "This is the probability of the complementary event, not the event asked about.",
+        "D": "This counts one too few favorable sequences."
+      }
+    },
+    {
+      "id": "pr_l1_047",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped twice and the ordered sequence is recorded. What is the probability of no heads?",
+      "options": [
+        "1/2",
+        "0",
+        "1/4",
+        "3/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts one too many favorable sequences.",
+        "B": "This counts one too few favorable sequences.",
+        "C": "Correct. Of the 4 equally likely sequences, 1 give no heads, so the probability is 1/4 = 1/4.",
+        "D": "This is the probability of the complementary event, not the event asked about."
+      }
+    },
+    {
+      "id": "pr_l1_048",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped three times and the ordered sequence is recorded. What is the probability of exactly two heads?",
+      "options": [
+        "5/8",
+        "1/8",
+        "1/2",
+        "3/8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the probability of the complementary event, not the event asked about.",
+        "B": "This counts only one specific sequence rather than all sequences matching the description.",
+        "C": "This counts one too many favorable sequences.",
+        "D": "Correct. Of the 8 equally likely sequences, 3 give exactly two heads, so the probability is 3/8 = 3/8."
+      }
+    },
+    {
+      "id": "pr_l1_049",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped three times and the ordered sequence is recorded. What is the probability of at least one head?",
+      "options": [
+        "7/8",
+        "3/4",
+        "1",
+        "1/8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the 8 equally likely sequences, 7 give at least one head, so the probability is 7/8 = 7/8.",
+        "B": "This counts one too few favorable sequences.",
+        "C": "This counts one too many favorable sequences.",
+        "D": "This is the probability of the complementary event, not the event asked about."
+      }
+    },
+    {
+      "id": "pr_l1_050",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped three times and the ordered sequence is recorded. What is the probability of all tails?",
+      "options": [
+        "7/8",
+        "1/8",
+        "1/4",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the probability of the complementary event, not the event asked about.",
+        "B": "Correct. Of the 8 equally likely sequences, 1 give all tails, so the probability is 1/8 = 1/8.",
+        "C": "This counts one too many favorable sequences.",
+        "D": "This counts one too few favorable sequences."
+      }
+    },
+    {
+      "id": "pr_l1_051",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped three times and the ordered sequence is recorded. What is the probability of exactly one head?",
+      "options": [
+        "1/8",
+        "1/2",
+        "3/8",
+        "5/8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts only one specific sequence rather than all sequences matching the description.",
+        "B": "This counts one too many favorable sequences.",
+        "C": "Correct. Of the 8 equally likely sequences, 3 give exactly one head, so the probability is 3/8 = 3/8.",
+        "D": "This is the probability of the complementary event, not the event asked about."
+      }
+    },
+    {
+      "id": "pr_l1_052",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped three times and the ordered sequence is recorded. What is the probability of exactly two tails?",
+      "options": [
+        "5/8",
+        "1/8",
+        "1/2",
+        "3/8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the probability of the complementary event, not the event asked about.",
+        "B": "This counts only one specific sequence rather than all sequences matching the description.",
+        "C": "This counts one too many favorable sequences.",
+        "D": "Correct. Of the 8 equally likely sequences, 3 give exactly two tails, so the probability is 3/8 = 3/8."
+      }
+    },
+    {
+      "id": "pr_l1_053",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped four times and the ordered sequence is recorded. What is the probability of exactly two heads?",
+      "options": [
+        "3/8",
+        "5/8",
+        "7/16",
+        "1/16"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the 16 equally likely sequences, 6 give exactly two heads, so the probability is 6/16 = 3/8.",
+        "B": "This is the probability of the complementary event, not the event asked about.",
+        "C": "This counts one too many favorable sequences.",
+        "D": "This counts only one specific sequence rather than all sequences matching the description."
+      }
+    },
+    {
+      "id": "pr_l1_054",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped four times and the ordered sequence is recorded. What is the probability of all four heads?",
+      "options": [
+        "0",
+        "1/16",
+        "15/16",
+        "1/8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts one too few favorable sequences.",
+        "B": "Correct. Of the 16 equally likely sequences, 1 give all four heads, so the probability is 1/16 = 1/16.",
+        "C": "This is the probability of the complementary event, not the event asked about.",
+        "D": "This counts one too many favorable sequences."
+      }
+    },
+    {
+      "id": "pr_l1_055",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped four times and the ordered sequence is recorded. What is the probability of at least one head?",
+      "options": [
+        "1/16",
+        "1",
+        "15/16",
+        "7/8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the probability of the complementary event, not the event asked about.",
+        "B": "This counts one too many favorable sequences.",
+        "C": "Correct. Of the 16 equally likely sequences, 15 give at least one head, so the probability is 15/16 = 15/16.",
+        "D": "This counts one too few favorable sequences."
+      }
+    },
+    {
+      "id": "pr_l1_056",
+      "concept": "equally_likely_outcomes",
+      "question": "A fair coin is flipped four times and the ordered sequence is recorded. What is the probability of no heads at all?",
+      "options": [
+        "0",
+        "15/16",
+        "1/8",
+        "1/16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts one too few favorable sequences.",
+        "B": "This is the probability of the complementary event, not the event asked about.",
+        "C": "This counts one too many favorable sequences.",
+        "D": "Correct. Of the 16 equally likely sequences, 1 give no heads at all, so the probability is 1/16 = 1/16."
+      }
+    },
+    {
+      "id": "pr_l1_057",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a stock closes the day up is 0.42. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.58",
+        "1.42",
+        "0.84",
+        "0.42"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.42 = 0.58.",
+        "B": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "C": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "D": "This simply repeats P(A); the complement is what remains after subtracting from 1."
+      }
+    },
+    {
+      "id": "pr_l1_058",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that an option expires in the money is 0.27. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.54",
+        "0.73",
+        "0.27",
+        "1.27"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "B": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.27 = 0.73.",
+        "C": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "D": "This adds to 1, giving a value above 1, which can never be a probability."
+      }
+    },
+    {
+      "id": "pr_l1_059",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a trade is profitable is 0.18. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.18",
+        "1.18",
+        "0.82",
+        "0.36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "B": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "C": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.18 = 0.82.",
+        "D": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up."
+      }
+    },
+    {
+      "id": "pr_l1_060",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a server request succeeds is 0.45. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.90",
+        "1.45",
+        "0.45",
+        "0.55"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "B": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "C": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "D": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.45 = 0.55."
+      }
+    },
+    {
+      "id": "pr_l1_061",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that it rains tomorrow is 0.09. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.91",
+        "0.09",
+        "1.09",
+        "0.18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.09 = 0.91.",
+        "B": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "C": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "D": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up."
+      }
+    },
+    {
+      "id": "pr_l1_062",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a randomly chosen client defaults is 0.24. What is the probability that this event does NOT occur?",
+      "options": [
+        "1.24",
+        "0.76",
+        "0.48",
+        "0.24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "B": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.24 = 0.76.",
+        "C": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "D": "This simply repeats P(A); the complement is what remains after subtracting from 1."
+      }
+    },
+    {
+      "id": "pr_l1_063",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a market order fills immediately is 0.31. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.31",
+        "0.62",
+        "0.69",
+        "1.31"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "B": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "C": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.31 = 0.69.",
+        "D": "This adds to 1, giving a value above 1, which can never be a probability."
+      }
+    },
+    {
+      "id": "pr_l1_064",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a coin-toss bet wins is 0.40. What is the probability that this event does NOT occur?",
+      "options": [
+        "1.40",
+        "0.40",
+        "0.80",
+        "0.60"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "B": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "C": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "D": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.40 = 0.60."
+      }
+    },
+    {
+      "id": "pr_l1_065",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a model flags a transaction is 0.15. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.85",
+        "0.15",
+        "1.15",
+        "0.30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.15 = 0.85.",
+        "B": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "C": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "D": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up."
+      }
+    },
+    {
+      "id": "pr_l1_066",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a quote is hit within a second is 0.48. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.96",
+        "0.52",
+        "0.48",
+        "1.48"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "B": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.48 = 0.52.",
+        "C": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "D": "This adds to 1, giving a value above 1, which can never be a probability."
+      }
+    },
+    {
+      "id": "pr_l1_067",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a new user converts is 0.05. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.10",
+        "0.05",
+        "0.95",
+        "1.05"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "B": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "C": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.05 = 0.95.",
+        "D": "This adds to 1, giving a value above 1, which can never be a probability."
+      }
+    },
+    {
+      "id": "pr_l1_068",
+      "concept": "complement_rule",
+      "question": "In a single trial, the probability that a sensor reports a fault is 0.36. What is the probability that this event does NOT occur?",
+      "options": [
+        "0.36",
+        "1.36",
+        "0.72",
+        "0.64"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This simply repeats P(A); the complement is what remains after subtracting from 1.",
+        "B": "This adds to 1, giving a value above 1, which can never be a probability.",
+        "C": "This doubles P(A); the complement rule subtracts from 1 rather than scaling up.",
+        "D": "Correct. The complement rule gives P(not A) = 1 − P(A) = 1 − 0.36 = 0.64."
+      }
+    },
+    {
+      "id": "pr_l1_069",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.35 and P(B) = 0.20. What is P(A ∪ B)?",
+      "options": [
+        "0.55",
+        "0.15",
+        "0.07",
+        "0.45"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.35 + 0.20 = 0.55.",
+        "B": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "C": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "D": "This is the probability that neither event occurs, not the probability of the union."
+      }
+    },
+    {
+      "id": "pr_l1_070",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.12 and P(B) = 0.08. What is P(A ∪ B)?",
+      "options": [
+        "0.80",
+        "0.20",
+        "0.01",
+        "0.04"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the probability that neither event occurs, not the probability of the union.",
+        "B": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.12 + 0.08 = 0.20.",
+        "C": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "D": "This subtracts the probabilities; disjoint events add rather than subtract."
+      }
+    },
+    {
+      "id": "pr_l1_071",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.22 and P(B) = 0.31. What is P(A ∪ B)?",
+      "options": [
+        "0.07",
+        "0.47",
+        "0.53",
+        "0.09"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "B": "This is the probability that neither event occurs, not the probability of the union.",
+        "C": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.22 + 0.31 = 0.53.",
+        "D": "This subtracts the probabilities; disjoint events add rather than subtract."
+      }
+    },
+    {
+      "id": "pr_l1_072",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.40 and P(B) = 0.25. What is P(A ∪ B)?",
+      "options": [
+        "0.10",
+        "0.35",
+        "0.15",
+        "0.65"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "B": "This is the probability that neither event occurs, not the probability of the union.",
+        "C": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "D": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.40 + 0.25 = 0.65."
+      }
+    },
+    {
+      "id": "pr_l1_073",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.15 and P(B) = 0.05. What is P(A ∪ B)?",
+      "options": [
+        "0.20",
+        "0.10",
+        "0.01",
+        "0.80"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.15 + 0.05 = 0.20.",
+        "B": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "C": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "D": "This is the probability that neither event occurs, not the probability of the union."
+      }
+    },
+    {
+      "id": "pr_l1_074",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.30 and P(B) = 0.45. What is P(A ∪ B)?",
+      "options": [
+        "0.15",
+        "0.75",
+        "0.14",
+        "0.25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "B": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.30 + 0.45 = 0.75.",
+        "C": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "D": "This is the probability that neither event occurs, not the probability of the union."
+      }
+    },
+    {
+      "id": "pr_l1_075",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.18 and P(B) = 0.27. What is P(A ∪ B)?",
+      "options": [
+        "0.05",
+        "0.55",
+        "0.45",
+        "0.09"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "B": "This is the probability that neither event occurs, not the probability of the union.",
+        "C": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.18 + 0.27 = 0.45.",
+        "D": "This subtracts the probabilities; disjoint events add rather than subtract."
+      }
+    },
+    {
+      "id": "pr_l1_076",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.11 and P(B) = 0.09. What is P(A ∪ B)?",
+      "options": [
+        "0.80",
+        "0.02",
+        "0.01",
+        "0.20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the probability that neither event occurs, not the probability of the union.",
+        "B": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "C": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "D": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.11 + 0.09 = 0.20."
+      }
+    },
+    {
+      "id": "pr_l1_077",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.50 and P(B) = 0.20. What is P(A ∪ B)?",
+      "options": [
+        "0.70",
+        "0.10",
+        "0.30",
+        "0.35"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.50 + 0.20 = 0.70.",
+        "B": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "C": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "D": "This averages the two probabilities instead of summing them."
+      }
+    },
+    {
+      "id": "pr_l1_078",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.33 and P(B) = 0.17. What is P(A ∪ B)?",
+      "options": [
+        "0.16",
+        "0.50",
+        "0.25",
+        "0.06"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "B": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.33 + 0.17 = 0.50.",
+        "C": "This averages the two probabilities instead of summing them.",
+        "D": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events."
+      }
+    },
+    {
+      "id": "pr_l1_079",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.24 and P(B) = 0.36. What is P(A ∪ B)?",
+      "options": [
+        "0.12",
+        "0.09",
+        "0.60",
+        "0.40"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "B": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "C": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.24 + 0.36 = 0.60.",
+        "D": "This is the probability that neither event occurs, not the probability of the union."
+      }
+    },
+    {
+      "id": "pr_l1_080",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.07 and P(B) = 0.13. What is P(A ∪ B)?",
+      "options": [
+        "0.01",
+        "0.06",
+        "0.80",
+        "0.20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "B": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "C": "This is the probability that neither event occurs, not the probability of the union.",
+        "D": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.07 + 0.13 = 0.20."
+      }
+    },
+    {
+      "id": "pr_l1_081",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.42 and P(B) = 0.28. What is P(A ∪ B)?",
+      "options": [
+        "0.70",
+        "0.14",
+        "0.12",
+        "0.30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.42 + 0.28 = 0.70.",
+        "B": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "C": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "D": "This is the probability that neither event occurs, not the probability of the union."
+      }
+    },
+    {
+      "id": "pr_l1_082",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.19 and P(B) = 0.21. What is P(A ∪ B)?",
+      "options": [
+        "0.04",
+        "0.40",
+        "0.60",
+        "0.02"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "B": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.19 + 0.21 = 0.40.",
+        "C": "This is the probability that neither event occurs, not the probability of the union.",
+        "D": "This subtracts the probabilities; disjoint events add rather than subtract."
+      }
+    },
+    {
+      "id": "pr_l1_083",
+      "concept": "disjoint_union",
+      "question": "Events A and B are disjoint (mutually exclusive) with P(A) = 0.06 and P(B) = 0.14. What is P(A ∪ B)?",
+      "options": [
+        "0.01",
+        "0.08",
+        "0.20",
+        "0.80"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This multiplies the probabilities, which is for independent intersections, not unions of disjoint events.",
+        "B": "This subtracts the probabilities; disjoint events add rather than subtract.",
+        "C": "Correct. Disjoint events add, so P(A ∪ B) = P(A) + P(B) = 0.06 + 0.14 = 0.20.",
+        "D": "This is the probability that neither event occurs, not the probability of the union."
+      }
+    },
+    {
+      "id": "pr_l1_084",
+      "concept": "multiplication_rule",
+      "question": "If a lunch special offers 3 appetizers and 4 entrées, how many distinct ways are there to choose one of each?",
+      "options": [
+        "7",
+        "9",
+        "34",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This adds the two counts instead of multiplying the independent choices.",
+        "B": "This squares the first count instead of multiplying the two different counts.",
+        "C": "This writes the two counts side by side as digits rather than multiplying them.",
+        "D": "Correct. By the multiplication rule, each of the 3 appetizers pairs with each of the 4 entrées, giving 3 × 4 = 12."
+      }
+    },
+    {
+      "id": "pr_l1_085",
+      "concept": "multiplication_rule",
+      "question": "If a 2-character code uses 5 letters and 10 digits, how many distinct ways are there to choose one of each?",
+      "options": [
+        "50",
+        "25",
+        "510",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By the multiplication rule, each of the 5 letters pairs with each of the 10 digits, giving 5 × 10 = 50.",
+        "B": "This squares the first count instead of multiplying the two different counts.",
+        "C": "This writes the two counts side by side as digits rather than multiplying them.",
+        "D": "This adds the two counts instead of multiplying the independent choices."
+      }
+    },
+    {
+      "id": "pr_l1_086",
+      "concept": "multiplication_rule",
+      "question": "If a wardrobe has 6 shirts and 5 ties, how many distinct ways are there to choose one of each?",
+      "options": [
+        "65",
+        "30",
+        "11",
+        "36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This writes the two counts side by side as digits rather than multiplying them.",
+        "B": "Correct. By the multiplication rule, each of the 6 shirts pairs with each of the 5 ties, giving 6 × 5 = 30.",
+        "C": "This adds the two counts instead of multiplying the independent choices.",
+        "D": "This squares the first count instead of multiplying the two different counts."
+      }
+    },
+    {
+      "id": "pr_l1_087",
+      "concept": "multiplication_rule",
+      "question": "If a menu lists 2 soups and 6 mains, how many distinct ways are there to choose one of each?",
+      "options": [
+        "26",
+        "4",
+        "12",
+        "8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This writes the two counts side by side as digits rather than multiplying them.",
+        "B": "This squares the first count instead of multiplying the two different counts.",
+        "C": "Correct. By the multiplication rule, each of the 2 soups pairs with each of the 6 mains, giving 2 × 6 = 12.",
+        "D": "This adds the two counts instead of multiplying the independent choices."
+      }
+    },
+    {
+      "id": "pr_l1_088",
+      "concept": "multiplication_rule",
+      "question": "If a desk pairs 4 trading strategies and 7 risk limits, how many distinct ways are there to choose one of each?",
+      "options": [
+        "47",
+        "16",
+        "11",
+        "28"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This writes the two counts side by side as digits rather than multiplying them.",
+        "B": "This squares the first count instead of multiplying the two different counts.",
+        "C": "This adds the two counts instead of multiplying the independent choices.",
+        "D": "Correct. By the multiplication rule, each of the 4 trading strategies pairs with each of the 7 risk limits, giving 4 × 7 = 28."
+      }
+    },
+    {
+      "id": "pr_l1_089",
+      "concept": "multiplication_rule",
+      "question": "If an options screen shows 8 stocks and 3 expiry dates, how many distinct ways are there to choose one of each?",
+      "options": [
+        "24",
+        "64",
+        "11",
+        "83"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By the multiplication rule, each of the 8 stocks pairs with each of the 3 expiry dates, giving 8 × 3 = 24.",
+        "B": "This squares the first count instead of multiplying the two different counts.",
+        "C": "This adds the two counts instead of multiplying the independent choices.",
+        "D": "This writes the two counts side by side as digits rather than multiplying them."
+      }
+    },
+    {
+      "id": "pr_l1_090",
+      "concept": "multiplication_rule",
+      "question": "If a logistics plan offers 9 routes and 2 carriers, how many distinct ways are there to choose one of each?",
+      "options": [
+        "81",
+        "18",
+        "92",
+        "11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This squares the first count instead of multiplying the two different counts.",
+        "B": "Correct. By the multiplication rule, each of the 9 routes pairs with each of the 2 carriers, giving 9 × 2 = 18.",
+        "C": "This writes the two counts side by side as digits rather than multiplying them.",
+        "D": "This adds the two counts instead of multiplying the independent choices."
+      }
+    },
+    {
+      "id": "pr_l1_091",
+      "concept": "multiplication_rule",
+      "question": "If a quiz tags 7 questions and 6 difficulty levels, how many distinct ways are there to choose one of each?",
+      "options": [
+        "76",
+        "49",
+        "42",
+        "13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This writes the two counts side by side as digits rather than multiplying them.",
+        "B": "This squares the first count instead of multiplying the two different counts.",
+        "C": "Correct. By the multiplication rule, each of the 7 questions pairs with each of the 6 difficulty levels, giving 7 × 6 = 42.",
+        "D": "This adds the two counts instead of multiplying the independent choices."
+      }
+    },
+    {
+      "id": "pr_l1_092",
+      "concept": "multiplication_rule",
+      "question": "If an ice-cream shop offers 3 flavors and 12 toppings, how many distinct ways are there to choose one of each?",
+      "options": [
+        "312",
+        "9",
+        "15",
+        "36"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This writes the two counts side by side as digits rather than multiplying them.",
+        "B": "This squares the first count instead of multiplying the two different counts.",
+        "C": "This adds the two counts instead of multiplying the independent choices.",
+        "D": "Correct. By the multiplication rule, each of the 3 flavors pairs with each of the 12 toppings, giving 3 × 12 = 36."
+      }
+    },
+    {
+      "id": "pr_l1_093",
+      "concept": "multiplication_rule",
+      "question": "If a product comes in 10 colors and 6 sizes, how many distinct ways are there to choose one of each?",
+      "options": [
+        "60",
+        "16",
+        "106",
+        "100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By the multiplication rule, each of the 10 colors pairs with each of the 6 sizes, giving 10 × 6 = 60.",
+        "B": "This adds the two counts instead of multiplying the independent choices.",
+        "C": "This writes the two counts side by side as digits rather than multiplying them.",
+        "D": "This squares the first count instead of multiplying the two different counts."
+      }
+    },
+    {
+      "id": "pr_l1_094",
+      "concept": "multiplication_rule",
+      "question": "If a card game uses 4 suits and 9 card ranks, how many distinct ways are there to choose one of each?",
+      "options": [
+        "49",
+        "36",
+        "16",
+        "13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This writes the two counts side by side as digits rather than multiplying them.",
+        "B": "Correct. By the multiplication rule, each of the 4 suits pairs with each of the 9 card ranks, giving 4 × 9 = 36.",
+        "C": "This squares the first count instead of multiplying the two different counts.",
+        "D": "This adds the two counts instead of multiplying the independent choices."
+      }
+    },
+    {
+      "id": "pr_l1_095",
+      "concept": "multiplication_rule",
+      "question": "If a deployment spans 5 servers and 8 regions, how many distinct ways are there to choose one of each?",
+      "options": [
+        "13",
+        "58",
+        "40",
+        "25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This adds the two counts instead of multiplying the independent choices.",
+        "B": "This writes the two counts side by side as digits rather than multiplying them.",
+        "C": "Correct. By the multiplication rule, each of the 5 servers pairs with each of the 8 regions, giving 5 × 8 = 40.",
+        "D": "This squares the first count instead of multiplying the two different counts."
+      }
+    },
+    {
+      "id": "pr_l1_096",
+      "concept": "multiplication_rule",
+      "question": "If a broker connects 6 instruments and 9 venues, how many distinct ways are there to choose one of each?",
+      "options": [
+        "69",
+        "15",
+        "36",
+        "54"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This writes the two counts side by side as digits rather than multiplying them.",
+        "B": "This adds the two counts instead of multiplying the independent choices.",
+        "C": "This squares the first count instead of multiplying the two different counts.",
+        "D": "Correct. By the multiplication rule, each of the 6 instruments pairs with each of the 9 venues, giving 6 × 9 = 54."
+      }
+    },
+    {
+      "id": "pr_l1_097",
+      "concept": "multiplication_rule",
+      "question": "If an experiment combines 2 coins and 13 card ranks, how many distinct ways are there to choose one of each?",
+      "options": [
+        "26",
+        "15",
+        "4",
+        "213"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By the multiplication rule, each of the 2 coins pairs with each of the 13 card ranks, giving 2 × 13 = 26.",
+        "B": "This adds the two counts instead of multiplying the independent choices.",
+        "C": "This squares the first count instead of multiplying the two different counts.",
+        "D": "This writes the two counts side by side as digits rather than multiplying them."
+      }
+    },
+    {
+      "id": "pr_l1_098",
+      "concept": "multiplication_rule",
+      "question": "If a prix-fixe menu offers 3 appetizers, 4 entrées, and 2 desserts, how many distinct ways are there to pick one of each?",
+      "options": [
+        "8",
+        "24",
+        "9",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This multiplies only the last two stages and forgets the first.",
+        "B": "Correct. The multiplication rule chains all three stages: 3 × 4 × 2 = 24.",
+        "C": "This adds the three counts rather than multiplying the independent stages.",
+        "D": "This multiplies only the first two stages and forgets the third."
+      }
+    },
+    {
+      "id": "pr_l1_099",
+      "concept": "multiplication_rule",
+      "question": "If a password format uses 5 letters, 2 cases, and 6 digits, how many distinct ways are there to pick one of each?",
+      "options": [
+        "12",
+        "13",
+        "60",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This multiplies only the last two stages and forgets the first.",
+        "B": "This adds the three counts rather than multiplying the independent stages.",
+        "C": "Correct. The multiplication rule chains all three stages: 5 × 2 × 6 = 60.",
+        "D": "This multiplies only the first two stages and forgets the third."
+      }
+    },
+    {
+      "id": "pr_l1_100",
+      "concept": "multiplication_rule",
+      "question": "If an options matrix lists 4 stocks, 3 strikes, and 5 expiries, how many distinct ways are there to pick one of each?",
+      "options": [
+        "12",
+        "15",
+        "19",
+        "60"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This adds the three counts rather than multiplying the independent stages.",
+        "B": "This multiplies only the last two stages and forgets the first.",
+        "C": "This adds the first stage instead of multiplying it through.",
+        "D": "Correct. The multiplication rule chains all three stages: 4 × 3 × 5 = 60."
+      }
+    },
+    {
+      "id": "pr_l1_101",
+      "concept": "multiplication_rule",
+      "question": "If an identifier format uses 4 base symbols, 2 cases, and 3 digits, how many distinct ways are there to pick one of each?",
+      "options": [
+        "24",
+        "9",
+        "8",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The multiplication rule chains all three stages: 4 × 2 × 3 = 24.",
+        "B": "This adds the three counts rather than multiplying the independent stages.",
+        "C": "This multiplies only the first two stages and forgets the third.",
+        "D": "This multiplies only the last two stages and forgets the first."
+      }
+    },
+    {
+      "id": "pr_l1_102",
+      "concept": "expected_value_definition",
+      "question": "A random variable X equals 100 with probability 0.25 and 0 with probability 0.75. What is E[X]?",
+      "options": [
+        "0",
+        "25",
+        "75",
+        "50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses only the second outcome and ignores the first branch.",
+        "B": "Correct. E[X] = 0.25×100 + 0.75×(0) = 25.",
+        "C": "This applies each probability to the wrong value (the weights are swapped).",
+        "D": "This averages the two values without weighting by their probabilities."
+      }
+    },
+    {
+      "id": "pr_l1_103",
+      "concept": "expected_value_definition",
+      "question": "A random variable Y equals 10 with probability 0.60 and -5 with probability 0.40. What is E[Y]?",
+      "options": [
+        "2.5",
+        "-2",
+        "4",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This averages the two values without weighting by their probabilities.",
+        "B": "This uses only the second outcome and ignores the first branch.",
+        "C": "Correct. E[Y] = 0.60×10 + 0.40×(-5) = 4.",
+        "D": "This uses only the first outcome and ignores the second branch."
+      }
+    },
+    {
+      "id": "pr_l1_104",
+      "concept": "expected_value_definition",
+      "question": "A random variable X equals 24 with probability 0.50 and 4 with probability 0.50. What is E[X]?",
+      "options": [
+        "12",
+        "2",
+        "24",
+        "14"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the first outcome and ignores the second branch.",
+        "B": "This uses only the second outcome and ignores the first branch.",
+        "C": "This reports the first payoff itself rather than the probability-weighted average.",
+        "D": "Correct. E[X] = 0.50×24 + 0.50×(4) = 14."
+      }
+    },
+    {
+      "id": "pr_l1_105",
+      "concept": "expected_value_definition",
+      "question": "A random variable P equals 50 with probability 0.30 and -20 with probability 0.70. What is E[P]?",
+      "options": [
+        "1",
+        "29",
+        "15",
+        "-14"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[P] = 0.30×50 + 0.70×(-20) = 1.",
+        "B": "This applies each probability to the wrong value (the weights are swapped).",
+        "C": "This averages the two values without weighting by their probabilities.",
+        "D": "This uses only the second outcome and ignores the first branch."
+      }
+    },
+    {
+      "id": "pr_l1_106",
+      "concept": "expected_value_definition",
+      "question": "A random variable Q equals 5 with probability 0.80 and -15 with probability 0.20. What is E[Q]?",
+      "options": [
+        "4",
+        "1",
+        "-5",
+        "-3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses only the first outcome and ignores the second branch.",
+        "B": "Correct. E[Q] = 0.80×5 + 0.20×(-15) = 1.",
+        "C": "This averages the two values without weighting by their probabilities.",
+        "D": "This uses only the second outcome and ignores the first branch."
+      }
+    },
+    {
+      "id": "pr_l1_107",
+      "concept": "expected_value_definition",
+      "question": "A random variable Z equals 200 with probability 0.10 and -10 with probability 0.90. What is E[Z]?",
+      "options": [
+        "20",
+        "95",
+        "11",
+        "-9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses only the first outcome and ignores the second branch.",
+        "B": "This averages the two values without weighting by their probabilities.",
+        "C": "Correct. E[Z] = 0.10×200 + 0.90×(-10) = 11.",
+        "D": "This uses only the second outcome and ignores the first branch."
+      }
+    },
+    {
+      "id": "pr_l1_108",
+      "concept": "expected_value_definition",
+      "question": "A random variable X equals 30 with probability 0.40 and 10 with probability 0.60. What is E[X]?",
+      "options": [
+        "12",
+        "6",
+        "20",
+        "18"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the first outcome and ignores the second branch.",
+        "B": "This uses only the second outcome and ignores the first branch.",
+        "C": "This averages the two values without weighting by their probabilities.",
+        "D": "Correct. E[X] = 0.40×30 + 0.60×(10) = 18."
+      }
+    },
+    {
+      "id": "pr_l1_109",
+      "concept": "expected_value_definition",
+      "question": "A random variable W equals 8 with probability 0.75 and -8 with probability 0.25. What is E[W]?",
+      "options": [
+        "4",
+        "-2",
+        "0",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[W] = 0.75×8 + 0.25×(-8) = 4.",
+        "B": "This uses only the second outcome and ignores the first branch.",
+        "C": "This averages the two values without weighting by their probabilities.",
+        "D": "This uses only the first outcome and ignores the second branch."
+      }
+    },
+    {
+      "id": "pr_l1_110",
+      "concept": "expected_value_definition",
+      "question": "A random variable V equals 45 with probability 0.20 and 5 with probability 0.80. What is E[V]?",
+      "options": [
+        "9",
+        "13",
+        "4",
+        "25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses only the first outcome and ignores the second branch.",
+        "B": "Correct. E[V] = 0.20×45 + 0.80×(5) = 13.",
+        "C": "This uses only the second outcome and ignores the first branch.",
+        "D": "This averages the two values without weighting by their probabilities."
+      }
+    },
+    {
+      "id": "pr_l1_111",
+      "concept": "expected_value_definition",
+      "question": "A random variable U equals 2 with probability 0.90 and -18 with probability 0.10. What is E[U]?",
+      "options": [
+        "-8",
+        "-1.8",
+        "0",
+        "1.8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This averages the two values without weighting by their probabilities.",
+        "B": "This uses only the second outcome and ignores the first branch.",
+        "C": "Correct. E[U] = 0.90×2 + 0.10×(-18) = 0.",
+        "D": "This uses only the first outcome and ignores the second branch."
+      }
+    },
+    {
+      "id": "pr_l1_112",
+      "concept": "expected_value_definition",
+      "question": "A random variable T equals 40 with probability 0.45 and -20 with probability 0.55. What is E[T]?",
+      "options": [
+        "-11",
+        "18",
+        "10",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the second outcome and ignores the first branch.",
+        "B": "This uses only the first outcome and ignores the second branch.",
+        "C": "This averages the two values without weighting by their probabilities.",
+        "D": "Correct. E[T] = 0.45×40 + 0.55×(-20) = 7."
+      }
+    },
+    {
+      "id": "pr_l1_113",
+      "concept": "expected_value_definition",
+      "question": "A random variable R equals 60 with probability 0.15 and 0 with probability 0.85. What is E[R]?",
+      "options": [
+        "9",
+        "0",
+        "51",
+        "30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[R] = 0.15×60 + 0.85×(0) = 9.",
+        "B": "This uses only the second outcome and ignores the first branch.",
+        "C": "This applies each probability to the wrong value (the weights are swapped).",
+        "D": "This averages the two values without weighting by their probabilities."
+      }
+    },
+    {
+      "id": "pr_l1_114",
+      "concept": "expected_value_definition",
+      "question": "A random variable X equals 12 with probability 0.55 and -8 with probability 0.45. What is E[X]?",
+      "options": [
+        "2",
+        "3",
+        "6.6",
+        "-3.6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This averages the two values without weighting by their probabilities.",
+        "B": "Correct. E[X] = 0.55×12 + 0.45×(-8) = 3.",
+        "C": "This uses only the first outcome and ignores the second branch.",
+        "D": "This uses only the second outcome and ignores the first branch."
+      }
+    },
+    {
+      "id": "pr_l1_115",
+      "concept": "expected_value_definition",
+      "question": "A random variable Y equals 22 with probability 0.35 and -2 with probability 0.65. What is E[Y]?",
+      "options": [
+        "-1.3",
+        "10",
+        "6.4",
+        "7.7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses only the second outcome and ignores the first branch.",
+        "B": "This averages the two values without weighting by their probabilities.",
+        "C": "Correct. E[Y] = 0.35×22 + 0.65×(-2) = 6.4.",
+        "D": "This uses only the first outcome and ignores the second branch."
+      }
+    },
+    {
+      "id": "pr_l1_116",
+      "concept": "expected_value_definition",
+      "question": "A random variable S equals 14 with probability 0.65 and -6 with probability 0.35. What is E[S]?",
+      "options": [
+        "-2.1",
+        "4",
+        "9.1",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the second outcome and ignores the first branch.",
+        "B": "This averages the two values without weighting by their probabilities.",
+        "C": "This uses only the first outcome and ignores the second branch.",
+        "D": "Correct. E[S] = 0.65×14 + 0.35×(-6) = 7."
+      }
+    },
+    {
+      "id": "pr_l1_117",
+      "concept": "expected_value_game",
+      "question": "A quant interview game pays +$50 with probability 0.08 and −$10 (a loss) with probability 0.92. What is the expected profit?",
+      "options": [
+        "−$5.20",
+        "$4",
+        "$5.20",
+        "−$9.20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.08×(+$50) + 0.92×(−$10) = −$5.20.",
+        "B": "This uses only the winning branch and ignores the chance of losing.",
+        "C": "This makes a sign error, flipping the net result.",
+        "D": "This uses only the losing branch and ignores the chance of winning."
+      }
+    },
+    {
+      "id": "pr_l1_118",
+      "concept": "expected_value_game",
+      "question": "A fair-coin desk bet pays +$12 with probability 0.50 and −$8 (a loss) with probability 0.50. What is the expected profit?",
+      "options": [
+        "−$4",
+        "$2",
+        "−$2",
+        "$6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses only the losing branch and ignores the chance of winning.",
+        "B": "Correct. E = 0.50×(+$12) + 0.50×(−$8) = $2.",
+        "C": "This makes a sign error, flipping the net result.",
+        "D": "This uses only the winning branch and ignores the chance of losing."
+      }
+    },
+    {
+      "id": "pr_l1_119",
+      "concept": "expected_value_game",
+      "question": "A scalping trade pays +$25 with probability 0.20 and −$5 (a loss) with probability 0.80. What is the expected profit?",
+      "options": [
+        "−$1",
+        "−$4",
+        "$1",
+        "$5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This makes a sign error, flipping the net result.",
+        "B": "This uses only the losing branch and ignores the chance of winning.",
+        "C": "Correct. E = 0.20×(+$25) + 0.80×(−$5) = $1.",
+        "D": "This uses only the winning branch and ignores the chance of losing."
+      }
+    },
+    {
+      "id": "pr_l1_120",
+      "concept": "expected_value_game",
+      "question": "A long-shot prop bet pays +$40 with probability 0.10 and −$10 (a loss) with probability 0.90. What is the expected profit?",
+      "options": [
+        "$4",
+        "$5",
+        "−$9",
+        "−$5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the winning branch and ignores the chance of losing.",
+        "B": "This makes a sign error, flipping the net result.",
+        "C": "This uses only the losing branch and ignores the chance of winning.",
+        "D": "Correct. E = 0.10×(+$40) + 0.90×(−$10) = −$5."
+      }
+    },
+    {
+      "id": "pr_l1_121",
+      "concept": "expected_value_game",
+      "question": "A market-making fill pays +$15 with probability 0.40 and −$6 (a loss) with probability 0.60. What is the expected profit?",
+      "options": [
+        "$2.40",
+        "−$2.40",
+        "$6",
+        "−$3.60"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.40×(+$15) + 0.60×(−$6) = $2.40.",
+        "B": "This makes a sign error, flipping the net result.",
+        "C": "This uses only the winning branch and ignores the chance of losing.",
+        "D": "This uses only the losing branch and ignores the chance of winning."
+      }
+    },
+    {
+      "id": "pr_l1_122",
+      "concept": "expected_value_game",
+      "question": "A momentum trade pays +$20 with probability 0.30 and −$6 (a loss) with probability 0.70. What is the expected profit?",
+      "options": [
+        "$6",
+        "$1.80",
+        "−$4.20",
+        "−$1.80"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses only the winning branch and ignores the chance of losing.",
+        "B": "Correct. E = 0.30×(+$20) + 0.70×(−$6) = $1.80.",
+        "C": "This uses only the losing branch and ignores the chance of winning.",
+        "D": "This makes a sign error, flipping the net result."
+      }
+    },
+    {
+      "id": "pr_l1_123",
+      "concept": "expected_value_game",
+      "question": "A mean-reversion trade pays +$10 with probability 0.60 and −$12 (a loss) with probability 0.40. What is the expected profit?",
+      "options": [
+        "−$1.20",
+        "−$4.80",
+        "$1.20",
+        "$6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This makes a sign error, flipping the net result.",
+        "B": "This uses only the losing branch and ignores the chance of winning.",
+        "C": "Correct. E = 0.60×(+$10) + 0.40×(−$12) = $1.20.",
+        "D": "This uses only the winning branch and ignores the chance of losing."
+      }
+    },
+    {
+      "id": "pr_l1_124",
+      "concept": "expected_value_game",
+      "question": "A high-frequency quote pays +$4 with probability 0.75 and −$9 (a loss) with probability 0.25. What is the expected profit?",
+      "options": [
+        "−$0.75",
+        "−$2.25",
+        "$3",
+        "$0.75"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This makes a sign error, flipping the net result.",
+        "B": "This uses only the losing branch and ignores the chance of winning.",
+        "C": "This uses only the winning branch and ignores the chance of losing.",
+        "D": "Correct. E = 0.75×(+$4) + 0.25×(−$9) = $0.75."
+      }
+    },
+    {
+      "id": "pr_l1_125",
+      "concept": "expected_value_game",
+      "question": "An arbitrage attempt pays +$30 with probability 0.25 and −$8 (a loss) with probability 0.75. What is the expected profit?",
+      "options": [
+        "$1.50",
+        "−$6",
+        "$7.50",
+        "−$1.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.25×(+$30) + 0.75×(−$8) = $1.50.",
+        "B": "This uses only the losing branch and ignores the chance of winning.",
+        "C": "This uses only the winning branch and ignores the chance of losing.",
+        "D": "This makes a sign error, flipping the net result."
+      }
+    },
+    {
+      "id": "pr_l1_126",
+      "concept": "expected_value_game",
+      "question": "A tail-hedge bet pays +$50 with probability 0.15 and −$6 (a loss) with probability 0.85. What is the expected profit?",
+      "options": [
+        "−$5.10",
+        "$2.40",
+        "−$2.40",
+        "$7.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses only the losing branch and ignores the chance of winning.",
+        "B": "Correct. E = 0.15×(+$50) + 0.85×(−$6) = $2.40.",
+        "C": "This makes a sign error, flipping the net result.",
+        "D": "This uses only the winning branch and ignores the chance of losing."
+      }
+    },
+    {
+      "id": "pr_l1_127",
+      "concept": "expected_value_game",
+      "question": "A pairs trade pays +$20 with probability 0.35 and −$10 (a loss) with probability 0.65. What is the expected profit?",
+      "options": [
+        "−$6.50",
+        "−$0.50",
+        "$0.50",
+        "$7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses only the losing branch and ignores the chance of winning.",
+        "B": "This makes a sign error, flipping the net result.",
+        "C": "Correct. E = 0.35×(+$20) + 0.65×(−$10) = $0.50.",
+        "D": "This uses only the winning branch and ignores the chance of losing."
+      }
+    },
+    {
+      "id": "pr_l1_128",
+      "concept": "expected_value_game",
+      "question": "A spread trade pays +$22 with probability 0.45 and −$18 (a loss) with probability 0.55. What is the expected profit?",
+      "options": [
+        "−$9.90",
+        "$9.90",
+        "$4",
+        "$0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the losing branch and ignores the chance of winning.",
+        "B": "This uses only the winning branch and ignores the chance of losing.",
+        "C": "This applies each probability to the wrong payoff (win and loss weights are swapped).",
+        "D": "Correct. E = 0.45×(+$22) + 0.55×(−$18) = $0."
+      }
+    },
+    {
+      "id": "pr_l1_129",
+      "concept": "expected_value_game",
+      "question": "A coin-flip wager pays +$30 with probability 0.50 and −$10 (a loss) with probability 0.50. What is the expected profit?",
+      "options": [
+        "$10",
+        "−$10",
+        "$15",
+        "−$5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.50×(+$30) + 0.50×(−$10) = $10.",
+        "B": "This makes a sign error, flipping the net result.",
+        "C": "This uses only the winning branch and ignores the chance of losing.",
+        "D": "This uses only the losing branch and ignores the chance of winning."
+      }
+    },
+    {
+      "id": "pr_l1_130",
+      "concept": "expected_value_game",
+      "question": "A lottery-style ticket pays +$60 with probability 0.20 and −$10 (a loss) with probability 0.80. What is the expected profit?",
+      "options": [
+        "−$8",
+        "$4",
+        "−$4",
+        "$12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses only the losing branch and ignores the chance of winning.",
+        "B": "Correct. E = 0.20×(+$60) + 0.80×(−$10) = $4.",
+        "C": "This makes a sign error, flipping the net result.",
+        "D": "This uses only the winning branch and ignores the chance of losing."
+      }
+    },
+    {
+      "id": "pr_l1_131",
+      "concept": "expected_value_game",
+      "question": "A short-vol trade pays +$3 with probability 0.90 and −$20 (a loss) with probability 0.10. What is the expected profit?",
+      "options": [
+        "−$0.70",
+        "−$2",
+        "$0.70",
+        "$2.70"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This makes a sign error, flipping the net result.",
+        "B": "This uses only the losing branch and ignores the chance of winning.",
+        "C": "Correct. E = 0.90×(+$3) + 0.10×(−$20) = $0.70.",
+        "D": "This uses only the winning branch and ignores the chance of losing."
+      }
+    },
+    {
+      "id": "pr_l1_132",
+      "concept": "expected_value_game",
+      "question": "A directional bet pays +$11 with probability 0.55 and −$9 (a loss) with probability 0.45. What is the expected profit?",
+      "options": [
+        "$6.05",
+        "−$2",
+        "−$4.05",
+        "$2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the winning branch and ignores the chance of losing.",
+        "B": "This makes a sign error, flipping the net result.",
+        "C": "This uses only the losing branch and ignores the chance of winning.",
+        "D": "Correct. E = 0.55×(+$11) + 0.45×(−$9) = $2."
+      }
+    },
+    {
+      "id": "pr_l1_133",
+      "concept": "expected_value_game",
+      "question": "A jackpot prop bet pays +$100 with probability 0.05 and −$4 (a loss) with probability 0.95. What is the expected profit?",
+      "options": [
+        "$1.20",
+        "$5",
+        "−$1.20",
+        "−$3.80"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.05×(+$100) + 0.95×(−$4) = $1.20.",
+        "B": "This uses only the winning branch and ignores the chance of losing.",
+        "C": "This makes a sign error, flipping the net result.",
+        "D": "This uses only the losing branch and ignores the chance of winning."
+      }
+    },
+    {
+      "id": "pr_l1_134",
+      "concept": "expected_value_game",
+      "question": "A carry trade pays +$6 with probability 0.70 and −$12 (a loss) with probability 0.30. What is the expected profit?",
+      "options": [
+        "−$0.60",
+        "$0.60",
+        "$4.20",
+        "−$3.60"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This makes a sign error, flipping the net result.",
+        "B": "Correct. E = 0.70×(+$6) + 0.30×(−$12) = $0.60.",
+        "C": "This uses only the winning branch and ignores the chance of losing.",
+        "D": "This uses only the losing branch and ignores the chance of winning."
+      }
+    },
+    {
+      "id": "pr_l1_135",
+      "concept": "expected_value_game",
+      "question": "An overnight hold pays +$9 with probability 0.65 and −$11 (a loss) with probability 0.35. What is the expected profit?",
+      "options": [
+        "−$2",
+        "$5.85",
+        "$2",
+        "−$3.85"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This makes a sign error, flipping the net result.",
+        "B": "This uses only the winning branch and ignores the chance of losing.",
+        "C": "Correct. E = 0.65×(+$9) + 0.35×(−$11) = $2.",
+        "D": "This uses only the losing branch and ignores the chance of winning."
+      }
+    },
+    {
+      "id": "pr_l1_136",
+      "concept": "expected_value_game",
+      "question": "A breakout trade pays +$35 with probability 0.18 and −$5 (a loss) with probability 0.82. What is the expected profit?",
+      "options": [
+        "−$4.10",
+        "−$2.20",
+        "$6.30",
+        "$2.20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses only the losing branch and ignores the chance of winning.",
+        "B": "This makes a sign error, flipping the net result.",
+        "C": "This uses only the winning branch and ignores the chance of losing.",
+        "D": "Correct. E = 0.18×(+$35) + 0.82×(−$5) = $2.20."
+      }
+    },
+    {
+      "id": "pr_l1_137",
+      "concept": "expected_value_game",
+      "question": "A ticket costs $2. It pays $100 with probability 0.01 and nothing otherwise. What is the expected NET profit after paying for the ticket?",
+      "options": [
+        "−$1",
+        "$1",
+        "−$2",
+        "$98"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Gross expected payout = 0.01×$100 = $1; net = $1 − $2 = −$1.",
+        "B": "This is the gross expected payout and forgets to subtract the ticket cost.",
+        "C": "This ignores the expected payout entirely and counts only the cost.",
+        "D": "This treats the jackpot as guaranteed and ignores the tiny win probability."
+      }
+    },
+    {
+      "id": "pr_l1_138",
+      "concept": "expected_value_game",
+      "question": "A ticket costs $5. It pays $1000 with probability 0.00 and nothing otherwise. What is the expected NET profit after paying for the ticket?",
+      "options": [
+        "$4",
+        "−$1",
+        "−$5",
+        "$995"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the gross expected payout and forgets to subtract the ticket cost.",
+        "B": "Correct. Gross expected payout = 0.00×$1000 = $4; net = $4 − $5 = −$1.",
+        "C": "This ignores the expected payout entirely and counts only the cost.",
+        "D": "This treats the jackpot as guaranteed and ignores the tiny win probability."
+      }
+    },
+    {
+      "id": "pr_l1_139",
+      "concept": "expected_value_game",
+      "question": "A ticket costs $1. It pays $50 with probability 0.02 and nothing otherwise. What is the expected NET profit after paying for the ticket?",
+      "options": [
+        "$0.75",
+        "−$1",
+        "−$0.25",
+        "$49"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the gross expected payout and forgets to subtract the ticket cost.",
+        "B": "This ignores the expected payout entirely and counts only the cost.",
+        "C": "Correct. Gross expected payout = 0.02×$50 = $0.75; net = $0.75 − $1 = −$0.25.",
+        "D": "This treats the jackpot as guaranteed and ignores the tiny win probability."
+      }
+    },
+    {
+      "id": "pr_l1_140",
+      "concept": "expected_value_game",
+      "question": "A ticket costs $10. It pays $500 with probability 0.02 and nothing otherwise. What is the expected NET profit after paying for the ticket?",
+      "options": [
+        "$9",
+        "−$10",
+        "$490",
+        "−$1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the gross expected payout and forgets to subtract the ticket cost.",
+        "B": "This ignores the expected payout entirely and counts only the cost.",
+        "C": "This treats the jackpot as guaranteed and ignores the tiny win probability.",
+        "D": "Correct. Gross expected payout = 0.02×$500 = $9; net = $9 − $10 = −$1."
+      }
+    },
+    {
+      "id": "pr_l1_141",
+      "concept": "expected_value_game",
+      "question": "A ticket costs $3. It pays $200 with probability 0.01 and nothing otherwise. What is the expected NET profit after paying for the ticket?",
+      "options": [
+        "−$0.60",
+        "−$3",
+        "$197",
+        "$2.40"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Gross expected payout = 0.01×$200 = $2.40; net = $2.40 − $3 = −$0.60.",
+        "B": "This ignores the expected payout entirely and counts only the cost.",
+        "C": "This treats the jackpot as guaranteed and ignores the tiny win probability.",
+        "D": "This is the gross expected payout and forgets to subtract the ticket cost."
+      }
+    },
+    {
+      "id": "pr_l1_142",
+      "concept": "expected_value_definition",
+      "question": "In a one-round trading game, the profit is 20 with probability 0.35, -6 with probability 0.45, 0 with probability 0.20. What is the expected profit?",
+      "options": [
+        "7",
+        "4.3",
+        "4.67",
+        "-4.3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This keeps only the gains and drops the loss branches.",
+        "B": "Correct. E = 0.35×(20) + 0.45×(-6) + 0.20×(0) = 4.3.",
+        "C": "This averages the outcome values without weighting by their probabilities.",
+        "D": "This flips the sign of the expected value, a common arithmetic slip."
+      }
+    },
+    {
+      "id": "pr_l1_143",
+      "concept": "expected_value_definition",
+      "question": "In a three-outcome wager, the profit is 10 with probability 0.50, -4 with probability 0.30, -10 with probability 0.20. What is the expected profit?",
+      "options": [
+        "-1.33",
+        "5",
+        "1.8",
+        "3.8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This averages the outcome values without weighting by their probabilities.",
+        "B": "This keeps only the gains and drops the loss branches.",
+        "C": "Correct. E = 0.50×(10) + 0.30×(-4) + 0.20×(-10) = 1.8.",
+        "D": "This omits the final branch; every outcome must enter the weighted sum."
+      }
+    },
+    {
+      "id": "pr_l1_144",
+      "concept": "expected_value_definition",
+      "question": "In a structured prop bet, the profit is 30 with probability 0.20, 0 with probability 0.50, -10 with probability 0.30. What is the expected profit?",
+      "options": [
+        "6.67",
+        "-3",
+        "6",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This averages the outcome values without weighting by their probabilities.",
+        "B": "This flips the sign of the expected value, a common arithmetic slip.",
+        "C": "This omits the final branch; every outcome must enter the weighted sum.",
+        "D": "Correct. E = 0.20×(30) + 0.50×(0) + 0.30×(-10) = 3."
+      }
+    },
+    {
+      "id": "pr_l1_145",
+      "concept": "expected_value_definition",
+      "question": "In a portfolio scenario, the profit is 40 with probability 0.25, 8 with probability 0.25, -12 with probability 0.50. What is the expected profit?",
+      "options": [
+        "6",
+        "12",
+        "-6",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.25×(40) + 0.25×(8) + 0.50×(-12) = 6.",
+        "B": "This omits the final branch; every outcome must enter the weighted sum.",
+        "C": "This flips the sign of the expected value, a common arithmetic slip.",
+        "D": "This sums the outcome values with no probability weighting at all."
+      }
+    },
+    {
+      "id": "pr_l1_146",
+      "concept": "expected_value_definition",
+      "question": "In a venture-style payoff, the profit is 100 with probability 0.10, 10 with probability 0.40, -8 with probability 0.50. What is the expected profit?",
+      "options": [
+        "34",
+        "10",
+        "14",
+        "-10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This averages the outcome values without weighting by their probabilities.",
+        "B": "Correct. E = 0.10×(100) + 0.40×(10) + 0.50×(-8) = 10.",
+        "C": "This omits the final branch; every outcome must enter the weighted sum.",
+        "D": "This flips the sign of the expected value, a common arithmetic slip."
+      }
+    },
+    {
+      "id": "pr_l1_147",
+      "concept": "expected_value_definition",
+      "question": "In a tiered rebate, the profit is 15 with probability 0.40, -5 with probability 0.40, 25 with probability 0.20. What is the expected profit?",
+      "options": [
+        "4",
+        "11",
+        "9",
+        "11.67"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This omits the final branch; every outcome must enter the weighted sum.",
+        "B": "This keeps only the gains and drops the loss branches.",
+        "C": "Correct. E = 0.40×(15) + 0.40×(-5) + 0.20×(25) = 9.",
+        "D": "This averages the outcome values without weighting by their probabilities."
+      }
+    },
+    {
+      "id": "pr_l1_148",
+      "concept": "expected_value_two_dice",
+      "question": "2 fair six-sided dice are rolled. What is the expected value of the total (sum of all faces)?",
+      "options": [
+        "8",
+        "6",
+        "3.5",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This rounds each die's mean up to 4 instead of using 3.5.",
+        "B": "This uses 3 per die instead of the correct mean of 3.5.",
+        "C": "This gives the mean of a single die and forgets there are 2 dice.",
+        "D": "Correct. Each die has mean 3.5, and expectation is additive, so E[sum] = 2×3.5 = 7."
+      }
+    },
+    {
+      "id": "pr_l1_149",
+      "concept": "expected_value_two_dice",
+      "question": "3 fair six-sided dice are rolled. What is the expected value of the total (sum of all faces)?",
+      "options": [
+        "10.5",
+        "9",
+        "12",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each die has mean 3.5, and expectation is additive, so E[sum] = 3×3.5 = 10.5.",
+        "B": "This uses 3 per die instead of the correct mean of 3.5.",
+        "C": "This rounds each die's mean up to 4 instead of using 3.5.",
+        "D": "This gives the mean of a single die and forgets there are 3 dice."
+      }
+    },
+    {
+      "id": "pr_l1_150",
+      "concept": "expected_value_two_dice",
+      "question": "4 fair six-sided dice are rolled. What is the expected value of the total (sum of all faces)?",
+      "options": [
+        "3.5",
+        "14",
+        "16",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This gives the mean of a single die and forgets there are 4 dice.",
+        "B": "Correct. Each die has mean 3.5, and expectation is additive, so E[sum] = 4×3.5 = 14.",
+        "C": "This rounds each die's mean up to 4 instead of using 3.5.",
+        "D": "This uses 3 per die instead of the correct mean of 3.5."
+      }
+    },
+    {
+      "id": "pr_l1_151",
+      "concept": "expected_value_two_dice",
+      "question": "5 fair six-sided dice are rolled. What is the expected value of the total (sum of all faces)?",
+      "options": [
+        "20",
+        "3.5",
+        "17.5",
+        "15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This rounds each die's mean up to 4 instead of using 3.5.",
+        "B": "This gives the mean of a single die and forgets there are 5 dice.",
+        "C": "Correct. Each die has mean 3.5, and expectation is additive, so E[sum] = 5×3.5 = 17.5.",
+        "D": "This uses 3 per die instead of the correct mean of 3.5."
+      }
+    },
+    {
+      "id": "pr_l1_152",
+      "concept": "expected_value_two_dice",
+      "question": "A single fair six-sided die is rolled. What is the expected face value?",
+      "options": [
+        "3",
+        "6",
+        "4",
+        "3.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This ignores that faces 4, 5, and 6 pull the average above 3.",
+        "B": "This uses the maximum face rather than the average of all six.",
+        "C": "This overshoots; the lower faces balance the higher ones at 3.5, not 4.",
+        "D": "Correct. E = (1+2+3+4+5+6)/6 = 21/6 = 3.5."
+      }
+    },
+    {
+      "id": "pr_l1_153",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled and the sum is recorded. Which sum is the most likely?",
+      "options": [
+        "7",
+        "6",
+        "12",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Seven arises from 6 ordered pairs (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) — more than any other sum.",
+        "B": "Six has 5 ordered pairs, one fewer than seven.",
+        "C": "Twelve has just 1 ordered pair (6,6), the least likely sum.",
+        "D": "Eight also has 5 ordered pairs, fewer than seven."
+      }
+    },
+    {
+      "id": "pr_l1_154",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 2?",
+      "options": [
+        "1/6",
+        "1/36",
+        "1/18",
+        "1/12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "B": "Correct. There are 1 ordered pairs summing to 2 out of 36 equally likely pairs, so the probability is 1/36 = 1/36.",
+        "C": "This counts one too many ordered pairs for this sum.",
+        "D": "This counts two too many ordered pairs for this sum."
+      }
+    },
+    {
+      "id": "pr_l1_155",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 4?",
+      "options": [
+        "1/9",
+        "1/2",
+        "1/12",
+        "1/36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts one too many ordered pairs for this sum.",
+        "B": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "C": "Correct. There are 3 ordered pairs summing to 4 out of 36 equally likely pairs, so the probability is 3/36 = 1/12.",
+        "D": "This counts only one ordered pair, ignoring the other ways to make the sum."
+      }
+    },
+    {
+      "id": "pr_l1_156",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 5?",
+      "options": [
+        "5/36",
+        "2/3",
+        "1/36",
+        "1/9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts one too many ordered pairs for this sum.",
+        "B": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "C": "This counts only one ordered pair, ignoring the other ways to make the sum.",
+        "D": "Correct. There are 4 ordered pairs summing to 5 out of 36 equally likely pairs, so the probability is 4/36 = 1/9."
+      }
+    },
+    {
+      "id": "pr_l1_157",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 6?",
+      "options": [
+        "5/36",
+        "5/6",
+        "1/6",
+        "1/36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 5 ordered pairs summing to 6 out of 36 equally likely pairs, so the probability is 5/36 = 5/36.",
+        "B": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "C": "This counts one too many ordered pairs for this sum.",
+        "D": "This counts only one ordered pair, ignoring the other ways to make the sum."
+      }
+    },
+    {
+      "id": "pr_l1_158",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 7?",
+      "options": [
+        "7/36",
+        "1/6",
+        "1/36",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts one too many ordered pairs for this sum.",
+        "B": "Correct. There are 6 ordered pairs summing to 7 out of 36 equally likely pairs, so the probability is 6/36 = 1/6.",
+        "C": "This counts only one ordered pair, ignoring the other ways to make the sum.",
+        "D": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice)."
+      }
+    },
+    {
+      "id": "pr_l1_159",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 8?",
+      "options": [
+        "1/6",
+        "1/36",
+        "5/36",
+        "5/6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts one too many ordered pairs for this sum.",
+        "B": "This counts only one ordered pair, ignoring the other ways to make the sum.",
+        "C": "Correct. There are 5 ordered pairs summing to 8 out of 36 equally likely pairs, so the probability is 5/36 = 5/36.",
+        "D": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice)."
+      }
+    },
+    {
+      "id": "pr_l1_160",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 9?",
+      "options": [
+        "1/36",
+        "2/3",
+        "5/36",
+        "1/9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts only one ordered pair, ignoring the other ways to make the sum.",
+        "B": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "C": "This counts one too many ordered pairs for this sum.",
+        "D": "Correct. There are 4 ordered pairs summing to 9 out of 36 equally likely pairs, so the probability is 4/36 = 1/9."
+      }
+    },
+    {
+      "id": "pr_l1_161",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 10?",
+      "options": [
+        "1/12",
+        "1/2",
+        "1/36",
+        "1/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 3 ordered pairs summing to 10 out of 36 equally likely pairs, so the probability is 3/36 = 1/12.",
+        "B": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "C": "This counts only one ordered pair, ignoring the other ways to make the sum.",
+        "D": "This counts one too many ordered pairs for this sum."
+      }
+    },
+    {
+      "id": "pr_l1_162",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 11?",
+      "options": [
+        "1/3",
+        "1/18",
+        "1/12",
+        "1/36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "B": "Correct. There are 2 ordered pairs summing to 11 out of 36 equally likely pairs, so the probability is 2/36 = 1/18.",
+        "C": "This counts one too many ordered pairs for this sum.",
+        "D": "This counts only one ordered pair, ignoring the other ways to make the sum."
+      }
+    },
+    {
+      "id": "pr_l1_163",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum equals 12?",
+      "options": [
+        "1/6",
+        "1/12",
+        "1/36",
+        "1/18"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This divides by 6 (one die) instead of 36 (ordered pairs of two dice).",
+        "B": "This counts two too many ordered pairs for this sum.",
+        "C": "Correct. There are 1 ordered pairs summing to 12 out of 36 equally likely pairs, so the probability is 1/36 = 1/36.",
+        "D": "This counts one too many ordered pairs for this sum."
+      }
+    },
+    {
+      "id": "pr_l1_164",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability the two dice show the same value (doubles)?",
+      "options": [
+        "1/12",
+        "1/2",
+        "1/36",
+        "1/6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This halves the correct count of doubles.",
+        "B": "This guesses one-half with no basis in the 36 equally likely pairs.",
+        "C": "This counts only one specific double rather than all six.",
+        "D": "Correct. The doubles are (1,1)…(6,6): 6 ordered pairs out of 36, so 6/36 = 1/6."
+      }
+    },
+    {
+      "id": "pr_l1_165",
+      "concept": "expected_value_two_dice",
+      "question": "Two fair dice are rolled. What is the probability that the sum is even?",
+      "options": [
+        "1/2",
+        "1/3",
+        "2/3",
+        "1/6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Even sums (2,4,6,8,10,12) account for 1+3+5+5+3+1 = 18 of the 36 ordered pairs, i.e. 1/2.",
+        "B": "This undercounts; exactly half of the 36 pairs give an even sum.",
+        "C": "This overcounts; even and odd sums split the 36 pairs evenly.",
+        "D": "This treats even sums as a single outcome rather than counting all favorable pairs."
+      }
+    },
+    {
+      "id": "pr_l1_166",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.40, P(B) = 0.55, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
+      "options": [
+        "0.65",
+        "0.80",
+        "0.95",
+        "0.15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This subtracts the overlap twice instead of once.",
+        "B": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.40 + 0.55 − 0.15 = 0.80.",
+        "C": "This forgets to subtract the overlap, double-counting the intersection.",
+        "D": "This reports the intersection instead of the union."
+      }
+    },
+    {
+      "id": "pr_l1_167",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.50, P(B) = 0.40, and P(A ∩ B) = 0.20. What is P(A ∪ B)?",
+      "options": [
+        "0.90",
+        "0.50",
+        "0.70",
+        "0.20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This forgets to subtract the overlap, double-counting the intersection.",
+        "B": "This subtracts the overlap twice instead of once.",
+        "C": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.50 + 0.40 − 0.20 = 0.70.",
+        "D": "This reports the intersection instead of the union."
+      }
+    },
+    {
+      "id": "pr_l1_168",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.30, P(B) = 0.60, and P(A ∩ B) = 0.10. What is P(A ∪ B)?",
+      "options": [
+        "0.90",
+        "0.70",
+        "0.10",
+        "0.80"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This forgets to subtract the overlap, double-counting the intersection.",
+        "B": "This subtracts the overlap twice instead of once.",
+        "C": "This reports the intersection instead of the union.",
+        "D": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.30 + 0.60 − 0.10 = 0.80."
+      }
+    },
+    {
+      "id": "pr_l1_169",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.45, P(B) = 0.35, and P(A ∩ B) = 0.05. What is P(A ∪ B)?",
+      "options": [
+        "0.75",
+        "0.05",
+        "0.80",
+        "0.70"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.45 + 0.35 − 0.05 = 0.75.",
+        "B": "This reports the intersection instead of the union.",
+        "C": "This forgets to subtract the overlap, double-counting the intersection.",
+        "D": "This subtracts the overlap twice instead of once."
+      }
+    },
+    {
+      "id": "pr_l1_170",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.60, P(B) = 0.50, and P(A ∩ B) = 0.30. What is P(A ∪ B)?",
+      "options": [
+        "0.30",
+        "0.80",
+        "1.10",
+        "0.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This reports the intersection instead of the union.",
+        "B": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.60 + 0.50 − 0.30 = 0.80.",
+        "C": "This forgets to subtract the overlap, double-counting the intersection.",
+        "D": "This subtracts the overlap twice instead of once."
+      }
+    },
+    {
+      "id": "pr_l1_171",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.25, P(B) = 0.40, and P(A ∩ B) = 0.10. What is P(A ∪ B)?",
+      "options": [
+        "0.10",
+        "0.45",
+        "0.55",
+        "0.65"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This reports the intersection instead of the union.",
+        "B": "This subtracts the overlap twice instead of once.",
+        "C": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.25 + 0.40 − 0.10 = 0.55.",
+        "D": "This forgets to subtract the overlap, double-counting the intersection."
+      }
+    },
+    {
+      "id": "pr_l1_172",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.70, P(B) = 0.20, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
+      "options": [
+        "0.90",
+        "0.15",
+        "0.60",
+        "0.75"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This forgets to subtract the overlap, double-counting the intersection.",
+        "B": "This reports the intersection instead of the union.",
+        "C": "This subtracts the overlap twice instead of once.",
+        "D": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.70 + 0.20 − 0.15 = 0.75."
+      }
+    },
+    {
+      "id": "pr_l1_173",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.35, P(B) = 0.45, and P(A ∩ B) = 0.20. What is P(A ∪ B)?",
+      "options": [
+        "0.60",
+        "0.20",
+        "0.40",
+        "0.80"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.35 + 0.45 − 0.20 = 0.60.",
+        "B": "This reports the intersection instead of the union.",
+        "C": "This subtracts the overlap twice instead of once.",
+        "D": "This forgets to subtract the overlap, double-counting the intersection."
+      }
+    },
+    {
+      "id": "pr_l1_174",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.50, P(B) = 0.50, and P(A ∩ B) = 0.25. What is P(A ∪ B)?",
+      "options": [
+        "0.25",
+        "0.75",
+        "0.50",
+        "1.00"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This reports the intersection instead of the union.",
+        "B": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.50 + 0.50 − 0.25 = 0.75.",
+        "C": "This subtracts the overlap twice instead of once.",
+        "D": "This forgets to subtract the overlap, double-counting the intersection."
+      }
+    },
+    {
+      "id": "pr_l1_175",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.20, P(B) = 0.30, and P(A ∩ B) = 0.05. What is P(A ∪ B)?",
+      "options": [
+        "0.40",
+        "0.50",
+        "0.45",
+        "0.05"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This subtracts the overlap twice instead of once.",
+        "B": "This forgets to subtract the overlap, double-counting the intersection.",
+        "C": "Correct. By inclusion–exclusion, P(A ∪ B) = 0.20 + 0.30 − 0.05 = 0.45.",
+        "D": "This reports the intersection instead of the union."
+      }
+    },
+    {
+      "id": "pr_l1_176",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.40, P(B) = 0.55, and P(A ∪ B) = 0.80. What is P(A ∩ B)?",
+      "options": [
+        "0.22",
+        "0.65",
+        "0.40",
+        "0.15"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This assumes independence, but the overlap is fixed by inclusion–exclusion here.",
+        "B": "This combines the wrong quantities; the intersection is the sum of marginals minus the union.",
+        "C": "This subtracts only one marginal from the union instead of both from the marginals' sum.",
+        "D": "Correct. Rearranging inclusion–exclusion, P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0.40 + 0.55 − 0.80 = 0.15."
+      }
+    },
+    {
+      "id": "pr_l1_177",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.50, P(B) = 0.45, and P(A ∪ B) = 0.75. What is P(A ∩ B)?",
+      "options": [
+        "0.20",
+        "0.23",
+        "0.25",
+        "0.70"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Rearranging inclusion–exclusion, P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0.50 + 0.45 − 0.75 = 0.20.",
+        "B": "This assumes independence, but the overlap is fixed by inclusion–exclusion here.",
+        "C": "This subtracts only one marginal from the union instead of both from the marginals' sum.",
+        "D": "This combines the wrong quantities; the intersection is the sum of marginals minus the union."
+      }
+    },
+    {
+      "id": "pr_l1_178",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.30, P(B) = 0.60, and P(A ∪ B) = 0.70. What is P(A ∩ B)?",
+      "options": [
+        "1.60",
+        "0.20",
+        "0.40",
+        "0.18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This adds the union instead of subtracting it.",
+        "B": "Correct. Rearranging inclusion–exclusion, P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0.30 + 0.60 − 0.70 = 0.20.",
+        "C": "This combines the wrong quantities; the intersection is the sum of marginals minus the union.",
+        "D": "This assumes independence, but the overlap is fixed by inclusion–exclusion here."
+      }
+    },
+    {
+      "id": "pr_l1_179",
+      "concept": "inclusion_exclusion_basics",
+      "question": "Events A and B satisfy P(A) = 0.50, P(B) = 0.50, and P(A ∪ B) = 0.60. What is P(A ∩ B)?",
+      "options": [
+        "0.10",
+        "0.25",
+        "0.40",
+        "0.60"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This subtracts only one marginal from the union instead of both from the marginals' sum.",
+        "B": "This assumes independence, but the overlap is fixed by inclusion–exclusion here.",
+        "C": "Correct. Rearranging inclusion–exclusion, P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0.50 + 0.50 − 0.60 = 0.40.",
+        "D": "This combines the wrong quantities; the intersection is the sum of marginals minus the union."
+      }
+    },
+    {
+      "id": "pr_l1_180",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.40 and P(B) = 0.60, what is the maximum possible value of P(A ∩ B)?",
+      "options": [
+        "1.00",
+        "0.60",
+        "0.24",
+        "0.40"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This adds the probabilities, but the intersection cannot exceed the smaller one.",
+        "B": "This uses the larger probability, but the intersection cannot exceed the smaller event.",
+        "C": "This is the intersection under independence, which is not the maximum.",
+        "D": "Correct. The intersection cannot exceed either event, so its maximum is min(P(A), P(B)) = 0.40, achieved when the smaller event lies inside the larger."
+      }
+    },
+    {
+      "id": "pr_l1_181",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.30 and P(B) = 0.50, what is the maximum possible value of P(A ∩ B)?",
+      "options": [
+        "0.30",
+        "0.80",
+        "0.15",
+        "0.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The intersection cannot exceed either event, so its maximum is min(P(A), P(B)) = 0.30, achieved when the smaller event lies inside the larger.",
+        "B": "This adds the probabilities, but the intersection cannot exceed the smaller one.",
+        "C": "This is the intersection under independence, which is not the maximum.",
+        "D": "This uses the larger probability, but the intersection cannot exceed the smaller event."
+      }
+    },
+    {
+      "id": "pr_l1_182",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.70 and P(B) = 0.20, what is the maximum possible value of P(A ∩ B)?",
+      "options": [
+        "0.70",
+        "0.20",
+        "0.14",
+        "0.90"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the larger probability, but the intersection cannot exceed the smaller event.",
+        "B": "Correct. The intersection cannot exceed either event, so its maximum is min(P(A), P(B)) = 0.20, achieved when the smaller event lies inside the larger.",
+        "C": "This is the intersection under independence, which is not the maximum.",
+        "D": "This adds the probabilities, but the intersection cannot exceed the smaller one."
+      }
+    },
+    {
+      "id": "pr_l1_183",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.45 and P(B) = 0.55, what is the maximum possible value of P(A ∩ B)?",
+      "options": [
+        "1.00",
+        "0.25",
+        "0.45",
+        "0.55"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This adds the probabilities, but the intersection cannot exceed the smaller one.",
+        "B": "This is the intersection under independence, which is not the maximum.",
+        "C": "Correct. The intersection cannot exceed either event, so its maximum is min(P(A), P(B)) = 0.45, achieved when the smaller event lies inside the larger.",
+        "D": "This uses the larger probability, but the intersection cannot exceed the smaller event."
+      }
+    },
+    {
+      "id": "pr_l1_184",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.70 and P(B) = 0.60, what is the minimum possible value of P(A ∩ B)?",
+      "options": [
+        "0.60",
+        "0.00",
+        "0.42",
+        "0.30"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the maximum possible overlap, not the minimum.",
+        "B": "Zero overlap is impossible here because the probabilities sum to more than 1.",
+        "C": "This is the independent-case overlap, not the guaranteed minimum.",
+        "D": "Correct. The overlap is at least P(A) + P(B) − 1 = 0.30 (and never below 0), so the minimum is 0.30."
+      }
+    },
+    {
+      "id": "pr_l1_185",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.80 and P(B) = 0.50, what is the minimum possible value of P(A ∩ B)?",
+      "options": [
+        "0.30",
+        "0.50",
+        "0.40",
+        "0.00"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The overlap is at least P(A) + P(B) − 1 = 0.30 (and never below 0), so the minimum is 0.30.",
+        "B": "This is the maximum possible overlap, not the minimum.",
+        "C": "This is the independent-case overlap, not the guaranteed minimum.",
+        "D": "Zero overlap is impossible here because the probabilities sum to more than 1."
+      }
+    },
+    {
+      "id": "pr_l1_186",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.90 and P(B) = 0.40, what is the minimum possible value of P(A ∩ B)?",
+      "options": [
+        "0.36",
+        "0.30",
+        "0.00",
+        "0.40"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the independent-case overlap, not the guaranteed minimum.",
+        "B": "Correct. The overlap is at least P(A) + P(B) − 1 = 0.30 (and never below 0), so the minimum is 0.30.",
+        "C": "Zero overlap is impossible here because the probabilities sum to more than 1.",
+        "D": "This is the maximum possible overlap, not the minimum."
+      }
+    },
+    {
+      "id": "pr_l1_187",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.65 and P(B) = 0.55, what is the minimum possible value of P(A ∩ B)?",
+      "options": [
+        "0.36",
+        "0.00",
+        "0.20",
+        "0.55"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the independent-case overlap, not the guaranteed minimum.",
+        "B": "Zero overlap is impossible here because the probabilities sum to more than 1.",
+        "C": "Correct. The overlap is at least P(A) + P(B) − 1 = 0.20 (and never below 0), so the minimum is 0.20.",
+        "D": "This is the maximum possible overlap, not the minimum."
+      }
+    },
+    {
+      "id": "pr_l1_188",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.40 and P(B) = 0.30, what is the maximum possible value of P(A ∪ B)?",
+      "options": [
+        "0.10",
+        "0.12",
+        "0.40",
+        "0.70"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This subtracts the probabilities, which does not bound a union.",
+        "B": "This multiplies the probabilities, which is unrelated to the union bound.",
+        "C": "This is the minimum possible union (when one event contains the other), not the maximum.",
+        "D": "Correct. The union is largest when the events are disjoint, giving min(1, P(A)+P(B)) = 0.70."
+      }
+    },
+    {
+      "id": "pr_l1_189",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.50 and P(B) = 0.45, what is the maximum possible value of P(A ∪ B)?",
+      "options": [
+        "0.95",
+        "0.50",
+        "0.05",
+        "0.23"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The union is largest when the events are disjoint, giving min(1, P(A)+P(B)) = 0.95.",
+        "B": "This is the minimum possible union (when one event contains the other), not the maximum.",
+        "C": "This subtracts the probabilities, which does not bound a union.",
+        "D": "This multiplies the probabilities, which is unrelated to the union bound."
+      }
+    },
+    {
+      "id": "pr_l1_190",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.60 and P(B) = 0.70, what is the maximum possible value of P(A ∪ B)?",
+      "options": [
+        "0.70",
+        "1.00",
+        "0.10",
+        "0.42"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the minimum possible union (when one event contains the other), not the maximum.",
+        "B": "Correct. The union is largest when the events are disjoint, giving min(1, P(A)+P(B)) = 1.00.",
+        "C": "This subtracts the probabilities, which does not bound a union.",
+        "D": "This multiplies the probabilities, which is unrelated to the union bound."
+      }
+    },
+    {
+      "id": "pr_l1_191",
+      "concept": "probability_bounds",
+      "question": "For events with P(A) = 0.20 and P(B) = 0.35, what is the maximum possible value of P(A ∪ B)?",
+      "options": [
+        "0.07",
+        "0.35",
+        "0.55",
+        "0.15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This multiplies the probabilities, which is unrelated to the union bound.",
+        "B": "This is the minimum possible union (when one event contains the other), not the maximum.",
+        "C": "Correct. The union is largest when the events are disjoint, giving min(1, P(A)+P(B)) = 0.55.",
+        "D": "This subtracts the probabilities, which does not bound a union."
+      }
+    }
+  ]
+}

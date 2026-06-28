@@ -1,0 +1,3211 @@
+{
+  "lessonId": "lesson_3",
+  "track": "quant",
+  "title": "Conditional Probability & Bayes",
+  "questions": [
+    {
+      "id": "pr_l3_001",
+      "concept": "conditional_definition",
+      "question": "Events A and B satisfy P(B) > 0. Which expression equals the conditional probability P(A|B)?",
+      "options": [
+        "P(A ∩ B) / P(B)",
+        "P(A) / P(B)",
+        "P(A ∩ B) / P(A)",
+        "P(A) · P(B)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. conditioning restricts the world to B, so we take the share of B that also lies in A: P(A ∩ B) / P(B).",
+        "B": "P(A)/P(B) ignores the overlap; conditioning needs P(A ∩ B) in the numerator, not P(A).",
+        "C": "P(A ∩ B)/P(A) is P(B|A) — the conditioning direction is reversed.",
+        "D": "P(A)·P(B) is the joint probability only under independence, not the definition of a conditional."
+      }
+    },
+    {
+      "id": "pr_l3_002",
+      "concept": "conditional_definition",
+      "question": "By definition, the conditional probability P(A|B) renormalizes probabilities within which event?",
+      "options": [
+        "A (we restrict attention to A)",
+        "B (the conditioning event becomes the new sample space)",
+        "A ∪ B (the union of both)",
+        "Aᶜ (the complement of A)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "We condition on B, not A, so B — not A — becomes the denominator.",
+        "B": "Correct. once B is known to occur, B becomes the whole sample space and we measure A inside it.",
+        "C": "The union is not the restricted space; knowing B shrinks the space to B alone.",
+        "D": "The complement of A is irrelevant to the definition of P(A|B)."
+      }
+    },
+    {
+      "id": "pr_l3_003",
+      "concept": "conditional_definition",
+      "question": "Of all trading days, P(the market gapped up at the open) = 0.4 and the joint probability P(the market gapped up at the open and the day also closed higher) = 0.12. Given that the market gapped up at the open, what is the probability that the day also closed higher?",
+      "options": [
+        "0.12",
+        "0.048",
+        "0.3",
+        "0.4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.12 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.048 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "Correct. P = P(both)/P(condition) = 0.12 / 0.4 = 0.3.",
+        "D": "0.4 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_004",
+      "concept": "conditional_definition",
+      "question": "Among flagged emails, P(an email is marked spam) = 0.5 and the joint probability P(an email is marked spam and it is also actually spam) = 0.1. Given that an email is marked spam, what is the probability that it is also actually spam?",
+      "options": [
+        "0.1",
+        "0.05",
+        "0.5",
+        "0.2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.1 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.05 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "0.5 is P(condition) itself, not the conditional probability.",
+        "D": "Correct. P = P(both)/P(condition) = 0.1 / 0.5 = 0.2."
+      }
+    },
+    {
+      "id": "pr_l3_005",
+      "concept": "conditional_definition",
+      "question": "Of surveyed customers, P(a customer owns a car) = 0.5 and the joint probability P(a customer owns a car and they also own a house) = 0.2. Given that a customer owns a car, what is the probability that they also own a house?",
+      "options": [
+        "0.4",
+        "0.2",
+        "0.1",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(both)/P(condition) = 0.2 / 0.5 = 0.4.",
+        "B": "0.2 is the joint probability P(both) before dividing by the conditioning probability.",
+        "C": "0.1 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.5 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_006",
+      "concept": "conditional_definition",
+      "question": "Among rainy mornings, P(the morning is cloudy) = 0.6 and the joint probability P(the morning is cloudy and it also rains that afternoon) = 0.15. Given that the morning is cloudy, what is the probability that it also rains that afternoon?",
+      "options": [
+        "0.15",
+        "0.25",
+        "0.09",
+        "0.6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.15 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "Correct. P = P(both)/P(condition) = 0.15 / 0.6 = 0.25.",
+        "C": "0.09 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.6 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_007",
+      "concept": "conditional_definition",
+      "question": "Of all loan applications, P(the applicant is employed) = 0.7 and the joint probability P(the applicant is employed and the loan is also approved) = 0.21. Given that the applicant is employed, what is the probability that the loan is also approved?",
+      "options": [
+        "0.21",
+        "0.147",
+        "0.3",
+        "0.7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.21 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.147 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "Correct. P = P(both)/P(condition) = 0.21 / 0.7 = 0.3.",
+        "D": "0.7 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_008",
+      "concept": "conditional_definition",
+      "question": "Among produced chips, P(a chip passes test 1) = 0.45 and the joint probability P(a chip passes test 1 and it also passes test 2) = 0.18. Given that a chip passes test 1, what is the probability that it also passes test 2?",
+      "options": [
+        "0.18",
+        "0.081",
+        "0.45",
+        "0.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.18 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.081 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "0.45 is P(condition) itself, not the conditional probability.",
+        "D": "Correct. P = P(both)/P(condition) = 0.18 / 0.45 = 0.4."
+      }
+    },
+    {
+      "id": "pr_l3_009",
+      "concept": "conditional_definition",
+      "question": "Of all website visits, P(the visitor clicks an ad) = 0.3 and the joint probability P(the visitor clicks an ad and they also make a purchase) = 0.09. Given that the visitor clicks an ad, what is the probability that they also make a purchase?",
+      "options": [
+        "0.3",
+        "0.09",
+        "0.027",
+        "0.21"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(both)/P(condition) = 0.09 / 0.3 = 0.3.",
+        "B": "0.09 is the joint probability P(both) before dividing by the conditioning probability.",
+        "C": "0.027 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "Subtracting the probabilities does not yield a conditional; the formula is a ratio."
+      }
+    },
+    {
+      "id": "pr_l3_010",
+      "concept": "conditional_definition",
+      "question": "Among hospital patients, P(a patient has symptom X) = 0.8 and the joint probability P(a patient has symptom X and they also have disease D) = 0.24. Given that a patient has symptom X, what is the probability that they also have disease D?",
+      "options": [
+        "0.24",
+        "0.3",
+        "0.192",
+        "0.8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.24 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "Correct. P = P(both)/P(condition) = 0.24 / 0.8 = 0.3.",
+        "C": "0.192 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.8 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_011",
+      "concept": "conditional_definition",
+      "question": "Of all dice games, P(the first roll is even) = 0.35 and the joint probability P(the first roll is even and the second roll is also even) = 0.14. Given that the first roll is even, what is the probability that the second roll is also even?",
+      "options": [
+        "0.14",
+        "0.049",
+        "0.4",
+        "0.35"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.14 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.049 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "Correct. P = P(both)/P(condition) = 0.14 / 0.35 = 0.4.",
+        "D": "0.35 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_012",
+      "concept": "conditional_definition",
+      "question": "Among portfolio days, P(a stock beats its sector) = 0.2 and the joint probability P(a stock beats its sector and it also beats the index) = 0.06. Given that a stock beats its sector, what is the probability that it also beats the index?",
+      "options": [
+        "0.06",
+        "0.012",
+        "0.2",
+        "0.3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.06 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.012 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "0.2 is P(condition) itself, not the conditional probability.",
+        "D": "Correct. P = P(both)/P(condition) = 0.06 / 0.2 = 0.3."
+      }
+    },
+    {
+      "id": "pr_l3_013",
+      "concept": "conditional_definition",
+      "question": "Of all job interviews, P(a candidate passes round 1) = 0.4 and the joint probability P(a candidate passes round 1 and they also pass round 2) = 0.16. Given that a candidate passes round 1, what is the probability that they also pass round 2?",
+      "options": [
+        "0.4",
+        "0.16",
+        "0.064",
+        "0.24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(both)/P(condition) = 0.16 / 0.4 = 0.4.",
+        "B": "0.16 is the joint probability P(both) before dividing by the conditioning probability.",
+        "C": "0.064 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "Subtracting the probabilities does not yield a conditional; the formula is a ratio."
+      }
+    },
+    {
+      "id": "pr_l3_014",
+      "concept": "conditional_definition",
+      "question": "Among sensor readings, P(a reading exceeds threshold T) = 0.25 and the joint probability P(a reading exceeds threshold T and it is also a true alarm) = 0.05. Given that a reading exceeds threshold T, what is the probability that it is also a true alarm?",
+      "options": [
+        "0.05",
+        "0.2",
+        "0.0125",
+        "0.25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.05 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "Correct. P = P(both)/P(condition) = 0.05 / 0.25 = 0.2.",
+        "C": "0.0125 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.25 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_015",
+      "concept": "conditional_definition",
+      "question": "Of all flights, P(a flight is delayed) = 0.9 and the joint probability P(a flight is delayed and the connecting flight is also missed) = 0.27. Given that a flight is delayed, what is the probability that the connecting flight is also missed?",
+      "options": [
+        "0.27",
+        "0.243",
+        "0.3",
+        "0.9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.27 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.243 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "Correct. P = P(both)/P(condition) = 0.27 / 0.9 = 0.3.",
+        "D": "0.9 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_016",
+      "concept": "conditional_definition",
+      "question": "Among warranty claims, P(a claim is filed) = 0.32 and the joint probability P(a claim is filed and it is also approved) = 0.08. Given that a claim is filed, what is the probability that it is also approved?",
+      "options": [
+        "0.08",
+        "0.0256",
+        "0.32",
+        "0.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.08 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.0256 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "0.32 is P(condition) itself, not the conditional probability.",
+        "D": "Correct. P = P(both)/P(condition) = 0.08 / 0.32 = 0.25."
+      }
+    },
+    {
+      "id": "pr_l3_017",
+      "concept": "conditional_definition",
+      "question": "Of all trading days, P(the market gapped up at the open) = 0.55 and the joint probability P(the market gapped up at the open and the day also closed higher) = 0.22. Given that the market gapped up at the open, what is the probability that the day also closed higher?",
+      "options": [
+        "0.4",
+        "0.22",
+        "0.121",
+        "0.55"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(both)/P(condition) = 0.22 / 0.55 = 0.4.",
+        "B": "0.22 is the joint probability P(both) before dividing by the conditioning probability.",
+        "C": "0.121 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.55 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_018",
+      "concept": "conditional_definition",
+      "question": "Among flagged emails, P(an email is marked spam) = 0.52 and the joint probability P(an email is marked spam and it is also actually spam) = 0.13. Given that an email is marked spam, what is the probability that it is also actually spam?",
+      "options": [
+        "0.13",
+        "0.25",
+        "0.0676",
+        "0.52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.13 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "Correct. P = P(both)/P(condition) = 0.13 / 0.52 = 0.25.",
+        "C": "0.0676 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.52 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_019",
+      "concept": "conditional_definition",
+      "question": "Of surveyed customers, P(a customer owns a car) = 0.28 and the joint probability P(a customer owns a car and they also own a house) = 0.07. Given that a customer owns a car, what is the probability that they also own a house?",
+      "options": [
+        "0.07",
+        "0.0196",
+        "0.25",
+        "0.28"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.07 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.0196 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "Correct. P = P(both)/P(condition) = 0.07 / 0.28 = 0.25.",
+        "D": "0.28 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_020",
+      "concept": "conditional_definition",
+      "question": "Among rainy mornings, P(the morning is cloudy) = 0.9 and the joint probability P(the morning is cloudy and it also rains that afternoon) = 0.36. Given that the morning is cloudy, what is the probability that it also rains that afternoon?",
+      "options": [
+        "0.36",
+        "0.324",
+        "0.9",
+        "0.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.36 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "0.324 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "C": "0.9 is P(condition) itself, not the conditional probability.",
+        "D": "Correct. P = P(both)/P(condition) = 0.36 / 0.9 = 0.4."
+      }
+    },
+    {
+      "id": "pr_l3_021",
+      "concept": "conditional_definition",
+      "question": "Of all loan applications, P(the applicant is employed) = 0.55 and the joint probability P(the applicant is employed and the loan is also approved) = 0.11. Given that the applicant is employed, what is the probability that the loan is also approved?",
+      "options": [
+        "0.2",
+        "0.11",
+        "0.0605",
+        "0.55"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(both)/P(condition) = 0.11 / 0.55 = 0.2.",
+        "B": "0.11 is the joint probability P(both) before dividing by the conditioning probability.",
+        "C": "0.0605 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.55 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_022",
+      "concept": "conditional_definition",
+      "question": "Among produced chips, P(a chip passes test 1) = 0.75 and the joint probability P(a chip passes test 1 and it also passes test 2) = 0.3. Given that a chip passes test 1, what is the probability that it also passes test 2?",
+      "options": [
+        "0.3",
+        "0.4",
+        "0.225",
+        "0.75"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.3 is the joint probability P(both) before dividing by the conditioning probability.",
+        "B": "Correct. P = P(both)/P(condition) = 0.3 / 0.75 = 0.4.",
+        "C": "0.225 multiplies the two values; conditioning divides by P(condition), it does not multiply.",
+        "D": "0.75 is P(condition) itself, not the conditional probability."
+      }
+    },
+    {
+      "id": "pr_l3_023",
+      "concept": "conditional_counting",
+      "question": "A single card is drawn and revealed to be a heart. What is P(it is an ace | heart)?",
+      "options": [
+        "1/52",
+        "1/4",
+        "1/13",
+        "4/13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "the unconditional chance of the ace of hearts from the full 52, not within hearts",
+        "B": "P(heart) for the whole deck, not P(ace) among hearts",
+        "C": "Correct. restrict to the conditioning event and count favorable outcomes: 1/13.",
+        "D": "this counts all four aces but the conditioning leaves only one ace among 13 hearts"
+      }
+    },
+    {
+      "id": "pr_l3_024",
+      "concept": "conditional_counting",
+      "question": "A card is drawn and shown to be a spade. What is P(it is a face card J/Q/K | spade)?",
+      "options": [
+        "3/52",
+        "1/4",
+        "1/13",
+        "3/13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "the unconditional chance of a specific-suit face card, not restricted to spades",
+        "B": "P(spade), unrelated to the face-card count inside spades",
+        "C": "this counts only one rank; there are three face ranks among the 13 spades",
+        "D": "Correct. restrict to the conditioning event and count favorable outcomes: 3/13."
+      }
+    },
+    {
+      "id": "pr_l3_025",
+      "concept": "conditional_counting",
+      "question": "A card is drawn and shown to be red. What is P(it is a heart | red)?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/13",
+        "2/13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. restrict to the conditioning event and count favorable outcomes: 1/2.",
+        "B": "P(heart) for the whole deck, not the share of red cards that are hearts",
+        "C": "ignores that exactly half of the 26 red cards are hearts",
+        "D": "a miscount; hearts make up 13 of the 26 red cards"
+      }
+    },
+    {
+      "id": "pr_l3_026",
+      "concept": "conditional_counting",
+      "question": "A card is drawn and shown to be a face card (J/Q/K). What is P(it is a king | face card)?",
+      "options": [
+        "1/13",
+        "1/3",
+        "1/4",
+        "1/12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "the rank chance in the whole deck, not within the 12 face cards",
+        "B": "Correct. restrict to the conditioning event and count favorable outcomes: 1/3.",
+        "C": "confuses kings-per-suit with the share of kings among face cards",
+        "D": "this counts a single specific king; there are four kings among the 12 face cards"
+      }
+    },
+    {
+      "id": "pr_l3_027",
+      "concept": "conditional_counting",
+      "question": "A fair die is rolled and the result is even. What is P(the die shows 2 | even)?",
+      "options": [
+        "1/6",
+        "1/2",
+        "1/3",
+        "1/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "the unconditional chance of a 2 before learning the roll is even",
+        "B": "P(even) itself, not the chance of a specific even face",
+        "C": "Correct. restrict to the conditioning event and count favorable outcomes: 1/3.",
+        "D": "uses the wrong denominator; only three faces (2,4,6) are even"
+      }
+    },
+    {
+      "id": "pr_l3_028",
+      "concept": "conditional_counting",
+      "question": "A fair die is rolled and the result is greater than 3. What is P(the die shows 5 | result > 3)?",
+      "options": [
+        "1/6",
+        "1/2",
+        "1/4",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "the unconditional chance of a 5 before conditioning on >3",
+        "B": "P(result > 3), not the chance of one specific qualifying face",
+        "C": "uses 4 outcomes; only {4,5,6} satisfy result > 3",
+        "D": "Correct. restrict to the conditioning event and count favorable outcomes: 1/3."
+      }
+    },
+    {
+      "id": "pr_l3_029",
+      "concept": "conditional_counting",
+      "question": "A fair die is rolled and the result is prime (2, 3, or 5). What is P(the die shows 2 | prime)?",
+      "options": [
+        "1/3",
+        "1/6",
+        "1/2",
+        "2/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. restrict to the conditioning event and count favorable outcomes: 1/3.",
+        "B": "the unconditional chance of a 2, not restricted to primes",
+        "C": "P(prime) itself, not the chance of one prime face",
+        "D": "an invalid count; there are exactly three prime faces"
+      }
+    },
+    {
+      "id": "pr_l3_030",
+      "concept": "conditional_counting",
+      "question": "Two fair coins are flipped. Given that at least one is heads, what is P(both are heads | at least one head)?",
+      "options": [
+        "1/4",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "the unconditional chance of two heads before conditioning on at least one",
+        "B": "Correct. restrict to the conditioning event and count favorable outcomes: 1/3.",
+        "C": "ignores that 'at least one head' leaves three equally likely outcomes",
+        "D": "inverts the count; only 1 of the 3 surviving outcomes is HH"
+      }
+    },
+    {
+      "id": "pr_l3_031",
+      "concept": "conditional_counting",
+      "question": "A family has two children. Given that at least one is a boy, what is P(both are boys | at least one boy)?",
+      "options": [
+        "1/4",
+        "1/2",
+        "1/3",
+        "2/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "the unconditional chance of two boys, not the conditional one",
+        "B": "the classic intuition trap; three ordered outcomes survive, not two",
+        "C": "Correct. restrict to the conditioning event and count favorable outcomes: 1/3.",
+        "D": "counts the wrong outcome as favorable"
+      }
+    },
+    {
+      "id": "pr_l3_032",
+      "concept": "conditional_counting",
+      "question": "Two fair dice are rolled. Given that the sum is even, what is P(both dice are even | sum even)?",
+      "options": [
+        "1/4",
+        "1/3",
+        "2/3",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "the unconditional chance both are even, ignoring the conditioning",
+        "B": "a miscount of the 18 even-sum outcomes (9 are both-even)",
+        "C": "overcounts; both-even is exactly half of even-sum outcomes",
+        "D": "Correct. restrict to the conditioning event and count favorable outcomes: 1/2."
+      }
+    },
+    {
+      "id": "pr_l3_033",
+      "concept": "conditional_counting",
+      "question": "A card is drawn and shown to be a club. What is P(it is a number card 2–10 | club)?",
+      "options": [
+        "9/13",
+        "9/52",
+        "10/13",
+        "4/13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. restrict to the conditioning event and count favorable outcomes: 9/13.",
+        "B": "the unconditional chance of a specific-suit number card, not within clubs",
+        "C": "off by one; ranks 2–10 are nine values, not ten",
+        "D": "this is the face+ace count, not the 2–10 number cards"
+      }
+    },
+    {
+      "id": "pr_l3_034",
+      "concept": "conditional_counting",
+      "question": "A card is drawn and shown to be red. What is P(it is a diamond | red)?",
+      "options": [
+        "1/4",
+        "1/2",
+        "1/13",
+        "1/26"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "P(diamond) for the whole deck, not within the 26 red cards",
+        "B": "Correct. restrict to the conditioning event and count favorable outcomes: 1/2.",
+        "C": "ignores that diamonds are half of the red cards",
+        "D": "a miscount; 13 of the 26 red cards are diamonds"
+      }
+    },
+    {
+      "id": "pr_l3_035",
+      "concept": "conditional_counting",
+      "question": "A card is drawn and shown to be an ace. What is P(it is a spade | ace)?",
+      "options": [
+        "1/52",
+        "1/13",
+        "1/4",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "the unconditional chance of the ace of spades, not among the four aces",
+        "B": "the rank chance in the deck, not the suit share among aces",
+        "C": "Correct. restrict to the conditioning event and count favorable outcomes: 1/4.",
+        "D": "there are four equally likely aces, so the spade share is 1/4"
+      }
+    },
+    {
+      "id": "pr_l3_036",
+      "concept": "conditional_counting",
+      "question": "A bag holds 3 red and 2 blue marbles. One red is drawn and not replaced. What is P(red on the next draw)?",
+      "options": [
+        "3/5",
+        "2/5",
+        "3/4",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "the chance of red before any marble was removed",
+        "B": "this is P(blue) after removing a red, not P(red)",
+        "C": "miscounts the remaining marbles; 2 red remain out of 4",
+        "D": "Correct. restrict to the conditioning event and count favorable outcomes: 1/2."
+      }
+    },
+    {
+      "id": "pr_l3_037",
+      "concept": "conditional_counting",
+      "question": "A bag holds 4 red and 6 blue marbles. One blue is drawn and not replaced. What is P(blue on the next draw)?",
+      "options": [
+        "5/9",
+        "3/5",
+        "4/9",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. restrict to the conditioning event and count favorable outcomes: 5/9.",
+        "B": "the chance of blue before any marble was removed",
+        "C": "this is P(red) after removing a blue, not P(blue)",
+        "D": "miscounts; 5 blue remain out of 9 after removal"
+      }
+    },
+    {
+      "id": "pr_l3_038",
+      "concept": "conditional_counting",
+      "question": "Two fair dice are rolled. Given that the first die shows 4, what is P(the sum equals 7)?",
+      "options": [
+        "1/36",
+        "1/6",
+        "1/3",
+        "1/12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "the unconditional chance of a specific (4,3) pair, not conditioned on the first die",
+        "B": "Correct. restrict to the conditioning event and count favorable outcomes: 1/6.",
+        "C": "overstates; only the second die showing 3 makes the sum 7",
+        "D": "an incorrect count of the six equally likely second-die outcomes"
+      }
+    },
+    {
+      "id": "pr_l3_039",
+      "concept": "conditional_counting",
+      "question": "A card is drawn and shown to be a number card (2–10). What is P(it is an even number 2/4/6/8/10 | number card)?",
+      "options": [
+        "1/2",
+        "5/13",
+        "5/9",
+        "4/9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "ignores that nine ranks (2–10) survive, of which five are even",
+        "B": "uses the full-deck rank count instead of the 36 number cards",
+        "C": "Correct. restrict to the conditioning event and count favorable outcomes: 5/9.",
+        "D": "counts the four odd-then... a miscount; five of nine ranks are even"
+      }
+    },
+    {
+      "id": "pr_l3_040",
+      "concept": "conditional_counting",
+      "question": "A standard die is rolled and the result is odd. What is P(the die shows 3 | odd)?",
+      "options": [
+        "1/6",
+        "1/2",
+        "2/3",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "the unconditional chance of a 3 before conditioning on odd",
+        "B": "P(odd) itself, not the chance of one odd face",
+        "C": "inverts the count among the three odd faces {1,3,5}",
+        "D": "Correct. restrict to the conditioning event and count favorable outcomes: 1/3."
+      }
+    },
+    {
+      "id": "pr_l3_041",
+      "concept": "conditioning_direction",
+      "question": "In general, how do P(A|B) and P(B|A) compare?",
+      "options": [
+        "They are usually different because they divide by different totals, P(B) versus P(A).",
+        "They are always equal by symmetry of intersection.",
+        "P(A|B) is always the larger of the two.",
+        "They are equal only when both equal 0.5."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here.",
+        "B": "the intersection is symmetric, but the denominators P(B) and P(A) differ, so the ratios differ",
+        "C": "neither is universally larger; it depends on the base rates P(A) and P(B)",
+        "D": "equality holds when P(A)=P(B), which has nothing to do with the value being 0.5"
+      }
+    },
+    {
+      "id": "pr_l3_042",
+      "concept": "conditioning_direction",
+      "question": "A test has P(positive | disease) = 0.99. Why might P(disease | positive) still be low?",
+      "options": [
+        "Because sensitivity must be below 0.5 for this to happen.",
+        "Because a rare disease means false positives among the many healthy people can outnumber true positives.",
+        "Because specificity is necessarily 0.",
+        "Because Bayes' theorem does not apply to medical tests."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "high sensitivity is fine; the low posterior comes from the small base rate",
+        "B": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here.",
+        "C": "specificity is typically high; the driver is the rare prior, not zero specificity",
+        "D": "medical testing is a textbook Bayes application; the theorem absolutely applies"
+      }
+    },
+    {
+      "id": "pr_l3_043",
+      "concept": "conditioning_direction",
+      "question": "A prosecutor argues 'the chance of this DNA match if innocent is 1 in a million, so the chance the defendant is innocent is 1 in a million.' This confuses:",
+      "options": [
+        "the prior with the likelihood, which are actually identical.",
+        "independence with mutual exclusivity.",
+        "P(evidence | innocent) with P(innocent | evidence) — the two conditionals are different.",
+        "the union with the intersection of events."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "priors and likelihoods are not identical; conflating the two directions is the error",
+        "B": "the fallacy is about reversing a conditional, not about independence versus exclusivity",
+        "C": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here.",
+        "D": "no union/intersection mix-up is involved; it is a reversed-conditional error"
+      }
+    },
+    {
+      "id": "pr_l3_044",
+      "concept": "conditioning_direction",
+      "question": "It is cloudy on 50% of days and rains on 30% of days, with P(cloudy | rain) = 0.9. Which quantity is generally NOT equal to P(rain | cloudy)?",
+      "options": [
+        "P(rain and cloudy) / P(cloudy)",
+        "P(rain) · P(cloudy | rain) / P(cloudy)",
+        "P(rain ∩ cloudy) / P(cloudy)",
+        "P(cloudy | rain)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "this is exactly the definition of P(rain | cloudy)",
+        "B": "this is Bayes' theorem giving P(rain | cloudy) correctly",
+        "C": "intersection is commutative, so this also equals P(rain | cloudy)",
+        "D": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here."
+      }
+    },
+    {
+      "id": "pr_l3_045",
+      "concept": "conditioning_direction",
+      "question": "P(A|B) equals P(B|A) precisely when:",
+      "options": [
+        "P(A) = P(B) (the two events have equal marginal probability).",
+        "Always, since intersection is commutative.",
+        "Never, the two are always different.",
+        "Only when A and B are mutually exclusive."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here.",
+        "B": "the shared numerator is symmetric, but equal conditionals require equal denominators P(A)=P(B)",
+        "C": "they coincide whenever P(A)=P(B), so 'never' is wrong",
+        "D": "mutual exclusivity forces both to 0, a degenerate case, not the general condition"
+      }
+    },
+    {
+      "id": "pr_l3_046",
+      "concept": "conditioning_direction",
+      "question": "Most people overestimate P(disease | positive) by treating it as equal to P(positive | disease). This mistake is called:",
+      "options": [
+        "the gambler's fallacy.",
+        "the base-rate fallacy — neglecting the prior probability of the disease.",
+        "the conjunction fallacy.",
+        "the sunk-cost fallacy."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "the gambler's fallacy is about independent trials, not reversed conditionals",
+        "B": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here.",
+        "C": "the conjunction fallacy concerns P(A and B) > P(A); it is a different error",
+        "D": "sunk cost is a decision bias, unrelated to conditional probability direction"
+      }
+    },
+    {
+      "id": "pr_l3_047",
+      "concept": "conditioning_direction",
+      "question": "If P(spam | contains 'free') = 0.8, what can we conclude about P(contains 'free' | spam)?",
+      "options": [
+        "It must also equal 0.8.",
+        "It must equal 0.2.",
+        "Nothing directly — reversing the conditional requires the base rates P(spam) and P('free').",
+        "It must be larger than 0.8."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "the reversed conditional is generally different unless the marginals are equal",
+        "B": "0.2 is the complement of the given conditional, not the reversed one",
+        "C": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here.",
+        "D": "no such ordering holds; the value depends on the marginal probabilities"
+      }
+    },
+    {
+      "id": "pr_l3_048",
+      "concept": "conditioning_direction",
+      "question": "A spam filter has high P(flag | spam) but users still see spam in the inbox. The relevant inbox quality measure is:",
+      "options": [
+        "P(flag | spam), which is what we are already told.",
+        "P(spam), the overall rate ignoring the filter.",
+        "P(flag), the fraction of all mail flagged.",
+        "P(spam | not flagged) — the conditioning direction users actually experience."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "that is detection on known spam, not the inbox-quality conditional users care about",
+        "B": "the marginal ignores the filter's effect on what reaches the inbox",
+        "C": "this measures flagging volume, not the chance unflagged mail is spam",
+        "D": "Correct. the two conditioning directions use different denominators, so they are not interchangeable here."
+      }
+    },
+    {
+      "id": "pr_l3_049",
+      "concept": "law_of_total_probability",
+      "question": "Let B₁,…,Bₙ be a partition (mutually exclusive and exhaustive). The law of total probability says P(A) equals:",
+      "options": [
+        "Σ P(A | Bᵢ) · P(Bᵢ)",
+        "Σ P(Bᵢ | A) · P(A)",
+        "Σ P(A | Bᵢ)",
+        "Π P(A | Bᵢ)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A occurs through exactly one scenario Bᵢ, so sum the conditional pieces weighted by how likely each scenario is.",
+        "B": "this reverses the conditioning and repeats P(A); it is not the total-probability formula",
+        "C": "summing conditionals without the weights P(Bᵢ) ignores how likely each scenario is",
+        "D": "multiplying conditionals applies to independent chains, not to a partition decomposition"
+      }
+    },
+    {
+      "id": "pr_l3_050",
+      "concept": "law_of_total_probability",
+      "question": "For a partition B₁,…,Bₙ (disjoint and covering the sample space), the sum P(B₁)+…+P(Bₙ) equals:",
+      "options": [
+        "0",
+        "1",
+        "P(A)",
+        "n"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "a partition's probabilities cannot all vanish; they must cover the whole space",
+        "B": "Correct. an exhaustive set of disjoint events accounts for every outcome, so their probabilities sum to 1.",
+        "C": "the partition sum is fixed at 1 and does not depend on any event A",
+        "D": "summing probabilities (each ≤ 1) gives 1, not the count of pieces"
+      }
+    },
+    {
+      "id": "pr_l3_051",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(A signal is bullish) = 0.4. When A signal is bullish, P(the stock rises) = 0.25; otherwise P(the stock rises) = 0.5. What is the overall P(the stock rises)?",
+      "options": [
+        "0.25",
+        "0.5",
+        "0.4",
+        "0.375"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.25 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.5 is the conditional rate in the other scenario only.",
+        "C": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.4·0.25 + 0.6·0.5 = 0.4.",
+        "D": "0.375 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_052",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The economy is in recession) = 0.3. When The economy is in recession, P(a firm defaults) = 0.6; otherwise P(a firm defaults) = 0.2. What is the overall P(a firm defaults)?",
+      "options": [
+        "0.6",
+        "0.2",
+        "0.4",
+        "0.32"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.6 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.2 is the conditional rate in the other scenario only.",
+        "C": "0.4 averages the two rates without weighting by how likely each scenario is.",
+        "D": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.3·0.6 + 0.7·0.2 = 0.32."
+      }
+    },
+    {
+      "id": "pr_l3_053",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(A part comes from the day shift) = 0.5. When A part comes from the day shift, P(it is defective) = 0.8; otherwise P(it is defective) = 0.2. What is the overall P(it is defective)?",
+      "options": [
+        "0.5",
+        "0.8",
+        "0.2",
+        "0.4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.5·0.8 + 0.5·0.2 = 0.5.",
+        "B": "0.8 is the conditional rate in one scenario only, not the weighted total.",
+        "C": "0.2 is the conditional rate in the other scenario only.",
+        "D": "0.4 is only the contribution from the first scenario, not the full sum."
+      }
+    },
+    {
+      "id": "pr_l3_054",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(A patient is high-risk) = 0.2. When A patient is high-risk, P(a complication occurs) = 0.9; otherwise P(a complication occurs) = 0.1. What is the overall P(a complication occurs)?",
+      "options": [
+        "0.9",
+        "0.26",
+        "0.1",
+        "0.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.9 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.2·0.9 + 0.8·0.1 = 0.26.",
+        "C": "0.1 is the conditional rate in the other scenario only.",
+        "D": "0.5 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_055",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The road is icy) = 0.6. When The road is icy, P(an accident happens) = 0.7; otherwise P(an accident happens) = 0.4. What is the overall P(an accident happens)?",
+      "options": [
+        "0.7",
+        "0.4",
+        "0.58",
+        "0.55"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.7 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.4 is the conditional rate in the other scenario only.",
+        "C": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.6·0.7 + 0.4·0.4 = 0.58.",
+        "D": "0.55 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_056",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The applicant is a repeat customer) = 0.25. When The applicant is a repeat customer, P(the loan is repaid) = 0.4; otherwise P(the loan is repaid) = 0.8. What is the overall P(the loan is repaid)?",
+      "options": [
+        "0.4",
+        "0.8",
+        "0.6",
+        "0.7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.4 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.8 is the conditional rate in the other scenario only.",
+        "C": "0.6 averages the two rates without weighting by how likely each scenario is.",
+        "D": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.25·0.4 + 0.75·0.8 = 0.7."
+      }
+    },
+    {
+      "id": "pr_l3_057",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The server is under heavy load) = 0.7. When The server is under heavy load, P(a request times out) = 0.5; otherwise P(a request times out) = 0.1. What is the overall P(a request times out)?",
+      "options": [
+        "0.38",
+        "0.5",
+        "0.1",
+        "0.3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.7·0.5 + 0.3·0.1 = 0.38.",
+        "B": "0.5 is the conditional rate in one scenario only, not the weighted total.",
+        "C": "0.1 is the conditional rate in the other scenario only.",
+        "D": "0.3 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_058",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The weather is stormy) = 0.1. When The weather is stormy, P(the flight is delayed) = 0.9; otherwise P(the flight is delayed) = 0.3. What is the overall P(the flight is delayed)?",
+      "options": [
+        "0.9",
+        "0.36",
+        "0.3",
+        "0.6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.9 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.1·0.9 + 0.9·0.3 = 0.36.",
+        "C": "0.3 is the conditional rate in the other scenario only.",
+        "D": "0.6 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_059",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The student studied) = 0.8. When The student studied, P(they pass the exam) = 0.6; otherwise P(they pass the exam) = 0.1. What is the overall P(they pass the exam)?",
+      "options": [
+        "0.6",
+        "0.1",
+        "0.5",
+        "0.35"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.6 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.1 is the conditional rate in the other scenario only.",
+        "C": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.8·0.6 + 0.2·0.1 = 0.5.",
+        "D": "0.35 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_060",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The email is from a new sender) = 0.45. When The email is from a new sender, P(it is spam) = 0.2; otherwise P(it is spam) = 0.6. What is the overall P(it is spam)?",
+      "options": [
+        "0.2",
+        "0.6",
+        "0.4",
+        "0.42"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.2 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.6 is the conditional rate in the other scenario only.",
+        "C": "0.4 averages the two rates without weighting by how likely each scenario is.",
+        "D": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.45·0.2 + 0.55·0.6 = 0.42."
+      }
+    },
+    {
+      "id": "pr_l3_061",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(A signal is bullish) = 0.35. When A signal is bullish, P(the stock rises) = 0.8; otherwise P(the stock rises) = 0.2. What is the overall P(the stock rises)?",
+      "options": [
+        "0.41",
+        "0.8",
+        "0.2",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.35·0.8 + 0.65·0.2 = 0.41.",
+        "B": "0.8 is the conditional rate in one scenario only, not the weighted total.",
+        "C": "0.2 is the conditional rate in the other scenario only.",
+        "D": "0.5 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_062",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(The economy is in recession) = 0.55. When The economy is in recession, P(a firm defaults) = 0.6; otherwise P(a firm defaults) = 0.2. What is the overall P(a firm defaults)?",
+      "options": [
+        "0.6",
+        "0.42",
+        "0.2",
+        "0.4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.6 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.55·0.6 + 0.45·0.2 = 0.42.",
+        "C": "0.2 is the conditional rate in the other scenario only.",
+        "D": "0.4 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_063",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(A part comes from the day shift) = 0.15. When A part comes from the day shift, P(it is defective) = 0.8; otherwise P(it is defective) = 0.4. What is the overall P(it is defective)?",
+      "options": [
+        "0.8",
+        "0.4",
+        "0.46",
+        "0.6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.8 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.4 is the conditional rate in the other scenario only.",
+        "C": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.15·0.8 + 0.85·0.4 = 0.46.",
+        "D": "0.6 averages the two rates without weighting by how likely each scenario is."
+      }
+    },
+    {
+      "id": "pr_l3_064",
+      "concept": "law_of_total_probability",
+      "question": "Suppose P(A patient is high-risk) = 0.9. When A patient is high-risk, P(a complication occurs) = 0.5; otherwise P(a complication occurs) = 0.1. What is the overall P(a complication occurs)?",
+      "options": [
+        "0.5",
+        "0.1",
+        "0.3",
+        "0.46"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.5 is the conditional rate in one scenario only, not the weighted total.",
+        "B": "0.1 is the conditional rate in the other scenario only.",
+        "C": "0.3 averages the two rates without weighting by how likely each scenario is.",
+        "D": "Correct. P = P(B)P(·|B) + P(Bᶜ)P(·|Bᶜ) = 0.9·0.5 + 0.1·0.1 = 0.46."
+      }
+    },
+    {
+      "id": "pr_l3_065",
+      "concept": "total_probability_calculation",
+      "question": "Machine A makes 0.4 of output (defect rate 0.02); Machine B makes the rest (defect rate 0.05). What fraction of all items are defective?",
+      "options": [
+        "0.038",
+        "0.02",
+        "0.05",
+        "0.07"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. weight each source by its share: 0.4·0.02 + 0.6·0.05 = 0.038.",
+        "B": "0.02 is the rate for the first source alone, not the population P(defective).",
+        "C": "0.05 is the rate for the second source alone.",
+        "D": "0.07 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_066",
+      "concept": "total_probability_calculation",
+      "question": "Urn I is chosen with probability 0.5 (P(red)=0.75); otherwise Urn II (P(red)=0.25). What is P(red)?",
+      "options": [
+        "0.75",
+        "0.5",
+        "0.25",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.75 is the rate for the first source alone, not the population P(red).",
+        "B": "Correct. weight each source by its share: 0.5·0.75 + 0.5·0.25 = 0.5.",
+        "C": "0.25 is the rate for the second source alone.",
+        "D": "1 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_067",
+      "concept": "total_probability_calculation",
+      "question": "Box 1 is picked with probability 0.2 (P(heads)=0.9); else Box 2 (P(heads)=0.1). What is P(heads)?",
+      "options": [
+        "0.9",
+        "0.1",
+        "0.26",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.9 is the rate for the first source alone, not the population P(heads).",
+        "B": "0.1 is the rate for the second source alone.",
+        "C": "Correct. weight each source by its share: 0.2·0.9 + 0.8·0.1 = 0.26.",
+        "D": "1 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_068",
+      "concept": "total_probability_calculation",
+      "question": "Supplier S1 provides 0.7 of parts (defect rate 0.01); S2 provides the rest (defect rate 0.04). Overall defect rate?",
+      "options": [
+        "0.01",
+        "0.04",
+        "0.05",
+        "0.019"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.01 is the rate for the first source alone, not the population P(defective).",
+        "B": "0.04 is the rate for the second source alone.",
+        "C": "0.05 adds the rates without weighting by each source's share.",
+        "D": "Correct. weight each source by its share: 0.7·0.01 + 0.3·0.04 = 0.019."
+      }
+    },
+    {
+      "id": "pr_l3_069",
+      "concept": "total_probability_calculation",
+      "question": "A trader is in a calm regime with probability 0.6 (P(gain)=0.55); else a volatile regime (P(gain)=0.3). What is P(gain)?",
+      "options": [
+        "0.45",
+        "0.55",
+        "0.3",
+        "0.85"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. weight each source by its share: 0.6·0.55 + 0.4·0.3 = 0.45.",
+        "B": "0.55 is the rate for the first source alone, not the population P(gain).",
+        "C": "0.3 is the rate for the second source alone.",
+        "D": "0.85 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_070",
+      "concept": "total_probability_calculation",
+      "question": "Channel A carries 0.65 of traffic (error rate 0.02); channel B the rest (error rate 0.08). Overall error rate?",
+      "options": [
+        "0.02",
+        "0.041",
+        "0.08",
+        "0.1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.02 is the rate for the first source alone, not the population P(an error).",
+        "B": "Correct. weight each source by its share: 0.65·0.02 + 0.35·0.08 = 0.041.",
+        "C": "0.08 is the rate for the second source alone.",
+        "D": "0.1 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_071",
+      "concept": "total_probability_calculation",
+      "question": "A coin is from Bag X with probability 0.3 (P(heads)=0.8); else Bag Y (P(heads)=0.2). What is P(heads)?",
+      "options": [
+        "0.8",
+        "0.2",
+        "0.38",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.8 is the rate for the first source alone, not the population P(heads).",
+        "B": "0.2 is the rate for the second source alone.",
+        "C": "Correct. weight each source by its share: 0.3·0.8 + 0.7·0.2 = 0.38.",
+        "D": "1 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_072",
+      "concept": "total_probability_calculation",
+      "question": "A customer is premium with probability 0.25 (P(churn)=0.05); else standard (P(churn)=0.2). Overall churn rate?",
+      "options": [
+        "0.05",
+        "0.2",
+        "0.25",
+        "0.1625"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.05 is the rate for the first source alone, not the population P(churn).",
+        "B": "0.2 is the rate for the second source alone.",
+        "C": "0.25 adds the rates without weighting by each source's share.",
+        "D": "Correct. weight each source by its share: 0.25·0.05 + 0.75·0.2 = 0.1625."
+      }
+    },
+    {
+      "id": "pr_l3_073",
+      "concept": "total_probability_calculation",
+      "question": "Team Alpha handles 0.55 of tickets (escalation rate 0.1); Team Beta the rest (rate 0.3). Overall escalation rate?",
+      "options": [
+        "0.19",
+        "0.1",
+        "0.3",
+        "0.4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. weight each source by its share: 0.55·0.1 + 0.45·0.3 = 0.19.",
+        "B": "0.1 is the rate for the first source alone, not the population P(escalation).",
+        "C": "0.3 is the rate for the second source alone.",
+        "D": "0.4 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_074",
+      "concept": "total_probability_calculation",
+      "question": "A sensor is type-1 with probability 0.35 (fault rate 0.04); else type-2 (rate 0.12). Overall fault rate?",
+      "options": [
+        "0.04",
+        "0.092",
+        "0.12",
+        "0.16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.04 is the rate for the first source alone, not the population P(a fault).",
+        "B": "Correct. weight each source by its share: 0.35·0.04 + 0.65·0.12 = 0.092.",
+        "C": "0.12 is the rate for the second source alone.",
+        "D": "0.16 adds the rates without weighting by each source's share."
+      }
+    },
+    {
+      "id": "pr_l3_075",
+      "concept": "total_probability_calculation",
+      "question": "Lines A/B/C make 0.6/0.25/0.15 of output with defect rates 0.02/0.05/0.12. Overall defect rate?",
+      "options": [
+        "0.05",
+        "0.12",
+        "0.0425",
+        "0.063333"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.05 is the middle source's rate only, not the overall P(defective).",
+        "B": "0.12 is the last source's rate only.",
+        "C": "Correct. sum each source weighted by share: 0.6·0.02 + 0.25·0.05 + 0.15·0.12 = 0.0425.",
+        "D": "0.063333 averages the three rates without weighting by share."
+      }
+    },
+    {
+      "id": "pr_l3_076",
+      "concept": "total_probability_calculation",
+      "question": "Three urns chosen with probabilities 0.5/0.3/0.2 have P(red) = 0.4/0.6/0.1. What is P(red)?",
+      "options": [
+        "0.6",
+        "0.1",
+        "0.366667",
+        "0.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.6 is the middle source's rate only, not the overall P(red).",
+        "B": "0.1 is the last source's rate only.",
+        "C": "0.366667 averages the three rates without weighting by share.",
+        "D": "Correct. sum each source weighted by share: 0.5·0.4 + 0.3·0.6 + 0.2·0.1 = 0.4."
+      }
+    },
+    {
+      "id": "pr_l3_077",
+      "concept": "total_probability_calculation",
+      "question": "Regions 1/2/3 hold 0.4/0.35/0.25 of customers with churn rates 0.1/0.2/0.05. Overall churn rate?",
+      "options": [
+        "0.1225",
+        "0.2",
+        "0.05",
+        "0.116667"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. sum each source weighted by share: 0.4·0.1 + 0.35·0.2 + 0.25·0.05 = 0.1225.",
+        "B": "0.2 is the middle source's rate only, not the overall P(churn).",
+        "C": "0.05 is the last source's rate only.",
+        "D": "0.116667 averages the three rates without weighting by share."
+      }
+    },
+    {
+      "id": "pr_l3_078",
+      "concept": "total_probability_calculation",
+      "question": "Shifts morning/day/night cover 0.5/0.3/0.2 of production with error rates 0.01/0.03/0.06. Overall error rate?",
+      "options": [
+        "0.03",
+        "0.026",
+        "0.06",
+        "0.033333"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.03 is the middle source's rate only, not the overall P(an error).",
+        "B": "Correct. sum each source weighted by share: 0.5·0.01 + 0.3·0.03 + 0.2·0.06 = 0.026.",
+        "C": "0.06 is the last source's rate only.",
+        "D": "0.033333 averages the three rates without weighting by share."
+      }
+    },
+    {
+      "id": "pr_l3_079",
+      "concept": "total_probability_calculation",
+      "question": "Funds X/Y/Z hold 0.45/0.35/0.2 of assets with loss probabilities 0.1/0.2/0.3. Overall P(loss)?",
+      "options": [
+        "0.2",
+        "0.3",
+        "0.175",
+        "0.6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.2 is the middle source's rate only, not the overall P(loss).",
+        "B": "0.3 is the last source's rate only.",
+        "C": "Correct. sum each source weighted by share: 0.45·0.1 + 0.35·0.2 + 0.2·0.3 = 0.175.",
+        "D": "0.6 adds the rates with no weighting at all."
+      }
+    },
+    {
+      "id": "pr_l3_080",
+      "concept": "total_probability_calculation",
+      "question": "Servers A/B/C handle 0.7/0.2/0.1 of requests with failure rates 0.01/0.04/0.1. Overall failure rate?",
+      "options": [
+        "0.04",
+        "0.1",
+        "0.05",
+        "0.025"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.04 is the middle source's rate only, not the overall P(failure).",
+        "B": "0.1 is the last source's rate only.",
+        "C": "0.05 averages the three rates without weighting by share.",
+        "D": "Correct. sum each source weighted by share: 0.7·0.01 + 0.2·0.04 + 0.1·0.1 = 0.025."
+      }
+    },
+    {
+      "id": "pr_l3_081",
+      "concept": "bayes_theorem",
+      "question": "Bayes' theorem can be written P(H|E) = P(E|H)·P(H) / P(E). The posterior P(H|E) is proportional to:",
+      "options": [
+        "P(E|H) · P(H)  (likelihood × prior)",
+        "P(H|E) · P(E)",
+        "P(E) / P(H)",
+        "P(H) − P(E)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. the numerator is likelihood times prior; dividing by P(E) only normalizes it.",
+        "B": "this equals the joint P(H ∩ E), not the unnormalized posterior weight",
+        "C": "dividing the evidence probability by the prior is not part of Bayes' theorem",
+        "D": "subtraction of probabilities plays no role in Bayes' theorem"
+      }
+    },
+    {
+      "id": "pr_l3_082",
+      "concept": "bayes_theorem",
+      "question": "When the denominator P(E) is unknown and H, Hᶜ partition the space, you compute P(E) as:",
+      "options": [
+        "P(E|H) + P(E|Hᶜ)",
+        "P(E|H)·P(H) + P(E|Hᶜ)·P(Hᶜ)",
+        "P(H|E)·P(E)",
+        "P(E|H) / P(H)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "adding conditionals without the prior weights ignores how likely H and Hᶜ are",
+        "B": "Correct. by the law of total probability, split the evidence across the hypothesis and its complement.",
+        "C": "this rearranges to P(H ∩ E) and still leaves P(E) unknown",
+        "D": "dividing a likelihood by a prior is not a valid expression for P(E)"
+      }
+    },
+    {
+      "id": "pr_l3_083",
+      "concept": "bayes_theorem",
+      "question": "In Bayes' theorem, the prior P(H) represents:",
+      "options": [
+        "the probability of the evidence given H.",
+        "the probability that H is false.",
+        "your belief in H before observing the evidence E.",
+        "always 0.5 by default."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "that is the likelihood P(E|H), not the prior",
+        "B": "that is P(Hᶜ), the prior of the complement",
+        "C": "Correct. the prior is the baseline probability of H assigned before any data arrives.",
+        "D": "priors are context-dependent and are not fixed at 0.5"
+      }
+    },
+    {
+      "id": "pr_l3_084",
+      "concept": "bayes_theorem",
+      "question": "In Bayes' theorem, the term P(E|H) is called the:",
+      "options": [
+        "posterior — the updated belief in H.",
+        "prior — the belief in H before data.",
+        "marginal — the overall probability of E.",
+        "likelihood — the probability of the evidence assuming H is true."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "the posterior is P(H|E), the reversed conditional",
+        "B": "the prior is P(H), with no evidence conditioned on",
+        "C": "the marginal is P(E), the normalizing denominator",
+        "D": "Correct. P(E|H) measures how well hypothesis H predicts the observed evidence."
+      }
+    },
+    {
+      "id": "pr_l3_085",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.2. The evidence E has P(E|H) = 0.9 and P(E|Hᶜ) = 0.1. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "9/13",
+        "0.9",
+        "0.2",
+        "4/13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 9/50 / 13/50 = 9/13.",
+        "B": "0.9 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "C": "0.2 is the prior P(H) before the evidence updated it.",
+        "D": "4/13 is the complementary posterior P(Hᶜ|E), not P(H|E)."
+      }
+    },
+    {
+      "id": "pr_l3_086",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.1. The evidence E has P(E|H) = 0.8 and P(E|Hᶜ) = 0.2. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "0.8",
+        "4/13",
+        "0.1",
+        "9/13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.8 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "B": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 2/25 / 13/50 = 4/13.",
+        "C": "0.1 is the prior P(H) before the evidence updated it.",
+        "D": "9/13 is the complementary posterior P(Hᶜ|E), not P(H|E)."
+      }
+    },
+    {
+      "id": "pr_l3_087",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.5. The evidence E has P(E|H) = 0.6 and P(E|Hᶜ) = 0.2. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "0.6",
+        "0.5",
+        "3/4",
+        "1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.6 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "B": "0.5 is the prior P(H) before the evidence updated it.",
+        "C": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 3/10 / 2/5 = 3/4.",
+        "D": "1/4 is the complementary posterior P(Hᶜ|E), not P(H|E)."
+      }
+    },
+    {
+      "id": "pr_l3_088",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.3. The evidence E has P(E|H) = 0.7 and P(E|Hᶜ) = 0.3. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "0.7",
+        "0.3",
+        "21/50",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.7 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "B": "0.3 is the prior P(H) before the evidence updated it.",
+        "C": "21/50 is P(E), the normalizing denominator, not the posterior.",
+        "D": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 21/100 / 21/50 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l3_089",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.25. The evidence E has P(E|H) = 0.8 and P(E|Hᶜ) = 0.4. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "2/5",
+        "0.8",
+        "0.25",
+        "3/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 1/5 / 1/2 = 2/5.",
+        "B": "0.8 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "C": "0.25 is the prior P(H) before the evidence updated it.",
+        "D": "3/5 is the complementary posterior P(Hᶜ|E), not P(H|E)."
+      }
+    },
+    {
+      "id": "pr_l3_090",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.4. The evidence E has P(E|H) = 0.75 and P(E|Hᶜ) = 0.25. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "0.75",
+        "2/3",
+        "0.4",
+        "1/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.75 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "B": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 3/10 / 9/20 = 2/3.",
+        "C": "0.4 is the prior P(H) before the evidence updated it.",
+        "D": "1/3 is the complementary posterior P(Hᶜ|E), not P(H|E)."
+      }
+    },
+    {
+      "id": "pr_l3_091",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.15. The evidence E has P(E|H) = 0.9 and P(E|Hᶜ) = 0.1. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "0.9",
+        "0.15",
+        "27/44",
+        "17/44"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.9 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "B": "0.15 is the prior P(H) before the evidence updated it.",
+        "C": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 27/200 / 11/50 = 27/44.",
+        "D": "17/44 is the complementary posterior P(Hᶜ|E), not P(H|E)."
+      }
+    },
+    {
+      "id": "pr_l3_092",
+      "concept": "bayes_theorem",
+      "question": "Prior P(H) = 0.6. The evidence E has P(E|H) = 0.5 and P(E|Hᶜ) = 0.1. After observing E, what is the posterior P(H|E)?",
+      "options": [
+        "0.5",
+        "0.6",
+        "2/17",
+        "15/17"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.5 is the likelihood P(E|H), not the reversed posterior P(H|E).",
+        "B": "0.6 is the prior P(H) before the evidence updated it.",
+        "C": "2/17 is the complementary posterior P(Hᶜ|E), not P(H|E).",
+        "D": "Correct. P(H|E) = P(E|H)P(H) / [P(E|H)P(H) + P(E|Hᶜ)P(Hᶜ)] = 3/10 / 17/50 = 15/17."
+      }
+    },
+    {
+      "id": "pr_l3_093",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.01. A test has sensitivity P(+|disease) = 0.95 and specificity P(−|healthy) = 0.9 (so the false-positive rate is 0.1). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.09",
+        "0.95",
+        "0.01",
+        "0.1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.0095 / 0.1085 ≈ 0.09.",
+        "B": "0.95 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "C": "0.01 is the prior prevalence before the test result.",
+        "D": "0.1 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_094",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.02. A test has sensitivity P(+|disease) = 0.99 and specificity P(−|healthy) = 0.95 (so the false-positive rate is 0.05). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.99",
+        "0.29",
+        "0.02",
+        "0.05"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.99 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.0198 / 0.0688 ≈ 0.29.",
+        "C": "0.02 is the prior prevalence before the test result.",
+        "D": "0.05 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_095",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.005. A test has sensitivity P(+|disease) = 0.99 and specificity P(−|healthy) = 0.98 (so the false-positive rate is 0.02). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.99",
+        "0.01",
+        "0.2",
+        "0.02"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.99 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.01 is the prior prevalence before the test result.",
+        "C": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.00495 / 0.02485 ≈ 0.2.",
+        "D": "0.02 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_096",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.1. A test has sensitivity P(+|disease) = 0.9 and specificity P(−|healthy) = 0.8 (so the false-positive rate is 0.2). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.9",
+        "0.1",
+        "0.2",
+        "0.33"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.9 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.1 is the prior prevalence before the test result.",
+        "C": "0.2 is the false-positive rate among healthy people, not the posterior.",
+        "D": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.09 / 0.27 ≈ 0.33."
+      }
+    },
+    {
+      "id": "pr_l3_097",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.001. A test has sensitivity P(+|disease) = 0.99 and specificity P(−|healthy) = 0.95 (so the false-positive rate is 0.05). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.02",
+        "0.99",
+        "0",
+        "0.05"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.00099 / 0.05094 ≈ 0.02.",
+        "B": "0.99 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "C": "0 is the prior prevalence before the test result.",
+        "D": "0.05 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_098",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.05. A test has sensitivity P(+|disease) = 0.8 and specificity P(−|healthy) = 0.9 (so the false-positive rate is 0.1). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.8",
+        "0.3",
+        "0.05",
+        "0.1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.8 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.04 / 0.135 ≈ 0.3.",
+        "C": "0.05 is the prior prevalence before the test result.",
+        "D": "0.1 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_099",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.2. A test has sensitivity P(+|disease) = 0.95 and specificity P(−|healthy) = 0.9 (so the false-positive rate is 0.1). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.95",
+        "0.2",
+        "0.7",
+        "0.1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.95 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.2 is the prior prevalence before the test result.",
+        "C": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.19 / 0.27 ≈ 0.7.",
+        "D": "0.1 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_100",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.5. A test has sensitivity P(+|disease) = 0.95 and specificity P(−|healthy) = 0.8 (so the false-positive rate is 0.2). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.95",
+        "0.5",
+        "0.2",
+        "0.83"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.95 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.5 is the prior prevalence before the test result.",
+        "C": "0.2 is the false-positive rate among healthy people, not the posterior.",
+        "D": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.475 / 0.575 ≈ 0.83."
+      }
+    },
+    {
+      "id": "pr_l3_101",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.3. A test has sensitivity P(+|disease) = 0.85 and specificity P(−|healthy) = 0.8 (so the false-positive rate is 0.2). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.65",
+        "0.85",
+        "0.3",
+        "0.2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.255 / 0.395 ≈ 0.65.",
+        "B": "0.85 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "C": "0.3 is the prior prevalence before the test result.",
+        "D": "0.2 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_102",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.4. A test has sensitivity P(+|disease) = 0.7 and specificity P(−|healthy) = 0.7 (so the false-positive rate is 0.3). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.7",
+        "0.61",
+        "0.4",
+        "0.3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.7 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.28 / 0.46 ≈ 0.61.",
+        "C": "0.4 is the prior prevalence before the test result.",
+        "D": "0.3 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_103",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.02. A test has sensitivity P(+|disease) = 0.9 and specificity P(−|healthy) = 0.99 (so the false-positive rate is 0.01). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.9",
+        "0.02",
+        "0.65",
+        "0.01"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.9 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.02 is the prior prevalence before the test result.",
+        "C": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.018 / 0.0278 ≈ 0.65.",
+        "D": "0.01 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_104",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.15. A test has sensitivity P(+|disease) = 0.92 and specificity P(−|healthy) = 0.88 (so the false-positive rate is 0.12). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.92",
+        "0.15",
+        "0.12",
+        "0.58"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.92 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.15 is the prior prevalence before the test result.",
+        "C": "0.12 is the false-positive rate among healthy people, not the posterior.",
+        "D": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.138 / 0.24 ≈ 0.58."
+      }
+    },
+    {
+      "id": "pr_l3_105",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.08. A test has sensitivity P(+|disease) = 0.96 and specificity P(−|healthy) = 0.94 (so the false-positive rate is 0.06). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.58",
+        "0.96",
+        "0.08",
+        "0.06"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.0768 / 0.132 ≈ 0.58.",
+        "B": "0.96 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "C": "0.08 is the prior prevalence before the test result.",
+        "D": "0.06 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_106",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.25. A test has sensitivity P(+|disease) = 0.88 and specificity P(−|healthy) = 0.92 (so the false-positive rate is 0.08). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.88",
+        "0.79",
+        "0.25",
+        "0.08"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.88 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.22 / 0.28 ≈ 0.79.",
+        "C": "0.25 is the prior prevalence before the test result.",
+        "D": "0.08 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_107",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.6. A test has sensitivity P(+|disease) = 0.8 and specificity P(−|healthy) = 0.85 (so the false-positive rate is 0.15). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.8",
+        "0.6",
+        "0.89",
+        "0.15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.8 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.6 is the prior prevalence before the test result.",
+        "C": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.48 / 0.54 ≈ 0.89.",
+        "D": "0.15 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_108",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.03. A test has sensitivity P(+|disease) = 0.97 and specificity P(−|healthy) = 0.9 (so the false-positive rate is 0.1). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.97",
+        "0.03",
+        "0.1",
+        "0.23"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.97 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.03 is the prior prevalence before the test result.",
+        "C": "0.1 is the false-positive rate among healthy people, not the posterior.",
+        "D": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.0291 / 0.1261 ≈ 0.23."
+      }
+    },
+    {
+      "id": "pr_l3_109",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.07. A test has sensitivity P(+|disease) = 0.9 and specificity P(−|healthy) = 0.85 (so the false-positive rate is 0.15). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.31",
+        "0.9",
+        "0.07",
+        "0.15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.063 / 0.2025 ≈ 0.31.",
+        "B": "0.9 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "C": "0.07 is the prior prevalence before the test result.",
+        "D": "0.15 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_110",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.12. A test has sensitivity P(+|disease) = 0.85 and specificity P(−|healthy) = 0.9 (so the false-positive rate is 0.1). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.85",
+        "0.54",
+        "0.12",
+        "0.1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.85 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.102 / 0.19 ≈ 0.54.",
+        "C": "0.12 is the prior prevalence before the test result.",
+        "D": "0.1 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_111",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.04. A test has sensitivity P(+|disease) = 0.9 and specificity P(−|healthy) = 0.92 (so the false-positive rate is 0.08). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.9",
+        "0.04",
+        "0.32",
+        "0.08"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.9 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.04 is the prior prevalence before the test result.",
+        "C": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.036 / 0.1128 ≈ 0.32.",
+        "D": "0.08 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_112",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.06. A test has sensitivity P(+|disease) = 0.85 and specificity P(−|healthy) = 0.9 (so the false-positive rate is 0.1). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.85",
+        "0.06",
+        "0.1",
+        "0.35"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.85 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "0.06 is the prior prevalence before the test result.",
+        "C": "0.1 is the false-positive rate among healthy people, not the posterior.",
+        "D": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.051 / 0.145 ≈ 0.35."
+      }
+    },
+    {
+      "id": "pr_l3_113",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.18. A test has sensitivity P(+|disease) = 0.9 and specificity P(−|healthy) = 0.85 (so the false-positive rate is 0.15). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.57",
+        "0.9",
+        "0.18",
+        "0.15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.162 / 0.285 ≈ 0.57.",
+        "B": "0.9 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "C": "0.18 is the prior prevalence before the test result.",
+        "D": "0.15 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_114",
+      "concept": "medical_testing_bayes",
+      "question": "A disease has prevalence 0.35. A test has sensitivity P(+|disease) = 0.8 and specificity P(−|healthy) = 0.8 (so the false-positive rate is 0.2). Given a positive test, P(disease | +) is closest to:",
+      "options": [
+        "0.8",
+        "0.68",
+        "0.35",
+        "0.2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.8 is the sensitivity P(+|disease), not the reversed P(disease|+).",
+        "B": "Correct. P(disease|+) = prev·sens / [prev·sens + (1−prev)·fpr] = 0.28 / 0.41 ≈ 0.68.",
+        "C": "0.35 is the prior prevalence before the test result.",
+        "D": "0.2 is the false-positive rate among healthy people, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_115",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.6 of days. P(stock up | bullish) = 0.7 and P(stock up | bearish) = 0.4. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.7",
+        "0.4",
+        "0.58",
+        "0.55"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.7 is P(up | bullish) only, not the unconditional daily probability.",
+        "B": "0.4 is P(up | bearish) only.",
+        "C": "Correct. total probability: 0.6·0.7 + 0.4·0.4 = 0.58.",
+        "D": "0.55 averages the conditionals without weighting by signal frequency."
+      }
+    },
+    {
+      "id": "pr_l3_116",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.5 of days. P(stock up | bullish) = 0.8 and P(stock up | bearish) = 0.3. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.8",
+        "0.3",
+        "0.5",
+        "0.55"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.8 is P(up | bullish) only, not the unconditional daily probability.",
+        "B": "0.3 is P(up | bearish) only.",
+        "C": "0.5 is P(bullish), the signal frequency, not P(up).",
+        "D": "Correct. total probability: 0.5·0.8 + 0.5·0.3 = 0.55."
+      }
+    },
+    {
+      "id": "pr_l3_117",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.7 of days. P(stock up | bullish) = 0.6 and P(stock up | bearish) = 0.2. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.48",
+        "0.6",
+        "0.2",
+        "0.4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. total probability: 0.7·0.6 + 0.3·0.2 = 0.48.",
+        "B": "0.6 is P(up | bullish) only, not the unconditional daily probability.",
+        "C": "0.2 is P(up | bearish) only.",
+        "D": "0.4 averages the conditionals without weighting by signal frequency."
+      }
+    },
+    {
+      "id": "pr_l3_118",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.4 of days. P(stock up | bullish) = 0.75 and P(stock up | bearish) = 0.25. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.75",
+        "0.45",
+        "0.25",
+        "0.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.75 is P(up | bullish) only, not the unconditional daily probability.",
+        "B": "Correct. total probability: 0.4·0.75 + 0.6·0.25 = 0.45.",
+        "C": "0.25 is P(up | bearish) only.",
+        "D": "0.5 averages the conditionals without weighting by signal frequency."
+      }
+    },
+    {
+      "id": "pr_l3_119",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.65 of days. P(stock up | bullish) = 0.8 and P(stock up | bearish) = 0.2. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.8",
+        "0.2",
+        "0.59",
+        "0.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.8 is P(up | bullish) only, not the unconditional daily probability.",
+        "B": "0.2 is P(up | bearish) only.",
+        "C": "Correct. total probability: 0.65·0.8 + 0.35·0.2 = 0.59.",
+        "D": "0.5 averages the conditionals without weighting by signal frequency."
+      }
+    },
+    {
+      "id": "pr_l3_120",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.3 of days. P(stock up | bullish) = 0.9 and P(stock up | bearish) = 0.5. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.9",
+        "0.5",
+        "0.7",
+        "0.62"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.9 is P(up | bullish) only, not the unconditional daily probability.",
+        "B": "0.5 is P(up | bearish) only.",
+        "C": "0.7 averages the conditionals without weighting by signal frequency.",
+        "D": "Correct. total probability: 0.3·0.9 + 0.7·0.5 = 0.62."
+      }
+    },
+    {
+      "id": "pr_l3_121",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.8 of days. P(stock up | bullish) = 0.55 and P(stock up | bearish) = 0.3. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.5",
+        "0.55",
+        "0.3",
+        "0.425"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. total probability: 0.8·0.55 + 0.2·0.3 = 0.5.",
+        "B": "0.55 is P(up | bullish) only, not the unconditional daily probability.",
+        "C": "0.3 is P(up | bearish) only.",
+        "D": "0.425 averages the conditionals without weighting by signal frequency."
+      }
+    },
+    {
+      "id": "pr_l3_122",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.45 of days. P(stock up | bullish) = 0.6 and P(stock up | bearish) = 0.2. Before seeing today's signal, what is P(stock up)?",
+      "options": [
+        "0.6",
+        "0.38",
+        "0.2",
+        "0.4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.6 is P(up | bullish) only, not the unconditional daily probability.",
+        "B": "Correct. total probability: 0.45·0.6 + 0.55·0.2 = 0.38.",
+        "C": "0.2 is P(up | bearish) only.",
+        "D": "0.4 averages the conditionals without weighting by signal frequency."
+      }
+    },
+    {
+      "id": "pr_l3_123",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.6 of days. P(stock up | bullish) = 0.7 and P(stock up | bearish) = 0.4. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "0.7",
+        "0.6",
+        "21/29",
+        "8/29"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.7 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "B": "0.6 is the prior P(bullish) before observing the up move.",
+        "C": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 21/50 / 29/50 = 21/29.",
+        "D": "8/29 is P(bearish | up), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_124",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.5 of days. P(stock up | bullish) = 0.8 and P(stock up | bearish) = 0.3. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "0.8",
+        "0.5",
+        "3/11",
+        "8/11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.8 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "B": "0.5 is the prior P(bullish) before observing the up move.",
+        "C": "3/11 is P(bearish | up), the complementary posterior.",
+        "D": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 2/5 / 11/20 = 8/11."
+      }
+    },
+    {
+      "id": "pr_l3_125",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.7 of days. P(stock up | bullish) = 0.6 and P(stock up | bearish) = 0.2. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "7/8",
+        "0.6",
+        "0.7",
+        "1/8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 21/50 / 12/25 = 7/8.",
+        "B": "0.6 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "C": "0.7 is the prior P(bullish) before observing the up move.",
+        "D": "1/8 is P(bearish | up), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_126",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.4 of days. P(stock up | bullish) = 0.75 and P(stock up | bearish) = 0.25. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "0.75",
+        "2/3",
+        "0.4",
+        "1/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.75 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "B": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 3/10 / 9/20 = 2/3.",
+        "C": "0.4 is the prior P(bullish) before observing the up move.",
+        "D": "1/3 is P(bearish | up), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_127",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.65 of days. P(stock up | bullish) = 0.8 and P(stock up | bearish) = 0.2. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "0.8",
+        "0.65",
+        "52/59",
+        "7/59"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.8 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "B": "0.65 is the prior P(bullish) before observing the up move.",
+        "C": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 13/25 / 59/100 = 52/59.",
+        "D": "7/59 is P(bearish | up), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_128",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.3 of days. P(stock up | bullish) = 0.9 and P(stock up | bearish) = 0.5. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "0.9",
+        "0.3",
+        "35/62",
+        "27/62"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.9 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "B": "0.3 is the prior P(bullish) before observing the up move.",
+        "C": "35/62 is P(bearish | up), the complementary posterior.",
+        "D": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 27/100 / 31/50 = 27/62."
+      }
+    },
+    {
+      "id": "pr_l3_129",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.8 of days. P(stock up | bullish) = 0.55 and P(stock up | bearish) = 0.3. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "22/25",
+        "0.55",
+        "0.8",
+        "3/25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 11/25 / 1/2 = 22/25.",
+        "B": "0.55 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "C": "0.8 is the prior P(bullish) before observing the up move.",
+        "D": "3/25 is P(bearish | up), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_130",
+      "concept": "quant_signal_update",
+      "question": "A model's signal is bullish on 0.45 of days. P(stock up | bullish) = 0.6 and P(stock up | bearish) = 0.2. The stock went up today. What is P(the signal was bullish | up)?",
+      "options": [
+        "0.6",
+        "27/38",
+        "0.45",
+        "11/38"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.6 is P(up | bullish), the likelihood, not the reversed posterior on the signal.",
+        "B": "Correct. Bayes: P(bullish|up) = P(up|bullish)P(bullish) / P(up) = 27/100 / 19/50 = 27/38.",
+        "C": "0.45 is the prior P(bullish) before observing the up move.",
+        "D": "11/38 is P(bearish | up), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_131",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 3/5; Urn B draws red with probability 1/5. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "3/5",
+        "1/2",
+        "3/4",
+        "1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/5 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "B": "1/2 is the prior before the red draw provided evidence.",
+        "C": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 3/5 / 4/5 = 3/4.",
+        "D": "1/4 is P(Urn B | red), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_132",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 4/5; Urn B draws red with probability 1/10. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "4/5",
+        "1/2",
+        "1/9",
+        "8/9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4/5 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "B": "1/2 is the prior before the red draw provided evidence.",
+        "C": "1/9 is P(Urn B | red), the complementary posterior.",
+        "D": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 4/5 / 9/10 = 8/9."
+      }
+    },
+    {
+      "id": "pr_l3_133",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 2/5; Urn B draws red with probability 1/5. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "2/3",
+        "2/5",
+        "1/2",
+        "1/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 2/5 / 3/5 = 2/3.",
+        "B": "2/5 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "C": "1/2 is the prior before the red draw provided evidence.",
+        "D": "1/3 is P(Urn B | red), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_134",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 1/2; Urn B draws red with probability 1/10. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "1/2",
+        "5/6",
+        "1/6",
+        "1/10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/2 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "B": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 1/2 / 3/5 = 5/6.",
+        "C": "1/6 is P(Urn B | red), the complementary posterior.",
+        "D": "1/10 is P(red | Urn B), an unrelated likelihood."
+      }
+    },
+    {
+      "id": "pr_l3_135",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 7/10; Urn B draws red with probability 3/5. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "7/10",
+        "1/2",
+        "7/13",
+        "6/13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7/10 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "B": "1/2 is the prior before the red draw provided evidence.",
+        "C": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 7/10 / 13/10 = 7/13.",
+        "D": "6/13 is P(Urn B | red), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_136",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 3/4; Urn B draws red with probability 1/2. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "3/4",
+        "1/2",
+        "2/5",
+        "3/5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/4 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "B": "1/2 is the prior before the red draw provided evidence.",
+        "C": "2/5 is P(Urn B | red), the complementary posterior.",
+        "D": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 3/4 / 5/4 = 3/5."
+      }
+    },
+    {
+      "id": "pr_l3_137",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 5/8; Urn B draws red with probability 1/8. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "5/6",
+        "5/8",
+        "1/2",
+        "1/6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 5/8 / 3/4 = 5/6.",
+        "B": "5/8 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "C": "1/2 is the prior before the red draw provided evidence.",
+        "D": "1/6 is P(Urn B | red), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_138",
+      "concept": "bayes_urn_challenge",
+      "question": "Two urns are equally likely. Urn A draws red with probability 2/3; Urn B draws red with probability 1/6. A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "2/3",
+        "4/5",
+        "1/2",
+        "1/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2/3 is P(red | Urn A), the likelihood, not the posterior on the urn.",
+        "B": "Correct. equal priors cancel: P(A|red) = P(red|A) / [P(red|A)+P(red|B)] = 2/3 / 5/6 = 4/5.",
+        "C": "1/2 is the prior before the red draw provided evidence.",
+        "D": "1/5 is P(Urn B | red), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_139",
+      "concept": "bayes_urn_challenge",
+      "question": "Three urns are equally likely. P(red) is 1/2, 4/5, and 1/10 for Urns 1, 2, 3. A red ball is drawn. What is P(it came from Urn 2 | red)?",
+      "options": [
+        "4/5",
+        "1/3",
+        "4/7",
+        "1/14"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4/5 is P(red | Urn 2), the likelihood, before normalizing across urns.",
+        "B": "1/3 is the prior on each urn before the red draw.",
+        "C": "Correct. with equal priors, P(Urn 2|red) = P(red|Urn 2) / Σ P(red|Urn i) = 4/5 / 7/5 = 4/7.",
+        "D": "this is the posterior for a different urn, not Urn 2."
+      }
+    },
+    {
+      "id": "pr_l3_140",
+      "concept": "bayes_urn_challenge",
+      "question": "Three urns are equally likely. P(red) is 1/4, 1/2, and 3/4 for Urns 1, 2, 3. A red ball is drawn. What is P(it came from Urn 3 | red)?",
+      "options": [
+        "3/4",
+        "1/3",
+        "1/6",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/4 is P(red | Urn 3), the likelihood, before normalizing across urns.",
+        "B": "1/3 is the prior on each urn before the red draw.",
+        "C": "this is the posterior for a different urn, not Urn 3.",
+        "D": "Correct. with equal priors, P(Urn 3|red) = P(red|Urn 3) / Σ P(red|Urn i) = 3/4 / 3/2 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l3_141",
+      "concept": "bayes_urn_challenge",
+      "question": "Three urns are equally likely. P(red) is 2/5, 3/5, and 4/5 for Urns 1, 2, 3. A red ball is drawn. What is P(it came from Urn 3 | red)?",
+      "options": [
+        "4/9",
+        "4/5",
+        "1/3",
+        "2/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. with equal priors, P(Urn 3|red) = P(red|Urn 3) / Σ P(red|Urn i) = 4/5 / 9/5 = 4/9.",
+        "B": "4/5 is P(red | Urn 3), the likelihood, before normalizing across urns.",
+        "C": "1/3 is the prior on each urn before the red draw.",
+        "D": "this is the posterior for a different urn, not Urn 3."
+      }
+    },
+    {
+      "id": "pr_l3_142",
+      "concept": "bayes_urn_challenge",
+      "question": "Three urns are equally likely. P(red) is 1/3, 2/3, and 1/6 for Urns 1, 2, 3. A red ball is drawn. What is P(it came from Urn 1 | red)?",
+      "options": [
+        "1/3",
+        "2/7",
+        "4/7",
+        "7/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/3 is P(red | Urn 1), the likelihood, before normalizing across urns.",
+        "B": "Correct. with equal priors, P(Urn 1|red) = P(red|Urn 1) / Σ P(red|Urn i) = 1/3 / 7/6 = 2/7.",
+        "C": "this is the posterior for a different urn, not Urn 1.",
+        "D": "this sum of likelihoods is the denominator, not a probability for one urn."
+      }
+    },
+    {
+      "id": "pr_l3_143",
+      "concept": "bayes_urn_challenge",
+      "question": "Three urns are equally likely. P(red) is 1/5, 3/5, and 2/5 for Urns 1, 2, 3. A red ball is drawn. What is P(it came from Urn 2 | red)?",
+      "options": [
+        "3/5",
+        "1/3",
+        "1/2",
+        "6/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/5 is P(red | Urn 2), the likelihood, before normalizing across urns.",
+        "B": "1/3 is the prior on each urn before the red draw.",
+        "C": "Correct. with equal priors, P(Urn 2|red) = P(red|Urn 2) / Σ P(red|Urn i) = 3/5 / 6/5 = 1/2.",
+        "D": "this sum of likelihoods is the denominator, not a probability for one urn."
+      }
+    },
+    {
+      "id": "pr_l3_144",
+      "concept": "bayes_urn_challenge",
+      "question": "Urn A is chosen with probability 2/3 (P(red)=3/4); Urn B with probability 1/3 (P(red)=1/4). A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "3/4",
+        "2/3",
+        "1/7",
+        "6/7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/4 is P(red | Urn A), ignoring the unequal urn priors.",
+        "B": "2/3 is the prior P(Urn A) before the red evidence.",
+        "C": "1/7 is P(Urn B | red), the complementary posterior.",
+        "D": "Correct. P(A|red) = P(A)P(red|A) / [P(A)P(red|A)+P(B)P(red|B)] = 1/2 / 7/12 = 6/7."
+      }
+    },
+    {
+      "id": "pr_l3_145",
+      "concept": "bayes_urn_challenge",
+      "question": "Urn A is chosen with probability 3/5 (P(red)=1/2); Urn B with probability 2/5 (P(red)=1/5). A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "15/19",
+        "1/2",
+        "3/5",
+        "4/19"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(A|red) = P(A)P(red|A) / [P(A)P(red|A)+P(B)P(red|B)] = 3/10 / 19/50 = 15/19.",
+        "B": "1/2 is P(red | Urn A), ignoring the unequal urn priors.",
+        "C": "3/5 is the prior P(Urn A) before the red evidence.",
+        "D": "4/19 is P(Urn B | red), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_146",
+      "concept": "bayes_urn_challenge",
+      "question": "Urn A is chosen with probability 1/4 (P(red)=4/5); Urn B with probability 3/4 (P(red)=1/5). A red ball is drawn. What is P(it came from Urn A | red)?",
+      "options": [
+        "4/5",
+        "4/7",
+        "1/4",
+        "3/7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4/5 is P(red | Urn A), ignoring the unequal urn priors.",
+        "B": "Correct. P(A|red) = P(A)P(red|A) / [P(A)P(red|A)+P(B)P(red|B)] = 1/5 / 7/20 = 4/7.",
+        "C": "1/4 is the prior P(Urn A) before the red evidence.",
+        "D": "3/7 is P(Urn B | red), the complementary posterior."
+      }
+    },
+    {
+      "id": "pr_l3_147",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (7/10 of output, defect rate 1/100) and Line 2 (3/10 of output, defect rate 1/10). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "3/10",
+        "1/10",
+        "30/37",
+        "7/37"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/10 is the prior production share of Line 2, not the posterior given a defect.",
+        "B": "1/10 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "C": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 3/100 / 37/1000 = 30/37.",
+        "D": "7/37 is the posterior for the other line, not Line 2."
+      }
+    },
+    {
+      "id": "pr_l3_148",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (7/10 of output, defect rate 1/100) and Line 2 (3/10 of output, defect rate 1/25). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "3/10",
+        "1/25",
+        "7/19",
+        "12/19"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/10 is the prior production share of Line 2, not the posterior given a defect.",
+        "B": "1/25 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "C": "7/19 is the posterior for the other line, not Line 2.",
+        "D": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 3/250 / 19/1000 = 12/19."
+      }
+    },
+    {
+      "id": "pr_l3_149",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (3/5 of output, defect rate 1/50) and Line 2 (2/5 of output, defect rate 1/20). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "5/8",
+        "2/5",
+        "1/20",
+        "3/8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 1/50 / 4/125 = 5/8.",
+        "B": "2/5 is the prior production share of Line 2, not the posterior given a defect.",
+        "C": "1/20 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "D": "3/8 is the posterior for the other line, not Line 2."
+      }
+    },
+    {
+      "id": "pr_l3_150",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (4/5 of output, defect rate 1/100) and Line 2 (1/5 of output, defect rate 3/50). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "1/5",
+        "3/5",
+        "3/50",
+        "2/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/5 is the prior production share of Line 2, not the posterior given a defect.",
+        "B": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 3/250 / 1/50 = 3/5.",
+        "C": "3/50 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "D": "2/5 is the posterior for the other line, not Line 2."
+      }
+    },
+    {
+      "id": "pr_l3_151",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (1/2 of output, defect rate 1/50) and Line 2 (1/2 of output, defect rate 2/25). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "1/2",
+        "2/25",
+        "4/5",
+        "1/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is the prior production share of Line 2, not the posterior given a defect.",
+        "B": "2/25 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "C": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 1/25 / 1/20 = 4/5.",
+        "D": "1/5 is the posterior for the other line, not Line 2."
+      }
+    },
+    {
+      "id": "pr_l3_152",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (9/10 of output, defect rate 1/100) and Line 2 (1/10 of output, defect rate 1/5). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "1/10",
+        "1/5",
+        "9/29",
+        "20/29"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/10 is the prior production share of Line 2, not the posterior given a defect.",
+        "B": "1/5 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "C": "9/29 is the posterior for the other line, not Line 2.",
+        "D": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 1/50 / 29/1000 = 20/29."
+      }
+    },
+    {
+      "id": "pr_l3_153",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (3/4 of output, defect rate 1/25) and Line 2 (1/4 of output, defect rate 3/25). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "1/2",
+        "1/4",
+        "3/25",
+        "3/50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 3/100 / 3/50 = 1/2.",
+        "B": "1/4 is the prior production share of Line 2, not the posterior given a defect.",
+        "C": "3/25 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "D": "3/50 is the overall defect rate (the denominator), not P(Line 2 | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_154",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (13/20 of output, defect rate 1/50) and Line 2 (7/20 of output, defect rate 1/10). A randomly inspected unit is defective. What is P(it came from Line 2 | defective)?",
+      "options": [
+        "7/20",
+        "35/48",
+        "1/10",
+        "13/48"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7/20 is the prior production share of Line 2, not the posterior given a defect.",
+        "B": "Correct. P(Line 2|def) = P(Line 2)·rate / [Σ share·rate] = 7/200 / 6/125 = 35/48.",
+        "C": "1/10 is the defect rate of Line 2 alone, not P(Line 2 | defective).",
+        "D": "13/48 is the posterior for the other line, not Line 2."
+      }
+    },
+    {
+      "id": "pr_l3_155",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (7/10 of output, defect rate 1/100) and Line 2 (3/10 of output, defect rate 1/10). A randomly inspected unit is defective. What is P(it came from Line 1 | defective)?",
+      "options": [
+        "7/10",
+        "1/100",
+        "7/37",
+        "30/37"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7/10 is the prior production share of Line 1, not the posterior given a defect.",
+        "B": "1/100 is the defect rate of Line 1 alone, not P(Line 1 | defective).",
+        "C": "Correct. P(Line 1|def) = P(Line 1)·rate / [Σ share·rate] = 7/1000 / 37/1000 = 7/37.",
+        "D": "30/37 is the posterior for the other line, not Line 1."
+      }
+    },
+    {
+      "id": "pr_l3_156",
+      "concept": "quant_bayes_interview",
+      "question": "A plant runs Line 1 (3/5 of output, defect rate 3/100) and Line 2 (2/5 of output, defect rate 9/100). A randomly inspected unit is defective. What is P(it came from Line 1 | defective)?",
+      "options": [
+        "3/5",
+        "3/100",
+        "2/3",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/5 is the prior production share of Line 1, not the posterior given a defect.",
+        "B": "3/100 is the defect rate of Line 1 alone, not P(Line 1 | defective).",
+        "C": "2/3 is the posterior for the other line, not Line 1.",
+        "D": "Correct. P(Line 1|def) = P(Line 1)·rate / [Σ share·rate] = 9/500 / 27/500 = 1/3."
+      }
+    },
+    {
+      "id": "pr_l3_157",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (3/5 of output, defect rate 1/50), Line B (1/4, 1/20), and Line C (3/20, 3/25). A randomly inspected unit is defective. What is P(it came from Line C | defective)?",
+      "options": [
+        "36/85",
+        "3/20",
+        "3/25",
+        "17/400"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(Line C|def) = share·rate / Σ(share·rate) = 9/500 / 17/400 = 36/85.",
+        "B": "3/20 is the prior output share of Line C, not the posterior.",
+        "C": "3/25 is Line C's defect rate alone, not P(Line C | defective).",
+        "D": "17/400 is the overall defect rate (the denominator), not P(Line C | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_158",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (1/2 of output, defect rate 1/100), Line B (3/10, 1/25), and Line C (1/5, 1/10). A randomly inspected unit is defective. What is P(it came from Line C | defective)?",
+      "options": [
+        "1/5",
+        "20/37",
+        "1/10",
+        "37/1000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/5 is the prior output share of Line C, not the posterior.",
+        "B": "Correct. P(Line C|def) = share·rate / Σ(share·rate) = 1/50 / 37/1000 = 20/37.",
+        "C": "1/10 is Line C's defect rate alone, not P(Line C | defective).",
+        "D": "37/1000 is the overall defect rate (the denominator), not P(Line C | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_159",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (1/2 of output, defect rate 1/100), Line B (3/10, 1/25), and Line C (1/5, 1/10). A randomly inspected unit is defective. What is P(it came from Line B | defective)?",
+      "options": [
+        "3/10",
+        "1/25",
+        "12/37",
+        "37/1000"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/10 is the prior output share of Line B, not the posterior.",
+        "B": "1/25 is Line B's defect rate alone, not P(Line B | defective).",
+        "C": "Correct. P(Line B|def) = share·rate / Σ(share·rate) = 3/250 / 37/1000 = 12/37.",
+        "D": "37/1000 is the overall defect rate (the denominator), not P(Line B | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_160",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (7/10 of output, defect rate 1/50), Line B (1/5, 3/50), and Line C (1/10, 3/20). A randomly inspected unit is defective. What is P(it came from Line C | defective)?",
+      "options": [
+        "1/10",
+        "3/20",
+        "41/1000",
+        "15/41"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/10 is the prior output share of Line C, not the posterior.",
+        "B": "3/20 is Line C's defect rate alone, not P(Line C | defective).",
+        "C": "41/1000 is the overall defect rate (the denominator), not P(Line C | defective).",
+        "D": "Correct. P(Line C|def) = share·rate / Σ(share·rate) = 3/200 / 41/1000 = 15/41."
+      }
+    },
+    {
+      "id": "pr_l3_161",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (2/5 of output, defect rate 3/100), Line B (2/5, 1/20), and Line C (1/5, 1/10). A randomly inspected unit is defective. What is P(it came from Line A | defective)?",
+      "options": [
+        "3/13",
+        "2/5",
+        "3/100",
+        "13/250"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(Line A|def) = share·rate / Σ(share·rate) = 3/250 / 13/250 = 3/13.",
+        "B": "2/5 is the prior output share of Line A, not the posterior.",
+        "C": "3/100 is Line A's defect rate alone, not P(Line A | defective).",
+        "D": "13/250 is the overall defect rate (the denominator), not P(Line A | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_162",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (11/20 of output, defect rate 1/50), Line B (3/10, 1/25), and Line C (3/20, 1/10). A randomly inspected unit is defective. What is P(it came from Line C | defective)?",
+      "options": [
+        "3/20",
+        "15/38",
+        "1/10",
+        "19/500"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3/20 is the prior output share of Line C, not the posterior.",
+        "B": "Correct. P(Line C|def) = share·rate / Σ(share·rate) = 3/200 / 19/500 = 15/38.",
+        "C": "1/10 is Line C's defect rate alone, not P(Line C | defective).",
+        "D": "19/500 is the overall defect rate (the denominator), not P(Line C | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_163",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (9/20 of output, defect rate 1/100), Line B (7/20, 1/20), and Line C (1/5, 2/25). A randomly inspected unit is defective. What is P(it came from Line B | defective)?",
+      "options": [
+        "7/20",
+        "1/20",
+        "35/76",
+        "19/500"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7/20 is the prior output share of Line B, not the posterior.",
+        "B": "1/20 is Line B's defect rate alone, not P(Line B | defective).",
+        "C": "Correct. P(Line B|def) = share·rate / Σ(share·rate) = 7/400 / 19/500 = 35/76.",
+        "D": "19/500 is the overall defect rate (the denominator), not P(Line B | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_164",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (3/5 of output, defect rate 1/50), Line B (1/4, 1/20), and Line C (3/20, 3/25). A randomly inspected unit is defective. What is P(it came from Line A | defective)?",
+      "options": [
+        "3/5",
+        "1/50",
+        "17/400",
+        "24/85"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/5 is the prior output share of Line A, not the posterior.",
+        "B": "1/50 is Line A's defect rate alone, not P(Line A | defective).",
+        "C": "17/400 is the overall defect rate (the denominator), not P(Line A | defective).",
+        "D": "Correct. P(Line A|def) = share·rate / Σ(share·rate) = 3/250 / 17/400 = 24/85."
+      }
+    },
+    {
+      "id": "pr_l3_165",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (2/5 of output, defect rate 1/50), Line B (7/20, 1/25), and Line C (1/4, 2/25). A randomly inspected unit is defective. What is P(it came from Line B | defective)?",
+      "options": [
+        "1/3",
+        "7/20",
+        "1/25",
+        "21/500"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(Line B|def) = share·rate / Σ(share·rate) = 7/500 / 21/500 = 1/3.",
+        "B": "7/20 is the prior output share of Line B, not the posterior.",
+        "C": "1/25 is Line B's defect rate alone, not P(Line B | defective).",
+        "D": "21/500 is the overall defect rate (the denominator), not P(Line B | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_166",
+      "concept": "bayes_manufacturing",
+      "question": "A factory runs Line A (7/10 of output, defect rate 1/50), Line B (1/5, 3/50), and Line C (1/10, 3/20). A randomly inspected unit is defective. What is P(it came from Line A | defective)?",
+      "options": [
+        "7/10",
+        "14/41",
+        "1/50",
+        "41/1000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7/10 is the prior output share of Line A, not the posterior.",
+        "B": "Correct. P(Line A|def) = share·rate / Σ(share·rate) = 7/500 / 41/1000 = 14/41.",
+        "C": "1/50 is Line A's defect rate alone, not P(Line A | defective).",
+        "D": "41/1000 is the overall defect rate (the denominator), not P(Line A | defective)."
+      }
+    },
+    {
+      "id": "pr_l3_167",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 3/10. The forecast calls rain with P(forecast rain | rain) = 17/20 and P(forecast rain | no rain) = 1/5. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "3/10",
+        "17/20",
+        "51/79",
+        "1/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/10 is the prior P(rain) before reading the forecast.",
+        "B": "17/20 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "C": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 51/200 / 79/200 = 51/79.",
+        "D": "1/5 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_168",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 1/5. The forecast calls rain with P(forecast rain | rain) = 9/10 and P(forecast rain | no rain) = 1/10. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "1/5",
+        "9/10",
+        "1/10",
+        "9/13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/5 is the prior P(rain) before reading the forecast.",
+        "B": "9/10 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "C": "1/10 is the false-alarm rate P(forecast rain | no rain), not the posterior.",
+        "D": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 9/50 / 13/50 = 9/13."
+      }
+    },
+    {
+      "id": "pr_l3_169",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 2/5. The forecast calls rain with P(forecast rain | rain) = 4/5 and P(forecast rain | no rain) = 3/10. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "16/25",
+        "2/5",
+        "4/5",
+        "3/10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 8/25 / 1/2 = 16/25.",
+        "B": "2/5 is the prior P(rain) before reading the forecast.",
+        "C": "4/5 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "D": "3/10 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_170",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 1/4. The forecast calls rain with P(forecast rain | rain) = 9/10 and P(forecast rain | no rain) = 1/5. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "1/4",
+        "3/5",
+        "9/10",
+        "1/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/4 is the prior P(rain) before reading the forecast.",
+        "B": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 9/40 / 3/8 = 3/5.",
+        "C": "9/10 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "D": "1/5 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_171",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 1/2. The forecast calls rain with P(forecast rain | rain) = 7/10 and P(forecast rain | no rain) = 1/5. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "1/2",
+        "7/10",
+        "7/9",
+        "1/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is the prior P(rain) before reading the forecast.",
+        "B": "7/10 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "C": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 7/20 / 9/20 = 7/9.",
+        "D": "1/5 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_172",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 1/10. The forecast calls rain with P(forecast rain | rain) = 19/20 and P(forecast rain | no rain) = 1/20. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "1/10",
+        "19/20",
+        "1/20",
+        "19/28"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/10 is the prior P(rain) before reading the forecast.",
+        "B": "19/20 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "C": "1/20 is the false-alarm rate P(forecast rain | no rain), not the posterior.",
+        "D": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 19/200 / 7/50 = 19/28."
+      }
+    },
+    {
+      "id": "pr_l3_173",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 3/5. The forecast calls rain with P(forecast rain | rain) = 3/4 and P(forecast rain | no rain) = 2/5. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "45/61",
+        "3/5",
+        "3/4",
+        "2/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 9/20 / 61/100 = 45/61.",
+        "B": "3/5 is the prior P(rain) before reading the forecast.",
+        "C": "3/4 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "D": "2/5 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_174",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 7/20. The forecast calls rain with P(forecast rain | rain) = 4/5 and P(forecast rain | no rain) = 1/5. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "7/20",
+        "28/41",
+        "4/5",
+        "1/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7/20 is the prior P(rain) before reading the forecast.",
+        "B": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 7/25 / 41/100 = 28/41.",
+        "C": "4/5 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "D": "1/5 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_175",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 3/20. The forecast calls rain with P(forecast rain | rain) = 9/10 and P(forecast rain | no rain) = 1/10. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "3/20",
+        "9/10",
+        "27/44",
+        "1/10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/20 is the prior P(rain) before reading the forecast.",
+        "B": "9/10 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "C": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 27/200 / 11/50 = 27/44.",
+        "D": "1/10 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_176",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 9/20. The forecast calls rain with P(forecast rain | rain) = 4/5 and P(forecast rain | no rain) = 3/10. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "9/20",
+        "4/5",
+        "3/10",
+        "24/35"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "9/20 is the prior P(rain) before reading the forecast.",
+        "B": "4/5 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "C": "3/10 is the false-alarm rate P(forecast rain | no rain), not the posterior.",
+        "D": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 9/25 / 21/40 = 24/35."
+      }
+    },
+    {
+      "id": "pr_l3_177",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 2/5. The forecast calls rain with P(forecast rain | rain) = 9/10 and P(forecast rain | no rain) = 1/5. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "3/4",
+        "2/5",
+        "9/10",
+        "1/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 9/25 / 12/25 = 3/4.",
+        "B": "2/5 is the prior P(rain) before reading the forecast.",
+        "C": "9/10 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "D": "1/5 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    },
+    {
+      "id": "pr_l3_178",
+      "concept": "bayes_weather_forecast",
+      "question": "P(rain tomorrow) = 3/10. The forecast calls rain with P(forecast rain | rain) = 4/5 and P(forecast rain | no rain) = 1/10. The forecast calls for rain. What is P(it actually rains | forecast rain)?",
+      "options": [
+        "3/10",
+        "24/31",
+        "4/5",
+        "1/10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3/10 is the prior P(rain) before reading the forecast.",
+        "B": "Correct. P(rain|FR) = P(rain)·hit / [P(rain)·hit + P(no rain)·falseAlarm] = 6/25 / 31/100 = 24/31.",
+        "C": "4/5 is P(forecast rain | rain), the likelihood, not the reversed posterior.",
+        "D": "1/10 is the false-alarm rate P(forecast rain | no rain), not the posterior."
+      }
+    }
+  ]
+}

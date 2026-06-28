@@ -1,0 +1,3301 @@
+{
+  "lessonId": "lesson_8",
+  "track": "quant",
+  "title": "Estimation & Confidence",
+  "questions": [
+    {
+      "id": "pr_l8_001",
+      "concept": "standard_error",
+      "question": "Daily P&L swings on a desk have standard deviation σ = 8 $k. From a sample of n = 64, the standard error of the sample mean is:",
+      "options": [
+        "1",
+        "8",
+        "0.125",
+        "64"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = σ/√n = 8/√64 = 8/8 = 1.",
+        "B": "8 is σ itself — you must still divide by √n = 8.",
+        "C": "0.125 divides by n = 64 instead of √n, shrinking the error far too fast.",
+        "D": "64 multiplies σ by √n, which would grow the error as data accumulate."
+      }
+    },
+    {
+      "id": "pr_l8_002",
+      "concept": "standard_error",
+      "question": "Machine part lengths have standard deviation σ = 10 mm. From a sample of n = 100, the standard error of the sample mean is:",
+      "options": [
+        "10",
+        "1",
+        "0.1",
+        "100"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 is σ itself — you must still divide by √n = 10.",
+        "B": "Correct. SE = σ/√n = 10/√100 = 10/10 = 1.",
+        "C": "0.1 divides by n = 100 instead of √n, shrinking the error far too fast.",
+        "D": "100 multiplies σ by √n, which would grow the error as data accumulate."
+      }
+    },
+    {
+      "id": "pr_l8_003",
+      "concept": "standard_error",
+      "question": "Server response times have standard deviation σ = 12 ms. From a sample of n = 36, the standard error of the sample mean is:",
+      "options": [
+        "12",
+        "0.333",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 is σ itself — you must still divide by √n = 6.",
+        "B": "0.333 divides by n = 36 instead of √n, shrinking the error far too fast.",
+        "C": "Correct. SE = σ/√n = 12/√36 = 12/6 = 2.",
+        "D": "4 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_004",
+      "concept": "standard_error",
+      "question": "Student exam scores have standard deviation σ = 15 points. From a sample of n = 25, the standard error of the sample mean is:",
+      "options": [
+        "15",
+        "0.6",
+        "9",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "15 is σ itself — you must still divide by √n = 5.",
+        "B": "0.6 divides by n = 25 instead of √n, shrinking the error far too fast.",
+        "C": "9 is σ²/n, the variance of x̄; the standard error is its square root.",
+        "D": "Correct. SE = σ/√n = 15/√25 = 15/5 = 3."
+      }
+    },
+    {
+      "id": "pr_l8_005",
+      "concept": "standard_error",
+      "question": "Battery lifetimes have standard deviation σ = 20 hours. From a sample of n = 16, the standard error of the sample mean is:",
+      "options": [
+        "5",
+        "20",
+        "1.25",
+        "25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = σ/√n = 20/√16 = 20/4 = 5.",
+        "B": "20 is σ itself — you must still divide by √n = 4.",
+        "C": "1.25 divides by n = 16 instead of √n, shrinking the error far too fast.",
+        "D": "25 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_006",
+      "concept": "standard_error",
+      "question": "Widget weights have standard deviation σ = 6 g. From a sample of n = 9, the standard error of the sample mean is:",
+      "options": [
+        "6",
+        "2",
+        "0.667",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "6 is σ itself — you must still divide by √n = 3.",
+        "B": "Correct. SE = σ/√n = 6/√9 = 6/3 = 2.",
+        "C": "0.667 divides by n = 9 instead of √n, shrinking the error far too fast.",
+        "D": "4 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_007",
+      "concept": "standard_error",
+      "question": "Trade slippage values have standard deviation σ = 14 bps. From a sample of n = 49, the standard error of the sample mean is:",
+      "options": [
+        "14",
+        "0.286",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "14 is σ itself — you must still divide by √n = 7.",
+        "B": "0.286 divides by n = 49 instead of √n, shrinking the error far too fast.",
+        "C": "Correct. SE = σ/√n = 14/√49 = 14/7 = 2.",
+        "D": "4 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_008",
+      "concept": "standard_error",
+      "question": "Sensor readings have standard deviation σ = 18 units. From a sample of n = 81, the standard error of the sample mean is:",
+      "options": [
+        "18",
+        "0.222",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "18 is σ itself — you must still divide by √n = 9.",
+        "B": "0.222 divides by n = 81 instead of √n, shrinking the error far too fast.",
+        "C": "4 is σ²/n, the variance of x̄; the standard error is its square root.",
+        "D": "Correct. SE = σ/√n = 18/√81 = 18/9 = 2."
+      }
+    },
+    {
+      "id": "pr_l8_009",
+      "concept": "standard_error",
+      "question": "Call durations have standard deviation σ = 21 sec. From a sample of n = 49, the standard error of the sample mean is:",
+      "options": [
+        "3",
+        "21",
+        "0.429",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = σ/√n = 21/√49 = 21/7 = 3.",
+        "B": "21 is σ itself — you must still divide by √n = 7.",
+        "C": "0.429 divides by n = 49 instead of √n, shrinking the error far too fast.",
+        "D": "9 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_010",
+      "concept": "standard_error",
+      "question": "Stock daily returns have standard deviation σ = 30 bps. From a sample of n = 100, the standard error of the sample mean is:",
+      "options": [
+        "30",
+        "3",
+        "0.3",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "30 is σ itself — you must still divide by √n = 10.",
+        "B": "Correct. SE = σ/√n = 30/√100 = 30/10 = 3.",
+        "C": "0.3 divides by n = 100 instead of √n, shrinking the error far too fast.",
+        "D": "9 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_011",
+      "concept": "standard_error",
+      "question": "Reaction times have standard deviation σ = 24 ms. From a sample of n = 16, the standard error of the sample mean is:",
+      "options": [
+        "24",
+        "1.5",
+        "6",
+        "36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "24 is σ itself — you must still divide by √n = 4.",
+        "B": "1.5 divides by n = 16 instead of √n, shrinking the error far too fast.",
+        "C": "Correct. SE = σ/√n = 24/√16 = 24/4 = 6.",
+        "D": "36 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_012",
+      "concept": "standard_error",
+      "question": "Package weights have standard deviation σ = 16 oz. From a sample of n = 64, the standard error of the sample mean is:",
+      "options": [
+        "16",
+        "0.25",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "16 is σ itself — you must still divide by √n = 8.",
+        "B": "0.25 divides by n = 64 instead of √n, shrinking the error far too fast.",
+        "C": "4 is σ²/n, the variance of x̄; the standard error is its square root.",
+        "D": "Correct. SE = σ/√n = 16/√64 = 16/8 = 2."
+      }
+    },
+    {
+      "id": "pr_l8_013",
+      "concept": "standard_error",
+      "question": "Order sizes have standard deviation σ = 40 shares. From a sample of n = 400, the standard error of the sample mean is:",
+      "options": [
+        "2",
+        "40",
+        "0.1",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = σ/√n = 40/√400 = 40/20 = 2.",
+        "B": "40 is σ itself — you must still divide by √n = 20.",
+        "C": "0.1 divides by n = 400 instead of √n, shrinking the error far too fast.",
+        "D": "4 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_014",
+      "concept": "standard_error",
+      "question": "Daily temperatures have standard deviation σ = 9 °F. From a sample of n = 9, the standard error of the sample mean is:",
+      "options": [
+        "9",
+        "3",
+        "1",
+        "27"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "9 is σ itself — you must still divide by √n = 3.",
+        "B": "Correct. SE = σ/√n = 9/√9 = 9/3 = 3.",
+        "C": "1 divides by n = 9 instead of √n, shrinking the error far too fast.",
+        "D": "27 multiplies σ by √n, which would grow the error as data accumulate."
+      }
+    },
+    {
+      "id": "pr_l8_015",
+      "concept": "standard_error",
+      "question": "Latency samples have standard deviation σ = 50 ms. From a sample of n = 25, the standard error of the sample mean is:",
+      "options": [
+        "50",
+        "2",
+        "10",
+        "100"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "50 is σ itself — you must still divide by √n = 5.",
+        "B": "2 divides by n = 25 instead of √n, shrinking the error far too fast.",
+        "C": "Correct. SE = σ/√n = 50/√25 = 50/5 = 10.",
+        "D": "100 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_016",
+      "concept": "standard_error",
+      "question": "Survey response values have standard deviation σ = 35 points. From a sample of n = 49, the standard error of the sample mean is:",
+      "options": [
+        "35",
+        "0.714",
+        "25",
+        "5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "35 is σ itself — you must still divide by √n = 7.",
+        "B": "0.714 divides by n = 49 instead of √n, shrinking the error far too fast.",
+        "C": "25 is σ²/n, the variance of x̄; the standard error is its square root.",
+        "D": "Correct. SE = σ/√n = 35/√49 = 35/7 = 5."
+      }
+    },
+    {
+      "id": "pr_l8_017",
+      "concept": "standard_error",
+      "question": "Fill latencies have standard deviation σ = 27 ms. From a sample of n = 81, the standard error of the sample mean is:",
+      "options": [
+        "3",
+        "27",
+        "0.333",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = σ/√n = 27/√81 = 27/9 = 3.",
+        "B": "27 is σ itself — you must still divide by √n = 9.",
+        "C": "0.333 divides by n = 81 instead of √n, shrinking the error far too fast.",
+        "D": "9 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_018",
+      "concept": "standard_error",
+      "question": "Returns dispersion gives standard deviation σ = 22 bps. From a sample of n = 121, the standard error of the sample mean is:",
+      "options": [
+        "22",
+        "2",
+        "0.182",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "22 is σ itself — you must still divide by √n = 11.",
+        "B": "Correct. SE = σ/√n = 22/√121 = 22/11 = 2.",
+        "C": "0.182 divides by n = 121 instead of √n, shrinking the error far too fast.",
+        "D": "4 is σ²/n, the variance of x̄; the standard error is its square root."
+      }
+    },
+    {
+      "id": "pr_l8_019",
+      "concept": "standard_error",
+      "question": "Spread measurements have standard deviation σ = 11 bps. From a sample of n = 121, the standard error of the sample mean is:",
+      "options": [
+        "11",
+        "0.091",
+        "1",
+        "121"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "11 is σ itself — you must still divide by √n = 11.",
+        "B": "0.091 divides by n = 121 instead of √n, shrinking the error far too fast.",
+        "C": "Correct. SE = σ/√n = 11/√121 = 11/11 = 1.",
+        "D": "121 multiplies σ by √n, which would grow the error as data accumulate."
+      }
+    },
+    {
+      "id": "pr_l8_020",
+      "concept": "standard_error",
+      "question": "Inventory counts have standard deviation σ = 45 units. From a sample of n = 225, the standard error of the sample mean is:",
+      "options": [
+        "45",
+        "0.2",
+        "9",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "45 is σ itself — you must still divide by √n = 15.",
+        "B": "0.2 divides by n = 225 instead of √n, shrinking the error far too fast.",
+        "C": "9 is σ²/n, the variance of x̄; the standard error is its square root.",
+        "D": "Correct. SE = σ/√n = 45/√225 = 45/15 = 3."
+      }
+    },
+    {
+      "id": "pr_l8_021",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average fill price x̄ = 50 with known σ = 10 and n = 100. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[48.04, 51.96]",
+        "[40, 60]",
+        "[49, 51]",
+        "[47.42, 52.58]"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = 10/√100 = 1; margin = 1.96·1 = 1.96; CI = 50 ± 1.96 = [48.04, 51.96].",
+        "B": "[40, 60] uses ±σ = ±10 as the margin, treating σ as the standard error instead of σ/√n.",
+        "C": "[49, 51] uses ±SE = ±1 but omits the 1.96 critical value for 95% confidence.",
+        "D": "[47.42, 52.58] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_022",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean response time x̄ = 200 ms with known σ = 30 and n = 36. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[170, 230]",
+        "[190.2, 209.8]",
+        "[195, 205]",
+        "[187.12, 212.88]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "[170, 230] uses ±σ = ±30 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "Correct. SE = 30/√36 = 5; margin = 1.96·5 = 9.8; CI = 200 ± 9.8 = [190.2, 209.8].",
+        "C": "[195, 205] uses ±SE = ±5 but omits the 1.96 critical value for 95% confidence.",
+        "D": "[187.12, 212.88] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_023",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean daily return x̄ = 12 bps with known σ = 8 and n = 64. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[4, 20]",
+        "[11, 13]",
+        "[10.04, 13.96]",
+        "[9.42, 14.58]"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "[4, 20] uses ±σ = ±8 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[11, 13] uses ±SE = ±1 but omits the 1.96 critical value for 95% confidence.",
+        "C": "Correct. SE = 8/√64 = 1; margin = 1.96·1 = 1.96; CI = 12 ± 1.96 = [10.04, 13.96].",
+        "D": "[9.42, 14.58] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_024",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average part length x̄ = 100 mm with known σ = 15 and n = 25. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[85, 115]",
+        "[97, 103]",
+        "[92.27, 107.73]",
+        "[94.12, 105.88]"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "[85, 115] uses ±σ = ±15 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[97, 103] uses ±SE = ±3 but omits the 1.96 critical value for 95% confidence.",
+        "C": "[92.27, 107.73] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval.",
+        "D": "Correct. SE = 15/√25 = 3; margin = 1.96·3 = 5.88; CI = 100 ± 5.88 = [94.12, 105.88]."
+      }
+    },
+    {
+      "id": "pr_l8_025",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean test score x̄ = 75 with known σ = 20 and n = 16. The 90% confidence interval for μ (z = 1.645) is:",
+      "options": [
+        "[66.78, 83.23]",
+        "[55, 95]",
+        "[70, 80]",
+        "[65.2, 84.8]"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = 20/√16 = 5; margin = 1.645·5 = 8.23; CI = 75 ± 8.23 = [66.78, 83.23].",
+        "B": "[55, 95] uses ±σ = ±20 as the margin, treating σ as the standard error instead of σ/√n.",
+        "C": "[70, 80] uses ±SE = ±5 but omits the 1.645 critical value for 90% confidence.",
+        "D": "[65.2, 84.8] applies the wrong critical value 1.96 instead of 1.645 for a 90% interval."
+      }
+    },
+    {
+      "id": "pr_l8_026",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean battery life x̄ = 500 hr with known σ = 60 and n = 36. The 90% confidence interval for μ (z = 1.645) is:",
+      "options": [
+        "[440, 560]",
+        "[483.55, 516.45]",
+        "[490, 510]",
+        "[480.4, 519.6]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "[440, 560] uses ±σ = ±60 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "Correct. SE = 60/√36 = 10; margin = 1.645·10 = 16.45; CI = 500 ± 16.45 = [483.55, 516.45].",
+        "C": "[490, 510] uses ±SE = ±10 but omits the 1.645 critical value for 90% confidence.",
+        "D": "[480.4, 519.6] applies the wrong critical value 1.96 instead of 1.645 for a 90% interval."
+      }
+    },
+    {
+      "id": "pr_l8_027",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average weight x̄ = 80 kg with known σ = 12 and n = 9. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[68, 92]",
+        "[76, 84]",
+        "[72.16, 87.84]",
+        "[69.7, 90.3]"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "[68, 92] uses ±σ = ±12 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[76, 84] uses ±SE = ±4 but omits the 1.96 critical value for 95% confidence.",
+        "C": "Correct. SE = 12/√9 = 4; margin = 1.96·4 = 7.84; CI = 80 ± 7.84 = [72.16, 87.84].",
+        "D": "[69.7, 90.3] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_028",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean latency x̄ = 40 ms with known σ = 25 and n = 25. The 99% confidence interval for μ (z = 2.576) is:",
+      "options": [
+        "[15, 65]",
+        "[35, 45]",
+        "[30.2, 49.8]",
+        "[27.12, 52.88]"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "[15, 65] uses ±σ = ±25 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[35, 45] uses ±SE = ±5 but omits the 2.576 critical value for 99% confidence.",
+        "C": "[30.2, 49.8] applies the wrong critical value 1.96 instead of 2.576 for a 99% interval.",
+        "D": "Correct. SE = 25/√25 = 5; margin = 2.576·5 = 12.88; CI = 40 ± 12.88 = [27.12, 52.88]."
+      }
+    },
+    {
+      "id": "pr_l8_029",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean yield x̄ = 5 % with known σ = 2 and n = 100. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[4.61, 5.39]",
+        "[3, 7]",
+        "[4.8, 5.2]",
+        "[4.48, 5.52]"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = 2/√100 = 0.2; margin = 1.96·0.2 = 0.39; CI = 5 ± 0.39 = [4.61, 5.39].",
+        "B": "[3, 7] uses ±σ = ±2 as the margin, treating σ as the standard error instead of σ/√n.",
+        "C": "[4.8, 5.2] uses ±SE = ±0.2 but omits the 1.96 critical value for 95% confidence.",
+        "D": "[4.48, 5.52] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_030",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average throughput x̄ = 300 req/s with known σ = 50 and n = 100. The 99% confidence interval for μ (z = 2.576) is:",
+      "options": [
+        "[250, 350]",
+        "[287.12, 312.88]",
+        "[295, 305]",
+        "[290.2, 309.8]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "[250, 350] uses ±σ = ±50 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "Correct. SE = 50/√100 = 5; margin = 2.576·5 = 12.88; CI = 300 ± 12.88 = [287.12, 312.88].",
+        "C": "[295, 305] uses ±SE = ±5 but omits the 2.576 critical value for 99% confidence.",
+        "D": "[290.2, 309.8] applies the wrong critical value 1.96 instead of 2.576 for a 99% interval."
+      }
+    },
+    {
+      "id": "pr_l8_031",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean order size x̄ = 1000 shares with known σ = 40 and n = 400. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[960, 1040]",
+        "[998, 1002]",
+        "[996.08, 1003.92]",
+        "[994.85, 1005.15]"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "[960, 1040] uses ±σ = ±40 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[998, 1002] uses ±SE = ±2 but omits the 1.96 critical value for 95% confidence.",
+        "C": "Correct. SE = 40/√400 = 2; margin = 1.96·2 = 3.92; CI = 1000 ± 3.92 = [996.08, 1003.92].",
+        "D": "[994.85, 1005.15] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_032",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean spread x̄ = 7 bps with known σ = 6 and n = 36. The 90% confidence interval for μ (z = 1.645) is:",
+      "options": [
+        "[1, 13]",
+        "[6, 8]",
+        "[5.04, 8.96]",
+        "[5.36, 8.65]"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "[1, 13] uses ±σ = ±6 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[6, 8] uses ±SE = ±1 but omits the 1.645 critical value for 90% confidence.",
+        "C": "[5.04, 8.96] applies the wrong critical value 1.96 instead of 1.645 for a 90% interval.",
+        "D": "Correct. SE = 6/√36 = 1; margin = 1.645·1 = 1.65; CI = 7 ± 1.65 = [5.36, 8.65]."
+      }
+    },
+    {
+      "id": "pr_l8_033",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average wait x̄ = 15 min with known σ = 9 and n = 9. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[9.12, 20.88]",
+        "[6, 24]",
+        "[12, 18]",
+        "[7.27, 22.73]"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = 9/√9 = 3; margin = 1.96·3 = 5.88; CI = 15 ± 5.88 = [9.12, 20.88].",
+        "B": "[6, 24] uses ±σ = ±9 as the margin, treating σ as the standard error instead of σ/√n.",
+        "C": "[12, 18] uses ±SE = ±3 but omits the 1.96 critical value for 95% confidence.",
+        "D": "[7.27, 22.73] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_034",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean defect size x̄ = 22 µm with known σ = 14 and n = 49. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[8, 36]",
+        "[18.08, 25.92]",
+        "[20, 24]",
+        "[16.85, 27.15]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "[8, 36] uses ±σ = ±14 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "Correct. SE = 14/√49 = 2; margin = 1.96·2 = 3.92; CI = 22 ± 3.92 = [18.08, 25.92].",
+        "C": "[20, 24] uses ±SE = ±2 but omits the 1.96 critical value for 95% confidence.",
+        "D": "[16.85, 27.15] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_035",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean signal x̄ = 60 dB with known σ = 24 and n = 16. The 90% confidence interval for μ (z = 1.645) is:",
+      "options": [
+        "[36, 84]",
+        "[54, 66]",
+        "[50.13, 69.87]",
+        "[48.24, 71.76]"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "[36, 84] uses ±σ = ±24 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[54, 66] uses ±SE = ±6 but omits the 1.645 critical value for 90% confidence.",
+        "C": "Correct. SE = 24/√16 = 6; margin = 1.645·6 = 9.87; CI = 60 ± 9.87 = [50.13, 69.87].",
+        "D": "[48.24, 71.76] applies the wrong critical value 1.96 instead of 1.645 for a 90% interval."
+      }
+    },
+    {
+      "id": "pr_l8_036",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean income x̄ = 250 $ with known σ = 50 and n = 25. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[200, 300]",
+        "[240, 260]",
+        "[224.24, 275.76]",
+        "[230.4, 269.6]"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "[200, 300] uses ±σ = ±50 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[240, 260] uses ±SE = ±10 but omits the 1.96 critical value for 95% confidence.",
+        "C": "[224.24, 275.76] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval.",
+        "D": "Correct. SE = 50/√25 = 10; margin = 1.96·10 = 19.6; CI = 250 ± 19.6 = [230.4, 269.6]."
+      }
+    },
+    {
+      "id": "pr_l8_037",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average rate x̄ = 33 /hr with known σ = 21 and n = 49. The 99% confidence interval for μ (z = 2.576) is:",
+      "options": [
+        "[25.27, 40.73]",
+        "[12, 54]",
+        "[30, 36]",
+        "[27.12, 38.88]"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = 21/√49 = 3; margin = 2.576·3 = 7.73; CI = 33 ± 7.73 = [25.27, 40.73].",
+        "B": "[12, 54] uses ±σ = ±21 as the margin, treating σ as the standard error instead of σ/√n.",
+        "C": "[30, 36] uses ±SE = ±3 but omits the 2.576 critical value for 99% confidence.",
+        "D": "[27.12, 38.88] applies the wrong critical value 1.96 instead of 2.576 for a 99% interval."
+      }
+    },
+    {
+      "id": "pr_l8_038",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean concentration x̄ = 18 ppm with known σ = 16 and n = 64. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[2, 34]",
+        "[14.08, 21.92]",
+        "[16, 20]",
+        "[12.85, 23.15]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "[2, 34] uses ±σ = ±16 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "Correct. SE = 16/√64 = 2; margin = 1.96·2 = 3.92; CI = 18 ± 3.92 = [14.08, 21.92].",
+        "C": "[16, 20] uses ±SE = ±2 but omits the 1.96 critical value for 95% confidence.",
+        "D": "[12.85, 23.15] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_039",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average markup x̄ = 45 bps with known σ = 18 and n = 81. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[27, 63]",
+        "[43, 47]",
+        "[41.08, 48.92]",
+        "[39.85, 50.15]"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "[27, 63] uses ±σ = ±18 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[43, 47] uses ±SE = ±2 but omits the 1.96 critical value for 95% confidence.",
+        "C": "Correct. SE = 18/√81 = 2; margin = 1.96·2 = 3.92; CI = 45 ± 3.92 = [41.08, 48.92].",
+        "D": "[39.85, 50.15] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_040",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean cycle time x̄ = 120 s with known σ = 22 and n = 121. The 90% confidence interval for μ (z = 1.645) is:",
+      "options": [
+        "[98, 142]",
+        "[118, 122]",
+        "[116.08, 123.92]",
+        "[116.71, 123.29]"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "[98, 142] uses ±σ = ±22 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "[118, 122] uses ±SE = ±2 but omits the 1.645 critical value for 90% confidence.",
+        "C": "[116.08, 123.92] applies the wrong critical value 1.96 instead of 1.645 for a 90% interval.",
+        "D": "Correct. SE = 22/√121 = 2; margin = 1.645·2 = 3.29; CI = 120 ± 3.29 = [116.71, 123.29]."
+      }
+    },
+    {
+      "id": "pr_l8_041",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives mean error x̄ = 8 µm with known σ = 11 and n = 121. The 99% confidence interval for μ (z = 2.576) is:",
+      "options": [
+        "[5.42, 10.58]",
+        "[-3, 19]",
+        "[7, 9]",
+        "[6.04, 9.96]"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = 11/√121 = 1; margin = 2.576·1 = 2.58; CI = 8 ± 2.58 = [5.42, 10.58].",
+        "B": "[-3, 19] uses ±σ = ±11 as the margin, treating σ as the standard error instead of σ/√n.",
+        "C": "[7, 9] uses ±SE = ±1 but omits the 2.576 critical value for 99% confidence.",
+        "D": "[6.04, 9.96] applies the wrong critical value 1.96 instead of 2.576 for a 99% interval."
+      }
+    },
+    {
+      "id": "pr_l8_042",
+      "concept": "confidence_interval_compute",
+      "question": "A sample gives average score x̄ = 88 with known σ = 45 and n = 225. The 95% confidence interval for μ (z = 1.96) is:",
+      "options": [
+        "[43, 133]",
+        "[82.12, 93.88]",
+        "[85, 91]",
+        "[80.27, 95.73]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "[43, 133] uses ±σ = ±45 as the margin, treating σ as the standard error instead of σ/√n.",
+        "B": "Correct. SE = 45/√225 = 3; margin = 1.96·3 = 5.88; CI = 88 ± 5.88 = [82.12, 93.88].",
+        "C": "[85, 91] uses ±SE = ±3 but omits the 1.96 critical value for 95% confidence.",
+        "D": "[80.27, 95.73] applies the wrong critical value 2.576 instead of 1.96 for a 95% interval."
+      }
+    },
+    {
+      "id": "pr_l8_043",
+      "concept": "margin_of_error",
+      "question": "With known σ = 10 and n = 100, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "1",
+        "19.6",
+        "1.96",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "B": "19.6 multiplies z by σ but forgets to divide by √n.",
+        "C": "Correct. Margin = z·σ/√n = 1.96·10/√100 = 1.96·1 = 1.96.",
+        "D": "10 is σ itself, ignoring both √n and the 1.96 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_044",
+      "concept": "margin_of_error",
+      "question": "With known σ = 8 and n = 64, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "1",
+        "15.68",
+        "8",
+        "1.96"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "B": "15.68 multiplies z by σ but forgets to divide by √n.",
+        "C": "8 is σ itself, ignoring both √n and the 1.96 critical value.",
+        "D": "Correct. Margin = z·σ/√n = 1.96·8/√64 = 1.96·1 = 1.96."
+      }
+    },
+    {
+      "id": "pr_l8_045",
+      "concept": "margin_of_error",
+      "question": "With known σ = 12 and n = 36, the 90% margin of error (z = 1.645) for the mean is:",
+      "options": [
+        "3.29",
+        "2",
+        "19.74",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Margin = z·σ/√n = 1.645·12/√36 = 1.645·2 = 3.29.",
+        "B": "2 is the standard error σ/√n alone; the margin must also multiply by z = 1.645.",
+        "C": "19.74 multiplies z by σ but forgets to divide by √n.",
+        "D": "12 is σ itself, ignoring both √n and the 1.645 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_046",
+      "concept": "margin_of_error",
+      "question": "With known σ = 20 and n = 25, the 99% margin of error (z = 2.576) for the mean is:",
+      "options": [
+        "4",
+        "10.3",
+        "51.52",
+        "20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4 is the standard error σ/√n alone; the margin must also multiply by z = 2.576.",
+        "B": "Correct. Margin = z·σ/√n = 2.576·20/√25 = 2.576·4 = 10.3.",
+        "C": "51.52 multiplies z by σ but forgets to divide by √n.",
+        "D": "20 is σ itself, ignoring both √n and the 2.576 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_047",
+      "concept": "margin_of_error",
+      "question": "With known σ = 15 and n = 25, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "3",
+        "29.4",
+        "5.88",
+        "15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "B": "29.4 multiplies z by σ but forgets to divide by √n.",
+        "C": "Correct. Margin = z·σ/√n = 1.96·15/√25 = 1.96·3 = 5.88.",
+        "D": "15 is σ itself, ignoring both √n and the 1.96 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_048",
+      "concept": "margin_of_error",
+      "question": "With known σ = 30 and n = 100, the 90% margin of error (z = 1.645) for the mean is:",
+      "options": [
+        "3",
+        "49.35",
+        "30",
+        "4.94"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3 is the standard error σ/√n alone; the margin must also multiply by z = 1.645.",
+        "B": "49.35 multiplies z by σ but forgets to divide by √n.",
+        "C": "30 is σ itself, ignoring both √n and the 1.645 critical value.",
+        "D": "Correct. Margin = z·σ/√n = 1.645·30/√100 = 1.645·3 = 4.94."
+      }
+    },
+    {
+      "id": "pr_l8_049",
+      "concept": "margin_of_error",
+      "question": "With known σ = 6 and n = 9, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "3.92",
+        "2",
+        "11.76",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Margin = z·σ/√n = 1.96·6/√9 = 1.96·2 = 3.92.",
+        "B": "2 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "C": "11.76 multiplies z by σ but forgets to divide by √n.",
+        "D": "6 is σ itself, ignoring both √n and the 1.96 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_050",
+      "concept": "margin_of_error",
+      "question": "With known σ = 24 and n = 16, the 99% margin of error (z = 2.576) for the mean is:",
+      "options": [
+        "6",
+        "15.46",
+        "61.82",
+        "24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "6 is the standard error σ/√n alone; the margin must also multiply by z = 2.576.",
+        "B": "Correct. Margin = z·σ/√n = 2.576·24/√16 = 2.576·6 = 15.46.",
+        "C": "61.82 multiplies z by σ but forgets to divide by √n.",
+        "D": "24 is σ itself, ignoring both √n and the 2.576 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_051",
+      "concept": "margin_of_error",
+      "question": "With known σ = 14 and n = 49, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "2",
+        "27.44",
+        "3.92",
+        "14"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "B": "27.44 multiplies z by σ but forgets to divide by √n.",
+        "C": "Correct. Margin = z·σ/√n = 1.96·14/√49 = 1.96·2 = 3.92.",
+        "D": "14 is σ itself, ignoring both √n and the 1.96 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_052",
+      "concept": "margin_of_error",
+      "question": "With known σ = 50 and n = 100, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "5",
+        "98",
+        "50",
+        "9.8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "B": "98 multiplies z by σ but forgets to divide by √n.",
+        "C": "50 is σ itself, ignoring both √n and the 1.96 critical value.",
+        "D": "Correct. Margin = z·σ/√n = 1.96·50/√100 = 1.96·5 = 9.8."
+      }
+    },
+    {
+      "id": "pr_l8_053",
+      "concept": "margin_of_error",
+      "question": "With known σ = 18 and n = 81, the 90% margin of error (z = 1.645) for the mean is:",
+      "options": [
+        "3.29",
+        "2",
+        "29.61",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Margin = z·σ/√n = 1.645·18/√81 = 1.645·2 = 3.29.",
+        "B": "2 is the standard error σ/√n alone; the margin must also multiply by z = 1.645.",
+        "C": "29.61 multiplies z by σ but forgets to divide by √n.",
+        "D": "18 is σ itself, ignoring both √n and the 1.645 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_054",
+      "concept": "margin_of_error",
+      "question": "With known σ = 40 and n = 400, the 99% margin of error (z = 2.576) for the mean is:",
+      "options": [
+        "2",
+        "5.15",
+        "103.04",
+        "40"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2 is the standard error σ/√n alone; the margin must also multiply by z = 2.576.",
+        "B": "Correct. Margin = z·σ/√n = 2.576·40/√400 = 2.576·2 = 5.15.",
+        "C": "103.04 multiplies z by σ but forgets to divide by √n.",
+        "D": "40 is σ itself, ignoring both √n and the 2.576 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_055",
+      "concept": "margin_of_error",
+      "question": "With known σ = 22 and n = 121, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "2",
+        "43.12",
+        "3.92",
+        "22"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "B": "43.12 multiplies z by σ but forgets to divide by √n.",
+        "C": "Correct. Margin = z·σ/√n = 1.96·22/√121 = 1.96·2 = 3.92.",
+        "D": "22 is σ itself, ignoring both √n and the 1.96 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_056",
+      "concept": "margin_of_error",
+      "question": "With known σ = 27 and n = 81, the 90% margin of error (z = 1.645) for the mean is:",
+      "options": [
+        "3",
+        "44.42",
+        "27",
+        "4.94"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3 is the standard error σ/√n alone; the margin must also multiply by z = 1.645.",
+        "B": "44.42 multiplies z by σ but forgets to divide by √n.",
+        "C": "27 is σ itself, ignoring both √n and the 1.645 critical value.",
+        "D": "Correct. Margin = z·σ/√n = 1.645·27/√81 = 1.645·3 = 4.94."
+      }
+    },
+    {
+      "id": "pr_l8_057",
+      "concept": "margin_of_error",
+      "question": "With known σ = 16 and n = 64, the 99% margin of error (z = 2.576) for the mean is:",
+      "options": [
+        "5.15",
+        "2",
+        "41.22",
+        "16"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Margin = z·σ/√n = 2.576·16/√64 = 2.576·2 = 5.15.",
+        "B": "2 is the standard error σ/√n alone; the margin must also multiply by z = 2.576.",
+        "C": "41.22 multiplies z by σ but forgets to divide by √n.",
+        "D": "16 is σ itself, ignoring both √n and the 2.576 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_058",
+      "concept": "margin_of_error",
+      "question": "With known σ = 45 and n = 225, the 95% margin of error (z = 1.96) for the mean is:",
+      "options": [
+        "3",
+        "5.88",
+        "88.2",
+        "45"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3 is the standard error σ/√n alone; the margin must also multiply by z = 1.96.",
+        "B": "Correct. Margin = z·σ/√n = 1.96·45/√225 = 1.96·3 = 5.88.",
+        "C": "88.2 multiplies z by σ but forgets to divide by √n.",
+        "D": "45 is σ itself, ignoring both √n and the 1.96 critical value."
+      }
+    },
+    {
+      "id": "pr_l8_059",
+      "concept": "sample_size_effect",
+      "question": "Holding σ fixed, multiplying the sample size n by 4 multiplies the standard error by:",
+      "options": [
+        "1/4",
+        "2",
+        "1/2",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/4 is the factor on the variance σ²/n, not on the standard error.",
+        "B": "2 would grow the error; more data reduces it.",
+        "C": "Correct. SE ∝ 1/√n, so SE scales by 1/√4 = 1/2.",
+        "D": "4 is the change in n, but SE depends on √n, not n."
+      }
+    },
+    {
+      "id": "pr_l8_060",
+      "concept": "sample_size_effect",
+      "question": "Holding σ fixed, multiplying n by 9 multiplies the standard error by:",
+      "options": [
+        "1/9",
+        "3",
+        "9",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/9 is the factor on the variance, not the standard error.",
+        "B": "3 would increase the error; more data shrinks it.",
+        "C": "9 is the change in n; SE scales with √n.",
+        "D": "Correct. SE ∝ 1/√n, so SE scales by 1/√9 = 1/3."
+      }
+    },
+    {
+      "id": "pr_l8_061",
+      "concept": "sample_size_effect",
+      "question": "Increasing n from 25 to 100 (σ fixed) multiplies the standard error by:",
+      "options": [
+        "1/2",
+        "1/4",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE ratio = √(25/100) = √(1/4) = 1/2.",
+        "B": "1/4 is the variance ratio 25/100, not the SE ratio.",
+        "C": "2 would enlarge the error; SE falls as n rises.",
+        "D": "4 is the factor by which n grew, not the SE multiplier."
+      }
+    },
+    {
+      "id": "pr_l8_062",
+      "concept": "sample_size_effect",
+      "question": "To halve the margin of error (σ fixed), you must multiply n by:",
+      "options": [
+        "2",
+        "4",
+        "1/2",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Doubling n only shrinks the margin by 1/√2 ≈ 0.71.",
+        "B": "Correct. Margin ∝ 1/√n; halving it needs √n to double, so n → 4n.",
+        "C": "Halving n would widen the margin, not narrow it.",
+        "D": "8 overshoots; √n only needs to double, requiring n × 4."
+      }
+    },
+    {
+      "id": "pr_l8_063",
+      "concept": "sample_size_effect",
+      "question": "To cut the standard error to one third (σ fixed), multiply n by:",
+      "options": [
+        "3",
+        "1/3",
+        "9",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Tripling n shrinks SE by 1/√3 ≈ 0.58, not to 1/3.",
+        "B": "Reducing n would increase SE.",
+        "C": "Correct. SE ∝ 1/√n; to get 1/3 you need √n × 3, so n × 9.",
+        "D": "6 does not make √n triple; you need n × 9."
+      }
+    },
+    {
+      "id": "pr_l8_064",
+      "concept": "sample_size_effect",
+      "question": "Reducing n from 100 to 25 (σ fixed) multiplies the standard error by:",
+      "options": [
+        "1/2",
+        "4",
+        "1/4",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/2 would apply if n increased fourfold, not decreased.",
+        "B": "4 is the variance ratio, not the SE ratio.",
+        "C": "1/4 reverses the direction; smaller n raises SE.",
+        "D": "Correct. SE ratio = √(100/25) = √4 = 2."
+      }
+    },
+    {
+      "id": "pr_l8_065",
+      "concept": "sample_size_effect",
+      "question": "A 95% interval has half-width 4 at n = 100. At n = 400 (σ fixed) its half-width is:",
+      "options": [
+        "2",
+        "1",
+        "8",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Margin ∝ 1/√n; n × 4 ⇒ margin × 1/2, so 4 → 2.",
+        "B": "1 would need n × 16, not n × 4.",
+        "C": "8 doubles the margin; more data shrinks it.",
+        "D": "4 ignores that quadrupling n halves the margin."
+      }
+    },
+    {
+      "id": "pr_l8_066",
+      "concept": "sample_size_effect",
+      "question": "Doubling the sample size n (σ fixed) multiplies the standard error by approximately:",
+      "options": [
+        "0.5",
+        "0.71",
+        "1.41",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.5 requires n × 4, not n × 2.",
+        "B": "Correct. SE ∝ 1/√n; for n → 2n, factor = 1/√2 ≈ 0.71.",
+        "C": "1.41 = √2 would grow the error; SE shrinks.",
+        "D": "2 is the change in n; SE depends on √n."
+      }
+    },
+    {
+      "id": "pr_l8_067",
+      "concept": "sample_size_effect",
+      "question": "The standard error scales with sample size as:",
+      "options": [
+        "1/n",
+        "√n",
+        "1/√n",
+        "n"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/n falls too fast; that is how the variance of the mean scales.",
+        "B": "√n grows with n, but SE shrinks as data accumulate.",
+        "C": "Correct. SE = σ/√n, so it is inversely proportional to √n.",
+        "D": "n is the sample size itself, not the SE scaling."
+      }
+    },
+    {
+      "id": "pr_l8_068",
+      "concept": "sample_size_effect",
+      "question": "To shrink the confidence-interval width by a factor of 5 (σ fixed), multiply n by:",
+      "options": [
+        "5",
+        "10",
+        "1/5",
+        "25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5× n shrinks width only by 1/√5 ≈ 0.45.",
+        "B": "10 does not make √n quintuple; n × 25 is required.",
+        "C": "Reducing n widens the interval.",
+        "D": "Correct. Width ∝ 1/√n; for factor 1/5 you need √n × 5, so n × 25."
+      }
+    },
+    {
+      "id": "pr_l8_069",
+      "concept": "sample_size_effect",
+      "question": "If the variance of the sample mean is σ²/n, increasing n by 4× changes that variance by:",
+      "options": [
+        "1/4",
+        "1/2",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(x̄) = σ²/n ∝ 1/n, so n × 4 gives variance × 1/4.",
+        "B": "1/2 is the effect on the standard error, not the variance.",
+        "C": "Variance falls, not grows, as n increases.",
+        "D": "2 would increase variance; more data lowers it."
+      }
+    },
+    {
+      "id": "pr_l8_070",
+      "concept": "sample_size_effect",
+      "question": "You want SE ≤ 1 with σ = 10. The smallest n that works is:",
+      "options": [
+        "10",
+        "100",
+        "1000",
+        "50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "n = 10 gives SE = 10/√10 ≈ 3.16 > 1.",
+        "B": "Correct. Need σ/√n ≤ 1 ⇒ √n ≥ 10 ⇒ n ≥ 100.",
+        "C": "n = 1000 works but is larger than the minimum 100.",
+        "D": "n = 50 gives SE = 10/√50 ≈ 1.41 > 1."
+      }
+    },
+    {
+      "id": "pr_l8_071",
+      "concept": "sample_size_effect",
+      "question": "You need a 95% margin ≤ 0.98 with σ = 5 (z = 1.96). The smallest n is:",
+      "options": [
+        "25",
+        "50",
+        "100",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "n = 25 gives margin 1.96·5/5 = 1.96 > 0.98.",
+        "B": "n = 50 gives margin 1.96·5/√50 ≈ 1.39 > 0.98.",
+        "C": "Correct. Need 1.96·5/√n ≤ 0.98 ⇒ √n ≥ 1.96·5/0.98 = 10 ⇒ n ≥ 100.",
+        "D": "n = 10 gives margin ≈ 3.1, far above 0.98."
+      }
+    },
+    {
+      "id": "pr_l8_072",
+      "concept": "sample_size_effect",
+      "question": "As n → ∞ with σ fixed, the standard error of the sample mean approaches:",
+      "options": [
+        "σ",
+        "1",
+        "∞",
+        "0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "σ is the spread of individual values; the mean's error keeps shrinking.",
+        "B": "There is no floor at 1; SE → 0.",
+        "C": "More data lowers uncertainty; SE does not diverge.",
+        "D": "Correct. SE = σ/√n → 0 as n → ∞, so the estimate becomes arbitrarily precise."
+      }
+    },
+    {
+      "id": "pr_l8_073",
+      "concept": "sample_variance_bias",
+      "question": "For the data {2, 4, 6}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "4",
+        "2.667",
+        "2",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. x̄ = 4; Σ(xᵢ−x̄)² = 8; s² = 8/(3−1) = 4.",
+        "B": "2.667 divides Σ(xᵢ−x̄)² by n = 3 (the biased/MLE version), not by n−1.",
+        "C": "2 is the sample standard deviation s = √s², not the variance.",
+        "D": "8 is the raw sum of squared deviations Σ(xᵢ−x̄)²; you must still divide by n−1."
+      }
+    },
+    {
+      "id": "pr_l8_074",
+      "concept": "sample_variance_bias",
+      "question": "For the data {1, 2, 3, 4, 5}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "2",
+        "2.5",
+        "1.581",
+        "1.667"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2 divides Σ(xᵢ−x̄)² by n = 5 (the biased/MLE version), not by n−1.",
+        "B": "Correct. x̄ = 3; Σ(xᵢ−x̄)² = 10; s² = 10/(5−1) = 2.5.",
+        "C": "1.581 is the sample standard deviation s = √s², not the variance.",
+        "D": "1.667 divides by n+1, which over-corrects; the unbiased divisor is n−1."
+      }
+    },
+    {
+      "id": "pr_l8_075",
+      "concept": "sample_variance_bias",
+      "question": "For the data {10, 20, 30}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "66.667",
+        "10",
+        "100",
+        "50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "66.667 divides Σ(xᵢ−x̄)² by n = 3 (the biased/MLE version), not by n−1.",
+        "B": "10 is the sample standard deviation s = √s², not the variance.",
+        "C": "Correct. x̄ = 20; Σ(xᵢ−x̄)² = 200; s² = 200/(3−1) = 100.",
+        "D": "50 divides by n+1, which over-corrects; the unbiased divisor is n−1."
+      }
+    },
+    {
+      "id": "pr_l8_076",
+      "concept": "sample_variance_bias",
+      "question": "For the data {3, 5, 7, 9}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "5",
+        "2.582",
+        "4",
+        "6.667"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5 divides Σ(xᵢ−x̄)² by n = 4 (the biased/MLE version), not by n−1.",
+        "B": "2.582 is the sample standard deviation s = √s², not the variance.",
+        "C": "4 divides by n+1, which over-corrects; the unbiased divisor is n−1.",
+        "D": "Correct. x̄ = 6; Σ(xᵢ−x̄)² = 20; s² = 20/(4−1) = 6.667."
+      }
+    },
+    {
+      "id": "pr_l8_077",
+      "concept": "sample_variance_bias",
+      "question": "For the data {5, 10, 15, 20, 25}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "62.5",
+        "50",
+        "7.906",
+        "41.667"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. x̄ = 15; Σ(xᵢ−x̄)² = 250; s² = 250/(5−1) = 62.5.",
+        "B": "50 divides Σ(xᵢ−x̄)² by n = 5 (the biased/MLE version), not by n−1.",
+        "C": "7.906 is the sample standard deviation s = √s², not the variance.",
+        "D": "41.667 divides by n+1, which over-corrects; the unbiased divisor is n−1."
+      }
+    },
+    {
+      "id": "pr_l8_078",
+      "concept": "sample_variance_bias",
+      "question": "For the data {1, 3, 5}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "2.667",
+        "4",
+        "2",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2.667 divides Σ(xᵢ−x̄)² by n = 3 (the biased/MLE version), not by n−1.",
+        "B": "Correct. x̄ = 3; Σ(xᵢ−x̄)² = 8; s² = 8/(3−1) = 4.",
+        "C": "2 is the sample standard deviation s = √s², not the variance.",
+        "D": "8 is the raw sum of squared deviations Σ(xᵢ−x̄)²; you must still divide by n−1."
+      }
+    },
+    {
+      "id": "pr_l8_079",
+      "concept": "sample_variance_bias",
+      "question": "For the data {6, 10, 14}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "10.667",
+        "4",
+        "16",
+        "8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "10.667 divides Σ(xᵢ−x̄)² by n = 3 (the biased/MLE version), not by n−1.",
+        "B": "4 is the sample standard deviation s = √s², not the variance.",
+        "C": "Correct. x̄ = 10; Σ(xᵢ−x̄)² = 32; s² = 32/(3−1) = 16.",
+        "D": "8 divides by n+1, which over-corrects; the unbiased divisor is n−1."
+      }
+    },
+    {
+      "id": "pr_l8_080",
+      "concept": "sample_variance_bias",
+      "question": "For the data {7, 7, 10, 10}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "2.25",
+        "1.732",
+        "1.8",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "2.25 divides Σ(xᵢ−x̄)² by n = 4 (the biased/MLE version), not by n−1.",
+        "B": "1.732 is the sample standard deviation s = √s², not the variance.",
+        "C": "1.8 divides by n+1, which over-corrects; the unbiased divisor is n−1.",
+        "D": "Correct. x̄ = 8.5; Σ(xᵢ−x̄)² = 9; s² = 9/(4−1) = 3."
+      }
+    },
+    {
+      "id": "pr_l8_081",
+      "concept": "sample_variance_bias",
+      "question": "For the data {2, 6, 10}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "16",
+        "10.667",
+        "4",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. x̄ = 6; Σ(xᵢ−x̄)² = 32; s² = 32/(3−1) = 16.",
+        "B": "10.667 divides Σ(xᵢ−x̄)² by n = 3 (the biased/MLE version), not by n−1.",
+        "C": "4 is the sample standard deviation s = √s², not the variance.",
+        "D": "8 divides by n+1, which over-corrects; the unbiased divisor is n−1."
+      }
+    },
+    {
+      "id": "pr_l8_082",
+      "concept": "sample_variance_bias",
+      "question": "For the data {4, 8, 12, 16}, the unbiased sample variance s² = Σ(xᵢ−x̄)²/(n−1) equals:",
+      "options": [
+        "20",
+        "26.667",
+        "5.164",
+        "16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "20 divides Σ(xᵢ−x̄)² by n = 4 (the biased/MLE version), not by n−1.",
+        "B": "Correct. x̄ = 10; Σ(xᵢ−x̄)² = 80; s² = 80/(4−1) = 26.667.",
+        "C": "5.164 is the sample standard deviation s = √s², not the variance.",
+        "D": "16 divides by n+1, which over-corrects; the unbiased divisor is n−1."
+      }
+    },
+    {
+      "id": "pr_l8_083",
+      "concept": "sample_variance_bias",
+      "question": "Dividing the sum of squared deviations by n instead of n−1 makes the variance estimate:",
+      "options": [
+        "biased upward (too large)",
+        "unbiased",
+        "biased downward (too small)",
+        "exactly zero"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Dividing by the larger n yields a smaller value, so it underestimates, not overestimates.",
+        "B": "The n-divisor version is biased; the n−1 version is the unbiased one.",
+        "C": "Correct. Deviations are measured from x̄ rather than μ, so Σ(xᵢ−x̄)²/n underestimates σ²; E[that] = σ²·(n−1)/n < σ².",
+        "D": "It is positive unless all values are identical."
+      }
+    },
+    {
+      "id": "pr_l8_084",
+      "concept": "sample_variance_bias",
+      "question": "Bessel's correction (using n−1) is needed because:",
+      "options": [
+        "it makes the variance smaller",
+        "the data are correlated",
+        "it converts variance to standard deviation",
+        "estimating μ with x̄ uses up one degree of freedom"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "n−1 makes s² larger than the n-divisor version, not smaller.",
+        "B": "The correction concerns degrees of freedom, not correlation between observations.",
+        "C": "Taking √ does that; n−1 corrects bias, not units.",
+        "D": "Correct. Replacing μ by x̄ removes 1 df, so dividing by n−1 makes E[s²] = σ²."
+      }
+    },
+    {
+      "id": "pr_l8_085",
+      "concept": "confidence_interval_mean",
+      "question": "The z critical value for a 95% confidence interval (known σ) is approximately:",
+      "options": [
+        "1.96",
+        "1.645",
+        "2.576",
+        "1.0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ±1.96 captures the central 95% of the standard normal: P(−1.96 ≤ Z ≤ 1.96) ≈ 0.95.",
+        "B": "1.645 is the 90% two-sided value, leaving 10% in the tails.",
+        "C": "2.576 is the 99% value, capturing more than 95%.",
+        "D": "±1 captures only ~68%, not 95%."
+      }
+    },
+    {
+      "id": "pr_l8_086",
+      "concept": "confidence_interval_mean",
+      "question": "The z critical value for a 90% confidence interval is approximately:",
+      "options": [
+        "1.96",
+        "1.645",
+        "2.576",
+        "1.28"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1.96 is the 95% value, narrower tails than 90%.",
+        "B": "Correct. ±1.645 leaves 5% in each tail, capturing the central 90% of the standard normal.",
+        "C": "2.576 is the 99% value.",
+        "D": "1.28 is the 80% two-sided value."
+      }
+    },
+    {
+      "id": "pr_l8_087",
+      "concept": "confidence_interval_mean",
+      "question": "The z critical value for a 99% confidence interval is approximately:",
+      "options": [
+        "1.96",
+        "1.645",
+        "2.576",
+        "3.0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1.96 corresponds to 95%, not 99%.",
+        "B": "1.645 corresponds to 90%.",
+        "C": "Correct. ±2.576 leaves 0.5% in each tail, capturing the central 99% of the standard normal.",
+        "D": "±3 captures ~99.7%, more than 99%."
+      }
+    },
+    {
+      "id": "pr_l8_088",
+      "concept": "confidence_interval_mean",
+      "question": "Raising the confidence level from 95% to 99% (same data) makes the interval:",
+      "options": [
+        "narrower",
+        "unchanged",
+        "centered elsewhere",
+        "wider"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Higher confidence demands a larger margin, widening the interval.",
+        "B": "The critical value changes with the confidence level, so width changes.",
+        "C": "The center stays at x̄; only the width changes.",
+        "D": "Correct. The critical value rises from 1.96 to 2.576, so the margin z·σ/√n grows."
+      }
+    },
+    {
+      "id": "pr_l8_089",
+      "concept": "confidence_interval_mean",
+      "question": "Lowering the confidence level from 95% to 90% (same data) makes the interval:",
+      "options": [
+        "narrower",
+        "wider",
+        "unchanged",
+        "biased"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The critical value falls from 1.96 to 1.645, shrinking the margin z·σ/√n.",
+        "B": "Lower confidence needs a smaller margin, narrowing the interval.",
+        "C": "The critical value depends on the level, so width changes.",
+        "D": "Changing the level alters width, not bias of the estimator."
+      }
+    },
+    {
+      "id": "pr_l8_090",
+      "concept": "confidence_interval_mean",
+      "question": "For a fixed sample, which confidence level gives the widest interval?",
+      "options": [
+        "90%",
+        "99%",
+        "95%",
+        "all the same"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "90% uses z = 1.645, the smallest of these, giving the narrowest interval.",
+        "B": "Correct. Width ∝ z; the 99% value 2.576 exceeds 1.96 (95%) and 1.645 (90%).",
+        "C": "95% (z = 1.96) is wider than 90% but narrower than 99%.",
+        "D": "Width grows with z, which differs across levels."
+      }
+    },
+    {
+      "id": "pr_l8_091",
+      "concept": "confidence_interval_mean",
+      "question": "A two-sided 95% interval splits the leftover 5% probability as:",
+      "options": [
+        "5% in one tail",
+        "0% in the tails",
+        "2.5% in each tail",
+        "1% in each tail"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That describes a one-sided interval, not a symmetric two-sided one.",
+        "B": "If no probability were in the tails, coverage would be 100%, not 95%.",
+        "C": "Correct. Symmetric two-sided coverage puts α/2 = 0.025 in each tail, matching z = 1.96.",
+        "D": "1% each gives 98% coverage, not 95%."
+      }
+    },
+    {
+      "id": "pr_l8_092",
+      "concept": "ci_interpretation",
+      "question": "The single best interpretation of a 95% confidence interval for μ is:",
+      "options": [
+        "There is a 95% probability that μ lies in this particular interval",
+        "95% of the data lie inside the interval",
+        "The sample mean is correct 95% of the time",
+        "Over many repeated samples, about 95% of such intervals would contain μ"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "μ is fixed and this interval is fixed; the 95% is not a probability about one realized interval.",
+        "B": "A CI estimates a parameter, not the share of raw data points inside the bounds.",
+        "C": "x̄ is a point estimate; the 95% describes interval coverage, not the mean being 'correct'.",
+        "D": "Correct. The 95% is a long-run coverage property of the procedure: P(interval covers μ) ≈ 0.95 across resampling."
+      }
+    },
+    {
+      "id": "pr_l8_093",
+      "concept": "ci_interpretation",
+      "question": "After you compute a specific 95% CI of [48, 52], the statement 'P(μ ∈ [48, 52]) = 0.95' is:",
+      "options": [
+        "a misinterpretation, because μ and the interval are both fixed",
+        "exactly correct",
+        "correct only for large n",
+        "correct if σ is known"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Once realized, μ is either in [48, 52] or not; the 95% refers to the long-run procedure, so P = 0.95 about this fixed interval is wrong.",
+        "B": "It treats the realized interval as random, which it is not after the data are observed.",
+        "C": "Sample size does not turn a fixed realized interval into a probability statement about μ.",
+        "D": "Knowing σ does not make μ random inside one computed interval."
+      }
+    },
+    {
+      "id": "pr_l8_094",
+      "concept": "ci_interpretation",
+      "question": "A 95% CI does NOT mean:",
+      "options": [
+        "the procedure covers μ ~95% of the time",
+        "95% of future data points will fall in the interval",
+        "wider intervals reflect more uncertainty",
+        "the center is the point estimate"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the correct frequentist meaning of a CI.",
+        "B": "Correct. A CI bounds the parameter μ, not individual observations; that statement confuses a CI with a prediction interval.",
+        "C": "This is a valid, true statement about CIs.",
+        "D": "This is true for the usual symmetric CI."
+      }
+    },
+    {
+      "id": "pr_l8_095",
+      "concept": "ci_interpretation",
+      "question": "Two analysts use the same data and method for a 95% CI for μ. Their intervals:",
+      "options": [
+        "differ because μ is random",
+        "differ by exactly 5%",
+        "are identical, since the data and procedure are the same",
+        "cannot be compared"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "μ is a fixed unknown constant, not random across analysts.",
+        "B": "Same data and method yield the same interval; there is no 5% offset.",
+        "C": "Correct. A CI is a deterministic function of the data and method, so identical inputs give the identical interval.",
+        "D": "They are directly comparable and in fact equal here."
+      }
+    },
+    {
+      "id": "pr_l8_096",
+      "concept": "ci_interpretation",
+      "question": "Across 100 independent 95% CIs (each from a fresh sample), the expected number that contain μ is about:",
+      "options": [
+        "100",
+        "5",
+        "50",
+        "95"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "100 would mean every interval always covers μ, i.e. 100% coverage, not 95%.",
+        "B": "5 is the expected number that MISS μ, not the number that contain it.",
+        "C": "50 corresponds to 50% coverage, not 95%.",
+        "D": "Correct. Each interval covers μ with probability ≈ 0.95, so E[count] = 100 × 0.95 = 95."
+      }
+    },
+    {
+      "id": "pr_l8_097",
+      "concept": "ci_interpretation",
+      "question": "Widening a confidence interval (same data) by raising the confidence level:",
+      "options": [
+        "increases the chance the procedure captures μ",
+        "decreases coverage",
+        "changes the point estimate",
+        "removes all uncertainty"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Higher confidence ⇒ larger z ⇒ wider interval ⇒ higher long-run coverage.",
+        "B": "Wider intervals from higher confidence raise coverage, not lower it.",
+        "C": "The center x̄ is unchanged; only the margin grows.",
+        "D": "No finite interval removes uncertainty entirely."
+      }
+    },
+    {
+      "id": "pr_l8_098",
+      "concept": "ci_interpretation",
+      "question": "A 95% CI that is very wide most likely indicates:",
+      "options": [
+        "a biased estimator",
+        "high variability and/or a small sample",
+        "that μ is large",
+        "a computational error"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Width reflects variance, not bias; an unbiased estimator can still be imprecise.",
+        "B": "Correct. Width = 2·z·σ/√n, so large σ or small n widens the interval.",
+        "C": "The magnitude of μ shifts the center, not the width.",
+        "D": "A wide interval is a valid signal of imprecision, not necessarily a mistake."
+      }
+    },
+    {
+      "id": "pr_l8_099",
+      "concept": "ci_interpretation",
+      "question": "If your 95% CI for a mean return excludes 0, you can say:",
+      "options": [
+        "the true mean is definitely positive",
+        "95% of returns were positive",
+        "0 is not among the plausible values at the 95% level",
+        "the p-value is exactly 0.05"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A CI gives confidence, not certainty; it can still miss μ ~5% of the time.",
+        "B": "The CI is about the mean parameter, not the fraction of positive observations.",
+        "C": "Correct. Values outside the interval are not supported at that confidence; this mirrors rejecting H₀: μ = 0 at α = 0.05.",
+        "D": "Excluding 0 implies p < 0.05, not necessarily equal to 0.05."
+      }
+    },
+    {
+      "id": "pr_l8_100",
+      "concept": "ci_interpretation",
+      "question": "Confidence level and interval width trade off as follows:",
+      "options": [
+        "higher confidence ⇒ narrower interval",
+        "confidence and width are unrelated",
+        "width depends only on μ",
+        "higher confidence ⇒ wider interval (less precision)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "More confidence requires a larger margin, not a smaller one.",
+        "B": "Width depends directly on the critical value z set by the confidence level.",
+        "C": "Width depends on z, σ, and n — not on the value of μ.",
+        "D": "Correct. Width ∝ z, which grows with confidence, so more confidence costs precision."
+      }
+    },
+    {
+      "id": "pr_l8_101",
+      "concept": "ci_interpretation",
+      "question": "Which change narrows a confidence interval without lowering confidence?",
+      "options": [
+        "Collecting more data (larger n)",
+        "Lowering n",
+        "Raising the confidence level",
+        "Using a biased estimator"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE = σ/√n shrinks as n grows, so the margin z·σ/√n falls at fixed confidence.",
+        "B": "Smaller n raises SE and widens the interval.",
+        "C": "Higher confidence widens the interval.",
+        "D": "Bias shifts the center; it does not reliably narrow a valid interval."
+      }
+    },
+    {
+      "id": "pr_l8_102",
+      "concept": "ci_interpretation",
+      "question": "'We are 95% confident μ is in [10, 14]' is best read as a statement about:",
+      "options": [
+        "the randomness of μ inside [10, 14]",
+        "the reliability of the method that produced the interval",
+        "the percentage of data in [10, 14]",
+        "the probability the sample is valid"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "μ is a fixed constant, not random within the interval.",
+        "B": "Correct. Confidence attaches to the long-run procedure, which captures μ ~95% of the time.",
+        "C": "It is not a claim about how much data falls in the range.",
+        "D": "It is about coverage of μ, not sample validity."
+      }
+    },
+    {
+      "id": "pr_l8_103",
+      "concept": "ci_interpretation",
+      "question": "A narrower 95% CI compared to another (same confidence) means:",
+      "options": [
+        "a less reliable estimate",
+        "higher confidence",
+        "a more precise estimate (smaller standard error)",
+        "a larger σ"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Narrower at the same confidence means more precision, not less reliability.",
+        "B": "Both are 95%; only the SE differs.",
+        "C": "Correct. At fixed z, a narrower width means a smaller SE = σ/√n, i.e. more precision.",
+        "D": "A narrower interval suggests smaller σ or larger n, not larger σ."
+      }
+    },
+    {
+      "id": "pr_l8_104",
+      "concept": "unbiased_estimator",
+      "question": "An estimator θ̂ is unbiased for θ when:",
+      "options": [
+        "Var(θ̂) = 0",
+        "θ̂ = θ for every sample",
+        "θ̂ > θ on average",
+        "E[θ̂] = θ"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Zero variance describes a constant estimator, not unbiasedness.",
+        "B": "Exact equality every time would need zero error; unbiasedness is only about the average.",
+        "C": "Averaging above θ is positive bias, the opposite of unbiased.",
+        "D": "Correct. Unbiasedness means the estimator equals the target on average: E[θ̂] = θ, i.e. bias = E[θ̂] − θ = 0."
+      }
+    },
+    {
+      "id": "pr_l8_105",
+      "concept": "unbiased_estimator",
+      "question": "The bias of an estimator is defined as:",
+      "options": [
+        "E[θ̂] − θ",
+        "θ̂ − θ for one sample",
+        "Var(θ̂)",
+        "E[θ̂] + θ"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bias = E[θ̂] − θ; it is 0 exactly when the estimator is unbiased.",
+        "B": "That is the realized error for a single sample, not the (expected) bias.",
+        "C": "Variance measures spread, not the systematic offset from θ.",
+        "D": "Bias subtracts θ from the expectation; it does not add them."
+      }
+    },
+    {
+      "id": "pr_l8_106",
+      "concept": "unbiased_estimator",
+      "question": "The sample mean x̄ as an estimator of μ is:",
+      "options": [
+        "biased upward",
+        "unbiased, since E[x̄] = μ",
+        "biased downward",
+        "unbiased only for normal data"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "E[x̄] = μ exactly, so there is no upward bias.",
+        "B": "Correct. E[x̄] = (1/n)Σ E[Xᵢ] = (1/n)(nμ) = μ, so x̄ is unbiased for μ.",
+        "C": "E[x̄] = μ exactly, so there is no downward bias.",
+        "D": "E[x̄] = μ holds for any distribution with a finite mean, not just normal."
+      }
+    },
+    {
+      "id": "pr_l8_107",
+      "concept": "unbiased_estimator",
+      "question": "Using Σ(xᵢ−x̄)²/n (divide by n) to estimate σ² gives an estimator that is:",
+      "options": [
+        "unbiased",
+        "biased upward",
+        "biased downward, with E = σ²(n−1)/n",
+        "always equal to σ²"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Dividing by n is biased; the n−1 version is unbiased.",
+        "B": "It is smaller than σ² on average, so the bias is downward.",
+        "C": "Correct. E[Σ(xᵢ−x̄)²/n] = σ²(n−1)/n < σ², so it underestimates σ².",
+        "D": "Its expectation is σ²(n−1)/n, not σ²."
+      }
+    },
+    {
+      "id": "pr_l8_108",
+      "concept": "unbiased_estimator",
+      "question": "An estimator can be unbiased yet still:",
+      "options": [
+        "always equal θ exactly",
+        "have zero variance",
+        "be inconsistent by definition",
+        "have large variance (be imprecise)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Always equaling θ would require zero variance, not implied by unbiasedness.",
+        "B": "Unbiasedness does not force zero variance.",
+        "C": "Unbiasedness does not by itself determine consistency either way.",
+        "D": "Correct. Unbiasedness fixes E[θ̂] = θ but says nothing about Var(θ̂), which can be large."
+      }
+    },
+    {
+      "id": "pr_l8_109",
+      "concept": "unbiased_estimator",
+      "question": "Between two unbiased estimators, the 'more efficient' one has:",
+      "options": [
+        "smaller variance",
+        "larger variance",
+        "larger bias",
+        "a smaller sample"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among unbiased estimators, efficiency is judged by variance: smaller Var(θ̂) is more efficient.",
+        "B": "Larger variance is less efficient, not more.",
+        "C": "Both are unbiased (bias 0); efficiency compares variances.",
+        "D": "Efficiency is about variance at a given n, not sample size."
+      }
+    },
+    {
+      "id": "pr_l8_110",
+      "concept": "unbiased_estimator",
+      "question": "If E[θ̂] = θ + 2 regardless of n, the estimator is:",
+      "options": [
+        "unbiased",
+        "biased by +2 (and the bias does not vanish)",
+        "consistent and unbiased",
+        "biased by −2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A nonzero constant offset of +2 means it is biased.",
+        "B": "Correct. Bias = E[θ̂] − θ = 2, a constant offset that persists for all n.",
+        "C": "A fixed +2 bias means it does not even converge to θ, so not consistent.",
+        "D": "The expectation exceeds θ by 2, so the bias is +2, not −2."
+      }
+    },
+    {
+      "id": "pr_l8_111",
+      "concept": "unbiased_estimator",
+      "question": "The sample proportion p̂ = X/n (X ~ Binomial(n, p)) estimates p and is:",
+      "options": [
+        "biased toward 0.5",
+        "biased downward",
+        "unbiased, since E[p̂] = p",
+        "unbiased only if p = 0.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "There is no pull toward 0.5; E[p̂] = p exactly.",
+        "B": "E[p̂] = p, so no systematic downward bias.",
+        "C": "Correct. E[p̂] = E[X]/n = np/n = p, so p̂ is unbiased for p.",
+        "D": "E[p̂] = p holds for every p, not only 0.5."
+      }
+    },
+    {
+      "id": "pr_l8_112",
+      "concept": "unbiased_estimator",
+      "question": "A small constant bias may be acceptable if the estimator:",
+      "options": [
+        "increases the variance",
+        "ignores the data",
+        "always equals θ",
+        "has much lower variance, lowering overall MSE"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Adding bias and variance both would raise MSE, not justify the bias.",
+        "B": "Ignoring data does not justify a biased estimator.",
+        "C": "If it always equaled θ it would be unbiased, not biased.",
+        "D": "Correct. MSE = bias² + variance, so trading a little bias for a large variance drop can reduce MSE."
+      }
+    },
+    {
+      "id": "pr_l8_113",
+      "concept": "unbiased_estimator",
+      "question": "Which is true about the standard deviation estimator s = √s²?",
+      "options": [
+        "It is slightly biased for σ even though s² is unbiased for σ²",
+        "s is exactly unbiased for σ",
+        "s overestimates σ on average",
+        "s² is biased but s is unbiased"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By Jensen's inequality E[√s²] ≤ √E[s²] = σ, so s underestimates σ on average despite s² being unbiased.",
+        "B": "The square root introduces a small downward bias; s is not exactly unbiased.",
+        "C": "Jensen's inequality gives E[s] ≤ σ, a downward not upward bias.",
+        "D": "It is the reverse: s² (with n−1) is unbiased, while s is slightly biased."
+      }
+    },
+    {
+      "id": "pr_l8_114",
+      "concept": "unbiased_estimator",
+      "question": "An estimator with bias 1 and variance 4 has mean squared error:",
+      "options": [
+        "4",
+        "5",
+        "9",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4 ignores the bias² term; MSE adds bias² to variance.",
+        "B": "Correct. MSE = bias² + variance = 1² + 4 = 5.",
+        "C": "9 = (1+2)² incorrectly mixes the terms; MSE = bias² + variance.",
+        "D": "3 = variance − bias²; MSE adds the terms, it does not subtract."
+      }
+    },
+    {
+      "id": "pr_l8_115",
+      "concept": "unbiased_estimator",
+      "question": "An estimator with bias 2 and variance 5 has mean squared error:",
+      "options": [
+        "7",
+        "29",
+        "9",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7 = bias + variance; MSE squares the bias first.",
+        "B": "29 = bias² ·? no — MSE = bias² + variance = 9, not 29.",
+        "C": "Correct. MSE = bias² + variance = 2² + 5 = 4 + 5 = 9.",
+        "D": "3 = variance − bias²; MSE adds, not subtracts."
+      }
+    },
+    {
+      "id": "pr_l8_116",
+      "concept": "mle_intuition",
+      "question": "Maximum likelihood estimation chooses the parameter that:",
+      "options": [
+        "minimizes the sample size",
+        "ignores the observed data",
+        "sets the parameter to zero",
+        "maximizes the likelihood of the observed data"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Sample size is fixed by the data; MLE optimizes θ, not n.",
+        "B": "MLE is entirely data-driven; ignoring data is the opposite of its logic.",
+        "C": "The MLE depends on the data and is generally nonzero.",
+        "D": "Correct. The MLE maximizes L(θ) = P(data | θ), the probability of the data you actually saw."
+      }
+    },
+    {
+      "id": "pr_l8_117",
+      "concept": "mle_intuition",
+      "question": "For X₁..Xₙ ~ Normal(μ, σ²) with σ² known, the MLE of μ is:",
+      "options": [
+        "the sample mean x̄",
+        "the sample median",
+        "zero",
+        "the sample range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Maximizing the normal log-likelihood over μ gives μ̂ = x̄.",
+        "B": "The median maximizes the Laplace likelihood, not the normal one.",
+        "C": "μ̂ = x̄ in general, equal to 0 only if the data average to 0.",
+        "D": "The range measures spread, not the location parameter μ."
+      }
+    },
+    {
+      "id": "pr_l8_118",
+      "concept": "mle_intuition",
+      "question": "For X₁..Xₙ ~ Normal(μ, σ²), the MLE of σ² divides the squared deviations by:",
+      "options": [
+        "n − 1",
+        "n",
+        "n + 1",
+        "√n"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "n−1 gives the unbiased estimator, not the MLE.",
+        "B": "Correct. The MLE is σ̂² = Σ(xᵢ−x̄)²/n; it uses n, which makes it slightly biased.",
+        "C": "No standard estimator divides by n+1 here.",
+        "D": "√n is the SE denominator, not the variance divisor."
+      }
+    },
+    {
+      "id": "pr_l8_119",
+      "concept": "mle_intuition",
+      "question": "For X₁..Xₙ ~ Bernoulli(p), the MLE of p is:",
+      "options": [
+        "0.5 always",
+        "the sample variance",
+        "the sample proportion x̄ = (Σxᵢ)/n",
+        "1 − x̄"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "p̂ equals the observed success fraction, 0.5 only if exactly half succeed.",
+        "B": "Variance is not the MLE of the Bernoulli success probability.",
+        "C": "Correct. Maximizing Σ[xᵢ ln p + (1−xᵢ) ln(1−p)] gives p̂ = (Σxᵢ)/n, the sample proportion.",
+        "D": "1 − x̄ estimates the failure probability, not p."
+      }
+    },
+    {
+      "id": "pr_l8_120",
+      "concept": "mle_intuition",
+      "question": "For X₁..Xₙ ~ Exponential(rate λ), the MLE of λ is:",
+      "options": [
+        "x̄",
+        "Σxᵢ",
+        "√x̄",
+        "1/x̄"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "x̄ estimates the mean 1/λ, so λ̂ is its reciprocal, not x̄ itself.",
+        "B": "The raw sum is not the rate estimate; λ̂ = n/Σxᵢ.",
+        "C": "There is no square root in the exponential MLE for λ.",
+        "D": "Correct. The exponential log-likelihood is maximized at λ̂ = n/Σxᵢ = 1/x̄."
+      }
+    },
+    {
+      "id": "pr_l8_121",
+      "concept": "mle_intuition",
+      "question": "The likelihood function L(θ) treats the data as:",
+      "options": [
+        "fixed, and θ as the variable being optimized",
+        "random, with θ fixed",
+        "both fixed",
+        "irrelevant"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After observing the data, L(θ) = P(data | θ) is viewed as a function of θ to be maximized.",
+        "B": "That describes the sampling distribution before data; the likelihood fixes the data and varies θ.",
+        "C": "If both were fixed there would be nothing to maximize over.",
+        "D": "The data drive the likelihood; they are central, not irrelevant."
+      }
+    },
+    {
+      "id": "pr_l8_122",
+      "concept": "mle_intuition",
+      "question": "We usually maximize the log-likelihood instead of the likelihood because:",
+      "options": [
+        "the log changes where the maximum is",
+        "log turns products into sums and shares the same maximizer",
+        "it removes the need for data",
+        "it makes the estimator unbiased"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A strictly increasing transform preserves the location of the maximum.",
+        "B": "Correct. log is strictly increasing, so argmax is unchanged, and ln∏ = Σ ln makes the algebra and numerics easier.",
+        "C": "The log-likelihood still depends fully on the data.",
+        "D": "Taking logs does not change bias properties of the MLE."
+      }
+    },
+    {
+      "id": "pr_l8_123",
+      "concept": "mle_intuition",
+      "question": "A key large-sample property of the MLE is that it is:",
+      "options": [
+        "always exactly unbiased",
+        "independent of the data",
+        "consistent (converges to θ as n → ∞)",
+        "always zero"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "MLEs are often biased in finite samples (e.g. σ̂² divides by n).",
+        "B": "The MLE is a function of the data, not independent of it.",
+        "C": "Correct. Under regularity conditions the MLE is consistent and asymptotically normal, converging to θ.",
+        "D": "The MLE depends on the data and is generally nonzero."
+      }
+    },
+    {
+      "id": "pr_l8_124",
+      "concept": "mle_intuition",
+      "question": "For a Uniform(0, θ) sample, the MLE of θ is:",
+      "options": [
+        "the sample mean",
+        "twice the mean",
+        "the sample minimum",
+        "the sample maximum max(xᵢ)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The mean estimates θ/2, not θ; it is not the MLE here.",
+        "B": "2x̄ is a method-of-moments estimator, not the MLE.",
+        "C": "θ must be at least the largest observation, so the minimum cannot be the MLE.",
+        "D": "Correct. The likelihood (1/θ)ⁿ for θ ≥ max(xᵢ) is largest at the smallest allowed θ, namely max(xᵢ)."
+      }
+    },
+    {
+      "id": "pr_l8_125",
+      "concept": "t_distribution",
+      "question": "When σ is unknown and estimated by s from a small sample, the correct reference distribution for the mean is:",
+      "options": [
+        "the t distribution",
+        "the standard normal always",
+        "the chi-square distribution",
+        "the binomial distribution"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Replacing σ by s adds extra uncertainty, so (x̄−μ)/(s/√n) follows a t distribution, not exactly normal.",
+        "B": "Using s (not σ) in a small sample requires the heavier-tailed t, not z.",
+        "C": "Chi-square describes (n−1)s²/σ², not the standardized mean.",
+        "D": "The binomial models counts of successes, not a sample mean."
+      }
+    },
+    {
+      "id": "pr_l8_126",
+      "concept": "t_distribution",
+      "question": "A t-based confidence interval for the mean uses degrees of freedom equal to:",
+      "options": [
+        "n",
+        "n − 1",
+        "n + 1",
+        "√n"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "One df is used estimating the mean, so it is n − 1, not n.",
+        "B": "Correct. Estimating μ with x̄ costs one df, leaving n − 1 for the t distribution.",
+        "C": "Degrees of freedom decrease, not increase, when estimating the mean.",
+        "D": "√n is the SE denominator, not the degrees of freedom."
+      }
+    },
+    {
+      "id": "pr_l8_127",
+      "concept": "t_distribution",
+      "question": "Compared with the standard normal, the t distribution has:",
+      "options": [
+        "lighter tails",
+        "identical shape for all n",
+        "heavier tails (more probability far from 0)",
+        "no defined variance ever"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "t has heavier, not lighter, tails than the normal.",
+        "B": "t depends on df and only approaches normal as df grows.",
+        "C": "Correct. The extra uncertainty from estimating σ gives t fatter tails, so t critical values exceed z.",
+        "D": "t has finite variance for df > 2; it is not undefined in general."
+      }
+    },
+    {
+      "id": "pr_l8_128",
+      "concept": "t_distribution",
+      "question": "As the sample size (and df) grows large, the t distribution:",
+      "options": [
+        "approaches the uniform",
+        "becomes more skewed",
+        "diverges",
+        "approaches the standard normal"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "t converges to the normal, not the uniform.",
+        "B": "t is symmetric; it does not become skewed as df grows.",
+        "C": "t stabilizes to the normal; it does not diverge.",
+        "D": "Correct. As df → ∞, the t distribution converges to N(0,1), so t* → z*."
+      }
+    },
+    {
+      "id": "pr_l8_129",
+      "concept": "t_distribution",
+      "question": "For a 95% CI from a small sample with unknown σ, the t critical value t* compared with 1.96 is:",
+      "options": [
+        "larger than 1.96",
+        "smaller than 1.96",
+        "exactly 1.96",
+        "always 2.0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With finite df the heavier t tails push t* above the normal's 1.96, giving a wider interval.",
+        "B": "t* exceeds z* for finite df; it is not smaller.",
+        "C": "t* equals 1.96 only in the limit df → ∞, not for small samples.",
+        "D": "t* depends on df; it is not a fixed 2.0."
+      }
+    },
+    {
+      "id": "pr_l8_130",
+      "concept": "t_distribution",
+      "question": "Using z = 1.96 instead of the larger t* for a small-sample mean CI tends to make the interval:",
+      "options": [
+        "too wide",
+        "too narrow (under-cover μ)",
+        "correctly calibrated",
+        "biased in center"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Using the smaller z makes the margin smaller, so the interval is too narrow, not too wide.",
+        "B": "Correct. Since t* > 1.96, using z understates the margin, so the interval is too narrow and covers μ less than 95% of the time.",
+        "C": "Ignoring the extra uncertainty from estimating σ leaves the interval mis-calibrated.",
+        "D": "The center x̄ is unaffected; only the width is too small."
+      }
+    },
+    {
+      "id": "pr_l8_131",
+      "concept": "t_distribution",
+      "question": "The t distribution arises specifically because we:",
+      "options": [
+        "have a known population σ",
+        "use a biased mean estimator",
+        "estimate σ from the data rather than knowing it",
+        "always have huge samples"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If σ were known, the standardized mean would be exactly normal, not t.",
+        "B": "x̄ is unbiased; the t arises from estimating σ, not from a biased mean.",
+        "C": "Correct. The randomness in s (the σ estimate) is what turns the standardized mean into a t variable.",
+        "D": "t matters most for small samples; large samples make it ≈ normal."
+      }
+    },
+    {
+      "id": "pr_l8_132",
+      "concept": "t_distribution",
+      "question": "A one-sample t statistic for the mean is computed as:",
+      "options": [
+        "(x̄ − μ₀)/(σ/√n)",
+        "(x̄ − μ₀)/s",
+        "x̄/(s·√n)",
+        "(x̄ − μ₀)/(s/√n)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Using known σ gives a z statistic; the t statistic uses the sample s.",
+        "B": "This omits the √n; the SE is s/√n, not s.",
+        "C": "This neither subtracts μ₀ nor divides by s/√n correctly.",
+        "D": "Correct. The t statistic standardizes x̄ using the estimated standard error s/√n with df = n − 1."
+      }
+    },
+    {
+      "id": "pr_l8_133",
+      "concept": "point_estimate",
+      "question": "To estimate a population proportion p, the natural point estimate is:",
+      "options": [
+        "the sample proportion p̂ = x/n",
+        "the sample mean of the raw labels times n",
+        "the population size N",
+        "1 − x/n"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. p̂ = (successes)/(trials) = x/n is the unbiased point estimate of p.",
+        "B": "Multiplying by n gives the count x, not the proportion p.",
+        "C": "N is the population size, not an estimate of the success fraction.",
+        "D": "1 − x/n estimates the failure proportion, not p."
+      }
+    },
+    {
+      "id": "pr_l8_134",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.5 from n = 100. The standard error of the proportion is:",
+      "options": [
+        "0.0025",
+        "0.05",
+        "0.0707",
+        "0.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.0025 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "B": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.5·0.5/100) = 0.05.",
+        "C": "0.0707 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "D": "0.5 is √(p̂(1−p̂)) without the /n, so it omits the sample-size shrinkage."
+      }
+    },
+    {
+      "id": "pr_l8_135",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.2 from n = 100. The standard error of the proportion is:",
+      "options": [
+        "0.0016",
+        "0.0447",
+        "0.04",
+        "0.02"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.0016 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "B": "0.0447 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "C": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.2·0.8/100) = 0.04.",
+        "D": "0.02 treats p̂ like a standard deviation over √n, the wrong SE formula for a proportion."
+      }
+    },
+    {
+      "id": "pr_l8_136",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.6 from n = 100. The standard error of the proportion is:",
+      "options": [
+        "0.0024",
+        "0.0775",
+        "0.06",
+        "0.049"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.0024 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "B": "0.0775 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "C": "0.06 treats p̂ like a standard deviation over √n, the wrong SE formula for a proportion.",
+        "D": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.6·0.4/100) = 0.049."
+      }
+    },
+    {
+      "id": "pr_l8_137",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.5 from n = 400. The standard error of the proportion is:",
+      "options": [
+        "0.025",
+        "0.0006",
+        "0.0354",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.5·0.5/400) = 0.025.",
+        "B": "0.0006 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "C": "0.0354 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "D": "0.5 is √(p̂(1−p̂)) without the /n, so it omits the sample-size shrinkage."
+      }
+    },
+    {
+      "id": "pr_l8_138",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.1 from n = 900. The standard error of the proportion is:",
+      "options": [
+        "0.0001",
+        "0.01",
+        "0.0105",
+        "0.0033"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.0001 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "B": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.1·0.9/900) = 0.01.",
+        "C": "0.0105 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "D": "0.0033 treats p̂ like a standard deviation over √n, the wrong SE formula for a proportion."
+      }
+    },
+    {
+      "id": "pr_l8_139",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.4 from n = 600. The standard error of the proportion is:",
+      "options": [
+        "0.0004",
+        "0.0258",
+        "0.02",
+        "0.0163"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.0004 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "B": "0.0258 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "C": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.4·0.6/600) = 0.02.",
+        "D": "0.0163 treats p̂ like a standard deviation over √n, the wrong SE formula for a proportion."
+      }
+    },
+    {
+      "id": "pr_l8_140",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.5 from n = 2500. The standard error of the proportion is:",
+      "options": [
+        "0.0001",
+        "0.0141",
+        "0.5",
+        "0.01"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.0001 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "B": "0.0141 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "C": "0.5 is √(p̂(1−p̂)) without the /n, so it omits the sample-size shrinkage.",
+        "D": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.5·0.5/2500) = 0.01."
+      }
+    },
+    {
+      "id": "pr_l8_141",
+      "concept": "standard_error",
+      "question": "A poll has p̂ = 0.3 from n = 2100. The standard error of the proportion is:",
+      "options": [
+        "0.01",
+        "0.0001",
+        "0.012",
+        "0.0065"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SE(p̂) = √(p̂(1−p̂)/n) = √(0.3·0.7/2100) = 0.01.",
+        "B": "0.0001 is the variance p̂(1−p̂)/n; the standard error takes its square root.",
+        "C": "0.012 uses √(p̂/n), dropping the (1−p̂) factor in the proportion variance.",
+        "D": "0.0065 treats p̂ like a standard deviation over √n, the wrong SE formula for a proportion."
+      }
+    },
+    {
+      "id": "pr_l8_142",
+      "concept": "confidence_interval_mean",
+      "question": "A 95% CI for a proportion p̂ = 0.5 with n = 100 (z = 1.96, SE = 0.05) is approximately:",
+      "options": [
+        "[0.45, 0.55]",
+        "[0.402, 0.598]",
+        "[0.30, 0.70]",
+        "[0.49, 0.51]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "[0.45, 0.55] uses ±0.05 (the SE) without the 1.96 multiplier.",
+        "B": "Correct. Margin = 1.96·0.05 = 0.098; CI = 0.5 ± 0.098 = [0.402, 0.598].",
+        "C": "[0.30, 0.70] uses ±0.20, far larger than the 0.098 margin.",
+        "D": "[0.49, 0.51] uses ±0.01, far too small for SE = 0.05."
+      }
+    },
+    {
+      "id": "pr_l8_143",
+      "concept": "sample_size_effect",
+      "question": "For a proportion with p̂ near 0.5, the conservative SE √(0.25/n) means halving the margin requires n to grow by:",
+      "options": [
+        "a factor of 2",
+        "a factor of 8",
+        "a factor of 4",
+        "no change"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Doubling n only shrinks the margin by 1/√2 ≈ 0.71.",
+        "B": "8 overshoots; n × 4 suffices to halve the margin.",
+        "C": "Correct. Margin ∝ 1/√n, so halving it needs √n to double, i.e. n × 4.",
+        "D": "The margin depends on n through √n, so it must change."
+      }
+    },
+    {
+      "id": "pr_l8_144",
+      "concept": "standard_error",
+      "question": "The proportion variance p̂(1−p̂) is maximized (worst-case SE) at p̂ =",
+      "options": [
+        "0",
+        "1",
+        "0.25",
+        "0.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "At p = 0, p(1−p) = 0, the minimum variance, not the maximum.",
+        "B": "At p = 1, p(1−p) = 0, the minimum variance, not the maximum.",
+        "C": "0.25 is the maximum value of p(1−p), reached at p = 0.5 — not the location p.",
+        "D": "Correct. p(1−p) peaks at p = 0.5, giving the largest SE √(0.25/n) for a fixed n."
+      }
+    },
+    {
+      "id": "pr_l8_145",
+      "concept": "sample_size_effect",
+      "question": "Using the conservative p̂ = 0.5, the n needed for a 95% margin of about 0.05 (z ≈ 2) is roughly:",
+      "options": [
+        "≈ 400",
+        "≈ 40",
+        "≈ 100",
+        "≈ 4000"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2·√(0.25/n) ≤ 0.05 ⇒ √n ≥ 2·0.5/0.05 = 20 ⇒ n ≥ 400.",
+        "B": "n = 40 gives a margin near 0.16, far above 0.05.",
+        "C": "n = 100 gives a margin near 0.10, still above 0.05.",
+        "D": "≈ 4000 overshoots; about 400 already achieves a 0.05 margin."
+      }
+    },
+    {
+      "id": "pr_l8_146",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: about how many seconds are in one (non-leap) year?",
+      "options": [
+        "≈ 3 × 10⁵",
+        "≈ 3 × 10⁷",
+        "≈ 3 × 10⁹",
+        "≈ 5 × 10⁶"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "≈ 3 × 10⁵ is roughly the seconds in ~3.5 days, off by ~100×.",
+        "B": "Correct. 365 × 24 × 3600 ≈ 365 × 86,400 ≈ 3.15 × 10⁷ seconds.",
+        "C": "≈ 3 × 10⁹ overshoots by ~100×; that is closer to a century in seconds.",
+        "D": "≈ 5 × 10⁶ is about two months of seconds, too small by ~6×."
+      }
+    },
+    {
+      "id": "pr_l8_147",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: roughly how many heartbeats occur in an 80-year human life?",
+      "options": [
+        "≈ 3 × 10⁶",
+        "≈ 3 × 10¹²",
+        "≈ 3 × 10⁹",
+        "≈ 3 × 10⁷"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "≈ 3 × 10⁶ is only about a month of heartbeats, off by ~1000×.",
+        "B": "≈ 3 × 10¹² overshoots by ~1000×; that is far more than a lifetime of beats.",
+        "C": "Correct. ~70 beats/min × 60 × 24 × 365 × 80 ≈ 70 × 4.2×10⁷ ≈ 2.9 × 10⁹ beats.",
+        "D": "≈ 3 × 10⁷ is roughly one year of heartbeats, off by ~80×."
+      }
+    },
+    {
+      "id": "pr_l8_148",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: about how many breaths does a person take per day (~15/min)?",
+      "options": [
+        "≈ 2 × 10²",
+        "≈ 2 × 10⁶",
+        "≈ 1 × 10³",
+        "≈ 2 × 10⁴"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "≈ 2 × 10² is only a few hours' worth at most, off by ~100×.",
+        "B": "≈ 2 × 10⁶ overshoots by ~100×; that is closer to breaths in a few months.",
+        "C": "≈ 1 × 10³ is roughly an hour of breaths, far too few for a day.",
+        "D": "Correct. 15 breaths/min × 60 × 24 = 21,600 ≈ 2 × 10⁴ breaths."
+      }
+    },
+    {
+      "id": "pr_l8_149",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many words are in a typical 300-page novel (~300 words/page)?",
+      "options": [
+        "≈ 10⁵",
+        "≈ 10³",
+        "≈ 10⁷",
+        "≈ 10⁴"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 300 pages × ~300 words ≈ 90,000 ≈ 10⁵ words.",
+        "B": "≈ 10³ is about three pages, off by ~100×.",
+        "C": "≈ 10⁷ overshoots by ~100×; that is dozens of novels.",
+        "D": "≈ 10⁴ (10,000) is about a long short-story, ~10× too few."
+      }
+    },
+    {
+      "id": "pr_l8_150",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many liters of water fill an Olympic pool (50 × 25 × 2 m)?",
+      "options": [
+        "≈ 2.5 × 10³ L",
+        "≈ 2.5 × 10⁶ L",
+        "≈ 2.5 × 10⁹ L",
+        "≈ 2.5 × 10⁴ L"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "≈ 2.5 × 10³ L equals the volume in m³, forgetting the ×1000 L/m³ conversion.",
+        "B": "Correct. Volume = 50 × 25 × 2 = 2500 m³, and 1 m³ = 1000 L, so ≈ 2.5 × 10⁶ L.",
+        "C": "≈ 2.5 × 10⁹ L overshoots by ~1000×; that is a small lake.",
+        "D": "≈ 2.5 × 10⁴ L is about a backyard pool, ~100× too small."
+      }
+    },
+    {
+      "id": "pr_l8_151",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many $1 bills (≈ 0.11 mm thick) stacked reach 1 km tall?",
+      "options": [
+        "≈ 10⁴",
+        "≈ 10¹⁰",
+        "≈ 10⁷",
+        "≈ 10⁵"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "≈ 10⁴ bills stack only ~1 m, off by ~1000×.",
+        "B": "≈ 10¹⁰ overshoots by ~1000×; that stack would reach ~1000 km.",
+        "C": "Correct. 1 km = 10⁶ mm; 10⁶ / 0.11 ≈ 9 × 10⁶ ≈ 10⁷ bills.",
+        "D": "≈ 10⁵ bills reach only ~11 m, far short of 1 km."
+      }
+    },
+    {
+      "id": "pr_l8_152",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many times does a car tire (~2 m circumference) rotate over 200,000 km of driving?",
+      "options": [
+        "≈ 10⁵",
+        "≈ 10¹¹",
+        "≈ 10⁶",
+        "≈ 10⁸"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "≈ 10⁵ rotations cover only ~200 km, off by ~1000×.",
+        "B": "≈ 10¹¹ overshoots by ~1000×; that is far beyond a car's lifetime.",
+        "C": "≈ 10⁶ rotations cover ~2000 km, ~100× too few.",
+        "D": "Correct. 200,000 km = 2 × 10⁸ m; ÷ 2 m per rotation ≈ 10⁸ rotations."
+      }
+    },
+    {
+      "id": "pr_l8_153",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: roughly how many hairs are on a typical human head?",
+      "options": [
+        "≈ 10⁵",
+        "≈ 10³",
+        "≈ 10⁷",
+        "≈ 10⁴"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Scalp ≈ 600 cm² at ~150 hairs/cm² ≈ 9 × 10⁴ ≈ 10⁵ hairs.",
+        "B": "≈ 10³ is far too sparse for a full head of hair, off by ~100×.",
+        "C": "≈ 10⁷ overshoots by ~100×; that exceeds plausible follicle density.",
+        "D": "≈ 10⁴ (10,000) is ~10× too few for a typical head."
+      }
+    },
+    {
+      "id": "pr_l8_154",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many minutes are in a (non-leap) year?",
+      "options": [
+        "≈ 5 × 10³",
+        "≈ 5 × 10⁵",
+        "≈ 5 × 10⁷",
+        "≈ 9 × 10⁴"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "≈ 5 × 10³ minutes is only ~3.5 days, off by ~100×.",
+        "B": "Correct. 365 × 24 × 60 = 525,600 ≈ 5.3 × 10⁵ minutes.",
+        "C": "≈ 5 × 10⁷ overshoots by ~100×; that is closer to seconds in a year.",
+        "D": "≈ 9 × 10⁴ is roughly the minutes in two months, too few by ~6×."
+      }
+    },
+    {
+      "id": "pr_l8_155",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many grains of rice (~0.02 g each) are in a 1 kg bag?",
+      "options": [
+        "≈ 5 × 10²",
+        "≈ 5 × 10⁶",
+        "≈ 5 × 10⁴",
+        "≈ 5 × 10³"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "≈ 5 × 10² grains weigh only ~10 g, off by ~100×.",
+        "B": "≈ 5 × 10⁶ overshoots by ~100×; those grains would weigh ~100 kg.",
+        "C": "Correct. 1 kg = 1000 g; 1000 / 0.02 = 50,000 ≈ 5 × 10⁴ grains.",
+        "D": "≈ 5 × 10³ grains weigh only ~100 g, ~10× too few."
+      }
+    },
+    {
+      "id": "pr_l8_156",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many cells are in the human body (order of magnitude)?",
+      "options": [
+        "≈ 10⁹ (a billion)",
+        "≈ 10¹⁸",
+        "≈ 10⁶ (a million)",
+        "≈ 3 × 10¹³ (tens of trillions)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "≈ 10⁹ is far too few, off by ~10,000×.",
+        "B": "≈ 10¹⁸ overshoots the accepted figure by ~10⁵×.",
+        "C": "≈ 10⁶ is wildly too small for a whole human body.",
+        "D": "Correct. Standard biology estimates put it near 3 × 10¹³ to 4 × 10¹³ cells."
+      }
+    },
+    {
+      "id": "pr_l8_157",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many piano tuners are likely working in a city of ~3 million (classic Fermi problem)?",
+      "options": [
+        "≈ a few hundred (~10²)",
+        "≈ a few (~10⁰)",
+        "≈ tens of thousands (~10⁴)",
+        "≈ millions (~10⁶)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ~1M pianos? no: ~3M people / ~3 per household ≈ 10⁶ households; ~1 in 20 owns a piano ⇒ ~5×10⁴ pianos; tuned yearly, ~50/week per tuner ⇒ ~2500/yr ⇒ ≈ 20–200 tuners, order 10².",
+        "B": "≈ a handful is far too few to service tens of thousands of pianos, off by ~100×.",
+        "C": "≈ 10⁴ tuners overshoots; there are not enough pianos to employ that many, off by ~100×.",
+        "D": "≈ 10⁶ exceeds the city's entire workforce; wildly too large."
+      }
+    },
+    {
+      "id": "pr_l8_158",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: about how many hours are in a (non-leap) year?",
+      "options": [
+        "≈ 9 × 10¹",
+        "≈ 9 × 10³",
+        "≈ 9 × 10⁵",
+        "≈ 3 × 10³"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "≈ 90 hours is under 4 days, off by ~100×.",
+        "B": "Correct. 365 × 24 = 8760 ≈ 9 × 10³ hours.",
+        "C": "≈ 9 × 10⁵ overshoots by ~100×; that is closer to minutes in a year.",
+        "D": "≈ 3000 hours is about four months, too few by ~3×."
+      }
+    },
+    {
+      "id": "pr_l8_159",
+      "concept": "fermi_estimate",
+      "question": "Fermi estimate: how many pages would a 1-million-word manuscript fill at ~500 words/page?",
+      "options": [
+        "≈ 2 × 10¹",
+        "≈ 2 × 10⁵",
+        "≈ 2 × 10³",
+        "≈ 2 × 10²"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "≈ 20 pages would hold only ~10⁴ words, off by ~100×.",
+        "B": "≈ 2 × 10⁵ pages overshoots by ~100×; that is ~10⁸ words.",
+        "C": "Correct. 10⁶ words / 500 words per page = 2000 ≈ 2 × 10³ pages.",
+        "D": "≈ 200 pages holds ~10⁵ words, ~10× too few."
+      }
+    },
+    {
+      "id": "pr_l8_160",
+      "concept": "point_estimate",
+      "question": "A point estimate is best described as:",
+      "options": [
+        "a range of plausible values",
+        "the exact population parameter",
+        "a hypothesis to be tested",
+        "a single number from the sample used to approximate a population parameter"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A range is an interval estimate, not a point estimate.",
+        "B": "A point estimate approximates θ; it rarely equals it exactly.",
+        "C": "A hypothesis is a claim about θ, not a numeric estimate of it.",
+        "D": "Correct. A point estimate (e.g. x̄ for μ) is one statistic that approximates an unknown parameter θ."
+      }
+    },
+    {
+      "id": "pr_l8_161",
+      "concept": "point_estimate",
+      "question": "The sample standard deviation s is a point estimate of:",
+      "options": [
+        "the population standard deviation σ",
+        "the population mean μ",
+        "the standard error of the mean",
+        "the sample size n"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. s = √s² estimates σ, the spread of individual values in the population.",
+        "B": "μ is estimated by x̄, not by s.",
+        "C": "The SE is s/√n; s alone is not the SE.",
+        "D": "n is known exactly and is not what s estimates."
+      }
+    },
+    {
+      "id": "pr_l8_162",
+      "concept": "point_estimate",
+      "question": "x̄ = 52.3 computed from a sample is:",
+      "options": [
+        "a confidence interval",
+        "a point estimate of μ",
+        "the true population mean",
+        "a p-value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A CI is a range, not the single number 52.3.",
+        "B": "Correct. A single value computed from the data to approximate μ is a point estimate.",
+        "C": "x̄ equals μ only by coincidence; in general it is an estimate.",
+        "D": "A p-value measures evidence against a hypothesis, not a central estimate."
+      }
+    },
+    {
+      "id": "pr_l8_163",
+      "concept": "standard_error",
+      "question": "The standard error of an estimator measures:",
+      "options": [
+        "the spread of individual data points",
+        "the bias of the estimator",
+        "how much the estimator varies across repeated samples",
+        "the size of the population"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That is σ (or s); the SE describes the estimator's variability, not raw data spread.",
+        "B": "Bias is a systematic offset; SE measures random variability.",
+        "C": "Correct. The SE is the standard deviation of the estimator's sampling distribution, e.g. σ/√n for x̄.",
+        "D": "Population size is unrelated to the SE formula σ/√n."
+      }
+    },
+    {
+      "id": "pr_l8_164",
+      "concept": "standard_error",
+      "question": "The key difference between σ and the standard error σ/√n is that:",
+      "options": [
+        "they are identical",
+        "the SE is always larger than σ",
+        "σ depends on n but the SE does not",
+        "σ measures spread of individual values; σ/√n measures spread of the sample mean"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "They differ by a factor of √n; only at n = 1 do they coincide.",
+        "B": "Dividing by √n makes the SE smaller than σ for n > 1.",
+        "C": "It is the reverse: σ is fixed for the population, while the SE shrinks with n.",
+        "D": "Correct. σ describes one observation's variability, while σ/√n is the (smaller) variability of x̄."
+      }
+    },
+    {
+      "id": "pr_l8_165",
+      "concept": "standard_error",
+      "question": "If you increase precision of an estimate, you have:",
+      "options": [
+        "reduced its standard error",
+        "increased its bias",
+        "increased its standard error",
+        "changed the population σ"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Higher precision means a smaller SE, i.e. less sampling variability around θ.",
+        "B": "Precision concerns variability, not the systematic bias term.",
+        "C": "A larger SE means less precision, not more.",
+        "D": "Population σ is fixed; precision comes from n via σ/√n."
+      }
+    },
+    {
+      "id": "pr_l8_166",
+      "concept": "point_estimate",
+      "question": "An interval estimate differs from a point estimate because it:",
+      "options": [
+        "is always more biased",
+        "reports a range of plausible values with a confidence level",
+        "ignores the sample data",
+        "is the same as a p-value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Interval vs point is about expressing uncertainty, not about bias.",
+        "B": "Correct. An interval estimate (e.g. x̄ ± margin) conveys uncertainty, unlike a single-number point estimate.",
+        "C": "Both point and interval estimates are built from the sample data.",
+        "D": "A p-value is a hypothesis-test quantity, not an interval estimate."
+      }
+    },
+    {
+      "id": "pr_l8_167",
+      "concept": "point_estimate",
+      "question": "Which pairing of parameter and its usual point estimate is correct?",
+      "options": [
+        "σ² ↔ x̄",
+        "p ↔ s",
+        "μ ↔ x̄",
+        "μ ↔ n"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Variance σ² is estimated by s², not by the sample mean.",
+        "B": "A proportion p is estimated by p̂ = x/n, not by the sample standard deviation.",
+        "C": "Correct. The sample mean x̄ is the standard unbiased point estimate of the population mean μ.",
+        "D": "n is the known sample size, not an estimate of μ."
+      }
+    },
+    {
+      "id": "pr_l8_168",
+      "concept": "unbiased_estimator",
+      "question": "Mean squared error decomposes as:",
+      "options": [
+        "MSE = bias + variance",
+        "MSE = variance − bias²",
+        "MSE = bias² × variance",
+        "MSE = bias² + variance"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The bias term is squared, not used linearly.",
+        "B": "MSE adds bias² to variance; it does not subtract.",
+        "C": "The two terms add, they are not multiplied.",
+        "D": "Correct. MSE(θ̂) = E[(θ̂−θ)²] = (E[θ̂]−θ)² + Var(θ̂) = bias² + variance."
+      }
+    },
+    {
+      "id": "pr_l8_169",
+      "concept": "unbiased_estimator",
+      "question": "A consistent estimator is one that:",
+      "options": [
+        "converges to θ as the sample size grows",
+        "equals θ for every finite sample",
+        "has zero variance",
+        "is always unbiased"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Consistency means θ̂ → θ (in probability) as n → ∞.",
+        "B": "That is far stronger than consistency, which is a large-n limit.",
+        "C": "Consistency is about convergence, not zero variance at finite n.",
+        "D": "An estimator can be biased yet still consistent if the bias vanishes as n → ∞."
+      }
+    },
+    {
+      "id": "pr_l8_170",
+      "concept": "unbiased_estimator",
+      "question": "An estimator can be biased but still consistent if:",
+      "options": [
+        "its bias stays constant",
+        "its bias shrinks to 0 as n → ∞",
+        "its variance grows with n",
+        "it ignores the data"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A persistent nonzero bias prevents convergence to θ, breaking consistency.",
+        "B": "Correct. If bias → 0 and variance → 0, then θ̂ → θ, so it is consistent despite finite-sample bias.",
+        "C": "Growing variance prevents convergence, contradicting consistency.",
+        "D": "A data-free estimator cannot converge to the unknown θ."
+      }
+    },
+    {
+      "id": "pr_l8_171",
+      "concept": "unbiased_estimator",
+      "question": "Between an unbiased estimator with variance 10 and a biased one (bias 1, variance 4), the lower-MSE choice is:",
+      "options": [
+        "the unbiased one (MSE 10)",
+        "they tie",
+        "the biased one (MSE 5 < 10)",
+        "cannot tell"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Its MSE 10 exceeds the biased estimator's MSE 5.",
+        "B": "5 ≠ 10, so they do not tie on MSE.",
+        "C": "Correct. Biased MSE = 1² + 4 = 5; unbiased MSE = 0 + 10 = 10, so the biased estimator wins on MSE.",
+        "D": "Both MSEs are computable: 5 vs 10, so the comparison is clear."
+      }
+    },
+    {
+      "id": "pr_l8_172",
+      "concept": "unbiased_estimator",
+      "question": "The 'efficiency' of an unbiased estimator improves when its:",
+      "options": [
+        "bias increases",
+        "sample size is hidden",
+        "mean increases",
+        "variance decreases"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Efficiency compares unbiased estimators; bias is 0 for all of them.",
+        "B": "Efficiency is about variance, not about hiding n.",
+        "C": "The magnitude of the estimate does not define efficiency.",
+        "D": "Correct. Among unbiased estimators, smaller variance means higher efficiency (e.g. approaching the Cramér–Rao bound)."
+      }
+    },
+    {
+      "id": "pr_l8_173",
+      "concept": "unbiased_estimator",
+      "question": "As n → ∞, the sample mean x̄ for a finite-variance population is:",
+      "options": [
+        "consistent: x̄ → μ",
+        "increasingly biased",
+        "divergent",
+        "equal to σ"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By the law of large numbers, x̄ converges to μ, and Var(x̄) = σ²/n → 0.",
+        "B": "x̄ is unbiased at every n; it does not gain bias.",
+        "C": "x̄ converges to μ; it does not diverge.",
+        "D": "x̄ estimates μ, not σ."
+      }
+    },
+    {
+      "id": "pr_l8_174",
+      "concept": "unbiased_estimator",
+      "question": "The variance of the sample mean for an iid sample is:",
+      "options": [
+        "σ²",
+        "σ²/n",
+        "σ²·n",
+        "σ/√n"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "σ² is the variance of one observation, not of the mean.",
+        "B": "Correct. Var(x̄) = Var((1/n)ΣXᵢ) = (1/n²)·nσ² = σ²/n.",
+        "C": "Var(x̄) shrinks with n; it is σ²/n, not σ²·n.",
+        "D": "σ/√n is the standard error (a standard deviation), not the variance."
+      }
+    },
+    {
+      "id": "pr_l8_175",
+      "concept": "unbiased_estimator",
+      "question": "Trading a little bias for lower variance is worthwhile when it:",
+      "options": [
+        "increases the bias without limit",
+        "raises both bias and variance",
+        "reduces total MSE = bias² + variance",
+        "removes the need for data"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Unbounded bias would inflate bias², raising MSE.",
+        "B": "Raising both can only increase MSE.",
+        "C": "Correct. If the variance drop outweighs the added bias², overall MSE falls (the bias–variance tradeoff).",
+        "D": "Estimation still requires the data regardless of the tradeoff."
+      }
+    },
+    {
+      "id": "pr_l8_176",
+      "concept": "confidence_interval_mean",
+      "question": "The full width of a symmetric confidence interval for the mean equals:",
+      "options": [
+        "z·σ/√n",
+        "σ/√n",
+        "2·σ",
+        "2·z·σ/√n"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "z·σ/√n is the half-width (margin); the full width is twice that.",
+        "B": "σ/√n is just the standard error, without the z multiplier or the factor of 2.",
+        "C": "2·σ ignores both √n and the critical value z.",
+        "D": "Correct. The interval is x̄ ± z·σ/√n, so its total width is twice the margin: 2·z·σ/√n."
+      }
+    },
+    {
+      "id": "pr_l8_177",
+      "concept": "confidence_interval_compute",
+      "question": "A 95% CI for μ is reported as [18, 22]. The point estimate x̄ and margin are:",
+      "options": [
+        "x̄ = 20, margin = 2",
+        "x̄ = 20, margin = 4",
+        "x̄ = 18, margin = 22",
+        "x̄ = 4, margin = 20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The center is (18+22)/2 = 20 and the margin is half the width = (22−18)/2 = 2.",
+        "B": "4 is the full width; the margin is half the width, namely 2.",
+        "C": "18 and 22 are the endpoints, not the center and margin.",
+        "D": "These swap and misread the values; the center is 20 and the margin is 2."
+      }
+    },
+    {
+      "id": "pr_l8_178",
+      "concept": "point_estimate",
+      "question": "Method of moments estimates parameters by:",
+      "options": [
+        "maximizing the likelihood",
+        "matching sample moments to population moments",
+        "minimizing the sample size",
+        "ignoring the sample mean"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That describes maximum likelihood estimation, not method of moments.",
+        "B": "Correct. You set sample moments (e.g. x̄, sample variance) equal to their theoretical expressions and solve for the parameters.",
+        "C": "Sample size is fixed; method of moments solves moment equations.",
+        "D": "The first sample moment (the mean) is central to the method."
+      }
+    },
+    {
+      "id": "pr_l8_179",
+      "concept": "mle_intuition",
+      "question": "For Poisson(λ) data, the MLE of λ is:",
+      "options": [
+        "the sample variance",
+        "√x̄",
+        "the sample mean x̄",
+        "1/x̄"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Although Var = λ for Poisson, the MLE solves to x̄, not s².",
+        "B": "There is no square root in the Poisson MLE for λ.",
+        "C": "Correct. Maximizing the Poisson log-likelihood gives λ̂ = (Σxᵢ)/n = x̄.",
+        "D": "1/x̄ is the exponential rate MLE, not the Poisson mean."
+      }
+    },
+    {
+      "id": "pr_l8_180",
+      "concept": "unbiased_estimator",
+      "question": "A point estimate reported without any standard error or interval is incomplete because it:",
+      "options": [
+        "is always biased",
+        "cannot be computed",
+        "equals the parameter exactly",
+        "conveys no measure of uncertainty"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A point estimate can be unbiased; the issue is missing uncertainty, not bias.",
+        "B": "It is computable; it just lacks a precision statement.",
+        "C": "It generally does not equal θ, which is exactly why uncertainty matters.",
+        "D": "Correct. Without an SE or CI, you cannot tell how precise x̄ is; uncertainty scales like σ/√n."
+      }
+    },
+    {
+      "id": "pr_l8_181",
+      "concept": "ci_interpretation",
+      "question": "A 99% CI compared with a 95% CI from the same data is wider because it:",
+      "options": [
+        "must capture μ more often, requiring a larger margin",
+        "uses a smaller critical value",
+        "has a larger sample",
+        "is centered differently"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Higher confidence uses a larger z (2.576 vs 1.96), so the margin z·σ/√n grows.",
+        "B": "It uses a larger critical value, which is why it is wider.",
+        "C": "Same data, same n; only the confidence level differs.",
+        "D": "Both center at x̄; only the width differs."
+      }
+    },
+    {
+      "id": "pr_l8_182",
+      "concept": "t_distribution",
+      "question": "With a very large sample and unknown σ, using z instead of t is acceptable because:",
+      "options": [
+        "σ becomes known",
+        "t ≈ z when degrees of freedom are large",
+        "the data become normal",
+        "bias disappears"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "σ remains unknown; it is the large df that makes t ≈ z.",
+        "B": "Correct. As df → ∞, t → N(0,1), so t* ≈ 1.96 for 95% and the approximation is fine.",
+        "C": "It is the sampling distribution of the mean (CLT) and large df, not the raw data, that justify it.",
+        "D": "The justification is about t→z, not about bias."
+      }
+    },
+    {
+      "id": "pr_l8_183",
+      "concept": "sample_size_effect",
+      "question": "Diminishing returns in precision arise because SE ∝ 1/√n, meaning each additional observation:",
+      "options": [
+        "reduces SE by a constant amount",
+        "increases SE",
+        "reduces SE less than the previous one did",
+        "has no effect on SE"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The reduction is not constant; it follows the concave 1/√n curve.",
+        "B": "More data lowers SE; it never raises it.",
+        "C": "Correct. Since SE ∝ 1/√n, the marginal drop shrinks: going 100→101 helps far less than 1→2.",
+        "D": "Each observation does lower SE, just by a diminishing amount."
+      }
+    }
+  ]
+}

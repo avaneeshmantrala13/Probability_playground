@@ -1,0 +1,3157 @@
+{
+  "lessonId": "lesson_7",
+  "track": "quant",
+  "title": "Variance, Covariance & LLN",
+  "questions": [
+    {
+      "id": "pr_l7_001",
+      "concept": "variance_definition",
+      "question": "Which expression defines the variance Var(X) of a random variable X with mean μ?",
+      "options": [
+        "E[(X − μ)²]",
+        "E[X − μ]",
+        "(E[X])²",
+        "E[|X − μ|]"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Variance is the expected squared deviation from the mean, E[(X − μ)²], measuring typical distance from μ.",
+        "B": "E[X − μ] = 0 always, because deviations above and below the mean cancel; that is why we square them.",
+        "C": "(E[X])² is the square of the mean — a location measure, not a measure of spread.",
+        "D": "E[|X − μ|] is the mean absolute deviation, a different spread measure; variance squares the deviation."
+      }
+    },
+    {
+      "id": "pr_l7_002",
+      "concept": "variance_definition",
+      "question": "Variance can never be which of the following?",
+      "options": [
+        "Zero",
+        "Negative",
+        "Very large",
+        "Equal to the mean"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Variance is zero for a constant (degenerate) random variable, so zero is allowed.",
+        "B": "Correct. Variance is an average of squared deviations, so it is always ≥ 0 and can never be negative.",
+        "C": "Heavy-tailed variables can have arbitrarily large (even infinite) variance, so large values are possible.",
+        "D": "Variance and mean are different quantities, but nothing forbids them from being numerically equal (e.g. a Poisson)."
+      }
+    },
+    {
+      "id": "pr_l7_003",
+      "concept": "variance_definition",
+      "question": "A tightly clustered distribution (outcomes close to the mean) has a variance that is:",
+      "options": [
+        "Large",
+        "Negative",
+        "Small",
+        "Exactly 1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Large variance corresponds to wide swings around the mean — the opposite of tight clustering.",
+        "B": "Variance is an average of squares and can never be negative.",
+        "C": "Correct. Small squared deviations from the mean produce a small variance, so tight clustering means low variance.",
+        "D": "There is no reason the variance equals 1; tight clustering only tells you it is small."
+      }
+    },
+    {
+      "id": "pr_l7_004",
+      "concept": "variance_identity",
+      "question": "The shortcut formula Var(X) = E[X²] − (E[X])² is obtained by:",
+      "options": [
+        "Applying Bayes rule",
+        "Using the law of large numbers",
+        "Taking a derivative of the mean",
+        "Expanding E[(X − μ)²]"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Bayes rule relates conditional probabilities and has nothing to do with the variance identity.",
+        "B": "The LLN is about convergence of sample means, not an algebraic moment identity.",
+        "C": "The identity is purely algebraic; no calculus or derivative of the mean is involved.",
+        "D": "Correct. Expanding E[(X − μ)²] = E[X² − 2μX + μ²] = E[X²] − (E[X])² gives the computational formula."
+      }
+    },
+    {
+      "id": "pr_l7_005",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 5. What is Var(X)?",
+      "options": [
+        "1",
+        "3",
+        "4",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = E[X²] − (E[X])² = 5 − 2² = 5 − 4 = 1.",
+        "B": "3 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "C": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "9 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_006",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 7. What is Var(X)?",
+      "options": [
+        "5",
+        "3",
+        "4",
+        "11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "B": "Correct. Var(X) = E[X²] − (E[X])² = 7 − 2² = 7 − 4 = 3.",
+        "C": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "11 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_007",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 9. What is Var(X)?",
+      "options": [
+        "7",
+        "4",
+        "5",
+        "13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "B": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "Correct. Var(X) = E[X²] − (E[X])² = 9 − 2² = 9 − 4 = 5.",
+        "D": "13 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_008",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 10. What is Var(X)?",
+      "options": [
+        "8",
+        "4",
+        "14",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "8 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "B": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "14 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean.",
+        "D": "Correct. Var(X) = E[X²] − (E[X])² = 10 − 2² = 10 − 4 = 6."
+      }
+    },
+    {
+      "id": "pr_l7_009",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 11. What is Var(X)?",
+      "options": [
+        "7",
+        "9",
+        "4",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = E[X²] − (E[X])² = 11 − 2² = 11 − 4 = 7.",
+        "B": "9 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "C": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "15 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_010",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 12. What is Var(X)?",
+      "options": [
+        "10",
+        "8",
+        "4",
+        "16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "B": "Correct. Var(X) = E[X²] − (E[X])² = 12 − 2² = 12 − 4 = 8.",
+        "C": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "16 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_011",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 14. What is Var(X)?",
+      "options": [
+        "12",
+        "4",
+        "10",
+        "18"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "B": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "Correct. Var(X) = E[X²] − (E[X])² = 14 − 2² = 14 − 4 = 10.",
+        "D": "18 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_012",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 2 and E[X²] = 16. What is Var(X)?",
+      "options": [
+        "14",
+        "4",
+        "20",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "14 subtracts E[X] = 2 instead of (E[X])² = 4; you must square the mean first.",
+        "B": "4 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "20 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean.",
+        "D": "Correct. Var(X) = E[X²] − (E[X])² = 16 − 2² = 16 − 4 = 12."
+      }
+    },
+    {
+      "id": "pr_l7_013",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 10. What is Var(X)?",
+      "options": [
+        "1",
+        "7",
+        "9",
+        "19"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = E[X²] − (E[X])² = 10 − 3² = 10 − 9 = 1.",
+        "B": "7 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "C": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "19 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_014",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 11. What is Var(X)?",
+      "options": [
+        "8",
+        "2",
+        "9",
+        "20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "8 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "B": "Correct. Var(X) = E[X²] − (E[X])² = 11 − 3² = 11 − 9 = 2.",
+        "C": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "20 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_015",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 14. What is Var(X)?",
+      "options": [
+        "11",
+        "9",
+        "5",
+        "23"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "11 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "B": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "Correct. Var(X) = E[X²] − (E[X])² = 14 − 3² = 14 − 9 = 5.",
+        "D": "23 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_016",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 15. What is Var(X)?",
+      "options": [
+        "12",
+        "9",
+        "24",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "12 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "B": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "24 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean.",
+        "D": "Correct. Var(X) = E[X²] − (E[X])² = 15 − 3² = 15 − 9 = 6."
+      }
+    },
+    {
+      "id": "pr_l7_017",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 16. What is Var(X)?",
+      "options": [
+        "7",
+        "13",
+        "9",
+        "25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = E[X²] − (E[X])² = 16 − 3² = 16 − 9 = 7.",
+        "B": "13 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "C": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "25 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_018",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 17. What is Var(X)?",
+      "options": [
+        "14",
+        "8",
+        "9",
+        "26"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "14 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "B": "Correct. Var(X) = E[X²] − (E[X])² = 17 − 3² = 17 − 9 = 8.",
+        "C": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "26 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_019",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 19. What is Var(X)?",
+      "options": [
+        "16",
+        "9",
+        "10",
+        "28"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "16 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "B": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "Correct. Var(X) = E[X²] − (E[X])² = 19 − 3² = 19 − 9 = 10.",
+        "D": "28 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_020",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 3 and E[X²] = 21. What is Var(X)?",
+      "options": [
+        "18",
+        "9",
+        "30",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "18 subtracts E[X] = 3 instead of (E[X])² = 9; you must square the mean first.",
+        "B": "9 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "30 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean.",
+        "D": "Correct. Var(X) = E[X²] − (E[X])² = 21 − 3² = 21 − 9 = 12."
+      }
+    },
+    {
+      "id": "pr_l7_021",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 4 and E[X²] = 17. What is Var(X)?",
+      "options": [
+        "1",
+        "13",
+        "16",
+        "33"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = E[X²] − (E[X])² = 17 − 4² = 17 − 16 = 1.",
+        "B": "13 subtracts E[X] = 4 instead of (E[X])² = 16; you must square the mean first.",
+        "C": "16 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "33 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_022",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 4 and E[X²] = 18. What is Var(X)?",
+      "options": [
+        "14",
+        "2",
+        "16",
+        "34"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "14 subtracts E[X] = 4 instead of (E[X])² = 16; you must square the mean first.",
+        "B": "Correct. Var(X) = E[X²] − (E[X])² = 18 − 4² = 18 − 16 = 2.",
+        "C": "16 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "34 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_023",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 4 and E[X²] = 19. What is Var(X)?",
+      "options": [
+        "15",
+        "16",
+        "3",
+        "35"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "15 subtracts E[X] = 4 instead of (E[X])² = 16; you must square the mean first.",
+        "B": "16 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "Correct. Var(X) = E[X²] − (E[X])² = 19 − 4² = 19 − 16 = 3.",
+        "D": "35 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_024",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 4 and E[X²] = 21. What is Var(X)?",
+      "options": [
+        "17",
+        "16",
+        "37",
+        "5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "17 subtracts E[X] = 4 instead of (E[X])² = 16; you must square the mean first.",
+        "B": "16 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "C": "37 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean.",
+        "D": "Correct. Var(X) = E[X²] − (E[X])² = 21 − 4² = 21 − 16 = 5."
+      }
+    },
+    {
+      "id": "pr_l7_025",
+      "concept": "variance_identity",
+      "question": "A random variable X has E[X] = 4 and E[X²] = 22. What is Var(X)?",
+      "options": [
+        "6",
+        "18",
+        "16",
+        "38"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = E[X²] − (E[X])² = 22 − 4² = 22 − 16 = 6.",
+        "B": "18 subtracts E[X] = 4 instead of (E[X])² = 16; you must square the mean first.",
+        "C": "16 is (E[X])² by itself; it must be subtracted from E[X²], not reported as the variance.",
+        "D": "38 adds (E[X])² instead of subtracting it; the identity subtracts the squared mean."
+      }
+    },
+    {
+      "id": "pr_l7_026",
+      "concept": "std_dev_units",
+      "question": "If a portfolio P&L is measured in dollars, the standard deviation of the P&L is measured in:",
+      "options": [
+        "Dollars squared",
+        "Dollars",
+        "Percent",
+        "Dimensionless"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Dollars squared is the unit of the variance; the square root removes the squaring.",
+        "B": "Correct. Taking the square root of variance restores the original units, so SD is in dollars like the P&L.",
+        "C": "Percent would apply to a return, not a dollar P&L.",
+        "D": "Standard deviation keeps the variable’s units; correlation is the dimensionless quantity."
+      }
+    },
+    {
+      "id": "pr_l7_027",
+      "concept": "std_dev_units",
+      "question": "Which quantity is dimensionless (has no units)?",
+      "options": [
+        "Variance",
+        "Standard deviation",
+        "Correlation",
+        "Covariance"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Variance has the squared units of the variable, so it is not dimensionless.",
+        "B": "Standard deviation carries the same units as the variable.",
+        "C": "Correct. Correlation divides covariance by the product of the SDs, cancelling units, so it is dimensionless.",
+        "D": "Covariance has units equal to the product of the two variables’ units."
+      }
+    },
+    {
+      "id": "pr_l7_028",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 9, what is the standard deviation SD(X)?",
+      "options": [
+        "9",
+        "81",
+        "4.5",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "9 is the variance itself; the standard deviation is its square root.",
+        "B": "81 is Var², squaring the variance instead of taking its square root.",
+        "C": "4.5 is half the variance, not its square root.",
+        "D": "Correct. SD(X) = √Var(X) = √9 = 3."
+      }
+    },
+    {
+      "id": "pr_l7_029",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 16, what is the standard deviation SD(X)?",
+      "options": [
+        "4",
+        "16",
+        "256",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SD(X) = √Var(X) = √16 = 4.",
+        "B": "16 is the variance itself; the standard deviation is its square root.",
+        "C": "256 is Var², squaring the variance instead of taking its square root.",
+        "D": "8 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_030",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 25, what is the standard deviation SD(X)?",
+      "options": [
+        "25",
+        "5",
+        "625",
+        "12.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "25 is the variance itself; the standard deviation is its square root.",
+        "B": "Correct. SD(X) = √Var(X) = √25 = 5.",
+        "C": "625 is Var², squaring the variance instead of taking its square root.",
+        "D": "12.5 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_031",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 36, what is the standard deviation SD(X)?",
+      "options": [
+        "36",
+        "1296",
+        "6",
+        "18"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "36 is the variance itself; the standard deviation is its square root.",
+        "B": "1296 is Var², squaring the variance instead of taking its square root.",
+        "C": "Correct. SD(X) = √Var(X) = √36 = 6.",
+        "D": "18 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_032",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 49, what is the standard deviation SD(X)?",
+      "options": [
+        "49",
+        "2401",
+        "24.5",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "49 is the variance itself; the standard deviation is its square root.",
+        "B": "2401 is Var², squaring the variance instead of taking its square root.",
+        "C": "24.5 is half the variance, not its square root.",
+        "D": "Correct. SD(X) = √Var(X) = √49 = 7."
+      }
+    },
+    {
+      "id": "pr_l7_033",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 64, what is the standard deviation SD(X)?",
+      "options": [
+        "8",
+        "64",
+        "4096",
+        "32"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SD(X) = √Var(X) = √64 = 8.",
+        "B": "64 is the variance itself; the standard deviation is its square root.",
+        "C": "4096 is Var², squaring the variance instead of taking its square root.",
+        "D": "32 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_034",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 81, what is the standard deviation SD(X)?",
+      "options": [
+        "81",
+        "9",
+        "6561",
+        "40.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "81 is the variance itself; the standard deviation is its square root.",
+        "B": "Correct. SD(X) = √Var(X) = √81 = 9.",
+        "C": "6561 is Var², squaring the variance instead of taking its square root.",
+        "D": "40.5 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_035",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 100, what is the standard deviation SD(X)?",
+      "options": [
+        "100",
+        "10000",
+        "10",
+        "50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "100 is the variance itself; the standard deviation is its square root.",
+        "B": "10000 is Var², squaring the variance instead of taking its square root.",
+        "C": "Correct. SD(X) = √Var(X) = √100 = 10.",
+        "D": "50 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_036",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 121, what is the standard deviation SD(X)?",
+      "options": [
+        "121",
+        "14641",
+        "60.5",
+        "11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "121 is the variance itself; the standard deviation is its square root.",
+        "B": "14641 is Var², squaring the variance instead of taking its square root.",
+        "C": "60.5 is half the variance, not its square root.",
+        "D": "Correct. SD(X) = √Var(X) = √121 = 11."
+      }
+    },
+    {
+      "id": "pr_l7_037",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 144, what is the standard deviation SD(X)?",
+      "options": [
+        "12",
+        "144",
+        "20736",
+        "72"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SD(X) = √Var(X) = √144 = 12.",
+        "B": "144 is the variance itself; the standard deviation is its square root.",
+        "C": "20736 is Var², squaring the variance instead of taking its square root.",
+        "D": "72 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_038",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 169, what is the standard deviation SD(X)?",
+      "options": [
+        "169",
+        "13",
+        "28561",
+        "84.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "169 is the variance itself; the standard deviation is its square root.",
+        "B": "Correct. SD(X) = √Var(X) = √169 = 13.",
+        "C": "28561 is Var², squaring the variance instead of taking its square root.",
+        "D": "84.5 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_039",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 196, what is the standard deviation SD(X)?",
+      "options": [
+        "196",
+        "38416",
+        "14",
+        "98"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "196 is the variance itself; the standard deviation is its square root.",
+        "B": "38416 is Var², squaring the variance instead of taking its square root.",
+        "C": "Correct. SD(X) = √Var(X) = √196 = 14.",
+        "D": "98 is half the variance, not its square root."
+      }
+    },
+    {
+      "id": "pr_l7_040",
+      "concept": "std_dev_units",
+      "question": "If Var(X) = 225, what is the standard deviation SD(X)?",
+      "options": [
+        "225",
+        "50625",
+        "112.5",
+        "15"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "225 is the variance itself; the standard deviation is its square root.",
+        "B": "50625 is Var², squaring the variance instead of taking its square root.",
+        "C": "112.5 is half the variance, not its square root.",
+        "D": "Correct. SD(X) = √Var(X) = √225 = 15."
+      }
+    },
+    {
+      "id": "pr_l7_041",
+      "concept": "std_dev_units",
+      "question": "If the standard deviation SD(X) = 3, what is Var(X)?",
+      "options": [
+        "9",
+        "3",
+        "6",
+        "1.7321"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = SD(X)² = 3² = 9.",
+        "B": "3 is the standard deviation itself; the variance is its square.",
+        "C": "6 doubles the SD instead of squaring it.",
+        "D": "1.7321 takes another square root; the variance squares the SD."
+      }
+    },
+    {
+      "id": "pr_l7_042",
+      "concept": "std_dev_units",
+      "question": "If the standard deviation SD(X) = 4, what is Var(X)?",
+      "options": [
+        "4",
+        "16",
+        "8",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4 is the standard deviation itself; the variance is its square.",
+        "B": "Correct. Var(X) = SD(X)² = 4² = 16.",
+        "C": "8 doubles the SD instead of squaring it.",
+        "D": "2 takes another square root; the variance squares the SD."
+      }
+    },
+    {
+      "id": "pr_l7_043",
+      "concept": "std_dev_units",
+      "question": "If the standard deviation SD(X) = 5, what is Var(X)?",
+      "options": [
+        "5",
+        "10",
+        "25",
+        "2.2361"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "5 is the standard deviation itself; the variance is its square.",
+        "B": "10 doubles the SD instead of squaring it.",
+        "C": "Correct. Var(X) = SD(X)² = 5² = 25.",
+        "D": "2.2361 takes another square root; the variance squares the SD."
+      }
+    },
+    {
+      "id": "pr_l7_044",
+      "concept": "std_dev_units",
+      "question": "If the standard deviation SD(X) = 6, what is Var(X)?",
+      "options": [
+        "6",
+        "12",
+        "2.4495",
+        "36"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "6 is the standard deviation itself; the variance is its square.",
+        "B": "12 doubles the SD instead of squaring it.",
+        "C": "2.4495 takes another square root; the variance squares the SD.",
+        "D": "Correct. Var(X) = SD(X)² = 6² = 36."
+      }
+    },
+    {
+      "id": "pr_l7_045",
+      "concept": "std_dev_units",
+      "question": "If the standard deviation SD(X) = 7, what is Var(X)?",
+      "options": [
+        "49",
+        "7",
+        "14",
+        "2.6458"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = SD(X)² = 7² = 49.",
+        "B": "7 is the standard deviation itself; the variance is its square.",
+        "C": "14 doubles the SD instead of squaring it.",
+        "D": "2.6458 takes another square root; the variance squares the SD."
+      }
+    },
+    {
+      "id": "pr_l7_046",
+      "concept": "variance_constant",
+      "question": "For any constant c, Var(c) equals:",
+      "options": [
+        "c",
+        "0",
+        "c²",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "c is the value of the constant, not its spread; a constant has no spread.",
+        "B": "Correct. A constant never deviates from its mean (which is c), so every squared deviation is 0 and Var(c) = 0.",
+        "C": "c² is the squared value; variance measures deviation from the mean, which is zero here.",
+        "D": "1 implies variability, but a fixed constant never varies."
+      }
+    },
+    {
+      "id": "pr_l7_047",
+      "concept": "variance_constant",
+      "question": "Adding a constant b to a random variable X changes its variance how?",
+      "options": [
+        "It increases by b",
+        "It increases by b²",
+        "It does not change: Var(X + b) = Var(X)",
+        "It becomes zero"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A constant shift relocates the mean but leaves spread untouched, so variance does not increase by b.",
+        "B": "b² would appear if b multiplied X; merely adding b does not affect variance.",
+        "C": "Correct. A shift moves the whole distribution; deviations from the (also shifted) mean are unchanged, so variance is unchanged.",
+        "D": "Shifting by a constant does not collapse the spread; the variance is unchanged, not zero."
+      }
+    },
+    {
+      "id": "pr_l7_048",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 2, what is Var(2X)?",
+      "options": [
+        "4",
+        "2",
+        "-8",
+        "8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4 multiplies by a, but scaling X by 2 scales the variance by a² = 4.",
+        "B": "2 ignores the scaling; multiplying X by 2 does change the variance, by a factor a².",
+        "C": "A negative value is impossible: variance is an average of squares and a² ≥ 0.",
+        "D": "Correct. Var(aX) = a²·Var(X) = (2)²·2 = 4·2 = 8."
+      }
+    },
+    {
+      "id": "pr_l7_049",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 2, what is Var(3X)?",
+      "options": [
+        "18",
+        "6",
+        "2",
+        "-18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(aX) = a²·Var(X) = (3)²·2 = 9·2 = 18.",
+        "B": "6 multiplies by a, but scaling X by 3 scales the variance by a² = 9.",
+        "C": "2 ignores the scaling; multiplying X by 3 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_050",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 2, what is Var(-2X)?",
+      "options": [
+        "-4",
+        "8",
+        "2",
+        "-8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "-4 multiplies by a, but scaling X by -2 scales the variance by a² = 4.",
+        "B": "Correct. Var(aX) = a²·Var(X) = (-2)²·2 = 4·2 = 8.",
+        "C": "2 ignores the scaling; multiplying X by -2 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_051",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 2, what is Var(0.5X)?",
+      "options": [
+        "1",
+        "2",
+        "0.5",
+        "-0.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1 multiplies by a, but scaling X by 0.5 scales the variance by a² = 0.25.",
+        "B": "2 ignores the scaling; multiplying X by 0.5 does change the variance, by a factor a².",
+        "C": "Correct. Var(aX) = a²·Var(X) = (0.5)²·2 = 0.25·2 = 0.5.",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_052",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 3, what is Var(2X)?",
+      "options": [
+        "6",
+        "3",
+        "-12",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "6 multiplies by a, but scaling X by 2 scales the variance by a² = 4.",
+        "B": "3 ignores the scaling; multiplying X by 2 does change the variance, by a factor a².",
+        "C": "A negative value is impossible: variance is an average of squares and a² ≥ 0.",
+        "D": "Correct. Var(aX) = a²·Var(X) = (2)²·3 = 4·3 = 12."
+      }
+    },
+    {
+      "id": "pr_l7_053",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 3, what is Var(3X)?",
+      "options": [
+        "27",
+        "9",
+        "3",
+        "-27"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(aX) = a²·Var(X) = (3)²·3 = 9·3 = 27.",
+        "B": "9 multiplies by a, but scaling X by 3 scales the variance by a² = 9.",
+        "C": "3 ignores the scaling; multiplying X by 3 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_054",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 3, what is Var(-2X)?",
+      "options": [
+        "-6",
+        "12",
+        "3",
+        "-12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "-6 multiplies by a, but scaling X by -2 scales the variance by a² = 4.",
+        "B": "Correct. Var(aX) = a²·Var(X) = (-2)²·3 = 4·3 = 12.",
+        "C": "3 ignores the scaling; multiplying X by -2 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_055",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 3, what is Var(0.5X)?",
+      "options": [
+        "1.5",
+        "3",
+        "0.75",
+        "-0.75"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1.5 multiplies by a, but scaling X by 0.5 scales the variance by a² = 0.25.",
+        "B": "3 ignores the scaling; multiplying X by 0.5 does change the variance, by a factor a².",
+        "C": "Correct. Var(aX) = a²·Var(X) = (0.5)²·3 = 0.25·3 = 0.75.",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_056",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 4, what is Var(2X)?",
+      "options": [
+        "8",
+        "4",
+        "-16",
+        "16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "8 multiplies by a, but scaling X by 2 scales the variance by a² = 4.",
+        "B": "4 ignores the scaling; multiplying X by 2 does change the variance, by a factor a².",
+        "C": "A negative value is impossible: variance is an average of squares and a² ≥ 0.",
+        "D": "Correct. Var(aX) = a²·Var(X) = (2)²·4 = 4·4 = 16."
+      }
+    },
+    {
+      "id": "pr_l7_057",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 4, what is Var(3X)?",
+      "options": [
+        "36",
+        "12",
+        "4",
+        "-36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(aX) = a²·Var(X) = (3)²·4 = 9·4 = 36.",
+        "B": "12 multiplies by a, but scaling X by 3 scales the variance by a² = 9.",
+        "C": "4 ignores the scaling; multiplying X by 3 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_058",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 5, what is Var(2X)?",
+      "options": [
+        "10",
+        "20",
+        "5",
+        "-20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 multiplies by a, but scaling X by 2 scales the variance by a² = 4.",
+        "B": "Correct. Var(aX) = a²·Var(X) = (2)²·5 = 4·5 = 20.",
+        "C": "5 ignores the scaling; multiplying X by 2 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_059",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 5, what is Var(3X)?",
+      "options": [
+        "15",
+        "5",
+        "45",
+        "-45"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "15 multiplies by a, but scaling X by 3 scales the variance by a² = 9.",
+        "B": "5 ignores the scaling; multiplying X by 3 does change the variance, by a factor a².",
+        "C": "Correct. Var(aX) = a²·Var(X) = (3)²·5 = 9·5 = 45.",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_060",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 9, what is Var(2X)?",
+      "options": [
+        "18",
+        "9",
+        "-36",
+        "36"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "18 multiplies by a, but scaling X by 2 scales the variance by a² = 4.",
+        "B": "9 ignores the scaling; multiplying X by 2 does change the variance, by a factor a².",
+        "C": "A negative value is impossible: variance is an average of squares and a² ≥ 0.",
+        "D": "Correct. Var(aX) = a²·Var(X) = (2)²·9 = 4·9 = 36."
+      }
+    },
+    {
+      "id": "pr_l7_061",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 9, what is Var(-3X)?",
+      "options": [
+        "81",
+        "-27",
+        "9",
+        "-81"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(aX) = a²·Var(X) = (-3)²·9 = 9·9 = 81.",
+        "B": "-27 multiplies by a, but scaling X by -3 scales the variance by a² = 9.",
+        "C": "9 ignores the scaling; multiplying X by -3 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_062",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 10, what is Var(0.5X)?",
+      "options": [
+        "5",
+        "2.5",
+        "10",
+        "-2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 multiplies by a, but scaling X by 0.5 scales the variance by a² = 0.25.",
+        "B": "Correct. Var(aX) = a²·Var(X) = (0.5)²·10 = 0.25·10 = 2.5.",
+        "C": "10 ignores the scaling; multiplying X by 0.5 does change the variance, by a factor a².",
+        "D": "A negative value is impossible: variance is an average of squares and a² ≥ 0."
+      }
+    },
+    {
+      "id": "pr_l7_063",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 2, what is Var(2X + 5)?",
+      "options": [
+        "13",
+        "4",
+        "8",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "13 adds the constant 5; a shift relocates the mean but leaves variance unchanged, so b drops out.",
+        "B": "4 scales by a instead of a²; variance scales by the square of the multiplier.",
+        "C": "Correct. A constant shift does not affect spread, so Var(aX + b) = a²·Var(X) = 4·2 = 8.",
+        "D": "2 ignores the factor 2; the multiplier scales variance by a²."
+      }
+    },
+    {
+      "id": "pr_l7_064",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 3, what is Var(2X + 7)?",
+      "options": [
+        "19",
+        "6",
+        "3",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "19 adds the constant 7; a shift relocates the mean but leaves variance unchanged, so b drops out.",
+        "B": "6 scales by a instead of a²; variance scales by the square of the multiplier.",
+        "C": "3 ignores the factor 2; the multiplier scales variance by a².",
+        "D": "Correct. A constant shift does not affect spread, so Var(aX + b) = a²·Var(X) = 4·3 = 12."
+      }
+    },
+    {
+      "id": "pr_l7_065",
+      "concept": "variance_constant",
+      "question": "If Var(X) = 5, what is Var(3X + 4)?",
+      "options": [
+        "45",
+        "49",
+        "15",
+        "5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A constant shift does not affect spread, so Var(aX + b) = a²·Var(X) = 9·5 = 45.",
+        "B": "49 adds the constant 4; a shift relocates the mean but leaves variance unchanged, so b drops out.",
+        "C": "15 scales by a instead of a²; variance scales by the square of the multiplier.",
+        "D": "5 ignores the factor 3; the multiplier scales variance by a²."
+      }
+    },
+    {
+      "id": "pr_l7_066",
+      "concept": "variance_bernoulli",
+      "question": "The variance of a Bernoulli(p) random variable is:",
+      "options": [
+        "p²",
+        "p(1 − p)",
+        "p",
+        "1 − p"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "p² is (E[X])² alone; you must subtract it from E[X²] = p, giving p − p² = p(1 − p).",
+        "B": "Correct. With values 0/1, Var(X) = E[X²] − (E[X])² = p − p² = p(1 − p).",
+        "C": "p is the mean of a Bernoulli, not its variance.",
+        "D": "1 − p is the failure probability, not the variance."
+      }
+    },
+    {
+      "id": "pr_l7_067",
+      "concept": "variance_bernoulli",
+      "question": "The Bernoulli(p) variance p(1 − p) is maximized at p =",
+      "options": [
+        "0",
+        "1",
+        "0.5",
+        "0.25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "At p = 0 the outcome is certain (always 0), so the variance is 0, not maximal.",
+        "B": "At p = 1 the outcome is certain (always 1), so the variance is 0, not maximal.",
+        "C": "Correct. p(1 − p) is a downward parabola peaking at p = 0.5, where the variance equals 0.25.",
+        "D": "0.25 is the maximum VALUE of the variance, not the value of p that achieves it."
+      }
+    },
+    {
+      "id": "pr_l7_068",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.1. What is Var(X)?",
+      "options": [
+        "0.1",
+        "0.9",
+        "0.01",
+        "0.09"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.1 is p, the mean of a Bernoulli, not its variance.",
+        "B": "0.9 is 1 − p, the failure probability, not the variance.",
+        "C": "0.01 is p² = (E[X])²; the variance is p − p² = p(1 − p).",
+        "D": "Correct. Var(X) = p(1 − p) = 0.1(0.9) = 0.09."
+      }
+    },
+    {
+      "id": "pr_l7_069",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.2. What is Var(X)?",
+      "options": [
+        "0.16",
+        "0.2",
+        "0.8",
+        "0.04"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = p(1 − p) = 0.2(0.8) = 0.16.",
+        "B": "0.2 is p, the mean of a Bernoulli, not its variance.",
+        "C": "0.8 is 1 − p, the failure probability, not the variance.",
+        "D": "0.04 is p² = (E[X])²; the variance is p − p² = p(1 − p)."
+      }
+    },
+    {
+      "id": "pr_l7_070",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.25. What is Var(X)?",
+      "options": [
+        "0.25",
+        "0.1875",
+        "0.75",
+        "0.0625"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.25 is p, the mean of a Bernoulli, not its variance.",
+        "B": "Correct. Var(X) = p(1 − p) = 0.25(0.75) = 0.1875.",
+        "C": "0.75 is 1 − p, the failure probability, not the variance.",
+        "D": "0.0625 is p² = (E[X])²; the variance is p − p² = p(1 − p)."
+      }
+    },
+    {
+      "id": "pr_l7_071",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.3. What is Var(X)?",
+      "options": [
+        "0.3",
+        "0.7",
+        "0.21",
+        "0.09"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.3 is p, the mean of a Bernoulli, not its variance.",
+        "B": "0.7 is 1 − p, the failure probability, not the variance.",
+        "C": "Correct. Var(X) = p(1 − p) = 0.3(0.7) = 0.21.",
+        "D": "0.09 is p² = (E[X])²; the variance is p − p² = p(1 − p)."
+      }
+    },
+    {
+      "id": "pr_l7_072",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.4. What is Var(X)?",
+      "options": [
+        "0.4",
+        "0.6",
+        "0.16",
+        "0.24"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.4 is p, the mean of a Bernoulli, not its variance.",
+        "B": "0.6 is 1 − p, the failure probability, not the variance.",
+        "C": "0.16 is p² = (E[X])²; the variance is p − p² = p(1 − p).",
+        "D": "Correct. Var(X) = p(1 − p) = 0.4(0.6) = 0.24."
+      }
+    },
+    {
+      "id": "pr_l7_073",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.6. What is Var(X)?",
+      "options": [
+        "0.24",
+        "0.6",
+        "0.4",
+        "0.36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = p(1 − p) = 0.6(0.4) = 0.24.",
+        "B": "0.6 is p, the mean of a Bernoulli, not its variance.",
+        "C": "0.4 is 1 − p, the failure probability, not the variance.",
+        "D": "0.36 is p² = (E[X])²; the variance is p − p² = p(1 − p)."
+      }
+    },
+    {
+      "id": "pr_l7_074",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.7. What is Var(X)?",
+      "options": [
+        "0.7",
+        "0.21",
+        "0.3",
+        "0.49"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.7 is p, the mean of a Bernoulli, not its variance.",
+        "B": "Correct. Var(X) = p(1 − p) = 0.7(0.3) = 0.21.",
+        "C": "0.3 is 1 − p, the failure probability, not the variance.",
+        "D": "0.49 is p² = (E[X])²; the variance is p − p² = p(1 − p)."
+      }
+    },
+    {
+      "id": "pr_l7_075",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.75. What is Var(X)?",
+      "options": [
+        "0.75",
+        "0.25",
+        "0.1875",
+        "0.5625"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.75 is p, the mean of a Bernoulli, not its variance.",
+        "B": "0.25 is 1 − p, the failure probability, not the variance.",
+        "C": "Correct. Var(X) = p(1 − p) = 0.75(0.25) = 0.1875.",
+        "D": "0.5625 is p² = (E[X])²; the variance is p − p² = p(1 − p)."
+      }
+    },
+    {
+      "id": "pr_l7_076",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.8. What is Var(X)?",
+      "options": [
+        "0.8",
+        "0.2",
+        "0.64",
+        "0.16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.8 is p, the mean of a Bernoulli, not its variance.",
+        "B": "0.2 is 1 − p, the failure probability, not the variance.",
+        "C": "0.64 is p² = (E[X])²; the variance is p − p² = p(1 − p).",
+        "D": "Correct. Var(X) = p(1 − p) = 0.8(0.2) = 0.16."
+      }
+    },
+    {
+      "id": "pr_l7_077",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.9. What is Var(X)?",
+      "options": [
+        "0.09",
+        "0.9",
+        "0.1",
+        "0.81"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X) = p(1 − p) = 0.9(0.1) = 0.09.",
+        "B": "0.9 is p, the mean of a Bernoulli, not its variance.",
+        "C": "0.1 is 1 − p, the failure probability, not the variance.",
+        "D": "0.81 is p² = (E[X])²; the variance is p − p² = p(1 − p)."
+      }
+    },
+    {
+      "id": "pr_l7_078",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.1. What is the standard deviation SD(X)?",
+      "options": [
+        "0.09",
+        "0.3",
+        "0.1",
+        "0.9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.09 is the variance p(1 − p); the SD is its square root.",
+        "B": "Correct. SD(X) = √(p(1 − p)) = √0.09 = 0.3.",
+        "C": "0.1 is the mean p, not the standard deviation.",
+        "D": "0.9 is 1 − p, not √(p(1 − p))."
+      }
+    },
+    {
+      "id": "pr_l7_079",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.2. What is the standard deviation SD(X)?",
+      "options": [
+        "0.16",
+        "0.2",
+        "0.4",
+        "0.8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.16 is the variance p(1 − p); the SD is its square root.",
+        "B": "0.2 is the mean p, not the standard deviation.",
+        "C": "Correct. SD(X) = √(p(1 − p)) = √0.16 = 0.4.",
+        "D": "0.8 is 1 − p, not √(p(1 − p))."
+      }
+    },
+    {
+      "id": "pr_l7_080",
+      "concept": "variance_bernoulli",
+      "question": "Let X be Bernoulli(p) with p = 0.8. What is the standard deviation SD(X)?",
+      "options": [
+        "0.16",
+        "0.8",
+        "0.2",
+        "0.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.16 is the variance p(1 − p); the SD is its square root.",
+        "B": "0.8 is the mean p, not the standard deviation.",
+        "C": "0.2 is 1 − p, not √(p(1 − p)).",
+        "D": "Correct. SD(X) = √(p(1 − p)) = √0.16 = 0.4."
+      }
+    },
+    {
+      "id": "pr_l7_081",
+      "concept": "covariance_sign",
+      "question": "Cov(X, Y) > 0 indicates that X and Y tend to:",
+      "options": [
+        "Move in the same direction",
+        "Move in opposite directions",
+        "Be independent",
+        "Be unrelated"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Positive covariance means above-mean X pairs with above-mean Y, so they move together on average.",
+        "B": "Opposite movement corresponds to negative covariance.",
+        "C": "Independence forces covariance to 0, not a positive value.",
+        "D": "A nonzero covariance signals a linear relationship, not unrelatedness."
+      }
+    },
+    {
+      "id": "pr_l7_082",
+      "concept": "covariance_sign",
+      "question": "Cov(X, Y) < 0 indicates that X and Y tend to:",
+      "options": [
+        "Move together",
+        "Move in opposite directions",
+        "Be independent",
+        "Always be equal"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Moving together is positive covariance, not negative.",
+        "B": "Correct. Negative covariance means above-mean X pairs with below-mean Y, so they move oppositely.",
+        "C": "Independence gives zero covariance, not a negative value.",
+        "D": "Equal variables move together (positive covariance), the opposite of this case."
+      }
+    },
+    {
+      "id": "pr_l7_083",
+      "concept": "covariance_sign",
+      "question": "Cov(X, X), the covariance of X with itself, equals:",
+      "options": [
+        "0",
+        "1",
+        "Var(X)",
+        "E[X]"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0 would only hold if X had no spread; in general Cov(X, X) = Var(X).",
+        "B": "Covariance is not normalized to 1; that is correlation, and ρ(X, X) = 1, not Cov.",
+        "C": "Correct. Cov(X, X) = E[(X − μ)(X − μ)] = E[(X − μ)²] = Var(X).",
+        "D": "E[X] is the mean, not the self-covariance, which is the variance."
+      }
+    },
+    {
+      "id": "pr_l7_084",
+      "concept": "independence_covariance",
+      "question": "If X and Y are independent, their covariance must be:",
+      "options": [
+        "1",
+        "Positive",
+        "Equal to E[X]E[Y]",
+        "0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Covariance is not normalized to 1; independence drives it to exactly 0.",
+        "B": "A positive value would signal that the variables move together, contradicting independence.",
+        "C": "E[X]E[Y] is subtracted from E[XY]; under independence those terms cancel to 0.",
+        "D": "Correct. Independence gives E[XY] = E[X]E[Y], so Cov(X, Y) = E[XY] − E[X]E[Y] = 0."
+      }
+    },
+    {
+      "id": "pr_l7_085",
+      "concept": "independence_covariance",
+      "question": "Zero covariance between X and Y implies they are independent. This statement is:",
+      "options": [
+        "False — uncorrelated does not imply independent",
+        "True always",
+        "True only for discrete variables",
+        "True only when means are zero"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Independence implies zero covariance, but the converse fails; nonlinear dependence can give Cov = 0 while the variables are dependent.",
+        "B": "It is not true in general; zero covariance only rules out a LINEAR relationship.",
+        "C": "The implication fails for both discrete and continuous variables.",
+        "D": "Zero means do not rescue the implication; counterexamples exist regardless."
+      }
+    },
+    {
+      "id": "pr_l7_086",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 10, E[X] = 2, E[Y] = 3. What is Cov(X, Y)?",
+      "options": [
+        "10",
+        "4",
+        "6",
+        "16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 is E[XY] alone; you must subtract E[X]E[Y] = 6.",
+        "B": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 10 − (2)(3) = 10 − 6 = 4.",
+        "C": "6 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "D": "16 adds E[X]E[Y] instead of subtracting it."
+      }
+    },
+    {
+      "id": "pr_l7_087",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 12, E[X] = 3, E[Y] = 3. What is Cov(X, Y)?",
+      "options": [
+        "12",
+        "9",
+        "3",
+        "21"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 is E[XY] alone; you must subtract E[X]E[Y] = 9.",
+        "B": "9 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "C": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 12 − (3)(3) = 12 − 9 = 3.",
+        "D": "21 adds E[X]E[Y] instead of subtracting it."
+      }
+    },
+    {
+      "id": "pr_l7_088",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 8, E[X] = 2, E[Y] = 5. What is Cov(X, Y)?",
+      "options": [
+        "8",
+        "10",
+        "18",
+        "-2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "8 is E[XY] alone; you must subtract E[X]E[Y] = 10.",
+        "B": "10 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "C": "18 adds E[X]E[Y] instead of subtracting it.",
+        "D": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 8 − (2)(5) = 8 − 10 = -2."
+      }
+    },
+    {
+      "id": "pr_l7_089",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 20, E[X] = 4, E[Y] = 4. What is Cov(X, Y)?",
+      "options": [
+        "4",
+        "20",
+        "16",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 20 − (4)(4) = 20 − 16 = 4.",
+        "B": "20 is E[XY] alone; you must subtract E[X]E[Y] = 16.",
+        "C": "16 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "D": "36 adds E[X]E[Y] instead of subtracting it."
+      }
+    },
+    {
+      "id": "pr_l7_090",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 6, E[X] = 1, E[Y] = 5. What is Cov(X, Y)?",
+      "options": [
+        "6",
+        "1",
+        "5",
+        "11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "6 is E[XY] alone; you must subtract E[X]E[Y] = 5.",
+        "B": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 6 − (1)(5) = 6 − 5 = 1.",
+        "C": "5 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "D": "11 adds E[X]E[Y] instead of subtracting it."
+      }
+    },
+    {
+      "id": "pr_l7_091",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 15, E[X] = 2, E[Y] = 6. What is Cov(X, Y)?",
+      "options": [
+        "15",
+        "12",
+        "3",
+        "27"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "15 is E[XY] alone; you must subtract E[X]E[Y] = 12.",
+        "B": "12 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "C": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 15 − (2)(6) = 15 − 12 = 3.",
+        "D": "27 adds E[X]E[Y] instead of subtracting it."
+      }
+    },
+    {
+      "id": "pr_l7_092",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 9, E[X] = 3, E[Y] = 2. What is Cov(X, Y)?",
+      "options": [
+        "9",
+        "6",
+        "15",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "9 is E[XY] alone; you must subtract E[X]E[Y] = 6.",
+        "B": "6 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "C": "15 adds E[X]E[Y] instead of subtracting it.",
+        "D": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 9 − (3)(2) = 9 − 6 = 3."
+      }
+    },
+    {
+      "id": "pr_l7_093",
+      "concept": "independence_covariance",
+      "question": "E[XY] = 18, E[X] = 2, E[Y] = 7. What is Cov(X, Y)?",
+      "options": [
+        "4",
+        "18",
+        "14",
+        "32"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Cov(X, Y) = E[XY] − E[X]E[Y] = 18 − (2)(7) = 18 − 14 = 4.",
+        "B": "18 is E[XY] alone; you must subtract E[X]E[Y] = 14.",
+        "C": "14 is E[X]E[Y]; it is the term subtracted from E[XY], not the covariance.",
+        "D": "32 adds E[X]E[Y] instead of subtracting it."
+      }
+    },
+    {
+      "id": "pr_l7_094",
+      "concept": "correlation_bounds",
+      "question": "The correlation coefficient ρ(X, Y) always lies in:",
+      "options": [
+        "[0, 1]",
+        "[−1, 1]",
+        "(−∞, ∞)",
+        "[0, ∞)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This omits negative correlation, which is possible down to −1.",
+        "B": "Correct. Dividing covariance by SD(X)·SD(Y) and applying Cauchy–Schwarz bounds ρ to [−1, 1].",
+        "C": "Correlation is normalized, so unlike raw covariance it cannot be unbounded.",
+        "D": "This excludes negatives and ignores the upper bound of +1."
+      }
+    },
+    {
+      "id": "pr_l7_095",
+      "concept": "correlation_bounds",
+      "question": "ρ(X, Y) = −1 means X and Y have a:",
+      "options": [
+        "Perfect positive linear relationship",
+        "No relationship",
+        "Perfect negative linear relationship",
+        "Nonlinear relationship only"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A perfect positive linear relationship is ρ = +1.",
+        "B": "No relationship corresponds to ρ = 0.",
+        "C": "Correct. ρ = −1 means Y is an exact decreasing linear function of X — points lie on a downward-sloping line.",
+        "D": "Correlation measures linear association; ρ = −1 is the strongest linear (negative) case."
+      }
+    },
+    {
+      "id": "pr_l7_096",
+      "concept": "correlation_bounds",
+      "question": "Correlation ρ(X, Y) is defined as Cov(X, Y) divided by:",
+      "options": [
+        "Var(X) + Var(Y)",
+        "E[X] · E[Y]",
+        "SD(X) + SD(Y)",
+        "SD(X) · SD(Y)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Summing variances does not normalize units the way the product of SDs does.",
+        "B": "Dividing by the means does not produce a unitless correlation.",
+        "C": "The denominator is the product, not the sum, of the standard deviations.",
+        "D": "Correct. ρ = Cov(X, Y) / (SD(X)·SD(Y)), which rescales covariance into [−1, 1]."
+      }
+    },
+    {
+      "id": "pr_l7_097",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -3, SD(X) = 2, SD(Y) = 3. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-0.5",
+        "-3",
+        "-0.6",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -3/(2·3) = -3/6 = -0.5.",
+        "B": "-3 is the raw covariance; correlation divides it by the product of the SDs.",
+        "C": "Dividing by the sum 2 + 3 = 5 instead of the product 6 is the wrong normalization.",
+        "D": "0.5 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_098",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -1.5, SD(X) = 2, SD(Y) = 3. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-1.5",
+        "-0.25",
+        "-0.3",
+        "0.25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "-1.5 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -1.5/(2·3) = -1.5/6 = -0.25.",
+        "C": "Dividing by the sum 2 + 3 = 5 instead of the product 6 is the wrong normalization.",
+        "D": "0.25 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_099",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 1.5, SD(X) = 2, SD(Y) = 3. What is the correlation ρ(X, Y)?",
+      "options": [
+        "1.5",
+        "0.3",
+        "0.25",
+        "-0.25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1.5 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 2 + 3 = 5 instead of the product 6 is the wrong normalization.",
+        "C": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 1.5/(2·3) = 1.5/6 = 0.25.",
+        "D": "-0.25 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_100",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 3, SD(X) = 2, SD(Y) = 3. What is the correlation ρ(X, Y)?",
+      "options": [
+        "3",
+        "0.6",
+        "-0.5",
+        "0.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 2 + 3 = 5 instead of the product 6 is the wrong normalization.",
+        "C": "-0.5 flips the sign; correlation keeps the sign of the covariance.",
+        "D": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 3/(2·3) = 3/6 = 0.5."
+      }
+    },
+    {
+      "id": "pr_l7_101",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 4.5, SD(X) = 2, SD(Y) = 3. What is the correlation ρ(X, Y)?",
+      "options": [
+        "0.75",
+        "4.5",
+        "0.9",
+        "-0.75"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 4.5/(2·3) = 4.5/6 = 0.75.",
+        "B": "4.5 is the raw covariance; correlation divides it by the product of the SDs.",
+        "C": "Dividing by the sum 2 + 3 = 5 instead of the product 6 is the wrong normalization.",
+        "D": "-0.75 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_102",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -6, SD(X) = 3, SD(Y) = 4. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-6",
+        "-0.5",
+        "-0.8571",
+        "0.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "-6 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -6/(3·4) = -6/12 = -0.5.",
+        "C": "Dividing by the sum 3 + 4 = 7 instead of the product 12 is the wrong normalization.",
+        "D": "0.5 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_103",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -3, SD(X) = 3, SD(Y) = 4. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-3",
+        "-0.4286",
+        "-0.25",
+        "0.25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "-3 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 3 + 4 = 7 instead of the product 12 is the wrong normalization.",
+        "C": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -3/(3·4) = -3/12 = -0.25.",
+        "D": "0.25 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_104",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 3, SD(X) = 3, SD(Y) = 4. What is the correlation ρ(X, Y)?",
+      "options": [
+        "3",
+        "0.4286",
+        "-0.25",
+        "0.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 3 + 4 = 7 instead of the product 12 is the wrong normalization.",
+        "C": "-0.25 flips the sign; correlation keeps the sign of the covariance.",
+        "D": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 3/(3·4) = 3/12 = 0.25."
+      }
+    },
+    {
+      "id": "pr_l7_105",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 6, SD(X) = 3, SD(Y) = 4. What is the correlation ρ(X, Y)?",
+      "options": [
+        "0.5",
+        "6",
+        "0.8571",
+        "-0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 6/(3·4) = 6/12 = 0.5.",
+        "B": "6 is the raw covariance; correlation divides it by the product of the SDs.",
+        "C": "Dividing by the sum 3 + 4 = 7 instead of the product 12 is the wrong normalization.",
+        "D": "-0.5 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_106",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 9, SD(X) = 3, SD(Y) = 4. What is the correlation ρ(X, Y)?",
+      "options": [
+        "9",
+        "0.75",
+        "1.2857",
+        "-0.75"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "9 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 9/(3·4) = 9/12 = 0.75.",
+        "C": "Dividing by the sum 3 + 4 = 7 instead of the product 12 is the wrong normalization.",
+        "D": "-0.75 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_107",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -10, SD(X) = 4, SD(Y) = 5. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-10",
+        "-1.1111",
+        "-0.5",
+        "0.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "-10 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 4 + 5 = 9 instead of the product 20 is the wrong normalization.",
+        "C": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -10/(4·5) = -10/20 = -0.5.",
+        "D": "0.5 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_108",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -5, SD(X) = 4, SD(Y) = 5. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-5",
+        "-0.5556",
+        "0.25",
+        "-0.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "-5 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 4 + 5 = 9 instead of the product 20 is the wrong normalization.",
+        "C": "0.25 flips the sign; correlation keeps the sign of the covariance.",
+        "D": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -5/(4·5) = -5/20 = -0.25."
+      }
+    },
+    {
+      "id": "pr_l7_109",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 5, SD(X) = 4, SD(Y) = 5. What is the correlation ρ(X, Y)?",
+      "options": [
+        "0.25",
+        "5",
+        "0.5556",
+        "-0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 5/(4·5) = 5/20 = 0.25.",
+        "B": "5 is the raw covariance; correlation divides it by the product of the SDs.",
+        "C": "Dividing by the sum 4 + 5 = 9 instead of the product 20 is the wrong normalization.",
+        "D": "-0.25 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_110",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 10, SD(X) = 4, SD(Y) = 5. What is the correlation ρ(X, Y)?",
+      "options": [
+        "10",
+        "0.5",
+        "1.1111",
+        "-0.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 10/(4·5) = 10/20 = 0.5.",
+        "C": "Dividing by the sum 4 + 5 = 9 instead of the product 20 is the wrong normalization.",
+        "D": "-0.5 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_111",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = 15, SD(X) = 4, SD(Y) = 5. What is the correlation ρ(X, Y)?",
+      "options": [
+        "15",
+        "1.6667",
+        "0.75",
+        "-0.75"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "15 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 4 + 5 = 9 instead of the product 20 is the wrong normalization.",
+        "C": "Correct. ρ = Cov/(SD(X)·SD(Y)) = 15/(4·5) = 15/20 = 0.75.",
+        "D": "-0.75 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_112",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -5, SD(X) = 2, SD(Y) = 5. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-5",
+        "-0.7143",
+        "0.5",
+        "-0.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "-5 is the raw covariance; correlation divides it by the product of the SDs.",
+        "B": "Dividing by the sum 2 + 5 = 7 instead of the product 10 is the wrong normalization.",
+        "C": "0.5 flips the sign; correlation keeps the sign of the covariance.",
+        "D": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -5/(2·5) = -5/10 = -0.5."
+      }
+    },
+    {
+      "id": "pr_l7_113",
+      "concept": "correlation_bounds",
+      "question": "Cov(X, Y) = -2.5, SD(X) = 2, SD(Y) = 5. What is the correlation ρ(X, Y)?",
+      "options": [
+        "-0.25",
+        "-2.5",
+        "-0.3571",
+        "0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ρ = Cov/(SD(X)·SD(Y)) = -2.5/(2·5) = -2.5/10 = -0.25.",
+        "B": "-2.5 is the raw covariance; correlation divides it by the product of the SDs.",
+        "C": "Dividing by the sum 2 + 5 = 7 instead of the product 10 is the wrong normalization.",
+        "D": "0.25 flips the sign; correlation keeps the sign of the covariance."
+      }
+    },
+    {
+      "id": "pr_l7_114",
+      "concept": "variance_sum_independent",
+      "question": "For independent X and Y, the identity Var(X + Y) = Var(X) + Var(Y) + 2·Cov(X, Y) simplifies to:",
+      "options": [
+        "Var(X) − Var(Y)",
+        "Var(X) + Var(Y)",
+        "Var(X) · Var(Y)",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Subtraction is never the rule; the covariance term vanishes but the variances still add.",
+        "B": "Correct. Independence makes Cov(X, Y) = 0, so the cross term drops and the variances simply add.",
+        "C": "Variances combine additively, not multiplicatively.",
+        "D": "0 would require both variances to vanish; dropping the covariance term still leaves Var(X) + Var(Y)."
+      }
+    },
+    {
+      "id": "pr_l7_115",
+      "concept": "variance_sum_independent",
+      "question": "For independent X and Y, Var(X − Y) equals:",
+      "options": [
+        "Var(X) − Var(Y)",
+        "Var(Y) − Var(X)",
+        "Var(X) + Var(Y)",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A common trap: variances of a difference still add for independent variables, they do not subtract.",
+        "B": "Order does not introduce subtraction; independent variances add regardless of sign.",
+        "C": "Correct. Var(X − Y) = Var(X) + Var(Y) − 2·Cov(X, Y); with independence Cov = 0, so the variances ADD even for a difference.",
+        "D": "The difference of two independent variables still has positive spread; it is not zero."
+      }
+    },
+    {
+      "id": "pr_l7_116",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 4 and Var(Y) = 9. What is Var(X + Y)?",
+      "options": [
+        "5",
+        "36",
+        "6.5",
+        "13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5 subtracts the variances; for a sum they add.",
+        "B": "36 multiplies the variances; variances of a sum add, not multiply.",
+        "C": "6.5 averages the variances rather than summing them.",
+        "D": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 4 + 9 = 13 (the covariance term is 0)."
+      }
+    },
+    {
+      "id": "pr_l7_117",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 2 and Var(Y) = 7. What is Var(X + Y)?",
+      "options": [
+        "9",
+        "5",
+        "14",
+        "4.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 2 + 7 = 9 (the covariance term is 0).",
+        "B": "5 subtracts the variances; for a sum they add.",
+        "C": "14 multiplies the variances; variances of a sum add, not multiply.",
+        "D": "4.5 averages the variances rather than summing them."
+      }
+    },
+    {
+      "id": "pr_l7_118",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 5 and Var(Y) = 6. What is Var(X + Y)?",
+      "options": [
+        "1",
+        "11",
+        "30",
+        "5.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1 subtracts the variances; for a sum they add.",
+        "B": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 5 + 6 = 11 (the covariance term is 0).",
+        "C": "30 multiplies the variances; variances of a sum add, not multiply.",
+        "D": "5.5 averages the variances rather than summing them."
+      }
+    },
+    {
+      "id": "pr_l7_119",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 3 and Var(Y) = 8. What is Var(X + Y)?",
+      "options": [
+        "5",
+        "24",
+        "11",
+        "5.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "5 subtracts the variances; for a sum they add.",
+        "B": "24 multiplies the variances; variances of a sum add, not multiply.",
+        "C": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 3 + 8 = 11 (the covariance term is 0).",
+        "D": "5.5 averages the variances rather than summing them."
+      }
+    },
+    {
+      "id": "pr_l7_120",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 4 and Var(Y) = 5. What is Var(X + Y)?",
+      "options": [
+        "1",
+        "20",
+        "4.5",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1 subtracts the variances; for a sum they add.",
+        "B": "20 multiplies the variances; variances of a sum add, not multiply.",
+        "C": "4.5 averages the variances rather than summing them.",
+        "D": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 4 + 5 = 9 (the covariance term is 0)."
+      }
+    },
+    {
+      "id": "pr_l7_121",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 9 and Var(Y) = 16. What is Var(X + Y)?",
+      "options": [
+        "25",
+        "7",
+        "144",
+        "12.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 9 + 16 = 25 (the covariance term is 0).",
+        "B": "7 subtracts the variances; for a sum they add.",
+        "C": "144 multiplies the variances; variances of a sum add, not multiply.",
+        "D": "12.5 averages the variances rather than summing them."
+      }
+    },
+    {
+      "id": "pr_l7_122",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 6 and Var(Y) = 10. What is Var(X + Y)?",
+      "options": [
+        "4",
+        "16",
+        "60",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4 subtracts the variances; for a sum they add.",
+        "B": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 6 + 10 = 16 (the covariance term is 0).",
+        "C": "60 multiplies the variances; variances of a sum add, not multiply.",
+        "D": "8 averages the variances rather than summing them."
+      }
+    },
+    {
+      "id": "pr_l7_123",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 3 and Var(Y) = 5. What is Var(X + Y)?",
+      "options": [
+        "2",
+        "15",
+        "8",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2 subtracts the variances; for a sum they add.",
+        "B": "15 multiplies the variances; variances of a sum add, not multiply.",
+        "C": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 3 + 5 = 8 (the covariance term is 0).",
+        "D": "4 averages the variances rather than summing them."
+      }
+    },
+    {
+      "id": "pr_l7_124",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 5 and Var(Y) = 8. What is Var(X + Y)?",
+      "options": [
+        "3",
+        "40",
+        "6.5",
+        "13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3 subtracts the variances; for a sum they add.",
+        "B": "40 multiplies the variances; variances of a sum add, not multiply.",
+        "C": "6.5 averages the variances rather than summing them.",
+        "D": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 5 + 8 = 13 (the covariance term is 0)."
+      }
+    },
+    {
+      "id": "pr_l7_125",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 7 and Var(Y) = 9. What is Var(X + Y)?",
+      "options": [
+        "16",
+        "2",
+        "63",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For independent variables Var(X + Y) = Var(X) + Var(Y) = 7 + 9 = 16 (the covariance term is 0).",
+        "B": "2 subtracts the variances; for a sum they add.",
+        "C": "63 multiplies the variances; variances of a sum add, not multiply.",
+        "D": "8 averages the variances rather than summing them."
+      }
+    },
+    {
+      "id": "pr_l7_126",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 4 and Var(Y) = 9. What is Var(X − Y)?",
+      "options": [
+        "-5",
+        "13",
+        "5",
+        "36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "-5 subtracts the variances — the classic trap; variances of a difference still ADD for independent variables.",
+        "B": "Correct. Var(X − Y) = Var(X) + Var(Y) − 2·Cov(X,Y); independence makes Cov = 0, so it equals 4 + 9 = 13.",
+        "C": "Reversing the order does not introduce subtraction; the independent variances add to 13.",
+        "D": "36 multiplies the variances; they should be added."
+      }
+    },
+    {
+      "id": "pr_l7_127",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 2 and Var(Y) = 7. What is Var(X − Y)?",
+      "options": [
+        "-5",
+        "5",
+        "9",
+        "14"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "-5 subtracts the variances — the classic trap; variances of a difference still ADD for independent variables.",
+        "B": "Reversing the order does not introduce subtraction; the independent variances add to 9.",
+        "C": "Correct. Var(X − Y) = Var(X) + Var(Y) − 2·Cov(X,Y); independence makes Cov = 0, so it equals 2 + 7 = 9.",
+        "D": "14 multiplies the variances; they should be added."
+      }
+    },
+    {
+      "id": "pr_l7_128",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 5 and Var(Y) = 6. What is Var(X − Y)?",
+      "options": [
+        "-1",
+        "1",
+        "30",
+        "11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "-1 subtracts the variances — the classic trap; variances of a difference still ADD for independent variables.",
+        "B": "Reversing the order does not introduce subtraction; the independent variances add to 11.",
+        "C": "30 multiplies the variances; they should be added.",
+        "D": "Correct. Var(X − Y) = Var(X) + Var(Y) − 2·Cov(X,Y); independence makes Cov = 0, so it equals 5 + 6 = 11."
+      }
+    },
+    {
+      "id": "pr_l7_129",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 3 and Var(Y) = 8. What is Var(X − Y)?",
+      "options": [
+        "11",
+        "-5",
+        "5",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X − Y) = Var(X) + Var(Y) − 2·Cov(X,Y); independence makes Cov = 0, so it equals 3 + 8 = 11.",
+        "B": "-5 subtracts the variances — the classic trap; variances of a difference still ADD for independent variables.",
+        "C": "Reversing the order does not introduce subtraction; the independent variances add to 11.",
+        "D": "24 multiplies the variances; they should be added."
+      }
+    },
+    {
+      "id": "pr_l7_130",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 9 and Var(Y) = 16. What is Var(X − Y)?",
+      "options": [
+        "-7",
+        "25",
+        "7",
+        "144"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "-7 subtracts the variances — the classic trap; variances of a difference still ADD for independent variables.",
+        "B": "Correct. Var(X − Y) = Var(X) + Var(Y) − 2·Cov(X,Y); independence makes Cov = 0, so it equals 9 + 16 = 25.",
+        "C": "Reversing the order does not introduce subtraction; the independent variances add to 25.",
+        "D": "144 multiplies the variances; they should be added."
+      }
+    },
+    {
+      "id": "pr_l7_131",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 6 and Var(Y) = 10. What is Var(X − Y)?",
+      "options": [
+        "-4",
+        "4",
+        "16",
+        "60"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "-4 subtracts the variances — the classic trap; variances of a difference still ADD for independent variables.",
+        "B": "Reversing the order does not introduce subtraction; the independent variances add to 16.",
+        "C": "Correct. Var(X − Y) = Var(X) + Var(Y) − 2·Cov(X,Y); independence makes Cov = 0, so it equals 6 + 10 = 16.",
+        "D": "60 multiplies the variances; they should be added."
+      }
+    },
+    {
+      "id": "pr_l7_132",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 3 and Var(Y) = 5. What is Var(2X + Y)?",
+      "options": [
+        "11",
+        "7",
+        "8",
+        "17"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "11 uses a and b instead of a² and b²; each coefficient scales its variance by its square.",
+        "B": "7 subtracts; for independent variables the weighted variances add.",
+        "C": "8 drops the coefficients entirely; they must be squared and applied.",
+        "D": "Correct. Var(aX + bY) = a²Var(X) + b²Var(Y) = 4·3 + 1·5 = 12 + 5 = 17."
+      }
+    },
+    {
+      "id": "pr_l7_133",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 4 and Var(Y) = 2. What is Var(X + 3Y)?",
+      "options": [
+        "22",
+        "10",
+        "-14",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(aX + bY) = a²Var(X) + b²Var(Y) = 1·4 + 9·2 = 4 + 18 = 22.",
+        "B": "10 uses a and b instead of a² and b²; each coefficient scales its variance by its square.",
+        "C": "-14 subtracts; for independent variables the weighted variances add.",
+        "D": "6 drops the coefficients entirely; they must be squared and applied."
+      }
+    },
+    {
+      "id": "pr_l7_134",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 1 and Var(Y) = 4. What is Var(2X + 2Y)?",
+      "options": [
+        "10",
+        "20",
+        "-12",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 uses a and b instead of a² and b²; each coefficient scales its variance by its square.",
+        "B": "Correct. Var(aX + bY) = a²Var(X) + b²Var(Y) = 4·1 + 4·4 = 4 + 16 = 20.",
+        "C": "-12 subtracts; for independent variables the weighted variances add.",
+        "D": "5 drops the coefficients entirely; they must be squared and applied."
+      }
+    },
+    {
+      "id": "pr_l7_135",
+      "concept": "variance_sum_independent",
+      "question": "X and Y are independent with Var(X) = 2 and Var(Y) = 9. What is Var(3X + Y)?",
+      "options": [
+        "15",
+        "9",
+        "27",
+        "11"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "15 uses a and b instead of a² and b²; each coefficient scales its variance by its square.",
+        "B": "9 subtracts; for independent variables the weighted variances add.",
+        "C": "Correct. Var(aX + bY) = a²Var(X) + b²Var(Y) = 9·2 + 1·9 = 18 + 9 = 27.",
+        "D": "11 drops the coefficients entirely; they must be squared and applied."
+      }
+    },
+    {
+      "id": "pr_l7_136",
+      "concept": "portfolio_variance",
+      "question": "Diversifying across two assets reduces portfolio variance whenever their correlation ρ is:",
+      "options": [
+        "Exactly 1",
+        "Greater than 1",
+        "Exactly −1 only",
+        "Less than 1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "At ρ = 1 the assets move in lockstep and there is no risk reduction from combining them.",
+        "B": "Correlation cannot exceed 1, so this case is impossible.",
+        "C": "ρ = −1 maximizes the benefit, but diversification helps for any ρ below 1, not only at −1.",
+        "D": "Correct. Any ρ < 1 makes combined volatility below the weighted average of volatilities, creating a diversification benefit."
+      }
+    },
+    {
+      "id": "pr_l7_137",
+      "concept": "portfolio_variance",
+      "question": "Two assets with correlation ρ = −1 and suitable weights can produce a portfolio variance of:",
+      "options": [
+        "0",
+        "The average of the two variances",
+        "The sum of the two variances",
+        "A negative number"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Perfectly negatively correlated assets can be combined so their movements exactly cancel, giving zero variance.",
+        "B": "Perfect negative correlation allows full cancellation, not merely an average.",
+        "C": "Summing variances ignores the strongly negative covariance term that reduces risk.",
+        "D": "Variance can never be negative; the minimum achievable is 0."
+      }
+    },
+    {
+      "id": "pr_l7_138",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.04 (so σ = 0.2) and correlation ρ = -0.75. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.04",
+        "0.005",
+        "0.02",
+        "0.01"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.04 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.04)(0.25) = 0.005.",
+        "C": "0.02 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.01 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_139",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.04 (so σ = 0.2) and correlation ρ = -0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.04",
+        "0.02",
+        "0.015",
+        "0.03"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.04 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.02 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.04)(0.75) = 0.015.",
+        "D": "0.03 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_140",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.04 (so σ = 0.2) and correlation ρ = 0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.04",
+        "0.02",
+        "0.05",
+        "0.025"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.04 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.02 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "0.05 forgets the w² = 0.25 weighting on each term.",
+        "D": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.04)(1.25) = 0.025."
+      }
+    },
+    {
+      "id": "pr_l7_141",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.04 (so σ = 0.2) and correlation ρ = 0.5. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.03",
+        "0.04",
+        "0.02",
+        "0.06"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.04)(1.5) = 0.03.",
+        "B": "0.04 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "C": "0.02 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.06 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_142",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.04 (so σ = 0.2) and correlation ρ = 0.75. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.04",
+        "0.035",
+        "0.02",
+        "0.07"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.04 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.04)(1.75) = 0.035.",
+        "C": "0.02 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.07 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_143",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.09 (so σ = 0.3) and correlation ρ = -0.75. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.09",
+        "0.045",
+        "0.0113",
+        "0.0225"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.09 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.045 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.09)(0.25) = 0.0113.",
+        "D": "0.0225 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_144",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.09 (so σ = 0.3) and correlation ρ = -0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.09",
+        "0.045",
+        "0.0675",
+        "0.0338"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.09 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.045 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "0.0675 forgets the w² = 0.25 weighting on each term.",
+        "D": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.09)(0.75) = 0.0338."
+      }
+    },
+    {
+      "id": "pr_l7_145",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.09 (so σ = 0.3) and correlation ρ = 0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.0563",
+        "0.09",
+        "0.045",
+        "0.1125"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.09)(1.25) = 0.0563.",
+        "B": "0.09 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "C": "0.045 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.1125 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_146",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.09 (so σ = 0.3) and correlation ρ = 0.5. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.09",
+        "0.0675",
+        "0.045",
+        "0.135"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.09 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.09)(1.5) = 0.0675.",
+        "C": "0.045 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.135 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_147",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.09 (so σ = 0.3) and correlation ρ = 0.75. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.09",
+        "0.045",
+        "0.0788",
+        "0.1575"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.09 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.045 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.09)(1.75) = 0.0788.",
+        "D": "0.1575 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_148",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.16 (so σ = 0.4) and correlation ρ = -0.75. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.16",
+        "0.08",
+        "0.04",
+        "0.02"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.16 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.08 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "0.04 forgets the w² = 0.25 weighting on each term.",
+        "D": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.16)(0.25) = 0.02."
+      }
+    },
+    {
+      "id": "pr_l7_149",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.16 (so σ = 0.4) and correlation ρ = -0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.06",
+        "0.16",
+        "0.08",
+        "0.12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.16)(0.75) = 0.06.",
+        "B": "0.16 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "C": "0.08 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.12 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_150",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.16 (so σ = 0.4) and correlation ρ = 0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.16",
+        "0.1",
+        "0.08",
+        "0.2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.16 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.16)(1.25) = 0.1.",
+        "C": "0.08 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.2 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_151",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.16 (so σ = 0.4) and correlation ρ = 0.5. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.16",
+        "0.08",
+        "0.12",
+        "0.24"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.16 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.08 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.16)(1.5) = 0.12.",
+        "D": "0.24 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_152",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.16 (so σ = 0.4) and correlation ρ = 0.75. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.16",
+        "0.08",
+        "0.28",
+        "0.14"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.16 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.08 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "0.28 forgets the w² = 0.25 weighting on each term.",
+        "D": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.16)(1.75) = 0.14."
+      }
+    },
+    {
+      "id": "pr_l7_153",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.01 (so σ = 0.1) and correlation ρ = -0.75. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.0013",
+        "0.01",
+        "0.005",
+        "0.0025"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.01)(0.25) = 0.0013.",
+        "B": "0.01 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "C": "0.005 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.0025 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_154",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.01 (so σ = 0.1) and correlation ρ = -0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.01",
+        "0.0038",
+        "0.005",
+        "0.0075"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.01 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.01)(0.75) = 0.0038.",
+        "C": "0.005 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "D": "0.0075 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_155",
+      "concept": "portfolio_variance",
+      "question": "Two assets each have variance 0.01 (so σ = 0.1) and correlation ρ = 0.25. For an equal-weight portfolio (w = 0.5 each), what is the portfolio variance?",
+      "options": [
+        "0.01",
+        "0.005",
+        "0.0063",
+        "0.0125"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.01 is the variance of a single asset; combining two imperfectly correlated assets changes it.",
+        "B": "0.005 keeps only the two weighted variance terms and drops the covariance contribution 0.5ρσ².",
+        "C": "Correct. With w = 0.5, Var_p = 0.25σ² + 0.25σ² + 2(0.25)ρσ² = 0.5σ²(1 + ρ) = 0.5(0.01)(1.25) = 0.0063.",
+        "D": "0.0125 forgets the w² = 0.25 weighting on each term."
+      }
+    },
+    {
+      "id": "pr_l7_156",
+      "concept": "lln_convergence",
+      "question": "The (weak) law of large numbers says the sample mean of i.i.d. draws converges to:",
+      "options": [
+        "The variance Var(X)",
+        "Zero, always",
+        "The sample maximum",
+        "The true expected value E[X]"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Var(X) is the spread; the sample mean targets the center E[X], not the variance.",
+        "B": "The limit is 0 only when E[X] = 0; the general target is E[X].",
+        "C": "The maximum grows with extreme draws; it is not the limit of the average.",
+        "D": "Correct. The LLN states the sample mean converges (in probability) to the population mean E[X]."
+      }
+    },
+    {
+      "id": "pr_l7_157",
+      "concept": "lln_convergence",
+      "question": "As you flip a fair coin more and more times, the observed fraction of heads converges to:",
+      "options": [
+        "0.5",
+        "0",
+        "1",
+        "A new random value each time"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By the LLN the sample proportion converges to the true probability p = 0.5.",
+        "B": "0 would mean heads essentially never occur, impossible for a fair coin.",
+        "C": "1 would mean heads always occur, again impossible for a fair coin.",
+        "D": "The point of the LLN is that the long-run fraction stabilizes rather than staying random."
+      }
+    },
+    {
+      "id": "pr_l7_158",
+      "concept": "lln_convergence",
+      "question": "Monte Carlo estimates become more accurate as you:",
+      "options": [
+        "Decrease the number of simulations",
+        "Increase the number of independent simulations",
+        "Reuse the same draw many times",
+        "Remove the randomness"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Fewer simulations give a noisier estimate — the opposite of improvement.",
+        "B": "Correct. More independent draws shrink the estimator variance σ²/n, so the average converges to the true value.",
+        "C": "Repeating one draw adds no new information; you need fresh independent draws.",
+        "D": "Monte Carlo relies on randomness; removing it defeats the method."
+      }
+    },
+    {
+      "id": "pr_l7_159",
+      "concept": "lln_convergence",
+      "question": "The LLN describes convergence of the sample MEAN, while the central limit theorem describes the:",
+      "options": [
+        "Exact value of each individual draw",
+        "Median of the data",
+        "Distribution (shape) of the scaled estimation error",
+        "Maximum of the data"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Neither theorem pins down individual draws; they describe aggregate behavior.",
+        "B": "The CLT concerns the sampling distribution of the mean, not the median.",
+        "C": "Correct. The CLT says the standardized sample mean is approximately normal; the LLN only says the mean converges to E[X].",
+        "D": "Extreme-value behavior is governed by other theorems, not the CLT."
+      }
+    },
+    {
+      "id": "pr_l7_160",
+      "concept": "lln_sample_mean",
+      "question": "If Var(X) = σ², the variance of the sample mean of n i.i.d. copies, Var(X̄ₙ), equals:",
+      "options": [
+        "σ²",
+        "nσ²",
+        "σ²/n²",
+        "σ²/n"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "σ² is the variance of a single observation, not of the average.",
+        "B": "nσ² is the variance of the SUM, not the mean; averaging divides by n.",
+        "C": "The correct denominator is n, not n²; the factor 1/n² applies before summing the n variances.",
+        "D": "Correct. Averaging n independent copies divides the variance by n: Var(X̄ₙ) = σ²/n."
+      }
+    },
+    {
+      "id": "pr_l7_161",
+      "concept": "lln_sample_mean",
+      "question": "The standard error of the sample mean of n i.i.d. draws with SD σ is:",
+      "options": [
+        "σ/√n",
+        "σ/n",
+        "σ·√n",
+        "σ"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SD(X̄ₙ) = √(σ²/n) = σ/√n, which shrinks like 1/√n as n grows.",
+        "B": "Dividing by n is too fast; the standard error falls like 1/√n, not 1/n.",
+        "C": "Multiplying by √n grows the error; averaging shrinks it.",
+        "D": "σ is the spread of a single draw; averaging reduces the spread of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_162",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 4. What is Var(X̄ₙ) for n = 2?",
+      "options": [
+        "4",
+        "2",
+        "8",
+        "1.4142"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4 is the variance of a single draw; averaging divides it by n = 2.",
+        "B": "Correct. Var(X̄ₙ) = σ²/n = 4/2 = 2.",
+        "C": "8 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "D": "1.4142 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_163",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 4. What is Var(X̄ₙ) for n = 5?",
+      "options": [
+        "4",
+        "20",
+        "0.8",
+        "0.8944"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4 is the variance of a single draw; averaging divides it by n = 5.",
+        "B": "20 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "C": "Correct. Var(X̄ₙ) = σ²/n = 4/5 = 0.8.",
+        "D": "0.8944 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_164",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 4. What is Var(X̄ₙ) for n = 10?",
+      "options": [
+        "4",
+        "40",
+        "0.6325",
+        "0.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4 is the variance of a single draw; averaging divides it by n = 10.",
+        "B": "40 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "C": "0.6325 is the standard error √(σ²/n), not the variance of the mean.",
+        "D": "Correct. Var(X̄ₙ) = σ²/n = 4/10 = 0.4."
+      }
+    },
+    {
+      "id": "pr_l7_165",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 4. What is Var(X̄ₙ) for n = 100?",
+      "options": [
+        "0.04",
+        "4",
+        "400",
+        "0.2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X̄ₙ) = σ²/n = 4/100 = 0.04.",
+        "B": "4 is the variance of a single draw; averaging divides it by n = 100.",
+        "C": "400 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "D": "0.2 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_166",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 9. What is Var(X̄ₙ) for n = 2?",
+      "options": [
+        "9",
+        "4.5",
+        "18",
+        "2.1213"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "9 is the variance of a single draw; averaging divides it by n = 2.",
+        "B": "Correct. Var(X̄ₙ) = σ²/n = 9/2 = 4.5.",
+        "C": "18 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "D": "2.1213 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_167",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 9. What is Var(X̄ₙ) for n = 4?",
+      "options": [
+        "9",
+        "36",
+        "2.25",
+        "1.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "9 is the variance of a single draw; averaging divides it by n = 4.",
+        "B": "36 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "C": "Correct. Var(X̄ₙ) = σ²/n = 9/4 = 2.25.",
+        "D": "1.5 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_168",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 9. What is Var(X̄ₙ) for n = 5?",
+      "options": [
+        "9",
+        "45",
+        "1.3416",
+        "1.8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "9 is the variance of a single draw; averaging divides it by n = 5.",
+        "B": "45 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "C": "1.3416 is the standard error √(σ²/n), not the variance of the mean.",
+        "D": "Correct. Var(X̄ₙ) = σ²/n = 9/5 = 1.8."
+      }
+    },
+    {
+      "id": "pr_l7_169",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 9. What is Var(X̄ₙ) for n = 10?",
+      "options": [
+        "0.9",
+        "9",
+        "90",
+        "0.9487"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X̄ₙ) = σ²/n = 9/10 = 0.9.",
+        "B": "9 is the variance of a single draw; averaging divides it by n = 10.",
+        "C": "90 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "D": "0.9487 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_170",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 9. What is Var(X̄ₙ) for n = 100?",
+      "options": [
+        "9",
+        "0.09",
+        "900",
+        "0.3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "9 is the variance of a single draw; averaging divides it by n = 100.",
+        "B": "Correct. Var(X̄ₙ) = σ²/n = 9/100 = 0.09.",
+        "C": "900 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "D": "0.3 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_171",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 12. What is Var(X̄ₙ) for n = 2?",
+      "options": [
+        "12",
+        "24",
+        "6",
+        "2.4495"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 is the variance of a single draw; averaging divides it by n = 2.",
+        "B": "24 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "C": "Correct. Var(X̄ₙ) = σ²/n = 12/2 = 6.",
+        "D": "2.4495 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_172",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 12. What is Var(X̄ₙ) for n = 4?",
+      "options": [
+        "12",
+        "48",
+        "1.7321",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "12 is the variance of a single draw; averaging divides it by n = 4.",
+        "B": "48 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "C": "1.7321 is the standard error √(σ²/n), not the variance of the mean.",
+        "D": "Correct. Var(X̄ₙ) = σ²/n = 12/4 = 3."
+      }
+    },
+    {
+      "id": "pr_l7_173",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 12. What is Var(X̄ₙ) for n = 5?",
+      "options": [
+        "2.4",
+        "12",
+        "60",
+        "1.5492"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(X̄ₙ) = σ²/n = 12/5 = 2.4.",
+        "B": "12 is the variance of a single draw; averaging divides it by n = 5.",
+        "C": "60 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "D": "1.5492 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_174",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 12. What is Var(X̄ₙ) for n = 10?",
+      "options": [
+        "12",
+        "1.2",
+        "120",
+        "1.0954"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "12 is the variance of a single draw; averaging divides it by n = 10.",
+        "B": "Correct. Var(X̄ₙ) = σ²/n = 12/10 = 1.2.",
+        "C": "120 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "D": "1.0954 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    },
+    {
+      "id": "pr_l7_175",
+      "concept": "lln_sample_mean",
+      "question": "X̄ₙ is the mean of n i.i.d. draws with Var(X) = 12. What is Var(X̄ₙ) for n = 100?",
+      "options": [
+        "12",
+        "1200",
+        "0.12",
+        "0.3464"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 is the variance of a single draw; averaging divides it by n = 100.",
+        "B": "1200 multiplies by n (that is Var of the SUM); the mean divides by n.",
+        "C": "Correct. Var(X̄ₙ) = σ²/n = 12/100 = 0.12.",
+        "D": "0.3464 is the standard error √(σ²/n), not the variance of the mean."
+      }
+    }
+  ]
+}

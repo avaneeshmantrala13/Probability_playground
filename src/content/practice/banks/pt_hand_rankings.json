@@ -1,0 +1,3157 @@
+{
+  "lessonId": "pt_hand_rankings",
+  "track": "poker-theory",
+  "title": "Hand Rankings",
+  "questions": [
+    {
+      "id": "pr_pthr_001",
+      "concept": "hierarchy",
+      "question": "Which of these hands ranks the highest?",
+      "options": [
+        "Flush",
+        "Straight",
+        "Two pair",
+        "Three of a kind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among these four, a flush is the strongest hand.",
+        "B": "A straight beats three of a kind and two pair but loses to flushes and full houses.",
+        "C": "Two pair is well down the chart, below straights and flushes.",
+        "D": "Three of a kind loses to straights and flushes."
+      }
+    },
+    {
+      "id": "pr_pthr_002",
+      "concept": "hierarchy",
+      "question": "Which of these hands ranks the lowest?",
+      "options": [
+        "One pair",
+        "High card",
+        "Two pair",
+        "Straight"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "One pair beats high card, so it is not the lowest here.",
+        "B": "Correct. High card is the weakest possible poker hand.",
+        "C": "Two pair is stronger than both one pair and high card.",
+        "D": "A straight is the strongest of these four."
+      }
+    },
+    {
+      "id": "pr_pthr_003",
+      "concept": "hierarchy",
+      "question": "Which hand beats a flush?",
+      "options": [
+        "Straight",
+        "Two pair",
+        "Full house",
+        "Three of a kind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A straight loses to a flush.",
+        "B": "Two pair is far below a flush.",
+        "C": "Correct. A full house is the next rank above a flush.",
+        "D": "Three of a kind loses to a flush."
+      }
+    },
+    {
+      "id": "pr_pthr_004",
+      "concept": "hierarchy",
+      "question": "Which hand beats a full house?",
+      "options": [
+        "Flush",
+        "Straight",
+        "Two pair",
+        "Four of a kind"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A flush loses to a full house.",
+        "B": "A straight is well below a full house.",
+        "C": "Two pair cannot beat a full house.",
+        "D": "Correct. Four of a kind is the next rank above a full house."
+      }
+    },
+    {
+      "id": "pr_pthr_005",
+      "concept": "hierarchy",
+      "question": "Between a straight and a flush, which wins?",
+      "options": [
+        "The flush",
+        "The straight",
+        "They always tie",
+        "Whichever is suited"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A flush outranks a straight.",
+        "B": "A straight is one rank below a flush.",
+        "C": "Different hand ranks do not tie.",
+        "D": "A flush is by definition suited; it simply outranks the straight."
+      }
+    },
+    {
+      "id": "pr_pthr_006",
+      "concept": "hierarchy",
+      "question": "Between two pair and three of a kind, which wins?",
+      "options": [
+        "Two pair",
+        "Three of a kind",
+        "They tie",
+        "Two pair, if higher cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two pair loses to three of a kind.",
+        "B": "Correct. Three of a kind outranks two pair.",
+        "C": "These are different ranks and do not tie.",
+        "D": "Even ace-high two pair loses to the lowest three of a kind."
+      }
+    },
+    {
+      "id": "pr_pthr_007",
+      "concept": "hierarchy",
+      "question": "Between one pair and high card, which wins?",
+      "options": [
+        "High card",
+        "They tie",
+        "One pair",
+        "High card with an ace"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "High card is the weakest hand and loses to a pair.",
+        "B": "A pair always outranks high card.",
+        "C": "Correct. Any pair beats the best high-card hand.",
+        "D": "Even ace-high loses to the lowest pair."
+      }
+    },
+    {
+      "id": "pr_pthr_008",
+      "concept": "royal_flush",
+      "question": "What exactly is a royal flush?",
+      "options": [
+        "Any five cards of one suit",
+        "Four aces with any fifth card",
+        "A-K-Q-J-10 of mixed suits",
+        "A-K-Q-J-10 all of the same suit"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That describes an ordinary flush, not a royal flush.",
+        "B": "That is four of a kind, not a royal flush.",
+        "C": "Mixed suits make only a straight (Broadway), not a flush.",
+        "D": "Correct. The ten-to-ace straight flush is the royal flush."
+      }
+    },
+    {
+      "id": "pr_pthr_009",
+      "concept": "royal_flush",
+      "question": "What is the best possible hand in Texas Hold'em?",
+      "options": [
+        "A royal flush",
+        "Four aces",
+        "Aces full of kings",
+        "Ace-high flush"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The royal flush (ace-high straight flush) cannot be beaten.",
+        "B": "Quad aces lose to any straight flush.",
+        "C": "A full house loses to flushes, quads, and straight flushes.",
+        "D": "An ace-high flush still loses to straights flushes and higher categories."
+      }
+    },
+    {
+      "id": "pr_pthr_010",
+      "concept": "straight",
+      "question": "Which five cards form the 'wheel'?",
+      "options": [
+        "A-K-Q-J-10",
+        "A-2-3-4-5",
+        "10-9-8-7-6",
+        "5-6-7-8-9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That is Broadway, the ace-high straight.",
+        "B": "Correct. The wheel uses the ace as a low card below the two.",
+        "C": "That is a ten-high straight, not the wheel.",
+        "D": "That is a nine-high straight, not the wheel."
+      }
+    },
+    {
+      "id": "pr_pthr_011",
+      "concept": "straight",
+      "question": "Which five cards form 'Broadway'?",
+      "options": [
+        "A-2-3-4-5",
+        "K-Q-J-10-9",
+        "A-K-Q-J-10",
+        "A-K-Q-J-9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That is the wheel, the lowest straight.",
+        "B": "That is a king-high straight, not Broadway.",
+        "C": "Correct. Broadway is the ace-high straight, the highest straight.",
+        "D": "The gap at the ten means this isn't even a straight."
+      }
+    },
+    {
+      "id": "pr_pthr_012",
+      "concept": "full_house",
+      "question": "What is the common slang for a full house?",
+      "options": [
+        "The wheel",
+        "Broadway",
+        "The nuts",
+        "A boat"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The wheel is the A-2-3-4-5 straight.",
+        "B": "Broadway is the ace-high straight.",
+        "C": "'The nuts' means the best possible hand, not specifically a full house.",
+        "D": "Correct. A full house is often called a 'boat' or 'full boat'."
+      }
+    },
+    {
+      "id": "pr_pthr_013",
+      "concept": "kicker",
+      "question": "A kicker matters when:",
+      "options": [
+        "Two players have the same rank of hand",
+        "A player has a straight flush",
+        "The pot is small",
+        "It is still preflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Side cards (kickers) break ties between equal-ranked hands.",
+        "B": "A straight flush is decided by its top card, not a kicker.",
+        "C": "Pot size has nothing to do with kickers.",
+        "D": "Kickers are compared at showdown, not preflop."
+      }
+    },
+    {
+      "id": "pr_pthr_014",
+      "concept": "best_five",
+      "question": "A made poker hand always consists of exactly how many cards?",
+      "options": [
+        "Two",
+        "Five",
+        "Seven",
+        "Six"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two is the number of hole cards, not a full hand.",
+        "B": "Correct. The best five-card combination determines hand strength.",
+        "C": "Seven cards are available in Hold'em, but only five form the hand.",
+        "D": "A poker hand is five cards, not six."
+      }
+    },
+    {
+      "id": "pr_pthr_015",
+      "concept": "best_five",
+      "question": "In Texas Hold'em you may use how many of your two hole cards?",
+      "options": [
+        "Exactly two, always",
+        "Exactly one, always",
+        "Zero, one, or two",
+        "All four hole cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You may also use one or zero hole cards.",
+        "B": "You can use zero, one, or two hole cards.",
+        "C": "Correct. You make the best five-card hand from any mix of hole and community cards.",
+        "D": "Hold'em deals only two hole cards, not four."
+      }
+    },
+    {
+      "id": "pr_pthr_016",
+      "concept": "flush",
+      "question": "A flush requires how many cards of the same suit?",
+      "options": [
+        "Four",
+        "Three",
+        "Six",
+        "Five"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Four of a suit is only a flush draw, not a made flush.",
+        "B": "Three suited cards is far from a flush.",
+        "C": "A poker hand is five cards; you never need six for a flush.",
+        "D": "Correct. Exactly five cards of one suit make a flush."
+      }
+    },
+    {
+      "id": "pr_pthr_017",
+      "concept": "hierarchy",
+      "question": "How many distinct hand-ranking categories are there in standard poker?",
+      "options": [
+        "Ten",
+        "Five",
+        "Seven",
+        "Thirteen"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. From high card up to royal flush there are ten categories.",
+        "B": "There are more than five; for example pair, two pair, trips, straight, flush, and beyond.",
+        "C": "Seven undercounts the categories.",
+        "D": "Thirteen is the number of card ranks, not hand categories."
+      }
+    },
+    {
+      "id": "pr_pthr_018",
+      "concept": "full_house",
+      "question": "A full house is made of:",
+      "options": [
+        "Two separate pairs",
+        "Three of one rank plus a pair of another",
+        "Four of a kind plus a kicker",
+        "Five cards in sequence"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two pair is a weaker, different hand.",
+        "B": "Correct. Trips plus a pair equals a full house.",
+        "C": "That is quads, a stronger and different hand.",
+        "D": "That is a straight."
+      }
+    },
+    {
+      "id": "pr_pthr_019",
+      "concept": "four_of_a_kind",
+      "question": "Four of a kind plus its required fifth card totals:",
+      "options": [
+        "Four cards only",
+        "Six cards",
+        "Five cards (the quads plus one kicker)",
+        "Eight cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A complete poker hand is always five cards.",
+        "B": "Only five cards form the hand.",
+        "C": "Correct. The hand is the four matching cards and a single kicker.",
+        "D": "You never use eight cards in a five-card hand."
+      }
+    },
+    {
+      "id": "pr_pthr_020",
+      "concept": "two_pair",
+      "question": "Two pair means:",
+      "options": [
+        "The same rank appears three times",
+        "Two players each hold a pair",
+        "A pair plus a flush draw",
+        "Two different ranks are each paired"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That is three of a kind.",
+        "B": "Two pair refers to one player's five cards, not two players.",
+        "C": "A draw is not part of a made hand.",
+        "D": "Correct. For example, kings and sevens with a side card."
+      }
+    },
+    {
+      "id": "pr_pthr_021",
+      "concept": "one_pair",
+      "question": "Which of these is exactly one pair?",
+      "options": [
+        "K-K-9-7-4",
+        "K-K-9-9-4",
+        "K-K-K-7-4",
+        "K-Q-J-10-9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A single pair of kings with three unrelated kickers.",
+        "B": "That is two pair.",
+        "C": "That is three of a kind.",
+        "D": "That is a straight, not a pair."
+      }
+    },
+    {
+      "id": "pr_pthr_022",
+      "concept": "high_card",
+      "question": "Which of these is a 'high card' hand (no pair or better)?",
+      "options": [
+        "A-A-8-5-2",
+        "A-J-8-5-2 of mixed suits",
+        "A-K-Q-J-10 of one suit",
+        "7-7-7-2-2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That contains a pair of aces.",
+        "B": "Correct. No pair, straight, or flush — just ace-high.",
+        "C": "That is a royal flush.",
+        "D": "That is a full house."
+      }
+    },
+    {
+      "id": "pr_pthr_023",
+      "concept": "three_of_a_kind",
+      "question": "Which of these is three of a kind?",
+      "options": [
+        "Q-Q-8-8-3",
+        "Q-Q-Q-8-8",
+        "Q-Q-Q-8-3",
+        "Q-J-10-9-8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That is two pair.",
+        "B": "That is a full house.",
+        "C": "Correct. Three queens with two unrelated kickers.",
+        "D": "That is a straight."
+      }
+    },
+    {
+      "id": "pr_pthr_024",
+      "concept": "hierarchy",
+      "question": "Between a flush and four of a kind, which wins?",
+      "options": [
+        "The flush",
+        "They tie",
+        "The flush if ace-high",
+        "Four of a kind"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A flush loses to four of a kind.",
+        "B": "Different ranks; no tie.",
+        "C": "Even the nut flush loses to any four of a kind.",
+        "D": "Correct. Quads are far stronger than a flush."
+      }
+    },
+    {
+      "id": "pr_pthr_025",
+      "concept": "hierarchy",
+      "question": "Between three of a kind and a straight, which wins?",
+      "options": [
+        "The straight",
+        "Three of a kind",
+        "They tie",
+        "Three of a kind with aces"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A straight outranks three of a kind.",
+        "B": "Trips lose to a straight.",
+        "C": "Different ranks; no tie.",
+        "D": "Even trip aces lose to the lowest straight."
+      }
+    },
+    {
+      "id": "pr_pthr_026",
+      "concept": "best_five",
+      "question": "Board: J♣ 4♠ K♥ 3♠ 5♣. You hold 4♥ 9♣. What is your best five-card hand?",
+      "options": [
+        "Straight",
+        "One pair",
+        "Straight flush",
+        "High card"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Straight is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "B": "Correct. With these seven cards the best five make a pair of fours.",
+        "C": "Straight flush is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "D": "High card is not the best holding here; the strongest five-card hand is a pair of fours."
+      }
+    },
+    {
+      "id": "pr_pthr_027",
+      "concept": "best_five",
+      "question": "Board: 3♦ J♠ A♠ K♠ 4♦. You hold 3♥ J♥. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "One pair",
+        "Two pair",
+        "Full house"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, jacks and threes.",
+        "B": "One pair is not the best holding here; the strongest five-card hand is two pair, jacks and threes.",
+        "C": "Correct. With these seven cards the best five make two pair, jacks and threes.",
+        "D": "Full house is not the best holding here; the strongest five-card hand is two pair, jacks and threes."
+      }
+    },
+    {
+      "id": "pr_pthr_028",
+      "concept": "best_five",
+      "question": "Board: 6♦ 2♦ 3♠ Q♠ 3♣. You hold A♠ 5♠. What is your best five-card hand?",
+      "options": [
+        "Three of a kind",
+        "High card",
+        "Two pair",
+        "One pair"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Three of a kind is not the best holding here; the strongest five-card hand is a pair of threes.",
+        "B": "High card is not the best holding here; the strongest five-card hand is a pair of threes.",
+        "C": "Two pair is not the best holding here; the strongest five-card hand is a pair of threes.",
+        "D": "Correct. With these seven cards the best five make a pair of threes."
+      }
+    },
+    {
+      "id": "pr_pthr_029",
+      "concept": "best_five",
+      "question": "Board: 6♣ 4♣ 6♠ Q♠ Q♣. You hold 2♥ A♣. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "Straight",
+        "Three of a kind",
+        "Full house"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make two pair, queens and sixes.",
+        "B": "Straight is not the best holding here; the strongest five-card hand is two pair, queens and sixes.",
+        "C": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, queens and sixes.",
+        "D": "Full house is not the best holding here; the strongest five-card hand is two pair, queens and sixes."
+      }
+    },
+    {
+      "id": "pr_pthr_030",
+      "concept": "best_five",
+      "question": "Board: K♣ 6♦ T♦ J♠ K♥. You hold A♥ T♥. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "Two pair",
+        "Three of a kind",
+        "Flush"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, kings and tens.",
+        "B": "Correct. With these seven cards the best five make two pair, kings and tens.",
+        "C": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, kings and tens.",
+        "D": "Flush is not the best holding here; the strongest five-card hand is two pair, kings and tens."
+      }
+    },
+    {
+      "id": "pr_pthr_031",
+      "concept": "best_five",
+      "question": "Board: T♣ A♠ 5♥ 5♠ K♣. You hold 4♣ Q♦. What is your best five-card hand?",
+      "options": [
+        "Straight flush",
+        "Four of a kind",
+        "One pair",
+        "High card"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Straight flush is not the best holding here; the strongest five-card hand is a pair of fives.",
+        "B": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of fives.",
+        "C": "Correct. With these seven cards the best five make a pair of fives.",
+        "D": "High card is not the best holding here; the strongest five-card hand is a pair of fives."
+      }
+    },
+    {
+      "id": "pr_pthr_032",
+      "concept": "best_five",
+      "question": "Board: 3♦ J♥ K♥ 6♣ 7♣. You hold 9♦ 9♠. What is your best five-card hand?",
+      "options": [
+        "Straight",
+        "Four of a kind",
+        "Three of a kind",
+        "One pair"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Straight is not the best holding here; the strongest five-card hand is a pair of nines.",
+        "B": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of nines.",
+        "C": "Three of a kind is not the best holding here; the strongest five-card hand is a pair of nines.",
+        "D": "Correct. With these seven cards the best five make a pair of nines."
+      }
+    },
+    {
+      "id": "pr_pthr_033",
+      "concept": "best_five",
+      "question": "Board: Q♥ Q♠ 6♦ 2♥ 6♣. You hold 5♦ T♦. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "Four of a kind",
+        "High card",
+        "Straight"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make two pair, queens and sixes.",
+        "B": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, queens and sixes.",
+        "C": "High card is not the best holding here; the strongest five-card hand is two pair, queens and sixes.",
+        "D": "Straight is not the best holding here; the strongest five-card hand is two pair, queens and sixes."
+      }
+    },
+    {
+      "id": "pr_pthr_034",
+      "concept": "best_five",
+      "question": "Board: A♥ 7♦ J♣ J♦ 8♥. You hold 2♥ 9♣. What is your best five-card hand?",
+      "options": [
+        "Flush",
+        "One pair",
+        "Two pair",
+        "Full house"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Flush is not the best holding here; the strongest five-card hand is a pair of jacks.",
+        "B": "Correct. With these seven cards the best five make a pair of jacks.",
+        "C": "Two pair is not the best holding here; the strongest five-card hand is a pair of jacks.",
+        "D": "Full house is not the best holding here; the strongest five-card hand is a pair of jacks."
+      }
+    },
+    {
+      "id": "pr_pthr_035",
+      "concept": "best_five",
+      "question": "Board: J♥ A♥ K♣ 6♦ 7♣. You hold K♠ 8♠. What is your best five-card hand?",
+      "options": [
+        "Flush",
+        "Two pair",
+        "One pair",
+        "High card"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Flush is not the best holding here; the strongest five-card hand is a pair of kings.",
+        "B": "Two pair is not the best holding here; the strongest five-card hand is a pair of kings.",
+        "C": "Correct. With these seven cards the best five make a pair of kings.",
+        "D": "High card is not the best holding here; the strongest five-card hand is a pair of kings."
+      }
+    },
+    {
+      "id": "pr_pthr_036",
+      "concept": "best_five",
+      "question": "Board: 2♠ 8♦ 8♥ 8♣ 4♣. You hold 5♥ 3♣. What is your best five-card hand?",
+      "options": [
+        "Full house",
+        "Flush",
+        "Four of a kind",
+        "Three of a kind"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Full house is not the best holding here; the strongest five-card hand is three of a kind, eights.",
+        "B": "Flush is not the best holding here; the strongest five-card hand is three of a kind, eights.",
+        "C": "Four of a kind is not the best holding here; the strongest five-card hand is three of a kind, eights.",
+        "D": "Correct. With these seven cards the best five make three of a kind, eights."
+      }
+    },
+    {
+      "id": "pr_pthr_037",
+      "concept": "best_five",
+      "question": "Board: 7♠ 8♥ 7♥ 4♥ A♠. You hold 7♦ 9♦. What is your best five-card hand?",
+      "options": [
+        "Three of a kind",
+        "High card",
+        "Two pair",
+        "Straight"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make three of a kind, sevens.",
+        "B": "High card is not the best holding here; the strongest five-card hand is three of a kind, sevens.",
+        "C": "Two pair is not the best holding here; the strongest five-card hand is three of a kind, sevens.",
+        "D": "Straight is not the best holding here; the strongest five-card hand is three of a kind, sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_038",
+      "concept": "best_five",
+      "question": "Board: 6♦ K♥ 4♦ 4♥ 7♠. You hold 2♣ K♣. What is your best five-card hand?",
+      "options": [
+        "High card",
+        "Two pair",
+        "Four of a kind",
+        "Flush"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "High card is not the best holding here; the strongest five-card hand is two pair, kings and fours.",
+        "B": "Correct. With these seven cards the best five make two pair, kings and fours.",
+        "C": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, kings and fours.",
+        "D": "Flush is not the best holding here; the strongest five-card hand is two pair, kings and fours."
+      }
+    },
+    {
+      "id": "pr_pthr_039",
+      "concept": "best_five",
+      "question": "Board: 3♥ T♦ 3♦ T♥ 2♠. You hold K♥ 8♣. What is your best five-card hand?",
+      "options": [
+        "High card",
+        "Flush",
+        "Two pair",
+        "One pair"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "High card is not the best holding here; the strongest five-card hand is two pair, tens and threes.",
+        "B": "Flush is not the best holding here; the strongest five-card hand is two pair, tens and threes.",
+        "C": "Correct. With these seven cards the best five make two pair, tens and threes.",
+        "D": "One pair is not the best holding here; the strongest five-card hand is two pair, tens and threes."
+      }
+    },
+    {
+      "id": "pr_pthr_040",
+      "concept": "best_five",
+      "question": "Board: T♣ A♠ 7♥ 4♦ 5♣. You hold J♦ 4♥. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "Straight flush",
+        "Straight",
+        "One pair"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "B": "Straight flush is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "C": "Straight is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "D": "Correct. With these seven cards the best five make a pair of fours."
+      }
+    },
+    {
+      "id": "pr_pthr_041",
+      "concept": "best_five",
+      "question": "Board: 7♦ Q♦ 7♠ 3♣ 6♥. You hold 6♣ A♥. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "Flush",
+        "Three of a kind",
+        "Straight flush"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make two pair, sevens and sixes.",
+        "B": "Flush is not the best holding here; the strongest five-card hand is two pair, sevens and sixes.",
+        "C": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, sevens and sixes.",
+        "D": "Straight flush is not the best holding here; the strongest five-card hand is two pair, sevens and sixes."
+      }
+    },
+    {
+      "id": "pr_pthr_042",
+      "concept": "best_five",
+      "question": "Board: J♠ K♠ 5♥ 5♣ 8♠. You hold A♣ 3♠. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "One pair",
+        "Straight flush",
+        "Straight"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two pair is not the best holding here; the strongest five-card hand is a pair of fives.",
+        "B": "Correct. With these seven cards the best five make a pair of fives.",
+        "C": "Straight flush is not the best holding here; the strongest five-card hand is a pair of fives.",
+        "D": "Straight is not the best holding here; the strongest five-card hand is a pair of fives."
+      }
+    },
+    {
+      "id": "pr_pthr_043",
+      "concept": "best_five",
+      "question": "Board: 3♦ 2♥ 4♥ K♣ 8♣. You hold 6♥ J♥. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "One pair",
+        "High card",
+        "Three of a kind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Two pair is not the best holding here; the strongest five-card hand is king-high.",
+        "B": "One pair is not the best holding here; the strongest five-card hand is king-high.",
+        "C": "Correct. With these seven cards the best five make king-high.",
+        "D": "Three of a kind is not the best holding here; the strongest five-card hand is king-high."
+      }
+    },
+    {
+      "id": "pr_pthr_044",
+      "concept": "best_five",
+      "question": "Board: 5♦ 7♣ 5♣ K♥ Q♦. You hold 6♣ 7♦. What is your best five-card hand?",
+      "options": [
+        "Three of a kind",
+        "Straight flush",
+        "Straight",
+        "Two pair"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, sevens and fives.",
+        "B": "Straight flush is not the best holding here; the strongest five-card hand is two pair, sevens and fives.",
+        "C": "Straight is not the best holding here; the strongest five-card hand is two pair, sevens and fives.",
+        "D": "Correct. With these seven cards the best five make two pair, sevens and fives."
+      }
+    },
+    {
+      "id": "pr_pthr_045",
+      "concept": "best_five",
+      "question": "Board: A♠ 8♣ A♦ 9♣ 7♦. You hold J♦ 5♦. What is your best five-card hand?",
+      "options": [
+        "One pair",
+        "Two pair",
+        "Straight flush",
+        "Four of a kind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make a pair of aces.",
+        "B": "Two pair is not the best holding here; the strongest five-card hand is a pair of aces.",
+        "C": "Straight flush is not the best holding here; the strongest five-card hand is a pair of aces.",
+        "D": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of aces."
+      }
+    },
+    {
+      "id": "pr_pthr_046",
+      "concept": "best_five",
+      "question": "Board: 2♠ K♠ 4♦ 4♣ 6♦. You hold 9♥ A♠. What is your best five-card hand?",
+      "options": [
+        "Straight flush",
+        "One pair",
+        "Full house",
+        "Three of a kind"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Straight flush is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "B": "Correct. With these seven cards the best five make a pair of fours.",
+        "C": "Full house is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "D": "Three of a kind is not the best holding here; the strongest five-card hand is a pair of fours."
+      }
+    },
+    {
+      "id": "pr_pthr_047",
+      "concept": "best_five",
+      "question": "Board: 8♠ 7♣ 3♥ J♠ J♥. You hold 5♦ 8♣. What is your best five-card hand?",
+      "options": [
+        "Three of a kind",
+        "Flush",
+        "Two pair",
+        "Full house"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, jacks and eights.",
+        "B": "Flush is not the best holding here; the strongest five-card hand is two pair, jacks and eights.",
+        "C": "Correct. With these seven cards the best five make two pair, jacks and eights.",
+        "D": "Full house is not the best holding here; the strongest five-card hand is two pair, jacks and eights."
+      }
+    },
+    {
+      "id": "pr_pthr_048",
+      "concept": "best_five",
+      "question": "Board: 7♦ A♠ 6♠ 9♣ 7♣. You hold 2♣ 7♠. What is your best five-card hand?",
+      "options": [
+        "Flush",
+        "One pair",
+        "Straight",
+        "Three of a kind"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Flush is not the best holding here; the strongest five-card hand is three of a kind, sevens.",
+        "B": "One pair is not the best holding here; the strongest five-card hand is three of a kind, sevens.",
+        "C": "Straight is not the best holding here; the strongest five-card hand is three of a kind, sevens.",
+        "D": "Correct. With these seven cards the best five make three of a kind, sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_049",
+      "concept": "best_five",
+      "question": "Board: J♦ 2♠ T♦ 8♥ 5♠. You hold 4♦ 2♦. What is your best five-card hand?",
+      "options": [
+        "One pair",
+        "Four of a kind",
+        "Straight flush",
+        "Three of a kind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make a pair of twos.",
+        "B": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of twos.",
+        "C": "Straight flush is not the best holding here; the strongest five-card hand is a pair of twos.",
+        "D": "Three of a kind is not the best holding here; the strongest five-card hand is a pair of twos."
+      }
+    },
+    {
+      "id": "pr_pthr_050",
+      "concept": "best_five",
+      "question": "Board: 6♥ 7♣ 8♦ 3♥ 3♣. You hold Q♠ Q♣. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "Two pair",
+        "Three of a kind",
+        "Full house"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, queens and threes.",
+        "B": "Correct. With these seven cards the best five make two pair, queens and threes.",
+        "C": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, queens and threes.",
+        "D": "Full house is not the best holding here; the strongest five-card hand is two pair, queens and threes."
+      }
+    },
+    {
+      "id": "pr_pthr_051",
+      "concept": "best_five",
+      "question": "Board: 4♣ T♣ 5♥ 4♦ 2♣. You hold 9♥ 3♥. What is your best five-card hand?",
+      "options": [
+        "Three of a kind",
+        "Straight flush",
+        "One pair",
+        "Flush"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Three of a kind is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "B": "Straight flush is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "C": "Correct. With these seven cards the best five make a pair of fours.",
+        "D": "Flush is not the best holding here; the strongest five-card hand is a pair of fours."
+      }
+    },
+    {
+      "id": "pr_pthr_052",
+      "concept": "best_five",
+      "question": "Board: T♣ 6♦ A♣ 7♦ 9♣. You hold 4♥ 4♣. What is your best five-card hand?",
+      "options": [
+        "Straight",
+        "Two pair",
+        "Four of a kind",
+        "One pair"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Straight is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "B": "Two pair is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "C": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of fours.",
+        "D": "Correct. With these seven cards the best five make a pair of fours."
+      }
+    },
+    {
+      "id": "pr_pthr_053",
+      "concept": "best_five",
+      "question": "Board: 9♥ J♠ 7♣ Q♦ K♦. You hold 9♦ K♣. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "Flush",
+        "Straight",
+        "Four of a kind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make two pair, kings and nines.",
+        "B": "Flush is not the best holding here; the strongest five-card hand is two pair, kings and nines.",
+        "C": "Straight is not the best holding here; the strongest five-card hand is two pair, kings and nines.",
+        "D": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, kings and nines."
+      }
+    },
+    {
+      "id": "pr_pthr_054",
+      "concept": "best_five",
+      "question": "Board: A♣ A♥ T♠ T♥ K♥. You hold 4♦ 8♠. What is your best five-card hand?",
+      "options": [
+        "One pair",
+        "Two pair",
+        "Three of a kind",
+        "Straight flush"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "One pair is not the best holding here; the strongest five-card hand is two pair, aces and tens.",
+        "B": "Correct. With these seven cards the best five make two pair, aces and tens.",
+        "C": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, aces and tens.",
+        "D": "Straight flush is not the best holding here; the strongest five-card hand is two pair, aces and tens."
+      }
+    },
+    {
+      "id": "pr_pthr_055",
+      "concept": "best_five",
+      "question": "Board: Q♠ 3♦ 4♦ A♦ K♠. You hold A♠ T♦. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "Full house",
+        "One pair",
+        "Flush"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of aces.",
+        "B": "Full house is not the best holding here; the strongest five-card hand is a pair of aces.",
+        "C": "Correct. With these seven cards the best five make a pair of aces.",
+        "D": "Flush is not the best holding here; the strongest five-card hand is a pair of aces."
+      }
+    },
+    {
+      "id": "pr_pthr_056",
+      "concept": "best_five",
+      "question": "Board: 3♣ T♣ T♠ 8♦ Q♥. You hold T♦ 4♠. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "Flush",
+        "Straight flush",
+        "Three of a kind"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is three of a kind, tens.",
+        "B": "Flush is not the best holding here; the strongest five-card hand is three of a kind, tens.",
+        "C": "Straight flush is not the best holding here; the strongest five-card hand is three of a kind, tens.",
+        "D": "Correct. With these seven cards the best five make three of a kind, tens."
+      }
+    },
+    {
+      "id": "pr_pthr_057",
+      "concept": "best_five",
+      "question": "Board: 2♥ J♣ T♦ 9♥ 2♦. You hold 8♠ 8♦. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "Straight",
+        "One pair",
+        "Straight flush"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make two pair, eights and twos.",
+        "B": "Straight is not the best holding here; the strongest five-card hand is two pair, eights and twos.",
+        "C": "One pair is not the best holding here; the strongest five-card hand is two pair, eights and twos.",
+        "D": "Straight flush is not the best holding here; the strongest five-card hand is two pair, eights and twos."
+      }
+    },
+    {
+      "id": "pr_pthr_058",
+      "concept": "best_five",
+      "question": "Board: 7♣ Q♣ J♥ 2♣ 7♥. You hold 5♣ 3♥. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "One pair",
+        "Flush",
+        "Straight"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is a pair of sevens.",
+        "B": "Correct. With these seven cards the best five make a pair of sevens.",
+        "C": "Flush is not the best holding here; the strongest five-card hand is a pair of sevens.",
+        "D": "Straight is not the best holding here; the strongest five-card hand is a pair of sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_059",
+      "concept": "best_five",
+      "question": "Board: 8♣ K♥ 8♦ 7♠ 2♣. You hold 3♥ 7♥. What is your best five-card hand?",
+      "options": [
+        "Straight flush",
+        "Three of a kind",
+        "Two pair",
+        "Four of a kind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Straight flush is not the best holding here; the strongest five-card hand is two pair, eights and sevens.",
+        "B": "Three of a kind is not the best holding here; the strongest five-card hand is two pair, eights and sevens.",
+        "C": "Correct. With these seven cards the best five make two pair, eights and sevens.",
+        "D": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, eights and sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_060",
+      "concept": "best_five",
+      "question": "Board: 6♠ K♠ J♠ A♣ A♥. You hold 3♦ K♣. What is your best five-card hand?",
+      "options": [
+        "Four of a kind",
+        "Full house",
+        "Flush",
+        "Two pair"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, aces and kings.",
+        "B": "Full house is not the best holding here; the strongest five-card hand is two pair, aces and kings.",
+        "C": "Flush is not the best holding here; the strongest five-card hand is two pair, aces and kings.",
+        "D": "Correct. With these seven cards the best five make two pair, aces and kings."
+      }
+    },
+    {
+      "id": "pr_pthr_061",
+      "concept": "best_five",
+      "question": "Board: 9♠ 7♥ 3♣ 9♣ 4♦. You hold 6♠ 3♦. What is your best five-card hand?",
+      "options": [
+        "Two pair",
+        "Full house",
+        "Four of a kind",
+        "High card"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make two pair, nines and threes.",
+        "B": "Full house is not the best holding here; the strongest five-card hand is two pair, nines and threes.",
+        "C": "Four of a kind is not the best holding here; the strongest five-card hand is two pair, nines and threes.",
+        "D": "High card is not the best holding here; the strongest five-card hand is two pair, nines and threes."
+      }
+    },
+    {
+      "id": "pr_pthr_062",
+      "concept": "best_five",
+      "question": "Board: 8♣ 9♣ 5♠ Q♣ 7♦. You hold 5♥ 4♠. What is your best five-card hand?",
+      "options": [
+        "Three of a kind",
+        "One pair",
+        "Two pair",
+        "Straight"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Three of a kind is not the best holding here; the strongest five-card hand is a pair of fives.",
+        "B": "Correct. With these seven cards the best five make a pair of fives.",
+        "C": "Two pair is not the best holding here; the strongest five-card hand is a pair of fives.",
+        "D": "Straight is not the best holding here; the strongest five-card hand is a pair of fives."
+      }
+    },
+    {
+      "id": "pr_pthr_063",
+      "concept": "best_five",
+      "question": "Board: Q♥ 2♦ 2♥ 3♥ T♦. You hold A♣ K♥. What is your best five-card hand?",
+      "options": [
+        "Three of a kind",
+        "Straight flush",
+        "One pair",
+        "Full house"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Three of a kind is not the best holding here; the strongest five-card hand is a pair of twos.",
+        "B": "Straight flush is not the best holding here; the strongest five-card hand is a pair of twos.",
+        "C": "Correct. With these seven cards the best five make a pair of twos.",
+        "D": "Full house is not the best holding here; the strongest five-card hand is a pair of twos."
+      }
+    },
+    {
+      "id": "pr_pthr_064",
+      "concept": "hierarchy",
+      "question": "Between four of a kind and a full house, which wins?",
+      "options": [
+        "Full house",
+        "They tie",
+        "Whichever has the ace",
+        "Four of a kind"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A full house loses to four of a kind.",
+        "B": "Different ranks; no tie.",
+        "C": "The hand rank decides, not a single ace.",
+        "D": "Correct. Quads outrank a full house."
+      }
+    },
+    {
+      "id": "pr_pthr_065",
+      "concept": "hierarchy",
+      "question": "Between a straight flush and four of a kind, which wins?",
+      "options": [
+        "Straight flush",
+        "Four of a kind",
+        "They tie",
+        "Four of a kind with aces"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A straight flush is the second-highest category, above quads.",
+        "B": "Quads lose to a straight flush.",
+        "C": "Different ranks; no tie.",
+        "D": "Even quad aces lose to any straight flush."
+      }
+    },
+    {
+      "id": "pr_pthr_066",
+      "concept": "hierarchy",
+      "question": "List from weakest to strongest: flush, straight, full house.",
+      "options": [
+        "Flush, straight, full house",
+        "Straight, flush, full house",
+        "Full house, flush, straight",
+        "Straight, full house, flush"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A flush actually beats a straight, so this order is wrong.",
+        "B": "Correct. Straight is weakest, then flush, then full house.",
+        "C": "This reverses the order; a full house is strongest.",
+        "D": "A full house beats a flush, so this is wrong."
+      }
+    },
+    {
+      "id": "pr_pthr_067",
+      "concept": "hierarchy",
+      "question": "List from weakest to strongest: two pair, trips, straight.",
+      "options": [
+        "Three of a kind, two pair, straight",
+        "Straight, two pair, three of a kind",
+        "Two pair, three of a kind, straight",
+        "Two pair, straight, three of a kind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Three of a kind beats two pair, so trips is not weakest.",
+        "B": "A straight is the strongest of the three, not the weakest.",
+        "C": "Correct. Two pair, then trips, then straight.",
+        "D": "A straight beats three of a kind, so this order is wrong."
+      }
+    },
+    {
+      "id": "pr_pthr_068",
+      "concept": "straight_flush",
+      "question": "Which of these is a straight flush?",
+      "options": [
+        "A♦ K♦ Q♦ J♦ 9♦",
+        "K♠ Q♠ J♠ T♠ 9♥",
+        "A♣ A♦ A♥ K♠ K♣",
+        "9♣ 8♣ 7♣ 6♣ 5♣"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "All diamonds, but the gap at the ten makes it just a flush, not a straight flush.",
+        "B": "The nine of hearts breaks the flush; this is only a straight.",
+        "C": "That is a full house, not a straight flush.",
+        "D": "Correct. Five consecutive clubs form a straight flush."
+      }
+    },
+    {
+      "id": "pr_pthr_069",
+      "concept": "straight_flush",
+      "question": "A straight flush requires:",
+      "options": [
+        "Five consecutive ranks, all the same suit",
+        "Five of the same suit in any order",
+        "Five consecutive ranks of any suits",
+        "Any four-card flush plus a straight card"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Both the straight and the flush conditions must hold.",
+        "B": "That is just a flush; the ranks must also be consecutive.",
+        "C": "That is just a straight; all five must share a suit.",
+        "D": "Only the made five-card hand counts; four-flushes don't qualify."
+      }
+    },
+    {
+      "id": "pr_pthr_070",
+      "concept": "straight",
+      "question": "In a straight, the ace can be used as:",
+      "options": [
+        "High only",
+        "Either the highest card or the lowest card",
+        "Low only",
+        "A wild card of any rank"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The ace can also play low in the wheel (A-2-3-4-5).",
+        "B": "Correct. Ace is high in Broadway and low in the wheel.",
+        "C": "The ace also plays high in Broadway (A-K-Q-J-10).",
+        "D": "There are no wild cards in Hold'em; the ace is fixed at high or low."
+      }
+    },
+    {
+      "id": "pr_pthr_071",
+      "concept": "straight",
+      "question": "Is Q-K-A-2-3 a valid straight?",
+      "options": [
+        "Yes, the ace connects king and two",
+        "Yes, any five cards in a row count",
+        "No, straights cannot wrap around the ace",
+        "Only if they are the same suit"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "No — a straight cannot 'wrap around' the ace.",
+        "B": "These ranks are not actually in sequence; the ace doesn't bridge K and 2.",
+        "C": "Correct. The ace is either high (A-K-Q-J-10) or low (A-2-3-4-5), never both at once.",
+        "D": "Suit is irrelevant; the ranks simply don't form a straight."
+      }
+    },
+    {
+      "id": "pr_pthr_072",
+      "concept": "nut_hand",
+      "question": "In poker, 'the nuts' refers to:",
+      "options": [
+        "Any full house",
+        "The worst hand at the table",
+        "A pair of aces preflop",
+        "The best possible hand on a given board"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A full house may or may not be the nuts depending on the board.",
+        "B": "The nuts is the best hand, not the worst.",
+        "C": "Pocket aces are strong preflop but are not 'the nuts' on most boards.",
+        "D": "Correct. The nuts is the strongest holding available given the community cards."
+      }
+    },
+    {
+      "id": "pr_pthr_073",
+      "concept": "three_of_a_kind",
+      "question": "Making three of a kind using a pocket pair plus one board card is often called:",
+      "options": [
+        "A set",
+        "A boat",
+        "A wheel",
+        "A kicker"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Three of a kind from a pocket pair plus a matching board card is a 'set'.",
+        "B": "A boat is a full house.",
+        "C": "The wheel is the low straight.",
+        "D": "A kicker is a side card used to break ties."
+      }
+    },
+    {
+      "id": "pr_pthr_074",
+      "concept": "kicker",
+      "question": "Board A-8-5-3-2. You hold A-K, opponent holds A-Q. Who wins?",
+      "options": [
+        "Opponent, with the queen kicker",
+        "You, with the king kicker",
+        "Split pot",
+        "Opponent, because Q-x is suited-looking"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A queen kicker is lower than your king.",
+        "B": "Correct. Both pair aces; your king kicker beats the queen.",
+        "C": "The kickers differ, so the pot is not split.",
+        "D": "Suit is irrelevant; the higher kicker wins."
+      }
+    },
+    {
+      "id": "pr_pthr_075",
+      "concept": "kicker",
+      "question": "Two players both pair the board's king. One has a queen kicker, the other a jack. Winner?",
+      "options": [
+        "The jack kicker",
+        "Split pot",
+        "The queen kicker",
+        "Neither, the board wins"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A jack is lower than a queen.",
+        "B": "Different kickers mean no split.",
+        "C": "Correct. With equal pairs, the higher side card wins.",
+        "D": "The board does not outrank a pair plus a kicker here."
+      }
+    },
+    {
+      "id": "pr_pthr_076",
+      "concept": "play_board",
+      "question": "Board: 10♠ J♠ Q♠ K♠ A♠ and everyone checks down. What happens?",
+      "options": [
+        "The player with another spade wins",
+        "Highest hole card wins",
+        "The first player to act wins",
+        "Split pot — everyone plays the board"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "An extra spade can't beat a royal flush already on the board.",
+        "B": "Hole cards are irrelevant when the board is the best possible hand.",
+        "C": "Position never decides a showdown.",
+        "D": "Correct. The board itself is a royal flush, the best hand for all remaining players."
+      }
+    },
+    {
+      "id": "pr_pthr_077",
+      "concept": "play_board",
+      "question": "'Playing the board' means:",
+      "options": [
+        "Using zero of your hole cards because the five community cards are your best hand",
+        "Using both hole cards every hand",
+        "Folding before the flop",
+        "Betting on every street"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. When the board beats anything your hole cards add, you play the board.",
+        "B": "That is the opposite of playing the board.",
+        "C": "Folding ends your involvement; it isn't playing the board.",
+        "D": "That describes aggression, not playing the board."
+      }
+    },
+    {
+      "id": "pr_pthr_078",
+      "concept": "split_pot",
+      "question": "When two players have identical best five-card hands, the pot is:",
+      "options": [
+        "Awarded to the player in earlier position",
+        "Split evenly between them",
+        "Awarded to whoever bet last",
+        "Carried over to the next hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Position never breaks a showdown tie.",
+        "B": "Correct. Equal hands chop the pot.",
+        "C": "Betting order does not decide ties.",
+        "D": "Tied pots are split immediately, not carried over."
+      }
+    },
+    {
+      "id": "pr_pthr_079",
+      "concept": "flush",
+      "question": "When two players both have a flush, the winner is decided by:",
+      "options": [
+        "Who holds more cards of that suit",
+        "The suit's rank (spades beat hearts)",
+        "The highest card in the flush, then the next, and so on",
+        "Who entered the pot first"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Both use exactly five cards; quantity beyond five is irrelevant.",
+        "B": "Suits have no ranking value in Hold'em.",
+        "C": "Correct. Compare the five flush cards from the top down.",
+        "D": "Order of action does not break ties."
+      }
+    },
+    {
+      "id": "pr_pthr_080",
+      "concept": "flush",
+      "question": "Three hearts sit on the board and you hold no hearts. You:",
+      "options": [
+        "Automatically have a flush",
+        "Win automatically",
+        "Have the nut flush",
+        "Cannot make a flush from this board"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A flush needs five cards of one suit; three on board plus none in hand isn't enough.",
+        "B": "Holding no hearts does not win anything by itself.",
+        "C": "You have no flush at all here.",
+        "D": "Correct. Three hearts on the board is only three of a suit; without two hearts of your own you have no flush."
+      }
+    },
+    {
+      "id": "pr_pthr_081",
+      "concept": "four_of_a_kind",
+      "question": "Which of these is four of a kind?",
+      "options": [
+        "9-9-9-9-K",
+        "9-9-9-K-K",
+        "9-9-9-K-Q",
+        "9-8-7-6-5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Four nines with a king kicker.",
+        "B": "That is a full house.",
+        "C": "That is three of a kind.",
+        "D": "That is a straight."
+      }
+    },
+    {
+      "id": "pr_pthr_082",
+      "concept": "compare_hands",
+      "question": "Two players both have a straight. The winner is the one whose straight:",
+      "options": [
+        "Uses more hole cards",
+        "Has the higher top card",
+        "Is suited",
+        "Acted last"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "How many hole cards are used does not matter.",
+        "B": "Correct. Compare the highest card of each straight.",
+        "C": "A suited straight would be a straight flush; among plain straights, the top card decides.",
+        "D": "Action order never decides a showdown."
+      }
+    },
+    {
+      "id": "pr_pthr_083",
+      "concept": "compare_hands",
+      "question": "Two players both have three of a kind of different ranks. Who wins?",
+      "options": [
+        "The lower trips with a better kicker",
+        "They split",
+        "The higher set of trips",
+        "The one who was the preflop raiser"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A higher set of trips wins outright regardless of kickers.",
+        "B": "Different trip ranks do not tie.",
+        "C": "Correct. For example, trip kings beat trip nines.",
+        "D": "Betting history doesn't decide showdowns."
+      }
+    },
+    {
+      "id": "pr_pthr_084",
+      "concept": "nut_flush",
+      "question": "On a board with three spades, the 'nut flush' is held by the player with:",
+      "options": [
+        "The two of spades",
+        "Any two spades",
+        "A pair of aces",
+        "The ace of spades"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The lowest spade makes the weakest flush, not the nuts.",
+        "B": "Only the highest spade makes the nut flush.",
+        "C": "A pair does not make a flush at all.",
+        "D": "Correct. The ace of the suit makes the highest possible flush."
+      }
+    },
+    {
+      "id": "pr_pthr_085",
+      "concept": "straight",
+      "question": "Which of the following is NOT a straight?",
+      "options": [
+        "9-10-J-Q-A",
+        "8-9-10-J-Q",
+        "A-2-3-4-5",
+        "10-J-Q-K-A"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The gap between the queen and ace (missing the king) means it is not a straight.",
+        "B": "This is a queen-high straight, so it is a straight.",
+        "C": "This is the wheel, a valid straight.",
+        "D": "This is Broadway, a valid straight."
+      }
+    },
+    {
+      "id": "pr_pthr_086",
+      "concept": "two_pair",
+      "question": "Two players each have two pair. Player 1 has aces and threes; Player 2 has kings and queens. Who wins?",
+      "options": [
+        "Player 2, kings and queens",
+        "Player 1, aces and threes",
+        "Split pot",
+        "Player 2, because both pairs are higher than threes"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two higher-looking middle pairs still lose to a top pair of aces.",
+        "B": "Correct. Compare the higher pair first — aces beat kings.",
+        "C": "The hands are not equal, so no split.",
+        "D": "Only the top pair is compared first; aces beat kings outright."
+      }
+    },
+    {
+      "id": "pr_pthr_087",
+      "concept": "compare_hands",
+      "question": "Two players both have a pair of jacks. The pot is decided by:",
+      "options": [
+        "Who has the higher suit",
+        "A coin flip",
+        "Their kickers, compared from highest down",
+        "The size of their stacks"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Suits have no value in Hold'em.",
+        "B": "Showdowns are decided by cards, not chance.",
+        "C": "Correct. Equal pairs are broken by the side cards.",
+        "D": "Stack size is irrelevant to who wins the pot."
+      }
+    },
+    {
+      "id": "pr_pthr_088",
+      "concept": "best_five",
+      "question": "Board: T♦ K♣ 9♠ J♠ T♥. You hold Q♠ J♦. What is your best five-card hand?",
+      "options": [
+        "Straight flush",
+        "High card",
+        "Flush",
+        "Straight"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Straight flush is not the best holding here; the strongest five-card hand is a straight, king-high.",
+        "B": "High card is not the best holding here; the strongest five-card hand is a straight, king-high.",
+        "C": "Flush is not the best holding here; the strongest five-card hand is a straight, king-high.",
+        "D": "Correct. With these seven cards the best five make a straight, king-high."
+      }
+    },
+    {
+      "id": "pr_pthr_089",
+      "concept": "best_five",
+      "question": "Board: A♥ 5♣ 4♥ A♦ Q♥. You hold J♥ 6♥. What is your best five-card hand?",
+      "options": [
+        "Flush",
+        "Straight",
+        "One pair",
+        "Straight flush"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With these seven cards the best five make a flush, ace-high.",
+        "B": "Straight is not the best holding here; the strongest five-card hand is a flush, ace-high.",
+        "C": "One pair is not the best holding here; the strongest five-card hand is a flush, ace-high.",
+        "D": "Straight flush is not the best holding here; the strongest five-card hand is a flush, ace-high."
+      }
+    },
+    {
+      "id": "pr_pthr_090",
+      "concept": "compare_hands",
+      "question": "Board: 2♥ 9♦ J♥ 2♦ 6♠. Player A holds J♠ 9♠; Player B holds 5♦ A♥. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player B only has a pair of twos, which loses to Player A's two pair, jacks and nines.",
+        "B": "Correct. Player A makes two pair, jacks and nines, beating Player B's a pair of twos.",
+        "C": "The hands differ — two pair, jacks and nines for A versus a pair of twos for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with two pair, jacks and nines."
+      }
+    },
+    {
+      "id": "pr_pthr_091",
+      "concept": "compare_hands",
+      "question": "Board: 4♥ 4♣ J♦ Q♠ 6♣. Player A holds 8♣ 4♦; Player B holds T♥ Q♦. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Player A wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player B only has two pair, queens and fours, which loses to Player A's three of a kind, fours.",
+        "B": "The hands differ — three of a kind, fours for A versus two pair, queens and fours for B — so there is no split.",
+        "C": "Correct. Player A makes three of a kind, fours, beating Player B's two pair, queens and fours.",
+        "D": "The result is fully determined: Player A wins with three of a kind, fours."
+      }
+    },
+    {
+      "id": "pr_pthr_092",
+      "concept": "compare_hands",
+      "question": "Board: J♦ 9♣ 2♦ 8♣ 4♥. Player A holds J♠ Q♠; Player B holds Q♣ A♣. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player A wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player B only has ace-high, which loses to Player A's a pair of jacks.",
+        "B": "The hands differ — a pair of jacks for A versus ace-high for B — so there is no split.",
+        "C": "The result is fully determined: Player A wins with a pair of jacks.",
+        "D": "Correct. Player A makes a pair of jacks, beating Player B's ace-high."
+      }
+    },
+    {
+      "id": "pr_pthr_093",
+      "concept": "compare_hands",
+      "question": "Board: A♠ 2♥ K♣ K♠ 9♣. Player A holds Q♣ 8♥; Player B holds A♥ 9♠. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player B makes two pair, aces and kings, beating Player A's a pair of kings.",
+        "B": "Player A only has a pair of kings, which loses to Player B's two pair, aces and kings.",
+        "C": "The hands differ — a pair of kings for A versus two pair, aces and kings for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with two pair, aces and kings."
+      }
+    },
+    {
+      "id": "pr_pthr_094",
+      "concept": "compare_hands",
+      "question": "Board: K♠ 2♥ J♥ 3♠ A♦. Player A holds K♣ J♦; Player B holds 5♦ K♥. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player B only has a pair of kings, which loses to Player A's two pair, kings and jacks.",
+        "B": "Correct. Player A makes two pair, kings and jacks, beating Player B's a pair of kings.",
+        "C": "The hands differ — two pair, kings and jacks for A versus a pair of kings for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with two pair, kings and jacks."
+      }
+    },
+    {
+      "id": "pr_pthr_095",
+      "concept": "compare_hands",
+      "question": "Board: Q♥ T♣ 5♦ J♥ 3♥. Player A holds 2♥ 8♥; Player B holds 6♣ K♣. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Player A wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player B only has king-high, which loses to Player A's a flush, queen-high.",
+        "B": "The hands differ — a flush, queen-high for A versus king-high for B — so there is no split.",
+        "C": "Correct. Player A makes a flush, queen-high, beating Player B's king-high.",
+        "D": "The result is fully determined: Player A wins with a flush, queen-high."
+      }
+    },
+    {
+      "id": "pr_pthr_096",
+      "concept": "compare_hands",
+      "question": "Board: 4♣ J♥ 4♥ K♠ 5♦. Player A holds K♣ Q♠; Player B holds 2♦ A♠. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player A wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player B only has a pair of fours, which loses to Player A's two pair, kings and fours.",
+        "B": "The hands differ — two pair, kings and fours for A versus a pair of fours for B — so there is no split.",
+        "C": "The result is fully determined: Player A wins with two pair, kings and fours.",
+        "D": "Correct. Player A makes two pair, kings and fours, beating Player B's a pair of fours."
+      }
+    },
+    {
+      "id": "pr_pthr_097",
+      "concept": "compare_hands",
+      "question": "Board: 7♣ K♥ A♣ Q♦ 2♦. Player A holds Q♥ T♥; Player B holds T♣ 4♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes a pair of queens, beating Player B's ace-high.",
+        "B": "Player B only has ace-high, which loses to Player A's a pair of queens.",
+        "C": "The hands differ — a pair of queens for A versus ace-high for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a pair of queens."
+      }
+    },
+    {
+      "id": "pr_pthr_098",
+      "concept": "compare_hands",
+      "question": "Board: 6♥ 5♦ T♣ 3♣ T♦. Player A holds Q♥ 7♦; Player B holds 5♣ K♦. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player A only has a pair of tens, which loses to Player B's two pair, tens and fives.",
+        "B": "Correct. Player B makes two pair, tens and fives, beating Player A's a pair of tens.",
+        "C": "The hands differ — a pair of tens for A versus two pair, tens and fives for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with two pair, tens and fives."
+      }
+    },
+    {
+      "id": "pr_pthr_099",
+      "concept": "compare_hands",
+      "question": "Board: 9♠ 5♠ T♦ 6♥ J♣. Player A holds A♠ 2♣; Player B holds T♣ 2♥. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Player B wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player A only has ace-high, which loses to Player B's a pair of tens.",
+        "B": "The hands differ — ace-high for A versus a pair of tens for B — so there is no split.",
+        "C": "Correct. Player B makes a pair of tens, beating Player A's ace-high.",
+        "D": "The result is fully determined: Player B wins with a pair of tens."
+      }
+    },
+    {
+      "id": "pr_pthr_100",
+      "concept": "compare_hands",
+      "question": "Board: 6♥ 7♥ 4♣ 9♥ T♠. Player A holds 4♠ 8♥; Player B holds 9♠ T♣. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player A wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player B only has two pair, tens and nines, which loses to Player A's a straight, ten-high.",
+        "B": "The hands differ — a straight, ten-high for A versus two pair, tens and nines for B — so there is no split.",
+        "C": "The result is fully determined: Player A wins with a straight, ten-high.",
+        "D": "Correct. Player A makes a straight, ten-high, beating Player B's two pair, tens and nines."
+      }
+    },
+    {
+      "id": "pr_pthr_101",
+      "concept": "compare_hands",
+      "question": "Board: 5♠ 7♦ Q♥ 6♥ Q♣. Player A holds 7♣ J♦; Player B holds T♦ 4♥. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes two pair, queens and sevens, beating Player B's a pair of queens.",
+        "B": "Player B only has a pair of queens, which loses to Player A's two pair, queens and sevens.",
+        "C": "The hands differ — two pair, queens and sevens for A versus a pair of queens for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with two pair, queens and sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_102",
+      "concept": "compare_hands",
+      "question": "Board: 8♠ 4♣ 2♣ 7♣ J♦. Player A holds Q♠ 8♦; Player B holds 5♠ T♥. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player B only has jack-high, which loses to Player A's a pair of eights.",
+        "B": "Correct. Player A makes a pair of eights, beating Player B's jack-high.",
+        "C": "The hands differ — a pair of eights for A versus jack-high for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a pair of eights."
+      }
+    },
+    {
+      "id": "pr_pthr_103",
+      "concept": "compare_hands",
+      "question": "Board: Q♦ 9♥ J♦ A♦ 2♠. Player A holds 6♣ 2♥; Player B holds 7♦ 5♦. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Player B wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player A only has a pair of twos, which loses to Player B's a flush, ace-high.",
+        "B": "The hands differ — a pair of twos for A versus a flush, ace-high for B — so there is no split.",
+        "C": "Correct. Player B makes a flush, ace-high, beating Player A's a pair of twos.",
+        "D": "The result is fully determined: Player B wins with a flush, ace-high."
+      }
+    },
+    {
+      "id": "pr_pthr_104",
+      "concept": "compare_hands",
+      "question": "Board: 2♥ 5♥ J♥ 7♦ 5♣. Player A holds J♣ A♥; Player B holds 3♦ 9♦. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player A wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player B only has a pair of fives, which loses to Player A's two pair, jacks and fives.",
+        "B": "The hands differ — two pair, jacks and fives for A versus a pair of fives for B — so there is no split.",
+        "C": "The result is fully determined: Player A wins with two pair, jacks and fives.",
+        "D": "Correct. Player A makes two pair, jacks and fives, beating Player B's a pair of fives."
+      }
+    },
+    {
+      "id": "pr_pthr_105",
+      "concept": "compare_hands",
+      "question": "Board: 5♣ 9♥ 6♠ 7♠ A♠. Player A holds 3♥ 7♦; Player B holds 8♣ Q♠. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player B makes a straight, nine-high, beating Player A's a pair of sevens.",
+        "B": "Player A only has a pair of sevens, which loses to Player B's a straight, nine-high.",
+        "C": "The hands differ — a pair of sevens for A versus a straight, nine-high for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with a straight, nine-high."
+      }
+    },
+    {
+      "id": "pr_pthr_106",
+      "concept": "compare_hands",
+      "question": "Board: 4♦ J♥ 8♣ 5♥ A♦. Player A holds K♠ 9♠; Player B holds 8♠ 6♦. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player A only has ace-high, which loses to Player B's a pair of eights.",
+        "B": "Correct. Player B makes a pair of eights, beating Player A's ace-high.",
+        "C": "The hands differ — ace-high for A versus a pair of eights for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with a pair of eights."
+      }
+    },
+    {
+      "id": "pr_pthr_107",
+      "concept": "compare_hands",
+      "question": "Board: Q♣ 4♦ 9♣ 2♣ 7♦. Player A holds K♣ 7♥; Player B holds A♠ 6♦. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Player A wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player B only has ace-high, which loses to Player A's a pair of sevens.",
+        "B": "The hands differ — a pair of sevens for A versus ace-high for B — so there is no split.",
+        "C": "Correct. Player A makes a pair of sevens, beating Player B's ace-high.",
+        "D": "The result is fully determined: Player A wins with a pair of sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_108",
+      "concept": "compare_hands",
+      "question": "Board: 2♠ 5♥ Q♦ A♠ 6♣. Player A holds 5♦ 3♥; Player B holds 2♦ Q♣. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player B wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player A only has a pair of fives, which loses to Player B's two pair, queens and twos.",
+        "B": "The hands differ — a pair of fives for A versus two pair, queens and twos for B — so there is no split.",
+        "C": "The result is fully determined: Player B wins with two pair, queens and twos.",
+        "D": "Correct. Player B makes two pair, queens and twos, beating Player A's a pair of fives."
+      }
+    },
+    {
+      "id": "pr_pthr_109",
+      "concept": "compare_hands",
+      "question": "Board: 5♠ 6♣ 3♣ 9♣ Q♣. Player A holds K♣ 7♣; Player B holds T♦ A♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes a flush, king-high, beating Player B's ace-high.",
+        "B": "Player B only has ace-high, which loses to Player A's a flush, king-high.",
+        "C": "The hands differ — a flush, king-high for A versus ace-high for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a flush, king-high."
+      }
+    },
+    {
+      "id": "pr_pthr_110",
+      "concept": "compare_hands",
+      "question": "Board: 6♠ 7♥ 7♦ 2♦ 2♠. Player A holds Q♦ 7♠; Player B holds 8♠ 9♦. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player B only has two pair, sevens and twos, which loses to Player A's a full house, sevens full of twos.",
+        "B": "Correct. Player A makes a full house, sevens full of twos, beating Player B's two pair, sevens and twos.",
+        "C": "The hands differ — a full house, sevens full of twos for A versus two pair, sevens and twos for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a full house, sevens full of twos."
+      }
+    },
+    {
+      "id": "pr_pthr_111",
+      "concept": "compare_hands",
+      "question": "Board: 5♦ 6♠ Q♦ 9♦ 2♣. Player A holds K♣ 4♠; Player B holds A♣ A♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Player B wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player A only has king-high, which loses to Player B's a pair of aces.",
+        "B": "The hands differ — king-high for A versus a pair of aces for B — so there is no split.",
+        "C": "Correct. Player B makes a pair of aces, beating Player A's king-high.",
+        "D": "The result is fully determined: Player B wins with a pair of aces."
+      }
+    },
+    {
+      "id": "pr_pthr_112",
+      "concept": "compare_hands",
+      "question": "Board: 5♠ Q♣ 2♣ 5♥ 9♣. Player A holds 5♣ Q♥; Player B holds A♥ Q♦. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player A wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player B only has two pair, queens and fives, which loses to Player A's a full house, fives full of queens.",
+        "B": "The hands differ — a full house, fives full of queens for A versus two pair, queens and fives for B — so there is no split.",
+        "C": "The result is fully determined: Player A wins with a full house, fives full of queens.",
+        "D": "Correct. Player A makes a full house, fives full of queens, beating Player B's two pair, queens and fives."
+      }
+    },
+    {
+      "id": "pr_pthr_113",
+      "concept": "compare_hands",
+      "question": "Board: 7♥ 5♥ 2♥ 4♥ 5♦. Player A holds 8♥ T♥; Player B holds 2♦ Q♣. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes a flush, ten-high, beating Player B's two pair, fives and twos.",
+        "B": "Player B only has two pair, fives and twos, which loses to Player A's a flush, ten-high.",
+        "C": "The hands differ — a flush, ten-high for A versus two pair, fives and twos for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a flush, ten-high."
+      }
+    },
+    {
+      "id": "pr_pthr_114",
+      "concept": "compare_hands",
+      "question": "Board: A♣ 4♠ 3♥ 4♦ A♠. Player A holds 5♣ 3♦; Player B holds J♥ 4♣. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player A only has two pair, aces and fours, which loses to Player B's a full house, fours full of aces.",
+        "B": "Correct. Player B makes a full house, fours full of aces, beating Player A's two pair, aces and fours.",
+        "C": "The hands differ — two pair, aces and fours for A versus a full house, fours full of aces for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with a full house, fours full of aces."
+      }
+    },
+    {
+      "id": "pr_pthr_115",
+      "concept": "compare_hands",
+      "question": "Board: 2♠ 6♥ 9♠ A♠ 5♥. Player A holds Q♠ J♠; Player B holds T♠ Q♣. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Player A wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player B only has ace-high, which loses to Player A's a flush, ace-high.",
+        "B": "The hands differ — a flush, ace-high for A versus ace-high for B — so there is no split.",
+        "C": "Correct. Player A makes a flush, ace-high, beating Player B's ace-high.",
+        "D": "The result is fully determined: Player A wins with a flush, ace-high."
+      }
+    },
+    {
+      "id": "pr_pthr_116",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 8♠ K♠ A♠ Q♠ 3♠ or 6♥ 4♥ 5♥ 3♥ 7♥?",
+      "options": [
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand",
+        "The second hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The first hand, a flush, ace-high, loses to the second hand's a straight flush, seven-high.",
+        "B": "These are not equal: a flush, ace-high versus a straight flush, seven-high.",
+        "C": "Both are legal five-card hands (a flush, ace-high and a straight flush, seven-high); one simply ranks higher.",
+        "D": "Correct. The second hand is a straight flush, seven-high, which beats a flush, ace-high."
+      }
+    },
+    {
+      "id": "pr_pthr_117",
+      "concept": "counterfeit",
+      "question": "Your two pair gets 'counterfeited' when:",
+      "options": [
+        "The board pairs higher, so the board's cards outrank your lower pair",
+        "You make a flush",
+        "You fold preflop",
+        "The blinds increase"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A higher board pair can demote your hand by replacing your smaller pair in the best five.",
+        "B": "A flush is an improvement, not a counterfeit.",
+        "C": "Folding has nothing to do with counterfeiting.",
+        "D": "Blind levels never change hand strength."
+      }
+    },
+    {
+      "id": "pr_pthr_118",
+      "concept": "counterfeit",
+      "question": "You hold 6-5 on a board of 6-5-K-K-A. Why might your two pair be weak?",
+      "options": [
+        "You actually have a flush",
+        "Your best two pair is kings and sixes (or kings and aces play), and many hands share the board's kings",
+        "Sixes full is unbeatable",
+        "You can use three hole cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "There is no flush indicated here.",
+        "B": "Correct. The board's pair of kings plays for everyone, so your small pair often doesn't matter.",
+        "C": "You do not have a full house; you have two pair using the board.",
+        "D": "You only have two hole cards in Hold'em."
+      }
+    },
+    {
+      "id": "pr_pthr_119",
+      "concept": "compare_hands",
+      "question": "Board: 8♠ 5♣ 3♦ Q♠ 9♦. Player A holds 4♣ 3♥; Player B holds 5♥ 7♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Player B wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player A only has a pair of threes, which loses to Player B's a pair of fives.",
+        "B": "The hands differ — a pair of threes for A versus a pair of fives for B — so there is no split.",
+        "C": "Correct. Player B makes a pair of fives, beating Player A's a pair of threes.",
+        "D": "The result is fully determined: Player B wins with a pair of fives."
+      }
+    },
+    {
+      "id": "pr_pthr_120",
+      "concept": "compare_hands",
+      "question": "Board: 6♦ 9♠ 4♣ 2♣ 2♥. Player A holds 7♥ T♥; Player B holds T♣ A♣. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player B wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player A only has a pair of twos, which loses to Player B's a pair of twos.",
+        "B": "The hands differ — a pair of twos for A versus a pair of twos for B — so there is no split.",
+        "C": "The result is fully determined: Player B wins with a pair of twos.",
+        "D": "Correct. Player B makes a pair of twos, beating Player A's a pair of twos."
+      }
+    },
+    {
+      "id": "pr_pthr_121",
+      "concept": "compare_hands",
+      "question": "Board: 9♠ T♥ K♣ 3♦ 8♦. Player A holds 7♦ K♦; Player B holds 6♣ T♦. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes a pair of kings, beating Player B's a pair of tens.",
+        "B": "Player B only has a pair of tens, which loses to Player A's a pair of kings.",
+        "C": "The hands differ — a pair of kings for A versus a pair of tens for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a pair of kings."
+      }
+    },
+    {
+      "id": "pr_pthr_122",
+      "concept": "compare_hands",
+      "question": "Board: 9♥ K♣ A♣ 5♣ 3♠. Player A holds Q♥ 9♠; Player B holds 5♥ T♠. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player B only has a pair of fives, which loses to Player A's a pair of nines.",
+        "B": "Correct. Player A makes a pair of nines, beating Player B's a pair of fives.",
+        "C": "The hands differ — a pair of nines for A versus a pair of fives for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a pair of nines."
+      }
+    },
+    {
+      "id": "pr_pthr_123",
+      "concept": "split_pot",
+      "question": "Board: Q♥ 9♣ 4♦ 4♣ J♦. Player A holds 9♦ 3♦; Player B holds 9♠ 2♥. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Both players make two pair, nines and fours, so it is a split, not a win for A.",
+        "B": "Both players make two pair, nines and fours, so it is a split, not a win for B.",
+        "C": "Correct. Both players play the same best five and make two pair, nines and fours, so the pot is split.",
+        "D": "The result is fully determined: both tie with two pair, nines and fours."
+      }
+    },
+    {
+      "id": "pr_pthr_124",
+      "concept": "compare_hands",
+      "question": "Board: 7♣ 7♦ 8♠ 6♣ 2♣. Player A holds 6♦ 9♦; Player B holds Q♣ Q♦. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player B wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player A only has two pair, sevens and sixes, which loses to Player B's two pair, queens and sevens.",
+        "B": "The hands differ — two pair, sevens and sixes for A versus two pair, queens and sevens for B — so there is no split.",
+        "C": "The result is fully determined: Player B wins with two pair, queens and sevens.",
+        "D": "Correct. Player B makes two pair, queens and sevens, beating Player A's two pair, sevens and sixes."
+      }
+    },
+    {
+      "id": "pr_pthr_125",
+      "concept": "compare_hands",
+      "question": "Board: 3♦ 7♦ A♥ 7♠ 5♦. Player A holds 6♣ 2♦; Player B holds 6♥ J♣. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player B makes a pair of sevens, beating Player A's a pair of sevens.",
+        "B": "Player A only has a pair of sevens, which loses to Player B's a pair of sevens.",
+        "C": "The hands differ — a pair of sevens for A versus a pair of sevens for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with a pair of sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_126",
+      "concept": "compare_hands",
+      "question": "Board: 3♥ A♦ A♠ 8♣ J♠. Player A holds 2♥ 4♣; Player B holds 6♠ 4♥. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player A only has a pair of aces, which loses to Player B's a pair of aces.",
+        "B": "Correct. Player B makes a pair of aces, beating Player A's a pair of aces.",
+        "C": "The hands differ — a pair of aces for A versus a pair of aces for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with a pair of aces."
+      }
+    },
+    {
+      "id": "pr_pthr_127",
+      "concept": "compare_hands",
+      "question": "Board: 8♥ J♦ 2♦ 2♣ Q♥. Player A holds 5♣ K♦; Player B holds 4♦ A♥. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Player B wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player A only has a pair of twos, which loses to Player B's a pair of twos.",
+        "B": "The hands differ — a pair of twos for A versus a pair of twos for B — so there is no split.",
+        "C": "Correct. Player B makes a pair of twos, beating Player A's a pair of twos.",
+        "D": "The result is fully determined: Player B wins with a pair of twos."
+      }
+    },
+    {
+      "id": "pr_pthr_128",
+      "concept": "split_pot",
+      "question": "Board: 8♦ 6♦ Q♦ 3♦ 5♦. Player A holds 8♥ A♥; Player B holds 2♠ 7♥. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Cannot be determined from the cards",
+        "Split pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Both players make a flush, queen-high, so it is a split, not a win for A.",
+        "B": "Both players make a flush, queen-high, so it is a split, not a win for B.",
+        "C": "The result is fully determined: both tie with a flush, queen-high.",
+        "D": "Correct. Both players play the same best five and make a flush, queen-high, so the pot is split."
+      }
+    },
+    {
+      "id": "pr_pthr_129",
+      "concept": "compare_hands",
+      "question": "Board: T♠ K♦ Q♥ 8♠ 3♥. Player A holds 4♥ Q♣; Player B holds A♦ 8♣. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes a pair of queens, beating Player B's a pair of eights.",
+        "B": "Player B only has a pair of eights, which loses to Player A's a pair of queens.",
+        "C": "The hands differ — a pair of queens for A versus a pair of eights for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a pair of queens."
+      }
+    },
+    {
+      "id": "pr_pthr_130",
+      "concept": "compare_hands",
+      "question": "Board: 4♥ K♠ J♠ 7♣ 9♣. Player A holds 5♥ A♥; Player B holds 8♠ 3♥. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player B only has king-high, which loses to Player A's ace-high.",
+        "B": "Correct. Player A makes ace-high, beating Player B's king-high.",
+        "C": "The hands differ — ace-high for A versus king-high for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with ace-high."
+      }
+    },
+    {
+      "id": "pr_pthr_131",
+      "concept": "compare_hands",
+      "question": "Board: 2♥ 4♦ A♣ 7♦ K♥. Player A holds K♣ Q♣; Player B holds 6♠ 4♣. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Player A wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player B only has a pair of fours, which loses to Player A's a pair of kings.",
+        "B": "The hands differ — a pair of kings for A versus a pair of fours for B — so there is no split.",
+        "C": "Correct. Player A makes a pair of kings, beating Player B's a pair of fours.",
+        "D": "The result is fully determined: Player A wins with a pair of kings."
+      }
+    },
+    {
+      "id": "pr_pthr_132",
+      "concept": "compare_hands",
+      "question": "Board: 8♥ 9♠ 6♠ 4♠ A♣. Player A holds 2♠ 6♦; Player B holds 9♣ 3♦. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player B wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player A only has a pair of sixes, which loses to Player B's a pair of nines.",
+        "B": "The hands differ — a pair of sixes for A versus a pair of nines for B — so there is no split.",
+        "C": "The result is fully determined: Player B wins with a pair of nines.",
+        "D": "Correct. Player B makes a pair of nines, beating Player A's a pair of sixes."
+      }
+    },
+    {
+      "id": "pr_pthr_133",
+      "concept": "compare_hands",
+      "question": "Board: Q♦ T♦ A♣ 3♠ K♣. Player A holds 5♥ Q♣; Player B holds 6♥ 6♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes a pair of queens, beating Player B's a pair of sixes.",
+        "B": "Player B only has a pair of sixes, which loses to Player A's a pair of queens.",
+        "C": "The hands differ — a pair of queens for A versus a pair of sixes for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with a pair of queens."
+      }
+    },
+    {
+      "id": "pr_pthr_134",
+      "concept": "compare_hands",
+      "question": "Board: 9♦ 7♣ J♠ 3♥ 3♠. Player A holds 6♥ 6♠; Player B holds 7♥ K♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player A only has two pair, sixes and threes, which loses to Player B's two pair, sevens and threes.",
+        "B": "Correct. Player B makes two pair, sevens and threes, beating Player A's two pair, sixes and threes.",
+        "C": "The hands differ — two pair, sixes and threes for A versus two pair, sevens and threes for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with two pair, sevens and threes."
+      }
+    },
+    {
+      "id": "pr_pthr_135",
+      "concept": "compare_hands",
+      "question": "Board: 5♥ 3♦ Q♣ 8♥ J♣. Player A holds 8♦ A♠; Player B holds 5♦ 9♣. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Player A wins",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Player B only has a pair of fives, which loses to Player A's a pair of eights.",
+        "B": "The hands differ — a pair of eights for A versus a pair of fives for B — so there is no split.",
+        "C": "Correct. Player A makes a pair of eights, beating Player B's a pair of fives.",
+        "D": "The result is fully determined: Player A wins with a pair of eights."
+      }
+    },
+    {
+      "id": "pr_pthr_136",
+      "concept": "compare_hands",
+      "question": "Board: 6♣ J♣ 2♥ 9♠ 3♠. Player A holds 2♠ Q♦; Player B holds 2♦ 4♥. Who wins at showdown?",
+      "options": [
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards",
+        "Player A wins"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Player B only has a pair of twos, which loses to Player A's a pair of twos.",
+        "B": "The hands differ — a pair of twos for A versus a pair of twos for B — so there is no split.",
+        "C": "The result is fully determined: Player A wins with a pair of twos.",
+        "D": "Correct. Player A makes a pair of twos, beating Player B's a pair of twos."
+      }
+    },
+    {
+      "id": "pr_pthr_137",
+      "concept": "compare_hands",
+      "question": "Board: 5♣ 6♣ 7♣ 9♦ 7♦. Player A holds K♦ K♣; Player B holds K♥ 6♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Player A makes two pair, kings and sevens, beating Player B's two pair, sevens and sixes.",
+        "B": "Player B only has two pair, sevens and sixes, which loses to Player A's two pair, kings and sevens.",
+        "C": "The hands differ — two pair, kings and sevens for A versus two pair, sevens and sixes for B — so there is no split.",
+        "D": "The result is fully determined: Player A wins with two pair, kings and sevens."
+      }
+    },
+    {
+      "id": "pr_pthr_138",
+      "concept": "compare_hands",
+      "question": "Board: T♥ 8♦ 7♦ 4♦ 3♣. Player A holds 6♥ 2♣; Player B holds 9♠ 5♠. Who wins at showdown?",
+      "options": [
+        "Player A wins",
+        "Player B wins",
+        "Split pot",
+        "Cannot be determined from the cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Player A only has ten-high, which loses to Player B's ten-high.",
+        "B": "Correct. Player B makes ten-high, beating Player A's ten-high.",
+        "C": "The hands differ — ten-high for A versus ten-high for B — so there is no split.",
+        "D": "The result is fully determined: Player B wins with ten-high."
+      }
+    },
+    {
+      "id": "pr_pthr_139",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: 8♠ 7♥ 6♦ 5♣ 4♠ or 8♥ 7♦ 6♣ 5♠ 4♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first hand, a straight, eight-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a straight, eight-high, exactly ties the first; neither wins.",
+        "C": "Correct. Both hands are a straight, eight-high, an exact tie that chops the pot.",
+        "D": "Both are legal five-card hands (a straight, eight-high and a straight, eight-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_140",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: Q♠ Q♥ 2♠ 8♠ 7♠ or Q♦ Q♣ 5♠ K♠ 6♠?",
+      "options": [
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand",
+        "The second hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The first hand, a pair of queens, loses to the second hand's a pair of queens.",
+        "B": "These are not equal: a pair of queens versus a pair of queens.",
+        "C": "Both are legal five-card hands (a pair of queens and a pair of queens); one simply ranks higher.",
+        "D": "Correct. The second hand is a pair of queens, which beats a pair of queens."
+      }
+    },
+    {
+      "id": "pr_pthr_141",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: K♠ Q♥ J♦ T♣ 9♠ or K♥ Q♦ J♣ T♠ 9♥?",
+      "options": [
+        "They tie (chop)",
+        "The first hand",
+        "The second hand",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Both hands are a straight, king-high, an exact tie that chops the pot.",
+        "B": "The first hand, a straight, king-high, exactly ties the second; neither wins.",
+        "C": "The second hand, a straight, king-high, exactly ties the first; neither wins.",
+        "D": "Both are legal five-card hands (a straight, king-high and a straight, king-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_142",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 6♠ 6♥ 9♠ Q♠ 4♠ or 6♦ 6♣ T♠ A♠ K♠?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The first hand, a pair of sixes, loses to the second hand's a pair of sixes.",
+        "B": "Correct. The second hand is a pair of sixes, which beats a pair of sixes.",
+        "C": "These are not equal: a pair of sixes versus a pair of sixes.",
+        "D": "Both are legal five-card hands (a pair of sixes and a pair of sixes); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_143",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: J♠ J♥ J♦ A♠ 9♠ or Q♠ Q♥ Q♦ T♠ 8♠?",
+      "options": [
+        "The first hand",
+        "They tie (chop)",
+        "The second hand",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first hand, three of a kind, jacks, loses to the second hand's three of a kind, queens.",
+        "B": "These are not equal: three of a kind, jacks versus three of a kind, queens.",
+        "C": "Correct. The second hand is three of a kind, queens, which beats three of a kind, jacks.",
+        "D": "Both are legal five-card hands (three of a kind, jacks and three of a kind, queens); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_144",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: J♠ J♥ J♦ 8♠ 6♠ or 5♠ 5♥ 5♦ T♠ 4♠?",
+      "options": [
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand",
+        "The first hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The second hand, three of a kind, fives, loses to the first hand's three of a kind, jacks.",
+        "B": "These are not equal: three of a kind, jacks versus three of a kind, fives.",
+        "C": "Both are legal five-card hands (three of a kind, jacks and three of a kind, fives); one simply ranks higher.",
+        "D": "Correct. The first hand is three of a kind, jacks, which beats three of a kind, fives."
+      }
+    },
+    {
+      "id": "pr_pthr_145",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: K♠ K♥ K♦ 9♠ 9♥ or 2♠ 2♥ 2♦ T♠ T♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first hand is a full house, kings full of nines, which beats a full house, twos full of tens.",
+        "B": "The second hand, a full house, twos full of tens, loses to the first hand's a full house, kings full of nines.",
+        "C": "These are not equal: a full house, kings full of nines versus a full house, twos full of tens.",
+        "D": "Both are legal five-card hands (a full house, kings full of nines and a full house, twos full of tens); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_146",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 6♠ 5♥ 4♦ 3♣ 2♠ or A♥ K♦ Q♣ J♠ T♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The first hand, a straight, six-high, loses to the second hand's a straight, ace-high.",
+        "B": "Correct. The second hand is a straight, ace-high, which beats a straight, six-high.",
+        "C": "These are not equal: a straight, six-high versus a straight, ace-high.",
+        "D": "Both are legal five-card hands (a straight, six-high and a straight, ace-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_147",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: 8♠ 2♠ J♠ 6♠ A♠ or 8♥ 2♥ J♥ 6♥ A♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first hand, a flush, ace-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a flush, ace-high, exactly ties the first; neither wins.",
+        "C": "Correct. Both hands are a flush, ace-high, an exact tie that chops the pot.",
+        "D": "Both are legal five-card hands (a flush, ace-high and a flush, ace-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_148",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: Q♠ Q♥ 8♠ 8♥ 4♠ or Q♦ Q♣ 8♦ 8♣ K♠?",
+      "options": [
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand",
+        "The second hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The first hand, two pair, queens and eights, loses to the second hand's two pair, queens and eights.",
+        "B": "These are not equal: two pair, queens and eights versus two pair, queens and eights.",
+        "C": "Both are legal five-card hands (two pair, queens and eights and two pair, queens and eights); one simply ranks higher.",
+        "D": "Correct. The second hand is two pair, queens and eights, which beats two pair, queens and eights."
+      }
+    },
+    {
+      "id": "pr_pthr_149",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: K♠ A♥ 4♦ 7♣ 5♠ or A♦ 5♣ Q♠ 4♥ 8♦?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first hand is ace-high, which beats ace-high.",
+        "B": "The second hand, ace-high, loses to the first hand's ace-high.",
+        "C": "These are not equal: ace-high versus ace-high.",
+        "D": "Both are legal five-card hands (ace-high and ace-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_150",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: A♠ A♥ A♦ 3♠ 2♠ or J♠ J♥ J♦ 8♠ 9♠?",
+      "options": [
+        "The second hand",
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The second hand, three of a kind, jacks, loses to the first hand's three of a kind, aces.",
+        "B": "Correct. The first hand is three of a kind, aces, which beats three of a kind, jacks.",
+        "C": "These are not equal: three of a kind, aces versus three of a kind, jacks.",
+        "D": "Both are legal five-card hands (three of a kind, aces and three of a kind, jacks); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_151",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: 2♠ 8♠ 9♠ T♠ J♠ or 2♥ 8♥ 9♥ T♥ J♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first hand, a flush, jack-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a flush, jack-high, exactly ties the first; neither wins.",
+        "C": "Correct. Both hands are a flush, jack-high, an exact tie that chops the pot.",
+        "D": "Both are legal five-card hands (a flush, jack-high and a flush, jack-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_152",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: J♠ T♥ 9♦ 8♣ 7♠ or J♥ T♦ 9♣ 8♠ 7♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "Neither is a legal poker hand",
+        "They tie (chop)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The first hand, a straight, jack-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a straight, jack-high, exactly ties the first; neither wins.",
+        "C": "Both are legal five-card hands (a straight, jack-high and a straight, jack-high); one simply ranks higher.",
+        "D": "Correct. Both hands are a straight, jack-high, an exact tie that chops the pot."
+      }
+    },
+    {
+      "id": "pr_pthr_153",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: A♠ A♥ A♦ 4♠ K♠ or 7♠ 7♥ 7♦ 6♠ 2♠?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first hand is three of a kind, aces, which beats three of a kind, sevens.",
+        "B": "The second hand, three of a kind, sevens, loses to the first hand's three of a kind, aces.",
+        "C": "These are not equal: three of a kind, aces versus three of a kind, sevens.",
+        "D": "Both are legal five-card hands (three of a kind, aces and three of a kind, sevens); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_154",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 3♠ 3♥ 3♦ 5♠ 5♥ or A♠ A♥ A♦ 6♠ 6♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The first hand, a full house, threes full of fives, loses to the second hand's a full house, aces full of sixes.",
+        "B": "Correct. The second hand is a full house, aces full of sixes, which beats a full house, threes full of fives.",
+        "C": "These are not equal: a full house, threes full of fives versus a full house, aces full of sixes.",
+        "D": "Both are legal five-card hands (a full house, threes full of fives and a full house, aces full of sixes); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_155",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: 9♠ 5♠ 2♠ T♠ 6♠ or 9♥ 5♥ 2♥ T♥ 6♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first hand, a flush, ten-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a flush, ten-high, exactly ties the first; neither wins.",
+        "C": "Correct. Both hands are a flush, ten-high, an exact tie that chops the pot.",
+        "D": "Both are legal five-card hands (a flush, ten-high and a flush, ten-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_156",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: Q♠ Q♥ Q♦ J♠ 7♠ or T♠ T♥ T♦ 6♠ 9♠?",
+      "options": [
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand",
+        "The first hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The second hand, three of a kind, tens, loses to the first hand's three of a kind, queens.",
+        "B": "These are not equal: three of a kind, queens versus three of a kind, tens.",
+        "C": "Both are legal five-card hands (three of a kind, queens and three of a kind, tens); one simply ranks higher.",
+        "D": "Correct. The first hand is three of a kind, queens, which beats three of a kind, tens."
+      }
+    },
+    {
+      "id": "pr_pthr_157",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 3♠ 3♥ K♠ K♥ 9♠ or 3♦ 3♣ K♦ K♣ 5♠?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first hand is two pair, kings and threes, which beats two pair, kings and threes.",
+        "B": "The second hand, two pair, kings and threes, loses to the first hand's two pair, kings and threes.",
+        "C": "These are not equal: two pair, kings and threes versus two pair, kings and threes.",
+        "D": "Both are legal five-card hands (two pair, kings and threes and two pair, kings and threes); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_158",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: A♠ 7♥ 6♦ Q♣ 5♠ or K♦ 6♣ 2♠ Q♥ 8♦?",
+      "options": [
+        "The second hand",
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The second hand, king-high, loses to the first hand's ace-high.",
+        "B": "Correct. The first hand is ace-high, which beats king-high.",
+        "C": "These are not equal: ace-high versus king-high.",
+        "D": "Both are legal five-card hands (ace-high and king-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_159",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: 9♠ 2♠ K♠ 8♠ 3♠ or 9♥ 2♥ K♥ 8♥ 3♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first hand, a flush, king-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a flush, king-high, exactly ties the first; neither wins.",
+        "C": "Correct. Both hands are a flush, king-high, an exact tie that chops the pot.",
+        "D": "Both are legal five-card hands (a flush, king-high and a flush, king-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_160",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 6♠ 6♥ 8♠ A♠ 5♠ or 6♦ 6♣ K♠ 9♠ 4♠?",
+      "options": [
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand",
+        "The first hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The second hand, a pair of sixes, loses to the first hand's a pair of sixes.",
+        "B": "These are not equal: a pair of sixes versus a pair of sixes.",
+        "C": "Both are legal five-card hands (a pair of sixes and a pair of sixes); one simply ranks higher.",
+        "D": "Correct. The first hand is a pair of sixes, which beats a pair of sixes."
+      }
+    },
+    {
+      "id": "pr_pthr_161",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: T♠ 9♥ 8♦ 7♣ 6♠ or Q♥ J♦ T♣ 9♠ 8♥?",
+      "options": [
+        "The second hand",
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The second hand is a straight, queen-high, which beats a straight, ten-high.",
+        "B": "The first hand, a straight, ten-high, loses to the second hand's a straight, queen-high.",
+        "C": "These are not equal: a straight, ten-high versus a straight, queen-high.",
+        "D": "Both are legal five-card hands (a straight, ten-high and a straight, queen-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_162",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: Q♠ K♠ T♠ J♠ 5♠ or 4♥ T♥ 5♥ 8♥ K♥?",
+      "options": [
+        "The second hand",
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The second hand, a flush, king-high, loses to the first hand's a flush, king-high.",
+        "B": "Correct. The first hand is a flush, king-high, which beats a flush, king-high.",
+        "C": "These are not equal: a flush, king-high versus a flush, king-high.",
+        "D": "Both are legal five-card hands (a flush, king-high and a flush, king-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_163",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 8♠ 8♥ 2♠ J♠ 7♠ or 8♦ 8♣ 4♠ 5♠ 6♠?",
+      "options": [
+        "The second hand",
+        "They tie (chop)",
+        "The first hand",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The second hand, a pair of eights, loses to the first hand's a pair of eights.",
+        "B": "These are not equal: a pair of eights versus a pair of eights.",
+        "C": "Correct. The first hand is a pair of eights, which beats a pair of eights.",
+        "D": "Both are legal five-card hands (a pair of eights and a pair of eights); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_164",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 7♠ 7♥ 7♦ K♠ K♥ or 6♠ 6♥ 6♦ 8♠ 8♥?",
+      "options": [
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand",
+        "The first hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The second hand, a full house, sixes full of eights, loses to the first hand's a full house, sevens full of kings.",
+        "B": "These are not equal: a full house, sevens full of kings versus a full house, sixes full of eights.",
+        "C": "Both are legal five-card hands (a full house, sevens full of kings and a full house, sixes full of eights); one simply ranks higher.",
+        "D": "Correct. The first hand is a full house, sevens full of kings, which beats a full house, sixes full of eights."
+      }
+    },
+    {
+      "id": "pr_pthr_165",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: Q♠ Q♥ Q♦ 6♠ 5♠ or 7♠ 7♥ 7♦ A♠ 3♠?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first hand is three of a kind, queens, which beats three of a kind, sevens.",
+        "B": "The second hand, three of a kind, sevens, loses to the first hand's three of a kind, queens.",
+        "C": "These are not equal: three of a kind, queens versus three of a kind, sevens.",
+        "D": "Both are legal five-card hands (three of a kind, queens and three of a kind, sevens); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_166",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: K♠ Q♥ J♦ T♣ 9♠ or 9♥ 8♦ 7♣ 6♠ 5♥?",
+      "options": [
+        "The second hand",
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The second hand, a straight, nine-high, loses to the first hand's a straight, king-high.",
+        "B": "Correct. The first hand is a straight, king-high, which beats a straight, nine-high.",
+        "C": "These are not equal: a straight, king-high versus a straight, nine-high.",
+        "D": "Both are legal five-card hands (a straight, king-high and a straight, nine-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_167",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: 4♠ J♠ T♠ 3♠ 7♠ or 4♥ J♥ T♥ 3♥ 7♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first hand, a flush, jack-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a flush, jack-high, exactly ties the first; neither wins.",
+        "C": "Correct. Both hands are a flush, jack-high, an exact tie that chops the pot.",
+        "D": "Both are legal five-card hands (a flush, jack-high and a flush, jack-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_168",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: 3♠ 8♠ Q♠ T♠ 7♠ or 3♥ 8♥ Q♥ T♥ 7♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "Neither is a legal poker hand",
+        "They tie (chop)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The first hand, a flush, queen-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a flush, queen-high, exactly ties the first; neither wins.",
+        "C": "Both are legal five-card hands (a flush, queen-high and a flush, queen-high); one simply ranks higher.",
+        "D": "Correct. Both hands are a flush, queen-high, an exact tie that chops the pot."
+      }
+    },
+    {
+      "id": "pr_pthr_169",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 7♠ 6♠ 4♠ 5♠ A♠ or 2♥ K♥ 7♥ 5♥ 3♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first hand is a flush, ace-high, which beats a flush, king-high.",
+        "B": "The second hand, a flush, king-high, loses to the first hand's a flush, ace-high.",
+        "C": "These are not equal: a flush, ace-high versus a flush, king-high.",
+        "D": "Both are legal five-card hands (a flush, ace-high and a flush, king-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_170",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: A♠ K♥ Q♦ J♣ T♠ or Q♥ J♦ T♣ 9♠ 8♥?",
+      "options": [
+        "The second hand",
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The second hand, a straight, queen-high, loses to the first hand's a straight, ace-high.",
+        "B": "Correct. The first hand is a straight, ace-high, which beats a straight, queen-high.",
+        "C": "These are not equal: a straight, ace-high versus a straight, queen-high.",
+        "D": "Both are legal five-card hands (a straight, ace-high and a straight, queen-high); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_171",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: A♠ A♥ A♦ 8♠ 5♠ or 3♠ 3♥ 3♦ 2♠ J♠?",
+      "options": [
+        "The second hand",
+        "They tie (chop)",
+        "The first hand",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The second hand, three of a kind, threes, loses to the first hand's three of a kind, aces.",
+        "B": "These are not equal: three of a kind, aces versus three of a kind, threes.",
+        "C": "Correct. The first hand is three of a kind, aces, which beats three of a kind, threes.",
+        "D": "Both are legal five-card hands (three of a kind, aces and three of a kind, threes); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_172",
+      "concept": "split_pot",
+      "question": "Which is the stronger five-card hand: K♠ 5♠ T♠ 9♠ 6♠ or K♥ 5♥ T♥ 9♥ 6♥?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "Neither is a legal poker hand",
+        "They tie (chop)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The first hand, a flush, king-high, exactly ties the second; neither wins.",
+        "B": "The second hand, a flush, king-high, exactly ties the first; neither wins.",
+        "C": "Both are legal five-card hands (a flush, king-high and a flush, king-high); one simply ranks higher.",
+        "D": "Correct. Both hands are a flush, king-high, an exact tie that chops the pot."
+      }
+    },
+    {
+      "id": "pr_pthr_173",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 6♠ 6♥ 6♦ K♠ A♠ or T♠ T♥ T♦ Q♠ J♠?",
+      "options": [
+        "The second hand",
+        "The first hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The second hand is three of a kind, tens, which beats three of a kind, sixes.",
+        "B": "The first hand, three of a kind, sixes, loses to the second hand's three of a kind, tens.",
+        "C": "These are not equal: three of a kind, sixes versus three of a kind, tens.",
+        "D": "Both are legal five-card hands (three of a kind, sixes and three of a kind, tens); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_174",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 9♠ 9♥ 9♦ 7♠ J♠ or K♠ K♥ K♦ 2♠ 8♠?",
+      "options": [
+        "The first hand",
+        "The second hand",
+        "They tie (chop)",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The first hand, three of a kind, nines, loses to the second hand's three of a kind, kings.",
+        "B": "Correct. The second hand is three of a kind, kings, which beats three of a kind, nines.",
+        "C": "These are not equal: three of a kind, nines versus three of a kind, kings.",
+        "D": "Both are legal five-card hands (three of a kind, nines and three of a kind, kings); one simply ranks higher."
+      }
+    },
+    {
+      "id": "pr_pthr_175",
+      "concept": "compare_hands",
+      "question": "Which is the stronger five-card hand: 8♠ 8♥ 5♠ 5♥ J♠ or 8♦ 8♣ 5♦ 5♣ 6♠?",
+      "options": [
+        "The second hand",
+        "They tie (chop)",
+        "The first hand",
+        "Neither is a legal poker hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The second hand, two pair, eights and fives, loses to the first hand's two pair, eights and fives.",
+        "B": "These are not equal: two pair, eights and fives versus two pair, eights and fives.",
+        "C": "Correct. The first hand is two pair, eights and fives, which beats two pair, eights and fives.",
+        "D": "Both are legal five-card hands (two pair, eights and fives and two pair, eights and fives); one simply ranks higher."
+      }
+    }
+  ]
+}

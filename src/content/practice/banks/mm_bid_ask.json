@@ -1,0 +1,2977 @@
+{
+  "lessonId": "mm_bid_ask",
+  "track": "market-making",
+  "title": "Bid & Ask Fundamentals",
+  "questions": [
+    {
+      "id": "pr_mmba_001",
+      "concept": "bid_definition",
+      "question": "In the quote '30 at 34', which number is your bid?",
+      "options": [
+        "30",
+        "34",
+        "32",
+        "64"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. In 'X at Y' notation the first number is always the bid — the price at which you are willing to buy. Here that is 30.",
+        "B": "34 is the second number, which is your ask (sell price), not the bid.",
+        "C": "32 is the midpoint (30+34)/2, not the bid.",
+        "D": "64 is the sum of the two prices, not a quoted side."
+      }
+    },
+    {
+      "id": "pr_mmba_002",
+      "concept": "ask_definition",
+      "question": "In the quote '30 at 34', which number is your ask?",
+      "options": [
+        "30",
+        "34",
+        "32",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "30 is the first number, which is your bid (buy price), not the ask.",
+        "B": "Correct. The second number in 'X at Y' is the ask — the price at which you will sell. Here that is 34.",
+        "C": "32 is the midpoint, not the ask.",
+        "D": "4 is the spread (34−30), not the ask price."
+      }
+    },
+    {
+      "id": "pr_mmba_003",
+      "concept": "spread_width",
+      "question": "What is the spread of the quote '30 at 34'?",
+      "options": [
+        "30",
+        "34",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "30 is the bid, not the spread.",
+        "B": "34 is the ask, not the spread.",
+        "C": "Correct. Spread = ask − bid = 34 − 30 = 4.",
+        "D": "2 would be half the spread (the distance from mid to each side), not the full spread."
+      }
+    },
+    {
+      "id": "pr_mmba_004",
+      "concept": "mid_price",
+      "question": "What is the mid price of the quote '30 at 34'?",
+      "options": [
+        "30",
+        "34",
+        "36",
+        "32"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "30 is the bid, not the midpoint.",
+        "B": "34 is the ask, not the midpoint.",
+        "C": "36 is above the ask; the mid must lie between bid and ask.",
+        "D": "Correct. Mid = (bid + ask)/2 = (30 + 34)/2 = 32."
+      }
+    },
+    {
+      "id": "pr_mmba_005",
+      "concept": "bid_definition",
+      "question": "A bid is best described as the price at which the market maker is willing to:",
+      "options": [
+        "Buy",
+        "Sell",
+        "Do nothing",
+        "Cancel the market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The bid is the price you stand ready to buy at; sellers trade against it.",
+        "B": "Selling happens at the ask, not the bid.",
+        "C": "A posted bid is an active willingness to buy, not inaction.",
+        "D": "A bid is part of a live quote, not a cancellation."
+      }
+    },
+    {
+      "id": "pr_mmba_006",
+      "concept": "ask_definition",
+      "question": "An ask (offer) is the price at which the market maker is willing to:",
+      "options": [
+        "Buy",
+        "Sell",
+        "Borrow",
+        "Hold forever"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Buying is done at the bid, not the ask.",
+        "B": "Correct. The ask is your sell price; buyers lift it to trade.",
+        "C": "An ask is a sell price, not a borrowing rate.",
+        "D": "An ask is an active offer to sell, not a commitment to hold."
+      }
+    },
+    {
+      "id": "pr_mmba_007",
+      "concept": "hit_vs_lift",
+      "question": "You quote 47 at 49. A trader says 'I'll sell you one.' What price do you pay?",
+      "options": [
+        "49",
+        "48",
+        "47",
+        "50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "49 is your ask — that is where you sell, not buy.",
+        "B": "48 is the midpoint, not a price you actually trade at.",
+        "C": "Correct. A seller hits your bid, so you buy at 47, the lower number.",
+        "D": "50 is above your quote; you are not obligated to trade there."
+      }
+    },
+    {
+      "id": "pr_mmba_008",
+      "concept": "hit_vs_lift",
+      "question": "You quote 47 at 49. A trader says 'I'll buy one from you.' What price do they pay?",
+      "options": [
+        "47",
+        "48",
+        "50",
+        "49"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "47 is your bid — that is where you buy, not sell.",
+        "B": "48 is the midpoint, not a quoted price.",
+        "C": "50 is above your ask; you sell at the quoted offer, not higher.",
+        "D": "Correct. A buyer lifts your ask, so they pay 49, the higher number."
+      }
+    },
+    {
+      "id": "pr_mmba_009",
+      "concept": "quote_language",
+      "question": "You say 'I'm 25 bid.' What does this tell the room?",
+      "options": [
+        "You will buy at 25",
+        "You will sell at 25",
+        "Fair value is 25",
+        "Your ask is 25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 'Bid' declares your buy price, so you will buy at 25.",
+        "B": "Selling is announced as an 'offer' or 'ask', not a bid.",
+        "C": "A bid is a tradable price, which need not equal your estimate of fair value.",
+        "D": "An ask would be stated as 'offer' or 'ask', not 'bid'."
+      }
+    },
+    {
+      "id": "pr_mmba_010",
+      "concept": "quote_language",
+      "question": "You say 'I'm offered at 40.' What does this tell the room?",
+      "options": [
+        "You will buy at 40",
+        "You will sell at 40",
+        "The bid is 40",
+        "The spread is 40"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Buying is declared with 'bid', not 'offered'.",
+        "B": "Correct. 'Offered at 40' means your ask is 40 — you will sell there.",
+        "C": "The bid is the buy price; an offer states the sell price.",
+        "D": "40 here is a price, not a spread width."
+      }
+    },
+    {
+      "id": "pr_mmba_011",
+      "concept": "hit_vs_lift",
+      "question": "'Hitting the bid' is the action taken by someone who wants to:",
+      "options": [
+        "Buy from the market maker",
+        "Cancel the quote",
+        "Sell to the market maker",
+        "Widen the spread"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A buyer lifts the ask, not hits the bid.",
+        "B": "Hitting a bid is a trade, not a cancellation.",
+        "C": "Correct. A seller hits the bid, trading against the market maker's buy price.",
+        "D": "Hitting the bid executes a trade; it does not adjust the spread."
+      }
+    },
+    {
+      "id": "pr_mmba_012",
+      "concept": "hit_vs_lift",
+      "question": "'Lifting the offer' is the action taken by someone who wants to:",
+      "options": [
+        "Quote a new market",
+        "Sell to the market maker",
+        "Improve the bid",
+        "Buy from the market maker"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Lifting the offer executes against an existing quote rather than posting a new one.",
+        "B": "A seller hits the bid; lifting the offer is a buy.",
+        "C": "Lifting the offer is a trade on the ask side, not a bid improvement.",
+        "D": "Correct. A buyer lifts (takes) the offer, paying the market maker's ask."
+      }
+    },
+    {
+      "id": "pr_mmba_013",
+      "concept": "round_trip",
+      "question": "You buy one unit at your bid of 20 and later sell it at your ask of 23 (same size). Your gross profit per unit is:",
+      "options": [
+        "+3",
+        "0",
+        "−3",
+        "+43"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sell − buy = 23 − 20 = +3 per unit before fees.",
+        "B": "Zero ignores the spread you captured.",
+        "C": "−3 would be selling low and buying high; here you bought low and sold high.",
+        "D": "43 is the sum of the two prices, not the profit."
+      }
+    },
+    {
+      "id": "pr_mmba_014",
+      "concept": "mm_role",
+      "question": "Why does a market maker post both a bid and an ask?",
+      "options": [
+        "To guarantee a profit on every single trade",
+        "To provide two-sided liquidity so others can trade immediately",
+        "To avoid ever holding inventory",
+        "To trade only when prices move in their favor"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Any single trade can lose; the edge comes from the spread over many trades, not a per-trade guarantee.",
+        "B": "Correct. Two-sided quotes let buyers and sellers transact at once without finding each other.",
+        "C": "Market makers routinely take on inventory and manage the resulting risk.",
+        "D": "A market maker commits to both sides regardless of short-term direction."
+      }
+    },
+    {
+      "id": "pr_mmba_015",
+      "concept": "valid_quote",
+      "question": "Which of the following is a valid (uncrossed) two-sided quote?",
+      "options": [
+        "52 at 50",
+        "55 at 53",
+        "50 at 52",
+        "60 at 58"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Bid 52 above ask 50 is crossed — others could buy at 50 and sell at 52 against you.",
+        "B": "Bid 55 above ask 53 is crossed.",
+        "C": "Correct. A normal quote has bid strictly below ask, and 50 < 52.",
+        "D": "Bid 60 above ask 58 is crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_016",
+      "concept": "crossed_quote",
+      "question": "You accidentally quote '58 at 56'. What is wrong with this quote?",
+      "options": [
+        "Nothing — it is a tight market",
+        "The mid is undefined",
+        "The spread is too wide",
+        "It is crossed: the bid is above the ask"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "It is not merely tight; bid 58 above ask 56 is invalid.",
+        "B": "The mid is still computable; the real issue is that the bid exceeds the ask.",
+        "C": "The problem is inversion, not width; here ask < bid.",
+        "D": "Correct. The bid (58) exceeds the ask (56), so the quote is crossed and must be fixed before trading."
+      }
+    },
+    {
+      "id": "pr_mmba_017",
+      "concept": "spread_width",
+      "question": "Your quote is '10 at 12'. What is the spread width?",
+      "options": [
+        "2",
+        "1",
+        "10",
+        "22"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Spread = 12 − 10 = 2.",
+        "B": "1 is half the spread, not the full width.",
+        "C": "10 is the bid, not the spread.",
+        "D": "22 is the sum of bid and ask, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmba_018",
+      "concept": "two_sided_format",
+      "question": "A moderator reads back 'sixty-two bid, sixty-six offered.' In bid-at-ask notation this is:",
+      "options": [
+        "66 at 62",
+        "62 at 66",
+        "62 at 64",
+        "64 at 66"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This reverses the sides; the bid (62) must come first and be lower.",
+        "B": "Correct. Bid 62, ask 66, written bid-first as '62 at 66'.",
+        "C": "64 was not quoted; the ask was 66.",
+        "D": "64 is the midpoint, not a quoted side."
+      }
+    },
+    {
+      "id": "pr_mmba_019",
+      "concept": "standing_quote",
+      "question": "You quote 51 at 55 and do not withdraw. A trader says 'sold' (they sell to you). At what price do you buy?",
+      "options": [
+        "55",
+        "53",
+        "51",
+        "You may refuse"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "55 is your ask — you sell there, not buy.",
+        "B": "53 is the midpoint, not a tradable side.",
+        "C": "Correct. The seller hits your bid, so you buy at 51.",
+        "D": "A standing two-sided quote is firm; you are obligated at your bid."
+      }
+    },
+    {
+      "id": "pr_mmba_020",
+      "concept": "mm_role",
+      "question": "Liquidity provided by a market maker primarily means:",
+      "options": [
+        "Cash held in reserve",
+        "Access to insider information",
+        "A promise of zero losses",
+        "Readiness to trade immediately at posted prices"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Here liquidity is about tradability, not cash on hand.",
+        "B": "Liquidity comes from posting quotes, not from private information.",
+        "C": "Liquidity provision does not promise the maker zero losses.",
+        "D": "Correct. Liquidity is the ability of others to buy or sell right away at the maker's quotes."
+      }
+    },
+    {
+      "id": "pr_mmba_021",
+      "concept": "bid_definition",
+      "question": "Quote '8 at 11'. A customer wants to sell to you. You buy at:",
+      "options": [
+        "8",
+        "9.5",
+        "11",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sellers hit your bid, so you buy at 8.",
+        "B": "9.5 is the midpoint, not a quoted price.",
+        "C": "11 is your ask; you sell there, not buy.",
+        "D": "10 is inside the spread but is not your quoted bid."
+      }
+    },
+    {
+      "id": "pr_mmba_022",
+      "concept": "ask_definition",
+      "question": "Quote '8 at 11'. A customer wants to buy from you. You sell at:",
+      "options": [
+        "8",
+        "11",
+        "10",
+        "9.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "8 is your bid; you buy there, not sell.",
+        "B": "Correct. Buyers lift your ask, so you sell at 11.",
+        "C": "10 is inside the spread but not your quoted ask.",
+        "D": "9.5 is the midpoint, not a quoted price."
+      }
+    },
+    {
+      "id": "pr_mmba_023",
+      "concept": "spread_width",
+      "question": "A quote of '100 at 105' has a spread of:",
+      "options": [
+        "100",
+        "2.5",
+        "5",
+        "205"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "100 is the bid, not the spread.",
+        "B": "2.5 is half the spread, not the full width.",
+        "C": "Correct. Spread = 105 − 100 = 5.",
+        "D": "205 is the sum of the prices, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmba_024",
+      "concept": "mid_price",
+      "question": "A quote of '100 at 105' has a mid price of:",
+      "options": [
+        "100",
+        "5",
+        "105",
+        "102.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "100 is the bid, not the midpoint.",
+        "B": "5 is the spread, not the mid.",
+        "C": "105 is the ask, not the midpoint.",
+        "D": "Correct. Mid = (100 + 105)/2 = 102.5."
+      }
+    },
+    {
+      "id": "pr_mmba_025",
+      "concept": "quote_parsing",
+      "question": "Someone quotes '7 at 9'. Where would a seller transact?",
+      "options": [
+        "At 7 (the bid)",
+        "At 9 (the ask)",
+        "At 8 (the mid)",
+        "Nowhere — sellers cannot trade"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A seller hits the bid, so they sell at 7.",
+        "B": "9 is the ask, where buyers lift, not where sellers trade.",
+        "C": "8 is the midpoint and is not a posted trading price here.",
+        "D": "Sellers can trade by hitting the bid."
+      }
+    },
+    {
+      "id": "pr_mmba_026",
+      "concept": "quote_parsing",
+      "question": "Someone quotes '7 at 9'. Where would a buyer transact?",
+      "options": [
+        "At 7 (the bid)",
+        "At 9 (the ask)",
+        "At 8 (the mid)",
+        "Nowhere — buyers cannot trade"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 is the bid, where sellers trade, not buyers.",
+        "B": "Correct. A buyer lifts the ask, so they buy at 9.",
+        "C": "8 is the midpoint and is not a posted trading price here.",
+        "D": "Buyers can trade by lifting the ask."
+      }
+    },
+    {
+      "id": "pr_mmba_027",
+      "concept": "round_trip",
+      "question": "Over a session you buy 10 units at your bid of 40 and sell all 10 at your ask of 44. Total gross profit is:",
+      "options": [
+        "+4",
+        "+44",
+        "+40",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "+4 is the per-unit spread; total scales with size.",
+        "B": "44 is the ask price, not the total profit.",
+        "C": "Correct. Spread is 44 − 40 = 4 per unit, times 10 units = +40.",
+        "D": "Zero ignores the spread captured on all 10 units."
+      }
+    },
+    {
+      "id": "pr_mmba_028",
+      "concept": "crossed_quote",
+      "question": "Which quote would let an opponent immediately profit at your expense?",
+      "options": [
+        "48 at 50",
+        "49 at 51",
+        "47 at 53",
+        "52 at 49"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Bid 48 below ask 50 is a normal quote, not exploitable for free.",
+        "B": "Bid 49 below ask 51 is normal.",
+        "C": "Bid 47 below ask 53 is just a wide but valid quote.",
+        "D": "Correct. Bid 52 above ask 49 is crossed: an opponent buys from you at 49 and sells to you at 52 for a free 3."
+      }
+    },
+    {
+      "id": "pr_mmba_029",
+      "concept": "quote_language",
+      "question": "In trader shorthand, '20 bid' tells the room your:",
+      "options": [
+        "Buy price is 20",
+        "Sell price is 20",
+        "Spread is 20",
+        "Mid is 20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 'Bid' always refers to the buy side, so your buy price is 20.",
+        "B": "The sell price is the ask/offer, not the bid.",
+        "C": "20 is a price level, not a spread width.",
+        "D": "A bid is a tradable buy price, not necessarily the midpoint."
+      }
+    },
+    {
+      "id": "pr_mmba_030",
+      "concept": "quote_language",
+      "question": "In trader shorthand, '26 offer' tells the room your:",
+      "options": [
+        "Buy price is 26",
+        "Sell price is 26",
+        "Bid is 26",
+        "Profit is 26"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The buy price is the bid, not the offer.",
+        "B": "Correct. 'Offer' is the ask side, so your sell price is 26.",
+        "C": "An offer states the ask, not the bid.",
+        "D": "26 is a price, not a realized profit."
+      }
+    },
+    {
+      "id": "pr_mmba_031",
+      "concept": "hit_vs_lift",
+      "question": "You are quoting 12 at 14. A counterparty 'lifts you'. What just happened?",
+      "options": [
+        "They sold to you at 12",
+        "They cancelled",
+        "They bought from you at 14",
+        "They improved your bid"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Selling to you is hitting the bid, not lifting.",
+        "B": "Lifting is an execution, not a cancellation.",
+        "C": "Correct. Lifting takes your offer, so they bought from you at 14.",
+        "D": "Lifting trades on the ask; it does not change your bid."
+      }
+    },
+    {
+      "id": "pr_mmba_032",
+      "concept": "hit_vs_lift",
+      "question": "You are quoting 12 at 14. A counterparty 'hits you'. What just happened?",
+      "options": [
+        "They widened the spread",
+        "They bought from you at 14",
+        "They cancelled the trade",
+        "They sold to you at 12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Hitting executes a trade; it does not change the spread.",
+        "B": "Buying from you is lifting the offer, not hitting.",
+        "C": "Hitting is an execution, not a cancellation.",
+        "D": "Correct. Hitting takes your bid, so they sold to you at 12."
+      }
+    },
+    {
+      "id": "pr_mmba_033",
+      "concept": "inventory_basics",
+      "question": "After a seller hits your bid, your inventory position becomes:",
+      "options": [
+        "Longer (you bought)",
+        "Shorter (you sold)",
+        "Flat",
+        "Unchanged"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Buying at your bid adds to your position, making you longer.",
+        "B": "A bid is a buy; you did not sell.",
+        "C": "You took on inventory, so you are not flat unless you were short before.",
+        "D": "Your position changed: you bought a unit."
+      }
+    },
+    {
+      "id": "pr_mmba_034",
+      "concept": "inventory_basics",
+      "question": "After a buyer lifts your offer, your inventory position becomes:",
+      "options": [
+        "Longer (you bought)",
+        "Shorter (you sold)",
+        "Flat regardless",
+        "Unchanged"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An offer is a sell; you did not buy.",
+        "B": "Correct. Selling at your ask reduces your position, making you shorter.",
+        "C": "You took on a short, so you are not automatically flat.",
+        "D": "Your position changed: you sold a unit."
+      }
+    },
+    {
+      "id": "pr_mmba_035",
+      "concept": "spread_width",
+      "question": "A 'tighter' spread means the gap between bid and ask is:",
+      "options": [
+        "Larger",
+        "Negative",
+        "Smaller",
+        "Unchanged"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Larger gaps are 'wider', not tighter.",
+        "B": "A negative gap is a crossed quote, not a tight one.",
+        "C": "Correct. A tighter (narrower) spread means a smaller bid-ask gap.",
+        "D": "Tightening specifically reduces the spread."
+      }
+    },
+    {
+      "id": "pr_mmba_036",
+      "concept": "spread_width",
+      "question": "Quote A is '49 at 51' and Quote B is '45 at 55' on the same product. Which is tighter?",
+      "options": [
+        "Cannot tell",
+        "Quote B (spread 10)",
+        "They are equal",
+        "Quote A (spread 2)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Both spreads are computable, so the comparison is clear.",
+        "B": "Quote B has the wider spread, so it is not tighter.",
+        "C": "Their spreads differ (2 vs 10), so they are not equal.",
+        "D": "Correct. Quote A has spread 2 versus Quote B's spread 10, so A is tighter."
+      }
+    },
+    {
+      "id": "pr_mmba_037",
+      "concept": "mid_price",
+      "question": "If the mid is 50 and the spread is 4, the quote is:",
+      "options": [
+        "48 at 52",
+        "46 at 54",
+        "50 at 54",
+        "48 at 50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Half-spread is 2, so bid = 50 − 2 = 48 and ask = 50 + 2 = 52.",
+        "B": "That implies a spread of 8, not 4.",
+        "C": "Mid of 50 at 54 is 52, not 50.",
+        "D": "Mid of 48 at 50 is 49, not 50."
+      }
+    },
+    {
+      "id": "pr_mmba_038",
+      "concept": "mid_price",
+      "question": "If your bid is 70 and your spread is 6, your ask is:",
+      "options": [
+        "64",
+        "76",
+        "73",
+        "70"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "64 would be the bid minus the spread, which is not how the ask is found.",
+        "B": "Correct. Ask = bid + spread = 70 + 6 = 76.",
+        "C": "73 is the mid (bid + half spread), not the ask.",
+        "D": "70 is the bid; a positive spread puts the ask above it."
+      }
+    },
+    {
+      "id": "pr_mmba_039",
+      "concept": "round_trip",
+      "question": "You sell one unit at your ask of 30, then buy it back at your bid of 27. Gross profit per unit is:",
+      "options": [
+        "−3",
+        "0",
+        "+3",
+        "+57"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "−3 would require buying high and selling low; you did the opposite.",
+        "B": "Zero ignores the 3-wide spread you captured.",
+        "C": "Correct. Sell at 30, buy at 27 → 30 − 27 = +3 per unit.",
+        "D": "57 is the sum of the prices, not the profit."
+      }
+    },
+    {
+      "id": "pr_mmba_040",
+      "concept": "quote_parsing",
+      "question": "A market is shown as '5/7'. This most likely means:",
+      "options": [
+        "Buy 5 sell at a loss",
+        "Bid 7, ask 5",
+        "Spread of 5, mid of 7",
+        "Bid 5, ask 7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "It is a standard quote, not an instruction to trade at a loss.",
+        "B": "Bid is the lower, first number; 7 is the ask.",
+        "C": "The numbers are prices (bid/ask), not a spread and mid.",
+        "D": "Correct. The slash format lists bid first then ask, so bid 5, ask 7."
+      }
+    },
+    {
+      "id": "pr_mmba_041",
+      "concept": "bid_definition",
+      "question": "You hold a market in a coin-flip payout. You post a bid of 0.45. Someone wants to sell you the contract. You pay:",
+      "options": [
+        "0.45",
+        "0.50",
+        "0.55",
+        "0.40"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A seller hits your bid, so you buy at 0.45.",
+        "B": "0.50 might be fair value, but you buy at your stated bid.",
+        "C": "0.55 is not your posted price; you only owe your bid.",
+        "D": "0.40 is below your bid; you committed to 0.45."
+      }
+    },
+    {
+      "id": "pr_mmba_042",
+      "concept": "ask_definition",
+      "question": "You post an ask of 0.55 on a contract. Someone wants to buy it from you. They pay:",
+      "options": [
+        "0.45",
+        "0.55",
+        "0.50",
+        "0.60"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.45 would be a bid level, not where buyers trade.",
+        "B": "Correct. A buyer lifts your ask, so they pay 0.55.",
+        "C": "0.50 might be fair value, but buyers pay your stated ask.",
+        "D": "0.60 is above your offer; you committed to 0.55."
+      }
+    },
+    {
+      "id": "pr_mmba_043",
+      "concept": "mm_role",
+      "question": "A market maker's edge over many trades comes primarily from:",
+      "options": [
+        "Predicting direction perfectly",
+        "Trading only once per day",
+        "Capturing the bid-ask spread repeatedly",
+        "Never holding any position"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Market making does not rely on perfect directional calls.",
+        "B": "Edge accrues from many round-trips, not a single daily trade.",
+        "C": "Correct. Buying at the bid and selling at the ask many times captures the spread as edge.",
+        "D": "Holding inventory is part of the job; the edge is the spread, not zero risk."
+      }
+    },
+    {
+      "id": "pr_mmba_044",
+      "concept": "valid_quote",
+      "question": "Which is the tightest valid quote?",
+      "options": [
+        "38 at 46",
+        "40 at 45",
+        "39 at 44",
+        "40 at 41"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Spread is 8, the widest here.",
+        "B": "Spread is 5, wider than option A.",
+        "C": "Spread is 5, wider than option A.",
+        "D": "Correct. Spread of 1 (41 − 40) is the smallest among the valid options."
+      }
+    },
+    {
+      "id": "pr_mmba_045",
+      "concept": "crossed_quote",
+      "question": "A 'locked' market (as opposed to crossed) is one where:",
+      "options": [
+        "Bid equals ask",
+        "Bid is above ask",
+        "Bid is far below ask",
+        "No quote exists"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A locked market has bid equal to ask (zero spread).",
+        "B": "Bid above ask is crossed, not locked.",
+        "C": "A bid far below the ask is just a wide, normal market.",
+        "D": "A locked market still has quotes; they are simply equal."
+      }
+    },
+    {
+      "id": "pr_mmba_046",
+      "concept": "two_sided_format",
+      "question": "You buy at 18 and want to make a two-sided market 3 wide centered there. Which quote keeps 18 as your bid?",
+      "options": [
+        "15 at 18",
+        "18 at 21",
+        "16 at 19",
+        "21 at 18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Here 18 is the ask, not the bid.",
+        "B": "Correct. Bid 18, ask 18 + 3 = 21, written '18 at 21'.",
+        "C": "Bid is 16, not 18.",
+        "D": "This is crossed (bid 21 above ask 18)."
+      }
+    },
+    {
+      "id": "pr_mmba_047",
+      "concept": "standing_quote",
+      "question": "In a mock trading game, a published two-sided quote is generally treated as:",
+      "options": [
+        "Valid only if you like the counterparty",
+        "A rough suggestion you can ignore",
+        "A firm price you must honor when hit or lifted",
+        "Binding only on the ask side"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You cannot selectively honor quotes based on counterparty in these games.",
+        "B": "Ignoring your own quote breaks market-making norms.",
+        "C": "Correct. Standing quotes are firm; you trade at your bid or ask when chosen.",
+        "D": "Both sides of a two-sided quote are binding, not just the ask."
+      }
+    },
+    {
+      "id": "pr_mmba_048",
+      "concept": "spread_width",
+      "question": "Widening your spread from 2 to 6 around the same mid will:",
+      "options": [
+        "Have no effect on anything",
+        "Increase how often you trade",
+        "Always reduce total profit",
+        "Increase profit per round-trip but reduce how often you trade"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Spread width directly affects both per-trade edge and fill frequency.",
+        "B": "Wider quotes are less attractive, so you typically trade less, not more.",
+        "C": "Total profit may rise or fall; it is a trade-off, not always a reduction.",
+        "D": "Correct. A wider spread earns more per round-trip but makes your quotes less competitive, so you trade less."
+      }
+    },
+    {
+      "id": "pr_mmba_049",
+      "concept": "mid_price",
+      "question": "A quote is '63 at 67'. A trade at the midpoint would occur at:",
+      "options": [
+        "65",
+        "63",
+        "67",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mid = (63 + 67)/2 = 65.",
+        "B": "63 is the bid, not the mid.",
+        "C": "67 is the ask, not the mid.",
+        "D": "4 is the spread, not a price."
+      }
+    },
+    {
+      "id": "pr_mmba_050",
+      "concept": "round_trip",
+      "question": "You earn 2 of spread per round-trip and complete 25 full round-trips in a session. Gross profit is:",
+      "options": [
+        "25",
+        "50",
+        "27",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "25 is the number of round-trips, not the profit.",
+        "B": "Correct. 2 per round-trip × 25 round-trips = 50.",
+        "C": "27 incorrectly adds the spread to the count.",
+        "D": "2 is the per-trip spread, not the total."
+      }
+    },
+    {
+      "id": "pr_mmba_051",
+      "concept": "bid_definition",
+      "question": "Raising your bid from 30 to 33 (ask unchanged at 36) makes you:",
+      "options": [
+        "Less likely to buy",
+        "Unable to sell",
+        "More likely to buy, since your bid is more aggressive",
+        "Crossed"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A higher bid is more competitive, so you are more likely to buy.",
+        "B": "Your ask of 36 is unchanged, so you can still sell.",
+        "C": "Correct. A higher buy price attracts more sellers, increasing your fill rate on the bid.",
+        "D": "Bid 33 is still below ask 36, so the quote is not crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_052",
+      "concept": "ask_definition",
+      "question": "Lowering your ask from 40 to 37 (bid unchanged at 34) makes you:",
+      "options": [
+        "Crossed",
+        "Less likely to sell",
+        "Unable to buy",
+        "More likely to sell, since your offer is more aggressive"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Ask 37 is still above bid 34, so the quote is not crossed.",
+        "B": "A cheaper offer attracts more buyers, not fewer.",
+        "C": "Your bid of 34 is unchanged, so you can still buy.",
+        "D": "Correct. A lower ask is more competitive, attracting more buyers and raising your sell fill rate."
+      }
+    },
+    {
+      "id": "pr_mmba_053",
+      "concept": "quote_parsing",
+      "question": "On a dice-sum game a player announces '6 bid for 5'. This typically means they will buy:",
+      "options": [
+        "5 contracts at a price of 6",
+        "6 contracts at a price of 5",
+        "At 5 only",
+        "Nothing — it is invalid"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 'Price bid for size' convention: a bid of 6 for 5 units means buy 5 at price 6.",
+        "B": "The first number is the price (6) and the second the size (5), not the reverse.",
+        "C": "The bid price is 6, not 5.",
+        "D": "It is a standard price-for-size bid, not invalid."
+      }
+    },
+    {
+      "id": "pr_mmba_054",
+      "concept": "hit_vs_lift",
+      "question": "You quote 90 at 95. Two sellers each hit your bid for 1 unit. You are now:",
+      "options": [
+        "Short 2 at 95",
+        "Long 2 at an average price of 90",
+        "Flat",
+        "Long 2 at 95"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Hitting the bid is selling to you; you bought, so you are long, not short.",
+        "B": "Correct. Each seller hits your 90 bid, so you bought 2 units at 90, leaving you long 2 at 90.",
+        "C": "You took on 2 units, so you are not flat.",
+        "D": "You bought at your bid of 90, not at the ask of 95."
+      }
+    },
+    {
+      "id": "pr_mmba_055",
+      "concept": "inventory_basics",
+      "question": "You are long inventory and want to reduce it without crossing the spread. You should:",
+      "options": [
+        "Raise your bid",
+        "Widen both sides",
+        "Make your offer more attractive (lower the ask)",
+        "Cancel your quote entirely"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Raising your bid invites more buys, increasing your long position.",
+        "B": "Widening both sides reduces all fills, not specifically your long.",
+        "C": "Correct. Lowering your ask makes selling more likely, helping you shed the long inventory.",
+        "D": "Cancelling stops trading entirely rather than reducing the position via a sale."
+      }
+    },
+    {
+      "id": "pr_mmba_056",
+      "concept": "fair_value_vs_quote",
+      "question": "You think fair value is 50. To make a 2-wide market centered on fair value, you quote:",
+      "options": [
+        "50 at 52",
+        "48 at 50",
+        "48 at 52",
+        "49 at 51"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This centers on 51, not 50.",
+        "B": "This centers on 49, not 50.",
+        "C": "This is 4 wide (48 to 52), not 2 wide.",
+        "D": "Correct. Bid 49, ask 51 has mid 50 and a spread of 2."
+      }
+    },
+    {
+      "id": "pr_mmba_057",
+      "concept": "fair_value_vs_quote",
+      "question": "If fair value is 80 and you quote 78 at 82, your quote is:",
+      "options": [
+        "Symmetric around fair value",
+        "Skewed to sell",
+        "Skewed to buy",
+        "Crossed"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mid is (78 + 82)/2 = 80 = fair value, so the quote is symmetric.",
+        "B": "The quote is balanced, so there is no sell skew.",
+        "C": "The bid and ask are equidistant from 80, so there is no buy skew.",
+        "D": "Bid 78 is below ask 82, so it is not crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_058",
+      "concept": "skew",
+      "question": "You are long and want to discourage buying more while encouraging selling. A sensible skew is to:",
+      "options": [
+        "Raise both bid and ask",
+        "Lower both bid and ask",
+        "Widen the bid only",
+        "Quote far above fair value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Raising both encourages buying and discourages selling — the opposite of what you want when long.",
+        "B": "Correct. Shifting the whole quote down makes your bid less attractive (fewer buys) and your ask cheaper (more sells), reducing your long.",
+        "C": "Widening the bid alone mainly reduces buy fills but does not help you sell off the long.",
+        "D": "Quoting far above fair value invites others to sell to you, increasing your long."
+      }
+    },
+    {
+      "id": "pr_mmba_059",
+      "concept": "spread_width",
+      "question": "The spread can be thought of as compensation to the market maker for:",
+      "options": [
+        "Nothing — it is pure profit with no risk",
+        "Guessing the future perfectly",
+        "Bearing inventory risk and adverse selection",
+        "Holding cash"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The spread is not riskless profit; the maker bears real risks.",
+        "B": "The spread does not require perfect prediction.",
+        "C": "Correct. The spread compensates for inventory risk and trading against better-informed counterparties (adverse selection).",
+        "D": "Holding cash is not the service the spread pays for."
+      }
+    },
+    {
+      "id": "pr_mmba_060",
+      "concept": "adverse_selection",
+      "question": "Adverse selection for a market maker refers to the risk that:",
+      "options": [
+        "You run out of cash",
+        "You always pick the wrong stock",
+        "Your spread is too tight by accident",
+        "Counterparties who trade with you often know something you don't"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Running out of cash is a funding issue, not adverse selection.",
+        "B": "Adverse selection is about informed flow, not picking stocks.",
+        "C": "Tight spreads can worsen adverse selection but are not its definition.",
+        "D": "Correct. Informed traders tend to trade against stale quotes, so you systematically buy before drops and sell before rises."
+      }
+    },
+    {
+      "id": "pr_mmba_061",
+      "concept": "bid_definition",
+      "question": "Two makers quote the same product: Maker X is 49 bid, Maker Y is 50 bid. A seller will prefer to trade with:",
+      "options": [
+        "Maker Y (sells at 50)",
+        "Maker X (sells at 49)",
+        "Neither",
+        "Whichever has the lower ask"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A seller wants the highest bid, so Maker Y's 50 bid wins the flow.",
+        "B": "Selling at 49 is worse for the seller than 50.",
+        "C": "The seller will trade with the better (higher) bid, namely Y.",
+        "D": "Sellers care about the bid, not the ask, when selling."
+      }
+    },
+    {
+      "id": "pr_mmba_062",
+      "concept": "ask_definition",
+      "question": "Two makers quote the same product: Maker X offers at 52, Maker Y offers at 51. A buyer will prefer to trade with:",
+      "options": [
+        "Maker X (buys at 52)",
+        "Maker Y (buys at 51)",
+        "Neither",
+        "Whichever has the higher bid"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Paying 52 is worse for the buyer than 51.",
+        "B": "Correct. A buyer wants the lowest ask, so Maker Y's 51 offer wins the flow.",
+        "C": "The buyer will lift the cheaper offer, namely Y's.",
+        "D": "Buyers care about the ask, not the bid, when buying."
+      }
+    },
+    {
+      "id": "pr_mmba_063",
+      "concept": "best_bid_offer",
+      "question": "Maker X is 49 at 53 and Maker Y is 50 at 52. The best bid and best offer (the inside market) are:",
+      "options": [
+        "50 at 53",
+        "49 at 53",
+        "50 at 52",
+        "49 at 52"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "53 is not the lowest ask; the best offer is 52.",
+        "B": "49 is not the highest bid and 53 is not the lowest ask.",
+        "C": "Correct. Best bid is the highest bid (50, from Y) and best offer is the lowest ask (52, from Y), so the inside market is 50 at 52.",
+        "D": "49 is not the highest bid; the best bid is 50."
+      }
+    },
+    {
+      "id": "pr_mmba_064",
+      "concept": "best_bid_offer",
+      "question": "Maker X is 30 at 34 and Maker Y is 31 at 35. The market-wide spread (best offer − best bid) is:",
+      "options": [
+        "1",
+        "5",
+        "4",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1 is the gap between the two bids, not the inside spread.",
+        "B": "5 is Y's spread, not the market-wide inside spread.",
+        "C": "4 is each maker's individual spread, not the combined inside spread.",
+        "D": "Correct. Best bid is 31 (Y), best offer is 34 (X), so the inside spread is 34 − 31 = 3."
+      }
+    },
+    {
+      "id": "pr_mmba_065",
+      "concept": "round_trip",
+      "question": "You buy 3 at 20 and sell 3 at 26. What is your total gross profit?",
+      "options": [
+        "18",
+        "9",
+        "6",
+        "78"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Spread is 26 − 20 = 6 per unit, times 3 units = 18.",
+        "B": "9 mixes the size and spread incorrectly.",
+        "C": "6 is the per-unit spread, not the total.",
+        "D": "78 is total sale proceeds (3×26), not profit."
+      }
+    },
+    {
+      "id": "pr_mmba_066",
+      "concept": "pnl_marking",
+      "question": "You buy 1 unit at your bid of 40. Fair value is 42. Your immediate mark-to-fair profit is:",
+      "options": [
+        "−2",
+        "+2",
+        "0",
+        "+42"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You bought below fair value, so the mark is positive, not negative.",
+        "B": "Correct. You bought at 40 and the unit is worth 42, so the mark is +2.",
+        "C": "Buying at 40 when fair value is 42 creates a +2 paper gain, not zero.",
+        "D": "42 is fair value, not your profit on the trade."
+      }
+    },
+    {
+      "id": "pr_mmba_067",
+      "concept": "pnl_marking",
+      "question": "You sell 1 unit at your ask of 55. Fair value is 52. Your immediate mark-to-fair profit is:",
+      "options": [
+        "−3",
+        "0",
+        "+3",
+        "+55"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You sold above fair value, so the mark is positive, not negative.",
+        "B": "Selling at 55 when fair value is 52 creates a +3 paper gain, not zero.",
+        "C": "Correct. You sold at 55 something worth 52, so the mark is +3.",
+        "D": "55 is the sale price, not the profit."
+      }
+    },
+    {
+      "id": "pr_mmba_068",
+      "concept": "quote_language",
+      "question": "A trader yells 'mine!' after you quote 44 at 47. In common floor convention this means they:",
+      "options": [
+        "Take the midpoint",
+        "Sell to you at 44",
+        "Cancel",
+        "Buy from you at 47"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Trades occur at the quoted side, not automatically at the mid.",
+        "B": "Selling to you would be 'yours' (hitting the bid), not 'mine'.",
+        "C": "'Mine' is an aggressive buy, not a cancellation.",
+        "D": "Correct. 'Mine' claims the offer — they are buying from you at your ask of 47."
+      }
+    },
+    {
+      "id": "pr_mmba_069",
+      "concept": "quote_language",
+      "question": "A trader yells 'yours!' after you quote 44 at 47. In common floor convention this means they:",
+      "options": [
+        "Sell to you at 44",
+        "Buy from you at 47",
+        "Improve your quote",
+        "Trade at the mid"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 'Yours' gives you the unit — they sell to you at your bid of 44.",
+        "B": "Buying from you would be 'mine' (lifting the offer), not 'yours'.",
+        "C": "'Yours' is a sell against your bid, not a quote improvement.",
+        "D": "Trades occur at the quoted bid, not automatically at the mid."
+      }
+    },
+    {
+      "id": "pr_mmba_070",
+      "concept": "valid_quote",
+      "question": "Which quote is crossed?",
+      "options": [
+        "10 at 12",
+        "14 at 11",
+        "11 at 13",
+        "9 at 15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bid 10 below ask 12 is a normal quote.",
+        "B": "Correct. Bid 14 above ask 11 is crossed.",
+        "C": "Bid 11 below ask 13 is a normal quote.",
+        "D": "Bid 9 below ask 15 is a wide but valid quote."
+      }
+    },
+    {
+      "id": "pr_mmba_071",
+      "concept": "spread_width",
+      "question": "Which quote has a spread of exactly 3?",
+      "options": [
+        "20 at 22",
+        "20 at 25",
+        "20 at 23",
+        "20 at 20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Spread is 2 (22 − 20).",
+        "B": "Spread is 5 (25 − 20).",
+        "C": "Correct. 23 − 20 = 3.",
+        "D": "Spread is 0 (locked market)."
+      }
+    },
+    {
+      "id": "pr_mmba_072",
+      "concept": "mid_price",
+      "question": "Which quote has a mid of exactly 100?",
+      "options": [
+        "95 at 100",
+        "99 at 100",
+        "100 at 104",
+        "98 at 102"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Mid is 97.5, not 100.",
+        "B": "Mid is 99.5, not 100.",
+        "C": "Mid is 102, not 100.",
+        "D": "Correct. (98 + 102)/2 = 100."
+      }
+    },
+    {
+      "id": "pr_mmba_073",
+      "concept": "dice_fair_value",
+      "question": "On a single fair six-sided die, you make a market on the outcome. The expected value (fair price) is:",
+      "options": [
+        "3.5",
+        "3",
+        "4",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = (1+2+3+4+5+6)/6 = 21/6 = 3.5.",
+        "B": "3 understates the mean; the average of 1–6 is higher.",
+        "C": "4 overstates the mean of a single die.",
+        "D": "6 is the maximum outcome, not the expected value."
+      }
+    },
+    {
+      "id": "pr_mmba_074",
+      "concept": "dice_fair_value",
+      "question": "On the sum of two fair dice, a reasonable mid (fair value) to quote around is:",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "6 is below the expected sum.",
+        "B": "Correct. E[sum] = 2 × 3.5 = 7, the natural center for your quote.",
+        "C": "8 is above the expected sum.",
+        "D": "12 is the maximum sum, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmba_075",
+      "concept": "dice_fair_value",
+      "question": "Fair value on the two-dice sum is 7. You want a 2-wide market. The most natural quote is:",
+      "options": [
+        "5 at 7",
+        "7 at 9",
+        "6 at 8",
+        "7 at 7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This centers on 6, below fair value.",
+        "B": "This centers on 8, above fair value.",
+        "C": "Correct. Bid 6, ask 8 centers on 7 with a spread of 2.",
+        "D": "This is a locked market with zero spread."
+      }
+    },
+    {
+      "id": "pr_mmba_076",
+      "concept": "edge_estimation",
+      "question": "Fair value is 50. You buy at your bid of 48. The edge you captured on this trade is:",
+      "options": [
+        "+48",
+        "−2",
+        "0",
+        "+2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "48 is the trade price, not the edge.",
+        "B": "Buying below fair value is favorable, so the edge is positive.",
+        "C": "Trading away from fair value captures nonzero edge.",
+        "D": "Correct. You bought 2 below fair value, so your edge is +2."
+      }
+    },
+    {
+      "id": "pr_mmba_077",
+      "concept": "edge_estimation",
+      "question": "Fair value is 50. You sell at your ask of 53. The edge you captured is:",
+      "options": [
+        "+3",
+        "0",
+        "−3",
+        "+53"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You sold 3 above fair value, so your edge is +3.",
+        "B": "Trading away from fair value captures nonzero edge.",
+        "C": "Selling above fair value is favorable, so the edge is positive.",
+        "D": "53 is the trade price, not the edge."
+      }
+    },
+    {
+      "id": "pr_mmba_078",
+      "concept": "expected_value",
+      "question": "Your quote is 48 at 52 and fair value is 50. If a random counterparty is equally likely to buy or sell one unit, your expected edge per trade is:",
+      "options": [
+        "0",
+        "+2",
+        "+1",
+        "+4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Each side earns positive edge versus fair value, so the average is not zero.",
+        "B": "Correct. Buying at 48 earns +2 and selling at 52 earns +2, so the expected edge is +2 either way.",
+        "C": "Each trade earns 2 of edge (mid 50 to either 48 or 52), not 1.",
+        "D": "4 is the full spread; the per-trade edge versus fair value is half of that."
+      }
+    },
+    {
+      "id": "pr_mmba_079",
+      "concept": "spread_capture",
+      "question": "Capturing 'half the spread' on a single trade refers to earning, relative to the mid:",
+      "options": [
+        "The full bid-ask distance",
+        "Nothing",
+        "The distance from the mid to your traded price",
+        "Twice the spread"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The full spread is captured only over a complete round-trip, not one trade.",
+        "B": "A single fill does earn edge versus the mid.",
+        "C": "Correct. A single fill at the bid or ask earns the mid-to-quote distance, i.e. half the spread.",
+        "D": "You cannot earn twice the spread on one trade."
+      }
+    },
+    {
+      "id": "pr_mmba_080",
+      "concept": "inventory_basics",
+      "question": "You bought 1 at 40 (bid) and 1 at 41 (a higher bid later). Your average long price is:",
+      "options": [
+        "40",
+        "81",
+        "41",
+        "40.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "40 ignores the second fill at 41.",
+        "B": "81 is the total cost of 2 units, not the average price.",
+        "C": "41 ignores the first fill at 40.",
+        "D": "Correct. Average = (40 + 41)/2 = 40.5."
+      }
+    },
+    {
+      "id": "pr_mmba_081",
+      "concept": "pnl_marking",
+      "question": "You are long 2 units at an average of 40.5. Fair value is now 43. Your mark-to-fair profit is:",
+      "options": [
+        "+5",
+        "+2.5",
+        "+43",
+        "−5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Per-unit gain is 43 − 40.5 = 2.5, times 2 units = +5.",
+        "B": "+2.5 is the per-unit gain; you hold 2 units.",
+        "C": "43 is fair value, not your profit.",
+        "D": "You are long into a rising mark, so the P&L is positive, not negative."
+      }
+    },
+    {
+      "id": "pr_mmba_082",
+      "concept": "quote_parsing",
+      "question": "A trader says 'I'm 5 wide around 60.' Their quote is:",
+      "options": [
+        "55 at 65",
+        "57.5 at 62.5",
+        "60 at 65",
+        "58 at 62"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "55 at 65 is 10 wide, not 5.",
+        "B": "Correct. 5 wide around 60 means half-spread 2.5 each side: 57.5 at 62.5.",
+        "C": "60 at 65 is centered on 62.5, not 60.",
+        "D": "58 at 62 is 4 wide, not 5."
+      }
+    },
+    {
+      "id": "pr_mmba_083",
+      "concept": "quote_parsing",
+      "question": "A trader says 'I'm 4 wide, 50 bid.' Their ask is:",
+      "options": [
+        "46",
+        "52",
+        "54",
+        "50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "46 would be below the bid, which is crossed.",
+        "B": "52 implies a 2-wide market, not 4.",
+        "C": "Correct. Ask = bid + width = 50 + 4 = 54.",
+        "D": "50 is the bid; the ask is 4 higher."
+      }
+    },
+    {
+      "id": "pr_mmba_084",
+      "concept": "hit_vs_lift",
+      "question": "You quote 70 at 74. A seller hits you, then a buyer lifts you, each for 1 unit. Your net position and gross P&L are:",
+      "options": [
+        "Flat, 0",
+        "Long 1, 0",
+        "Short 1, +4",
+        "Flat, +4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You captured the 4-wide spread, so P&L is +4, not 0.",
+        "B": "The buyer's lift sold your unit, so you are flat, not long.",
+        "C": "The two trades offset, so you are flat, not short.",
+        "D": "Correct. You bought 1 at 70 and sold 1 at 74, leaving you flat with 74 − 70 = +4 profit."
+      }
+    },
+    {
+      "id": "pr_mmba_085",
+      "concept": "spread_width",
+      "question": "All else equal, a more volatile or uncertain product should be quoted with a spread that is:",
+      "options": [
+        "Wider",
+        "Tighter",
+        "Zero",
+        "Negative"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. More uncertainty and risk justify a wider spread to compensate the maker.",
+        "B": "Tighter spreads under-compensate for higher risk.",
+        "C": "A zero spread leaves no cushion for risk.",
+        "D": "A negative spread is a crossed, invalid quote."
+      }
+    },
+    {
+      "id": "pr_mmba_086",
+      "concept": "fair_value_vs_quote",
+      "question": "Your bid is 47 and your ask is 51, but you privately believe fair value is 49. A counterparty lifts your offer at 51. Did you trade with edge?",
+      "options": [
+        "No, you lost 2",
+        "Yes, +2 of edge",
+        "No edge, breakeven",
+        "Yes, +4 of edge"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Selling above fair value is a gain, not a loss.",
+        "B": "Correct. You sold at 51 something you value at 49, capturing +2 of edge.",
+        "C": "Trading 2 above fair value is not breakeven.",
+        "D": "+4 is the full spread; your edge versus fair value is only +2."
+      }
+    },
+    {
+      "id": "pr_mmba_087",
+      "concept": "fair_value_vs_quote",
+      "question": "Your bid is 47 and ask is 51, fair value 49. A counterparty hits your bid at 47. Your edge is:",
+      "options": [
+        "−2",
+        "0",
+        "+2",
+        "+4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buying below fair value is favorable, so the edge is positive.",
+        "B": "Trading 2 below fair value is not breakeven.",
+        "C": "Correct. You bought at 47 something worth 49, capturing +2 of edge.",
+        "D": "+4 is the full spread; your edge versus fair value is +2."
+      }
+    },
+    {
+      "id": "pr_mmba_088",
+      "concept": "skew",
+      "question": "You are short and want to buy back. Relative to a symmetric quote you should:",
+      "options": [
+        "Quote far below fair value",
+        "Shift your quote down",
+        "Widen only the offer",
+        "Shift your quote up (higher bid and ask)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Quoting far below fair value invites buyers to lift you, deepening your short.",
+        "B": "Shifting down encourages selling and discourages buying — wrong direction when short.",
+        "C": "Widening the offer alone does not actively help you buy back.",
+        "D": "Correct. Raising both prices makes your bid more attractive (more buys) and your ask less attractive (fewer sells), helping cover the short."
+      }
+    },
+    {
+      "id": "pr_mmba_089",
+      "concept": "adverse_selection",
+      "question": "You quote a tight market and a news event makes the true value jump above your ask before you update. A fast trader will:",
+      "options": [
+        "Lift your stale offer, profiting at your expense",
+        "Hit your bid",
+        "Do nothing",
+        "Improve your quote for you"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With true value above your ask, an informed trader buys (lifts) your cheap offer and you are adversely selected.",
+        "B": "Hitting the bid would mean selling to you cheaply, which no informed trader does when value has risen.",
+        "C": "A profit opportunity against a stale quote will be taken.",
+        "D": "Counterparties exploit, not repair, your stale quote."
+      }
+    },
+    {
+      "id": "pr_mmba_090",
+      "concept": "mm_role",
+      "question": "Compared to a pure directional trader, a market maker mainly aims to profit from:",
+      "options": [
+        "Large bets on price direction",
+        "Many small spread captures with controlled inventory",
+        "Holding one position for years",
+        "Avoiding all trading"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Directional bets are the opposite of the market-making style.",
+        "B": "Correct. Market makers earn from repeated spread capture while keeping inventory risk in check.",
+        "C": "Long-term holding is investing, not market making.",
+        "D": "Market makers trade frequently to earn the spread."
+      }
+    },
+    {
+      "id": "pr_mmba_091",
+      "concept": "bid_definition",
+      "question": "Your bid represents a price floor in the sense that it is the worst (lowest) price at which:",
+      "options": [
+        "Anyone can trade",
+        "You are willing to sell",
+        "You are willing to buy",
+        "The mid can fall"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Others trade at either the bid or ask, not exclusively at your bid.",
+        "B": "Selling occurs at the ask, not the bid.",
+        "C": "Correct. The bid is the price you will pay to buy; you would happily buy lower but not sell there.",
+        "D": "The bid is a quote, not a bound on the midpoint's movement."
+      }
+    },
+    {
+      "id": "pr_mmba_092",
+      "concept": "ask_definition",
+      "question": "Your ask is the lowest price at which:",
+      "options": [
+        "You are willing to buy",
+        "Fair value sits",
+        "Others must buy",
+        "You are willing to sell"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Buying happens at the bid, not the ask.",
+        "B": "Fair value is your estimate and need not equal the ask.",
+        "C": "Others may buy from you at the ask, but they are not forced to.",
+        "D": "Correct. The ask is the minimum price you will accept to sell."
+      }
+    },
+    {
+      "id": "pr_mmba_093",
+      "concept": "two_sided_format",
+      "question": "Which statement correctly expresses the quote '35 at 38'?",
+      "options": [
+        "I'll buy at 35 and sell at 38",
+        "I'll sell at 35 and buy at 38",
+        "I'll only buy at 38",
+        "My spread is 35"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bid 35 is your buy price, ask 38 is your sell price.",
+        "B": "This reverses the sides; you buy at the lower number.",
+        "C": "You buy at the bid (35), not the ask.",
+        "D": "The spread is 3 (38 − 35), not 35."
+      }
+    },
+    {
+      "id": "pr_mmba_094",
+      "concept": "quote_parsing",
+      "question": "You hear '88-90, ten up'. The 'ten up' most likely refers to:",
+      "options": [
+        "A price of 10",
+        "A size of 10 on both sides",
+        "A 10-wide spread",
+        "Fair value of 10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 here describes quantity, not a price level.",
+        "B": "Correct. 'Ten up' means the quote is good for size 10 on both the bid and the ask.",
+        "C": "The spread is 2 (90 − 88), not 10.",
+        "D": "Fair value is unrelated to the size descriptor."
+      }
+    },
+    {
+      "id": "pr_mmba_095",
+      "concept": "size_basics",
+      "question": "Your quote '88 at 90, 10 up' means you will buy up to:",
+      "options": [
+        "90 units",
+        "10 units at 90",
+        "10 units at 88",
+        "Unlimited units"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "90 is the ask price, not a quantity.",
+        "B": "Buying happens at the bid (88); 90 is your sell price.",
+        "C": "Correct. You will buy up to 10 units at your bid of 88.",
+        "D": "Your size is capped at 10, not unlimited."
+      }
+    },
+    {
+      "id": "pr_mmba_096",
+      "concept": "size_basics",
+      "question": "Your quote '88 at 90, 10 up' means you will sell up to:",
+      "options": [
+        "10 units at 88",
+        "Unlimited units",
+        "88 units",
+        "10 units at 90"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling happens at the ask (90), not the bid (88).",
+        "B": "Your size is capped at 10, not unlimited.",
+        "C": "88 is your bid price, not a quantity.",
+        "D": "Correct. You will sell up to 10 units at your ask of 90."
+      }
+    },
+    {
+      "id": "pr_mmba_097",
+      "concept": "round_trip",
+      "question": "You buy 5 at 30 and only manage to sell 3 at 33 before the session ends. With fair value still 33, your total P&L (realized + mark) is:",
+      "options": [
+        "+15",
+        "+9",
+        "+6",
+        "+21"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Realized: 3 × (33 − 30) = 9. Mark on 2 leftover longs: 2 × (33 − 30) = 6. Total 9 + 6 = 15.",
+        "B": "+9 counts only the realized 3 units, ignoring the marked profit on the remaining 2.",
+        "C": "+6 is only the mark on the leftover inventory, missing the realized portion.",
+        "D": "+21 over-counts; the spread per unit is 3 across 5 units gives 15, not 21."
+      }
+    },
+    {
+      "id": "pr_mmba_098",
+      "concept": "valid_quote",
+      "question": "A market maker should generally avoid quoting a zero-width (locked) market because:",
+      "options": [
+        "It is illegal",
+        "It leaves no spread to compensate for risk",
+        "It is always crossed",
+        "The mid cannot be computed"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Zero spread is unusual but not inherently illegal.",
+        "B": "Correct. With bid equal to ask there is no spread, so no compensation for inventory or adverse-selection risk.",
+        "C": "A locked market has bid equal to ask, which is not crossed.",
+        "D": "The mid equals the common price; it is still computable."
+      }
+    },
+    {
+      "id": "pr_mmba_099",
+      "concept": "crossed_quote",
+      "question": "If your bid (60) crosses above a resting offer (58) in the market, the immediate consequence is:",
+      "options": [
+        "You sell at 60",
+        "Nothing happens",
+        "Your bid trades against the 58 offer, so you buy at 58",
+        "The market freezes"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A bid is a buy order; you do not sell by posting a higher bid.",
+        "B": "A crossing bid is marketable and will trade, not sit idle.",
+        "C": "Correct. A marketable bid above a resting offer executes against it, so you buy at the better price of 58.",
+        "D": "Crossing causes a trade, not a freeze."
+      }
+    },
+    {
+      "id": "pr_mmba_100",
+      "concept": "mid_price",
+      "question": "The mid price is often used as a proxy for fair value because it:",
+      "options": [
+        "Is always exactly fair value",
+        "Equals the spread",
+        "Equals the ask",
+        "Sits centered between the best bid and ask"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The mid is only a proxy; true fair value can differ, especially with skew.",
+        "B": "The mid is a price level, not the spread.",
+        "C": "The mid lies below the ask, halfway to the bid.",
+        "D": "Correct. The mid is the average of the best bid and ask, a natural central estimate."
+      }
+    },
+    {
+      "id": "pr_mmba_101",
+      "concept": "bid_definition",
+      "question": "On a card game contract you post '12 bid'. The room knows you will:",
+      "options": [
+        "Pay up to 12 to buy",
+        "Sell at 12",
+        "Trade only at 12 or higher to buy",
+        "Refuse all sellers"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A 12 bid means you will buy at 12 (and would gladly buy cheaper).",
+        "B": "Selling is announced as an offer, not a bid.",
+        "C": "As a buyer you want lower prices, not higher; you buy at or below 12.",
+        "D": "A posted bid invites sellers; it does not refuse them."
+      }
+    },
+    {
+      "id": "pr_mmba_102",
+      "concept": "ask_definition",
+      "question": "On a card game contract you post '15 offer'. The room knows you will:",
+      "options": [
+        "Buy at 15",
+        "Sell at 15 (or higher)",
+        "Pay up to 15",
+        "Refuse all buyers"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Buying is announced as a bid, not an offer.",
+        "B": "Correct. A 15 offer means you will sell at 15 (and would gladly sell higher).",
+        "C": "Paying describes buying at a bid, not an offer.",
+        "D": "A posted offer invites buyers; it does not refuse them."
+      }
+    },
+    {
+      "id": "pr_mmba_103",
+      "concept": "spread_width",
+      "question": "Going from '49 at 51' to '48 at 52' around the same mid does what to the spread?",
+      "options": [
+        "Halves it",
+        "Leaves it at 2",
+        "Doubles it from 2 to 4",
+        "Makes it negative"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The spread grows, not shrinks.",
+        "B": "The new spread is 4, not 2.",
+        "C": "Correct. The spread widens from 2 (51 − 49) to 4 (52 − 48).",
+        "D": "Bid 48 stays below ask 52, so the spread is positive."
+      }
+    },
+    {
+      "id": "pr_mmba_104",
+      "concept": "hit_vs_lift",
+      "question": "If you want to sell immediately into another maker's quote of '40 at 42', you should:",
+      "options": [
+        "Post your own bid",
+        "Lift their offer at 42",
+        "Wait for the mid",
+        "Hit their bid at 40"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Posting a bid is a buy intention, not an immediate sale.",
+        "B": "Lifting the offer means buying, not selling.",
+        "C": "There is no automatic trade at the mid; you must take a side.",
+        "D": "Correct. To sell now, you hit the resting bid and receive 40."
+      }
+    },
+    {
+      "id": "pr_mmba_105",
+      "concept": "hit_vs_lift",
+      "question": "If you want to buy immediately from another maker's quote of '40 at 42', you should:",
+      "options": [
+        "Lift their offer at 42",
+        "Hit their bid at 40",
+        "Wait for the mid",
+        "Post your own offer"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. To buy now, you lift the resting offer and pay 42.",
+        "B": "Hitting the bid means selling, not buying.",
+        "C": "There is no automatic trade at the mid; you must take a side.",
+        "D": "Posting an offer is a sell intention, not an immediate purchase."
+      }
+    },
+    {
+      "id": "pr_mmba_106",
+      "concept": "expected_value",
+      "question": "A contract pays 1 if a fair coin lands heads, else 0. The fair price is 0.50. A sensible tight market is:",
+      "options": [
+        "0.40 at 0.45",
+        "0.48 at 0.52",
+        "0.55 at 0.60",
+        "0.52 at 0.48"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This market is centered well below 0.50, mispricing the coin.",
+        "B": "Correct. Bid 0.48, ask 0.52 is centered on the fair value of 0.50 with a small spread.",
+        "C": "This market is centered above 0.50, too expensive for a fair coin.",
+        "D": "Bid 0.52 above ask 0.48 is crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_107",
+      "concept": "expected_value",
+      "question": "A contract pays the value of one fair die roll (1–6). Fair value is 3.5. Quoting '3 at 4' means your edge if filled on either side is at least:",
+      "options": [
+        "0 per unit",
+        "1 per unit",
+        "0.5 per unit versus fair value",
+        "3.5 per unit"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Trading 0.5 from fair value yields nonzero edge.",
+        "B": "1 is the full spread, not the per-side edge versus fair value.",
+        "C": "Correct. Mid is 3.5; buying at 3 or selling at 4 is 0.5 away from fair value, so edge is 0.5 per unit.",
+        "D": "3.5 is fair value, not the edge."
+      }
+    },
+    {
+      "id": "pr_mmba_108",
+      "concept": "pnl_marking",
+      "question": "You are short 3 units at an average of 52. Fair value rises to 54. Your mark-to-fair P&L is:",
+      "options": [
+        "+6",
+        "+2",
+        "−2",
+        "−6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A short loses when the mark rises, so the P&L is negative.",
+        "B": "Shorts lose, not gain, when fair value rises.",
+        "C": "−2 is the per-unit loss; you hold 3 units.",
+        "D": "Correct. Short at 52 with mark 54 loses 2 per unit × 3 = −6."
+      }
+    },
+    {
+      "id": "pr_mmba_109",
+      "concept": "pnl_marking",
+      "question": "You are long 4 units at an average of 20. Fair value falls to 18. Your mark-to-fair P&L is:",
+      "options": [
+        "−8",
+        "+8",
+        "−2",
+        "+2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Long at 20 with mark 18 loses 2 per unit × 4 = −8.",
+        "B": "A long loses when the mark falls, so the P&L is negative.",
+        "C": "−2 is the per-unit loss; you hold 4 units.",
+        "D": "Longs lose, not gain, when fair value falls."
+      }
+    },
+    {
+      "id": "pr_mmba_110",
+      "concept": "skew",
+      "question": "A quote of '46 at 49' relative to a fair value of 48 is skewed to:",
+      "options": [
+        "Encourage others to sell to you (buy-skew)",
+        "Encourage others to buy from you (sell-skew)",
+        "Be perfectly symmetric",
+        "Be crossed"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A buy-skew would place the quote with more room below fair value; here the ask (49) is closer to 48 than the bid (46).",
+        "B": "Correct. The ask 49 is just 1 above fair value 48 while the bid 46 is 2 below, making the offer attractive and inviting buyers — a sell-skew that helps you sell.",
+        "C": "The distances (2 below, 1 above) are unequal, so it is not symmetric.",
+        "D": "Bid 46 is below ask 49, so it is not crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_111",
+      "concept": "quote_language",
+      "question": "'Two-sided market' means a trader is quoting:",
+      "options": [
+        "Only a buy price",
+        "Only a sell price",
+        "Both a bid and an ask simultaneously",
+        "A price for two products"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A single buy price is a one-sided bid.",
+        "B": "A single sell price is a one-sided offer.",
+        "C": "Correct. A two-sided market shows both a bid and an ask at once.",
+        "D": "It refers to two sides of one market, not two products."
+      }
+    },
+    {
+      "id": "pr_mmba_112",
+      "concept": "mm_role",
+      "question": "When a market maker is hit and lifted in roughly equal amounts at a stable fair value, their P&L is driven mainly by:",
+      "options": [
+        "The number of products listed",
+        "Pure luck on direction",
+        "The size of the mid",
+        "The spread captured across round-trips"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Profit here comes from the spread, not the count of products.",
+        "B": "With balanced flow, direction luck is not the main driver.",
+        "C": "The absolute mid level does not by itself create P&L.",
+        "D": "Correct. Balanced two-way flow at a stable value means inventory roughly cancels and profit comes from spread capture."
+      }
+    },
+    {
+      "id": "pr_mmba_113",
+      "concept": "spread_width",
+      "question": "A competitive maker who wants more flow but accepts thinner edge will tend to:",
+      "options": [
+        "Tighten the spread",
+        "Widen the spread",
+        "Cross the market",
+        "Stop quoting"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Tightening the spread makes quotes more competitive, winning more flow at lower per-trade edge.",
+        "B": "Widening reduces flow rather than attracting it.",
+        "C": "Crossing the market is an error, not a strategy for flow.",
+        "D": "Stopping quotes earns no flow at all."
+      }
+    },
+    {
+      "id": "pr_mmba_114",
+      "concept": "best_bid_offer",
+      "question": "Three makers post bids of 41, 43, 42. The best bid is:",
+      "options": [
+        "41",
+        "43",
+        "42",
+        "126"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "41 is the lowest bid, not the best.",
+        "B": "Correct. The best bid is the highest, which is 43.",
+        "C": "42 is in the middle, not the highest.",
+        "D": "126 is the sum of the bids, not a price."
+      }
+    },
+    {
+      "id": "pr_mmba_115",
+      "concept": "best_bid_offer",
+      "question": "Three makers post offers of 47, 46, 48. The best offer is:",
+      "options": [
+        "48",
+        "47",
+        "46",
+        "141"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "48 is the highest, the worst offer for buyers.",
+        "B": "47 is not the lowest offer.",
+        "C": "Correct. The best offer is the lowest, which is 46.",
+        "D": "141 is the sum of the offers, not a price."
+      }
+    },
+    {
+      "id": "pr_mmba_116",
+      "concept": "quote_parsing",
+      "question": "A quote written '99 / 101' tells you the bid is ___ and the ask is ___:",
+      "options": [
+        "101, 99",
+        "2, 100",
+        "100, 100",
+        "99, 101"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This reverses the convention; the bid is the lower, first number.",
+        "B": "2 is the spread and 100 the mid, neither of which is the bid/ask pair.",
+        "C": "100 is the mid, not the posted bid or ask.",
+        "D": "Correct. Bid 99 (first), ask 101 (second)."
+      }
+    },
+    {
+      "id": "pr_mmba_117",
+      "concept": "round_trip",
+      "question": "Fees are 0.1 per side. You buy at 50 and sell at 51 (1 unit). Net profit after fees is:",
+      "options": [
+        "0.8",
+        "0.9",
+        "1.0",
+        "1.2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Gross 1.0 minus 0.1 per side × 2 sides = 1.0 − 0.2 = 0.8.",
+        "B": "0.9 subtracts only one side's fee.",
+        "C": "1.0 is the gross spread before fees.",
+        "D": "1.2 adds fees instead of subtracting them."
+      }
+    },
+    {
+      "id": "pr_mmba_118",
+      "concept": "round_trip",
+      "question": "With fees of 0.6 per side, what is the minimum spread you must capture per round-trip just to break even?",
+      "options": [
+        "0.6",
+        "1.2",
+        "0.3",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.6 covers only one side's fee.",
+        "B": "Correct. Two sides cost 0.6 × 2 = 1.2, so you need at least 1.2 of spread to break even.",
+        "C": "0.3 is half of one side's fee, far too little.",
+        "D": "With nonzero fees, zero spread loses money."
+      }
+    },
+    {
+      "id": "pr_mmba_119",
+      "concept": "adverse_selection",
+      "question": "A practical defense against adverse selection when you fear informed flow is to:",
+      "options": [
+        "Tighten your spread aggressively",
+        "Quote a crossed market",
+        "Widen your spread and/or reduce size",
+        "Stop marking to fair value"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Tightening invites more informed pick-offs, worsening the problem.",
+        "B": "Crossing the market is an error that hands away free money.",
+        "C": "Correct. A wider spread and smaller size reduce losses to better-informed counterparties.",
+        "D": "Marking to fair value is good risk practice, not a cause of adverse selection."
+      }
+    },
+    {
+      "id": "pr_mmba_120",
+      "concept": "fair_value_vs_quote",
+      "question": "You quote 100 at 104 but realize fair value is actually 106. The danger is that counterparties will:",
+      "options": [
+        "Pay above 104",
+        "Hit your bid at 100",
+        "Ignore your quote",
+        "Lift your offer at 104 and profit"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Buyers will not pay more than your posted 104.",
+        "B": "No informed trader sells to you at 100 when value is 106.",
+        "C": "A mispriced quote attracts, rather than repels, opportunistic flow.",
+        "D": "Correct. With fair value 106, your 104 offer is too cheap; informed buyers lift it and profit by 2."
+      }
+    },
+    {
+      "id": "pr_mmba_121",
+      "concept": "fair_value_vs_quote",
+      "question": "You quote 100 at 104 but fair value is actually 96. The danger is that counterparties will:",
+      "options": [
+        "Hit your bid at 100 and profit",
+        "Lift your offer at 104",
+        "Ignore your quote",
+        "Sell below 100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With fair value 96, your 100 bid is too high; informed sellers hit it and profit by 4.",
+        "B": "No informed buyer pays 104 when value is only 96.",
+        "C": "A mispriced quote attracts opportunistic flow rather than being ignored.",
+        "D": "Sellers will not accept less than your posted 100 bid."
+      }
+    },
+    {
+      "id": "pr_mmba_122",
+      "concept": "dice_fair_value",
+      "question": "You make a market on the maximum of two fair dice. Its expected value is about 4.47. The best-centered quote among these is:",
+      "options": [
+        "3 at 5",
+        "4 at 5",
+        "5 at 6",
+        "2 at 4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Mid 4 is a bit low relative to 4.47, though not unreasonable.",
+        "B": "Correct. Mid (4+5)/2 = 4.5 is closest to the true expectation of ~4.47.",
+        "C": "Mid 5.5 is too high relative to 4.47.",
+        "D": "Mid 3 is far below the expected value."
+      }
+    },
+    {
+      "id": "pr_mmba_123",
+      "concept": "expected_value",
+      "question": "A contract pays the number of heads in 2 fair coin flips (0, 1, or 2). Fair value is:",
+      "options": [
+        "0.5",
+        "1.5",
+        "1.0",
+        "2.0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.5 understates the mean; expected heads in 2 flips is higher.",
+        "B": "1.5 overstates the expected number of heads.",
+        "C": "Correct. E = 2 × 0.5 = 1.0 head on average.",
+        "D": "2.0 is the maximum, not the average."
+      }
+    },
+    {
+      "id": "pr_mmba_124",
+      "concept": "expected_value",
+      "question": "Fair value of a contract is 1.0 (expected heads in 2 flips). You quote '0.8 at 1.2' and someone lifts your offer. Your edge versus fair value is:",
+      "options": [
+        "−0.2",
+        "0",
+        "+1.2",
+        "+0.2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling above fair value is favorable, so the edge is positive.",
+        "B": "Selling 0.2 above fair value is not breakeven.",
+        "C": "1.2 is the trade price, not the edge.",
+        "D": "Correct. You sold at 1.2 something worth 1.0, so the edge is +0.2."
+      }
+    },
+    {
+      "id": "pr_mmba_125",
+      "concept": "inventory_basics",
+      "question": "You are flat. A seller hits your bid for 2, then a buyer lifts your offer for 5. Your resulting position is:",
+      "options": [
+        "Short 3",
+        "Long 3",
+        "Long 7",
+        "Flat"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. +2 (bought) − 5 (sold) = −3, i.e. short 3.",
+        "B": "You bought 2 and sold 5, a net of −3, so you are short, not long.",
+        "C": "7 is the total volume, not the net position.",
+        "D": "The two trades do not offset to flat; net is short 3."
+      }
+    },
+    {
+      "id": "pr_mmba_126",
+      "concept": "risk_limits",
+      "question": "A position limit of long/short 10 means once you are long 10 you should:",
+      "options": [
+        "Keep raising your bid",
+        "Stop adding longs and favor selling",
+        "Cross the market",
+        "Cancel only the offer"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Raising your bid adds more longs, breaching the limit.",
+        "B": "Correct. At the long limit you should stop buying and lean on the sell side to reduce risk.",
+        "C": "Crossing the market is an error, not a risk control.",
+        "D": "Cancelling the offer removes your ability to sell down the long, the wrong side to pull."
+      }
+    },
+    {
+      "id": "pr_mmba_127",
+      "concept": "spread_width",
+      "question": "Two markets on the same product: 'A: 49 at 53' and 'B: 50 at 51'. Which is more attractive for a customer who might buy or sell?",
+      "options": [
+        "A, because it is wider",
+        "Neither differs",
+        "B, because it is tighter (better prices both ways)",
+        "A, because the mid is higher"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A wider market gives customers worse prices, not better.",
+        "B": "The two markets clearly differ in their prices.",
+        "C": "Correct. B offers a higher bid (50 > 49) and lower ask (51 < 53), better for the customer on both sides.",
+        "D": "Both have a mid of 51 and 50.5 respectively; tighter prices, not a higher mid, drive attractiveness."
+      }
+    },
+    {
+      "id": "pr_mmba_128",
+      "concept": "quote_improvement",
+      "question": "The market is '50 at 54'. You want to show the best bid by improving it. You should quote a bid of:",
+      "options": [
+        "49",
+        "50",
+        "54",
+        "51"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "49 is worse than the existing 50 bid, not an improvement.",
+        "B": "50 merely matches the current best bid; it does not improve it.",
+        "C": "54 is the ask level; bidding there would cross the market.",
+        "D": "Correct. A bid of 51 is higher than 50, so it becomes the new best bid."
+      }
+    },
+    {
+      "id": "pr_mmba_129",
+      "concept": "quote_improvement",
+      "question": "The market is '50 at 54'. You want to show the best offer by improving it. You should quote an ask of:",
+      "options": [
+        "53",
+        "54",
+        "55",
+        "50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. An ask of 53 undercuts 54, becoming the new best offer.",
+        "B": "54 merely matches the current best offer.",
+        "C": "55 is worse than the current 54 offer, not an improvement.",
+        "D": "50 is the bid level; offering there would cross the market."
+      }
+    },
+    {
+      "id": "pr_mmba_130",
+      "concept": "round_trip",
+      "question": "You scratch a trade: buy at 60 and immediately sell at 60. Ignoring fees, your P&L is:",
+      "options": [
+        "+60",
+        "0",
+        "−60",
+        "+1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "60 is the price, not a profit.",
+        "B": "Correct. Buying and selling at the same price nets zero before fees (a 'scratch').",
+        "C": "There is no loss when buy and sell prices match.",
+        "D": "No spread was captured, so there is no +1."
+      }
+    },
+    {
+      "id": "pr_mmba_131",
+      "concept": "bid_definition",
+      "question": "A higher bid is, from the perspective of a potential seller, a:",
+      "options": [
+        "Irrelevant price",
+        "Worse price",
+        "Better price",
+        "Crossed price"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The bid is exactly the price sellers care about.",
+        "B": "A higher bid pays sellers more, which is better, not worse.",
+        "C": "Correct. Sellers receive the bid, so a higher bid is a better price for them.",
+        "D": "A higher bid is not crossed unless it exceeds the ask."
+      }
+    },
+    {
+      "id": "pr_mmba_132",
+      "concept": "ask_definition",
+      "question": "A lower ask is, from the perspective of a potential buyer, a:",
+      "options": [
+        "Worse price",
+        "Crossed price",
+        "Irrelevant price",
+        "Better price"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A lower ask costs buyers less, which is better, not worse.",
+        "B": "A lower ask is not crossed unless it falls below the bid.",
+        "C": "The ask is exactly the price buyers care about.",
+        "D": "Correct. Buyers pay the ask, so a lower ask is a better price for them."
+      }
+    },
+    {
+      "id": "pr_mmba_133",
+      "concept": "mid_price",
+      "question": "If the best bid is 198 and the best offer is 202, the mid is:",
+      "options": [
+        "200",
+        "198",
+        "202",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (198 + 202)/2 = 200.",
+        "B": "198 is the bid, not the mid.",
+        "C": "202 is the offer, not the mid.",
+        "D": "4 is the spread, not a price."
+      }
+    },
+    {
+      "id": "pr_mmba_134",
+      "concept": "expected_value",
+      "question": "A spinner pays 0, 10, or 20 with equal probability. Fair value is:",
+      "options": [
+        "15",
+        "10",
+        "5",
+        "30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "15 is the average of only 10 and 20, ignoring the 0 outcome.",
+        "B": "Correct. (0 + 10 + 20)/3 = 30/3 = 10.",
+        "C": "5 understates the mean of the three equally likely payouts.",
+        "D": "30 is the sum of payouts, not the average."
+      }
+    },
+    {
+      "id": "pr_mmba_135",
+      "concept": "expected_value",
+      "question": "Fair value of the spinner is 10. You quote '8 at 13'. This quote's mid is 10.5, so it is slightly skewed to:",
+      "options": [
+        "Buy (mid above fair value)",
+        "Neither",
+        "Sell (mid above fair value)",
+        "Crossed"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A buy-skew would sit the mid below fair value to invite sellers; here the mid is above fair value.",
+        "B": "The mid (10.5) differs from fair value (10), so there is a skew.",
+        "C": "Correct. Mid 10.5 above fair value 10 means your prices lean rich, gently encouraging others to buy from you (sell-skew).",
+        "D": "Bid 8 is below ask 13, so it is not crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_136",
+      "concept": "hit_vs_lift",
+      "question": "In one round you are hit for 3 at your bid of 25 and lifted for 1 at your ask of 28. Net position and realized spread P&L on the matched unit:",
+      "options": [
+        "Flat; +3",
+        "Short 2; +3",
+        "Long 4; 0",
+        "Long 2; +3 on the 1 matched unit"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You are not flat; net is long 2.",
+        "B": "You bought more than you sold, so you are long, not short.",
+        "C": "Net position is +3 − 1 = long 2, not long 4, and there is +3 realized.",
+        "D": "Correct. Bought 3, sold 1 → long 2. One unit round-tripped 25→28 for +3 of spread."
+      }
+    },
+    {
+      "id": "pr_mmba_137",
+      "concept": "pnl_marking",
+      "question": "Continuing: you are long 2 at 25 average and fair value is 26.5. Total P&L (realized +3, plus mark) is:",
+      "options": [
+        "+6",
+        "+3",
+        "+1.5",
+        "+26.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mark = 2 × (26.5 − 25) = 3, plus realized 3 = +6 total.",
+        "B": "+3 counts only the realized spread, ignoring the mark on the 2 longs.",
+        "C": "+1.5 is the per-unit mark; you hold 2 units and also have realized P&L.",
+        "D": "26.5 is fair value, not your P&L."
+      }
+    },
+    {
+      "id": "pr_mmba_138",
+      "concept": "spread_width",
+      "question": "If competitors quote 2 wide and you quote 6 wide on the same product, you will likely:",
+      "options": [
+        "Win most of the flow",
+        "Lose most of the flow to tighter competitors",
+        "Capture more total profit for sure",
+        "Be crossed"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Wider quotes are less attractive, so you would not win most flow.",
+        "B": "Correct. Customers prefer the tighter 2-wide quotes, so you lose flow with a 6-wide market.",
+        "C": "Wider per-trade edge does not guarantee more total profit if you rarely trade.",
+        "D": "A 6-wide quote is valid (bid below ask), not crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_139",
+      "concept": "quote_language",
+      "question": "'Lift' and 'take' are usually synonyms meaning to:",
+      "options": [
+        "Cancel a quote",
+        "Sell at the bid",
+        "Buy at the offer",
+        "Improve the bid"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Lifting is an execution, not a cancellation.",
+        "B": "Selling at the bid is 'hitting', not lifting.",
+        "C": "Correct. To lift or take the offer is to buy at the ask.",
+        "D": "Lifting trades on the ask; it does not adjust the bid."
+      }
+    },
+    {
+      "id": "pr_mmba_140",
+      "concept": "quote_language",
+      "question": "'Hit' and 'sell' (at the bid) describe the action of someone who is a:",
+      "options": [
+        "Buyer",
+        "Quote improver",
+        "Bystander",
+        "Seller"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A buyer lifts the offer rather than hitting the bid.",
+        "B": "Improving a quote is posting, not hitting.",
+        "C": "A bystander does not trade.",
+        "D": "Correct. Hitting the bid is what a seller does."
+      }
+    },
+    {
+      "id": "pr_mmba_141",
+      "concept": "valid_quote",
+      "question": "Which of these is the only NON-crossed quote?",
+      "options": [
+        "7 at 11",
+        "20 at 15",
+        "12 at 9",
+        "30 at 25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bid 7 below ask 11 is a valid quote.",
+        "B": "Bid 20 above ask 15 is crossed.",
+        "C": "Bid 12 above ask 9 is crossed.",
+        "D": "Bid 30 above ask 25 is crossed."
+      }
+    },
+    {
+      "id": "pr_mmba_142",
+      "concept": "mid_price",
+      "question": "Your fair value estimate is 64.5. To quote symmetrically 3 wide you would post:",
+      "options": [
+        "62.5 at 65.5",
+        "63 at 66",
+        "64.5 at 67.5",
+        "61.5 at 64.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Mid of 62.5 at 65.5 is 64, not 64.5.",
+        "B": "Correct. Half-spread is 1.5, so bid = 64.5 − 1.5 = 63 and ask = 64.5 + 1.5 = 66, giving mid 64.5 and spread 3.",
+        "C": "Mid of 64.5 at 67.5 is 66, not your fair value of 64.5.",
+        "D": "Mid of 61.5 at 64.5 is 63, not 64.5."
+      }
+    },
+    {
+      "id": "pr_mmba_143",
+      "concept": "round_trip",
+      "question": "You complete 12 round-trips, each capturing the 2-wide spread, but pay total fees of 9. Net profit is:",
+      "options": [
+        "24",
+        "9",
+        "15",
+        "33"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "24 is the gross profit (12 × 2) before fees.",
+        "B": "9 is the fee total, not the net profit.",
+        "C": "Correct. Gross 12 × 2 = 24, minus 9 fees = 15.",
+        "D": "33 adds fees instead of subtracting them."
+      }
+    },
+    {
+      "id": "pr_mmba_144",
+      "concept": "adverse_selection",
+      "question": "If nearly everyone who trades with you turns out to be on the profitable side, you are most likely:",
+      "options": [
+        "Not trading at all",
+        "Quoting too wide",
+        "Earning the spread cleanly",
+        "Quoting too tight and getting picked off"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You clearly are trading, just unprofitably.",
+        "B": "Too-wide quotes would reduce, not increase, your losses to informed flow.",
+        "C": "Clean spread capture implies balanced outcomes, not one-sided losses.",
+        "D": "Correct. Consistently being on the losing side signals your quotes are stale or too tight and informed traders are picking you off."
+      }
+    },
+    {
+      "id": "pr_mmba_145",
+      "concept": "fair_value_vs_quote",
+      "question": "Your edge per trade is the distance between the trade price and fair value, signed in your favor. Selling at 55 with fair value 50 gives edge:",
+      "options": [
+        "+5",
+        "−5",
+        "0",
+        "+105"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Selling 5 above fair value is +5 of edge in your favor.",
+        "B": "Selling above fair value is a gain, so the sign is positive.",
+        "C": "Trading 5 away from fair value is not zero edge.",
+        "D": "105 is the sum of the two numbers, not the edge."
+      }
+    },
+    {
+      "id": "pr_mmba_146",
+      "concept": "expected_value",
+      "question": "A bag has 3 red and 1 blue chip; red pays 4 and blue pays 0. Fair value of a random draw is:",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2 would be the mean if red and blue were equally likely, but red is 3× as likely.",
+        "B": "Correct. E = (3/4)(4) + (1/4)(0) = 3.",
+        "C": "1 understates the heavy weight on the paying red chips.",
+        "D": "4 is the red payout, not the probability-weighted average."
+      }
+    },
+    {
+      "id": "pr_mmba_147",
+      "concept": "expected_value",
+      "question": "Fair value of the chip draw is 3. You quote '2 at 4' and a counterparty hits your bid. Your edge is:",
+      "options": [
+        "−1",
+        "0",
+        "+1",
+        "+2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buying below fair value is favorable, so the edge is positive.",
+        "B": "Trading 1 away from fair value is not breakeven.",
+        "C": "Correct. You bought at 2 something worth 3, so the edge is +1.",
+        "D": "+2 would be buying 2 below fair value; here the gap is 1."
+      }
+    },
+    {
+      "id": "pr_mmba_148",
+      "concept": "skew",
+      "question": "You are heavily long near your risk limit. The safest quoting adjustment is to:",
+      "options": [
+        "Cross the market to exit",
+        "Raise your bid",
+        "Tighten symmetrically",
+        "Lower your offer and lower (or pull) your bid"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Deliberately crossing the market gives away money rather than managing risk.",
+        "B": "Raising the bid invites even more buys, worsening the long.",
+        "C": "Symmetric tightening does not specifically reduce the long.",
+        "D": "Correct. A cheaper offer helps you sell down the long while a lower or pulled bid stops adding to it."
+      }
+    },
+    {
+      "id": "pr_mmba_149",
+      "concept": "best_bid_offer",
+      "question": "The inside market is 40 (bid) at 42 (offer). A new maker posts '41 at 43'. The new best bid and offer are:",
+      "options": [
+        "41 at 42",
+        "40 at 43",
+        "41 at 43",
+        "40 at 42"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The new 41 bid beats 40, but the old 42 offer beats the new 43, so inside is 41 at 42.",
+        "B": "40 is no longer the best bid (41 is higher), and 43 is not the best offer.",
+        "C": "43 is worse than the existing 42 offer, so it is not the best offer.",
+        "D": "40 is no longer the best bid after the 41 bid appears."
+      }
+    },
+    {
+      "id": "pr_mmba_150",
+      "concept": "spread_width",
+      "question": "A spread quoted in 'ticks' where one tick is 0.25: a quote '20.00 at 20.50' is how many ticks wide?",
+      "options": [
+        "1",
+        "2",
+        "0.5",
+        "0.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1 tick is 0.25; the spread here is larger.",
+        "B": "Correct. Spread = 0.50, and 0.50 / 0.25 = 2 ticks.",
+        "C": "0.5 is the spread in price, not in ticks.",
+        "D": "0.50 is the price spread, not the count of ticks."
+      }
+    },
+    {
+      "id": "pr_mmba_151",
+      "concept": "round_trip",
+      "question": "You buy at 30 and the best you can sell later is 29 (you must exit). Your P&L per unit is:",
+      "options": [
+        "+1",
+        "0",
+        "−1",
+        "−59"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Selling below your buy price is a loss, not a gain.",
+        "B": "Buying at 30 and selling at 29 is not breakeven.",
+        "C": "Correct. 29 − 30 = −1 per unit.",
+        "D": "−59 is the negative sum of prices, not the P&L."
+      }
+    },
+    {
+      "id": "pr_mmba_152",
+      "concept": "mm_role",
+      "question": "A key reason exchanges value market makers is that makers:",
+      "options": [
+        "Remove liquidity",
+        "Eliminate all risk for traders",
+        "Guarantee prices never move",
+        "Provide continuous two-sided liquidity so others can trade"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Makers add liquidity by posting quotes, not remove it.",
+        "B": "Trading still carries risk; makers reduce friction, not all risk.",
+        "C": "Makers cannot stop prices from moving.",
+        "D": "Correct. Continuous two-sided quotes let participants trade promptly and narrow effective costs."
+      }
+    },
+    {
+      "id": "pr_mmba_153",
+      "concept": "quote_parsing",
+      "question": "You hear 'I'm 5 bid, at 8.' The implied spread is:",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bid 5, ask 8, so spread = 8 − 5 = 3.",
+        "B": "5 is the bid, not the spread.",
+        "C": "8 is the ask, not the spread.",
+        "D": "13 is the sum of bid and ask, not the spread."
+      }
+    },
+    {
+      "id": "pr_mmba_154",
+      "concept": "bid_definition",
+      "question": "If you are 'bidding aggressively', you are:",
+      "options": [
+        "Posting a low ask",
+        "Posting a high bid to win buys",
+        "Refusing to trade",
+        "Selling into the market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Posting a low ask is aggressive offering, not bidding.",
+        "B": "Correct. Aggressive bidding means posting a high buy price to attract sellers and win fills.",
+        "C": "Aggressive bidding is active trading, not refusal.",
+        "D": "Bidding is buying intent, not selling."
+      }
+    },
+    {
+      "id": "pr_mmba_155",
+      "concept": "ask_definition",
+      "question": "If you are 'offering aggressively', you are:",
+      "options": [
+        "Posting a high bid",
+        "Refusing to trade",
+        "Posting a low ask to win sells",
+        "Buying into the market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Posting a high bid is aggressive bidding, not offering.",
+        "B": "Aggressive offering is active trading, not refusal.",
+        "C": "Correct. Aggressive offering means posting a low sell price to attract buyers.",
+        "D": "Offering is selling intent, not buying."
+      }
+    },
+    {
+      "id": "pr_mmba_156",
+      "concept": "expected_value",
+      "question": "A contract pays 100 with probability 0.2 and 0 otherwise. Fair value is:",
+      "options": [
+        "50",
+        "0.2",
+        "100",
+        "20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50 ignores the 0.2 probability weighting.",
+        "B": "0.2 is the probability, not the price.",
+        "C": "100 is the payout if it hits, not the expected value.",
+        "D": "Correct. E = 0.2 × 100 = 20."
+      }
+    },
+    {
+      "id": "pr_mmba_157",
+      "concept": "expected_value",
+      "question": "Fair value of the binary contract is 20. A novice quotes '30 at 35'. The danger is:",
+      "options": [
+        "Their whole market is above fair value; informed traders will hit the 30 bid and profit",
+        "Their market is too cheap",
+        "They will win the spread cleanly",
+        "Nothing is wrong"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With fair value 20, even the 30 bid is far too high, so informed sellers hit it and profit by ~10.",
+        "B": "The quote is too expensive (above fair value), not too cheap.",
+        "C": "A badly mispriced market loses to informed flow rather than capturing edge.",
+        "D": "Quoting an entire market above fair value is a serious pricing error."
+      }
+    },
+    {
+      "id": "pr_mmba_158",
+      "concept": "spread_capture",
+      "question": "Across many balanced trades at a stable fair value, your average profit per trade tends toward:",
+      "options": [
+        "The full spread",
+        "Half the spread",
+        "Zero",
+        "The mid price"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The full spread is earned only on a completed round-trip, not per single trade.",
+        "B": "Correct. Each fill earns roughly the mid-to-quote distance, i.e. half the spread, on average.",
+        "C": "With genuine spread capture the per-trade average is positive, not zero.",
+        "D": "The mid is a price level, not a per-trade profit."
+      }
+    },
+    {
+      "id": "pr_mmba_159",
+      "concept": "risk_limits",
+      "question": "Why do market makers cap their position size even when each trade looks profitable?",
+      "options": [
+        "To avoid earning the spread",
+        "Because large positions are illegal",
+        "To limit losses if fair value moves against accumulated inventory",
+        "Because the mid would change"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Limits manage risk without preventing spread capture.",
+        "B": "Position limits are risk policy, not a legal prohibition on size.",
+        "C": "Correct. Large one-sided inventory exposes the maker to big losses if the value moves against it, so limits cap that risk.",
+        "D": "The maker's position size does not by itself set the market mid."
+      }
+    },
+    {
+      "id": "pr_mmba_160",
+      "concept": "fair_value_vs_quote",
+      "question": "Interview move: asked to 'make a market' on the number of countries in Africa (true ~54), a strong answer is a confident two-sided quote like:",
+      "options": [
+        "A single number, 54",
+        "Refusing to quote",
+        "'58 at 50' to look bold",
+        "'50 at 58' — a reasonable spread around your estimate"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Making a market requires two sides (a bid and an ask), not a single point estimate.",
+        "B": "Refusing defeats the purpose; the exercise tests your willingness to quote two-sided.",
+        "C": "58 at 50 is crossed and signals confusion about bid/ask direction.",
+        "D": "Correct. A tight-but-safe two-sided quote like 50 at 58 centers near your estimate and shows you understand spread versus uncertainty."
+      }
+    },
+    {
+      "id": "pr_mmba_161",
+      "concept": "fair_value_vs_quote",
+      "question": "In a make-a-market game, the interviewer then says 'I'll sell you a lot at your bid.' This usually signals:",
+      "options": [
+        "Your bid may be too high relative to true value",
+        "Your ask is too low",
+        "You should raise your bid",
+        "Nothing — keep your bid"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Eager selling into your bid hints the true value is below it, so you should reconsider (likely lower) your bid.",
+        "B": "The pressure is on the bid side (they are selling), not the ask.",
+        "C": "Raising your bid when sellers are eager increases your adverse-selection risk.",
+        "D": "Strong one-sided selling is information you should act on, not ignore."
+      }
+    },
+    {
+      "id": "pr_mmba_162",
+      "concept": "skew",
+      "question": "After being repeatedly hit on your bid (accumulating a long), a disciplined response is to:",
+      "options": [
+        "Keep the same quote",
+        "Lower your bid (and offer) to slow buys and invite sells",
+        "Raise your bid to buy more",
+        "Pull only your offer"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Holding the same quote ignores growing inventory risk.",
+        "B": "Correct. Shifting your quote down discourages further buys and makes your offer more attractive to offload the long.",
+        "C": "Raising the bid buys even more, increasing the long.",
+        "D": "Pulling the offer removes your ability to sell off the long — the wrong side to remove."
+      }
+    },
+    {
+      "id": "pr_mmba_163",
+      "concept": "expected_value",
+      "question": "You make a market on a fair die where you PAY the roll. From your seat (you receive the contract for your bid and owe the roll), the breakeven bid is:",
+      "options": [
+        "4",
+        "3",
+        "3.5",
+        "7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4 is above the expected value of 3.5.",
+        "B": "3 is below the expected value, leaving edge unclaimed for breakeven analysis.",
+        "C": "Correct. The expected roll is 3.5, so paying 3.5 to receive a payout of the roll is breakeven.",
+        "D": "7 is the two-dice expectation, not a single die."
+      }
+    },
+    {
+      "id": "pr_mmba_164",
+      "concept": "round_trip",
+      "question": "You buy 2 at 10, buy 2 more at 12, then sell all 4 at 13. Total gross P&L is:",
+      "options": [
+        "+4",
+        "+6",
+        "+12",
+        "+8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "+4 under-counts; the correct difference is 52 − 44 = 8.",
+        "B": "+6 would result from a different average cost; here total cost is 44.",
+        "C": "+12 over-counts the spread on the cheaper lot.",
+        "D": "Correct. Cost = 2×10 + 2×12 = 44; proceeds = 4×13 = 52; P&L = 52 − 44 = +8."
+      }
+    },
+    {
+      "id": "pr_mmba_165",
+      "concept": "fair_value_vs_quote",
+      "question": "Top-tier interview instinct: when uncertain about fair value, the relationship between your spread width and your uncertainty should be:",
+      "options": [
+        "Wider spread when more uncertain",
+        "Tighter spread when more uncertain",
+        "Spread unrelated to uncertainty",
+        "Always quote zero spread"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Greater uncertainty warrants a wider spread to protect against being picked off and to compensate for risk.",
+        "B": "Tightening when uncertain increases your exposure to adverse selection.",
+        "C": "Spread should scale with uncertainty, so they are clearly related.",
+        "D": "A zero spread offers no protection and is rarely advisable."
+      }
+    }
+  ]
+}

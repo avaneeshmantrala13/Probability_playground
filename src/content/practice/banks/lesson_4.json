@@ -1,0 +1,3157 @@
+{
+  "lessonId": "lesson_4",
+  "track": "quant",
+  "title": "Random Variables & Expectation",
+  "questions": [
+    {
+      "id": "pr_l4_001",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=1)=0.2, P(X=2)=0.3, P(X=3)=0.5. What is E[X]?",
+      "options": [
+        "2.3",
+        "2",
+        "3",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 1·0.2 + 2·0.3 + 3·0.5 = 2.3.",
+        "B": "This is the plain average of the values, ignoring the probability weights.",
+        "C": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_002",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=0)=0.5, P(X=5)=0.3, P(X=10)=0.2. What is E[X]?",
+      "options": [
+        "5",
+        "3.5",
+        "0",
+        "15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 0·0.5 + 5·0.3 + 10·0.2 = 3.5.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "C": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_003",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=2)=0.25, P(X=4)=0.25, P(X=6)=0.5. What is E[X]?",
+      "options": [
+        "4",
+        "6",
+        "4.5",
+        "12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 2·0.25 + 4·0.25 + 6·0.5 = 4.5.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "B": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_004",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=1)=0.1, P(X=3)=0.6, P(X=5)=0.3. What is E[X]?",
+      "options": [
+        "3",
+        "9",
+        "5",
+        "3.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 1·0.1 + 3·0.6 + 5·0.3 = 3.4.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "B": "This sums the values without weighting each by its probability.",
+        "C": "This is just the largest possible value of X, not its expectation."
+      }
+    },
+    {
+      "id": "pr_l4_005",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=10)=0.4, P(X=20)=0.4, P(X=30)=0.2. What is E[X]?",
+      "options": [
+        "18",
+        "20",
+        "10",
+        "60"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 10·0.4 + 20·0.4 + 30·0.2 = 18.",
+        "B": "This is the plain average of the values, ignoring the probability weights.",
+        "C": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_006",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=0)=0.3, P(X=1)=0.4, P(X=2)=0.3. What is E[X]?",
+      "options": [
+        "3",
+        "1",
+        "2",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 0·0.3 + 1·0.4 + 2·0.3 = 1.",
+        "A": "This sums the values without weighting each by its probability.",
+        "C": "This is just the largest possible value of X, not its expectation.",
+        "D": "This is just the smallest possible value of X, not its expectation."
+      }
+    },
+    {
+      "id": "pr_l4_007",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=5)=0.5, P(X=10)=0.25, P(X=15)=0.25. What is E[X]?",
+      "options": [
+        "10",
+        "5",
+        "8.75",
+        "30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 5·0.5 + 10·0.25 + 15·0.25 = 8.75.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "B": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_008",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=1)=0.2, P(X=2)=0.5, P(X=4)=0.3. What is E[X]?",
+      "options": [
+        "2.333333",
+        "2",
+        "7",
+        "2.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 1·0.2 + 2·0.5 + 4·0.3 = 2.4.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "B": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "C": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_009",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=2)=0.6, P(X=3)=0.1, P(X=7)=0.3. What is E[X]?",
+      "options": [
+        "3.6",
+        "4",
+        "2",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 2·0.6 + 3·0.1 + 7·0.3 = 3.6.",
+        "B": "This is the plain average of the values, ignoring the probability weights.",
+        "C": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_010",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=0)=0.15, P(X=2)=0.35, P(X=4)=0.5. What is E[X]?",
+      "options": [
+        "2",
+        "2.7",
+        "4",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 0·0.15 + 2·0.35 + 4·0.5 = 2.7.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "C": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_011",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=1)=0.2, P(X=4)=0.3, P(X=9)=0.5. What is E[X]?",
+      "options": [
+        "4.666667",
+        "9",
+        "5.9",
+        "14"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 1·0.2 + 4·0.3 + 9·0.5 = 5.9.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "B": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_012",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=3)=0.5, P(X=6)=0.3, P(X=9)=0.2. What is E[X]?",
+      "options": [
+        "6",
+        "3",
+        "18",
+        "5.1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 3·0.5 + 6·0.3 + 9·0.2 = 5.1.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "B": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "C": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_013",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=10)=0.25, P(X=15)=0.25, P(X=25)=0.5. What is E[X]?",
+      "options": [
+        "18.75",
+        "16.666667",
+        "25",
+        "50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 10·0.25 + 15·0.25 + 25·0.5 = 18.75.",
+        "B": "This is the plain average of the values, ignoring the probability weights.",
+        "C": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_014",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=0)=0.1, P(X=10)=0.6, P(X=20)=0.3. What is E[X]?",
+      "options": [
+        "10",
+        "12",
+        "30",
+        "20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 0·0.1 + 10·0.6 + 20·0.3 = 12.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "C": "This sums the values without weighting each by its probability.",
+        "D": "This is just the largest possible value of X, not its expectation."
+      }
+    },
+    {
+      "id": "pr_l4_015",
+      "concept": "expected_value_compute",
+      "question": "A random variable X has P(X=2)=0.4, P(X=5)=0.4, P(X=8)=0.2. What is E[X]?",
+      "options": [
+        "5",
+        "2",
+        "4.4",
+        "15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 2·0.4 + 5·0.4 + 8·0.2 = 4.4.",
+        "A": "This is the plain average of the values, ignoring the probability weights.",
+        "B": "This is the most likely value (the mode), not the probability-weighted mean.",
+        "D": "This sums the values without weighting each by its probability."
+      }
+    },
+    {
+      "id": "pr_l4_016",
+      "concept": "expected_value_compute",
+      "question": "X equals 10 with probability 0.5 and 20 with probability 0.5. What is E[X]?",
+      "options": [
+        "10",
+        "20",
+        "30",
+        "15"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 10·0.5 + 20·0.5 = 15.",
+        "A": "This is just one possible value of X (10), not the weighted average.",
+        "B": "This is just the other possible value of X (20), not the weighted average.",
+        "C": "This adds the two values without weighting by their probabilities."
+      }
+    },
+    {
+      "id": "pr_l4_017",
+      "concept": "expected_value_compute",
+      "question": "X equals 0 with probability 0.7 and 100 with probability 0.3. What is E[X]?",
+      "options": [
+        "30",
+        "50",
+        "0",
+        "100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 0·0.7 + 100·0.3 = 30.",
+        "B": "This is the midpoint (0+100)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "C": "This is just one possible value of X (0), not the weighted average.",
+        "D": "This is just the other possible value of X (100), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_018",
+      "concept": "expected_value_compute",
+      "question": "X equals 5 with probability 0.4 and 15 with probability 0.6. What is E[X]?",
+      "options": [
+        "10",
+        "11",
+        "5",
+        "15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 5·0.4 + 15·0.6 = 11.",
+        "A": "This is the midpoint (5+15)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "C": "This is just one possible value of X (5), not the weighted average.",
+        "D": "This is just the other possible value of X (15), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_019",
+      "concept": "expected_value_compute",
+      "question": "X equals 2 with probability 0.25 and 8 with probability 0.75. What is E[X]?",
+      "options": [
+        "5",
+        "2",
+        "6.5",
+        "8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 2·0.25 + 8·0.75 = 6.5.",
+        "A": "This is the midpoint (2+8)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "B": "This is just one possible value of X (2), not the weighted average.",
+        "D": "This is just the other possible value of X (8), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_020",
+      "concept": "expected_value_compute",
+      "question": "X equals 10 with probability 0.6 and 40 with probability 0.4. What is E[X]?",
+      "options": [
+        "25",
+        "10",
+        "40",
+        "22"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 10·0.6 + 40·0.4 = 22.",
+        "A": "This is the midpoint (10+40)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "B": "This is just one possible value of X (10), not the weighted average.",
+        "C": "This is just the other possible value of X (40), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_021",
+      "concept": "expected_value_compute",
+      "question": "X equals 0 with probability 0.8 and 50 with probability 0.2. What is E[X]?",
+      "options": [
+        "10",
+        "25",
+        "0",
+        "50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 0·0.8 + 50·0.2 = 10.",
+        "B": "This is the midpoint (0+50)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "C": "This is just one possible value of X (0), not the weighted average.",
+        "D": "This is just the other possible value of X (50), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_022",
+      "concept": "expected_value_compute",
+      "question": "X equals 3 with probability 0.3 and 9 with probability 0.7. What is E[X]?",
+      "options": [
+        "6",
+        "7.2",
+        "3",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 3·0.3 + 9·0.7 = 7.2.",
+        "A": "This is the midpoint (3+9)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "C": "This is just one possible value of X (3), not the weighted average.",
+        "D": "This is just the other possible value of X (9), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_023",
+      "concept": "expected_value_compute",
+      "question": "X equals 20 with probability 0.2 and 30 with probability 0.8. What is E[X]?",
+      "options": [
+        "25",
+        "20",
+        "28",
+        "30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 20·0.2 + 30·0.8 = 28.",
+        "A": "This is the midpoint (20+30)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "B": "This is just one possible value of X (20), not the weighted average.",
+        "D": "This is just the other possible value of X (30), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_024",
+      "concept": "expected_value_compute",
+      "question": "X equals 1 with probability 0.75 and 7 with probability 0.25. What is E[X]?",
+      "options": [
+        "4",
+        "1",
+        "7",
+        "2.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 1·0.75 + 7·0.25 = 2.5.",
+        "A": "This is the midpoint (1+7)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "B": "This is just one possible value of X (1), not the weighted average.",
+        "C": "This is just the other possible value of X (7), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_025",
+      "concept": "expected_value_compute",
+      "question": "X equals 4 with probability 0.5 and 16 with probability 0.5. What is E[X]?",
+      "options": [
+        "10",
+        "4",
+        "16",
+        "20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 4·0.5 + 16·0.5 = 10.",
+        "B": "This is just one possible value of X (4), not the weighted average.",
+        "C": "This is just the other possible value of X (16), not the weighted average.",
+        "D": "This adds the two values without weighting by their probabilities."
+      }
+    },
+    {
+      "id": "pr_l4_026",
+      "concept": "expected_value_compute",
+      "question": "X equals 0 with probability 0.9 and 10 with probability 0.1. What is E[X]?",
+      "options": [
+        "5",
+        "1",
+        "0",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 0·0.9 + 10·0.1 = 1.",
+        "A": "This is the midpoint (0+10)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "C": "This is just one possible value of X (0), not the weighted average.",
+        "D": "This is just the other possible value of X (10), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_027",
+      "concept": "expected_value_compute",
+      "question": "X equals 6 with probability 0.6 and 18 with probability 0.4. What is E[X]?",
+      "options": [
+        "12",
+        "6",
+        "10.8",
+        "18"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 6·0.6 + 18·0.4 = 10.8.",
+        "A": "This is the midpoint (6+18)/2, which only equals E[X] when the two probabilities are both 0.5.",
+        "B": "This is just one possible value of X (6), not the weighted average.",
+        "D": "This is just the other possible value of X (18), not the weighted average."
+      }
+    },
+    {
+      "id": "pr_l4_028",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 4, what is E[3X − 2]?",
+      "options": [
+        "12",
+        "2",
+        "6",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[3X − 2] = 3·E[X] − 2 = 3·4 − 2 = 10.",
+        "A": "This computes 3·E[X] but forgets the constant term (− 2).",
+        "B": "This applies the constant (− 2) but forgets to scale E[X] by the factor 3.",
+        "C": "This applies the constant before multiplying by 3; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_029",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 7, what is E[-2X + 5]?",
+      "options": [
+        "-9",
+        "-14",
+        "12",
+        "-24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[-2X + 5] = -2·E[X] + 5 = -2·7 + 5 = -9.",
+        "B": "This computes -2·E[X] but forgets the constant term (+ 5).",
+        "C": "This applies the constant (+ 5) but forgets to scale E[X] by the factor -2.",
+        "D": "This applies the constant before multiplying by -2; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_030",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 6, what is E[2X + 3]?",
+      "options": [
+        "12",
+        "15",
+        "9",
+        "18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[2X + 3] = 2·E[X] + 3 = 2·6 + 3 = 15.",
+        "A": "This computes 2·E[X] but forgets the constant term (+ 3).",
+        "C": "This applies the constant (+ 3) but forgets to scale E[X] by the factor 2.",
+        "D": "This applies the constant before multiplying by 2; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_031",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 4, what is E[5X + 1]?",
+      "options": [
+        "20",
+        "5",
+        "21",
+        "25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[5X + 1] = 5·E[X] + 1 = 5·4 + 1 = 21.",
+        "A": "This computes 5·E[X] but forgets the constant term (+ 1).",
+        "B": "This applies the constant (+ 1) but forgets to scale E[X] by the factor 5.",
+        "D": "This applies the constant before multiplying by 5; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_032",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 2, what is E[4X + 1]?",
+      "options": [
+        "8",
+        "3",
+        "12",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[4X + 1] = 4·E[X] + 1 = 4·2 + 1 = 9.",
+        "A": "This computes 4·E[X] but forgets the constant term (+ 1).",
+        "B": "This applies the constant (+ 1) but forgets to scale E[X] by the factor 4.",
+        "C": "This applies the constant before multiplying by 4; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_033",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 3, what is E[-1X + 6]?",
+      "options": [
+        "3",
+        "-3",
+        "9",
+        "-9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[-1X + 6] = -1·E[X] + 6 = -1·3 + 6 = 3.",
+        "B": "This computes -1·E[X] but forgets the constant term (+ 6).",
+        "C": "This applies the constant (+ 6) but forgets to scale E[X] by the factor -1.",
+        "D": "This applies the constant before multiplying by -1; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_034",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 10, what is E[3X + 7]?",
+      "options": [
+        "30",
+        "37",
+        "17",
+        "51"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[3X + 7] = 3·E[X] + 7 = 3·10 + 7 = 37.",
+        "A": "This computes 3·E[X] but forgets the constant term (+ 7).",
+        "C": "This applies the constant (+ 7) but forgets to scale E[X] by the factor 3.",
+        "D": "This applies the constant before multiplying by 3; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_035",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 8, what is E[2X − 5]?",
+      "options": [
+        "16",
+        "3",
+        "11",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[2X − 5] = 2·E[X] − 5 = 2·8 − 5 = 11.",
+        "A": "This computes 2·E[X] but forgets the constant term (− 5).",
+        "B": "This applies the constant (− 5) but forgets to scale E[X] by the factor 2.",
+        "D": "This applies the constant before multiplying by 2; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_036",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 5, what is E[6X + 2]?",
+      "options": [
+        "30",
+        "7",
+        "42",
+        "32"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[6X + 2] = 6·E[X] + 2 = 6·5 + 2 = 32.",
+        "A": "This computes 6·E[X] but forgets the constant term (+ 2).",
+        "B": "This applies the constant (+ 2) but forgets to scale E[X] by the factor 6.",
+        "C": "This applies the constant before multiplying by 6; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_037",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 9, what is E[-3X + 4]?",
+      "options": [
+        "-23",
+        "-27",
+        "13",
+        "-39"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[-3X + 4] = -3·E[X] + 4 = -3·9 + 4 = -23.",
+        "B": "This computes -3·E[X] but forgets the constant term (+ 4).",
+        "C": "This applies the constant (+ 4) but forgets to scale E[X] by the factor -3.",
+        "D": "This applies the constant before multiplying by -3; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_038",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 12, what is E[2X + 10]?",
+      "options": [
+        "24",
+        "34",
+        "22",
+        "44"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[2X + 10] = 2·E[X] + 10 = 2·12 + 10 = 34.",
+        "A": "This computes 2·E[X] but forgets the constant term (+ 10).",
+        "C": "This applies the constant (+ 10) but forgets to scale E[X] by the factor 2.",
+        "D": "This applies the constant before multiplying by 2; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_039",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 7, what is E[4X − 3]?",
+      "options": [
+        "28",
+        "4",
+        "25",
+        "16"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[4X − 3] = 4·E[X] − 3 = 4·7 − 3 = 25.",
+        "A": "This computes 4·E[X] but forgets the constant term (− 3).",
+        "B": "This applies the constant (− 3) but forgets to scale E[X] by the factor 4.",
+        "D": "This applies the constant before multiplying by 4; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_040",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 1, what is E[5X + 5]?",
+      "options": [
+        "5",
+        "6",
+        "30",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[5X + 5] = 5·E[X] + 5 = 5·1 + 5 = 10.",
+        "A": "This computes 5·E[X] but forgets the constant term (+ 5).",
+        "B": "This applies the constant (+ 5) but forgets to scale E[X] by the factor 5.",
+        "C": "This applies the constant before multiplying by 5; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_041",
+      "concept": "linearity_scaling",
+      "question": "If E[X] = 6, what is E[-2X − 1]?",
+      "options": [
+        "-13",
+        "-12",
+        "5",
+        "-10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[-2X − 1] = -2·E[X] − 1 = -2·6 − 1 = -13.",
+        "B": "This computes -2·E[X] but forgets the constant term (− 1).",
+        "C": "This applies the constant (− 1) but forgets to scale E[X] by the factor -2.",
+        "D": "This applies the constant before multiplying by -2; the constant should be added after scaling."
+      }
+    },
+    {
+      "id": "pr_l4_042",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 2 and E[Y] = 5, what is E[X + Y] (X and Y may be dependent)?",
+      "options": [
+        "10",
+        "7",
+        "-3",
+        "3.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X + Y] = E[X] + E[Y] = 2 + 5 = 7 by linearity (dependence does not matter).",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "C": "This subtracts the second term instead of adding it.",
+        "D": "This averages the two contributions; linearity sums them, it does not halve."
+      }
+    },
+    {
+      "id": "pr_l4_043",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 4 and E[Y] = 1, what is E[2X + 3Y]?",
+      "options": [
+        "24",
+        "5",
+        "11",
+        "5.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[2X + 3Y] = 2·E[X] + 3·E[Y] = 2·4 + 3·1 = 11.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "B": "This subtracts the second term instead of adding it.",
+        "D": "This averages the two contributions; linearity sums them, it does not halve."
+      }
+    },
+    {
+      "id": "pr_l4_044",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 7 and E[Y] = -3, what is E[X + Y] (X and Y may be dependent)?",
+      "options": [
+        "-21",
+        "10",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X + Y] = E[X] + E[Y] = 7 + -3 = 4 by linearity (dependence does not matter).",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "B": "This subtracts the second term instead of adding it.",
+        "C": "This averages the two contributions; linearity sums them, it does not halve."
+      }
+    },
+    {
+      "id": "pr_l4_045",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 2 and E[Y] = 6, what is E[3X + 2Y]?",
+      "options": [
+        "18",
+        "72",
+        "-6",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[3X + 2Y] = 3·E[X] + 2·E[Y] = 3·2 + 2·6 = 18.",
+        "B": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "C": "This subtracts the second term instead of adding it.",
+        "D": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_046",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 5 and E[Y] = 5, what is E[1X + 2Y]?",
+      "options": [
+        "50",
+        "15",
+        "-5",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[1X + 2Y] = 1·E[X] + 2·E[Y] = 1·5 + 2·5 = 15.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "C": "This subtracts the second term instead of adding it.",
+        "D": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_047",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 3 and E[Y] = 8, what is E[2X + 1Y]?",
+      "options": [
+        "48",
+        "-2",
+        "14",
+        "11"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[2X + 1Y] = 2·E[X] + 1·E[Y] = 2·3 + 1·8 = 14.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "B": "This subtracts the second term instead of adding it.",
+        "D": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_048",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 2 and E[Y] = 2, what is E[4X + 1Y]?",
+      "options": [
+        "16",
+        "6",
+        "4",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[4X + 1Y] = 4·E[X] + 1·E[Y] = 4·2 + 1·2 = 10.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "B": "This subtracts the second term instead of adding it.",
+        "C": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_049",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 10 and E[Y] = 4, what is E[X + Y] (X and Y may be dependent)?",
+      "options": [
+        "14",
+        "40",
+        "6",
+        "7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X + Y] = E[X] + E[Y] = 10 + 4 = 14 by linearity (dependence does not matter).",
+        "B": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "C": "This subtracts the second term instead of adding it.",
+        "D": "This averages the two contributions; linearity sums them, it does not halve."
+      }
+    },
+    {
+      "id": "pr_l4_050",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 3 and E[Y] = 3, what is E[2X + 2Y]?",
+      "options": [
+        "36",
+        "12",
+        "0",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[2X + 2Y] = 2·E[X] + 2·E[Y] = 2·3 + 2·3 = 12.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "C": "This subtracts the second term instead of adding it.",
+        "D": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_051",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 1 and E[Y] = 9, what is E[3X + 1Y]?",
+      "options": [
+        "27",
+        "-6",
+        "12",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[3X + 1Y] = 3·E[X] + 1·E[Y] = 3·1 + 1·9 = 12.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "B": "This subtracts the second term instead of adding it.",
+        "D": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_052",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 6 and E[Y] = 2, what is E[1X + 3Y]?",
+      "options": [
+        "36",
+        "0",
+        "8",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[1X + 3Y] = 1·E[X] + 3·E[Y] = 1·6 + 3·2 = 12.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "B": "This subtracts the second term instead of adding it.",
+        "C": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_053",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 5 and E[Y] = 1, what is E[2X + 4Y]?",
+      "options": [
+        "14",
+        "40",
+        "6",
+        "7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[2X + 4Y] = 2·E[X] + 4·E[Y] = 2·5 + 4·1 = 14.",
+        "B": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "C": "This subtracts the second term instead of adding it.",
+        "D": "This averages the two contributions; linearity sums them, it does not halve."
+      }
+    },
+    {
+      "id": "pr_l4_054",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 12 and E[Y] = 8, what is E[X + Y] (X and Y may be dependent)?",
+      "options": [
+        "96",
+        "20",
+        "4",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X + Y] = E[X] + E[Y] = 12 + 8 = 20 by linearity (dependence does not matter).",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "C": "This subtracts the second term instead of adding it.",
+        "D": "This averages the two contributions; linearity sums them, it does not halve."
+      }
+    },
+    {
+      "id": "pr_l4_055",
+      "concept": "linearity_of_expectation",
+      "question": "If E[X] = 2 and E[Y] = 4, what is E[5X + 2Y]?",
+      "options": [
+        "80",
+        "2",
+        "18",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[5X + 2Y] = 5·E[X] + 2·E[Y] = 5·2 + 2·4 = 18.",
+        "A": "This multiplies the expectations; E of a sum is a sum of expectations, not a product.",
+        "B": "This subtracts the second term instead of adding it.",
+        "D": "This adds E[X] and E[Y] but ignores the coefficients in front of each variable."
+      }
+    },
+    {
+      "id": "pr_l4_056",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.2, what is E[I_A]?",
+      "options": [
+        "0.8",
+        "0.04",
+        "0.1",
+        "0.2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.2.",
+        "A": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "B": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "C": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_057",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.35, what is E[I_A]?",
+      "options": [
+        "0.35",
+        "0.65",
+        "0.1225",
+        "0.175"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.35.",
+        "B": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "C": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "D": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_058",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.6, what is E[I_A]?",
+      "options": [
+        "0.4",
+        "0.6",
+        "0.36",
+        "0.3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.6.",
+        "A": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "C": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "D": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_059",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.15, what is E[I_A]?",
+      "options": [
+        "0.85",
+        "0.0225",
+        "0.15",
+        "0.075"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.15.",
+        "A": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "B": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "D": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_060",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.45, what is E[I_A]?",
+      "options": [
+        "0.55",
+        "0.2025",
+        "0.225",
+        "0.45"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.45.",
+        "A": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "B": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "C": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_061",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.8, what is E[I_A]?",
+      "options": [
+        "0.8",
+        "0.2",
+        "0.64",
+        "0.4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.8.",
+        "B": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "C": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "D": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_062",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.05, what is E[I_A]?",
+      "options": [
+        "0.95",
+        "0.05",
+        "0.0025",
+        "0.025"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.05.",
+        "A": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "C": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "D": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_063",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.55, what is E[I_A]?",
+      "options": [
+        "0.45",
+        "0.3025",
+        "0.55",
+        "0.275"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.55.",
+        "A": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "B": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "D": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_064",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.7, what is E[I_A]?",
+      "options": [
+        "0.3",
+        "0.49",
+        "0.35",
+        "0.7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.7.",
+        "A": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "B": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "C": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_065",
+      "concept": "indicator_definition",
+      "question": "Let I_A be the indicator of event A (I_A = 1 if A occurs, else 0). If P(A) = 0.9, what is E[I_A]?",
+      "options": [
+        "0.9",
+        "0.1",
+        "0.81",
+        "0.45"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[I_A] = 1·P(A) + 0·P(Aᶜ) = P(A) = 0.9.",
+        "B": "This is P(Aᶜ) = 1 − P(A), the probability the event does NOT occur.",
+        "C": "This squares P(A); since I_A² = I_A, the expectation stays P(A), not P(A)².",
+        "D": "Halving P(A) has no basis; the indicator expectation equals P(A) exactly."
+      }
+    },
+    {
+      "id": "pr_l4_066",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 2 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "1/6",
+        "1/3",
+        "2",
+        "2/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 2·(1/6) = 1/3.",
+        "A": "This is the expected count from a single roll, not all 2 rolls.",
+        "C": "This would require rolling a six on every single trial.",
+        "D": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_067",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 3 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "1/6",
+        "3",
+        "1/2",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 3·(1/6) = 1/2.",
+        "A": "This is the expected count from a single roll, not all 3 rolls.",
+        "B": "This would require rolling a six on every single trial.",
+        "D": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_068",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 4 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "1/6",
+        "4",
+        "4/3",
+        "2/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 4·(1/6) = 2/3.",
+        "A": "This is the expected count from a single roll, not all 4 rolls.",
+        "B": "This would require rolling a six on every single trial.",
+        "C": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_069",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 5 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "5/6",
+        "1/6",
+        "5",
+        "5/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 5·(1/6) = 5/6.",
+        "B": "This is the expected count from a single roll, not all 5 rolls.",
+        "C": "This would require rolling a six on every single trial.",
+        "D": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_070",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 6 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "1/6",
+        "1",
+        "6",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Write N = I₁ + … + I₆ with each E[Iⱼ] = 1/6, so E[N] = 6·(1/6) = 1.",
+        "A": "This is the expected count from a single roll, not all 6 rolls.",
+        "C": "This would require rolling a six on every single trial.",
+        "D": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_071",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 8 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "1/6",
+        "8",
+        "4/3",
+        "8/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 8·(1/6) = 4/3.",
+        "A": "This is the expected count from a single roll, not all 8 rolls.",
+        "B": "This would require rolling a six on every single trial.",
+        "D": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_072",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 9 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "1/6",
+        "9",
+        "3",
+        "3/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 9·(1/6) = 3/2.",
+        "A": "This is the expected count from a single roll, not all 9 rolls.",
+        "B": "This would require rolling a six on every single trial.",
+        "C": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_073",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 10 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "5/3",
+        "1/6",
+        "10",
+        "10/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 10·(1/6) = 5/3.",
+        "B": "This is the expected count from a single roll, not all 10 rolls.",
+        "C": "This would require rolling a six on every single trial.",
+        "D": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_074",
+      "concept": "indicator_counting",
+      "question": "You roll a fair die 12 times. Let N be the number of sixes. Using indicators, what is E[N]?",
+      "options": [
+        "1/6",
+        "2",
+        "12",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Write N = I₁ + … + Iₙ with each E[Iⱼ] = 1/6, so E[N] = 12·(1/6) = 2.",
+        "A": "This is the expected count from a single roll, not all 12 rolls.",
+        "C": "This would require rolling a six on every single trial.",
+        "D": "This uses 1/3 per roll instead of the correct 1/6."
+      }
+    },
+    {
+      "id": "pr_l4_075",
+      "concept": "indicator_counting",
+      "question": "Flip a fair coin 4 times. Let H be the number of heads. What is E[H]?",
+      "options": [
+        "4",
+        "0.5",
+        "2",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. H = I₁ + … with each E[Iⱼ] = 1/2, so E[H] = 4·(1/2) = 2.",
+        "A": "This would require heads on every flip.",
+        "B": "This is the expected heads per flip, not over all 4 flips.",
+        "D": "This uses 1/4 per flip instead of the fair-coin 1/2."
+      }
+    },
+    {
+      "id": "pr_l4_076",
+      "concept": "indicator_counting",
+      "question": "Flip a fair coin 6 times. Let H be the number of heads. What is E[H]?",
+      "options": [
+        "6",
+        "0.5",
+        "1.5",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. H = I₁ + … with each E[Iⱼ] = 1/2, so E[H] = 6·(1/2) = 3.",
+        "A": "This would require heads on every flip.",
+        "B": "This is the expected heads per flip, not over all 6 flips.",
+        "C": "This uses 1/4 per flip instead of the fair-coin 1/2."
+      }
+    },
+    {
+      "id": "pr_l4_077",
+      "concept": "indicator_counting",
+      "question": "Flip a fair coin 8 times. Let H be the number of heads. What is E[H]?",
+      "options": [
+        "4",
+        "8",
+        "0.5",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. H = I₁ + … with each E[Iⱼ] = 1/2, so E[H] = 8·(1/2) = 4.",
+        "B": "This would require heads on every flip.",
+        "C": "This is the expected heads per flip, not over all 8 flips.",
+        "D": "This uses 1/4 per flip instead of the fair-coin 1/2."
+      }
+    },
+    {
+      "id": "pr_l4_078",
+      "concept": "indicator_counting",
+      "question": "Flip a fair coin 10 times. Let H be the number of heads. What is E[H]?",
+      "options": [
+        "10",
+        "5",
+        "0.5",
+        "2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. H = I₁ + … with each E[Iⱼ] = 1/2, so E[H] = 10·(1/2) = 5.",
+        "A": "This would require heads on every flip.",
+        "C": "This is the expected heads per flip, not over all 10 flips.",
+        "D": "This uses 1/4 per flip instead of the fair-coin 1/2."
+      }
+    },
+    {
+      "id": "pr_l4_079",
+      "concept": "indicator_counting",
+      "question": "Flip a fair coin 16 times. Let H be the number of heads. What is E[H]?",
+      "options": [
+        "16",
+        "0.5",
+        "8",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. H = I₁ + … with each E[Iⱼ] = 1/2, so E[H] = 16·(1/2) = 8.",
+        "A": "This would require heads on every flip.",
+        "B": "This is the expected heads per flip, not over all 16 flips.",
+        "D": "This uses 1/4 per flip instead of the fair-coin 1/2."
+      }
+    },
+    {
+      "id": "pr_l4_080",
+      "concept": "indicator_counting",
+      "question": "Flip a fair coin 20 times. Let H be the number of heads. What is E[H]?",
+      "options": [
+        "20",
+        "0.5",
+        "5",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. H = I₁ + … with each E[Iⱼ] = 1/2, so E[H] = 20·(1/2) = 10.",
+        "A": "This would require heads on every flip.",
+        "B": "This is the expected heads per flip, not over all 20 flips.",
+        "C": "This uses 1/4 per flip instead of the fair-coin 1/2."
+      }
+    },
+    {
+      "id": "pr_l4_081",
+      "concept": "binomial_expectation",
+      "question": "A trader places 8 independent bets, each winning with probability 0.55. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "4.4",
+        "8",
+        "0.55",
+        "3.6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. W ~ Binomial(n=8, p=0.55), so E[W] = n·p = 8·0.55 = 4.4.",
+        "B": "This is the number of trials, not the expected number of wins.",
+        "C": "This is the per-bet win probability p, not E[W].",
+        "D": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_082",
+      "concept": "binomial_expectation",
+      "question": "A trader places 10 independent bets, each winning with probability 0.5. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "10",
+        "5",
+        "0.5",
+        "2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. W ~ Binomial(n=10, p=0.5), so E[W] = n·p = 10·0.5 = 5.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "C": "This is the per-bet win probability p, not E[W].",
+        "D": "This is np(1−p), the VARIANCE of W, not its mean."
+      }
+    },
+    {
+      "id": "pr_l4_083",
+      "concept": "binomial_expectation",
+      "question": "A trader places 6 independent bets, each winning with probability 0.4. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "6",
+        "0.4",
+        "2.4",
+        "3.6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. W ~ Binomial(n=6, p=0.4), so E[W] = n·p = 6·0.4 = 2.4.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "B": "This is the per-bet win probability p, not E[W].",
+        "D": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_084",
+      "concept": "binomial_expectation",
+      "question": "A trader places 12 independent bets, each winning with probability 0.25. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "12",
+        "0.25",
+        "9",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. W ~ Binomial(n=12, p=0.25), so E[W] = n·p = 12·0.25 = 3.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "B": "This is the per-bet win probability p, not E[W].",
+        "C": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_085",
+      "concept": "binomial_expectation",
+      "question": "A trader places 5 independent bets, each winning with probability 0.6. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "3",
+        "5",
+        "0.6",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. W ~ Binomial(n=5, p=0.6), so E[W] = n·p = 5·0.6 = 3.",
+        "B": "This is the number of trials, not the expected number of wins.",
+        "C": "This is the per-bet win probability p, not E[W].",
+        "D": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_086",
+      "concept": "binomial_expectation",
+      "question": "A trader places 20 independent bets, each winning with probability 0.3. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "20",
+        "6",
+        "0.3",
+        "14"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. W ~ Binomial(n=20, p=0.3), so E[W] = n·p = 20·0.3 = 6.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "C": "This is the per-bet win probability p, not E[W].",
+        "D": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_087",
+      "concept": "binomial_expectation",
+      "question": "A trader places 15 independent bets, each winning with probability 0.2. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "15",
+        "0.2",
+        "3",
+        "12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. W ~ Binomial(n=15, p=0.2), so E[W] = n·p = 15·0.2 = 3.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "B": "This is the per-bet win probability p, not E[W].",
+        "D": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_088",
+      "concept": "binomial_expectation",
+      "question": "A trader places 9 independent bets, each winning with probability 0.7. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "9",
+        "0.7",
+        "2.7",
+        "6.3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. W ~ Binomial(n=9, p=0.7), so E[W] = n·p = 9·0.7 = 6.3.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "B": "This is the per-bet win probability p, not E[W].",
+        "C": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_089",
+      "concept": "binomial_expectation",
+      "question": "A trader places 16 independent bets, each winning with probability 0.75. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "12",
+        "16",
+        "0.75",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. W ~ Binomial(n=16, p=0.75), so E[W] = n·p = 16·0.75 = 12.",
+        "B": "This is the number of trials, not the expected number of wins.",
+        "C": "This is the per-bet win probability p, not E[W].",
+        "D": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_090",
+      "concept": "binomial_expectation",
+      "question": "A trader places 4 independent bets, each winning with probability 0.8. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "4",
+        "3.2",
+        "0.8",
+        "0.64"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. W ~ Binomial(n=4, p=0.8), so E[W] = n·p = 4·0.8 = 3.2.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "C": "This is the per-bet win probability p, not E[W].",
+        "D": "This is np(1−p), the VARIANCE of W, not its mean."
+      }
+    },
+    {
+      "id": "pr_l4_091",
+      "concept": "binomial_expectation",
+      "question": "A trader places 25 independent bets, each winning with probability 0.4. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "25",
+        "0.4",
+        "10",
+        "15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. W ~ Binomial(n=25, p=0.4), so E[W] = n·p = 25·0.4 = 10.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "B": "This is the per-bet win probability p, not E[W].",
+        "D": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_092",
+      "concept": "binomial_expectation",
+      "question": "A trader places 7 independent bets, each winning with probability 0.3. Let W be the number of wins. What is E[W]?",
+      "options": [
+        "7",
+        "0.3",
+        "4.9",
+        "2.1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. W ~ Binomial(n=7, p=0.3), so E[W] = n·p = 7·0.3 = 2.1.",
+        "A": "This is the number of trials, not the expected number of wins.",
+        "B": "This is the per-bet win probability p, not E[W].",
+        "C": "This is n(1−p), the expected number of LOSSES, not wins."
+      }
+    },
+    {
+      "id": "pr_l4_093",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=10, p=0.5). What is Var(W)?",
+      "options": [
+        "2.5",
+        "5",
+        "0.25",
+        "1.581139"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(W) = n·p·(1−p) = 10·0.5·0.5 = 2.5.",
+        "B": "This is the mean np, not the variance.",
+        "C": "This is the variance of a single trial; multiply by n for the binomial.",
+        "D": "This is the standard deviation √(np(1−p)), not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_094",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=8, p=0.25). What is Var(W)?",
+      "options": [
+        "2",
+        "1.5",
+        "6",
+        "0.1875"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Var(W) = n·p·(1−p) = 8·0.25·0.75 = 1.5.",
+        "A": "This is the mean np, not the variance.",
+        "C": "This is n(1−p), the expected number of failures, not the variance.",
+        "D": "This is the variance of a single trial; multiply by n for the binomial."
+      }
+    },
+    {
+      "id": "pr_l4_095",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=20, p=0.4). What is Var(W)?",
+      "options": [
+        "8",
+        "12",
+        "4.8",
+        "0.24"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Var(W) = n·p·(1−p) = 20·0.4·0.6 = 4.8.",
+        "A": "This is the mean np, not the variance.",
+        "B": "This is n(1−p), the expected number of failures, not the variance.",
+        "D": "This is the variance of a single trial; multiply by n for the binomial."
+      }
+    },
+    {
+      "id": "pr_l4_096",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=12, p=0.5). What is Var(W)?",
+      "options": [
+        "6",
+        "0.25",
+        "1.732051",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Var(W) = n·p·(1−p) = 12·0.5·0.5 = 3.",
+        "A": "This is the mean np, not the variance.",
+        "B": "This is the variance of a single trial; multiply by n for the binomial.",
+        "C": "This is the standard deviation √(np(1−p)), not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_097",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=16, p=0.75). What is Var(W)?",
+      "options": [
+        "3",
+        "12",
+        "4",
+        "0.1875"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(W) = n·p·(1−p) = 16·0.75·0.25 = 3.",
+        "B": "This is the mean np, not the variance.",
+        "C": "This is n(1−p), the expected number of failures, not the variance.",
+        "D": "This is the variance of a single trial; multiply by n for the binomial."
+      }
+    },
+    {
+      "id": "pr_l4_098",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=5, p=0.6). What is Var(W)?",
+      "options": [
+        "3",
+        "1.2",
+        "2",
+        "0.24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Var(W) = n·p·(1−p) = 5·0.6·0.4 = 1.2.",
+        "A": "This is the mean np, not the variance.",
+        "C": "This is n(1−p), the expected number of failures, not the variance.",
+        "D": "This is the variance of a single trial; multiply by n for the binomial."
+      }
+    },
+    {
+      "id": "pr_l4_099",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=100, p=0.5). What is Var(W)?",
+      "options": [
+        "50",
+        "0.25",
+        "25",
+        "5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Var(W) = n·p·(1−p) = 100·0.5·0.5 = 25.",
+        "A": "This is the mean np, not the variance.",
+        "B": "This is the variance of a single trial; multiply by n for the binomial.",
+        "D": "This is the standard deviation √(np(1−p)), not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_100",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=9, p=0.3). What is Var(W)?",
+      "options": [
+        "2.7",
+        "6.3",
+        "0.21",
+        "1.89"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Var(W) = n·p·(1−p) = 9·0.3·0.7 = 1.89.",
+        "A": "This is the mean np, not the variance.",
+        "B": "This is n(1−p), the expected number of failures, not the variance.",
+        "C": "This is the variance of a single trial; multiply by n for the binomial."
+      }
+    },
+    {
+      "id": "pr_l4_101",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=25, p=0.2). What is Var(W)?",
+      "options": [
+        "4",
+        "5",
+        "20",
+        "0.16"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(W) = n·p·(1−p) = 25·0.2·0.8 = 4.",
+        "B": "This is the mean np, not the variance.",
+        "C": "This is n(1−p), the expected number of failures, not the variance.",
+        "D": "This is the variance of a single trial; multiply by n for the binomial."
+      }
+    },
+    {
+      "id": "pr_l4_102",
+      "concept": "binomial_variance",
+      "question": "Let W ~ Binomial(n=50, p=0.4). What is Var(W)?",
+      "options": [
+        "20",
+        "12",
+        "30",
+        "0.24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Var(W) = n·p·(1−p) = 50·0.4·0.6 = 12.",
+        "A": "This is the mean np, not the variance.",
+        "C": "This is n(1−p), the expected number of failures, not the variance.",
+        "D": "This is the variance of a single trial; multiply by n for the binomial."
+      }
+    },
+    {
+      "id": "pr_l4_103",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/2 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/2",
+        "1",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. T is Geometric(p = 1/2), so E[T] = 1/p = 2.",
+        "A": "This is p = 1/2 itself, not the expected waiting time 1/p.",
+        "B": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_104",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/3 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/3",
+        "2",
+        "6",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. T is Geometric(p = 1/3), so E[T] = 1/p = 3.",
+        "A": "This is p = 1/3 itself, not the expected waiting time 1/p.",
+        "B": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "C": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_105",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/4 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "4",
+        "1/4",
+        "3",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. T is Geometric(p = 1/4), so E[T] = 1/p = 4.",
+        "B": "This is p = 1/4 itself, not the expected waiting time 1/p.",
+        "C": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_106",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/5 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/5",
+        "5",
+        "4",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. T is Geometric(p = 1/5), so E[T] = 1/p = 5.",
+        "A": "This is p = 1/5 itself, not the expected waiting time 1/p.",
+        "C": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_107",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/6 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/6",
+        "5",
+        "6",
+        "12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. T is Geometric(p = 1/6), so E[T] = 1/p = 6.",
+        "A": "This is p = 1/6 itself, not the expected waiting time 1/p.",
+        "B": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_108",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/8 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/8",
+        "7",
+        "16",
+        "8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. T is Geometric(p = 1/8), so E[T] = 1/p = 8.",
+        "A": "This is p = 1/8 itself, not the expected waiting time 1/p.",
+        "B": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "C": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_109",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/10 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "10",
+        "1/10",
+        "9",
+        "20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. T is Geometric(p = 1/10), so E[T] = 1/p = 10.",
+        "B": "This is p = 1/10 itself, not the expected waiting time 1/p.",
+        "C": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_110",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/20 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/20",
+        "20",
+        "19",
+        "40"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. T is Geometric(p = 1/20), so E[T] = 1/p = 20.",
+        "A": "This is p = 1/20 itself, not the expected waiting time 1/p.",
+        "C": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_111",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/100 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/100",
+        "99",
+        "100",
+        "200"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. T is Geometric(p = 1/100), so E[T] = 1/p = 100.",
+        "A": "This is p = 1/100 itself, not the expected waiting time 1/p.",
+        "B": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_112",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/7 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "1/7",
+        "6",
+        "14",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. T is Geometric(p = 1/7), so E[T] = 1/p = 7.",
+        "A": "This is p = 1/7 itself, not the expected waiting time 1/p.",
+        "B": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "C": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_113",
+      "concept": "geometric_waiting_time",
+      "question": "You flip a coin with P(heads) = 1/12 until the first heads, counting the successful flip. Let T be the number of flips. What is E[T]?",
+      "options": [
+        "12",
+        "1/12",
+        "11",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. T is Geometric(p = 1/12), so E[T] = 1/p = 12.",
+        "B": "This is p = 1/12 itself, not the expected waiting time 1/p.",
+        "C": "This is (1−p)/p, the expected number of FAILURES before the first success, not the total flips.",
+        "D": "This doubles the correct mean 1/p; the geometric mean is exactly 1/p."
+      }
+    },
+    {
+      "id": "pr_l4_114",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.2. What is Var(I)?",
+      "options": [
+        "0.2",
+        "0.16",
+        "0.04",
+        "0.8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Var(I) = p(1−p) = 0.2·0.8 = 0.16.",
+        "A": "This is the mean E[I] = p, not the variance.",
+        "C": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "D": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_115",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.3. What is Var(I)?",
+      "options": [
+        "0.3",
+        "0.09",
+        "0.21",
+        "0.7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Var(I) = p(1−p) = 0.3·0.7 = 0.21.",
+        "A": "This is the mean E[I] = p, not the variance.",
+        "B": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "D": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_116",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.6. What is Var(I)?",
+      "options": [
+        "0.6",
+        "0.36",
+        "0.4",
+        "0.24"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Var(I) = p(1−p) = 0.6·0.4 = 0.24.",
+        "A": "This is the mean E[I] = p, not the variance.",
+        "B": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "C": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_117",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.25. What is Var(I)?",
+      "options": [
+        "0.1875",
+        "0.25",
+        "0.0625",
+        "0.75"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(I) = p(1−p) = 0.25·0.75 = 0.1875.",
+        "B": "This is the mean E[I] = p, not the variance.",
+        "C": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "D": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_118",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.8. What is Var(I)?",
+      "options": [
+        "0.8",
+        "0.16",
+        "0.64",
+        "0.2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Var(I) = p(1−p) = 0.8·0.2 = 0.16.",
+        "A": "This is the mean E[I] = p, not the variance.",
+        "C": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "D": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_119",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.4. What is Var(I)?",
+      "options": [
+        "0.4",
+        "0.16",
+        "0.24",
+        "0.6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Var(I) = p(1−p) = 0.4·0.6 = 0.24.",
+        "A": "This is the mean E[I] = p, not the variance.",
+        "B": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "D": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_120",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.1. What is Var(I)?",
+      "options": [
+        "0.1",
+        "0.01",
+        "0.9",
+        "0.09"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Var(I) = p(1−p) = 0.1·0.9 = 0.09.",
+        "A": "This is the mean E[I] = p, not the variance.",
+        "B": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "C": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_121",
+      "concept": "bernoulli_variance",
+      "question": "Let I be a Bernoulli random variable with P(I=1) = 0.7. What is Var(I)?",
+      "options": [
+        "0.21",
+        "0.7",
+        "0.49",
+        "0.3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var(I) = p(1−p) = 0.7·0.3 = 0.21.",
+        "B": "This is the mean E[I] = p, not the variance.",
+        "C": "This is p² = E[I]²; variance is E[I²] − E[I]² = p − p² = p(1−p).",
+        "D": "This is P(I=0) = 1 − p, not the variance."
+      }
+    },
+    {
+      "id": "pr_l4_122",
+      "concept": "variance_compute",
+      "question": "X equals 0 with probability 0.5 and 10 with probability 0.5. What is Var(X)?",
+      "options": [
+        "5",
+        "25",
+        "100",
+        "50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 5 and E[X²] = 0²·0.5 + 10²·0.5 = 50, so Var(X) = E[X²] − E[X]² = 50 − 25 = 25.",
+        "A": "This is the mean E[X], not the variance.",
+        "C": "This is the squared gap (a−b)² without the p(1−p) weighting.",
+        "D": "This is E[X²]; the variance subtracts E[X]² from it."
+      }
+    },
+    {
+      "id": "pr_l4_123",
+      "concept": "variance_compute",
+      "question": "X equals 2 with probability 0.5 and 8 with probability 0.5. What is Var(X)?",
+      "options": [
+        "5",
+        "3",
+        "9",
+        "36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 5 and E[X²] = 2²·0.5 + 8²·0.5 = 34, so Var(X) = E[X²] − E[X]² = 34 − 25 = 9.",
+        "A": "This is the mean E[X], not the variance.",
+        "B": "This is the standard deviation √Var(X), not the variance itself.",
+        "D": "This is the squared gap (a−b)² without the p(1−p) weighting."
+      }
+    },
+    {
+      "id": "pr_l4_124",
+      "concept": "variance_compute",
+      "question": "X equals 0 with probability 0.25 and 4 with probability 0.75. What is Var(X)?",
+      "options": [
+        "1.732051",
+        "16",
+        "12",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 3 and E[X²] = 0²·0.25 + 4²·0.75 = 12, so Var(X) = E[X²] − E[X]² = 12 − 9 = 3.",
+        "A": "This is the standard deviation √Var(X), not the variance itself.",
+        "B": "This is the squared gap (a−b)² without the p(1−p) weighting.",
+        "C": "This is E[X²]; the variance subtracts E[X]² from it."
+      }
+    },
+    {
+      "id": "pr_l4_125",
+      "concept": "variance_compute",
+      "question": "X equals 1 with probability 0.5 and 5 with probability 0.5. What is Var(X)?",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "16"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 3 and E[X²] = 1²·0.5 + 5²·0.5 = 13, so Var(X) = E[X²] − E[X]² = 13 − 9 = 4.",
+        "B": "This is the mean E[X], not the variance.",
+        "C": "This is the standard deviation √Var(X), not the variance itself.",
+        "D": "This is the squared gap (a−b)² without the p(1−p) weighting."
+      }
+    },
+    {
+      "id": "pr_l4_126",
+      "concept": "variance_compute",
+      "question": "X equals 0 with probability 0.5 and 6 with probability 0.5. What is Var(X)?",
+      "options": [
+        "3",
+        "9",
+        "36",
+        "18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 3 and E[X²] = 0²·0.5 + 6²·0.5 = 18, so Var(X) = E[X²] − E[X]² = 18 − 9 = 9.",
+        "A": "This is the mean E[X], not the variance.",
+        "C": "This is the squared gap (a−b)² without the p(1−p) weighting.",
+        "D": "This is E[X²]; the variance subtracts E[X]² from it."
+      }
+    },
+    {
+      "id": "pr_l4_127",
+      "concept": "variance_compute",
+      "question": "X equals 3 with probability 0.5 and 9 with probability 0.5. What is Var(X)?",
+      "options": [
+        "6",
+        "3",
+        "9",
+        "36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 6 and E[X²] = 3²·0.5 + 9²·0.5 = 45, so Var(X) = E[X²] − E[X]² = 45 − 36 = 9.",
+        "A": "This is the mean E[X], not the variance.",
+        "B": "This is the standard deviation √Var(X), not the variance itself.",
+        "D": "This is the squared gap (a−b)² without the p(1−p) weighting."
+      }
+    },
+    {
+      "id": "pr_l4_128",
+      "concept": "variance_compute",
+      "question": "X equals 0 with probability 0.2 and 20 with probability 0.8. What is Var(X)?",
+      "options": [
+        "16",
+        "8",
+        "400",
+        "64"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X] = 16 and E[X²] = 0²·0.2 + 20²·0.8 = 320, so Var(X) = E[X²] − E[X]² = 320 − 256 = 64.",
+        "A": "This is the mean E[X], not the variance.",
+        "B": "This is the standard deviation √Var(X), not the variance itself.",
+        "C": "This is the squared gap (a−b)² without the p(1−p) weighting."
+      }
+    },
+    {
+      "id": "pr_l4_129",
+      "concept": "variance_compute",
+      "question": "X equals 4 with probability 0.5 and 10 with probability 0.5. What is Var(X)?",
+      "options": [
+        "9",
+        "7",
+        "3",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X] = 7 and E[X²] = 4²·0.5 + 10²·0.5 = 58, so Var(X) = E[X²] − E[X]² = 58 − 49 = 9.",
+        "B": "This is the mean E[X], not the variance.",
+        "C": "This is the standard deviation √Var(X), not the variance itself.",
+        "D": "This is the squared gap (a−b)² without the p(1−p) weighting."
+      }
+    },
+    {
+      "id": "pr_l4_130",
+      "concept": "variance_compute",
+      "question": "X equals 0 with probability 0.5 and 8 with probability 0.5. What is Var(X)?",
+      "options": [
+        "4",
+        "16",
+        "64",
+        "32"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X] = 4 and E[X²] = 0²·0.5 + 8²·0.5 = 32, so Var(X) = E[X²] − E[X]² = 32 − 16 = 16.",
+        "A": "This is the mean E[X], not the variance.",
+        "C": "This is the squared gap (a−b)² without the p(1−p) weighting.",
+        "D": "This is E[X²]; the variance subtracts E[X]² from it."
+      }
+    },
+    {
+      "id": "pr_l4_131",
+      "concept": "variance_compute",
+      "question": "X equals 5 with probability 0.4 and 15 with probability 0.6. What is Var(X)?",
+      "options": [
+        "11",
+        "4.898979",
+        "24",
+        "100"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X] = 11 and E[X²] = 5²·0.4 + 15²·0.6 = 145, so Var(X) = E[X²] − E[X]² = 145 − 121 = 24.",
+        "A": "This is the mean E[X], not the variance.",
+        "B": "This is the standard deviation √Var(X), not the variance itself.",
+        "D": "This is the squared gap (a−b)² without the p(1−p) weighting."
+      }
+    },
+    {
+      "id": "pr_l4_132",
+      "concept": "lotus_expectation",
+      "question": "X has P(X=1)=0.2, P(X=2)=0.3, P(X=3)=0.5. Using the law of the unconscious statistician, what is E[X²]?",
+      "options": [
+        "5.29",
+        "2.3",
+        "14",
+        "5.9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X²] = 1²·0.2 + 2²·0.3 + 3²·0.5 = 5.9.",
+        "A": "This is E[X]²; in general E[X²] ≠ E[X]² (the gap is the variance).",
+        "B": "This is E[X], not E[X²].",
+        "C": "This sums the squared values without weighting by probabilities."
+      }
+    },
+    {
+      "id": "pr_l4_133",
+      "concept": "lotus_expectation",
+      "question": "X has P(X=0)=0.25, P(X=1)=0.5, P(X=2)=0.25. Using the law of the unconscious statistician, what is E[X²]?",
+      "options": [
+        "1.5",
+        "1",
+        "5",
+        "1.224745"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X²] = 0²·0.25 + 1²·0.5 + 2²·0.25 = 1.5.",
+        "B": "This is E[X]²; in general E[X²] ≠ E[X]² (the gap is the variance).",
+        "C": "This sums the squared values without weighting by probabilities.",
+        "D": "This takes a square root; E[X²] is the weighted sum of squares directly."
+      }
+    },
+    {
+      "id": "pr_l4_134",
+      "concept": "lotus_expectation",
+      "question": "X has P(X=1)=0.5, P(X=2)=0.25, P(X=4)=0.25. Using the law of the unconscious statistician, what is E[X²]?",
+      "options": [
+        "4",
+        "5.5",
+        "2",
+        "21"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X²] = 1²·0.5 + 2²·0.25 + 4²·0.25 = 5.5.",
+        "A": "This is E[X]²; in general E[X²] ≠ E[X]² (the gap is the variance).",
+        "C": "This is E[X], not E[X²].",
+        "D": "This sums the squared values without weighting by probabilities."
+      }
+    },
+    {
+      "id": "pr_l4_135",
+      "concept": "lotus_expectation",
+      "question": "X has P(X=2)=0.3, P(X=4)=0.4, P(X=6)=0.3. Using the law of the unconscious statistician, what is E[X²]?",
+      "options": [
+        "16",
+        "4",
+        "18.4",
+        "56"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X²] = 2²·0.3 + 4²·0.4 + 6²·0.3 = 18.4.",
+        "A": "This is E[X]²; in general E[X²] ≠ E[X]² (the gap is the variance).",
+        "B": "This is E[X], not E[X²].",
+        "D": "This sums the squared values without weighting by probabilities."
+      }
+    },
+    {
+      "id": "pr_l4_136",
+      "concept": "lotus_expectation",
+      "question": "X has P(X=0)=0.4, P(X=2)=0.4, P(X=5)=0.2. Using the law of the unconscious statistician, what is E[X²]?",
+      "options": [
+        "3.24",
+        "1.8",
+        "29",
+        "6.6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X²] = 0²·0.4 + 2²·0.4 + 5²·0.2 = 6.6.",
+        "A": "This is E[X]²; in general E[X²] ≠ E[X]² (the gap is the variance).",
+        "B": "This is E[X], not E[X²].",
+        "C": "This sums the squared values without weighting by probabilities."
+      }
+    },
+    {
+      "id": "pr_l4_137",
+      "concept": "lotus_expectation",
+      "question": "X has P(X=1)=0.2, P(X=3)=0.5, P(X=5)=0.3. Using the law of the unconscious statistician, what is E[X²]?",
+      "options": [
+        "12.2",
+        "10.24",
+        "3.2",
+        "35"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X²] = 1²·0.2 + 3²·0.5 + 5²·0.3 = 12.2.",
+        "B": "This is E[X]²; in general E[X²] ≠ E[X]² (the gap is the variance).",
+        "C": "This is E[X], not E[X²].",
+        "D": "This sums the squared values without weighting by probabilities."
+      }
+    },
+    {
+      "id": "pr_l4_138",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 2 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "3.5",
+        "7",
+        "12",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Each die has E = 3.5, so by linearity E[sum] = 2·3.5 = 7.",
+        "A": "This is the expectation of a single die, not the sum of 2.",
+        "C": "This assumes every die shows its maximum face 6.",
+        "D": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_139",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 3 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "3.5",
+        "18",
+        "10.5",
+        "9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Each die has E = 3.5, so by linearity E[sum] = 3·3.5 = 10.5.",
+        "A": "This is the expectation of a single die, not the sum of 3.",
+        "B": "This assumes every die shows its maximum face 6.",
+        "D": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_140",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 4 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "3.5",
+        "24",
+        "12",
+        "14"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Each die has E = 3.5, so by linearity E[sum] = 4·3.5 = 14.",
+        "A": "This is the expectation of a single die, not the sum of 4.",
+        "B": "This assumes every die shows its maximum face 6.",
+        "C": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_141",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 5 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "17.5",
+        "3.5",
+        "30",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each die has E = 3.5, so by linearity E[sum] = 5·3.5 = 17.5.",
+        "B": "This is the expectation of a single die, not the sum of 5.",
+        "C": "This assumes every die shows its maximum face 6.",
+        "D": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_142",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 6 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "3.5",
+        "21",
+        "36",
+        "18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Each die has E = 3.5, so by linearity E[sum] = 6·3.5 = 21.",
+        "A": "This is the expectation of a single die, not the sum of 6.",
+        "C": "This assumes every die shows its maximum face 6.",
+        "D": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_143",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 10 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "3.5",
+        "60",
+        "35",
+        "30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Each die has E = 3.5, so by linearity E[sum] = 10·3.5 = 35.",
+        "A": "This is the expectation of a single die, not the sum of 10.",
+        "B": "This assumes every die shows its maximum face 6.",
+        "D": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_144",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 7 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "3.5",
+        "42",
+        "21",
+        "24.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Each die has E = 3.5, so by linearity E[sum] = 7·3.5 = 24.5.",
+        "A": "This is the expectation of a single die, not the sum of 7.",
+        "B": "This assumes every die shows its maximum face 6.",
+        "C": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_145",
+      "concept": "dice_sum_expectation",
+      "question": "You roll 8 fair six-sided dice and add the faces. What is the expected total?",
+      "options": [
+        "28",
+        "3.5",
+        "48",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each die has E = 3.5, so by linearity E[sum] = 8·3.5 = 28.",
+        "B": "This is the expectation of a single die, not the sum of 8.",
+        "C": "This assumes every die shows its maximum face 6.",
+        "D": "This uses 3 per die; the per-die mean is 3.5, not 3."
+      }
+    },
+    {
+      "id": "pr_l4_146",
+      "concept": "indicator_fixed_points",
+      "question": "A uniformly random permutation of {1, …, 5} is drawn. Let F be the number of fixed points (i where the value equals position i). What is E[F]?",
+      "options": [
+        "5",
+        "1",
+        "1/5",
+        "2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. F = ΣIⱼ with E[Iⱼ] = P(position j fixed) = 1/5; summing over 5 positions gives 5·(1/5) = 1.",
+        "A": "This would require every position to be a fixed point with certainty.",
+        "C": "This is the probability a single position is fixed, not the expected total count.",
+        "D": "There is no halving here; the indicator sum gives exactly 1 for every n ≥ 1."
+      }
+    },
+    {
+      "id": "pr_l4_147",
+      "concept": "indicator_fixed_points",
+      "question": "A uniformly random permutation of {1, …, 10} is drawn. Let F be the number of fixed points (i where the value equals position i). What is E[F]?",
+      "options": [
+        "10",
+        "1/10",
+        "1",
+        "5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. F = ΣIⱼ with E[Iⱼ] = P(position j fixed) = 1/10; summing over 10 positions gives 10·(1/10) = 1.",
+        "A": "This would require every position to be a fixed point with certainty.",
+        "B": "This is the probability a single position is fixed, not the expected total count.",
+        "D": "There is no halving here; the indicator sum gives exactly 1 for every n ≥ 1."
+      }
+    },
+    {
+      "id": "pr_l4_148",
+      "concept": "indicator_fixed_points",
+      "question": "A uniformly random permutation of {1, …, 52} is drawn. Let F be the number of fixed points (i where the value equals position i). What is E[F]?",
+      "options": [
+        "52",
+        "1/52",
+        "26",
+        "1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. F = ΣIⱼ with E[Iⱼ] = P(position j fixed) = 1/52; summing over 52 positions gives 52·(1/52) = 1.",
+        "A": "This would require every position to be a fixed point with certainty.",
+        "B": "This is the probability a single position is fixed, not the expected total count.",
+        "C": "There is no halving here; the indicator sum gives exactly 1 for every n ≥ 1."
+      }
+    },
+    {
+      "id": "pr_l4_149",
+      "concept": "indicator_fixed_points",
+      "question": "A uniformly random permutation of {1, …, 100} is drawn. Let F be the number of fixed points (i where the value equals position i). What is E[F]?",
+      "options": [
+        "1",
+        "100",
+        "1/100",
+        "50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. F = ΣIⱼ with E[Iⱼ] = P(position j fixed) = 1/100; summing over 100 positions gives 100·(1/100) = 1.",
+        "B": "This would require every position to be a fixed point with certainty.",
+        "C": "This is the probability a single position is fixed, not the expected total count.",
+        "D": "There is no halving here; the indicator sum gives exactly 1 for every n ≥ 1."
+      }
+    },
+    {
+      "id": "pr_l4_150",
+      "concept": "indicator_fixed_points",
+      "question": "A uniformly random permutation of {1, …, 7} is drawn. Let F be the number of fixed points (i where the value equals position i). What is E[F]?",
+      "options": [
+        "7",
+        "1",
+        "1/7",
+        "3.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. F = ΣIⱼ with E[Iⱼ] = P(position j fixed) = 1/7; summing over 7 positions gives 7·(1/7) = 1.",
+        "A": "This would require every position to be a fixed point with certainty.",
+        "C": "This is the probability a single position is fixed, not the expected total count.",
+        "D": "There is no halving here; the indicator sum gives exactly 1 for every n ≥ 1."
+      }
+    },
+    {
+      "id": "pr_l4_151",
+      "concept": "indicator_fixed_points",
+      "question": "A uniformly random permutation of {1, …, 20} is drawn. Let F be the number of fixed points (i where the value equals position i). What is E[F]?",
+      "options": [
+        "20",
+        "1/20",
+        "1",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. F = ΣIⱼ with E[Iⱼ] = P(position j fixed) = 1/20; summing over 20 positions gives 20·(1/20) = 1.",
+        "A": "This would require every position to be a fixed point with certainty.",
+        "B": "This is the probability a single position is fixed, not the expected total count.",
+        "D": "There is no halving here; the indicator sum gives exactly 1 for every n ≥ 1."
+      }
+    },
+    {
+      "id": "pr_l4_152",
+      "concept": "indicator_fixed_points",
+      "question": "6 guests check identical-looking hats; the hats are returned in a uniformly random order. What is the expected number of guests who get their own hat back?",
+      "options": [
+        "6",
+        "1/6",
+        "0",
+        "1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. Each guest gets their own hat with probability 1/6; by linearity the expected number is 6·(1/6) = 1.",
+        "A": "This would mean everyone gets the right hat for sure.",
+        "B": "This is the per-guest probability, not the expected count across all guests.",
+        "C": "Some guest can match, so the expectation is positive, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_153",
+      "concept": "indicator_fixed_points",
+      "question": "12 guests check identical-looking hats; the hats are returned in a uniformly random order. What is the expected number of guests who get their own hat back?",
+      "options": [
+        "1",
+        "12",
+        "1/12",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each guest gets their own hat with probability 1/12; by linearity the expected number is 12·(1/12) = 1.",
+        "B": "This would mean everyone gets the right hat for sure.",
+        "C": "This is the per-guest probability, not the expected count across all guests.",
+        "D": "Some guest can match, so the expectation is positive, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_154",
+      "concept": "indicator_fixed_points",
+      "question": "3 guests check identical-looking hats; the hats are returned in a uniformly random order. What is the expected number of guests who get their own hat back?",
+      "options": [
+        "3",
+        "1",
+        "1/3",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Each guest gets their own hat with probability 1/3; by linearity the expected number is 3·(1/3) = 1.",
+        "A": "This would mean everyone gets the right hat for sure.",
+        "C": "This is the per-guest probability, not the expected count across all guests.",
+        "D": "Some guest can match, so the expectation is positive, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_155",
+      "concept": "indicator_fixed_points",
+      "question": "8 guests check identical-looking hats; the hats are returned in a uniformly random order. What is the expected number of guests who get their own hat back?",
+      "options": [
+        "8",
+        "1/8",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. Each guest gets their own hat with probability 1/8; by linearity the expected number is 8·(1/8) = 1.",
+        "A": "This would mean everyone gets the right hat for sure.",
+        "B": "This is the per-guest probability, not the expected count across all guests.",
+        "D": "Some guest can match, so the expectation is positive, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_156",
+      "concept": "linearity_with_dependence",
+      "question": "Let X be a random variable with E[X] = 3.5, and let Y = X (perfectly dependent). What is E[X + Y]?",
+      "options": [
+        "3.5",
+        "12.25",
+        "0",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X + Y] = E[X] + E[Y] = 3.5 + 3.5 = 7; linearity holds even though X and Y are perfectly dependent.",
+        "A": "This ignores the second copy of X; linearity still adds both expectations.",
+        "B": "This multiplies; E of a sum is a sum of expectations, not a product.",
+        "C": "X + Y = 2X here, which has positive expectation, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_157",
+      "concept": "linearity_with_dependence",
+      "question": "Let X be a random variable with E[X] = 4, and let Y = X (perfectly dependent). What is E[X + Y]?",
+      "options": [
+        "8",
+        "4",
+        "16",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X + Y] = E[X] + E[Y] = 4 + 4 = 8; linearity holds even though X and Y are perfectly dependent.",
+        "B": "This ignores the second copy of X; linearity still adds both expectations.",
+        "C": "This multiplies; E of a sum is a sum of expectations, not a product.",
+        "D": "X + Y = 2X here, which has positive expectation, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_158",
+      "concept": "linearity_with_dependence",
+      "question": "Let X be a random variable with E[X] = 7, and let Y = X (perfectly dependent). What is E[X + Y]?",
+      "options": [
+        "7",
+        "14",
+        "49",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[X + Y] = E[X] + E[Y] = 7 + 7 = 14; linearity holds even though X and Y are perfectly dependent.",
+        "A": "This ignores the second copy of X; linearity still adds both expectations.",
+        "C": "This multiplies; E of a sum is a sum of expectations, not a product.",
+        "D": "X + Y = 2X here, which has positive expectation, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_159",
+      "concept": "linearity_with_dependence",
+      "question": "Let X be a random variable with E[X] = 2.5, and let Y = X (perfectly dependent). What is E[X + Y]?",
+      "options": [
+        "2.5",
+        "6.25",
+        "5",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. E[X + Y] = E[X] + E[Y] = 2.5 + 2.5 = 5; linearity holds even though X and Y are perfectly dependent.",
+        "A": "This ignores the second copy of X; linearity still adds both expectations.",
+        "B": "This multiplies; E of a sum is a sum of expectations, not a product.",
+        "D": "X + Y = 2X here, which has positive expectation, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_160",
+      "concept": "linearity_with_dependence",
+      "question": "Let X be a random variable with E[X] = 5, and let Y = X (perfectly dependent). What is E[X + Y]?",
+      "options": [
+        "5",
+        "25",
+        "0",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. E[X + Y] = E[X] + E[Y] = 5 + 5 = 10; linearity holds even though X and Y are perfectly dependent.",
+        "A": "This ignores the second copy of X; linearity still adds both expectations.",
+        "B": "This multiplies; E of a sum is a sum of expectations, not a product.",
+        "C": "X + Y = 2X here, which has positive expectation, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_161",
+      "concept": "linearity_with_dependence",
+      "question": "Let X be a random variable with E[X] = 10, and let Y = X (perfectly dependent). What is E[X + Y]?",
+      "options": [
+        "20",
+        "10",
+        "100",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X + Y] = E[X] + E[Y] = 10 + 10 = 20; linearity holds even though X and Y are perfectly dependent.",
+        "B": "This ignores the second copy of X; linearity still adds both expectations.",
+        "C": "This multiplies; E of a sum is a sum of expectations, not a product.",
+        "D": "X + Y = 2X here, which has positive expectation, not 0."
+      }
+    },
+    {
+      "id": "pr_l4_162",
+      "concept": "indicator_expected_count",
+      "question": "There are 4 traders. Each of the 6 possible pairs independently strikes a deal with probability 0.5. What is the expected number of deals?",
+      "options": [
+        "6",
+        "3",
+        "2",
+        "0.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. There are C(4,2) = 6 pairs, each an indicator with expectation 0.5, so E = 6·0.5 = 3.",
+        "A": "This is the number of possible pairs C(4,2), as if every pair dealt with certainty.",
+        "C": "This multiplies the number of people by p instead of the number of pairs.",
+        "D": "This is the per-pair probability, not summed over all pairs."
+      }
+    },
+    {
+      "id": "pr_l4_163",
+      "concept": "indicator_expected_count",
+      "question": "There are 5 traders. Each of the 10 possible pairs independently strikes a deal with probability 0.5. What is the expected number of deals?",
+      "options": [
+        "10",
+        "2.5",
+        "5",
+        "0.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. There are C(5,2) = 10 pairs, each an indicator with expectation 0.5, so E = 10·0.5 = 5.",
+        "A": "This is the number of possible pairs C(5,2), as if every pair dealt with certainty.",
+        "B": "This multiplies the number of people by p instead of the number of pairs.",
+        "D": "This is the per-pair probability, not summed over all pairs."
+      }
+    },
+    {
+      "id": "pr_l4_164",
+      "concept": "indicator_expected_count",
+      "question": "There are 6 traders. Each of the 15 possible pairs independently strikes a deal with probability 0.25. What is the expected number of deals?",
+      "options": [
+        "15",
+        "1.5",
+        "0.25",
+        "3.75"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. There are C(6,2) = 15 pairs, each an indicator with expectation 0.25, so E = 15·0.25 = 3.75.",
+        "A": "This is the number of possible pairs C(6,2), as if every pair dealt with certainty.",
+        "B": "This multiplies the number of people by p instead of the number of pairs.",
+        "C": "This is the per-pair probability, not summed over all pairs."
+      }
+    },
+    {
+      "id": "pr_l4_165",
+      "concept": "indicator_expected_count",
+      "question": "There are 10 traders. Each of the 45 possible pairs independently strikes a deal with probability 0.1. What is the expected number of deals?",
+      "options": [
+        "4.5",
+        "45",
+        "1",
+        "0.1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are C(10,2) = 45 pairs, each an indicator with expectation 0.1, so E = 45·0.1 = 4.5.",
+        "B": "This is the number of possible pairs C(10,2), as if every pair dealt with certainty.",
+        "C": "This multiplies the number of people by p instead of the number of pairs.",
+        "D": "This is the per-pair probability, not summed over all pairs."
+      }
+    },
+    {
+      "id": "pr_l4_166",
+      "concept": "indicator_expected_count",
+      "question": "There are 8 traders. Each of the 28 possible pairs independently strikes a deal with probability 0.5. What is the expected number of deals?",
+      "options": [
+        "28",
+        "14",
+        "4",
+        "0.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. There are C(8,2) = 28 pairs, each an indicator with expectation 0.5, so E = 28·0.5 = 14.",
+        "A": "This is the number of possible pairs C(8,2), as if every pair dealt with certainty.",
+        "C": "This multiplies the number of people by p instead of the number of pairs.",
+        "D": "This is the per-pair probability, not summed over all pairs."
+      }
+    },
+    {
+      "id": "pr_l4_167",
+      "concept": "indicator_expected_count",
+      "question": "There are 5 traders. Each of the 10 possible pairs independently strikes a deal with probability 0.2. What is the expected number of deals?",
+      "options": [
+        "10",
+        "1",
+        "2",
+        "0.2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. There are C(5,2) = 10 pairs, each an indicator with expectation 0.2, so E = 10·0.2 = 2.",
+        "A": "This is the number of possible pairs C(5,2), as if every pair dealt with certainty.",
+        "B": "This multiplies the number of people by p instead of the number of pairs.",
+        "D": "This is the per-pair probability, not summed over all pairs."
+      }
+    },
+    {
+      "id": "pr_l4_168",
+      "concept": "discrete_rv_definition",
+      "question": "Which of the following is a discrete random variable?",
+      "options": [
+        "The exact height of a randomly chosen adult",
+        "The exact time in seconds until the next bus",
+        "The exact temperature at noon tomorrow",
+        "The number of heads in 5 coin flips"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. It takes integer values 0 through 5, each with a probability — the hallmark of a discrete random variable.",
+        "A": "Height to arbitrary precision is modeled as a continuous random variable.",
+        "B": "Exact continuous time takes uncountably many values, so it is continuous.",
+        "C": "A real-valued measurement like temperature is continuous, not discrete."
+      }
+    },
+    {
+      "id": "pr_l4_169",
+      "concept": "discrete_rv_definition",
+      "question": "A fair die is rolled and X is the face shown. Which statement is TRUE?",
+      "options": [
+        "X is discrete with values {1,2,3,4,5,6}",
+        "X is continuous on the interval [1,6]",
+        "X always equals its expectation 3.5",
+        "X is not random because the die is fair"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. X takes finitely many values each with probability 1/6, so it is discrete.",
+        "B": "X only takes the six integer faces, not every real number in [1,6].",
+        "C": "3.5 is E[X]; no single roll ever shows 3.5.",
+        "D": "Fairness means equal probabilities, not a fixed outcome — X still varies."
+      }
+    },
+    {
+      "id": "pr_l4_170",
+      "concept": "linearity_of_expectation",
+      "question": "Which identity holds for ALL random variables X and Y, even when they are dependent?",
+      "options": [
+        "E[XY] = E[X]·E[Y]",
+        "E[X + Y] = E[X] + E[Y]",
+        "Var(X + Y) = Var(X) + Var(Y)",
+        "E[X/Y] = E[X]/E[Y]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. Linearity of expectation never requires independence.",
+        "A": "This requires independence (or zero covariance); it can fail for dependent variables.",
+        "C": "This needs zero covariance; it fails for dependent variables in general.",
+        "D": "Expectation does not pass through division; this is false in general."
+      }
+    },
+    {
+      "id": "pr_l4_171",
+      "concept": "pmf_validity",
+      "question": "Which list of probabilities is a valid PMF for a variable taking values 0, 1, 2?",
+      "options": [
+        "P(0)=0.3, P(1)=0.5, P(2)=0.3",
+        "P(0)=−0.1, P(1)=0.6, P(2)=0.5",
+        "P(0)=0.3, P(1)=0.5, P(2)=0.2",
+        "P(0)=0.5, P(1)=0.5, P(2)=0.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. All values are in [0,1] and they sum to exactly 1.",
+        "A": "These sum to 1.1, violating the total-probability-equals-1 rule.",
+        "B": "A negative probability is impossible.",
+        "D": "These sum to 1.5, which is not a valid PMF."
+      }
+    },
+    {
+      "id": "pr_l4_172",
+      "concept": "pmf_validity",
+      "question": "X takes values 1 and 2 with P(X=1) = p. For a valid PMF, P(X=2) must equal:",
+      "options": [
+        "p",
+        "1 + p",
+        "p/2",
+        "1 − p"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "D": "Correct. The two probabilities must sum to 1, so P(X=2) = 1 − p.",
+        "A": "This forces P(X=1)+P(X=2)=2p, which equals 1 only if p=0.5.",
+        "B": "This exceeds 1 for any p > 0, impossible for a probability.",
+        "C": "This does not follow from the requirement that probabilities sum to 1."
+      }
+    },
+    {
+      "id": "pr_l4_173",
+      "concept": "indicator_definition",
+      "question": "For an indicator variable I_A, which statement is correct?",
+      "options": [
+        "I_A² = I_A, so E[I_A²] = P(A)",
+        "E[I_A] = P(A)²",
+        "E[I_A] = 1 − P(A)",
+        "I_A can take the value 2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Since I_A is 0 or 1, squaring leaves it unchanged, so E[I_A²] = E[I_A] = P(A).",
+        "B": "Squaring P(A) is wrong; E[I_A] = P(A) directly.",
+        "C": "1 − P(A) is the probability A does not occur, i.e. E of the complement indicator.",
+        "D": "By definition an indicator is only ever 0 or 1."
+      }
+    },
+    {
+      "id": "pr_l4_174",
+      "concept": "linearity_with_dependence",
+      "question": "Which operation does NOT generally satisfy a simple product/sum rule without independence?",
+      "options": [
+        "E[X + Y] (expectation of a sum)",
+        "E[XY] (expectation of a product)",
+        "E[X + c] for a constant c",
+        "E[−X]"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "B": "Correct. E[XY] = E[X]E[Y] requires independence; it can fail otherwise.",
+        "A": "This always linearizes, regardless of dependence.",
+        "C": "E[X + c] = E[X] + c always holds.",
+        "D": "E[−X] = −E[X] always holds."
+      }
+    },
+    {
+      "id": "pr_l4_175",
+      "concept": "geometric_waiting_time",
+      "question": "For a Geometric(p) variable counting trials until the first success, E equals:",
+      "options": [
+        "p",
+        "(1 − p)",
+        "1/p",
+        "p²"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "C": "Correct. The expected waiting time is the reciprocal of the success probability.",
+        "A": "p is the per-trial success probability, not the mean waiting time.",
+        "B": "1 − p is the per-trial failure probability.",
+        "D": "p² has no role as the mean of a geometric variable."
+      }
+    }
+  ]
+}

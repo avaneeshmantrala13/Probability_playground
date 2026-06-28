@@ -1,0 +1,3157 @@
+{
+  "lessonId": "lesson_6",
+  "track": "quant",
+  "title": "Introductory Statistics",
+  "questions": [
+    {
+      "id": "pr_l6_001",
+      "concept": "mean_definition",
+      "question": "Which statistic is found by summing all the values and dividing by the number of values?",
+      "options": [
+        "The mean",
+        "The median",
+        "The mode",
+        "The range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The mean = (sum of values) / (count of values), the standard average.",
+        "B": "The median is the middle of the sorted data, not a sum divided by count.",
+        "C": "The mode is the most frequently occurring value, not an average.",
+        "D": "The range is max − min, a measure of spread, not center."
+      }
+    },
+    {
+      "id": "pr_l6_002",
+      "concept": "mean_definition",
+      "question": "When people say the 'average' of a dataset, which measure are they usually describing?",
+      "options": [
+        "The mode",
+        "The mean",
+        "The median",
+        "The maximum"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The mode is the most common value, which is not what 'average' usually means.",
+        "B": "Correct. The everyday 'average' is the arithmetic mean: sum of values divided by how many there are.",
+        "C": "The median is the middle value; it coincides with the mean only for symmetric data.",
+        "D": "The maximum is the largest single value, not an average of all values."
+      }
+    },
+    {
+      "id": "pr_l6_003",
+      "concept": "median_definition",
+      "question": "Which measure of center is the middle value once the data is sorted in order?",
+      "options": [
+        "The mean",
+        "The mode",
+        "The median",
+        "The range"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The mean is the arithmetic average, not the positional middle.",
+        "B": "The mode is the most frequent value, not the positional middle.",
+        "C": "Correct. After sorting, the median is the middle value (or the average of the two middle values).",
+        "D": "The range measures spread (max − min), not the center."
+      }
+    },
+    {
+      "id": "pr_l6_004",
+      "concept": "median_definition",
+      "question": "Which measure of center depends only on the rank (position) of values, not on their magnitudes?",
+      "options": [
+        "The mean",
+        "The range",
+        "The variance",
+        "The median"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The mean uses every value's magnitude, so large values shift it.",
+        "B": "The range is literally max minus min, so magnitudes matter a great deal.",
+        "C": "The variance squares magnitudes of deviations, so it depends heavily on magnitude.",
+        "D": "Correct. The median is determined by ordering and selecting the middle rank, so magnitudes of extremes do not move it."
+      }
+    },
+    {
+      "id": "pr_l6_005",
+      "concept": "mode_definition",
+      "question": "Which statistic is the value that occurs most frequently in a dataset?",
+      "options": [
+        "The mode",
+        "The mean",
+        "The median",
+        "The range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The mode is the most frequently occurring value.",
+        "B": "The mean is the average; it need not appear in the data at all.",
+        "C": "The median is the middle of the sorted data, regardless of frequency.",
+        "D": "The range is a spread measure (max − min), unrelated to frequency."
+      }
+    },
+    {
+      "id": "pr_l6_006",
+      "concept": "mode_definition",
+      "question": "A dataset can have two or more of which measure (making it 'bimodal' or 'multimodal')?",
+      "options": [
+        "The mean",
+        "The mode",
+        "The median",
+        "The range"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A dataset has exactly one arithmetic mean.",
+        "B": "Correct. Several values can tie for highest frequency, so a dataset can have multiple modes.",
+        "C": "A dataset has a single median for a given ordering.",
+        "D": "The range is one number (max − min), not multiple values."
+      }
+    },
+    {
+      "id": "pr_l6_007",
+      "concept": "range_spread",
+      "question": "Which measure of spread equals the maximum value minus the minimum value?",
+      "options": [
+        "The variance",
+        "The median",
+        "The range",
+        "The IQR"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Variance averages squared deviations from the mean, not max − min.",
+        "B": "The median is a measure of center, not spread.",
+        "C": "Correct. Range = max − min, the total spread between the extremes.",
+        "D": "The IQR is Q3 − Q1 (middle 50%), not the full max − min."
+      }
+    },
+    {
+      "id": "pr_l6_008",
+      "concept": "range_spread",
+      "question": "Which spread measure is most sensitive to a single extreme value because it uses only the two most extreme points?",
+      "options": [
+        "The median",
+        "The IQR",
+        "The mode",
+        "The range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The median is a robust center measure, not a spread measure, and resists extremes.",
+        "B": "The IQR uses the middle 50% and is robust to extreme values.",
+        "C": "The mode reflects frequency, not the extreme values.",
+        "D": "Correct. The range depends solely on the max and min, so one extreme value changes it directly."
+      }
+    },
+    {
+      "id": "pr_l6_009",
+      "concept": "variance_spread",
+      "question": "Variance is best described as the average of which quantity?",
+      "options": [
+        "The squared deviations from the mean",
+        "The absolute deviations from the mean",
+        "The raw deviations from the mean",
+        "The values themselves"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Variance = average of (value − mean)², so it averages squared deviations.",
+        "B": "Averaging absolute deviations gives the mean absolute deviation, not the variance.",
+        "C": "Raw deviations sum to zero, so their average is always 0.",
+        "D": "Averaging the values themselves gives the mean, not the variance."
+      }
+    },
+    {
+      "id": "pr_l6_010",
+      "concept": "variance_spread",
+      "question": "If every value in a dataset is identical, what is the variance?",
+      "options": [
+        "1",
+        "0",
+        "The common value",
+        "Undefined"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1 is an arbitrary number with no special role; identical values give exactly 0 spread.",
+        "B": "Correct. With no deviation from the mean, every squared deviation is 0, so the variance is 0.",
+        "C": "The shared value is the mean, but the spread around it is 0.",
+        "D": "Variance is well defined here and equals 0."
+      }
+    },
+    {
+      "id": "pr_l6_011",
+      "concept": "sd_definition",
+      "question": "How is the standard deviation related to the variance?",
+      "options": [
+        "It is the square of the variance",
+        "It equals the variance",
+        "It is the square root of the variance",
+        "It is the variance divided by n"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Squaring the variance over-inflates units; the SD is the square root.",
+        "B": "They are equal only when the variance is 0 or 1; in general SD = √variance.",
+        "C": "Correct. Standard deviation = √variance, returning the spread to the original units.",
+        "D": "Dividing variance by n is not how SD is defined; SD = √variance."
+      }
+    },
+    {
+      "id": "pr_l6_012",
+      "concept": "sd_definition",
+      "question": "Why is standard deviation often reported instead of variance?",
+      "options": [
+        "It is always smaller than the variance",
+        "It ignores outliers",
+        "It equals the mean",
+        "It is expressed in the same units as the original data"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "SD is smaller than variance only when variance > 1; that is not the reason it is preferred.",
+        "B": "SD, like variance, is sensitive to outliers; it does not ignore them.",
+        "C": "SD measures spread and is unrelated to equalling the mean.",
+        "D": "Correct. Variance is in squared units; taking the square root returns SD to the data's units, making it interpretable."
+      }
+    },
+    {
+      "id": "pr_l6_013",
+      "concept": "percentiles",
+      "question": "The 50th percentile of a dataset is also known as the:",
+      "options": [
+        "Median",
+        "Mean",
+        "Mode",
+        "Maximum"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The 50th percentile splits the data in half, which is exactly the median.",
+        "B": "The mean is the average and need not sit at the 50th percentile, especially when skewed.",
+        "C": "The mode is the most frequent value, unrelated to the 50% split.",
+        "D": "The maximum is the 100th percentile, not the 50th."
+      }
+    },
+    {
+      "id": "pr_l6_014",
+      "concept": "histogram_reading",
+      "question": "On a histogram, what does the height of a bar represent?",
+      "options": [
+        "The magnitude of the values in that interval",
+        "The number of values that fall in that interval",
+        "The mean of the dataset",
+        "The range of the dataset"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Magnitude is shown on the horizontal axis; height shows counts.",
+        "B": "Correct. Bar height encodes frequency: how many data values land in that bin.",
+        "C": "Bar height is a frequency, not a single summary statistic.",
+        "D": "The range is one number, not the height of each bar."
+      }
+    },
+    {
+      "id": "pr_l6_015",
+      "concept": "histogram_reading",
+      "question": "The tallest bar in a histogram corresponds to which statistic?",
+      "options": [
+        "The mean",
+        "The median",
+        "The mode (most frequent interval)",
+        "The range"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The mean is a balance point and need not align with the tallest bar.",
+        "B": "The median is the 50% split point and need not be the tallest bar.",
+        "C": "Correct. The tallest bar is the most frequent bin, i.e., the modal interval.",
+        "D": "The range is the width between extremes, not the tallest bar."
+      }
+    },
+    {
+      "id": "pr_l6_016",
+      "concept": "histogram_reading",
+      "question": "A histogram with two clearly separated tall peaks is described as:",
+      "options": [
+        "Symmetric",
+        "Uniform",
+        "Right-skewed",
+        "Bimodal"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Symmetry refers to mirror-image balance, not the number of peaks.",
+        "B": "A uniform histogram is flat with no peaks.",
+        "C": "Right skew describes a single hump with a long right tail, not two peaks.",
+        "D": "Correct. Two distinct frequency peaks indicate a bimodal distribution."
+      }
+    },
+    {
+      "id": "pr_l6_017",
+      "concept": "distribution_shape",
+      "question": "A histogram where most values sit on the right with a long tail stretching toward small values is:",
+      "options": [
+        "Left-skewed",
+        "Right-skewed",
+        "Symmetric",
+        "Uniform"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The long tail points toward smaller (left) values, so the distribution is left-skewed.",
+        "B": "Right skew has the long tail toward larger values, on the right.",
+        "C": "Symmetric distributions have balanced tails on both sides.",
+        "D": "Uniform distributions are flat with no tail."
+      }
+    },
+    {
+      "id": "pr_l6_018",
+      "concept": "distribution_shape",
+      "question": "A flat histogram in which all intervals have roughly equal height is called:",
+      "options": [
+        "Skewed",
+        "Uniform",
+        "Bell-shaped",
+        "Bimodal"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Skewed distributions have a long tail on one side, not a flat shape.",
+        "B": "Correct. Roughly equal frequencies across all bins describe a uniform distribution.",
+        "C": "A bell shape peaks in the middle rather than being flat.",
+        "D": "Bimodal data has two peaks, not a flat profile."
+      }
+    },
+    {
+      "id": "pr_l6_019",
+      "concept": "distribution_shape",
+      "question": "A balanced, bell-shaped histogram that looks about the same on both sides is best described as:",
+      "options": [
+        "Right-skewed",
+        "Left-skewed",
+        "Symmetric (approximately normal)",
+        "Uniform"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Right skew has a long right tail, breaking the symmetry.",
+        "B": "Left skew has a long left tail, breaking the symmetry.",
+        "C": "Correct. A balanced bell shape with mirror-image tails is symmetric, the hallmark of a normal-like distribution.",
+        "D": "Uniform distributions are flat, not bell-shaped."
+      }
+    },
+    {
+      "id": "pr_l6_020",
+      "concept": "distribution_shape",
+      "question": "Most values cluster at low numbers with a long tail extending toward large values. This shape is:",
+      "options": [
+        "Left-skewed",
+        "Symmetric",
+        "Uniform",
+        "Right-skewed"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Left skew has the long tail toward smaller values.",
+        "B": "Symmetric distributions have balanced tails, not one long tail.",
+        "C": "Uniform distributions are flat with no tail.",
+        "D": "Correct. The long tail points toward larger (right) values, so the distribution is right-skewed."
+      }
+    },
+    {
+      "id": "pr_l6_021",
+      "concept": "skew_mean_median",
+      "question": "In a right-skewed distribution, how do the mean and median typically compare?",
+      "options": [
+        "Mean > median",
+        "Mean < median",
+        "Mean ≈ median",
+        "Mean and median are unrelated"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The long upper tail pulls the mean above the median in right-skewed data.",
+        "B": "Mean below median describes left skew, not right skew.",
+        "C": "Mean and median are about equal for symmetric data, not skewed data.",
+        "D": "They are related; skew direction predicts which is larger."
+      }
+    },
+    {
+      "id": "pr_l6_022",
+      "concept": "skew_mean_median",
+      "question": "In a left-skewed distribution, how do the mean and median typically compare?",
+      "options": [
+        "Mean > median",
+        "Mean < median",
+        "Mean ≈ median",
+        "They are always equal"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Mean above median describes right skew, not left skew.",
+        "B": "Correct. The long lower tail drags the mean below the median in left-skewed data.",
+        "C": "Approximate equality describes symmetric data, not skewed data.",
+        "D": "They are equal mainly for symmetric distributions, not skewed ones."
+      }
+    },
+    {
+      "id": "pr_l6_023",
+      "concept": "skew_mean_median",
+      "question": "For an approximately symmetric distribution, how do the mean and median compare?",
+      "options": [
+        "Mean is much greater than median",
+        "Mean is much less than median",
+        "Mean ≈ median",
+        "The median is undefined"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A large gap with mean above suggests right skew, not symmetry.",
+        "B": "A large gap with mean below suggests left skew, not symmetry.",
+        "C": "Correct. With balanced tails there is no pull in either direction, so the mean and median are about equal.",
+        "D": "The median always exists for a finite dataset."
+      }
+    },
+    {
+      "id": "pr_l6_024",
+      "concept": "skew_mean_median",
+      "question": "For strongly right-skewed income data, which measure better reflects a 'typical' value?",
+      "options": [
+        "The mean",
+        "The range",
+        "The maximum",
+        "The median"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The mean is pulled upward by the high-income tail, overstating the typical value.",
+        "B": "The range measures spread, not a typical central value.",
+        "C": "The maximum is an extreme, not a typical value.",
+        "D": "Correct. The median resists the long upper tail, while the mean is inflated by a few very large incomes."
+      }
+    },
+    {
+      "id": "pr_l6_025",
+      "concept": "outlier_robustness",
+      "question": "Which measure of center is MOST affected by a single extreme outlier?",
+      "options": [
+        "The mean",
+        "The median",
+        "The mode",
+        "None of them"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The mean sums every value, so one extreme value pulls it strongly toward itself.",
+        "B": "The median is rank-based and barely moves when one extreme value is added.",
+        "C": "The mode only changes if the outlier becomes the most frequent value.",
+        "D": "The mean clearly moves, so at least one measure is affected."
+      }
+    },
+    {
+      "id": "pr_l6_026",
+      "concept": "outlier_robustness",
+      "question": "Which measure of center is LEAST affected by a single extreme outlier?",
+      "options": [
+        "The mean",
+        "The median",
+        "The range",
+        "The maximum"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The mean uses every value, so an outlier pulls it the most.",
+        "B": "Correct. The median depends on rank, not magnitude, so one extreme value barely shifts it.",
+        "C": "The range is defined by the extremes, so an outlier changes it directly.",
+        "D": "If the outlier is large, it becomes the maximum, which is maximally affected."
+      }
+    },
+    {
+      "id": "pr_l6_027",
+      "concept": "outlier_robustness",
+      "question": "Which measure of spread is most distorted by a single extreme outlier?",
+      "options": [
+        "The IQR",
+        "The median",
+        "The range",
+        "The mode"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The IQR uses the middle 50% and is robust to extreme values.",
+        "B": "The median is a center measure, not a spread measure, and resists outliers.",
+        "C": "Correct. The range is max − min, so one extreme value changes it directly and dramatically.",
+        "D": "The mode reflects frequency and is unaffected by a lone extreme value."
+      }
+    },
+    {
+      "id": "pr_l6_028",
+      "concept": "outlier_robustness",
+      "question": "Which spread measure is robust to outliers because it ignores the most extreme 25% on each end?",
+      "options": [
+        "The range",
+        "The variance",
+        "The standard deviation",
+        "The interquartile range (IQR)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The range is determined entirely by the two most extreme points.",
+        "B": "Variance squares deviations, so extreme values dominate it.",
+        "C": "SD is the square root of variance and is likewise inflated by outliers.",
+        "D": "Correct. The IQR = Q3 − Q1 covers only the middle 50%, so the extreme tails do not affect it."
+      }
+    },
+    {
+      "id": "pr_l6_029",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 20, 11, 16, 7, 7. What is the mean?",
+      "options": [
+        "12.2",
+        "11",
+        "61",
+        "15.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sum = 61; divide by n = 5: 61/5 = 12.2.",
+        "B": "This is the median (middle of the sorted data), not the mean.",
+        "C": "This is the sum of the values; the mean still divides by the count n = 5.",
+        "D": "This divides by n − 1 = 4; the mean divides by n = 5."
+      }
+    },
+    {
+      "id": "pr_l6_030",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 20, 12, 20, 16, 17, 14, 19. What is the mean?",
+      "options": [
+        "17",
+        "16.86",
+        "118",
+        "19.67"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "Correct. Sum = 118; divide by n = 7: 118/7 = 16.86.",
+        "C": "This is the sum of the values; the mean still divides by the count n = 7.",
+        "D": "This divides by n − 1 = 6; the mean divides by n = 7."
+      }
+    },
+    {
+      "id": "pr_l6_031",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 2, 16, 8, 9. What is the mean?",
+      "options": [
+        "8.5",
+        "35",
+        "8.75",
+        "11.67"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 4.",
+        "C": "Correct. Sum = 35; divide by n = 4: 35/4 = 8.75.",
+        "D": "This divides by n − 1 = 3; the mean divides by n = 4."
+      }
+    },
+    {
+      "id": "pr_l6_032",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 10, 15, 20, 7. What is the mean?",
+      "options": [
+        "12.5",
+        "52",
+        "17.33",
+        "13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 4.",
+        "C": "This divides by n − 1 = 3; the mean divides by n = 4.",
+        "D": "Correct. Sum = 52; divide by n = 4: 52/4 = 13."
+      }
+    },
+    {
+      "id": "pr_l6_033",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 7, 6, 20, 8. What is the mean?",
+      "options": [
+        "10.25",
+        "7.5",
+        "41",
+        "13.67"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sum = 41; divide by n = 4: 41/4 = 10.25.",
+        "B": "This is the median (middle of the sorted data), not the mean.",
+        "C": "This is the sum of the values; the mean still divides by the count n = 4.",
+        "D": "This divides by n − 1 = 3; the mean divides by n = 4."
+      }
+    },
+    {
+      "id": "pr_l6_034",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 6, 18, 19, 4, 19, 13, 20. What is the mean?",
+      "options": [
+        "18",
+        "14.14",
+        "99",
+        "16.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "Correct. Sum = 99; divide by n = 7: 99/7 = 14.14.",
+        "C": "This is the sum of the values; the mean still divides by the count n = 7.",
+        "D": "This divides by n − 1 = 6; the mean divides by n = 7."
+      }
+    },
+    {
+      "id": "pr_l6_035",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 14, 15, 4, 2, 13, 16, 12. What is the mean?",
+      "options": [
+        "13",
+        "76",
+        "10.86",
+        "12.67"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 7.",
+        "C": "Correct. Sum = 76; divide by n = 7: 76/7 = 10.86.",
+        "D": "This divides by n − 1 = 6; the mean divides by n = 7."
+      }
+    },
+    {
+      "id": "pr_l6_036",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 2, 4, 14, 7, 13, 17, 19. What is the mean?",
+      "options": [
+        "13",
+        "76",
+        "12.67",
+        "10.86"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 7.",
+        "C": "This divides by n − 1 = 6; the mean divides by n = 7.",
+        "D": "Correct. Sum = 76; divide by n = 7: 76/7 = 10.86."
+      }
+    },
+    {
+      "id": "pr_l6_037",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 4, 9, 17, 14, 13. What is the mean?",
+      "options": [
+        "11.4",
+        "13",
+        "57",
+        "14.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sum = 57; divide by n = 5: 57/5 = 11.4.",
+        "B": "This is the median (middle of the sorted data), not the mean.",
+        "C": "This is the sum of the values; the mean still divides by the count n = 5.",
+        "D": "This divides by n − 1 = 4; the mean divides by n = 5."
+      }
+    },
+    {
+      "id": "pr_l6_038",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 4, 13, 18, 9. What is the mean?",
+      "options": [
+        "44",
+        "11",
+        "14.67",
+        "14"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the sum of the values; the mean still divides by the count n = 4.",
+        "B": "Correct. Sum = 44; divide by n = 4: 44/4 = 11.",
+        "C": "This divides by n − 1 = 3; the mean divides by n = 4.",
+        "D": "This is the range (max − min), a measure of spread, not center."
+      }
+    },
+    {
+      "id": "pr_l6_039",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 10, 17, 10, 4, 5. What is the mean?",
+      "options": [
+        "10",
+        "46",
+        "9.2",
+        "11.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 5.",
+        "C": "Correct. Sum = 46; divide by n = 5: 46/5 = 9.2.",
+        "D": "This divides by n − 1 = 4; the mean divides by n = 5."
+      }
+    },
+    {
+      "id": "pr_l6_040",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 13, 6, 6, 9, 16, 15, 16. What is the mean?",
+      "options": [
+        "13",
+        "81",
+        "13.5",
+        "11.57"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 7.",
+        "C": "This divides by n − 1 = 6; the mean divides by n = 7.",
+        "D": "Correct. Sum = 81; divide by n = 7: 81/7 = 11.57."
+      }
+    },
+    {
+      "id": "pr_l6_041",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 10, 5, 14, 11, 17, 15. What is the mean?",
+      "options": [
+        "12",
+        "12.5",
+        "72",
+        "14.4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sum = 72; divide by n = 6: 72/6 = 12.",
+        "B": "This is the median (middle of the sorted data), not the mean.",
+        "C": "This is the sum of the values; the mean still divides by the count n = 6.",
+        "D": "This divides by n − 1 = 5; the mean divides by n = 6."
+      }
+    },
+    {
+      "id": "pr_l6_042",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 2, 5, 3, 9, 14. What is the mean?",
+      "options": [
+        "5",
+        "6.6",
+        "33",
+        "8.25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "Correct. Sum = 33; divide by n = 5: 33/5 = 6.6.",
+        "C": "This is the sum of the values; the mean still divides by the count n = 5.",
+        "D": "This divides by n − 1 = 4; the mean divides by n = 5."
+      }
+    },
+    {
+      "id": "pr_l6_043",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 2, 5, 8, 4. What is the mean?",
+      "options": [
+        "4.5",
+        "19",
+        "4.75",
+        "6.33"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 4.",
+        "C": "Correct. Sum = 19; divide by n = 4: 19/4 = 4.75.",
+        "D": "This divides by n − 1 = 3; the mean divides by n = 4."
+      }
+    },
+    {
+      "id": "pr_l6_044",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 11, 2, 10, 18, 11, 5, 11. What is the mean?",
+      "options": [
+        "11",
+        "68",
+        "11.33",
+        "9.71"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 7.",
+        "C": "This divides by n − 1 = 6; the mean divides by n = 7.",
+        "D": "Correct. Sum = 68; divide by n = 7: 68/7 = 9.71."
+      }
+    },
+    {
+      "id": "pr_l6_045",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 8, 16, 11, 27, 15, 29, 24.",
+      "options": [
+        "16",
+        "18.57",
+        "8",
+        "29"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 8, 11, 15, 16, 24, 27, 29. With n = 7 values the median is the 4th (middle) value: 16.",
+        "B": "This is the mean (sum / 7), which differs from the middle value when the data is skewed.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_046",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 18, 27, 20, 22, 20.",
+      "options": [
+        "21.4",
+        "20",
+        "18",
+        "27"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean (sum / 5), which differs from the middle value when the data is skewed.",
+        "B": "Correct. Sorted: 18, 20, 20, 22, 27. With n = 5 values the median is the 3th (middle) value: 20.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_047",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 28, 14, 8, 7, 21, 5, 16.",
+      "options": [
+        "14.14",
+        "5",
+        "14",
+        "28"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the mean (sum / 7), which differs from the middle value when the data is skewed.",
+        "B": "This is the minimum, not the middle of the sorted data.",
+        "C": "Correct. Sorted: 5, 7, 8, 14, 16, 21, 28. With n = 7 values the median is the 4th (middle) value: 14.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_048",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 11, 17, 9, 10, 28.",
+      "options": [
+        "15",
+        "9",
+        "28",
+        "11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the mean (sum / 5), which differs from the middle value when the data is skewed.",
+        "B": "This is the minimum, not the middle of the sorted data.",
+        "C": "This is the maximum, not the middle of the sorted data.",
+        "D": "Correct. Sorted: 9, 10, 11, 17, 28. With n = 5 values the median is the 3th (middle) value: 11."
+      }
+    },
+    {
+      "id": "pr_l6_049",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 18, 24, 3, 6, 21, 3, 14.",
+      "options": [
+        "14",
+        "12.71",
+        "3",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 3, 3, 6, 14, 18, 21, 24. With n = 7 values the median is the 4th (middle) value: 14.",
+        "B": "This is the mean (sum / 7), which differs from the middle value when the data is skewed.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_050",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 28, 30, 15, 15, 6, 28, 16.",
+      "options": [
+        "19.71",
+        "16",
+        "6",
+        "30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean (sum / 7), which differs from the middle value when the data is skewed.",
+        "B": "Correct. Sorted: 6, 15, 15, 16, 28, 28, 30. With n = 7 values the median is the 4th (middle) value: 16.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_051",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 13, 5, 10, 2, 8.",
+      "options": [
+        "7.6",
+        "2",
+        "8",
+        "13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the mean (sum / 5), which differs from the middle value when the data is skewed.",
+        "B": "This is the minimum, not the middle of the sorted data.",
+        "C": "Correct. Sorted: 2, 5, 8, 10, 13. With n = 5 values the median is the 3th (middle) value: 8.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_052",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 6, 4, 30, 13, 6.",
+      "options": [
+        "11.8",
+        "4",
+        "30",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the mean (sum / 5), which differs from the middle value when the data is skewed.",
+        "B": "This is the minimum, not the middle of the sorted data.",
+        "C": "This is the maximum, not the middle of the sorted data.",
+        "D": "Correct. Sorted: 4, 6, 6, 13, 30. With n = 5 values the median is the 3th (middle) value: 6."
+      }
+    },
+    {
+      "id": "pr_l6_053",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 8, 7, 24, 29, 28.",
+      "options": [
+        "24",
+        "19.2",
+        "7",
+        "29"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 7, 8, 24, 28, 29. With n = 5 values the median is the 3th (middle) value: 24.",
+        "B": "This is the mean (sum / 5), which differs from the middle value when the data is skewed.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_054",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 20, 22, 17, 13, 12, 23, 30, 11, 3.",
+      "options": [
+        "16.78",
+        "17",
+        "3",
+        "30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean (sum / 9), which differs from the middle value when the data is skewed.",
+        "B": "Correct. Sorted: 3, 11, 12, 13, 17, 20, 22, 23, 30. With n = 9 values the median is the 5th (middle) value: 17.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_055",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 25, 6, 16, 16, 16, 7, 10.",
+      "options": [
+        "13.71",
+        "6",
+        "16",
+        "25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the mean (sum / 7), which differs from the middle value when the data is skewed.",
+        "B": "This is the minimum, not the middle of the sorted data.",
+        "C": "Correct. Sorted: 6, 7, 10, 16, 16, 16, 25. With n = 7 values the median is the 4th (middle) value: 16.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_056",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 8, 15, 19, 25, 29, 19, 12, 3.",
+      "options": [
+        "15",
+        "19",
+        "16.25",
+        "17"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "This is only the upper of the two middle values; average it with the lower one.",
+        "C": "This is the mean (sum / 8), not the average of the two middle values.",
+        "D": "Correct. Sorted: 3, 8, 12, 15, 19, 19, 25, 29. With n = 8 (even) the median averages the two middle values 15 and 19: (15 + 19)/2 = 17."
+      }
+    },
+    {
+      "id": "pr_l6_057",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 8, 10, 11, 18, 30, 10.",
+      "options": [
+        "10.5",
+        "10",
+        "11",
+        "14.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 8, 10, 10, 11, 18, 30. With n = 6 (even) the median averages the two middle values 10 and 11: (10 + 11)/2 = 10.5.",
+        "B": "This is only the lower of the two middle values; average it with the upper one.",
+        "C": "This is only the upper of the two middle values; average it with the lower one.",
+        "D": "This is the mean (sum / 6), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_058",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 7, 5, 15, 16, 17, 8.",
+      "options": [
+        "8",
+        "11.5",
+        "15",
+        "11.33"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "Correct. Sorted: 5, 7, 8, 15, 16, 17. With n = 6 (even) the median averages the two middle values 8 and 15: (8 + 15)/2 = 11.5.",
+        "C": "This is only the upper of the two middle values; average it with the lower one.",
+        "D": "This is the mean (sum / 6), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_059",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 25, 18, 23, 12, 29, 14.",
+      "options": [
+        "18",
+        "23",
+        "20.5",
+        "20.17"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "This is only the upper of the two middle values; average it with the lower one.",
+        "C": "Correct. Sorted: 12, 14, 18, 23, 25, 29. With n = 6 (even) the median averages the two middle values 18 and 23: (18 + 23)/2 = 20.5.",
+        "D": "This is the mean (sum / 6), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_060",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 24, 19, 3, 6, 1, 3.",
+      "options": [
+        "3",
+        "6",
+        "9.33",
+        "4.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "This is only the upper of the two middle values; average it with the lower one.",
+        "C": "This is the mean (sum / 6), not the average of the two middle values.",
+        "D": "Correct. Sorted: 1, 3, 3, 6, 19, 24. With n = 6 (even) the median averages the two middle values 3 and 6: (3 + 6)/2 = 4.5."
+      }
+    },
+    {
+      "id": "pr_l6_061",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 15, 15, 27, 11, 8, 16, 13, 30.",
+      "options": [
+        "15",
+        "16.88",
+        "22",
+        "16"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 8, 11, 13, 15, 15, 16, 27, 30. With n = 8 (even) the median averages the two middle values 15 and 15: (15 + 15)/2 = 15.",
+        "B": "This is the mean (sum / 8), not the average of the two middle values.",
+        "C": "This is the range (max − min), not the median.",
+        "D": "This value does not match the correct computation."
+      }
+    },
+    {
+      "id": "pr_l6_062",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 5, 20, 8, 20, 14, 3, 6, 7.",
+      "options": [
+        "7",
+        "7.5",
+        "8",
+        "10.38"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "Correct. Sorted: 3, 5, 6, 7, 8, 14, 20, 20. With n = 8 (even) the median averages the two middle values 7 and 8: (7 + 8)/2 = 7.5.",
+        "C": "This is only the upper of the two middle values; average it with the lower one.",
+        "D": "This is the mean (sum / 8), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_063",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 25, 22, 16, 18, 1, 5.",
+      "options": [
+        "16",
+        "18",
+        "17",
+        "14.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "This is only the upper of the two middle values; average it with the lower one.",
+        "C": "Correct. Sorted: 1, 5, 16, 18, 22, 25. With n = 6 (even) the median averages the two middle values 16 and 18: (16 + 18)/2 = 17.",
+        "D": "This is the mean (sum / 6), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_064",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 22, 19, 7, 7.",
+      "options": [
+        "7",
+        "19",
+        "13.75",
+        "13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "This is only the upper of the two middle values; average it with the lower one.",
+        "C": "This is the mean (sum / 4), not the average of the two middle values.",
+        "D": "Correct. Sorted: 7, 7, 19, 22. With n = 4 (even) the median averages the two middle values 7 and 19: (7 + 19)/2 = 13."
+      }
+    },
+    {
+      "id": "pr_l6_065",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 4, 18, 28, 30.",
+      "options": [
+        "23",
+        "18",
+        "28",
+        "20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 4, 18, 28, 30. With n = 4 (even) the median averages the two middle values 18 and 28: (18 + 28)/2 = 23.",
+        "B": "This is only the lower of the two middle values; average it with the upper one.",
+        "C": "This is only the upper of the two middle values; average it with the lower one.",
+        "D": "This is the mean (sum / 4), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_066",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 19, 6, 10, 10.",
+      "options": [
+        "11.25",
+        "10",
+        "13",
+        "11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean (sum / 4), not the average of the two middle values.",
+        "B": "Correct. Sorted: 6, 10, 10, 19. With n = 4 (even) the median averages the two middle values 10 and 10: (10 + 10)/2 = 10.",
+        "C": "This is the range (max − min), not the median.",
+        "D": "This value does not match the correct computation."
+      }
+    },
+    {
+      "id": "pr_l6_067",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 9, 1, 9, 9, 9, 4, 12, 6?",
+      "options": [
+        "7.38",
+        "12",
+        "9",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the mean, not the most frequently occurring value.",
+        "B": "This is the largest value; the mode is about frequency, not magnitude.",
+        "C": "Correct. The value 9 appears 4 times — more often than any other value — so it is the mode.",
+        "D": "This value appears only once, while 9 appears 4 times."
+      }
+    },
+    {
+      "id": "pr_l6_068",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 15, 2, 2, 3, 6, 2, 5?",
+      "options": [
+        "5",
+        "3",
+        "15",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the mean, not the most frequently occurring value.",
+        "B": "This is the median (middle of the sorted data), not the most frequent value.",
+        "C": "This is the largest value; the mode is about frequency, not magnitude.",
+        "D": "Correct. The value 2 appears 3 times — more often than any other value — so it is the mode."
+      }
+    },
+    {
+      "id": "pr_l6_069",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 6, 9, 9, 1, 13, 9, 9?",
+      "options": [
+        "9",
+        "8",
+        "13",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The value 9 appears 4 times — more often than any other value — so it is the mode.",
+        "B": "This is the mean, not the most frequently occurring value.",
+        "C": "This is the largest value; the mode is about frequency, not magnitude.",
+        "D": "This value appears only once, while 9 appears 4 times."
+      }
+    },
+    {
+      "id": "pr_l6_070",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 9, 7, 11, 2, 9, 6, 9, 1, 9?",
+      "options": [
+        "7",
+        "9",
+        "11",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean, not the most frequently occurring value.",
+        "B": "Correct. The value 9 appears 4 times — more often than any other value — so it is the mode.",
+        "C": "This is the largest value; the mode is about frequency, not magnitude.",
+        "D": "This value does not match the correct computation."
+      }
+    },
+    {
+      "id": "pr_l6_071",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 2, 2, 2, 2, 6, 9, 11?",
+      "options": [
+        "4.86",
+        "11",
+        "2",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the mean, not the most frequently occurring value.",
+        "B": "This is the largest value; the mode is about frequency, not magnitude.",
+        "C": "Correct. The value 2 appears 4 times — more often than any other value — so it is the mode.",
+        "D": "This value does not match the correct computation."
+      }
+    },
+    {
+      "id": "pr_l6_072",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 8, 8, 5, 8, 7, 10?",
+      "options": [
+        "7.67",
+        "10",
+        "5",
+        "8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the mean, not the most frequently occurring value.",
+        "B": "This is the largest value; the mode is about frequency, not magnitude.",
+        "C": "This value appears only once, while 8 appears 3 times.",
+        "D": "Correct. The value 8 appears 3 times — more often than any other value — so it is the mode."
+      }
+    },
+    {
+      "id": "pr_l6_073",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 4, 8, 4, 2, 10, 4?",
+      "options": [
+        "4",
+        "5.33",
+        "10",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The value 4 appears 3 times — more often than any other value — so it is the mode.",
+        "B": "This is the mean, not the most frequently occurring value.",
+        "C": "This is the largest value; the mode is about frequency, not magnitude.",
+        "D": "This value appears only once, while 4 appears 3 times."
+      }
+    },
+    {
+      "id": "pr_l6_074",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 5, 5, 5, 8, 1, 3, 5?",
+      "options": [
+        "4.57",
+        "5",
+        "8",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean, not the most frequently occurring value.",
+        "B": "Correct. The value 5 appears 4 times — more often than any other value — so it is the mode.",
+        "C": "This is the largest value; the mode is about frequency, not magnitude.",
+        "D": "This value appears only once, while 5 appears 4 times."
+      }
+    },
+    {
+      "id": "pr_l6_075",
+      "concept": "compute_mode",
+      "question": "What is the mode of: 11, 13, 15, 9, 6, 9, 9, 1, 9?",
+      "options": [
+        "9.11",
+        "15",
+        "9",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the mean, not the most frequently occurring value.",
+        "B": "This is the largest value; the mode is about frequency, not magnitude.",
+        "C": "Correct. The value 9 appears 4 times — more often than any other value — so it is the mode.",
+        "D": "This value appears only once, while 9 appears 4 times."
+      }
+    },
+    {
+      "id": "pr_l6_076",
+      "concept": "range_spread",
+      "question": "What is the range of: 38, 23, 10, 28, 29, 8?",
+      "options": [
+        "38",
+        "8",
+        "46",
+        "30"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (8) from it.",
+        "B": "This is the minimum, not the spread between the extremes.",
+        "C": "The range subtracts rather than adds: max − min, not max + min.",
+        "D": "Correct. Range = max − min = 38 − 8 = 30."
+      }
+    },
+    {
+      "id": "pr_l6_077",
+      "concept": "range_spread",
+      "question": "What is the range of: 30, 27, 6, 20, 28, 22, 17?",
+      "options": [
+        "24",
+        "30",
+        "6",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Range = max − min = 30 − 6 = 24.",
+        "B": "This is the maximum; the range subtracts the minimum (6) from it.",
+        "C": "This is the minimum, not the spread between the extremes.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_078",
+      "concept": "range_spread",
+      "question": "What is the range of: 2, 4, 7, 6, 37, 39, 21?",
+      "options": [
+        "39",
+        "37",
+        "2",
+        "41"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (2) from it.",
+        "B": "Correct. Range = max − min = 39 − 2 = 37.",
+        "C": "This is the minimum, not the spread between the extremes.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_079",
+      "concept": "range_spread",
+      "question": "What is the range of: 2, 13, 25, 10, 22, 14?",
+      "options": [
+        "25",
+        "2",
+        "23",
+        "27"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (2) from it.",
+        "B": "This is the minimum, not the spread between the extremes.",
+        "C": "Correct. Range = max − min = 25 − 2 = 23.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_080",
+      "concept": "range_spread",
+      "question": "What is the range of: 22, 34, 5, 33, 33, 15?",
+      "options": [
+        "34",
+        "5",
+        "39",
+        "29"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (5) from it.",
+        "B": "This is the minimum, not the spread between the extremes.",
+        "C": "The range subtracts rather than adds: max − min, not max + min.",
+        "D": "Correct. Range = max − min = 34 − 5 = 29."
+      }
+    },
+    {
+      "id": "pr_l6_081",
+      "concept": "range_spread",
+      "question": "What is the range of: 7, 15, 13, 19, 37?",
+      "options": [
+        "30",
+        "37",
+        "7",
+        "44"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Range = max − min = 37 − 7 = 30.",
+        "B": "This is the maximum; the range subtracts the minimum (7) from it.",
+        "C": "This is the minimum, not the spread between the extremes.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_082",
+      "concept": "range_spread",
+      "question": "What is the range of: 40, 3, 18, 40, 27, 40, 31?",
+      "options": [
+        "40",
+        "37",
+        "3",
+        "43"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (3) from it.",
+        "B": "Correct. Range = max − min = 40 − 3 = 37.",
+        "C": "This is the minimum, not the spread between the extremes.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_083",
+      "concept": "range_spread",
+      "question": "What is the range of: 24, 28, 6, 23?",
+      "options": [
+        "28",
+        "6",
+        "22",
+        "34"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (6) from it.",
+        "B": "This is the minimum, not the spread between the extremes.",
+        "C": "Correct. Range = max − min = 28 − 6 = 22.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_084",
+      "concept": "range_spread",
+      "question": "What is the range of: 38, 14, 38, 31?",
+      "options": [
+        "38",
+        "14",
+        "52",
+        "24"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (14) from it.",
+        "B": "This is the minimum, not the spread between the extremes.",
+        "C": "The range subtracts rather than adds: max − min, not max + min.",
+        "D": "Correct. Range = max − min = 38 − 14 = 24."
+      }
+    },
+    {
+      "id": "pr_l6_085",
+      "concept": "range_spread",
+      "question": "What is the range of: 21, 8, 36, 24, 18, 15?",
+      "options": [
+        "28",
+        "36",
+        "8",
+        "44"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Range = max − min = 36 − 8 = 28.",
+        "B": "This is the maximum; the range subtracts the minimum (8) from it.",
+        "C": "This is the minimum, not the spread between the extremes.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_086",
+      "concept": "range_spread",
+      "question": "What is the range of: 14, 15, 23, 28?",
+      "options": [
+        "28",
+        "14",
+        "42",
+        "20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the maximum; the range subtracts the minimum (14) from it.",
+        "B": "Correct. Range = max − min = 28 − 14 = 14.",
+        "C": "The range subtracts rather than adds: max − min, not max + min.",
+        "D": "This is the mean, a measure of center, not spread."
+      }
+    },
+    {
+      "id": "pr_l6_087",
+      "concept": "compute_variance",
+      "question": "For the dataset 1, 11, 4, 11, 8, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "19.5",
+        "3.95",
+        "15.6",
+        "78"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the SAMPLE variance (divide by n − 1 = 4); population variance divides by n = 5.",
+        "B": "This is the standard deviation (√variance), not the variance itself.",
+        "C": "Correct. Mean = 7. Sum of squared deviations = 78. Population variance = 78/5 = 15.6.",
+        "D": "This is the total squared deviation; variance averages it by dividing by n = 5."
+      }
+    },
+    {
+      "id": "pr_l6_088",
+      "concept": "compute_variance",
+      "question": "For the dataset 12, 3, 7, 12, 11, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "15.5",
+        "3.52",
+        "62",
+        "12.4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the SAMPLE variance (divide by n − 1 = 4); population variance divides by n = 5.",
+        "B": "This is the standard deviation (√variance), not the variance itself.",
+        "C": "This is the total squared deviation; variance averages it by dividing by n = 5.",
+        "D": "Correct. Mean = 9. Sum of squared deviations = 62. Population variance = 62/5 = 12.4."
+      }
+    },
+    {
+      "id": "pr_l6_089",
+      "concept": "compute_variance",
+      "question": "For the dataset 5, 12, 12, 10, 9, 6, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "7.33",
+        "8.8",
+        "2.71",
+        "44"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mean = 9. Sum of squared deviations = 44. Population variance = 44/6 = 7.33.",
+        "B": "This is the SAMPLE variance (divide by n − 1 = 5); population variance divides by n = 6.",
+        "C": "This is the standard deviation (√variance), not the variance itself.",
+        "D": "This is the total squared deviation; variance averages it by dividing by n = 6."
+      }
+    },
+    {
+      "id": "pr_l6_090",
+      "concept": "compute_variance",
+      "question": "For the dataset 6, 4, 6, 8, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "2.67",
+        "2",
+        "1.41",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the SAMPLE variance (divide by n − 1 = 3); population variance divides by n = 4.",
+        "B": "Correct. Mean = 6. Sum of squared deviations = 8. Population variance = 8/4 = 2.",
+        "C": "This is the standard deviation (√variance), not the variance itself.",
+        "D": "This is the total squared deviation; variance averages it by dividing by n = 4."
+      }
+    },
+    {
+      "id": "pr_l6_091",
+      "concept": "compute_variance",
+      "question": "For the dataset 1, 3, 8, 9, 9, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "14",
+        "3.35",
+        "11.2",
+        "56"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the SAMPLE variance (divide by n − 1 = 4); population variance divides by n = 5.",
+        "B": "This is the standard deviation (√variance), not the variance itself.",
+        "C": "Correct. Mean = 6. Sum of squared deviations = 56. Population variance = 56/5 = 11.2.",
+        "D": "This is the total squared deviation; variance averages it by dividing by n = 5."
+      }
+    },
+    {
+      "id": "pr_l6_092",
+      "concept": "compute_variance",
+      "question": "For the dataset 6, 7, 5, 5, 1, 12, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "12.8",
+        "3.27",
+        "64",
+        "10.67"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the SAMPLE variance (divide by n − 1 = 5); population variance divides by n = 6.",
+        "B": "This is the standard deviation (√variance), not the variance itself.",
+        "C": "This is the total squared deviation; variance averages it by dividing by n = 6.",
+        "D": "Correct. Mean = 6. Sum of squared deviations = 64. Population variance = 64/6 = 10.67."
+      }
+    },
+    {
+      "id": "pr_l6_093",
+      "concept": "compute_variance",
+      "question": "For the dataset 1, 7, 9, 1, 7, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "11.2",
+        "14",
+        "3.35",
+        "56"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mean = 5. Sum of squared deviations = 56. Population variance = 56/5 = 11.2.",
+        "B": "This is the SAMPLE variance (divide by n − 1 = 4); population variance divides by n = 5.",
+        "C": "This is the standard deviation (√variance), not the variance itself.",
+        "D": "This is the total squared deviation; variance averages it by dividing by n = 5."
+      }
+    },
+    {
+      "id": "pr_l6_094",
+      "concept": "compute_variance",
+      "question": "For the dataset 10, 10, 5, 1, 11, 11, what is the population variance (divide the sum of squared deviations by n)?",
+      "options": [
+        "16.8",
+        "14",
+        "3.74",
+        "84"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the SAMPLE variance (divide by n − 1 = 5); population variance divides by n = 6.",
+        "B": "Correct. Mean = 8. Sum of squared deviations = 84. Population variance = 84/6 = 14.",
+        "C": "This is the standard deviation (√variance), not the variance itself.",
+        "D": "This is the total squared deviation; variance averages it by dividing by n = 6."
+      }
+    },
+    {
+      "id": "pr_l6_095",
+      "concept": "compute_variance",
+      "question": "For the sample 6, 11, 4, 7, 11, 9, what is the sample variance (divide the sum of squared deviations by n − 1)?",
+      "options": [
+        "6.67",
+        "2.83",
+        "8",
+        "40"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the POPULATION variance (divide by n = 6); the sample variance divides by n − 1 = 5.",
+        "B": "This is the sample standard deviation (√variance), not the variance.",
+        "C": "Correct. Mean = 8. Sum of squared deviations = 40. Sample variance = 40/(6 − 1) = 40/5 = 8.",
+        "D": "This is the total squared deviation; divide by n − 1 = 5 to get the sample variance."
+      }
+    },
+    {
+      "id": "pr_l6_096",
+      "concept": "compute_variance",
+      "question": "For the sample 7, 10, 1, 5, 12, what is the sample variance (divide the sum of squared deviations by n − 1)?",
+      "options": [
+        "14.8",
+        "4.3",
+        "74",
+        "18.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the POPULATION variance (divide by n = 5); the sample variance divides by n − 1 = 4.",
+        "B": "This is the sample standard deviation (√variance), not the variance.",
+        "C": "This is the total squared deviation; divide by n − 1 = 4 to get the sample variance.",
+        "D": "Correct. Mean = 7. Sum of squared deviations = 74. Sample variance = 74/(5 − 1) = 74/4 = 18.5."
+      }
+    },
+    {
+      "id": "pr_l6_097",
+      "concept": "compute_variance",
+      "question": "For the sample 2, 3, 11, 11, 11, 10, what is the sample variance (divide the sum of squared deviations by n − 1)?",
+      "options": [
+        "18.4",
+        "15.33",
+        "4.29",
+        "92"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mean = 8. Sum of squared deviations = 92. Sample variance = 92/(6 − 1) = 92/5 = 18.4.",
+        "B": "This is the POPULATION variance (divide by n = 6); the sample variance divides by n − 1 = 5.",
+        "C": "This is the sample standard deviation (√variance), not the variance.",
+        "D": "This is the total squared deviation; divide by n − 1 = 5 to get the sample variance."
+      }
+    },
+    {
+      "id": "pr_l6_098",
+      "concept": "compute_variance",
+      "question": "For the sample 6, 8, 12, 10, what is the sample variance (divide the sum of squared deviations by n − 1)?",
+      "options": [
+        "5",
+        "6.67",
+        "2.58",
+        "20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the POPULATION variance (divide by n = 4); the sample variance divides by n − 1 = 3.",
+        "B": "Correct. Mean = 9. Sum of squared deviations = 20. Sample variance = 20/(4 − 1) = 20/3 = 6.67.",
+        "C": "This is the sample standard deviation (√variance), not the variance.",
+        "D": "This is the total squared deviation; divide by n − 1 = 3 to get the sample variance."
+      }
+    },
+    {
+      "id": "pr_l6_099",
+      "concept": "compute_variance",
+      "question": "For the sample 5, 9, 2, 9, 8, 9, what is the sample variance (divide the sum of squared deviations by n − 1)?",
+      "options": [
+        "7",
+        "2.9",
+        "8.4",
+        "42"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the POPULATION variance (divide by n = 6); the sample variance divides by n − 1 = 5.",
+        "B": "This is the sample standard deviation (√variance), not the variance.",
+        "C": "Correct. Mean = 7. Sum of squared deviations = 42. Sample variance = 42/(6 − 1) = 42/5 = 8.4.",
+        "D": "This is the total squared deviation; divide by n − 1 = 5 to get the sample variance."
+      }
+    },
+    {
+      "id": "pr_l6_100",
+      "concept": "compute_variance",
+      "question": "For the sample 1, 12, 3, 1, 4, 3, what is the sample variance (divide the sum of squared deviations by n − 1)?",
+      "options": [
+        "14",
+        "4.1",
+        "84",
+        "16.8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the POPULATION variance (divide by n = 6); the sample variance divides by n − 1 = 5.",
+        "B": "This is the sample standard deviation (√variance), not the variance.",
+        "C": "This is the total squared deviation; divide by n − 1 = 5 to get the sample variance.",
+        "D": "Correct. Mean = 4. Sum of squared deviations = 84. Sample variance = 84/(6 − 1) = 84/5 = 16.8."
+      }
+    },
+    {
+      "id": "pr_l6_101",
+      "concept": "compute_variance",
+      "question": "For the sample 3, 4, 9, 4, 9, 7, what is the sample variance (divide the sum of squared deviations by n − 1)?",
+      "options": [
+        "7.2",
+        "6",
+        "2.68",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mean = 6. Sum of squared deviations = 36. Sample variance = 36/(6 − 1) = 36/5 = 7.2.",
+        "B": "This is the POPULATION variance (divide by n = 6); the sample variance divides by n − 1 = 5.",
+        "C": "This is the sample standard deviation (√variance), not the variance.",
+        "D": "This is the total squared deviation; divide by n − 1 = 5 to get the sample variance."
+      }
+    },
+    {
+      "id": "pr_l6_102",
+      "concept": "compute_sd",
+      "question": "For the dataset 1, 5, 11, 11, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "18",
+        "4.24",
+        "4.9",
+        "7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "Correct. Mean = 7, population variance = 18, and SD = √18 = 4.24.",
+        "C": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_103",
+      "concept": "compute_sd",
+      "question": "For the dataset 9, 5, 9, 3, 3, 7, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "6.33",
+        "2.76",
+        "2.52",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "Correct. Mean = 6, population variance = 6.33, and SD = √6.33 = 2.52.",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_104",
+      "concept": "compute_sd",
+      "question": "For the dataset 1, 7, 6, 4, 4, 8, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "5.33",
+        "2.53",
+        "5",
+        "2.31"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "This is the mean; SD measures spread around the mean.",
+        "D": "Correct. Mean = 5, population variance = 5.33, and SD = √5.33 = 2.31."
+      }
+    },
+    {
+      "id": "pr_l6_105",
+      "concept": "compute_sd",
+      "question": "For the dataset 10, 6, 4, 4, 6, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "2.19",
+        "4.8",
+        "2.45",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mean = 6, population variance = 4.8, and SD = √4.8 = 2.19.",
+        "B": "This is the variance; the standard deviation is its square root.",
+        "C": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_106",
+      "concept": "compute_sd",
+      "question": "For the dataset 7, 10, 6, 9, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "2.5",
+        "1.58",
+        "1.83",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "Correct. Mean = 8, population variance = 2.5, and SD = √2.5 = 1.58.",
+        "C": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_107",
+      "concept": "compute_sd",
+      "question": "For the dataset 1, 4, 1, 2, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "1.5",
+        "1.41",
+        "1.22",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "Correct. Mean = 2, population variance = 1.5, and SD = √1.5 = 1.22.",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_108",
+      "concept": "compute_sd",
+      "question": "For the dataset 6, 7, 1, 12, 4, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "13.2",
+        "4.06",
+        "6",
+        "3.63"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "This is the mean; SD measures spread around the mean.",
+        "D": "Correct. Mean = 6, population variance = 13.2, and SD = √13.2 = 3.63."
+      }
+    },
+    {
+      "id": "pr_l6_109",
+      "concept": "compute_sd",
+      "question": "For the dataset 9, 10, 3, 8, 10, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "2.61",
+        "6.8",
+        "2.92",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mean = 8, population variance = 6.8, and SD = √6.8 = 2.61.",
+        "B": "This is the variance; the standard deviation is its square root.",
+        "C": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_110",
+      "concept": "compute_sd",
+      "question": "For the dataset 1, 6, 4, 5, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "3.5",
+        "1.87",
+        "2.16",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "Correct. Mean = 4, population variance = 3.5, and SD = √3.5 = 1.87.",
+        "C": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_111",
+      "concept": "compute_sd",
+      "question": "For the dataset 11, 8, 10, 4, 8, 1, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "12",
+        "3.79",
+        "3.46",
+        "7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "Correct. Mean = 7, population variance = 12, and SD = √12 = 3.46.",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_112",
+      "concept": "compute_sd",
+      "question": "For the dataset 9, 12, 10, 5, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "6.5",
+        "2.94",
+        "9",
+        "2.55"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "This is the mean; SD measures spread around the mean.",
+        "D": "Correct. Mean = 9, population variance = 6.5, and SD = √6.5 = 2.55."
+      }
+    },
+    {
+      "id": "pr_l6_113",
+      "concept": "percentiles",
+      "question": "For the data 37, 8, 32, 39, 33, 33, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "5",
+        "31",
+        "32",
+        "37"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 8, 32, 33, 33, 37, 39. Q1 = 32, Q3 = 37, so IQR = Q3 − Q1 = 37 − 32 = 5.",
+        "B": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "C": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "D": "This is Q3 (the third quartile); the IQR subtracts Q1 from it."
+      }
+    },
+    {
+      "id": "pr_l6_114",
+      "concept": "percentiles",
+      "question": "For the data 12, 24, 34, 27, 25, 9, 26, 1, 35, 23, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "34",
+        "15",
+        "12",
+        "27"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "Correct. Sorted: 1, 9, 12, 23, 24, 25, 26, 27, 34, 35. Q1 = 12, Q3 = 27, so IQR = Q3 − Q1 = 27 − 12 = 15.",
+        "C": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "D": "This is Q3 (the third quartile); the IQR subtracts Q1 from it."
+      }
+    },
+    {
+      "id": "pr_l6_115",
+      "concept": "percentiles",
+      "question": "For the data 11, 36, 4, 31, 7, 32, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "32",
+        "7",
+        "25",
+        "21"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "C": "Correct. Sorted: 4, 7, 11, 31, 32, 36. Q1 = 7, Q3 = 32, so IQR = Q3 − Q1 = 32 − 7 = 25.",
+        "D": "This is the median; the IQR measures the spread of the middle 50%."
+      }
+    },
+    {
+      "id": "pr_l6_116",
+      "concept": "percentiles",
+      "question": "For the data 25, 8, 20, 23, 5, 14, 40, 9, 31, 18, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "35",
+        "9",
+        "25",
+        "16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "C": "This is Q3 (the third quartile); the IQR subtracts Q1 from it.",
+        "D": "Correct. Sorted: 5, 8, 9, 14, 18, 20, 23, 25, 31, 40. Q1 = 9, Q3 = 25, so IQR = Q3 − Q1 = 25 − 9 = 16."
+      }
+    },
+    {
+      "id": "pr_l6_117",
+      "concept": "percentiles",
+      "question": "For the data 37, 21, 6, 23, 4, 21, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "17",
+        "33",
+        "6",
+        "23"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 4, 6, 21, 21, 23, 37. Q1 = 6, Q3 = 23, so IQR = Q3 − Q1 = 23 − 6 = 17.",
+        "B": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "C": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "D": "This is Q3 (the third quartile); the IQR subtracts Q1 from it."
+      }
+    },
+    {
+      "id": "pr_l6_118",
+      "concept": "percentiles",
+      "question": "For the data 5, 13, 5, 18, 7, 2, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "16",
+        "8",
+        "5",
+        "13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "Correct. Sorted: 2, 5, 5, 7, 13, 18. Q1 = 5, Q3 = 13, so IQR = Q3 − Q1 = 13 − 5 = 8.",
+        "C": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "D": "This is Q3 (the third quartile); the IQR subtracts Q1 from it."
+      }
+    },
+    {
+      "id": "pr_l6_119",
+      "concept": "percentiles",
+      "question": "For the data 28, 7, 16, 34, 22, 34, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "27",
+        "16",
+        "18",
+        "34"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "C": "Correct. Sorted: 7, 16, 22, 28, 34, 34. Q1 = 16, Q3 = 34, so IQR = Q3 − Q1 = 34 − 16 = 18.",
+        "D": "This is Q3 (the third quartile); the IQR subtracts Q1 from it."
+      }
+    },
+    {
+      "id": "pr_l6_120",
+      "concept": "percentiles",
+      "question": "For the data 10, 26, 18, 28, 34, 29, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "24",
+        "18",
+        "29",
+        "11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "C": "This is Q3 (the third quartile); the IQR subtracts Q1 from it.",
+        "D": "Correct. Sorted: 10, 18, 26, 28, 29, 34. Q1 = 18, Q3 = 29, so IQR = Q3 − Q1 = 29 − 18 = 11."
+      }
+    },
+    {
+      "id": "pr_l6_121",
+      "concept": "percentiles",
+      "question": "For the data 28, 32, 17, 20, 25, 33, 13, 22, 39, 27, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "12",
+        "26",
+        "20",
+        "32"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 13, 17, 20, 22, 25, 27, 28, 32, 33, 39. Q1 = 20, Q3 = 32, so IQR = Q3 − Q1 = 32 − 20 = 12.",
+        "B": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "C": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "D": "This is Q3 (the third quartile); the IQR subtracts Q1 from it."
+      }
+    },
+    {
+      "id": "pr_l6_122",
+      "concept": "percentiles",
+      "question": "For the data 31, 32, 26, 15, 38, 15, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "23",
+        "17",
+        "15",
+        "32"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "Correct. Sorted: 15, 15, 26, 31, 32, 38. Q1 = 15, Q3 = 32, so IQR = Q3 − Q1 = 32 − 15 = 17.",
+        "C": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "D": "This is Q3 (the third quartile); the IQR subtracts Q1 from it."
+      }
+    },
+    {
+      "id": "pr_l6_123",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 40th percentile of: 3, 41, 56, 3, 40, 8, 7, 33, 13, 47?",
+      "options": [
+        "13",
+        "7",
+        "8",
+        "23"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the 5th value, an off-by-one slip; the 40th percentile is the 4th value.",
+        "B": "This is the 3th value, an off-by-one slip in the other direction.",
+        "C": "Correct. Sorted: 3, 3, 7, 8, 13, 33, 40, 41, 47, 56. Nearest rank = ⌈40/100 × 10⌉ = 4, so the 40th percentile is the 4th value: 8.",
+        "D": "This is the 50th percentile (the median), not the requested percentile."
+      }
+    },
+    {
+      "id": "pr_l6_124",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 10th percentile of: 4, 51, 16, 41, 45, 8, 12, 38, 19, 51?",
+      "options": [
+        "8",
+        "28.5",
+        "10",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the 2th value, an off-by-one slip; the 10th percentile is the 1th value.",
+        "B": "This is the 50th percentile (the median), not the requested percentile.",
+        "C": "This is the percentile rank p itself, not the data value at that rank.",
+        "D": "Correct. Sorted: 4, 8, 12, 16, 19, 38, 41, 45, 51, 51. Nearest rank = ⌈10/100 × 10⌉ = 1, so the 10th percentile is the 1th value: 4."
+      }
+    },
+    {
+      "id": "pr_l6_125",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 10th percentile of: 30, 31, 33, 50, 33, 56, 3, 2, 12, 18?",
+      "options": [
+        "2",
+        "3",
+        "30.5",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 2, 3, 12, 18, 30, 31, 33, 33, 50, 56. Nearest rank = ⌈10/100 × 10⌉ = 1, so the 10th percentile is the 1th value: 2.",
+        "B": "This is the 2th value, an off-by-one slip; the 10th percentile is the 1th value.",
+        "C": "This is the 50th percentile (the median), not the requested percentile.",
+        "D": "This is the percentile rank p itself, not the data value at that rank."
+      }
+    },
+    {
+      "id": "pr_l6_126",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 30th percentile of: 50, 55, 9, 41, 28, 55, 5, 14, 13, 28?",
+      "options": [
+        "14",
+        "13",
+        "9",
+        "28"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the 4th value, an off-by-one slip; the 30th percentile is the 3th value.",
+        "B": "Correct. Sorted: 5, 9, 13, 14, 28, 28, 41, 50, 55, 55. Nearest rank = ⌈30/100 × 10⌉ = 3, so the 30th percentile is the 3th value: 13.",
+        "C": "This is the 2th value, an off-by-one slip in the other direction.",
+        "D": "This is the 50th percentile (the median), not the requested percentile."
+      }
+    },
+    {
+      "id": "pr_l6_127",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 70th percentile of: 37, 9, 54, 42, 9, 45, 40, 38, 23, 31?",
+      "options": [
+        "42",
+        "38",
+        "40",
+        "37.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the 8th value, an off-by-one slip; the 70th percentile is the 7th value.",
+        "B": "This is the 6th value, an off-by-one slip in the other direction.",
+        "C": "Correct. Sorted: 9, 9, 23, 31, 37, 38, 40, 42, 45, 54. Nearest rank = ⌈70/100 × 10⌉ = 7, so the 70th percentile is the 7th value: 40.",
+        "D": "This is the 50th percentile (the median), not the requested percentile."
+      }
+    },
+    {
+      "id": "pr_l6_128",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 30th percentile of: 4, 34, 8, 1, 25, 10, 18, 8, 24, 39?",
+      "options": [
+        "4",
+        "14",
+        "30",
+        "8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the 2th value, an off-by-one slip in the other direction.",
+        "B": "This is the 50th percentile (the median), not the requested percentile.",
+        "C": "This is the percentile rank p itself, not the data value at that rank.",
+        "D": "Correct. Sorted: 1, 4, 8, 8, 10, 18, 24, 25, 34, 39. Nearest rank = ⌈30/100 × 10⌉ = 3, so the 30th percentile is the 3th value: 8."
+      }
+    },
+    {
+      "id": "pr_l6_129",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 40th percentile of: 50, 32, 15, 17, 15, 42, 37, 43, 54, 29?",
+      "options": [
+        "29",
+        "32",
+        "17",
+        "34.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorted: 15, 15, 17, 29, 32, 37, 42, 43, 50, 54. Nearest rank = ⌈40/100 × 10⌉ = 4, so the 40th percentile is the 4th value: 29.",
+        "B": "This is the 5th value, an off-by-one slip; the 40th percentile is the 4th value.",
+        "C": "This is the 3th value, an off-by-one slip in the other direction.",
+        "D": "This is the 50th percentile (the median), not the requested percentile."
+      }
+    },
+    {
+      "id": "pr_l6_130",
+      "concept": "transformations",
+      "question": "A dataset has standard deviation 7. If 2 is added to every value, what is the new standard deviation?",
+      "options": [
+        "9",
+        "7",
+        "14",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Adding a constant shifts the data but does not increase the spread, so the SD is unchanged.",
+        "B": "Correct. Adding a constant shifts all values equally without changing spread, so the SD stays 7.",
+        "C": "Scaling the SD applies to multiplication, not to adding a constant.",
+        "D": "The added constant does not become the new spread; the SD is unchanged."
+      }
+    },
+    {
+      "id": "pr_l6_131",
+      "concept": "transformations",
+      "question": "A dataset has mean 49. If 3 is added to every value, what is the new mean?",
+      "options": [
+        "49",
+        "147",
+        "52",
+        "46"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Adding a constant does shift the mean; it is not unchanged.",
+        "B": "Adding a constant shifts the mean; multiplying it by the constant would be the wrong operation.",
+        "C": "Correct. Adding a constant 3 to every value shifts the mean by 3: 49 + 3 = 52.",
+        "D": "The constant is added, so the mean increases by it, not decreases."
+      }
+    },
+    {
+      "id": "pr_l6_132",
+      "concept": "transformations",
+      "question": "A dataset has standard deviation 9. If 2 is added to every value, what is the new standard deviation?",
+      "options": [
+        "11",
+        "18",
+        "2",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Adding a constant shifts the data but does not increase the spread, so the SD is unchanged.",
+        "B": "Scaling the SD applies to multiplication, not to adding a constant.",
+        "C": "The added constant does not become the new spread; the SD is unchanged.",
+        "D": "Correct. Adding a constant shifts all values equally without changing spread, so the SD stays 9."
+      }
+    },
+    {
+      "id": "pr_l6_133",
+      "concept": "transformations",
+      "question": "A dataset has mean 32. If every value is multiplied by 3, what is the new mean?",
+      "options": [
+        "96",
+        "32",
+        "35",
+        "10.67"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Multiplying every value by 3 scales the mean by 3: 32 × 3 = 96.",
+        "B": "Multiplying every value scales the mean; it is not unchanged.",
+        "C": "Multiplication scales the mean by the factor; it is not added.",
+        "D": "Multiplying by the factor scales the mean up by it, not down."
+      }
+    },
+    {
+      "id": "pr_l6_134",
+      "concept": "transformations",
+      "question": "A dataset has standard deviation 8. If 3 is added to every value, what is the new standard deviation?",
+      "options": [
+        "11",
+        "8",
+        "24",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Adding a constant shifts the data but does not increase the spread, so the SD is unchanged.",
+        "B": "Correct. Adding a constant shifts all values equally without changing spread, so the SD stays 8.",
+        "C": "Scaling the SD applies to multiplication, not to adding a constant.",
+        "D": "The added constant does not become the new spread; the SD is unchanged."
+      }
+    },
+    {
+      "id": "pr_l6_135",
+      "concept": "transformations",
+      "question": "A dataset has mean 45. If 6 is added to every value, what is the new mean?",
+      "options": [
+        "45",
+        "270",
+        "51",
+        "39"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Adding a constant does shift the mean; it is not unchanged.",
+        "B": "Adding a constant shifts the mean; multiplying it by the constant would be the wrong operation.",
+        "C": "Correct. Adding a constant 6 to every value shifts the mean by 6: 45 + 6 = 51.",
+        "D": "The constant is added, so the mean increases by it, not decreases."
+      }
+    },
+    {
+      "id": "pr_l6_136",
+      "concept": "transformations",
+      "question": "A dataset has mean 34. If every value is multiplied by 8, what is the new mean?",
+      "options": [
+        "34",
+        "42",
+        "4.25",
+        "272"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Multiplying every value scales the mean; it is not unchanged.",
+        "B": "Multiplication scales the mean by the factor; it is not added.",
+        "C": "Multiplying by the factor scales the mean up by it, not down.",
+        "D": "Correct. Multiplying every value by 8 scales the mean by 8: 34 × 8 = 272."
+      }
+    },
+    {
+      "id": "pr_l6_137",
+      "concept": "transformations",
+      "question": "A dataset has standard deviation 8. If every value is multiplied by 3, what is the new standard deviation?",
+      "options": [
+        "24",
+        "8",
+        "11",
+        "72"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Multiplying every value by 3 scales the spread by |3|: 8 × 3 = 24.",
+        "B": "Multiplying scales the spread; the SD does not stay the same.",
+        "C": "Multiplication scales the SD by the factor; it is not added.",
+        "D": "Scaling the SD multiplies it by the factor once; squaring the factor would scale the variance."
+      }
+    },
+    {
+      "id": "pr_l6_138",
+      "concept": "transformations",
+      "question": "A dataset has mean 41. If every value is multiplied by 4, what is the new mean?",
+      "options": [
+        "41",
+        "164",
+        "45",
+        "10.25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Multiplying every value scales the mean; it is not unchanged.",
+        "B": "Correct. Multiplying every value by 4 scales the mean by 4: 41 × 4 = 164.",
+        "C": "Multiplication scales the mean by the factor; it is not added.",
+        "D": "Multiplying by the factor scales the mean up by it, not down."
+      }
+    },
+    {
+      "id": "pr_l6_139",
+      "concept": "transformations",
+      "question": "A dataset has range 28. If every value is multiplied by 4, what is the new range?",
+      "options": [
+        "28",
+        "32",
+        "112",
+        "7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Multiplying scales the range; it does not stay the same.",
+        "B": "Multiplication scales the range by the factor; it is not added.",
+        "C": "Correct. Multiplying every value by 4 scales the range by 4: 28 × 4 = 112.",
+        "D": "Multiplying by the factor scales the range up by it, not down."
+      }
+    },
+    {
+      "id": "pr_l6_140",
+      "concept": "transformations",
+      "question": "A dataset has mean 46. If every value is multiplied by 5, what is the new mean?",
+      "options": [
+        "46",
+        "51",
+        "9.2",
+        "230"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Multiplying every value scales the mean; it is not unchanged.",
+        "B": "Multiplication scales the mean by the factor; it is not added.",
+        "C": "Multiplying by the factor scales the mean up by it, not down.",
+        "D": "Correct. Multiplying every value by 5 scales the mean by 5: 46 × 5 = 230."
+      }
+    },
+    {
+      "id": "pr_l6_141",
+      "concept": "transformations",
+      "question": "A dataset has standard deviation 2. If every value is multiplied by 4, what is the new standard deviation?",
+      "options": [
+        "8",
+        "2",
+        "6",
+        "32"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Multiplying every value by 4 scales the spread by |4|: 2 × 4 = 8.",
+        "B": "Multiplying scales the spread; the SD does not stay the same.",
+        "C": "Multiplication scales the SD by the factor; it is not added.",
+        "D": "Scaling the SD multiplies it by the factor once; squaring the factor would scale the variance."
+      }
+    },
+    {
+      "id": "pr_l6_142",
+      "concept": "transformations",
+      "question": "A dataset has mean 23. If every value is multiplied by 9, what is the new mean?",
+      "options": [
+        "23",
+        "207",
+        "32",
+        "2.56"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Multiplying every value scales the mean; it is not unchanged.",
+        "B": "Correct. Multiplying every value by 9 scales the mean by 9: 23 × 9 = 207.",
+        "C": "Multiplication scales the mean by the factor; it is not added.",
+        "D": "Multiplying by the factor scales the mean up by it, not down."
+      }
+    },
+    {
+      "id": "pr_l6_143",
+      "concept": "transformations",
+      "question": "A dataset has range 25. If every value is multiplied by 9, what is the new range?",
+      "options": [
+        "25",
+        "34",
+        "225",
+        "2.78"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Multiplying scales the range; it does not stay the same.",
+        "B": "Multiplication scales the range by the factor; it is not added.",
+        "C": "Correct. Multiplying every value by 9 scales the range by 9: 25 × 9 = 225.",
+        "D": "Multiplying by the factor scales the range up by it, not down."
+      }
+    },
+    {
+      "id": "pr_l6_144",
+      "concept": "compute_mean",
+      "question": "Group A has 6 values with mean 15; Group B has 5 values with mean 14. What is the combined mean of all values?",
+      "options": [
+        "14.5",
+        "29",
+        "160",
+        "14.55"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A simple average of the two group means ignores the different group sizes.",
+        "B": "This adds the means without dividing by the total count.",
+        "C": "This is the combined total; divide by the total count 11 to get the mean.",
+        "D": "Correct. Total = 6×15 + 5×14 = 160, over 6 + 5 = 11 values: 160/11 = 14.55."
+      }
+    },
+    {
+      "id": "pr_l6_145",
+      "concept": "compute_mean",
+      "question": "A dataset of 7 values has mean 21. A new value 8 is added. What is the new mean of all 8 values?",
+      "options": [
+        "19.38",
+        "21",
+        "22.14",
+        "14.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Old sum = 21×7 = 147. New sum = 147 + 8 = 155. New mean = 155/8 = 19.38.",
+        "B": "Adding a value that differs from the mean shifts the mean; it does not stay the same.",
+        "C": "This divides by the old count 7; with the new value there are now 8 values.",
+        "D": "Averaging just the old mean and the new value ignores how many values the old mean summarized."
+      }
+    },
+    {
+      "id": "pr_l6_146",
+      "concept": "compute_mean",
+      "question": "Group A has 6 values with mean 6; Group B has 3 values with mean 16. What is the combined mean of all values?",
+      "options": [
+        "11",
+        "9.33",
+        "22",
+        "84"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A simple average of the two group means ignores the different group sizes.",
+        "B": "Correct. Total = 6×6 + 3×16 = 84, over 6 + 3 = 9 values: 84/9 = 9.33.",
+        "C": "This adds the means without dividing by the total count.",
+        "D": "This is the combined total; divide by the total count 9 to get the mean."
+      }
+    },
+    {
+      "id": "pr_l6_147",
+      "concept": "compute_mean",
+      "question": "Group A has 3 values with mean 15; Group B has 6 values with mean 14. What is the combined mean of all values?",
+      "options": [
+        "14.5",
+        "29",
+        "14.33",
+        "129"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A simple average of the two group means ignores the different group sizes.",
+        "B": "This adds the means without dividing by the total count.",
+        "C": "Correct. Total = 3×15 + 6×14 = 129, over 3 + 6 = 9 values: 129/9 = 14.33.",
+        "D": "This is the combined total; divide by the total count 9 to get the mean."
+      }
+    },
+    {
+      "id": "pr_l6_148",
+      "concept": "compute_mean",
+      "question": "Group A has 4 values with mean 11; Group B has 8 values with mean 5. What is the combined mean of all values?",
+      "options": [
+        "8",
+        "16",
+        "84",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A simple average of the two group means ignores the different group sizes.",
+        "B": "This adds the means without dividing by the total count.",
+        "C": "This is the combined total; divide by the total count 12 to get the mean.",
+        "D": "Correct. Total = 4×11 + 8×5 = 84, over 4 + 8 = 12 values: 84/12 = 7."
+      }
+    },
+    {
+      "id": "pr_l6_149",
+      "concept": "compute_mean",
+      "question": "Group A has 6 values with mean 14; Group B has 7 values with mean 11. What is the combined mean of all values?",
+      "options": [
+        "12.38",
+        "12.5",
+        "25",
+        "161"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Total = 6×14 + 7×11 = 161, over 6 + 7 = 13 values: 161/13 = 12.38.",
+        "B": "A simple average of the two group means ignores the different group sizes.",
+        "C": "This adds the means without dividing by the total count.",
+        "D": "This is the combined total; divide by the total count 13 to get the mean."
+      }
+    },
+    {
+      "id": "pr_l6_150",
+      "concept": "compute_mean",
+      "question": "Group A has 6 values with mean 6; Group B has 5 values with mean 5. What is the combined mean of all values?",
+      "options": [
+        "5.5",
+        "5.55",
+        "11",
+        "61"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A simple average of the two group means ignores the different group sizes.",
+        "B": "Correct. Total = 6×6 + 5×5 = 61, over 6 + 5 = 11 values: 61/11 = 5.55.",
+        "C": "This adds the means without dividing by the total count.",
+        "D": "This is the combined total; divide by the total count 11 to get the mean."
+      }
+    },
+    {
+      "id": "pr_l6_151",
+      "concept": "compute_mean",
+      "question": "Group A has 2 values with mean 20; Group B has 8 values with mean 17. What is the combined mean of all values?",
+      "options": [
+        "18.5",
+        "37",
+        "17.6",
+        "176"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A simple average of the two group means ignores the different group sizes.",
+        "B": "This adds the means without dividing by the total count.",
+        "C": "Correct. Total = 2×20 + 8×17 = 176, over 2 + 8 = 10 values: 176/10 = 17.6.",
+        "D": "This is the combined total; divide by the total count 10 to get the mean."
+      }
+    },
+    {
+      "id": "pr_l6_152",
+      "concept": "compute_mean",
+      "question": "Group A has 5 values with mean 13; Group B has 6 values with mean 11. What is the combined mean of all values?",
+      "options": [
+        "12",
+        "24",
+        "131",
+        "11.91"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A simple average of the two group means ignores the different group sizes.",
+        "B": "This adds the means without dividing by the total count.",
+        "C": "This is the combined total; divide by the total count 11 to get the mean.",
+        "D": "Correct. Total = 5×13 + 6×11 = 131, over 5 + 6 = 11 values: 131/11 = 11.91."
+      }
+    },
+    {
+      "id": "pr_l6_153",
+      "concept": "skew_mean_median",
+      "question": "For the dataset 21, 21, 25, 18, 22, 330, which is true about the mean versus the median?",
+      "options": [
+        "The mean is larger",
+        "The median is larger",
+        "They are exactly equal",
+        "It cannot be determined from the data"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mean = 72.83 exceeds median = 21.5; the large outlier pulls the mean up (right skew) while the median resists.",
+        "B": "Here the large value pulls the MEAN above the median (72.83 > 21.5), so the mean is larger.",
+        "C": "They are not equal here: mean = 72.83 and median = 21.5 differ because of the outlier.",
+        "D": "The full dataset is given, so both the mean and median can be computed and compared."
+      }
+    },
+    {
+      "id": "pr_l6_154",
+      "concept": "skew_mean_median",
+      "question": "For the dataset 13, 12, 23, 23, 14, -194, which is true about the mean versus the median?",
+      "options": [
+        "The mean is larger",
+        "The median is larger",
+        "They are exactly equal",
+        "It cannot be determined from the data"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Here the extreme low value drags the MEAN below the median (-18.17 < 13.5), so the median is larger.",
+        "B": "Correct. Median = 13.5 exceeds mean = -18.17; the extreme low outlier drags the mean below the median (left skew) while the median resists.",
+        "C": "They are not equal here: mean = -18.17 and median = 13.5 differ because of the outlier.",
+        "D": "The full dataset is given, so both the mean and median can be computed and compared."
+      }
+    },
+    {
+      "id": "pr_l6_155",
+      "concept": "skew_mean_median",
+      "question": "For the dataset 18, 15, 16, 20, 20, 275, which is true about the mean versus the median?",
+      "options": [
+        "The median is larger",
+        "They are exactly equal",
+        "The mean is larger",
+        "It cannot be determined from the data"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Here the large value pulls the MEAN above the median (60.67 > 19), so the mean is larger.",
+        "B": "They are not equal here: mean = 60.67 and median = 19 differ because of the outlier.",
+        "C": "Correct. Mean = 60.67 exceeds median = 19; the large outlier pulls the mean up (right skew) while the median resists.",
+        "D": "The full dataset is given, so both the mean and median can be computed and compared."
+      }
+    },
+    {
+      "id": "pr_l6_156",
+      "concept": "skew_mean_median",
+      "question": "For the dataset 15, 13, 21, 14, 16, 322, which is true about the mean versus the median?",
+      "options": [
+        "The median is larger",
+        "They are exactly equal",
+        "It cannot be determined from the data",
+        "The mean is larger"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Here the large value pulls the MEAN above the median (66.83 > 15.5), so the mean is larger.",
+        "B": "They are not equal here: mean = 66.83 and median = 15.5 differ because of the outlier.",
+        "C": "The full dataset is given, so both the mean and median can be computed and compared.",
+        "D": "Correct. Mean = 66.83 exceeds median = 15.5; the large outlier pulls the mean up (right skew) while the median resists."
+      }
+    },
+    {
+      "id": "pr_l6_157",
+      "concept": "skew_mean_median",
+      "question": "For the dataset 21, 16, 13, 14, 24, -283, which is true about the mean versus the median?",
+      "options": [
+        "The median is larger",
+        "The mean is larger",
+        "They are exactly equal",
+        "It cannot be determined from the data"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Median = 15 exceeds mean = -32.5; the extreme low outlier drags the mean below the median (left skew) while the median resists.",
+        "B": "Here the extreme low value drags the MEAN below the median (-32.5 < 15), so the median is larger.",
+        "C": "They are not equal here: mean = -32.5 and median = 15 differ because of the outlier.",
+        "D": "The full dataset is given, so both the mean and median can be computed and compared."
+      }
+    },
+    {
+      "id": "pr_l6_158",
+      "concept": "skew_mean_median",
+      "question": "For the dataset 19, 13, 13, 17, 16, 241, which is true about the mean versus the median?",
+      "options": [
+        "The median is larger",
+        "The mean is larger",
+        "They are exactly equal",
+        "It cannot be determined from the data"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Here the large value pulls the MEAN above the median (53.17 > 16.5), so the mean is larger.",
+        "B": "Correct. Mean = 53.17 exceeds median = 16.5; the large outlier pulls the mean up (right skew) while the median resists.",
+        "C": "They are not equal here: mean = 53.17 and median = 16.5 differ because of the outlier.",
+        "D": "The full dataset is given, so both the mean and median can be computed and compared."
+      }
+    },
+    {
+      "id": "pr_l6_159",
+      "concept": "skew_mean_median",
+      "question": "For the dataset 21, 20, 17, 20, 19, -229, which is true about the mean versus the median?",
+      "options": [
+        "The mean is larger",
+        "They are exactly equal",
+        "The median is larger",
+        "It cannot be determined from the data"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Here the extreme low value drags the MEAN below the median (-22 < 19.5), so the median is larger.",
+        "B": "They are not equal here: mean = -22 and median = 19.5 differ because of the outlier.",
+        "C": "Correct. Median = 19.5 exceeds mean = -22; the extreme low outlier drags the mean below the median (left skew) while the median resists.",
+        "D": "The full dataset is given, so both the mean and median can be computed and compared."
+      }
+    },
+    {
+      "id": "pr_l6_160",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 7, 8, 18, 20. What is the mean?",
+      "options": [
+        "13",
+        "53",
+        "17.67",
+        "13.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 4.",
+        "C": "This divides by n − 1 = 3; the mean divides by n = 4.",
+        "D": "Correct. Sum = 53; divide by n = 4: 53/4 = 13.25."
+      }
+    },
+    {
+      "id": "pr_l6_161",
+      "concept": "range_spread",
+      "question": "What is the range of: 35, 4, 14, 39, 20?",
+      "options": [
+        "35",
+        "39",
+        "4",
+        "43"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Range = max − min = 39 − 4 = 35.",
+        "B": "This is the maximum; the range subtracts the minimum (4) from it.",
+        "C": "This is the minimum, not the spread between the extremes.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_162",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 9, 17, 1, 7, 30, 5, 29, 2, 2.",
+      "options": [
+        "11.33",
+        "7",
+        "1",
+        "30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean (sum / 9), which differs from the middle value when the data is skewed.",
+        "B": "Correct. Sorted: 1, 2, 2, 5, 7, 9, 17, 29, 30. With n = 9 values the median is the 5th (middle) value: 7.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_163",
+      "concept": "compute_sd",
+      "question": "For the dataset 6, 8, 11, 7, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "3.5",
+        "2.16",
+        "1.87",
+        "8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "Correct. Mean = 8, population variance = 3.5, and SD = √3.5 = 1.87.",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_164",
+      "concept": "percentiles",
+      "question": "For the data 37, 6, 7, 25, 14, 14, 16, 3, 35, 35, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "34",
+        "7",
+        "35",
+        "28"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "C": "This is Q3 (the third quartile); the IQR subtracts Q1 from it.",
+        "D": "Correct. Sorted: 3, 6, 7, 14, 14, 16, 25, 35, 35, 37. Q1 = 7, Q3 = 35, so IQR = Q3 − Q1 = 35 − 7 = 28."
+      }
+    },
+    {
+      "id": "pr_l6_165",
+      "concept": "transformations",
+      "question": "A dataset has range 24. If every value is multiplied by 2, what is the new range?",
+      "options": [
+        "48",
+        "24",
+        "26",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Multiplying every value by 2 scales the range by 2: 24 × 2 = 48.",
+        "B": "Multiplying scales the range; it does not stay the same.",
+        "C": "Multiplication scales the range by the factor; it is not added.",
+        "D": "Multiplying by the factor scales the range up by it, not down."
+      }
+    },
+    {
+      "id": "pr_l6_166",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 17, 27, 3, 11, 5, 5.",
+      "options": [
+        "5",
+        "8",
+        "11",
+        "11.33"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "Correct. Sorted: 3, 5, 5, 11, 17, 27. With n = 6 (even) the median averages the two middle values 5 and 11: (5 + 11)/2 = 8.",
+        "C": "This is only the upper of the two middle values; average it with the lower one.",
+        "D": "This is the mean (sum / 6), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_167",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 60th percentile of: 14, 46, 38, 49, 52, 8, 38, 39, 7, 9?",
+      "options": [
+        "39",
+        "60",
+        "38",
+        "40"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the 7th value, an off-by-one slip; the 60th percentile is the 6th value.",
+        "B": "This is the percentile rank p itself, not the data value at that rank.",
+        "C": "Correct. Sorted: 7, 8, 9, 14, 38, 38, 39, 46, 49, 52. Nearest rank = ⌈60/100 × 10⌉ = 6, so the 60th percentile is the 6th value: 38.",
+        "D": "This value does not match the correct computation."
+      }
+    },
+    {
+      "id": "pr_l6_168",
+      "concept": "compute_mean",
+      "question": "A dataset records the values 13, 6, 4, 14, 7, 17, 13. What is the mean?",
+      "options": [
+        "13",
+        "74",
+        "12.33",
+        "10.57"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the median (middle of the sorted data), not the mean.",
+        "B": "This is the sum of the values; the mean still divides by the count n = 7.",
+        "C": "This divides by n − 1 = 6; the mean divides by n = 7.",
+        "D": "Correct. Sum = 74; divide by n = 7: 74/7 = 10.57."
+      }
+    },
+    {
+      "id": "pr_l6_169",
+      "concept": "range_spread",
+      "question": "What is the range of: 37, 5, 9, 19, 28, 26, 15?",
+      "options": [
+        "32",
+        "37",
+        "5",
+        "42"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Range = max − min = 37 − 5 = 32.",
+        "B": "This is the maximum; the range subtracts the minimum (5) from it.",
+        "C": "This is the minimum, not the spread between the extremes.",
+        "D": "The range subtracts rather than adds: max − min, not max + min."
+      }
+    },
+    {
+      "id": "pr_l6_170",
+      "concept": "compute_median_odd",
+      "question": "Find the median of: 22, 18, 22, 12, 30, 2, 17.",
+      "options": [
+        "17.57",
+        "18",
+        "2",
+        "30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean (sum / 7), which differs from the middle value when the data is skewed.",
+        "B": "Correct. Sorted: 2, 12, 17, 18, 22, 22, 30. With n = 7 values the median is the 4th (middle) value: 18.",
+        "C": "This is the minimum, not the middle of the sorted data.",
+        "D": "This is the maximum, not the middle of the sorted data."
+      }
+    },
+    {
+      "id": "pr_l6_171",
+      "concept": "compute_sd",
+      "question": "For the dataset 4, 11, 4, 1, what is the population standard deviation (rounded to 2 decimals)?",
+      "options": [
+        "13.5",
+        "4.24",
+        "3.67",
+        "5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the variance; the standard deviation is its square root.",
+        "B": "This is the SAMPLE standard deviation (divide by n − 1); here we use the population formula (divide by n).",
+        "C": "Correct. Mean = 5, population variance = 13.5, and SD = √13.5 = 3.67.",
+        "D": "This is the mean; SD measures spread around the mean."
+      }
+    },
+    {
+      "id": "pr_l6_172",
+      "concept": "percentiles",
+      "question": "For the data 19, 7, 23, 35, 10, 33, 40, 5, 22, 10, compute the interquartile range (IQR = Q3 − Q1), taking Q1 and Q3 as the medians of the lower and upper halves.",
+      "options": [
+        "35",
+        "10",
+        "33",
+        "23"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the full range (max − min); the IQR uses only the middle 50% (Q3 − Q1).",
+        "B": "This is Q1 (the first quartile); the IQR is Q3 − Q1.",
+        "C": "This is Q3 (the third quartile); the IQR subtracts Q1 from it.",
+        "D": "Correct. Sorted: 5, 7, 10, 10, 19, 22, 23, 33, 35, 40. Q1 = 10, Q3 = 33, so IQR = Q3 − Q1 = 33 − 10 = 23."
+      }
+    },
+    {
+      "id": "pr_l6_173",
+      "concept": "transformations",
+      "question": "A dataset has standard deviation 6. If 7 is added to every value, what is the new standard deviation?",
+      "options": [
+        "6",
+        "13",
+        "42",
+        "7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Adding a constant shifts all values equally without changing spread, so the SD stays 6.",
+        "B": "Adding a constant shifts the data but does not increase the spread, so the SD is unchanged.",
+        "C": "Scaling the SD applies to multiplication, not to adding a constant.",
+        "D": "The added constant does not become the new spread; the SD is unchanged."
+      }
+    },
+    {
+      "id": "pr_l6_174",
+      "concept": "compute_median_even",
+      "question": "Find the median of: 30, 13, 1, 2, 19, 19.",
+      "options": [
+        "13",
+        "16",
+        "19",
+        "14"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is only the lower of the two middle values; average it with the upper one.",
+        "B": "Correct. Sorted: 1, 2, 13, 19, 19, 30. With n = 6 (even) the median averages the two middle values 13 and 19: (13 + 19)/2 = 16.",
+        "C": "This is only the upper of the two middle values; average it with the lower one.",
+        "D": "This is the mean (sum / 6), not the average of the two middle values."
+      }
+    },
+    {
+      "id": "pr_l6_175",
+      "concept": "percentiles",
+      "question": "Using the nearest-rank method, what is the 60th percentile of: 47, 47, 7, 5, 55, 43, 60, 27, 10, 23?",
+      "options": [
+        "47",
+        "27",
+        "43",
+        "35"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the 7th value, an off-by-one slip; the 60th percentile is the 6th value.",
+        "B": "This is the 5th value, an off-by-one slip in the other direction.",
+        "C": "Correct. Sorted: 5, 7, 10, 23, 27, 43, 47, 47, 55, 60. Nearest rank = ⌈60/100 × 10⌉ = 6, so the 60th percentile is the 6th value: 43.",
+        "D": "This is the 50th percentile (the median), not the requested percentile."
+      }
+    }
+  ]
+}

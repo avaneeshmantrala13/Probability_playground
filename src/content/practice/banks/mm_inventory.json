@@ -1,0 +1,3031 @@
+{
+  "lessonId": "mm_inventory",
+  "track": "market-making",
+  "title": "Inventory & Skew",
+  "questions": [
+    {
+      "id": "pr_mminv_001",
+      "concept": "long_inventory",
+      "question": "Fair value is 18. You are long 4 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "B": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "C": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_002",
+      "concept": "long_inventory",
+      "question": "Fair value is 25. You are long 5 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "C": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_003",
+      "concept": "long_inventory",
+      "question": "Fair value is 30. You are long 6 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "C": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_004",
+      "concept": "long_inventory",
+      "question": "Fair value is 37. You are long 7 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid",
+        "Make your ask more attractive so buyers lift you and you sell"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "C": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length.",
+        "D": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat."
+      }
+    },
+    {
+      "id": "pr_mminv_005",
+      "concept": "long_inventory",
+      "question": "Fair value is 40. You are long 8 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "B": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "C": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_006",
+      "concept": "long_inventory",
+      "question": "Fair value is 44. You are long 9 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "C": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_007",
+      "concept": "long_inventory",
+      "question": "Fair value is 50. You are long 10 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "C": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_008",
+      "concept": "long_inventory",
+      "question": "Fair value is 55. You are long 12 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid",
+        "Make your ask more attractive so buyers lift you and you sell"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "C": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length.",
+        "D": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat."
+      }
+    },
+    {
+      "id": "pr_mminv_009",
+      "concept": "long_inventory",
+      "question": "Fair value is 62. You are long 15 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "B": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "C": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_010",
+      "concept": "long_inventory",
+      "question": "Fair value is 68. You are long 2 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "C": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_011",
+      "concept": "long_inventory",
+      "question": "Fair value is 75. You are long 3 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Make your ask more attractive so buyers lift you and you sell",
+        "Pull your ask and quote only a bid"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "C": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat.",
+        "D": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length."
+      }
+    },
+    {
+      "id": "pr_mminv_012",
+      "concept": "long_inventory",
+      "question": "Fair value is 80. You are long 4 units (you hold too much). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you",
+        "Leave both quotes unchanged because inventory is irrelevant",
+        "Pull your ask and quote only a bid",
+        "Make your ask more attractive so buyers lift you and you sell"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A better bid pulls in sellers, so you'd buy even more and grow your long position — the opposite of what you want.",
+        "B": "Inventory drives your directional risk; ignoring it is how mock traders blow up when fair value moves against the position.",
+        "C": "Removing the ask kills your only path to sell off the long; quoting bid-only would just add more length.",
+        "D": "Correct. A more attractive (lower) ask invites buyers to lift you; each lift sells a unit and shrinks your long position back toward flat."
+      }
+    },
+    {
+      "id": "pr_mminv_013",
+      "concept": "short_inventory",
+      "question": "Fair value is 30. You are short 3 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "B": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "C": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_014",
+      "concept": "short_inventory",
+      "question": "Fair value is 37. You are short 4 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "C": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_015",
+      "concept": "short_inventory",
+      "question": "Fair value is 40. You are short 5 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "C": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_016",
+      "concept": "short_inventory",
+      "question": "Fair value is 44. You are short 6 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk",
+        "Make your bid more attractive so sellers hit you and you buy back"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "C": "A short loses when fair value rises, so it absolutely carries risk that must be managed.",
+        "D": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat."
+      }
+    },
+    {
+      "id": "pr_mminv_017",
+      "concept": "short_inventory",
+      "question": "Fair value is 50. You are short 7 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "B": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "C": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_018",
+      "concept": "short_inventory",
+      "question": "Fair value is 55. You are short 8 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "C": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_019",
+      "concept": "short_inventory",
+      "question": "Fair value is 62. You are short 9 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "C": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_020",
+      "concept": "short_inventory",
+      "question": "Fair value is 68. You are short 10 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk",
+        "Make your bid more attractive so sellers hit you and you buy back"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "C": "A short loses when fair value rises, so it absolutely carries risk that must be managed.",
+        "D": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat."
+      }
+    },
+    {
+      "id": "pr_mminv_021",
+      "concept": "short_inventory",
+      "question": "Fair value is 75. You are short 12 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "B": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "C": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_022",
+      "concept": "short_inventory",
+      "question": "Fair value is 80. You are short 15 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "C": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_023",
+      "concept": "short_inventory",
+      "question": "Fair value is 88. You are short 2 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Make your bid more attractive so sellers hit you and you buy back",
+        "Do nothing — short inventory carries no risk"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "C": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat.",
+        "D": "A short loses when fair value rises, so it absolutely carries risk that must be managed."
+      }
+    },
+    {
+      "id": "pr_mminv_024",
+      "concept": "short_inventory",
+      "question": "Fair value is 95. You are short 3 units (you owe the market). To reduce your inventory you should generally:",
+      "options": [
+        "Make your ask more attractive so buyers lift you",
+        "Remove your bid permanently",
+        "Do nothing — short inventory carries no risk",
+        "Make your bid more attractive so sellers hit you and you buy back"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A better ask pulls in buyers, so you'd sell even more and deepen your short — the wrong direction when covering.",
+        "B": "Pulling the bid removes your only path to buy back and cover; you'd stay short with no way to flatten.",
+        "C": "A short loses when fair value rises, so it absolutely carries risk that must be managed.",
+        "D": "Correct. A more attractive (higher) bid invites sellers to hit you; each fill buys back a unit and covers your short toward flat."
+      }
+    },
+    {
+      "id": "pr_mminv_025",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 40. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shading the quote below 40 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "B": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "C": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_026",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 44. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "B": "Correct. Shading the quote below 44 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "C": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_027",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 50. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "Below fair — shade both bid and ask down",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "B": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "C": "Correct. Shading the quote below 50 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_028",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 55. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter",
+        "Below fair — shade both bid and ask down"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "B": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "C": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade.",
+        "D": "Correct. Shading the quote below 55 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more)."
+      }
+    },
+    {
+      "id": "pr_mminv_029",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 62. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shading the quote below 62 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "B": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "C": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_030",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 68. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "B": "Correct. Shading the quote below 68 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "C": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_031",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 75. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "Below fair — shade both bid and ask down",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "B": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "C": "Correct. Shading the quote below 75 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_032",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 80. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter",
+        "Below fair — shade both bid and ask down"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "B": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "C": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade.",
+        "D": "Correct. Shading the quote below 80 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more)."
+      }
+    },
+    {
+      "id": "pr_mminv_033",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 88. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shading the quote below 88 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "B": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "C": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_034",
+      "concept": "long_inventory_skew",
+      "question": "You are long and want to skew your quotes to offload risk. Fair is 95. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "Skew randomly — direction does not matter"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shading up cheapens nothing for buyers and raises your bid, which would accumulate even more long.",
+        "B": "Correct. Shading the quote below 95 cheapens your ask (attracting buyers who take your length) and lowers your bid (so you stop accumulating more).",
+        "C": "A symmetric quote at fair ignores the directional pressure of being long; you need to lean toward selling.",
+        "D": "Skew direction is the whole point: a long must lean its quotes to encourage the relieving (selling) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_035",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 50. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "Above fair — shade both bid and ask up",
+        "It does not matter which way you skew"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "C": "Correct. Shading the quote above 50 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more).",
+        "D": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_036",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 55. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "It does not matter which way you skew",
+        "Above fair — shade both bid and ask up"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "C": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade.",
+        "D": "Correct. Shading the quote above 55 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more)."
+      }
+    },
+    {
+      "id": "pr_mminv_037",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 62. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "It does not matter which way you skew"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shading the quote above 62 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more).",
+        "B": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "C": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "D": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_038",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 68. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "It does not matter which way you skew"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "Correct. Shading the quote above 68 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more).",
+        "C": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "D": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_039",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 75. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "Above fair — shade both bid and ask up",
+        "It does not matter which way you skew"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "C": "Correct. Shading the quote above 75 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more).",
+        "D": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_040",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 80. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "It does not matter which way you skew",
+        "Above fair — shade both bid and ask up"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "C": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade.",
+        "D": "Correct. Shading the quote above 80 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more)."
+      }
+    },
+    {
+      "id": "pr_mminv_041",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 88. Which way should you shift your quote midpoint?",
+      "options": [
+        "Above fair — shade both bid and ask up",
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "It does not matter which way you skew"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shading the quote above 88 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more).",
+        "B": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "C": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "D": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_042",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 95. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Above fair — shade both bid and ask up",
+        "Keep it exactly at fair",
+        "It does not matter which way you skew"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "Correct. Shading the quote above 95 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more).",
+        "C": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "D": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_043",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 100. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "Above fair — shade both bid and ask up",
+        "It does not matter which way you skew"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "C": "Correct. Shading the quote above 100 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more).",
+        "D": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade."
+      }
+    },
+    {
+      "id": "pr_mminv_044",
+      "concept": "short_inventory_skew",
+      "question": "You are short and want to skew your quotes to flatten. Fair is 110. Which way should you shift your quote midpoint?",
+      "options": [
+        "Below fair — shade both bid and ask down",
+        "Keep it exactly at fair",
+        "It does not matter which way you skew",
+        "Above fair — shade both bid and ask up"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Shading down makes your bid less attractive, so sellers won't hit you and you stay short longer.",
+        "B": "A symmetric quote at fair ignores your short pressure; you need to lean toward buying back.",
+        "C": "Direction matters: a short must lean its quotes upward to encourage the relieving (buying) trade.",
+        "D": "Correct. Shading the quote above 110 raises your bid (attracting sellers who let you buy back) and lifts your ask (so you stop selling more)."
+      }
+    },
+    {
+      "id": "pr_mminv_045",
+      "concept": "inventory_risk",
+      "question": "You are long 6 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Rises",
+        "Stays exactly flat",
+        "Only when the spread widens"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold.",
+        "B": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "C": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "D": "Spread width is separate from inventory P&L, which is driven by changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_046",
+      "concept": "inventory_risk",
+      "question": "You are long 7 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Falls",
+        "Stays exactly flat",
+        "Only when the spread widens"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "B": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold.",
+        "C": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "D": "Spread width is separate from inventory P&L, which is driven by changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_047",
+      "concept": "inventory_risk",
+      "question": "You are long 8 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Stays exactly flat",
+        "Falls",
+        "Only when the spread widens"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "B": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "C": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold.",
+        "D": "Spread width is separate from inventory P&L, which is driven by changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_048",
+      "concept": "inventory_risk",
+      "question": "You are long 9 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Stays exactly flat",
+        "Only when the spread widens",
+        "Falls"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "B": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "C": "Spread width is separate from inventory P&L, which is driven by changes in fair value.",
+        "D": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold."
+      }
+    },
+    {
+      "id": "pr_mminv_049",
+      "concept": "inventory_risk",
+      "question": "You are long 10 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Rises",
+        "Stays exactly flat",
+        "Only when the spread widens"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold.",
+        "B": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "C": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "D": "Spread width is separate from inventory P&L, which is driven by changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_050",
+      "concept": "inventory_risk",
+      "question": "You are long 12 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Falls",
+        "Stays exactly flat",
+        "Only when the spread widens"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "B": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold.",
+        "C": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "D": "Spread width is separate from inventory P&L, which is driven by changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_051",
+      "concept": "inventory_risk",
+      "question": "You are long 15 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Stays exactly flat",
+        "Falls",
+        "Only when the spread widens"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "B": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "C": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold.",
+        "D": "Spread width is separate from inventory P&L, which is driven by changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_052",
+      "concept": "inventory_risk",
+      "question": "You are long 2 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Stays exactly flat",
+        "Only when the spread widens",
+        "Falls"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "B": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "C": "Spread width is separate from inventory P&L, which is driven by changes in fair value.",
+        "D": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold."
+      }
+    },
+    {
+      "id": "pr_mminv_053",
+      "concept": "inventory_risk",
+      "question": "You are long 3 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Rises",
+        "Stays exactly flat",
+        "Only when the spread widens"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A long is marked to fair, so a drop in fair value is a direct loss on every unit you hold.",
+        "B": "Rising fair value helps a long — that is a gain, not the risk being asked about.",
+        "C": "If fair never moves there is no mark-to-market loss on the position itself.",
+        "D": "Spread width is separate from inventory P&L, which is driven by changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_054",
+      "concept": "inventory_risk",
+      "question": "You are short 8 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Rises",
+        "Stays exactly flat",
+        "Only when volume dries up"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "B": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher.",
+        "C": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "D": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_055",
+      "concept": "inventory_risk",
+      "question": "You are short 9 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Stays exactly flat",
+        "Rises",
+        "Only when volume dries up"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "B": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "C": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher.",
+        "D": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_056",
+      "concept": "inventory_risk",
+      "question": "You are short 10 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Stays exactly flat",
+        "Only when volume dries up",
+        "Rises"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "B": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "C": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value.",
+        "D": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher."
+      }
+    },
+    {
+      "id": "pr_mminv_057",
+      "concept": "inventory_risk",
+      "question": "You are short 12 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Falls",
+        "Stays exactly flat",
+        "Only when volume dries up"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher.",
+        "B": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "C": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "D": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_058",
+      "concept": "inventory_risk",
+      "question": "You are short 15 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Rises",
+        "Stays exactly flat",
+        "Only when volume dries up"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "B": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher.",
+        "C": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "D": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_059",
+      "concept": "inventory_risk",
+      "question": "You are short 2 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Stays exactly flat",
+        "Rises",
+        "Only when volume dries up"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "B": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "C": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher.",
+        "D": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_060",
+      "concept": "inventory_risk",
+      "question": "You are short 3 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Stays exactly flat",
+        "Only when volume dries up",
+        "Rises"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "B": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "C": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value.",
+        "D": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher."
+      }
+    },
+    {
+      "id": "pr_mminv_061",
+      "concept": "inventory_risk",
+      "question": "You are short 4 units. Your inventory loses money if fair value:",
+      "options": [
+        "Rises",
+        "Falls",
+        "Stays exactly flat",
+        "Only when volume dries up"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher.",
+        "B": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "C": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "D": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_062",
+      "concept": "inventory_risk",
+      "question": "You are short 5 units. Your inventory loses money if fair value:",
+      "options": [
+        "Falls",
+        "Rises",
+        "Stays exactly flat",
+        "Only when volume dries up"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Falling fair value helps a short — that is a gain, not the risk being asked about.",
+        "B": "Correct. A short profits as fair falls, so a rise in fair value is a direct loss — you must buy back higher.",
+        "C": "With no move in fair there is no mark-to-market loss on the short itself.",
+        "D": "Volume is unrelated to the mark on your short; inventory P&L tracks changes in fair value."
+      }
+    },
+    {
+      "id": "pr_mminv_063",
+      "concept": "position_limit",
+      "question": "Your position limit is ±4. You are long 4 (at the maximum). Fair is 25. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You may only quote to sell (offer-only) until you reduce position",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +4 ceiling, so taking more is forbidden.",
+        "B": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "C": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 4.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_064",
+      "concept": "position_limit",
+      "question": "Your position limit is ±5. You are long 5 (at the maximum). Fair is 30. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote",
+        "You may only quote to sell (offer-only) until you reduce position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +5 ceiling, so taking more is forbidden.",
+        "B": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "C": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit.",
+        "D": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 5."
+      }
+    },
+    {
+      "id": "pr_mminv_065",
+      "concept": "position_limit",
+      "question": "Your position limit is ±6. You are long 6 (at the maximum). Fair is 37. What is typically forced?",
+      "options": [
+        "You may only quote to sell (offer-only) until you reduce position",
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 6.",
+        "B": "Buying adds length, but you are already at the +6 ceiling, so taking more is forbidden.",
+        "C": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_066",
+      "concept": "position_limit",
+      "question": "Your position limit is ±8. You are long 8 (at the maximum). Fair is 40. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "You may only quote to sell (offer-only) until you reduce position",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +8 ceiling, so taking more is forbidden.",
+        "B": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 8.",
+        "C": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_067",
+      "concept": "position_limit",
+      "question": "Your position limit is ±10. You are long 10 (at the maximum). Fair is 44. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You may only quote to sell (offer-only) until you reduce position",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +10 ceiling, so taking more is forbidden.",
+        "B": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "C": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 10.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_068",
+      "concept": "position_limit",
+      "question": "Your position limit is ±12. You are long 12 (at the maximum). Fair is 50. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote",
+        "You may only quote to sell (offer-only) until you reduce position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +12 ceiling, so taking more is forbidden.",
+        "B": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "C": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit.",
+        "D": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 12."
+      }
+    },
+    {
+      "id": "pr_mminv_069",
+      "concept": "position_limit",
+      "question": "Your position limit is ±3. You are long 3 (at the maximum). Fair is 55. What is typically forced?",
+      "options": [
+        "You may only quote to sell (offer-only) until you reduce position",
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 3.",
+        "B": "Buying adds length, but you are already at the +3 ceiling, so taking more is forbidden.",
+        "C": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_070",
+      "concept": "position_limit",
+      "question": "Your position limit is ±7. You are long 7 (at the maximum). Fair is 62. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "You may only quote to sell (offer-only) until you reduce position",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +7 ceiling, so taking more is forbidden.",
+        "B": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 7.",
+        "C": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_071",
+      "concept": "position_limit",
+      "question": "Your position limit is ±9. You are long 9 (at the maximum). Fair is 68. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You may only quote to sell (offer-only) until you reduce position",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +9 ceiling, so taking more is forbidden.",
+        "B": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "C": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 9.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_072",
+      "concept": "position_limit",
+      "question": "Your position limit is ±15. You are long 15 (at the maximum). Fair is 75. What is typically forced?",
+      "options": [
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote",
+        "You may only quote to sell (offer-only) until you reduce position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Buying adds length, but you are already at the +15 ceiling, so taking more is forbidden.",
+        "B": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "C": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit.",
+        "D": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 15."
+      }
+    },
+    {
+      "id": "pr_mminv_073",
+      "concept": "position_limit",
+      "question": "Your position limit is ±20. You are long 20 (at the maximum). Fair is 80. What is typically forced?",
+      "options": [
+        "You may only quote to sell (offer-only) until you reduce position",
+        "You may only quote to buy more",
+        "Nothing changes — limits are advisory",
+        "You must cross your own quote"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At max long you cannot take on more length, so you quote one-sided to sell — only an ask — until inventory drops below 20.",
+        "B": "Buying adds length, but you are already at the +20 ceiling, so taking more is forbidden.",
+        "C": "A hard position limit forces a behavior change; quoting normally would let a seller push you past it.",
+        "D": "A crossed market (bid above ask) is invalid and is never the response to hitting a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_074",
+      "concept": "position_limit",
+      "question": "Your position limit is ±8. You are short 8 (at the maximum). Fair is 37. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "You may only quote to buy (bid-only) until you cover",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −8 floor, so selling more is forbidden.",
+        "B": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 8.",
+        "C": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_075",
+      "concept": "position_limit",
+      "question": "Your position limit is ±10. You are short 10 (at the maximum). Fair is 40. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You may only quote to buy (bid-only) until you cover",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −10 floor, so selling more is forbidden.",
+        "B": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "C": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 10.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_076",
+      "concept": "position_limit",
+      "question": "Your position limit is ±12. You are short 12 (at the maximum). Fair is 44. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market",
+        "You may only quote to buy (bid-only) until you cover"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −12 floor, so selling more is forbidden.",
+        "B": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "C": "A crossed quote is invalid and is never the correct reaction to a position limit.",
+        "D": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 12."
+      }
+    },
+    {
+      "id": "pr_mminv_077",
+      "concept": "position_limit",
+      "question": "Your position limit is ±3. You are short 3 (at the maximum). Fair is 50. What is typically forced?",
+      "options": [
+        "You may only quote to buy (bid-only) until you cover",
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 3.",
+        "B": "Selling deepens the short, but you are already at the −3 floor, so selling more is forbidden.",
+        "C": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_078",
+      "concept": "position_limit",
+      "question": "Your position limit is ±7. You are short 7 (at the maximum). Fair is 55. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "You may only quote to buy (bid-only) until you cover",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −7 floor, so selling more is forbidden.",
+        "B": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 7.",
+        "C": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_079",
+      "concept": "position_limit",
+      "question": "Your position limit is ±9. You are short 9 (at the maximum). Fair is 62. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You may only quote to buy (bid-only) until you cover",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −9 floor, so selling more is forbidden.",
+        "B": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "C": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 9.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_080",
+      "concept": "position_limit",
+      "question": "Your position limit is ±15. You are short 15 (at the maximum). Fair is 68. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market",
+        "You may only quote to buy (bid-only) until you cover"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −15 floor, so selling more is forbidden.",
+        "B": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "C": "A crossed quote is invalid and is never the correct reaction to a position limit.",
+        "D": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 15."
+      }
+    },
+    {
+      "id": "pr_mminv_081",
+      "concept": "position_limit",
+      "question": "Your position limit is ±20. You are short 20 (at the maximum). Fair is 75. What is typically forced?",
+      "options": [
+        "You may only quote to buy (bid-only) until you cover",
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 20.",
+        "B": "Selling deepens the short, but you are already at the −20 floor, so selling more is forbidden.",
+        "C": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_082",
+      "concept": "position_limit",
+      "question": "Your position limit is ±4. You are short 4 (at the maximum). Fair is 80. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "You may only quote to buy (bid-only) until you cover",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −4 floor, so selling more is forbidden.",
+        "B": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 4.",
+        "C": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_083",
+      "concept": "position_limit",
+      "question": "Your position limit is ±5. You are short 5 (at the maximum). Fair is 88. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You may only quote to buy (bid-only) until you cover",
+        "You must quote a crossed market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −5 floor, so selling more is forbidden.",
+        "B": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "C": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 5.",
+        "D": "A crossed quote is invalid and is never the correct reaction to a position limit."
+      }
+    },
+    {
+      "id": "pr_mminv_084",
+      "concept": "position_limit",
+      "question": "Your position limit is ±6. You are short 6 (at the maximum). Fair is 95. What is typically forced?",
+      "options": [
+        "You may only quote to sell more",
+        "Nothing changes — keep quoting two-sided",
+        "You must quote a crossed market",
+        "You may only quote to buy (bid-only) until you cover"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling deepens the short, but you are already at the −6 floor, so selling more is forbidden.",
+        "B": "Two-sided quoting would let a buyer lift your ask and breach the short limit; the limit forces a change.",
+        "C": "A crossed quote is invalid and is never the correct reaction to a position limit.",
+        "D": "Correct. At max short you cannot sell more, so you quote one-sided to buy — only a bid — until your short shrinks below 6."
+      }
+    },
+    {
+      "id": "pr_mminv_085",
+      "concept": "inventory_pnl",
+      "question": "You are long 2 units at an average cost of 38. Fair value is now 40. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$4",
+        "-$4",
+        "+$2",
+        "+$6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mark to fair: (40 − 38) × 2 = +4.",
+        "B": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "C": "This is the per-unit move only. You hold 2 units, so multiply the move by 2.",
+        "D": "This over-counts your size — you hold 2 units, not 3."
+      }
+    },
+    {
+      "id": "pr_mminv_086",
+      "concept": "inventory_pnl",
+      "question": "You are long 3 units at an average cost of 20. Fair value is now 17. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$9",
+        "-$9",
+        "-$3",
+        "-$12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "Correct. Mark to fair: (17 − 20) × 3 = −9.",
+        "C": "This is the per-unit move only. You hold 3 units, so multiply the move by 3.",
+        "D": "This over-counts your size — you hold 3 units, not 4."
+      }
+    },
+    {
+      "id": "pr_mminv_087",
+      "concept": "inventory_pnl",
+      "question": "You are long 4 units at an average cost of 10. Fair value is now 14. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$16",
+        "+$4",
+        "+$16",
+        "+$20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "This is the per-unit move only. You hold 4 units, so multiply the move by 4.",
+        "C": "Correct. Mark to fair: (14 − 10) × 4 = +16.",
+        "D": "This over-counts your size — you hold 4 units, not 5."
+      }
+    },
+    {
+      "id": "pr_mminv_088",
+      "concept": "inventory_pnl",
+      "question": "You are long 5 units at an average cost of 50. Fair value is now 53. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$15",
+        "+$3",
+        "+$18",
+        "+$15"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "This is the per-unit move only. You hold 5 units, so multiply the move by 5.",
+        "C": "This over-counts your size — you hold 5 units, not 6.",
+        "D": "Correct. Mark to fair: (53 − 50) × 5 = +15."
+      }
+    },
+    {
+      "id": "pr_mminv_089",
+      "concept": "inventory_pnl",
+      "question": "You are long 6 units at an average cost of 62. Fair value is now 58. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$24",
+        "+$24",
+        "-$4",
+        "-$28"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mark to fair: (58 − 62) × 6 = −24.",
+        "B": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "C": "This is the per-unit move only. You hold 6 units, so multiply the move by 6.",
+        "D": "This over-counts your size — you hold 6 units, not 7."
+      }
+    },
+    {
+      "id": "pr_mminv_090",
+      "concept": "inventory_pnl",
+      "question": "You are long 3 units at an average cost of 25. Fair value is now 31. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$18",
+        "+$18",
+        "+$6",
+        "+$24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "Correct. Mark to fair: (31 − 25) × 3 = +18.",
+        "C": "This is the per-unit move only. You hold 3 units, so multiply the move by 3.",
+        "D": "This over-counts your size — you hold 3 units, not 4."
+      }
+    },
+    {
+      "id": "pr_mminv_091",
+      "concept": "inventory_pnl",
+      "question": "You are long 4 units at an average cost of 44. Fair value is now 40. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$16",
+        "-$4",
+        "-$16",
+        "-$20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "This is the per-unit move only. You hold 4 units, so multiply the move by 4.",
+        "C": "Correct. Mark to fair: (40 − 44) × 4 = −16.",
+        "D": "This over-counts your size — you hold 4 units, not 5."
+      }
+    },
+    {
+      "id": "pr_mminv_092",
+      "concept": "inventory_pnl",
+      "question": "You are long 2 units at an average cost of 80. Fair value is now 86. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$12",
+        "+$6",
+        "+$18",
+        "+$12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "This is the per-unit move only. You hold 2 units, so multiply the move by 2.",
+        "C": "This over-counts your size — you hold 2 units, not 3.",
+        "D": "Correct. Mark to fair: (86 − 80) × 2 = +12."
+      }
+    },
+    {
+      "id": "pr_mminv_093",
+      "concept": "inventory_pnl",
+      "question": "You are long 5 units at an average cost of 100. Fair value is now 95. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$25",
+        "+$25",
+        "-$5",
+        "-$30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mark to fair: (95 − 100) × 5 = −25.",
+        "B": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "C": "This is the per-unit move only. You hold 5 units, so multiply the move by 5.",
+        "D": "This over-counts your size — you hold 5 units, not 6."
+      }
+    },
+    {
+      "id": "pr_mminv_094",
+      "concept": "inventory_pnl",
+      "question": "You are long 3 units at an average cost of 12. Fair value is now 15. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$9",
+        "+$9",
+        "+$3",
+        "+$12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "Correct. Mark to fair: (15 − 12) × 3 = +9.",
+        "C": "This is the per-unit move only. You hold 3 units, so multiply the move by 3.",
+        "D": "This over-counts your size — you hold 3 units, not 4."
+      }
+    },
+    {
+      "id": "pr_mminv_095",
+      "concept": "inventory_pnl",
+      "question": "You are long 4 units at an average cost of 55. Fair value is now 50. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$20",
+        "-$5",
+        "-$20",
+        "-$25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "This is the per-unit move only. You hold 4 units, so multiply the move by 4.",
+        "C": "Correct. Mark to fair: (50 − 55) × 4 = −20.",
+        "D": "This over-counts your size — you hold 4 units, not 5."
+      }
+    },
+    {
+      "id": "pr_mminv_096",
+      "concept": "inventory_pnl",
+      "question": "You are long 6 units at an average cost of 75. Fair value is now 81. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$36",
+        "+$6",
+        "+$42",
+        "+$36"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "This is the per-unit move only. You hold 6 units, so multiply the move by 6.",
+        "C": "This over-counts your size — you hold 6 units, not 7.",
+        "D": "Correct. Mark to fair: (81 − 75) × 6 = +36."
+      }
+    },
+    {
+      "id": "pr_mminv_097",
+      "concept": "inventory_pnl",
+      "question": "You are long 2 units at an average cost of 30. Fair value is now 27. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$6",
+        "+$6",
+        "-$3",
+        "-$9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Mark to fair: (27 − 30) × 2 = −6.",
+        "B": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "C": "This is the per-unit move only. You hold 2 units, so multiply the move by 2.",
+        "D": "This over-counts your size — you hold 2 units, not 3."
+      }
+    },
+    {
+      "id": "pr_mminv_098",
+      "concept": "inventory_pnl",
+      "question": "You are long 5 units at an average cost of 88. Fair value is now 92. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$20",
+        "+$20",
+        "+$4",
+        "+$24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This flips the sign. A long gains when fair exceeds cost and loses when fair is below cost.",
+        "B": "Correct. Mark to fair: (92 − 88) × 5 = +20.",
+        "C": "This is the per-unit move only. You hold 5 units, so multiply the move by 5.",
+        "D": "This over-counts your size — you hold 5 units, not 6."
+      }
+    },
+    {
+      "id": "pr_mminv_099",
+      "concept": "inventory_pnl",
+      "question": "You are short 3 units at an average sale price of 40. Fair value is now 38. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$6",
+        "+$2",
+        "+$6",
+        "+$8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 3 units, so multiply by 3.",
+        "C": "Correct. A short marks as (sale − fair) × size: (40 − 38) × 3 = +6.",
+        "D": "This over-counts your size — you hold 3 units, not 4."
+      }
+    },
+    {
+      "id": "pr_mminv_100",
+      "concept": "inventory_pnl",
+      "question": "You are short 2 units at an average sale price of 17. Fair value is now 20. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$6",
+        "-$3",
+        "-$9",
+        "-$6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 2 units, so multiply by 2.",
+        "C": "This over-counts your size — you hold 2 units, not 3.",
+        "D": "Correct. A short marks as (sale − fair) × size: (17 − 20) × 2 = −6."
+      }
+    },
+    {
+      "id": "pr_mminv_101",
+      "concept": "inventory_pnl",
+      "question": "You are short 5 units at an average sale price of 14. Fair value is now 10. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$20",
+        "-$20",
+        "+$4",
+        "+$24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A short marks as (sale − fair) × size: (14 − 10) × 5 = +20.",
+        "B": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "C": "This is the per-unit move only. You are short 5 units, so multiply by 5.",
+        "D": "This over-counts your size — you hold 5 units, not 6."
+      }
+    },
+    {
+      "id": "pr_mminv_102",
+      "concept": "inventory_pnl",
+      "question": "You are short 4 units at an average sale price of 53. Fair value is now 50. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$12",
+        "+$12",
+        "+$3",
+        "+$15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "Correct. A short marks as (sale − fair) × size: (53 − 50) × 4 = +12.",
+        "C": "This is the per-unit move only. You are short 4 units, so multiply by 4.",
+        "D": "This over-counts your size — you hold 4 units, not 5."
+      }
+    },
+    {
+      "id": "pr_mminv_103",
+      "concept": "inventory_pnl",
+      "question": "You are short 6 units at an average sale price of 58. Fair value is now 62. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$24",
+        "-$4",
+        "-$24",
+        "-$28"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 6 units, so multiply by 6.",
+        "C": "Correct. A short marks as (sale − fair) × size: (58 − 62) × 6 = −24.",
+        "D": "This over-counts your size — you hold 6 units, not 7."
+      }
+    },
+    {
+      "id": "pr_mminv_104",
+      "concept": "inventory_pnl",
+      "question": "You are short 2 units at an average sale price of 31. Fair value is now 25. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$12",
+        "+$6",
+        "+$18",
+        "+$12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 2 units, so multiply by 2.",
+        "C": "This over-counts your size — you hold 2 units, not 3.",
+        "D": "Correct. A short marks as (sale − fair) × size: (31 − 25) × 2 = +12."
+      }
+    },
+    {
+      "id": "pr_mminv_105",
+      "concept": "inventory_pnl",
+      "question": "You are short 4 units at an average sale price of 40. Fair value is now 44. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$16",
+        "+$16",
+        "-$4",
+        "-$20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A short marks as (sale − fair) × size: (40 − 44) × 4 = −16.",
+        "B": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "C": "This is the per-unit move only. You are short 4 units, so multiply by 4.",
+        "D": "This over-counts your size — you hold 4 units, not 5."
+      }
+    },
+    {
+      "id": "pr_mminv_106",
+      "concept": "inventory_pnl",
+      "question": "You are short 5 units at an average sale price of 86. Fair value is now 80. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$30",
+        "+$30",
+        "+$6",
+        "+$36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "Correct. A short marks as (sale − fair) × size: (86 − 80) × 5 = +30.",
+        "C": "This is the per-unit move only. You are short 5 units, so multiply by 5.",
+        "D": "This over-counts your size — you hold 5 units, not 6."
+      }
+    },
+    {
+      "id": "pr_mminv_107",
+      "concept": "inventory_pnl",
+      "question": "You are short 3 units at an average sale price of 95. Fair value is now 100. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$15",
+        "-$5",
+        "-$15",
+        "-$20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 3 units, so multiply by 3.",
+        "C": "Correct. A short marks as (sale − fair) × size: (95 − 100) × 3 = −15.",
+        "D": "This over-counts your size — you hold 3 units, not 4."
+      }
+    },
+    {
+      "id": "pr_mminv_108",
+      "concept": "inventory_pnl",
+      "question": "You are short 6 units at an average sale price of 15. Fair value is now 12. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$18",
+        "+$3",
+        "+$21",
+        "+$18"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 6 units, so multiply by 6.",
+        "C": "This over-counts your size — you hold 6 units, not 7.",
+        "D": "Correct. A short marks as (sale − fair) × size: (15 − 12) × 6 = +18."
+      }
+    },
+    {
+      "id": "pr_mminv_109",
+      "concept": "inventory_pnl",
+      "question": "You are short 2 units at an average sale price of 50. Fair value is now 55. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$10",
+        "+$10",
+        "-$5",
+        "-$15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A short marks as (sale − fair) × size: (50 − 55) × 2 = −10.",
+        "B": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "C": "This is the per-unit move only. You are short 2 units, so multiply by 2.",
+        "D": "This over-counts your size — you hold 2 units, not 3."
+      }
+    },
+    {
+      "id": "pr_mminv_110",
+      "concept": "inventory_pnl",
+      "question": "You are short 4 units at an average sale price of 81. Fair value is now 75. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$24",
+        "+$24",
+        "+$6",
+        "+$30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "Correct. A short marks as (sale − fair) × size: (81 − 75) × 4 = +24.",
+        "C": "This is the per-unit move only. You are short 4 units, so multiply by 4.",
+        "D": "This over-counts your size — you hold 4 units, not 5."
+      }
+    },
+    {
+      "id": "pr_mminv_111",
+      "concept": "inventory_pnl",
+      "question": "You are short 5 units at an average sale price of 27. Fair value is now 30. Your mark-to-market P&L on the position is:",
+      "options": [
+        "+$15",
+        "-$3",
+        "-$15",
+        "-$18"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 5 units, so multiply by 5.",
+        "C": "Correct. A short marks as (sale − fair) × size: (27 − 30) × 5 = −15.",
+        "D": "This over-counts your size — you hold 5 units, not 6."
+      }
+    },
+    {
+      "id": "pr_mminv_112",
+      "concept": "inventory_pnl",
+      "question": "You are short 3 units at an average sale price of 92. Fair value is now 88. Your mark-to-market P&L on the position is:",
+      "options": [
+        "-$12",
+        "+$4",
+        "+$16",
+        "+$12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This flips the sign. A short gains when fair falls below your sale price and loses when fair rises above it.",
+        "B": "This is the per-unit move only. You are short 3 units, so multiply by 3.",
+        "C": "This over-counts your size — you hold 3 units, not 4.",
+        "D": "Correct. A short marks as (sale − fair) × size: (92 − 88) × 3 = +12."
+      }
+    },
+    {
+      "id": "pr_mminv_113",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are long 7 with a limit of 8 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Maximize spread capture on brand-new round-trips",
+        "Buy more to average down",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "B": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "C": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_114",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are short 6 with a limit of 8 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Maximize spread capture on brand-new round-trips",
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Sell more to average up",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "B": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "C": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_115",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are long 9 with a limit of 10 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Maximize spread capture on brand-new round-trips",
+        "Buy more to average down",
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "B": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "C": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_116",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are short 11 with a limit of 12 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Maximize spread capture on brand-new round-trips",
+        "Sell more to average up",
+        "Widen your quotes to infinity and stop trading",
+        "Flatten before the bell — reduce the position even if you give up a little edge"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "B": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "C": "Refusing to trade leaves the open position untouched; you still carry it into settlement.",
+        "D": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread."
+      }
+    },
+    {
+      "id": "pr_mminv_117",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are long 4 with a limit of 5 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Maximize spread capture on brand-new round-trips",
+        "Buy more to average down",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "B": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "C": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_118",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are short 3 with a limit of 4 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Maximize spread capture on brand-new round-trips",
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Sell more to average up",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "B": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "C": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_119",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are long 14 with a limit of 15 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Maximize spread capture on brand-new round-trips",
+        "Buy more to average down",
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "B": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "C": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_120",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are short 5 with a limit of 6 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Maximize spread capture on brand-new round-trips",
+        "Sell more to average up",
+        "Widen your quotes to infinity and stop trading",
+        "Flatten before the bell — reduce the position even if you give up a little edge"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "B": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "C": "Refusing to trade leaves the open position untouched; you still carry it into settlement.",
+        "D": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread."
+      }
+    },
+    {
+      "id": "pr_mminv_121",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are long 8 with a limit of 10 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Maximize spread capture on brand-new round-trips",
+        "Buy more to average down",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "B": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "C": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_122",
+      "concept": "flatten_priority",
+      "question": "It is near the close of a trading game. You are short 9 with a limit of 10 and fair is unchanged. Your priority should be to:",
+      "options": [
+        "Maximize spread capture on brand-new round-trips",
+        "Flatten before the bell — reduce the position even if you give up a little edge",
+        "Sell more to average up",
+        "Widen your quotes to infinity and stop trading"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Chasing more round-trips near the close keeps (or grows) a risky position you may not be able to exit in time.",
+        "B": "Correct. Inventory left at the close marks against you at settlement with no time to trade out, so reducing risk dominates squeezing the last bit of spread.",
+        "C": "Adding to the position increases inventory risk right when you have the least time to manage it.",
+        "D": "Refusing to trade leaves the open position untouched; you still carry it into settlement."
+      }
+    },
+    {
+      "id": "pr_mminv_123",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 99–101 to 98–100 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The ask fell from 101 to 100; it did not rise.",
+        "B": "The midpoint moved from 100 down to 99, so it did change.",
+        "C": "Correct. The ask drops from 101 to 100, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory.",
+        "D": "98–100 still has the bid below the ask, so it is a valid two-sided quote."
+      }
+    },
+    {
+      "id": "pr_mminv_124",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 49–51 to 48–50 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The ask fell from 51 to 50; it did not rise.",
+        "B": "The midpoint moved from 50 down to 49, so it did change.",
+        "C": "48–50 still has the bid below the ask, so it is a valid two-sided quote.",
+        "D": "Correct. The ask drops from 51 to 50, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory."
+      }
+    },
+    {
+      "id": "pr_mminv_125",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 24–26 to 23–25 (same spread). This skew:",
+      "options": [
+        "Lowers your ask, making it easier for buyers to lift you and offload your long",
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The ask drops from 26 to 25, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory.",
+        "B": "The ask fell from 26 to 25; it did not rise.",
+        "C": "The midpoint moved from 25 down to 24, so it did change.",
+        "D": "23–25 still has the bid below the ask, so it is a valid two-sided quote."
+      }
+    },
+    {
+      "id": "pr_mminv_126",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 74–76 to 73–75 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The ask fell from 76 to 75; it did not rise.",
+        "B": "Correct. The ask drops from 76 to 75, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory.",
+        "C": "The midpoint moved from 75 down to 74, so it did change.",
+        "D": "73–75 still has the bid below the ask, so it is a valid two-sided quote."
+      }
+    },
+    {
+      "id": "pr_mminv_127",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 199–201 to 198–200 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The ask fell from 201 to 200; it did not rise.",
+        "B": "The midpoint moved from 200 down to 199, so it did change.",
+        "C": "Correct. The ask drops from 201 to 200, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory.",
+        "D": "198–200 still has the bid below the ask, so it is a valid two-sided quote."
+      }
+    },
+    {
+      "id": "pr_mminv_128",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 39–41 to 38–40 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The ask fell from 41 to 40; it did not rise.",
+        "B": "The midpoint moved from 40 down to 39, so it did change.",
+        "C": "38–40 still has the bid below the ask, so it is a valid two-sided quote.",
+        "D": "Correct. The ask drops from 41 to 40, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory."
+      }
+    },
+    {
+      "id": "pr_mminv_129",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 9–11 to 8–10 (same spread). This skew:",
+      "options": [
+        "Lowers your ask, making it easier for buyers to lift you and offload your long",
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The ask drops from 11 to 10, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory.",
+        "B": "The ask fell from 11 to 10; it did not rise.",
+        "C": "The midpoint moved from 10 down to 9, so it did change.",
+        "D": "8–10 still has the bid below the ask, so it is a valid two-sided quote."
+      }
+    },
+    {
+      "id": "pr_mminv_130",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 64–66 to 63–65 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The ask fell from 66 to 65; it did not rise.",
+        "B": "Correct. The ask drops from 66 to 65, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory.",
+        "C": "The midpoint moved from 65 down to 64, so it did change.",
+        "D": "63–65 still has the bid below the ask, so it is a valid two-sided quote."
+      }
+    },
+    {
+      "id": "pr_mminv_131",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 119–121 to 118–120 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The ask fell from 121 to 120; it did not rise.",
+        "B": "The midpoint moved from 120 down to 119, so it did change.",
+        "C": "Correct. The ask drops from 121 to 120, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory.",
+        "D": "118–120 still has the bid below the ask, so it is a valid two-sided quote."
+      }
+    },
+    {
+      "id": "pr_mminv_132",
+      "concept": "skew_vs_fair",
+      "question": "You are long. You shift your quote from 54–56 to 53–55 (same spread). This skew:",
+      "options": [
+        "Raises your ask, discouraging buyers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market",
+        "Lowers your ask, making it easier for buyers to lift you and offload your long"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The ask fell from 56 to 55; it did not rise.",
+        "B": "The midpoint moved from 55 down to 54, so it did change.",
+        "C": "53–55 still has the bid below the ask, so it is a valid two-sided quote.",
+        "D": "Correct. The ask drops from 56 to 55, so buyers are more likely to lift you — exactly what a long wants in order to sell down inventory."
+      }
+    },
+    {
+      "id": "pr_mminv_133",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 99–101 to 100–102 (same spread). This skew:",
+      "options": [
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Lowers your bid, discouraging sellers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The bid rises from 99 to 100, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "B": "The bid rose from 99 to 100; it did not fall.",
+        "C": "The midpoint moved from 100 up to 101, so it did change.",
+        "D": "100–102 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_134",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 49–51 to 50–52 (same spread). This skew:",
+      "options": [
+        "Lowers your bid, discouraging sellers",
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The bid rose from 49 to 50; it did not fall.",
+        "B": "Correct. The bid rises from 49 to 50, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "C": "The midpoint moved from 50 up to 51, so it did change.",
+        "D": "50–52 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_135",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 24–26 to 25–27 (same spread). This skew:",
+      "options": [
+        "Lowers your bid, discouraging sellers",
+        "Leaves the midpoint unchanged",
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The bid rose from 24 to 25; it did not fall.",
+        "B": "The midpoint moved from 25 up to 26, so it did change.",
+        "C": "Correct. The bid rises from 24 to 25, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "D": "25–27 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_136",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 74–76 to 75–77 (same spread). This skew:",
+      "options": [
+        "Lowers your bid, discouraging sellers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market",
+        "Raises your bid, making it easier for sellers to hit you so you can cover"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The bid rose from 74 to 75; it did not fall.",
+        "B": "The midpoint moved from 75 up to 76, so it did change.",
+        "C": "75–77 keeps the bid below the ask, so it is a valid quote.",
+        "D": "Correct. The bid rises from 74 to 75, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory."
+      }
+    },
+    {
+      "id": "pr_mminv_137",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 199–201 to 200–202 (same spread). This skew:",
+      "options": [
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Lowers your bid, discouraging sellers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The bid rises from 199 to 200, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "B": "The bid rose from 199 to 200; it did not fall.",
+        "C": "The midpoint moved from 200 up to 201, so it did change.",
+        "D": "200–202 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_138",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 39–41 to 40–42 (same spread). This skew:",
+      "options": [
+        "Lowers your bid, discouraging sellers",
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The bid rose from 39 to 40; it did not fall.",
+        "B": "Correct. The bid rises from 39 to 40, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "C": "The midpoint moved from 40 up to 41, so it did change.",
+        "D": "40–42 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_139",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 9–11 to 10–12 (same spread). This skew:",
+      "options": [
+        "Lowers your bid, discouraging sellers",
+        "Leaves the midpoint unchanged",
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The bid rose from 9 to 10; it did not fall.",
+        "B": "The midpoint moved from 10 up to 11, so it did change.",
+        "C": "Correct. The bid rises from 9 to 10, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "D": "10–12 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_140",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 64–66 to 65–67 (same spread). This skew:",
+      "options": [
+        "Lowers your bid, discouraging sellers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market",
+        "Raises your bid, making it easier for sellers to hit you so you can cover"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The bid rose from 64 to 65; it did not fall.",
+        "B": "The midpoint moved from 65 up to 66, so it did change.",
+        "C": "65–67 keeps the bid below the ask, so it is a valid quote.",
+        "D": "Correct. The bid rises from 64 to 65, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory."
+      }
+    },
+    {
+      "id": "pr_mminv_141",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 119–121 to 120–122 (same spread). This skew:",
+      "options": [
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Lowers your bid, discouraging sellers",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The bid rises from 119 to 120, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "B": "The bid rose from 119 to 120; it did not fall.",
+        "C": "The midpoint moved from 120 up to 121, so it did change.",
+        "D": "120–122 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_142",
+      "concept": "skew_vs_fair",
+      "question": "You are short. You shift your quote from 54–56 to 55–57 (same spread). This skew:",
+      "options": [
+        "Lowers your bid, discouraging sellers",
+        "Raises your bid, making it easier for sellers to hit you so you can cover",
+        "Leaves the midpoint unchanged",
+        "Creates a crossed (invalid) market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The bid rose from 54 to 55; it did not fall.",
+        "B": "Correct. The bid rises from 54 to 55, so sellers are more likely to hit you — exactly what a short wants in order to buy back inventory.",
+        "C": "The midpoint moved from 55 up to 56, so it did change.",
+        "D": "55–57 keeps the bid below the ask, so it is a valid quote."
+      }
+    },
+    {
+      "id": "pr_mminv_143",
+      "concept": "definition",
+      "question": "In market-making terms, holding 'long inventory' means you have:",
+      "options": [
+        "Sold more than you have bought",
+        "A perfectly flat position",
+        "Bought more than you have sold (a net positive position)",
+        "A crossed quote"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That describes a short position, the opposite of long.",
+        "B": "Flat means zero net position, not long.",
+        "C": "Correct. Net buying leaves you long — you own units and gain if fair value rises.",
+        "D": "Crossed describes a quote where bid exceeds ask, not a position."
+      }
+    },
+    {
+      "id": "pr_mminv_144",
+      "concept": "definition",
+      "question": "Holding 'short inventory' means you have:",
+      "options": [
+        "Bought more than you have sold",
+        "Exactly zero position",
+        "Two-sided quotes only",
+        "Sold more than you have bought (a net negative position)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That is a long position, the opposite of short.",
+        "B": "Zero net is flat, not short.",
+        "C": "Quoting style is unrelated to whether you are net short.",
+        "D": "Correct. Net selling leaves you short — you owe units and gain if fair value falls."
+      }
+    },
+    {
+      "id": "pr_mminv_145",
+      "concept": "definition",
+      "question": "Being 'flat' means your net position is:",
+      "options": [
+        "Zero",
+        "Maximum long",
+        "Maximum short",
+        "Whatever the limit allows"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Flat means no net inventory, so you carry no directional mark-to-market risk.",
+        "B": "Max long is the opposite of flat.",
+        "C": "Max short is the opposite of flat.",
+        "D": "Flat specifically means zero, not the limit."
+      }
+    },
+    {
+      "id": "pr_mminv_146",
+      "concept": "skew_purpose",
+      "question": "The primary purpose of skewing your quotes is to:",
+      "options": [
+        "Predict the next direction of fair value",
+        "Encourage the trade that reduces your unwanted inventory",
+        "Always widen the spread as much as possible",
+        "Guarantee a profit on every fill"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Market making earns the spread; skew manages inventory, it is not a directional bet.",
+        "B": "Correct. Skew leans prices so the relieving trade (selling when long, buying when short) becomes more attractive.",
+        "C": "Skew is about shifting quotes directionally, not simply widening them.",
+        "D": "No quoting choice guarantees profit; skew manages risk."
+      }
+    },
+    {
+      "id": "pr_mminv_147",
+      "concept": "skew_purpose",
+      "question": "When your inventory is flat and fair value is F, the ideal quote midpoint is usually:",
+      "options": [
+        "Well below F",
+        "Well above F",
+        "At fair value F",
+        "Irrelevant — midpoint never matters"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Shading below fair is what you do when long, not when flat.",
+        "B": "Shading above fair is what you do when short, not when flat.",
+        "C": "Correct. With no inventory pressure you center on fair to earn the spread symmetrically.",
+        "D": "Centering on fair is exactly how a flat maker captures unbiased spread."
+      }
+    },
+    {
+      "id": "pr_mminv_148",
+      "concept": "skew_purpose",
+      "question": "Skewing to manage inventory should be thought of as:",
+      "options": [
+        "Panicked dumping at any price",
+        "Refusing to quote at all",
+        "A directional bet on price",
+        "A measured price shift to invite the relieving trade"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Skew is a controlled adjustment; firesale dumping gives away edge unnecessarily.",
+        "B": "You still post prices when you skew; pulling quotes is not skewing.",
+        "C": "Skew responds to your position, not to a forecast of direction.",
+        "D": "Correct. You move enough to reduce risk without donating edge on every fill — it is deliberate, not panic."
+      }
+    },
+    {
+      "id": "pr_mminv_149",
+      "concept": "skew_purpose",
+      "question": "When you are flat, your main source of edge as a market maker is usually:",
+      "options": [
+        "Capturing the bid-ask spread on round-trips",
+        "Favorable inventory marks",
+        "Guessing market direction",
+        "Avoiding all trading"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A flat maker earns by buying at the bid and selling at the ask repeatedly.",
+        "B": "When flat you hold no inventory, so there is nothing to mark — spread is the edge.",
+        "C": "Directional guessing is not the market maker's structural edge.",
+        "D": "You must trade to earn the spread; sitting out earns nothing."
+      }
+    },
+    {
+      "id": "pr_mminv_150",
+      "concept": "definition",
+      "question": "A 'flattening trade' is a trade that:",
+      "options": [
+        "Always increases your position",
+        "Reduces your net position toward zero",
+        "Only changes the spread width",
+        "Crosses the market"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That would be the opposite — building inventory, not flattening it.",
+        "B": "Correct. Selling when long or buying when short moves your inventory back toward flat.",
+        "C": "A flattening trade changes your position; spread width is a separate decision.",
+        "D": "Crossing the market is invalid and unrelated to flattening."
+      }
+    },
+    {
+      "id": "pr_mminv_151",
+      "concept": "long_inventory_skew",
+      "question": "You are too long. To stop adding to the position, your bid should be made:",
+      "options": [
+        "More attractive (raised toward fair)",
+        "Crossed above your ask",
+        "Less attractive (lower or wider away from fair)",
+        "Removed and then re-added at the same level"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A higher bid attracts sellers and would buy you even longer — wrong way.",
+        "B": "A crossed bid is invalid and would only cause errors.",
+        "C": "Correct. A less attractive bid means fewer sellers hit you, so you stop accumulating more length.",
+        "D": "Re-posting at the same level does not change the incentive to keep buying."
+      }
+    },
+    {
+      "id": "pr_mminv_152",
+      "concept": "long_inventory_skew",
+      "question": "You are too long. To encourage buyers to take your inventory, your ask should be made:",
+      "options": [
+        "Much higher",
+        "Equal to your bid",
+        "Removed entirely",
+        "More attractive (lower / tighter)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A higher ask discourages buyers — you would stay long longer.",
+        "B": "A zero-width quote is unusual and not the standard way to offload length.",
+        "C": "Without an ask you cannot sell at all, so you cannot reduce the long.",
+        "D": "Correct. A cheaper ask invites buyers to lift you, selling down your long."
+      }
+    },
+    {
+      "id": "pr_mminv_153",
+      "concept": "short_inventory_skew",
+      "question": "You are too short. To stop adding to the short, your ask should be made:",
+      "options": [
+        "Less attractive (higher or wider away from fair)",
+        "More attractive (lowered toward fair)",
+        "Crossed below your bid",
+        "Set exactly equal to fair"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A less attractive ask means fewer buyers lift you, so you stop selling more.",
+        "B": "A cheaper ask attracts buyers and would sell you even shorter — wrong way.",
+        "C": "A crossed ask is invalid.",
+        "D": "Pinning the ask at fair still leaves it attractive enough to keep selling."
+      }
+    },
+    {
+      "id": "pr_mminv_154",
+      "concept": "short_inventory_skew",
+      "question": "You are too short. To encourage sellers to let you cover, your bid should be made:",
+      "options": [
+        "Much lower",
+        "More attractive (higher / tighter)",
+        "Equal to your ask",
+        "Removed entirely"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A lower bid repels sellers — you would stay short longer.",
+        "B": "Correct. A higher bid invites sellers to hit you, buying back your short.",
+        "C": "A zero-width quote is unusual and not the standard way to cover a short.",
+        "D": "Without a bid you cannot buy, so you cannot cover the short."
+      }
+    },
+    {
+      "id": "pr_mminv_155",
+      "concept": "skew_magnitude",
+      "question": "How far you skew your quotes should mainly depend on:",
+      "options": [
+        "The color of the trading screen",
+        "Always exactly one tick regardless of position",
+        "The size of your inventory and how urgently you need to reduce it",
+        "Whatever maximizes spread width"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Cosmetic factors have nothing to do with quoting.",
+        "B": "A fixed one-tick skew ignores how much risk you actually carry.",
+        "C": "Correct. Bigger or riskier inventory warrants a larger skew to pull you flat faster.",
+        "D": "Skew is about leaning direction to manage inventory, not maximizing width."
+      }
+    },
+    {
+      "id": "pr_mminv_156",
+      "concept": "position_limit",
+      "question": "Why do trading games impose position limits?",
+      "options": [
+        "To guarantee every trader a profit",
+        "To eliminate the bid-ask spread",
+        "To prevent any losses from ever occurring",
+        "To cap the risk a single trader can take on from inventory"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Limits constrain risk; they do not guarantee profit.",
+        "B": "Limits have nothing to do with removing the spread.",
+        "C": "Limits cap risk but cannot prevent losses entirely.",
+        "D": "Correct. Limits bound how much directional exposure inventory can create."
+      }
+    },
+    {
+      "id": "pr_mminv_157",
+      "concept": "inventory_risk",
+      "question": "Inventory risk is best described as:",
+      "options": [
+        "The risk that fair value moves against you while you hold a position",
+        "The risk that the spread is too tight",
+        "The risk of quoting on both sides",
+        "The certainty of losing money on every trade"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The longer and larger you hold inventory, the more an adverse price move can cost.",
+        "B": "Spread width is a separate concern from holding-period price risk.",
+        "C": "Two-sided quoting is normal; inventory risk is about the position you carry.",
+        "D": "Inventory risk is a probability of adverse moves, not a certainty of loss."
+      }
+    },
+    {
+      "id": "pr_mminv_158",
+      "concept": "flatten_priority",
+      "question": "All else equal, carrying a large inventory increases your risk because:",
+      "options": [
+        "Larger positions always earn more spread",
+        "A given move in fair value produces a larger P&L swing",
+        "Big positions are immune to price moves",
+        "The exchange pays you to hold inventory"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Spread is earned on round-trips, not by simply holding a big position.",
+        "B": "Correct. P&L scales with size, so bigger inventory amplifies the impact of any price move.",
+        "C": "The opposite is true — bigger positions are more exposed to moves.",
+        "D": "There is no such payment; holding inventory is a risk, not a reward."
+      }
+    },
+    {
+      "id": "pr_mminv_159",
+      "concept": "mean_reversion",
+      "question": "If you believe fair value mean-reverts, accumulating a large long after price has risen sharply is risky mainly because:",
+      "options": [
+        "Mean reversion guarantees the price keeps rising",
+        "Long positions cannot lose money",
+        "Mean reversion suggests the price may fall back, hurting your long",
+        "Spread capture disappears when you are long"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Mean reversion implies pull-back toward the mean, not continued rises.",
+        "B": "Longs lose when fair value falls; they are not risk-free.",
+        "C": "Correct. Under mean reversion an elevated price tends to revert downward, which marks your long against you.",
+        "D": "You can still earn spread; the issue here is directional mark risk under reversion."
+      }
+    },
+    {
+      "id": "pr_mminv_160",
+      "concept": "mean_reversion",
+      "question": "Under mean reversion, being short after a sharp price drop is risky because:",
+      "options": [
+        "Shorts always profit when price falls further",
+        "Short positions are immune to price moves",
+        "You can no longer quote a bid",
+        "The price may revert upward, marking your short against you"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Mean reversion implies a bounce, not further falls.",
+        "B": "Shorts lose when fair rises — they are exposed.",
+        "C": "You can still quote; the risk here is reversion against the short.",
+        "D": "Correct. A depressed price tends to bounce back toward the mean, which hurts a short."
+      }
+    },
+    {
+      "id": "pr_mminv_161",
+      "concept": "skew_vs_fair",
+      "question": "You are flat at fair 60, then a single big buy lifts you and leaves you short 4. The most consistent next move is to:",
+      "options": [
+        "Skew your quote up so sellers hit your bid and you cover",
+        "Skew your quote down to sell even more",
+        "Leave the quote centered at 60",
+        "Pull both sides and stop quoting"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Being short, you lean prices up to make your bid attractive and buy back toward flat.",
+        "B": "Selling more deepens the short — the wrong direction.",
+        "C": "A symmetric quote ignores the new short pressure.",
+        "D": "Pulling quotes leaves the short open with no way to cover."
+      }
+    },
+    {
+      "id": "pr_mminv_162",
+      "concept": "skew_vs_fair",
+      "question": "You are flat at fair 60, then a single big sell hits your bid and leaves you long 4. The most consistent next move is to:",
+      "options": [
+        "Skew your quote up to buy even more",
+        "Skew your quote down so buyers lift your ask and you sell",
+        "Leave the quote centered at 60",
+        "Pull both sides and stop quoting"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Buying more deepens the long — the wrong direction.",
+        "B": "Correct. Being long, you lean prices down to make your ask attractive and offload toward flat.",
+        "C": "A symmetric quote ignores the new long pressure.",
+        "D": "Pulling quotes leaves the long open with no way to offload."
+      }
+    },
+    {
+      "id": "pr_mminv_163",
+      "concept": "flatten_priority",
+      "question": "You are long 6 and fair has been drifting down all session. Compared with staying long, flattening now:",
+      "options": [
+        "Increases your exposure to the down move",
+        "Has no effect on your risk",
+        "Reduces further loss if the downward drift continues",
+        "Locks in a guaranteed profit"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Flattening removes exposure; it does not increase it.",
+        "B": "Moving toward flat materially reduces directional risk.",
+        "C": "Correct. Cutting the long removes exposure to additional declines in fair value.",
+        "D": "Flattening caps risk; it does not by itself guarantee a profit."
+      }
+    },
+    {
+      "id": "pr_mminv_164",
+      "concept": "inventory_pnl",
+      "question": "You buy 2 at 38 then sell 1 at 42; fair is 40 and unchanged. On the one remaining long unit your unrealized P&L vs fair is:",
+      "options": [
+        "+$4",
+        "$0",
+        "-$2",
+        "+$2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This double-counts; only one unit remains open, and its move is 2, not 4.",
+        "B": "Fair (40) is above your cost (38), so the open unit is not flat in P&L.",
+        "C": "The sign is reversed — fair is above cost, so the long is in profit.",
+        "D": "Correct. One unit held at cost 38 marked to fair 40 gives 40 − 38 = +2 (separate from the spread already locked on the round-tripped lot)."
+      }
+    },
+    {
+      "id": "pr_mminv_165",
+      "concept": "skew_vs_fair",
+      "question": "Skewing your midpoint below fair while keeping the same spread is the natural response when you are:",
+      "options": [
+        "Long and want to offload",
+        "Short and want to cover",
+        "Flat and want symmetric edge",
+        "At your short limit"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A long shades the quote down to cheapen the ask and stop accumulating on the bid.",
+        "B": "A short shades up, not down.",
+        "C": "When flat you center on fair, not below it.",
+        "D": "At a short limit you lean up to buy back, not down."
+      }
+    },
+    {
+      "id": "pr_mminv_166",
+      "concept": "skew_vs_fair",
+      "question": "Skewing your midpoint above fair while keeping the same spread is the natural response when you are:",
+      "options": [
+        "Long and want to offload",
+        "Short and want to cover",
+        "Flat and want symmetric edge",
+        "At your long limit"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A long shades down, not up.",
+        "B": "Correct. A short shades the quote up to raise the bid and stop selling on the ask.",
+        "C": "When flat you center on fair, not above it.",
+        "D": "At a long limit you lean down to sell, not up."
+      }
+    },
+    {
+      "id": "pr_mminv_167",
+      "concept": "position_limit",
+      "question": "You are long 5 with a limit of 5. A seller is resting, eager to hit your bid. The safest quoting choice is to:",
+      "options": [
+        "Show an aggressive bid to capture the seller",
+        "Widen both sides symmetrically and keep bidding",
+        "Stop showing a bid and offer only, so you cannot be pushed past the limit",
+        "Cross your quote to force a trade"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buying from that seller would push you past your +5 limit.",
+        "B": "Any live bid still risks being hit and breaching the limit.",
+        "C": "Correct. At the long limit you must not accept more length, so you pull the bid and quote one-sided to sell.",
+        "D": "Crossed quotes are invalid and never the right response to a limit."
+      }
+    },
+    {
+      "id": "pr_mminv_168",
+      "concept": "inventory_risk",
+      "question": "Two makers hold the same long, but one holds it for ten minutes and the other for ten seconds. All else equal:",
+      "options": [
+        "The shorter holder faces more inventory risk",
+        "Holding time has no effect on inventory risk",
+        "Neither faces any risk because both are long",
+        "The longer holder faces more inventory risk"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Less holding time means less exposure to adverse moves, not more.",
+        "B": "Holding-period exposure is the core of inventory risk.",
+        "C": "Both face risk; being long is not risk-free.",
+        "D": "Correct. The longer you hold a position, the more opportunity there is for fair value to move against it."
+      }
+    }
+  ]
+}

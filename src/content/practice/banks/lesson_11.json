@@ -1,0 +1,3157 @@
+{
+  "lessonId": "lesson_11",
+  "track": "quant",
+  "title": "Firm-Style Probability Drills",
+  "questions": [
+    {
+      "id": "pr_l11_001",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $3 on heads and lose $1 on tails. What is the expected profit per flip?",
+      "options": [
+        "$1",
+        "$2",
+        "-$1",
+        "$1.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1/2)($3) + (1/2)(-$1) = $3/2 − $1/2 = $1.",
+        "B": "Adding both payoffs as if both happen, ($3+$1)/2, double-counts mutually exclusive outcomes.",
+        "C": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "D": "This counts only the heads payoff, $3/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_002",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $5 on heads and lose $2 on tails. What is the expected profit per flip?",
+      "options": [
+        "$3.50",
+        "$1.50",
+        "-$1.50",
+        "$2.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($5+$2)/2, double-counts mutually exclusive outcomes.",
+        "B": "Correct. EV = (1/2)($5) + (1/2)(-$2) = $5/2 − $2/2 = $1.50.",
+        "C": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "D": "This counts only the heads payoff, $5/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_003",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $7 on heads and lose $3 on tails. What is the expected profit per flip?",
+      "options": [
+        "$5",
+        "-$2",
+        "$2",
+        "$3.50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($7+$3)/2, double-counts mutually exclusive outcomes.",
+        "B": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "C": "Correct. EV = (1/2)($7) + (1/2)(-$3) = $7/2 − $3/2 = $2.",
+        "D": "This counts only the heads payoff, $7/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_004",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $2 on heads and lose $1 on tails. What is the expected profit per flip?",
+      "options": [
+        "$1.50",
+        "-$0.50",
+        "$1",
+        "$0.50"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($2+$1)/2, double-counts mutually exclusive outcomes.",
+        "B": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "C": "This counts only the heads payoff, $2/2, and ignores the tails loss.",
+        "D": "Correct. EV = (1/2)($2) + (1/2)(-$1) = $2/2 − $1/2 = $0.50."
+      }
+    },
+    {
+      "id": "pr_l11_005",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $9 on heads and lose $4 on tails. What is the expected profit per flip?",
+      "options": [
+        "$2.50",
+        "$6.50",
+        "-$2.50",
+        "$4.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1/2)($9) + (1/2)(-$4) = $9/2 − $4/2 = $2.50.",
+        "B": "Adding both payoffs as if both happen, ($9+$4)/2, double-counts mutually exclusive outcomes.",
+        "C": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "D": "This counts only the heads payoff, $9/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_006",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $4 on heads and lose $3 on tails. What is the expected profit per flip?",
+      "options": [
+        "$3.50",
+        "$0.50",
+        "-$0.50",
+        "$2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($4+$3)/2, double-counts mutually exclusive outcomes.",
+        "B": "Correct. EV = (1/2)($4) + (1/2)(-$3) = $4/2 − $3/2 = $0.50.",
+        "C": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "D": "This counts only the heads payoff, $4/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_007",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $6 on heads and lose $1 on tails. What is the expected profit per flip?",
+      "options": [
+        "$3.50",
+        "-$2.50",
+        "$2.50",
+        "$3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($6+$1)/2, double-counts mutually exclusive outcomes.",
+        "B": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "C": "Correct. EV = (1/2)($6) + (1/2)(-$1) = $6/2 − $1/2 = $2.50.",
+        "D": "This counts only the heads payoff, $6/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_008",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $8 on heads and lose $5 on tails. What is the expected profit per flip?",
+      "options": [
+        "$6.50",
+        "-$1.50",
+        "$4",
+        "$1.50"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($8+$5)/2, double-counts mutually exclusive outcomes.",
+        "B": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "C": "This counts only the heads payoff, $8/2, and ignores the tails loss.",
+        "D": "Correct. EV = (1/2)($8) + (1/2)(-$5) = $8/2 − $5/2 = $1.50."
+      }
+    },
+    {
+      "id": "pr_l11_009",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $10 on heads and lose $3 on tails. What is the expected profit per flip?",
+      "options": [
+        "$3.50",
+        "$6.50",
+        "-$3.50",
+        "$5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1/2)($10) + (1/2)(-$3) = $10/2 − $3/2 = $3.50.",
+        "B": "Adding both payoffs as if both happen, ($10+$3)/2, double-counts mutually exclusive outcomes.",
+        "C": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "D": "This counts only the heads payoff, $10/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_010",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $5 on heads and lose $4 on tails. What is the expected profit per flip?",
+      "options": [
+        "$4.50",
+        "$0.50",
+        "-$0.50",
+        "$2.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($5+$4)/2, double-counts mutually exclusive outcomes.",
+        "B": "Correct. EV = (1/2)($5) + (1/2)(-$4) = $5/2 − $4/2 = $0.50.",
+        "C": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "D": "This counts only the heads payoff, $5/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_011",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $7 on heads and lose $2 on tails. What is the expected profit per flip?",
+      "options": [
+        "$4.50",
+        "-$2.50",
+        "$2.50",
+        "$3.50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($7+$2)/2, double-counts mutually exclusive outcomes.",
+        "B": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "C": "Correct. EV = (1/2)($7) + (1/2)(-$2) = $7/2 − $2/2 = $2.50.",
+        "D": "This counts only the heads payoff, $7/2, and ignores the tails loss."
+      }
+    },
+    {
+      "id": "pr_l11_012",
+      "concept": "expected_value",
+      "question": "A fair coin is flipped. You win $9 on heads and lose $5 on tails. What is the expected profit per flip?",
+      "options": [
+        "$7",
+        "-$2",
+        "$4.50",
+        "$2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Adding both payoffs as if both happen, ($9+$5)/2, double-counts mutually exclusive outcomes.",
+        "B": "This is the negative of the true EV; you swapped which outcome is the gain.",
+        "C": "This counts only the heads payoff, $9/2, and ignores the tails loss.",
+        "D": "Correct. EV = (1/2)($9) + (1/2)(-$5) = $9/2 − $5/2 = $2."
+      }
+    },
+    {
+      "id": "pr_l11_013",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $6 if it shows a 6 and lose $1 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$1/6",
+        "$29/6",
+        "$1",
+        "$2.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1/6)($6) + (5/6)(-$1) = $1/6.",
+        "B": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "C": "This counts only the (1/6)($6) win and ignores the 5/6 chance of losing $1.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_014",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $12 if it shows a 6 and lose $1 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$59/6",
+        "$7/6",
+        "$2",
+        "$5.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "Correct. EV = (1/6)($12) + (5/6)(-$1) = $7/6.",
+        "C": "This counts only the (1/6)($12) win and ignores the 5/6 chance of losing $1.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_015",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $12 if it shows a 6 and lose $2 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$29/3",
+        "$2",
+        "$1/3",
+        "$5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "This counts only the (1/6)($12) win and ignores the 5/6 chance of losing $2.",
+        "C": "Correct. EV = (1/6)($12) + (5/6)(-$2) = $1/3.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_016",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $10 if it shows a 6 and lose $2 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$8",
+        "$5/3",
+        "$4",
+        "$0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "This counts only the (1/6)($10) win and ignores the 5/6 chance of losing $2.",
+        "C": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6.",
+        "D": "Correct. EV = (1/6)($10) + (5/6)(-$2) = $0."
+      }
+    },
+    {
+      "id": "pr_l11_017",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $18 if it shows a 6 and lose $3 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$0.50",
+        "$14.50",
+        "$3",
+        "$7.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1/6)($18) + (5/6)(-$3) = $0.50.",
+        "B": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "C": "This counts only the (1/6)($18) win and ignores the 5/6 chance of losing $3.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_018",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $5 if it shows a 6 and lose $1 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$4",
+        "$0",
+        "$5/6",
+        "$2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "Correct. EV = (1/6)($5) + (5/6)(-$1) = $0.",
+        "C": "This counts only the (1/6)($5) win and ignores the 5/6 chance of losing $1.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_019",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $11 if it shows a 6 and lose $1 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$9",
+        "$11/6",
+        "$1",
+        "$5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "This counts only the (1/6)($11) win and ignores the 5/6 chance of losing $1.",
+        "C": "Correct. EV = (1/6)($11) + (5/6)(-$1) = $1.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_020",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $17 if it shows a 6 and lose $2 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$83/6",
+        "$17/6",
+        "$7.50",
+        "$7/6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "This counts only the (1/6)($17) win and ignores the 5/6 chance of losing $2.",
+        "C": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6.",
+        "D": "Correct. EV = (1/6)($17) + (5/6)(-$2) = $7/6."
+      }
+    },
+    {
+      "id": "pr_l11_021",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $24 if it shows a 6 and lose $3 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$1.50",
+        "$19.50",
+        "$4",
+        "$10.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1/6)($24) + (5/6)(-$3) = $1.50.",
+        "B": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "C": "This counts only the (1/6)($24) win and ignores the 5/6 chance of losing $3.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_022",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $3 if it shows a 6 and lose $3 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$2",
+        "-$2",
+        "$0.50",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "Correct. EV = (1/6)($3) + (5/6)(-$3) = -$2.",
+        "C": "This counts only the (1/6)($3) win and ignores the 5/6 chance of losing $3.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_023",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $9 if it shows a 6 and lose $3 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$7",
+        "$1.50",
+        "-$1",
+        "$3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "This counts only the (1/6)($9) win and ignores the 5/6 chance of losing $3.",
+        "C": "Correct. EV = (1/6)($9) + (5/6)(-$3) = -$1.",
+        "D": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6."
+      }
+    },
+    {
+      "id": "pr_l11_024",
+      "concept": "expected_dice_game",
+      "question": "A fair die is rolled. You win $15 if it shows a 6 and lose $3 otherwise. What is the expected profit per roll?",
+      "options": [
+        "$12",
+        "$2.50",
+        "$6",
+        "$0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This swaps the probabilities, using 5/6 for the win and 1/6 for the loss.",
+        "B": "This counts only the (1/6)($15) win and ignores the 5/6 chance of losing $3.",
+        "C": "This weights the two outcomes equally (1/2 each) instead of 1/6 and 5/6.",
+        "D": "Correct. EV = (1/6)($15) + (5/6)(-$3) = $0."
+      }
+    },
+    {
+      "id": "pr_l11_025",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. What is the probability that both are hearts?",
+      "options": [
+        "1/17",
+        "1/16",
+        "3/52",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Without replacement, P = (13/52)·(12/51) = 1/17.",
+        "B": "This treats the draws as independent, (1/4)², but the first item is not replaced.",
+        "C": "This reduces the favorable count to 12 but forgets the pool shrinks from 52 to 51.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_026",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. What is the probability that both are aces?",
+      "options": [
+        "1/169",
+        "1/221",
+        "3/676",
+        "1/13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draws as independent, (1/13)², but the first item is not replaced.",
+        "B": "Correct. Without replacement, P = (4/52)·(3/51) = 1/221.",
+        "C": "This reduces the favorable count to 3 but forgets the pool shrinks from 52 to 51.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_027",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. What is the probability that both are red?",
+      "options": [
+        "1/4",
+        "25/104",
+        "25/102",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the draws as independent, (1/2)², but the first item is not replaced.",
+        "B": "This reduces the favorable count to 25 but forgets the pool shrinks from 52 to 51.",
+        "C": "Correct. Without replacement, P = (26/52)·(25/51) = 25/102.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_028",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. What is the probability that both are face cards (J, Q, or K)?",
+      "options": [
+        "9/169",
+        "33/676",
+        "3/13",
+        "11/221"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the draws as independent, (3/13)², but the first item is not replaced.",
+        "B": "This reduces the favorable count to 11 but forgets the pool shrinks from 52 to 51.",
+        "C": "This is the probability for a single draw, not both.",
+        "D": "Correct. Without replacement, P = (12/52)·(11/51) = 11/221."
+      }
+    },
+    {
+      "id": "pr_l11_029",
+      "concept": "conditional_cards",
+      "question": "An urn holds 10 balls: 4 red and 6 blue. Two are drawn without replacement. What is the probability that both are red?",
+      "options": [
+        "2/15",
+        "4/25",
+        "3/25",
+        "2/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Without replacement, P = (4/10)·(3/9) = 2/15.",
+        "B": "This treats the draws as independent, (2/5)², but the first item is not replaced.",
+        "C": "This reduces the favorable count to 3 but forgets the pool shrinks from 10 to 9.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_030",
+      "concept": "conditional_cards",
+      "question": "An urn holds 8 balls: 3 green and 5 white. Two are drawn without replacement. What is the probability that both are green?",
+      "options": [
+        "9/64",
+        "3/28",
+        "3/32",
+        "3/8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draws as independent, (3/8)², but the first item is not replaced.",
+        "B": "Correct. Without replacement, P = (3/8)·(2/7) = 3/28.",
+        "C": "This reduces the favorable count to 2 but forgets the pool shrinks from 8 to 7.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_031",
+      "concept": "conditional_cards",
+      "question": "An urn holds 12 marbles: 5 black and 7 white. Two are drawn without replacement. What is the probability that both are black?",
+      "options": [
+        "25/144",
+        "5/36",
+        "5/33",
+        "5/12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the draws as independent, (5/12)², but the first item is not replaced.",
+        "B": "This reduces the favorable count to 4 but forgets the pool shrinks from 12 to 11.",
+        "C": "Correct. Without replacement, P = (5/12)·(4/11) = 5/33.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_032",
+      "concept": "conditional_cards",
+      "question": "An urn holds 9 chips: 4 gold and 5 silver. Two are drawn without replacement. What is the probability that both are gold?",
+      "options": [
+        "16/81",
+        "4/27",
+        "4/9",
+        "1/6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the draws as independent, (4/9)², but the first item is not replaced.",
+        "B": "This reduces the favorable count to 3 but forgets the pool shrinks from 9 to 8.",
+        "C": "This is the probability for a single draw, not both.",
+        "D": "Correct. Without replacement, P = (4/9)·(3/8) = 1/6."
+      }
+    },
+    {
+      "id": "pr_l11_033",
+      "concept": "conditional_cards",
+      "question": "An urn holds 15 balls: 6 red and 9 blue. Two are drawn without replacement. What is the probability that both are red?",
+      "options": [
+        "1/7",
+        "4/25",
+        "2/15",
+        "2/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Without replacement, P = (6/15)·(5/14) = 1/7.",
+        "B": "This treats the draws as independent, (2/5)², but the first item is not replaced.",
+        "C": "This reduces the favorable count to 5 but forgets the pool shrinks from 15 to 14.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_034",
+      "concept": "conditional_cards",
+      "question": "An urn holds 20 tokens: 5 special and 15 plain. Two are drawn without replacement. What is the probability that both are special?",
+      "options": [
+        "1/16",
+        "1/19",
+        "1/20",
+        "1/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draws as independent, (1/4)², but the first item is not replaced.",
+        "B": "Correct. Without replacement, P = (5/20)·(4/19) = 1/19.",
+        "C": "This reduces the favorable count to 4 but forgets the pool shrinks from 20 to 19.",
+        "D": "This is the probability for a single draw, not both."
+      }
+    },
+    {
+      "id": "pr_l11_035",
+      "concept": "bayes_urn",
+      "question": "An urn holds 2 red and 1 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "2/3",
+        "1",
+        "1/2",
+        "1/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the with-replacement probability 2/3; here the red ball is not replaced.",
+        "B": "This shrinks the total to 2 but keeps 2 reds — one red was already removed.",
+        "C": "Correct. After removing one red, 1 reds remain among 2 balls, so P = 1/2.",
+        "D": "This removes a red from the count but forgets the total also drops to 2."
+      }
+    },
+    {
+      "id": "pr_l11_036",
+      "concept": "bayes_urn",
+      "question": "An urn holds 3 red and 2 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "3/5",
+        "3/4",
+        "2/5",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the with-replacement probability 3/5; here the red ball is not replaced.",
+        "B": "This shrinks the total to 4 but keeps 3 reds — one red was already removed.",
+        "C": "This removes a red from the count but forgets the total also drops to 4.",
+        "D": "Correct. After removing one red, 2 reds remain among 4 balls, so P = 1/2."
+      }
+    },
+    {
+      "id": "pr_l11_037",
+      "concept": "bayes_urn",
+      "question": "An urn holds 4 red and 3 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "1/2",
+        "4/7",
+        "2/3",
+        "3/7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After removing one red, 3 reds remain among 6 balls, so P = 1/2.",
+        "B": "This is the with-replacement probability 4/7; here the red ball is not replaced.",
+        "C": "This shrinks the total to 6 but keeps 4 reds — one red was already removed.",
+        "D": "This removes a red from the count but forgets the total also drops to 6."
+      }
+    },
+    {
+      "id": "pr_l11_038",
+      "concept": "bayes_urn",
+      "question": "An urn holds 5 red and 2 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "5/7",
+        "2/3",
+        "5/6",
+        "4/7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the with-replacement probability 5/7; here the red ball is not replaced.",
+        "B": "Correct. After removing one red, 4 reds remain among 6 balls, so P = 2/3.",
+        "C": "This shrinks the total to 6 but keeps 5 reds — one red was already removed.",
+        "D": "This removes a red from the count but forgets the total also drops to 6."
+      }
+    },
+    {
+      "id": "pr_l11_039",
+      "concept": "bayes_urn",
+      "question": "An urn holds 6 red and 4 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "3/5",
+        "2/3",
+        "5/9",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the with-replacement probability 3/5; here the red ball is not replaced.",
+        "B": "This shrinks the total to 9 but keeps 6 reds — one red was already removed.",
+        "C": "Correct. After removing one red, 5 reds remain among 9 balls, so P = 5/9.",
+        "D": "This removes a red from the count but forgets the total also drops to 9."
+      }
+    },
+    {
+      "id": "pr_l11_040",
+      "concept": "bayes_urn",
+      "question": "An urn holds 3 red and 5 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "3/8",
+        "3/7",
+        "1/4",
+        "2/7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the with-replacement probability 3/8; here the red ball is not replaced.",
+        "B": "This shrinks the total to 7 but keeps 3 reds — one red was already removed.",
+        "C": "This removes a red from the count but forgets the total also drops to 7.",
+        "D": "Correct. After removing one red, 2 reds remain among 7 balls, so P = 2/7."
+      }
+    },
+    {
+      "id": "pr_l11_041",
+      "concept": "bayes_urn",
+      "question": "An urn holds 7 red and 3 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "2/3",
+        "7/10",
+        "7/9",
+        "3/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After removing one red, 6 reds remain among 9 balls, so P = 2/3.",
+        "B": "This is the with-replacement probability 7/10; here the red ball is not replaced.",
+        "C": "This shrinks the total to 9 but keeps 7 reds — one red was already removed.",
+        "D": "This removes a red from the count but forgets the total also drops to 9."
+      }
+    },
+    {
+      "id": "pr_l11_042",
+      "concept": "bayes_urn",
+      "question": "An urn holds 4 red and 6 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "2/5",
+        "1/3",
+        "4/9",
+        "3/10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the with-replacement probability 2/5; here the red ball is not replaced.",
+        "B": "Correct. After removing one red, 3 reds remain among 9 balls, so P = 1/3.",
+        "C": "This shrinks the total to 9 but keeps 4 reds — one red was already removed.",
+        "D": "This removes a red from the count but forgets the total also drops to 9."
+      }
+    },
+    {
+      "id": "pr_l11_043",
+      "concept": "bayes_urn",
+      "question": "An urn holds 8 red and 2 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "4/5",
+        "8/9",
+        "7/9",
+        "7/10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the with-replacement probability 4/5; here the red ball is not replaced.",
+        "B": "This shrinks the total to 9 but keeps 8 reds — one red was already removed.",
+        "C": "Correct. After removing one red, 7 reds remain among 9 balls, so P = 7/9.",
+        "D": "This removes a red from the count but forgets the total also drops to 9."
+      }
+    },
+    {
+      "id": "pr_l11_044",
+      "concept": "bayes_urn",
+      "question": "An urn holds 5 red and 5 blue balls. You draw one and it is red. Without replacing it, you draw again. What is the probability the second ball is red?",
+      "options": [
+        "1/2",
+        "5/9",
+        "2/5",
+        "4/9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the with-replacement probability 1/2; here the red ball is not replaced.",
+        "B": "This shrinks the total to 9 but keeps 5 reds — one red was already removed.",
+        "C": "This removes a red from the count but forgets the total also drops to 9.",
+        "D": "Correct. After removing one red, 4 reds remain among 9 balls, so P = 4/9."
+      }
+    },
+    {
+      "id": "pr_l11_045",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/2. What is the expected number of trials until the first success?",
+      "options": [
+        "2",
+        "1/2",
+        "1",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a geometric distribution with success probability p = 1/2, the mean is 1/p = 2.",
+        "B": "This is the per-trial success probability, not the expected wait.",
+        "C": "Off by one — the geometric mean is exactly 1/p = 2, counting the successful trial.",
+        "D": "4 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_046",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/3. What is the expected number of trials until the first success?",
+      "options": [
+        "1/3",
+        "3",
+        "2",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the per-trial success probability, not the expected wait.",
+        "B": "Correct. For a geometric distribution with success probability p = 1/3, the mean is 1/p = 3.",
+        "C": "Off by one — the geometric mean is exactly 1/p = 3, counting the successful trial.",
+        "D": "9 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_047",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/4. What is the expected number of trials until the first success?",
+      "options": [
+        "1/4",
+        "3",
+        "4",
+        "16"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the per-trial success probability, not the expected wait.",
+        "B": "Off by one — the geometric mean is exactly 1/p = 4, counting the successful trial.",
+        "C": "Correct. For a geometric distribution with success probability p = 1/4, the mean is 1/p = 4.",
+        "D": "16 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_048",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/5. What is the expected number of trials until the first success?",
+      "options": [
+        "1/5",
+        "4",
+        "25",
+        "5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the per-trial success probability, not the expected wait.",
+        "B": "Off by one — the geometric mean is exactly 1/p = 5, counting the successful trial.",
+        "C": "25 is on the order of the variance (≈1/p²), not the mean.",
+        "D": "Correct. For a geometric distribution with success probability p = 1/5, the mean is 1/p = 5."
+      }
+    },
+    {
+      "id": "pr_l11_049",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/6. What is the expected number of trials until the first success?",
+      "options": [
+        "6",
+        "1/6",
+        "5",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a geometric distribution with success probability p = 1/6, the mean is 1/p = 6.",
+        "B": "This is the per-trial success probability, not the expected wait.",
+        "C": "Off by one — the geometric mean is exactly 1/p = 6, counting the successful trial.",
+        "D": "36 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_050",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/7. What is the expected number of trials until the first success?",
+      "options": [
+        "1/7",
+        "7",
+        "6",
+        "49"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the per-trial success probability, not the expected wait.",
+        "B": "Correct. For a geometric distribution with success probability p = 1/7, the mean is 1/p = 7.",
+        "C": "Off by one — the geometric mean is exactly 1/p = 7, counting the successful trial.",
+        "D": "49 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_051",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/8. What is the expected number of trials until the first success?",
+      "options": [
+        "1/8",
+        "7",
+        "8",
+        "64"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the per-trial success probability, not the expected wait.",
+        "B": "Off by one — the geometric mean is exactly 1/p = 8, counting the successful trial.",
+        "C": "Correct. For a geometric distribution with success probability p = 1/8, the mean is 1/p = 8.",
+        "D": "64 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_052",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/10. What is the expected number of trials until the first success?",
+      "options": [
+        "1/10",
+        "9",
+        "100",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the per-trial success probability, not the expected wait.",
+        "B": "Off by one — the geometric mean is exactly 1/p = 10, counting the successful trial.",
+        "C": "100 is on the order of the variance (≈1/p²), not the mean.",
+        "D": "Correct. For a geometric distribution with success probability p = 1/10, the mean is 1/p = 10."
+      }
+    },
+    {
+      "id": "pr_l11_053",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/12. What is the expected number of trials until the first success?",
+      "options": [
+        "12",
+        "1/12",
+        "11",
+        "144"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a geometric distribution with success probability p = 1/12, the mean is 1/p = 12.",
+        "B": "This is the per-trial success probability, not the expected wait.",
+        "C": "Off by one — the geometric mean is exactly 1/p = 12, counting the successful trial.",
+        "D": "144 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_054",
+      "concept": "geometric_waiting",
+      "question": "Independent trials each succeed with probability 1/20. What is the expected number of trials until the first success?",
+      "options": [
+        "1/20",
+        "20",
+        "19",
+        "400"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the per-trial success probability, not the expected wait.",
+        "B": "Correct. For a geometric distribution with success probability p = 1/20, the mean is 1/p = 20.",
+        "C": "Off by one — the geometric mean is exactly 1/p = 20, counting the successful trial.",
+        "D": "400 is on the order of the variance (≈1/p²), not the mean."
+      }
+    },
+    {
+      "id": "pr_l11_055",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 3 times. What is the probability of getting at least one head?",
+      "options": [
+        "1/8",
+        "3/8",
+        "7/8",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is P(no heads) = (1/2)^3, the complement of the event asked.",
+        "B": "This is P(exactly one head) = C(3,1)/2^3; 'at least one' also includes 2, 3, … heads.",
+        "C": "Correct. P(at least one head) = 1 − (1/2)^3 = 7/8.",
+        "D": "1/2 is the chance for a single flip, ignoring all 3 flips."
+      }
+    },
+    {
+      "id": "pr_l11_056",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 4 times. What is the probability of getting at least one head?",
+      "options": [
+        "1/16",
+        "1/4",
+        "1/2",
+        "15/16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is P(no heads) = (1/2)^4, the complement of the event asked.",
+        "B": "This is P(exactly one head) = C(4,1)/2^4; 'at least one' also includes 2, 3, … heads.",
+        "C": "1/2 is the chance for a single flip, ignoring all 4 flips.",
+        "D": "Correct. P(at least one head) = 1 − (1/2)^4 = 15/16."
+      }
+    },
+    {
+      "id": "pr_l11_057",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 5 times. What is the probability of getting at least one head?",
+      "options": [
+        "31/32",
+        "1/32",
+        "5/32",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(at least one head) = 1 − (1/2)^5 = 31/32.",
+        "B": "This is P(no heads) = (1/2)^5, the complement of the event asked.",
+        "C": "This is P(exactly one head) = C(5,1)/2^5; 'at least one' also includes 2, 3, … heads.",
+        "D": "1/2 is the chance for a single flip, ignoring all 5 flips."
+      }
+    },
+    {
+      "id": "pr_l11_058",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 6 times. What is the probability of getting at least one head?",
+      "options": [
+        "1/64",
+        "63/64",
+        "3/32",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is P(no heads) = (1/2)^6, the complement of the event asked.",
+        "B": "Correct. P(at least one head) = 1 − (1/2)^6 = 63/64.",
+        "C": "This is P(exactly one head) = C(6,1)/2^6; 'at least one' also includes 2, 3, … heads.",
+        "D": "1/2 is the chance for a single flip, ignoring all 6 flips."
+      }
+    },
+    {
+      "id": "pr_l11_059",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 7 times. What is the probability of getting at least one head?",
+      "options": [
+        "1/128",
+        "7/128",
+        "127/128",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is P(no heads) = (1/2)^7, the complement of the event asked.",
+        "B": "This is P(exactly one head) = C(7,1)/2^7; 'at least one' also includes 2, 3, … heads.",
+        "C": "Correct. P(at least one head) = 1 − (1/2)^7 = 127/128.",
+        "D": "1/2 is the chance for a single flip, ignoring all 7 flips."
+      }
+    },
+    {
+      "id": "pr_l11_060",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 3 times. What is the probability that all 3 flips are heads?",
+      "options": [
+        "1/6",
+        "3/8",
+        "1/2",
+        "1/8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses 1/(2·3); independent flips multiply, giving (1/2)^3.",
+        "B": "This is P(exactly one head), not all heads.",
+        "C": "1/2 is one flip; all 3 must come up heads.",
+        "D": "Correct. All 3 flips must be heads: (1/2)^3 = 1/8."
+      }
+    },
+    {
+      "id": "pr_l11_061",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 4 times. What is the probability that all 4 flips are heads?",
+      "options": [
+        "1/16",
+        "1/8",
+        "1/4",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. All 4 flips must be heads: (1/2)^4 = 1/16.",
+        "B": "This uses 1/(2·4); independent flips multiply, giving (1/2)^4.",
+        "C": "This is P(exactly one head), not all heads.",
+        "D": "1/2 is one flip; all 4 must come up heads."
+      }
+    },
+    {
+      "id": "pr_l11_062",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 5 times. What is the probability that all 5 flips are heads?",
+      "options": [
+        "1/10",
+        "1/32",
+        "5/32",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses 1/(2·5); independent flips multiply, giving (1/2)^5.",
+        "B": "Correct. All 5 flips must be heads: (1/2)^5 = 1/32.",
+        "C": "This is P(exactly one head), not all heads.",
+        "D": "1/2 is one flip; all 5 must come up heads."
+      }
+    },
+    {
+      "id": "pr_l11_063",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 6 times. What is the probability that all 6 flips are heads?",
+      "options": [
+        "1/12",
+        "3/32",
+        "1/64",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses 1/(2·6); independent flips multiply, giving (1/2)^6.",
+        "B": "This is P(exactly one head), not all heads.",
+        "C": "Correct. All 6 flips must be heads: (1/2)^6 = 1/64.",
+        "D": "1/2 is one flip; all 6 must come up heads."
+      }
+    },
+    {
+      "id": "pr_l11_064",
+      "concept": "complement_rule",
+      "question": "A fair coin is flipped 7 times. What is the probability that all 7 flips are heads?",
+      "options": [
+        "1/14",
+        "7/128",
+        "1/2",
+        "1/128"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses 1/(2·7); independent flips multiply, giving (1/2)^7.",
+        "B": "This is P(exactly one head), not all heads.",
+        "C": "1/2 is one flip; all 7 must come up heads.",
+        "D": "Correct. All 7 flips must be heads: (1/2)^7 = 1/128."
+      }
+    },
+    {
+      "id": "pr_l11_065",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 4 times. What is the probability of exactly 2 heads?",
+      "options": [
+        "3/8",
+        "1/16",
+        "1/2",
+        "3/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = C(4,2)/2^4 = 6/16 = 3/8.",
+        "B": "This is the probability of one specific sequence, (1/2)^4; there are C(4,2) = 6 such sequences.",
+        "C": "2/4 is the expected fraction of heads, not the probability of exactly 2.",
+        "D": "This divides by 2^3 instead of 2^4; there are 16 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_066",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 5 times. What is the probability of exactly 2 heads?",
+      "options": [
+        "1/32",
+        "5/16",
+        "2/5",
+        "5/8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^5; there are C(5,2) = 10 such sequences.",
+        "B": "Correct. P = C(5,2)/2^5 = 10/32 = 5/16.",
+        "C": "2/5 is the expected fraction of heads, not the probability of exactly 2.",
+        "D": "This divides by 2^4 instead of 2^5; there are 32 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_067",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 6 times. What is the probability of exactly 3 heads?",
+      "options": [
+        "1/64",
+        "1/2",
+        "5/16",
+        "5/8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^6; there are C(6,3) = 20 such sequences.",
+        "B": "3/6 is the expected fraction of heads, not the probability of exactly 3.",
+        "C": "Correct. P = C(6,3)/2^6 = 20/64 = 5/16.",
+        "D": "This divides by 2^5 instead of 2^6; there are 64 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_068",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 3 times. What is the probability of exactly 1 heads?",
+      "options": [
+        "1/8",
+        "1/3",
+        "3/4",
+        "3/8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^3; there are C(3,1) = 3 such sequences.",
+        "B": "1/3 is the expected fraction of heads, not the probability of exactly 1.",
+        "C": "This divides by 2^2 instead of 2^3; there are 8 equally likely sequences.",
+        "D": "Correct. P = C(3,1)/2^3 = 3/8 = 3/8."
+      }
+    },
+    {
+      "id": "pr_l11_069",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 5 times. What is the probability of exactly 3 heads?",
+      "options": [
+        "5/16",
+        "1/32",
+        "3/5",
+        "5/8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = C(5,3)/2^5 = 10/32 = 5/16.",
+        "B": "This is the probability of one specific sequence, (1/2)^5; there are C(5,3) = 10 such sequences.",
+        "C": "3/5 is the expected fraction of heads, not the probability of exactly 3.",
+        "D": "This divides by 2^4 instead of 2^5; there are 32 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_070",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 6 times. What is the probability of exactly 2 heads?",
+      "options": [
+        "1/64",
+        "15/64",
+        "1/3",
+        "15/32"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^6; there are C(6,2) = 15 such sequences.",
+        "B": "Correct. P = C(6,2)/2^6 = 15/64 = 15/64.",
+        "C": "2/6 is the expected fraction of heads, not the probability of exactly 2.",
+        "D": "This divides by 2^5 instead of 2^6; there are 64 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_071",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 7 times. What is the probability of exactly 3 heads?",
+      "options": [
+        "1/128",
+        "3/7",
+        "35/128",
+        "35/64"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^7; there are C(7,3) = 35 such sequences.",
+        "B": "3/7 is the expected fraction of heads, not the probability of exactly 3.",
+        "C": "Correct. P = C(7,3)/2^7 = 35/128 = 35/128.",
+        "D": "This divides by 2^6 instead of 2^7; there are 128 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_072",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 8 times. What is the probability of exactly 4 heads?",
+      "options": [
+        "1/256",
+        "1/2",
+        "35/64",
+        "35/128"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^8; there are C(8,4) = 70 such sequences.",
+        "B": "4/8 is the expected fraction of heads, not the probability of exactly 4.",
+        "C": "This divides by 2^7 instead of 2^8; there are 256 equally likely sequences.",
+        "D": "Correct. P = C(8,4)/2^8 = 70/256 = 35/128."
+      }
+    },
+    {
+      "id": "pr_l11_073",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 7 times. What is the probability of exactly 4 heads?",
+      "options": [
+        "35/128",
+        "1/128",
+        "4/7",
+        "35/64"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = C(7,4)/2^7 = 35/128 = 35/128.",
+        "B": "This is the probability of one specific sequence, (1/2)^7; there are C(7,4) = 35 such sequences.",
+        "C": "4/7 is the expected fraction of heads, not the probability of exactly 4.",
+        "D": "This divides by 2^6 instead of 2^7; there are 128 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_074",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 5 times. What is the probability of exactly 1 heads?",
+      "options": [
+        "1/32",
+        "5/32",
+        "1/5",
+        "5/16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^5; there are C(5,1) = 5 such sequences.",
+        "B": "Correct. P = C(5,1)/2^5 = 5/32 = 5/32.",
+        "C": "1/5 is the expected fraction of heads, not the probability of exactly 1.",
+        "D": "This divides by 2^4 instead of 2^5; there are 32 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_075",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 6 times. What is the probability of exactly 4 heads?",
+      "options": [
+        "1/64",
+        "2/3",
+        "15/64",
+        "15/32"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^6; there are C(6,4) = 15 such sequences.",
+        "B": "4/6 is the expected fraction of heads, not the probability of exactly 4.",
+        "C": "Correct. P = C(6,4)/2^6 = 15/64 = 15/64.",
+        "D": "This divides by 2^5 instead of 2^6; there are 64 equally likely sequences."
+      }
+    },
+    {
+      "id": "pr_l11_076",
+      "concept": "binomial_probability",
+      "question": "A fair coin is flipped 7 times. What is the probability of exactly 2 heads?",
+      "options": [
+        "1/128",
+        "2/7",
+        "21/64",
+        "21/128"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the probability of one specific sequence, (1/2)^7; there are C(7,2) = 21 such sequences.",
+        "B": "2/7 is the expected fraction of heads, not the probability of exactly 2.",
+        "C": "This divides by 2^6 instead of 2^7; there are 128 equally likely sequences.",
+        "D": "Correct. P = C(7,2)/2^7 = 21/128 = 21/128."
+      }
+    },
+    {
+      "id": "pr_l11_077",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 2 items from 5 distinct items when order does not matter?",
+      "options": [
+        "10",
+        "20",
+        "5",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(5,2) = 5!/(2!·3!) = 10.",
+        "B": "This counts ordered selections, P(5,2) = C·2!, but order does not matter.",
+        "C": "This is C(5,1), choosing 1 items.",
+        "D": "This is C(6,2), one too many items in the pool."
+      }
+    },
+    {
+      "id": "pr_l11_078",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 2 items from 6 distinct items when order does not matter?",
+      "options": [
+        "30",
+        "15",
+        "6",
+        "20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts ordered selections, P(6,2) = C·2!, but order does not matter.",
+        "B": "Correct. C(6,2) = 6!/(2!·4!) = 15.",
+        "C": "This is C(6,1), choosing 1 items.",
+        "D": "This is C(6,3), choosing 3 items."
+      }
+    },
+    {
+      "id": "pr_l11_079",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 3 items from 7 distinct items when order does not matter?",
+      "options": [
+        "210",
+        "21",
+        "35",
+        "56"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts ordered selections, P(7,3) = C·3!, but order does not matter.",
+        "B": "This is C(7,2), choosing 2 items.",
+        "C": "Correct. C(7,3) = 7!/(3!·4!) = 35.",
+        "D": "This is C(8,3), one too many items in the pool."
+      }
+    },
+    {
+      "id": "pr_l11_080",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 2 items from 8 distinct items when order does not matter?",
+      "options": [
+        "56",
+        "8",
+        "16",
+        "28"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts ordered selections, P(8,2) = C·2!, but order does not matter.",
+        "B": "This is C(8,1), choosing 1 items.",
+        "C": "Multiplying 8·2 is not how combinations are counted.",
+        "D": "Correct. C(8,2) = 8!/(2!·6!) = 28."
+      }
+    },
+    {
+      "id": "pr_l11_081",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 3 items from 10 distinct items when order does not matter?",
+      "options": [
+        "120",
+        "720",
+        "45",
+        "210"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(10,3) = 10!/(3!·7!) = 120.",
+        "B": "This counts ordered selections, P(10,3) = C·3!, but order does not matter.",
+        "C": "This is C(10,2), choosing 2 items.",
+        "D": "This is C(10,4), choosing 4 items."
+      }
+    },
+    {
+      "id": "pr_l11_082",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 4 items from 6 distinct items when order does not matter?",
+      "options": [
+        "360",
+        "15",
+        "20",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts ordered selections, P(6,4) = C·4!, but order does not matter.",
+        "B": "Correct. C(6,4) = 6!/(4!·2!) = 15.",
+        "C": "This is C(6,3), choosing 3 items.",
+        "D": "This is C(6,5), choosing 5 items."
+      }
+    },
+    {
+      "id": "pr_l11_083",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 2 items from 9 distinct items when order does not matter?",
+      "options": [
+        "72",
+        "9",
+        "36",
+        "84"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts ordered selections, P(9,2) = C·2!, but order does not matter.",
+        "B": "This is C(9,1), choosing 1 items.",
+        "C": "Correct. C(9,2) = 9!/(2!·7!) = 36.",
+        "D": "This is C(9,3), choosing 3 items."
+      }
+    },
+    {
+      "id": "pr_l11_084",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 3 items from 5 distinct items when order does not matter?",
+      "options": [
+        "60",
+        "5",
+        "15",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts ordered selections, P(5,3) = C·3!, but order does not matter.",
+        "B": "This is C(5,4), choosing 4 items.",
+        "C": "Multiplying 5·3 is not how combinations are counted.",
+        "D": "Correct. C(5,3) = 5!/(3!·2!) = 10."
+      }
+    },
+    {
+      "id": "pr_l11_085",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 5 items from 8 distinct items when order does not matter?",
+      "options": [
+        "56",
+        "6720",
+        "70",
+        "28"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(8,5) = 8!/(5!·3!) = 56.",
+        "B": "This counts ordered selections, P(8,5) = C·5!, but order does not matter.",
+        "C": "This is C(8,4), choosing 4 items.",
+        "D": "This is C(8,6), choosing 6 items."
+      }
+    },
+    {
+      "id": "pr_l11_086",
+      "concept": "combinatorics",
+      "question": "In how many ways can you choose 4 items from 10 distinct items when order does not matter?",
+      "options": [
+        "5040",
+        "210",
+        "120",
+        "252"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts ordered selections, P(10,4) = C·4!, but order does not matter.",
+        "B": "Correct. C(10,4) = 10!/(4!·6!) = 210.",
+        "C": "This is C(10,3), choosing 3 items.",
+        "D": "This is C(10,5), choosing 5 items."
+      }
+    },
+    {
+      "id": "pr_l11_087",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 1% of a population. A screening test is 99% sensitive and 99% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "99/100",
+        "1/100",
+        "1/2",
+        "99/5000"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "This is the prior prevalence, before updating on the positive result.",
+        "C": "Correct. P(D|+) = (1%·99%) / (1%·99% + 99%·1%) = 1/2.",
+        "D": "This is P(positive test) overall, the denominator of Bayes' rule, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l11_088",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 1% of a population. A screening test is 90% sensitive and 90% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "9/10",
+        "1/100",
+        "1/10",
+        "1/12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "This is the prior prevalence, before updating on the positive result.",
+        "C": "This is the false-positive rate P(+|no disease), not P(disease|+).",
+        "D": "Correct. P(D|+) = (1%·90%) / (1%·90% + 99%·10%) = 1/12."
+      }
+    },
+    {
+      "id": "pr_l11_089",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 5% of a population. A screening test is 90% sensitive and 90% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "9/28",
+        "9/10",
+        "1/20",
+        "1/10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(D|+) = (5%·90%) / (5%·90% + 95%·10%) = 9/28.",
+        "B": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "C": "This is the prior prevalence, before updating on the positive result.",
+        "D": "This is the false-positive rate P(+|no disease), not P(disease|+)."
+      }
+    },
+    {
+      "id": "pr_l11_090",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 2% of a population. A screening test is 99% sensitive and 95% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "99/100",
+        "99/344",
+        "1/50",
+        "1/20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "Correct. P(D|+) = (2%·99%) / (2%·99% + 98%·5%) = 99/344.",
+        "C": "This is the prior prevalence, before updating on the positive result.",
+        "D": "This is the false-positive rate P(+|no disease), not P(disease|+)."
+      }
+    },
+    {
+      "id": "pr_l11_091",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 10% of a population. A screening test is 80% sensitive and 95% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "4/5",
+        "1/10",
+        "16/25",
+        "1/20"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "This is the prior prevalence, before updating on the positive result.",
+        "C": "Correct. P(D|+) = (10%·80%) / (10%·80% + 90%·5%) = 16/25.",
+        "D": "This is the false-positive rate P(+|no disease), not P(disease|+)."
+      }
+    },
+    {
+      "id": "pr_l11_092",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 1% of a population. A screening test is 95% sensitive and 90% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "19/20",
+        "1/100",
+        "1/10",
+        "19/217"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "This is the prior prevalence, before updating on the positive result.",
+        "C": "This is the false-positive rate P(+|no disease), not P(disease|+).",
+        "D": "Correct. P(D|+) = (1%·95%) / (1%·95% + 99%·10%) = 19/217."
+      }
+    },
+    {
+      "id": "pr_l11_093",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 20% of a population. A screening test is 90% sensitive and 85% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "3/5",
+        "9/10",
+        "1/5",
+        "3/20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(D|+) = (20%·90%) / (20%·90% + 80%·15%) = 3/5.",
+        "B": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "C": "This is the prior prevalence, before updating on the positive result.",
+        "D": "This is the false-positive rate P(+|no disease), not P(disease|+)."
+      }
+    },
+    {
+      "id": "pr_l11_094",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 5% of a population. A screening test is 99% sensitive and 95% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "99/100",
+        "99/194",
+        "1/20",
+        "97/1000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "Correct. P(D|+) = (5%·99%) / (5%·99% + 95%·5%) = 99/194.",
+        "C": "This is the prior prevalence, before updating on the positive result.",
+        "D": "This is P(positive test) overall, the denominator of Bayes' rule, not the posterior."
+      }
+    },
+    {
+      "id": "pr_l11_095",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 2% of a population. A screening test is 90% sensitive and 90% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "9/10",
+        "1/50",
+        "9/58",
+        "1/10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "This is the prior prevalence, before updating on the positive result.",
+        "C": "Correct. P(D|+) = (2%·90%) / (2%·90% + 98%·10%) = 9/58.",
+        "D": "This is the false-positive rate P(+|no disease), not P(disease|+)."
+      }
+    },
+    {
+      "id": "pr_l11_096",
+      "concept": "bayes_urn",
+      "question": "A disease is present in 1% of a population. A screening test is 80% sensitive and 90% specific. A randomly chosen person tests positive. What is the probability they actually have the disease?",
+      "options": [
+        "4/5",
+        "1/100",
+        "1/10",
+        "8/107"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the test's sensitivity P(+|disease); it ignores the base rate (base-rate fallacy).",
+        "B": "This is the prior prevalence, before updating on the positive result.",
+        "C": "This is the false-positive rate P(+|no disease), not P(disease|+).",
+        "D": "Correct. P(D|+) = (1%·80%) / (1%·80% + 99%·10%) = 8/107."
+      }
+    },
+    {
+      "id": "pr_l11_097",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 3?",
+      "options": [
+        "1/18",
+        "1/11",
+        "1/36",
+        "1/6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2 of 36 equally likely ordered pairs sum to 3, so 1/18.",
+        "B": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "C": "1/36 is one specific ordered pair; the sum 3 can occur 2 ways.",
+        "D": "1/6 is the chance one die shows a given value, unrelated to the sum."
+      }
+    },
+    {
+      "id": "pr_l11_098",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 4?",
+      "options": [
+        "1/11",
+        "1/12",
+        "1/36",
+        "1/18"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "B": "Correct. 3 of 36 equally likely ordered pairs sum to 4, so 1/12.",
+        "C": "1/36 is one specific ordered pair; the sum 4 can occur 3 ways.",
+        "D": "This is P(sum = 3) = 1/18, a different sum."
+      }
+    },
+    {
+      "id": "pr_l11_099",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 5?",
+      "options": [
+        "1/11",
+        "1/36",
+        "1/9",
+        "1/12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "B": "1/36 is one specific ordered pair; the sum 5 can occur 4 ways.",
+        "C": "Correct. 4 of 36 equally likely ordered pairs sum to 5, so 1/9.",
+        "D": "This is P(sum = 4) = 1/12, a different sum."
+      }
+    },
+    {
+      "id": "pr_l11_100",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 6?",
+      "options": [
+        "1/11",
+        "1/36",
+        "1/9",
+        "5/36"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "B": "1/36 is one specific ordered pair; the sum 6 can occur 5 ways.",
+        "C": "This is P(sum = 5) = 1/9, a different sum.",
+        "D": "Correct. 5 of 36 equally likely ordered pairs sum to 6, so 5/36."
+      }
+    },
+    {
+      "id": "pr_l11_101",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 7?",
+      "options": [
+        "1/6",
+        "1/11",
+        "1/36",
+        "5/36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 6 of 36 equally likely ordered pairs sum to 7, so 1/6.",
+        "B": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "C": "1/36 is one specific ordered pair; the sum 7 can occur 6 ways.",
+        "D": "This is P(sum = 6) = 5/36, a different sum."
+      }
+    },
+    {
+      "id": "pr_l11_102",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 8?",
+      "options": [
+        "1/11",
+        "5/36",
+        "1/36",
+        "1/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "B": "Correct. 5 of 36 equally likely ordered pairs sum to 8, so 5/36.",
+        "C": "1/36 is one specific ordered pair; the sum 8 can occur 5 ways.",
+        "D": "This is P(sum = 7) = 1/6, a different sum."
+      }
+    },
+    {
+      "id": "pr_l11_103",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 9?",
+      "options": [
+        "1/11",
+        "1/36",
+        "1/9",
+        "5/36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "B": "1/36 is one specific ordered pair; the sum 9 can occur 4 ways.",
+        "C": "Correct. 4 of 36 equally likely ordered pairs sum to 9, so 1/9.",
+        "D": "This is P(sum = 8) = 5/36, a different sum."
+      }
+    },
+    {
+      "id": "pr_l11_104",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 10?",
+      "options": [
+        "1/11",
+        "1/36",
+        "1/9",
+        "1/12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "B": "1/36 is one specific ordered pair; the sum 10 can occur 3 ways.",
+        "C": "This is P(sum = 9) = 1/9, a different sum.",
+        "D": "Correct. 3 of 36 equally likely ordered pairs sum to 10, so 1/12."
+      }
+    },
+    {
+      "id": "pr_l11_105",
+      "concept": "dice_sum",
+      "question": "Two fair dice are rolled. What is the probability the sum equals 11?",
+      "options": [
+        "1/18",
+        "1/11",
+        "1/36",
+        "1/12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2 of 36 equally likely ordered pairs sum to 11, so 1/18.",
+        "B": "Treating all 11 possible sums as equally likely gives 1/11, but middle sums are more common.",
+        "C": "1/36 is one specific ordered pair; the sum 11 can occur 2 ways.",
+        "D": "This is P(sum = 10) = 1/12, a different sum."
+      }
+    },
+    {
+      "id": "pr_l11_106",
+      "concept": "order_statistics",
+      "question": "Two fair dice are rolled. What is the expected value of the larger of the two numbers (the maximum)?",
+      "options": [
+        "3.5",
+        "161/36",
+        "4",
+        "91/36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3.5 is the mean of a single die; the maximum of two is larger.",
+        "B": "Correct. E[max] = Σ k·P(max=k) = (1·1+2·3+3·5+4·7+5·9+6·11)/36 = 161/36 ≈ 4.47.",
+        "C": "A round guess; the exact value is 161/36 ≈ 4.47.",
+        "D": "91/36 ≈ 2.53 is E[min], not E[max]."
+      }
+    },
+    {
+      "id": "pr_l11_107",
+      "concept": "order_statistics",
+      "question": "Two fair dice are rolled. What is the expected value of the smaller of the two numbers (the minimum)?",
+      "options": [
+        "3.5",
+        "161/36",
+        "91/36",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3.5 is the mean of a single die; the minimum of two is smaller.",
+        "B": "That is E[max], not E[min].",
+        "C": "Correct. E[min] = Σ k·P(min=k) = (1·11+2·9+3·7+4·5+5·3+6·1)/36 = 91/36 ≈ 2.53.",
+        "D": "A round guess; the exact value is 91/36 ≈ 2.53."
+      }
+    },
+    {
+      "id": "pr_l11_108",
+      "concept": "order_statistics",
+      "question": "Two fair dice are rolled. What is the probability that the maximum of the two numbers is 6?",
+      "options": [
+        "1/6",
+        "1/36",
+        "1/3",
+        "11/36"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/6 is P(a single die shows 6); with two dice a 6 is more likely.",
+        "B": "1/36 is P(both dice are 6), not P(max=6).",
+        "C": "Too high — there are 11 favorable ordered pairs out of 36.",
+        "D": "Correct. P(max=6) = P(at least one 6) = 1 − (5/6)² = 11/36."
+      }
+    },
+    {
+      "id": "pr_l11_109",
+      "concept": "order_statistics",
+      "question": "Two fair dice are rolled. What is the probability that the minimum of the two numbers is 1?",
+      "options": [
+        "11/36",
+        "1/6",
+        "1/36",
+        "1/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(min=1) = P(at least one 1) = 1 − (5/6)² = 11/36.",
+        "B": "1/6 is P(a single die shows 1).",
+        "C": "1/36 is P(both dice are 1), not P(min=1).",
+        "D": "Too high — 11/36 is the exact value."
+      }
+    },
+    {
+      "id": "pr_l11_110",
+      "concept": "order_statistics",
+      "question": "Two fair dice are rolled. What is the probability that both dice are at most 4?",
+      "options": [
+        "2/3",
+        "4/9",
+        "1/2",
+        "1/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2/3 is P(one die ≤ 4); both dice must satisfy it.",
+        "B": "Correct. P(both ≤ 4) = (4/6)² = 16/36 = 4/9.",
+        "C": "This ignores that both dice must be ≤ 4.",
+        "D": "Too low — (4/6)² = 4/9 ≈ 0.44."
+      }
+    },
+    {
+      "id": "pr_l11_111",
+      "concept": "order_statistics",
+      "question": "Two fair dice are rolled. What is the expected absolute difference between the two numbers?",
+      "options": [
+        "0",
+        "35/36",
+        "35/18",
+        "7/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The signed difference averages 0, but the absolute value is positive.",
+        "B": "Off by a factor of 2 — the total of |i−j| is 70, giving 70/36.",
+        "C": "Correct. E[|i−j|] = (Σ over all 36 pairs of |i−j|)/36 = 70/36 = 35/18 ≈ 1.94.",
+        "D": "7/2 is E[sum], not E[|difference|]."
+      }
+    },
+    {
+      "id": "pr_l11_112",
+      "concept": "variance",
+      "question": "A Bernoulli random variable equals 1 with probability 1/3 and 0 otherwise. What is its variance?",
+      "options": [
+        "1/3",
+        "1/9",
+        "2/3",
+        "2/9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the mean p, not the variance.",
+        "B": "This is p², but the variance is p(1−p).",
+        "C": "This is 1−p (the probability of 0), not the variance.",
+        "D": "Correct. Var = p(1−p) = (1/3)·(2/3) = 2/9."
+      }
+    },
+    {
+      "id": "pr_l11_113",
+      "concept": "variance",
+      "question": "A Bernoulli random variable equals 1 with probability 1/4 and 0 otherwise. What is its variance?",
+      "options": [
+        "3/16",
+        "1/4",
+        "1/16",
+        "3/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var = p(1−p) = (1/4)·(3/4) = 3/16.",
+        "B": "This is the mean p, not the variance.",
+        "C": "This is p², but the variance is p(1−p).",
+        "D": "This is 1−p (the probability of 0), not the variance."
+      }
+    },
+    {
+      "id": "pr_l11_114",
+      "concept": "variance",
+      "question": "A Bernoulli random variable equals 1 with probability 2/5 and 0 otherwise. What is its variance?",
+      "options": [
+        "2/5",
+        "6/25",
+        "4/25",
+        "3/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the mean p, not the variance.",
+        "B": "Correct. Var = p(1−p) = (2/5)·(3/5) = 6/25.",
+        "C": "This is p², but the variance is p(1−p).",
+        "D": "This is 1−p (the probability of 0), not the variance."
+      }
+    },
+    {
+      "id": "pr_l11_115",
+      "concept": "variance",
+      "question": "A Bernoulli random variable equals 1 with probability 1/5 and 0 otherwise. What is its variance?",
+      "options": [
+        "1/5",
+        "1/25",
+        "4/25",
+        "4/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the mean p, not the variance.",
+        "B": "This is p², but the variance is p(1−p).",
+        "C": "Correct. Var = p(1−p) = (1/5)·(4/5) = 4/25.",
+        "D": "This is 1−p (the probability of 0), not the variance."
+      }
+    },
+    {
+      "id": "pr_l11_116",
+      "concept": "variance",
+      "question": "A Bernoulli random variable equals 1 with probability 3/10 and 0 otherwise. What is its variance?",
+      "options": [
+        "3/10",
+        "9/100",
+        "7/10",
+        "21/100"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the mean p, not the variance.",
+        "B": "This is p², but the variance is p(1−p).",
+        "C": "This is 1−p (the probability of 0), not the variance.",
+        "D": "Correct. Var = p(1−p) = (3/10)·(7/10) = 21/100."
+      }
+    },
+    {
+      "id": "pr_l11_117",
+      "concept": "variance",
+      "question": "A fair six-sided die is rolled. What is the variance of the outcome?",
+      "options": [
+        "35/12",
+        "3.5",
+        "91/6",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Var = E[X²] − (E[X])² = 91/6 − (7/2)² = 91/6 − 49/4 = 35/12 ≈ 2.92.",
+        "B": "3.5 is the mean E[X], not the variance.",
+        "C": "91/6 is E[X²]; the variance subtracts (E[X])².",
+        "D": "6 is the number of faces, not the variance."
+      }
+    },
+    {
+      "id": "pr_l11_118",
+      "concept": "variance",
+      "question": "A fair coin is flipped 10 times. What is the variance of the number of heads?",
+      "options": [
+        "5",
+        "5/2",
+        "10",
+        "15/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 = np is the mean number of heads, not the variance.",
+        "B": "Correct. Var = np(1−p) = 10·(1/2)·(1/2) = 10/4 = 5/2.",
+        "C": "10 is the number of flips n, not the variance.",
+        "D": "This uses np(1+p) = 10·(1/2)·(3/2); variance is np(1−p)."
+      }
+    },
+    {
+      "id": "pr_l11_119",
+      "concept": "variance",
+      "question": "A fair coin is flipped 100 times. What is the variance of the number of heads?",
+      "options": [
+        "50",
+        "100",
+        "25",
+        "75"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "50 = np is the mean, not the variance.",
+        "B": "100 is n, not the variance.",
+        "C": "Correct. Var = np(1−p) = 100·(1/2)·(1/2) = 25.",
+        "D": "This uses np(1+p); the variance is np(1−p) = 25."
+      }
+    },
+    {
+      "id": "pr_l11_120",
+      "concept": "market_making",
+      "question": "You are long a large inventory of a contract and want to reduce risk. How should you skew your two-sided quote?",
+      "options": [
+        "Raise both bid and ask to buy even more",
+        "Widen the spread symmetrically and keep the midpoint fixed",
+        "Only raise the ask and keep the bid unchanged",
+        "Lower both bid and ask to encourage selling out of the position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Raising quotes invites more buying, increasing an already-long position.",
+        "B": "Widening manages risk but does not actively reduce an existing long position.",
+        "C": "Raising the ask makes selling harder — the opposite of reducing a long position.",
+        "D": "Correct. Skewing quotes down makes you more likely to sell and less likely to buy, trimming a long position."
+      }
+    },
+    {
+      "id": "pr_l11_121",
+      "concept": "market_making",
+      "question": "Informed traders consistently buy from you just before the price rises. You are suffering from:",
+      "options": [
+        "Adverse selection",
+        "Inventory risk only",
+        "Slippage on exits",
+        "Positive carry"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Trading against better-informed counterparties who pick the right side is adverse selection.",
+        "B": "Inventory risk is price drift on held positions, not being systematically picked off by informed flow.",
+        "C": "Slippage is execution cost when exiting, not losing to informed counterparties.",
+        "D": "Carry is a holding return; this scenario describes a loss to informed traders."
+      }
+    },
+    {
+      "id": "pr_l11_122",
+      "concept": "market_making",
+      "question": "Fair value is 50. You quote 48 bid / 52 ask and a counterparty lifts your ask at 52. Was the trade good for you?",
+      "options": [
+        "No — selling always loses money",
+        "Yes — you sold at 52, two above fair value, capturing edge",
+        "Neutral — any fill is break-even",
+        "Only if the price later rises"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Selling above fair value is profitable in expectation for a market maker.",
+        "B": "Correct. Selling at 52 versus a fair value of 50 books +2 of expected edge.",
+        "C": "Fills away from fair value are not break-even; price versus fair determines edge.",
+        "D": "Edge is measured against fair value at the time of the trade, not future moves."
+      }
+    },
+    {
+      "id": "pr_l11_123",
+      "concept": "market_making",
+      "question": "Why do market makers quote a spread instead of trading at a single price?",
+      "options": [
+        "Regulators mandate a fixed spread",
+        "To make the math harder for clients",
+        "To be compensated for inventory risk and adverse selection",
+        "Spreads serve no economic purpose"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Spreads are an economic choice, not a regulatory mandate.",
+        "B": "Spreads exist for risk compensation, not to confuse clients.",
+        "C": "Correct. The spread pays for holding risk and for trading against possibly-informed flow.",
+        "D": "The spread is precisely the maker's compensation for risk."
+      }
+    },
+    {
+      "id": "pr_l11_124",
+      "concept": "market_making",
+      "question": "Your estimate of fair value just became much more uncertain. The right response is to:",
+      "options": [
+        "Tighten your spread to win more trades",
+        "Keep the spread unchanged",
+        "Remove your quotes entirely",
+        "Widen your bid-ask spread"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Tightening when uncertain invites being picked off on both sides.",
+        "B": "Quotes should reflect updated uncertainty.",
+        "C": "Pulling out forfeits all flow; usually you widen rather than vanish.",
+        "D": "Correct. More uncertainty means more adverse-selection risk, so quotes widen."
+      }
+    },
+    {
+      "id": "pr_l11_125",
+      "concept": "market_making",
+      "question": "Edge captured on a single fill is best described as:",
+      "options": [
+        "The distance between your fill price and the true fair value",
+        "Always exactly half the spread",
+        "The full spread regardless of side",
+        "Zero unless the price later moves"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Edge per fill is |fill price − fair value|.",
+        "B": "Half-spread is the edge only when fair value sits at the midpoint.",
+        "C": "A single fill captures at most the half-spread, not the full spread.",
+        "D": "Edge is booked relative to fair value immediately, independent of later moves."
+      }
+    },
+    {
+      "id": "pr_l11_126",
+      "concept": "market_making",
+      "question": "You quote 99 bid / 101 ask around a fair value of 100, and trades arrive equally on both sides. Per fill, you expect to:",
+      "options": [
+        "Earn the full spread of 2 per fill",
+        "Earn roughly the half-spread (about 1) per fill on average",
+        "Break even on every fill",
+        "Lose the spread on average"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The full spread is earned over a round trip (a buy and a sell), not per single fill.",
+        "B": "Correct. Each fill is about 1 away from the fair value of 100, so the average edge is the half-spread.",
+        "C": "Fills land away from fair value, so each carries expected edge.",
+        "D": "Random two-sided flow around fair value is profitable for the maker, not loss-making."
+      }
+    },
+    {
+      "id": "pr_l11_127",
+      "concept": "market_making",
+      "question": "A counterparty only trades with you when they have superior information. On average this leaves you with:",
+      "options": [
+        "Winning positions on average",
+        "Break-even positions",
+        "Losing positions, because you are adversely selected",
+        "No position at all"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Facing only informed flow produces losses, not gains.",
+        "B": "Pure informed flow is negative for the maker, not neutral.",
+        "C": "Correct. Trading only against better information means you systematically take the worse side.",
+        "D": "You still acquire inventory; it is simply adversely selected."
+      }
+    },
+    {
+      "id": "pr_l11_128",
+      "concept": "market_making",
+      "question": "You are highly confident about fair value and competing hard for flow. You should:",
+      "options": [
+        "Widen the spread to be safe",
+        "Pull your quotes",
+        "Randomize your quotes",
+        "Quote a tighter spread to win more trades"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Widening when confident needlessly cedes flow to competitors.",
+        "B": "High confidence is a reason to quote actively, not withdraw.",
+        "C": "Quotes should track your fair-value estimate, not be random.",
+        "D": "Correct. Lower uncertainty lets you compete with tighter quotes while still capturing edge."
+      }
+    },
+    {
+      "id": "pr_l11_129",
+      "concept": "market_making",
+      "question": "Fair value is 20 and your bid is 18. A trader sells to you at 18. Relative to fair value, this fill is:",
+      "options": [
+        "Profitable — you bought 2 below fair value",
+        "A loss — buying always costs money",
+        "Neutral — any fill breaks even",
+        "Impossible to judge without the ask"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Buying at 18 against a fair value of 20 books +2 of edge.",
+        "B": "Buying below fair value is profitable in expectation.",
+        "C": "Price versus fair value, not the act of trading, determines edge.",
+        "D": "The bid price versus fair value already determines the edge on this buy."
+      }
+    },
+    {
+      "id": "pr_l11_130",
+      "concept": "linearity_expectation",
+      "question": "5 people each toss their hat into a pile, then each picks a hat uniformly at random. What is the expected number of people who get their own hat back?",
+      "options": [
+        "1/5",
+        "1",
+        "5",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the probability one specific person gets their hat, not the expected total.",
+        "B": "Correct. By linearity, E = Σ P(person i gets own hat) = 5·(1/5) = 1.",
+        "C": "Not everyone gets their hat; by linearity the expectation is exactly 1.",
+        "D": "On average one person does get their hat back — the expectation is 1, not 0."
+      }
+    },
+    {
+      "id": "pr_l11_131",
+      "concept": "linearity_expectation",
+      "question": "50 people each toss their hat into a pile, then each picks a hat uniformly at random. What is the expected number of people who get their own hat back?",
+      "options": [
+        "1/50",
+        "50",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the probability one specific person gets their hat, not the expected total.",
+        "B": "Not everyone gets their hat; by linearity the expectation is exactly 1.",
+        "C": "Correct. By linearity, E = Σ P(person i gets own hat) = 50·(1/50) = 1.",
+        "D": "On average one person does get their hat back — the expectation is 1, not 0."
+      }
+    },
+    {
+      "id": "pr_l11_132",
+      "concept": "linearity_expectation",
+      "question": "A fair die is rolled 12 times. What is the expected number of sixes?",
+      "options": [
+        "1/6",
+        "12",
+        "1/3",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That is the expected sixes for a single roll, not 12.",
+        "B": "12 is the number of rolls, not the expected count of sixes.",
+        "C": "This uses 1/36 per roll; each roll yields a six with probability 1/6.",
+        "D": "Correct. E = 12·(1/6) = 2 by linearity of expectation."
+      }
+    },
+    {
+      "id": "pr_l11_133",
+      "concept": "linearity_expectation",
+      "question": "A fair die is rolled 10 times. What is the expected number of sixes?",
+      "options": [
+        "5/3",
+        "1/6",
+        "10",
+        "5/18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 10·(1/6) = 5/3.",
+        "B": "That is the expected sixes for a single roll.",
+        "C": "10 is the number of rolls, not the expected count.",
+        "D": "This uses 1/36 per roll instead of 1/6."
+      }
+    },
+    {
+      "id": "pr_l11_134",
+      "concept": "linearity_expectation",
+      "question": "Five cards are dealt from a standard 52-card deck. What is the expected number of aces in the hand?",
+      "options": [
+        "1/13",
+        "5/13",
+        "5/52",
+        "1/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That is the expected number of aces in a single card.",
+        "B": "Correct. By linearity, E = 5·(4/52) = 20/52 = 5/13.",
+        "C": "This uses 1 ace instead of the 4 aces per drawn card.",
+        "D": "This confuses the four suits with the four aces."
+      }
+    },
+    {
+      "id": "pr_l11_135",
+      "concept": "linearity_expectation",
+      "question": "A fair coin is flipped 7 times. What is the expected number of heads?",
+      "options": [
+        "7",
+        "1/2",
+        "7/2",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That would require every flip to be heads.",
+        "B": "That is the expectation for a single flip.",
+        "C": "Correct. E = 7·(1/2) = 7/2 = 3.5.",
+        "D": "A rounded guess; the exact expectation is 3.5."
+      }
+    },
+    {
+      "id": "pr_l11_136",
+      "concept": "complement_rule",
+      "question": "If P(A) = 0.3, what is P(not A)?",
+      "options": [
+        "0.3",
+        "1",
+        "0",
+        "0.7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is P(A) itself, not its complement.",
+        "B": "1 would mean 'not A' is certain, impossible when P(A) > 0.",
+        "C": "0 would mean 'not A' is impossible, but A is not certain.",
+        "D": "Correct. P(not A) = 1 − P(A) = 1 − 0.3 = 0.7."
+      }
+    },
+    {
+      "id": "pr_l11_137",
+      "concept": "complement_rule",
+      "question": "If P(A) = 0.25, what is P(not A)?",
+      "options": [
+        "0.75",
+        "0.25",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(not A) = 1 − P(A) = 1 − 0.25 = 0.75.",
+        "B": "This is P(A) itself, not its complement.",
+        "C": "1 would mean 'not A' is certain, impossible when P(A) > 0.",
+        "D": "0 would mean 'not A' is impossible, but A is not certain."
+      }
+    },
+    {
+      "id": "pr_l11_138",
+      "concept": "complement_rule",
+      "question": "If P(A) = 0.1, what is P(not A)?",
+      "options": [
+        "0.1",
+        "0.9",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is P(A) itself, not its complement.",
+        "B": "Correct. P(not A) = 1 − P(A) = 1 − 0.1 = 0.9.",
+        "C": "1 would mean 'not A' is certain, impossible when P(A) > 0.",
+        "D": "0 would mean 'not A' is impossible, but A is not certain."
+      }
+    },
+    {
+      "id": "pr_l11_139",
+      "concept": "complement_rule",
+      "question": "If P(A) = 0.4, what is P(not A)?",
+      "options": [
+        "0.4",
+        "1",
+        "0.6",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is P(A) itself, not its complement.",
+        "B": "1 would mean 'not A' is certain, impossible when P(A) > 0.",
+        "C": "Correct. P(not A) = 1 − P(A) = 1 − 0.4 = 0.6.",
+        "D": "0 would mean 'not A' is impossible, but A is not certain."
+      }
+    },
+    {
+      "id": "pr_l11_140",
+      "concept": "complement_rule",
+      "question": "If P(A) = 1/3, what is P(not A)?",
+      "options": [
+        "1/3",
+        "1",
+        "3",
+        "2/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is P(A) itself.",
+        "B": "'not A' is not certain when A has positive probability.",
+        "C": "A probability cannot exceed 1.",
+        "D": "Correct. 1 − 1/3 = 2/3."
+      }
+    },
+    {
+      "id": "pr_l11_141",
+      "concept": "complement_rule",
+      "question": "If P(A) = 2/5, what is P(not A)?",
+      "options": [
+        "3/5",
+        "2/5",
+        "1",
+        "5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 − 2/5 = 3/5.",
+        "B": "This is P(A) itself.",
+        "C": "'not A' is not certain when A has positive probability.",
+        "D": "A probability cannot exceed 1."
+      }
+    },
+    {
+      "id": "pr_l11_142",
+      "concept": "complement_rule",
+      "question": "Events A and B are mutually exclusive with P(A) = 0.2 and P(B) = 0.3. What is P(A or B)?",
+      "options": [
+        "0.06",
+        "0.5",
+        "0.1",
+        "0.2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.06 = P(A)·P(B) is for the AND of independent events, not OR.",
+        "B": "Correct. For mutually exclusive events, P(A or B) = 0.2 + 0.3 = 0.5.",
+        "C": "This subtracts the probabilities; for OR of exclusive events you add them.",
+        "D": "This ignores event B entirely."
+      }
+    },
+    {
+      "id": "pr_l11_143",
+      "concept": "complement_rule",
+      "question": "Independent events A and B have P(A) = 0.5 and P(B) = 0.4. What is P(A and B)?",
+      "options": [
+        "0.9",
+        "0.5",
+        "0.2",
+        "0.45"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.9 = P(A) + P(B), which is for OR (and ignores overlap).",
+        "B": "This ignores event B.",
+        "C": "Correct. For independent events, P(A and B) = 0.5 × 0.4 = 0.2.",
+        "D": "This averages the two probabilities instead of multiplying."
+      }
+    },
+    {
+      "id": "pr_l11_144",
+      "concept": "permutations",
+      "question": "In how many distinct orders can you arrange 3 distinct books on a shelf?",
+      "options": [
+        "2",
+        "9",
+        "8",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "(3−1)! = 2 fixes one item in place; all 3 can move.",
+        "B": "3² is not the number of orderings.",
+        "C": "2^3 counts subsets, not orderings.",
+        "D": "Correct. 3 distinct items arrange in 3! = 6 ways."
+      }
+    },
+    {
+      "id": "pr_l11_145",
+      "concept": "permutations",
+      "question": "In how many distinct orders can you arrange 4 distinct books on a shelf?",
+      "options": [
+        "24",
+        "6",
+        "16",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 4 distinct items arrange in 4! = 24 ways.",
+        "B": "(4−1)! = 6 fixes one item in place; all 4 can move.",
+        "C": "4² is not the number of orderings.",
+        "D": "Doubling 4 is not how arrangements grow."
+      }
+    },
+    {
+      "id": "pr_l11_146",
+      "concept": "permutations",
+      "question": "In how many distinct orders can you arrange 5 people in a row?",
+      "options": [
+        "24",
+        "120",
+        "25",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "(5−1)! = 24 fixes one item in place; all 5 can move.",
+        "B": "Correct. 5 distinct items arrange in 5! = 120 ways.",
+        "C": "5² is not the number of orderings.",
+        "D": "Doubling 5 is not how arrangements grow."
+      }
+    },
+    {
+      "id": "pr_l11_147",
+      "concept": "permutations",
+      "question": "In how many distinct orders can you arrange the 5 distinct letters of TRADE?",
+      "options": [
+        "24",
+        "25",
+        "120",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "(5−1)! = 24 fixes one item in place; all 5 can move.",
+        "B": "5² is not the number of orderings.",
+        "C": "Correct. 5 distinct items arrange in 5! = 120 ways.",
+        "D": "Doubling 5 is not how arrangements grow."
+      }
+    },
+    {
+      "id": "pr_l11_148",
+      "concept": "permutations",
+      "question": "How many distinct arrangements are there of the letters in the word \"BOOK\"?",
+      "options": [
+        "24",
+        "6",
+        "8",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This ignores the repeated O; divide by 2!.",
+        "B": "This over-divides; only the O repeats (÷2!), giving 12.",
+        "C": "This is not how arrangements are counted.",
+        "D": "Correct. \"BOOK\" has repeated letters, so the count is 4! divided by the factorials of the repeats = 12."
+      }
+    },
+    {
+      "id": "pr_l11_149",
+      "concept": "permutations",
+      "question": "How many distinct arrangements are there of the letters in the word \"LEVEL\"?",
+      "options": [
+        "30",
+        "120",
+        "60",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. \"LEVEL\" has repeated letters, so the count is 5! divided by the factorials of the repeats = 30.",
+        "B": "This ignores repeats; divide by 2!·2! for L and E.",
+        "C": "This divides by only one 2!; both L and E repeat (÷2!·2!).",
+        "D": "This over-divides; the answer is 30."
+      }
+    },
+    {
+      "id": "pr_l11_150",
+      "concept": "permutations",
+      "question": "How many distinct arrangements are there of the letters in the word \"NOON\"?",
+      "options": [
+        "24",
+        "6",
+        "12",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This ignores repeats; ÷(2!·2!) for N and O.",
+        "B": "Correct. \"NOON\" has repeated letters, so the count is 4! divided by the factorials of the repeats = 6.",
+        "C": "This divides by only one 2!; both letters repeat.",
+        "D": "This over-divides; the answer is 6."
+      }
+    },
+    {
+      "id": "pr_l11_151",
+      "concept": "permutations",
+      "question": "How many distinct arrangements are there of the letters in the word \"STATS\"?",
+      "options": [
+        "120",
+        "60",
+        "30",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ignores repeats; ÷(2!·2!) for S and T.",
+        "B": "This divides by only one 2!.",
+        "C": "Correct. \"STATS\" has repeated letters, so the count is 5! divided by the factorials of the repeats = 30.",
+        "D": "This over-divides."
+      }
+    },
+    {
+      "id": "pr_l11_152",
+      "concept": "symmetry_coin",
+      "question": "Two fair dice are rolled. Given that at least one die shows a 1, what is the probability that both dice show 1?",
+      "options": [
+        "1/6",
+        "1/36",
+        "1/12",
+        "1/11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the other die as independent (1/6), ignoring the conditioning.",
+        "B": "1/36 is the unconditional P(both 1), before learning at least one is 1.",
+        "C": "This miscounts the conditioning set as 12 ordered pairs instead of 11.",
+        "D": "Correct. There are 11 ordered pairs with at least one 1; only (1,1) has both, so 1/11."
+      }
+    },
+    {
+      "id": "pr_l11_153",
+      "concept": "symmetry_coin",
+      "question": "Two fair dice are rolled. Given that at least one die shows a 2, what is the probability that both dice show 2?",
+      "options": [
+        "1/11",
+        "1/6",
+        "1/36",
+        "1/12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 11 ordered pairs with at least one 2; only (2,2) has both, so 1/11.",
+        "B": "This treats the other die as independent (1/6), ignoring the conditioning.",
+        "C": "1/36 is the unconditional P(both 2), before learning at least one is 2.",
+        "D": "This miscounts the conditioning set as 12 ordered pairs instead of 11."
+      }
+    },
+    {
+      "id": "pr_l11_154",
+      "concept": "symmetry_coin",
+      "question": "Two fair dice are rolled. Given that at least one die shows a 3, what is the probability that both dice show 3?",
+      "options": [
+        "1/6",
+        "1/11",
+        "1/36",
+        "1/12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the other die as independent (1/6), ignoring the conditioning.",
+        "B": "Correct. There are 11 ordered pairs with at least one 3; only (3,3) has both, so 1/11.",
+        "C": "1/36 is the unconditional P(both 3), before learning at least one is 3.",
+        "D": "This miscounts the conditioning set as 12 ordered pairs instead of 11."
+      }
+    },
+    {
+      "id": "pr_l11_155",
+      "concept": "symmetry_coin",
+      "question": "Two fair dice are rolled. Given that at least one die shows a 4, what is the probability that both dice show 4?",
+      "options": [
+        "1/6",
+        "1/36",
+        "1/11",
+        "1/12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the other die as independent (1/6), ignoring the conditioning.",
+        "B": "1/36 is the unconditional P(both 4), before learning at least one is 4.",
+        "C": "Correct. There are 11 ordered pairs with at least one 4; only (4,4) has both, so 1/11.",
+        "D": "This miscounts the conditioning set as 12 ordered pairs instead of 11."
+      }
+    },
+    {
+      "id": "pr_l11_156",
+      "concept": "symmetry_coin",
+      "question": "Two fair dice are rolled. Given that at least one die shows a 5, what is the probability that both dice show 5?",
+      "options": [
+        "1/6",
+        "1/36",
+        "1/12",
+        "1/11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the other die as independent (1/6), ignoring the conditioning.",
+        "B": "1/36 is the unconditional P(both 5), before learning at least one is 5.",
+        "C": "This miscounts the conditioning set as 12 ordered pairs instead of 11.",
+        "D": "Correct. There are 11 ordered pairs with at least one 5; only (5,5) has both, so 1/11."
+      }
+    },
+    {
+      "id": "pr_l11_157",
+      "concept": "symmetry_coin",
+      "question": "Two fair dice are rolled. Given that at least one die shows a 6, what is the probability that both dice show 6?",
+      "options": [
+        "1/11",
+        "1/6",
+        "1/36",
+        "1/12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 11 ordered pairs with at least one 6; only (6,6) has both, so 1/11.",
+        "B": "This treats the other die as independent (1/6), ignoring the conditioning.",
+        "C": "1/36 is the unconditional P(both 6), before learning at least one is 6.",
+        "D": "This miscounts the conditioning set as 12 ordered pairs instead of 11."
+      }
+    },
+    {
+      "id": "pr_l11_158",
+      "concept": "expected_value",
+      "question": "A game pays $10 with probability 1/4 and $0 otherwise. What is the expected payout?",
+      "options": [
+        "$10",
+        "$2.50",
+        "$5",
+        "$2.00"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the prize, not the probability-weighted average.",
+        "B": "Correct. EV = (1/4)($10) + (3/4)($0) = $2.50.",
+        "C": "This uses probability 1/2; the win probability is 1/4.",
+        "D": "Slight miscalculation; (1/4)·10 = 2.5."
+      }
+    },
+    {
+      "id": "pr_l11_159",
+      "concept": "expected_value",
+      "question": "A bet wins $100 with probability 1/10; otherwise you lose $10. What is the expected profit?",
+      "options": [
+        "$10",
+        "$90",
+        "$1",
+        "-$9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts only the (1/10)·100 win and ignores the likely $10 loss.",
+        "B": "This subtracts 100 − 10 as if both happen exactly once.",
+        "C": "Correct. EV = (1/10)($100) + (9/10)(−$10) = $10 − $9 = $1.",
+        "D": "This counts only the loss and ignores the winning case."
+      }
+    },
+    {
+      "id": "pr_l11_160",
+      "concept": "expected_value",
+      "question": "Three envelopes contain $1, $2, and $3; you pick one at random. What is the expected amount?",
+      "options": [
+        "$6",
+        "$3",
+        "$1.50",
+        "$2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the total of all envelopes, not the average.",
+        "B": "This is the largest amount, not the expectation.",
+        "C": "This averages only two of the three values.",
+        "D": "Correct. EV = (1/3)($1 + $2 + $3) = $6/3 = $2."
+      }
+    },
+    {
+      "id": "pr_l11_161",
+      "concept": "expected_value",
+      "question": "A fair die is rolled and you are paid in dollars equal to the number shown. What is the expected payout?",
+      "options": [
+        "$3.50",
+        "$3",
+        "$6",
+        "$21"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1+2+3+4+5+6)/6 = 21/6 = $3.50.",
+        "B": "This rounds down; the exact mean is 3.5.",
+        "C": "This is the maximum face, not the average.",
+        "D": "This is the sum of the faces, not the average."
+      }
+    },
+    {
+      "id": "pr_l11_162",
+      "concept": "expected_value",
+      "question": "A wheel pays $5 with probability 0.2 and $1 with probability 0.8. What is the expected payout?",
+      "options": [
+        "$3",
+        "$1.80",
+        "$5",
+        "$1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This averages 5 and 1 without weighting by probability.",
+        "B": "Correct. EV = 0.2($5) + 0.8($1) = $1 + $0.80 = $1.80.",
+        "C": "This is the top prize, not the average.",
+        "D": "This ignores the 0.2 chance of the $5 payout."
+      }
+    },
+    {
+      "id": "pr_l11_163",
+      "concept": "expected_value",
+      "question": "A lottery ticket pays $1000 with probability 1/1000 and $0 otherwise. What is the expected payout?",
+      "options": [
+        "$1000",
+        "$0",
+        "$1",
+        "$10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the jackpot, not its probability-weighted value.",
+        "B": "The expectation is positive, $1, even though winning is rare.",
+        "C": "Correct. EV = (1/1000)($1000) = $1.",
+        "D": "This miscalculates 1000/1000 as 10."
+      }
+    },
+    {
+      "id": "pr_l11_164",
+      "concept": "expected_value",
+      "question": "A bet wins $3 with probability 1/3 and loses $1 with probability 2/3. What is the expected profit?",
+      "options": [
+        "$0",
+        "$1",
+        "-$1/3",
+        "$1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the loss as 2/3·$1.50 to cancel; the true loss leg is $2/3, leaving +$1/3.",
+        "B": "This counts only the (1/3)·$3 win and ignores the loss.",
+        "C": "Sign error; the win outweighs the loss, giving +$1/3.",
+        "D": "Correct. EV = (1/3)($3) + (2/3)(−$1) = $1 − $2/3 = $1/3."
+      }
+    },
+    {
+      "id": "pr_l11_165",
+      "concept": "expected_value",
+      "question": "A fair die is rolled: an even number pays $2, an odd number loses $1. What is the expected profit?",
+      "options": [
+        "$0.50",
+        "$0.50 loss",
+        "$1",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (1/2)($2) + (1/2)(−$1) = $1 − $0.50 = $0.50.",
+        "B": "Sign error; the even payout exceeds the odd loss, so EV is +$0.50.",
+        "C": "This counts only the $2 even-payout and ignores the odd-number loss.",
+        "D": "This treats the payoffs as equal in size, but $2 ≠ $1."
+      }
+    },
+    {
+      "id": "pr_l11_166",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is a heart?",
+      "options": [
+        "1/13",
+        "1/4",
+        "1/52",
+        "4/13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/13 is the chance of a specific rank, not a suit.",
+        "B": "Correct. 13 hearts of 52 cards = 13/52 = 1/4.",
+        "C": "1/52 is the chance of one specific card.",
+        "D": "This inverts the ratio; hearts are 13/52 = 1/4."
+      }
+    },
+    {
+      "id": "pr_l11_167",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is an ace?",
+      "options": [
+        "1/4",
+        "1/52",
+        "1/13",
+        "4/13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/4 is the chance of a given suit, not a rank.",
+        "B": "1/52 is one specific card.",
+        "C": "Correct. 4 aces of 52 = 4/52 = 1/13.",
+        "D": "This forgets to divide by the 4 suits; 4/52 = 1/13."
+      }
+    },
+    {
+      "id": "pr_l11_168",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is a face card (J, Q, or K)?",
+      "options": [
+        "1/13",
+        "3/52",
+        "1/4",
+        "3/13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts only one of the three face ranks.",
+        "B": "This forgets there are 4 of each face rank; 12/52 = 3/13.",
+        "C": "This confuses 13 cards of a suit with the 12 face cards.",
+        "D": "Correct. 12 face cards of 52 = 12/52 = 3/13."
+      }
+    },
+    {
+      "id": "pr_l11_169",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is a red king?",
+      "options": [
+        "1/26",
+        "1/52",
+        "1/13",
+        "2/13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2 red kings of 52 = 2/52 = 1/26.",
+        "B": "This counts one specific king, but there are two red kings.",
+        "C": "This is P(any king), counting all 4 kings.",
+        "D": "This inverts the ratio; 2/52 = 1/26."
+      }
+    },
+    {
+      "id": "pr_l11_170",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is a spade or a queen?",
+      "options": [
+        "17/52",
+        "4/13",
+        "1/4",
+        "1/13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This adds 13 + 4 without subtracting the queen of spades counted twice.",
+        "B": "Correct. 13 spades + 4 queens − 1 (queen of spades) = 16 cards, 16/52 = 4/13.",
+        "C": "This counts only the spades and ignores the off-suit queens.",
+        "D": "This counts only the four queens."
+      }
+    },
+    {
+      "id": "pr_l11_171",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is a number card from 2 to 10?",
+      "options": [
+        "10/13",
+        "9/52",
+        "9/13",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This mistakenly includes an extra rank among the 9 number ranks.",
+        "B": "This forgets the 4 suits; 36/52 = 9/13.",
+        "C": "Correct. Ranks 2–10 give 9 ranks × 4 suits = 36 cards, 36/52 = 9/13.",
+        "D": "A rough guess; the exact value is 9/13."
+      }
+    },
+    {
+      "id": "pr_l11_172",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is a black ace?",
+      "options": [
+        "1/52",
+        "1/13",
+        "2/13",
+        "1/26"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts one ace, but there are two black aces.",
+        "B": "This counts all four aces, not just the black ones.",
+        "C": "This inverts the ratio.",
+        "D": "Correct. 2 black aces (spades, clubs) of 52 = 2/52 = 1/26."
+      }
+    },
+    {
+      "id": "pr_l11_173",
+      "concept": "conditional_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is the probability it is a J, Q, K, or A?",
+      "options": [
+        "4/13",
+        "3/13",
+        "1/13",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 16 such cards (J, Q, K, A) of 52 = 16/52 = 4/13.",
+        "B": "This omits the aces, counting only J, Q, K.",
+        "C": "This counts only one of the four high ranks.",
+        "D": "This confuses the four high ranks with the four suits."
+      }
+    },
+    {
+      "id": "pr_l11_174",
+      "concept": "fermi_estimate",
+      "question": "What is the smallest number of people that guarantees at least two share the same birth month?",
+      "options": [
+        "12",
+        "13",
+        "2",
+        "24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "With 12 people each could have a different month; you need one more.",
+        "B": "Correct. With 12 months, 13 people force a repeat by the pigeonhole principle.",
+        "C": "Two people might fall in different months; a guarantee needs 13.",
+        "D": "More than needed — 13 already forces a shared month."
+      }
+    },
+    {
+      "id": "pr_l11_175",
+      "concept": "fermi_estimate",
+      "question": "Ignoring leap years (365 days), what is the smallest number of people that guarantees two share a birthday?",
+      "options": [
+        "365",
+        "183",
+        "366",
+        "23"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "365 people could all have distinct birthdays; you need one more.",
+        "B": "Roughly half is far short of a guarantee.",
+        "C": "Correct. With 365 possible birthdays, 366 people force a match (pigeonhole).",
+        "D": "23 gives about a 50% chance, not a guarantee."
+      }
+    }
+  ]
+}

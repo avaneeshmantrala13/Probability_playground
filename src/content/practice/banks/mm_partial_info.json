@@ -1,0 +1,2923 @@
+{
+  "lessonId": "mm_partial_info",
+  "track": "market-making",
+  "title": "Updating Quotes with Information",
+  "questions": [
+    {
+      "id": "pr_mmpi_001",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice are rolled and the contract pays the sum. One die is revealed as 1; the other stays hidden. Updated fair value?",
+      "options": [
+        "4.5",
+        "1",
+        "7",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The revealed die is 1 and the hidden fair die averages 3.5, so fair = 1 + 3.5 = 4.5.",
+        "B": "1 is only the revealed die, not the expected sum of both dice.",
+        "C": "7 is the unconditional two-dice mean; it ignores the reveal of 1.",
+        "D": "This rounds the hidden die down to 3, but a fair die averages 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_002",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice are rolled and the contract pays the sum. One die is revealed as 2; the other stays hidden. Updated fair value?",
+      "options": [
+        "2",
+        "5.5",
+        "7",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2 is only the revealed die, not the expected sum of both dice.",
+        "B": "Correct. The revealed die is 2 and the hidden fair die averages 3.5, so fair = 2 + 3.5 = 5.5.",
+        "C": "7 is the unconditional two-dice mean; it ignores the reveal of 2.",
+        "D": "This rounds the hidden die down to 3, but a fair die averages 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_003",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice are rolled and the contract pays the sum. One die is revealed as 3; the other stays hidden. Updated fair value?",
+      "options": [
+        "3",
+        "7",
+        "6.5",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3 is only the revealed die, not the expected sum of both dice.",
+        "B": "7 is the unconditional two-dice mean; it ignores the reveal of 3.",
+        "C": "Correct. The revealed die is 3 and the hidden fair die averages 3.5, so fair = 3 + 3.5 = 6.5.",
+        "D": "This rounds the hidden die down to 3, but a fair die averages 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_004",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice are rolled and the contract pays the sum. One die is revealed as 4; the other stays hidden. Updated fair value?",
+      "options": [
+        "4",
+        "7",
+        "10",
+        "7.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4 is only the revealed die, not the expected sum of both dice.",
+        "B": "7 is the unconditional two-dice mean; it ignores the reveal of 4.",
+        "C": "This assumes the hidden die shows 6 for certain instead of averaging 3.5.",
+        "D": "Correct. The revealed die is 4 and the hidden fair die averages 3.5, so fair = 4 + 3.5 = 7.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_005",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice are rolled and the contract pays the sum. One die is revealed as 5; the other stays hidden. Updated fair value?",
+      "options": [
+        "8.5",
+        "5",
+        "7",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The revealed die is 5 and the hidden fair die averages 3.5, so fair = 5 + 3.5 = 8.5.",
+        "B": "5 is only the revealed die, not the expected sum of both dice.",
+        "C": "7 is the unconditional two-dice mean; it ignores the reveal of 5.",
+        "D": "This rounds the hidden die down to 3, but a fair die averages 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_006",
+      "concept": "one_die_revealed",
+      "question": "Two fair dice are rolled and the contract pays the sum. One die is revealed as 6; the other stays hidden. Updated fair value?",
+      "options": [
+        "6",
+        "9.5",
+        "7",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "6 is only the revealed die, not the expected sum of both dice.",
+        "B": "Correct. The revealed die is 6 and the hidden fair die averages 3.5, so fair = 6 + 3.5 = 9.5.",
+        "C": "7 is the unconditional two-dice mean; it ignores the reveal of 6.",
+        "D": "This rounds the hidden die down to 3, but a fair die averages 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_007",
+      "concept": "one_die_revealed",
+      "question": "You are making a market on the sum of two fair dice. The cup tips and you glimpse one die showing 1; the other is still covered. What is the new fair value?",
+      "options": [
+        "7",
+        "1",
+        "4.5",
+        "3.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7 was the fair value before you saw any die; the glimpse moves it.",
+        "B": "That counts only the die you saw, not the hidden one.",
+        "C": "Correct. Conditional expectation: 1 (known) + 3.5 (hidden die's mean) = 4.5.",
+        "D": "This uses 2.5 for the hidden die; a fair die's mean is 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_008",
+      "concept": "one_die_revealed",
+      "question": "You are making a market on the sum of two fair dice. The cup tips and you glimpse one die showing 2; the other is still covered. What is the new fair value?",
+      "options": [
+        "7",
+        "2",
+        "8",
+        "5.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "7 was the fair value before you saw any die; the glimpse moves it.",
+        "B": "That counts only the die you saw, not the hidden one.",
+        "C": "This assumes the hidden die is a guaranteed 6, not an average of 3.5.",
+        "D": "Correct. Conditional expectation: 2 (known) + 3.5 (hidden die's mean) = 5.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_009",
+      "concept": "one_die_revealed",
+      "question": "You are making a market on the sum of two fair dice. The cup tips and you glimpse one die showing 3; the other is still covered. What is the new fair value?",
+      "options": [
+        "6.5",
+        "7",
+        "3",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Conditional expectation: 3 (known) + 3.5 (hidden die's mean) = 6.5.",
+        "B": "7 was the fair value before you saw any die; the glimpse moves it.",
+        "C": "That counts only the die you saw, not the hidden one.",
+        "D": "This assumes the hidden die is a guaranteed 6, not an average of 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_010",
+      "concept": "one_die_revealed",
+      "question": "You are making a market on the sum of two fair dice. The cup tips and you glimpse one die showing 4; the other is still covered. What is the new fair value?",
+      "options": [
+        "7",
+        "7.5",
+        "4",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 was the fair value before you saw any die; the glimpse moves it.",
+        "B": "Correct. Conditional expectation: 4 (known) + 3.5 (hidden die's mean) = 7.5.",
+        "C": "That counts only the die you saw, not the hidden one.",
+        "D": "This assumes the hidden die is a guaranteed 6, not an average of 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_011",
+      "concept": "one_die_revealed",
+      "question": "You are making a market on the sum of two fair dice. The cup tips and you glimpse one die showing 5; the other is still covered. What is the new fair value?",
+      "options": [
+        "7",
+        "5",
+        "8.5",
+        "11"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7 was the fair value before you saw any die; the glimpse moves it.",
+        "B": "That counts only the die you saw, not the hidden one.",
+        "C": "Correct. Conditional expectation: 5 (known) + 3.5 (hidden die's mean) = 8.5.",
+        "D": "This assumes the hidden die is a guaranteed 6, not an average of 3.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_012",
+      "concept": "one_die_revealed",
+      "question": "You are making a market on the sum of two fair dice. The cup tips and you glimpse one die showing 6; the other is still covered. What is the new fair value?",
+      "options": [
+        "7",
+        "6",
+        "12",
+        "9.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "7 was the fair value before you saw any die; the glimpse moves it.",
+        "B": "That counts only the die you saw, not the hidden one.",
+        "C": "This assumes the hidden die is a guaranteed 6, not an average of 3.5.",
+        "D": "Correct. Conditional expectation: 6 (known) + 3.5 (hidden die's mean) = 9.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_013",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice are rolled; the payoff is the sum. One die shows 1; the other two are hidden. Fair value?",
+      "options": [
+        "8",
+        "4.5",
+        "10.5",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 plus two hidden fair dice at 3.5 each: 1 + 7 = 8.",
+        "B": "This adds only one hidden die's mean, but two dice are hidden.",
+        "C": "10.5 is the unconditional three-dice mean and ignores the reveal.",
+        "D": "That is just the revealed die, not the full sum."
+      }
+    },
+    {
+      "id": "pr_mmpi_014",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice are rolled; the payoff is the sum. One die shows 2; the other two are hidden. Fair value?",
+      "options": [
+        "5.5",
+        "9",
+        "10.5",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This adds only one hidden die's mean, but two dice are hidden.",
+        "B": "Correct. 2 plus two hidden fair dice at 3.5 each: 2 + 7 = 9.",
+        "C": "10.5 is the unconditional three-dice mean and ignores the reveal.",
+        "D": "That is just the revealed die, not the full sum."
+      }
+    },
+    {
+      "id": "pr_mmpi_015",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice are rolled; the payoff is the sum. One die shows 3; the other two are hidden. Fair value?",
+      "options": [
+        "6.5",
+        "10.5",
+        "10",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This adds only one hidden die's mean, but two dice are hidden.",
+        "B": "10.5 is the unconditional three-dice mean and ignores the reveal.",
+        "C": "Correct. 3 plus two hidden fair dice at 3.5 each: 3 + 7 = 10.",
+        "D": "That is just the revealed die, not the full sum."
+      }
+    },
+    {
+      "id": "pr_mmpi_016",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice are rolled; the payoff is the sum. One die shows 4; the other two are hidden. Fair value?",
+      "options": [
+        "7.5",
+        "10.5",
+        "4",
+        "11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This adds only one hidden die's mean, but two dice are hidden.",
+        "B": "10.5 is the unconditional three-dice mean and ignores the reveal.",
+        "C": "That is just the revealed die, not the full sum.",
+        "D": "Correct. 4 plus two hidden fair dice at 3.5 each: 4 + 7 = 11."
+      }
+    },
+    {
+      "id": "pr_mmpi_017",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice are rolled; the payoff is the sum. One die shows 5; the other two are hidden. Fair value?",
+      "options": [
+        "12",
+        "8.5",
+        "10.5",
+        "5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 5 plus two hidden fair dice at 3.5 each: 5 + 7 = 12.",
+        "B": "This adds only one hidden die's mean, but two dice are hidden.",
+        "C": "10.5 is the unconditional three-dice mean and ignores the reveal.",
+        "D": "That is just the revealed die, not the full sum."
+      }
+    },
+    {
+      "id": "pr_mmpi_018",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice are rolled; the payoff is the sum. One die shows 6; the other two are hidden. Fair value?",
+      "options": [
+        "9.5",
+        "13",
+        "10.5",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This adds only one hidden die's mean, but two dice are hidden.",
+        "B": "Correct. 6 plus two hidden fair dice at 3.5 each: 6 + 7 = 13.",
+        "C": "10.5 is the unconditional three-dice mean and ignores the reveal.",
+        "D": "That is just the revealed die, not the full sum."
+      }
+    },
+    {
+      "id": "pr_mmpi_019",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 1 and 2; one die is hidden. Fair value?",
+      "options": [
+        "3",
+        "10.5",
+        "6.5",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "C": "Correct. 1 + 2 = 3 known, plus the hidden die's mean 3.5, gives 6.5.",
+        "D": "This adds two hidden dice, but only one die is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_020",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 3 and 4; one die is hidden. Fair value?",
+      "options": [
+        "7",
+        "14",
+        "13",
+        "10.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "This adds two hidden dice, but only one die is hidden.",
+        "C": "This assumes the hidden die shows 6 for certain.",
+        "D": "Correct. 3 + 4 = 7 known, plus the hidden die's mean 3.5, gives 10.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_021",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 2 and 6; one die is hidden. Fair value?",
+      "options": [
+        "11.5",
+        "8",
+        "10.5",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2 + 6 = 8 known, plus the hidden die's mean 3.5, gives 11.5.",
+        "B": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "C": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "D": "This adds two hidden dice, but only one die is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_022",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 5 and 5; one die is hidden. Fair value?",
+      "options": [
+        "10",
+        "13.5",
+        "10.5",
+        "17"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "Correct. 5 + 5 = 10 known, plus the hidden die's mean 3.5, gives 13.5.",
+        "C": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "D": "This adds two hidden dice, but only one die is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_023",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 4 and 1; one die is hidden. Fair value?",
+      "options": [
+        "5",
+        "10.5",
+        "8.5",
+        "12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "C": "Correct. 4 + 1 = 5 known, plus the hidden die's mean 3.5, gives 8.5.",
+        "D": "This adds two hidden dice, but only one die is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_024",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 6 and 3; one die is hidden. Fair value?",
+      "options": [
+        "9",
+        "10.5",
+        "16",
+        "12.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "C": "This adds two hidden dice, but only one die is hidden.",
+        "D": "Correct. 6 + 3 = 9 known, plus the hidden die's mean 3.5, gives 12.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_025",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 2 and 2; one die is hidden. Fair value?",
+      "options": [
+        "7.5",
+        "4",
+        "10.5",
+        "11"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2 + 2 = 4 known, plus the hidden die's mean 3.5, gives 7.5.",
+        "B": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "C": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "D": "This adds two hidden dice, but only one die is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_026",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 3 and 6; one die is hidden. Fair value?",
+      "options": [
+        "9",
+        "12.5",
+        "10.5",
+        "16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "Correct. 3 + 6 = 9 known, plus the hidden die's mean 3.5, gives 12.5.",
+        "C": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "D": "This adds two hidden dice, but only one die is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_027",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 5 and 2; one die is hidden. Fair value?",
+      "options": [
+        "7",
+        "14",
+        "10.5",
+        "13"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "This adds two hidden dice, but only one die is hidden.",
+        "C": "Correct. 5 + 2 = 7 known, plus the hidden die's mean 3.5, gives 10.5.",
+        "D": "This assumes the hidden die shows 6 for certain."
+      }
+    },
+    {
+      "id": "pr_mmpi_028",
+      "concept": "one_die_revealed",
+      "question": "Three fair dice; payoff is the sum. Two dice show 6 and 6; one die is hidden. Fair value?",
+      "options": [
+        "12",
+        "10.5",
+        "19",
+        "15.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the sum of the two shown dice but ignores the hidden die's 3.5.",
+        "B": "10.5 is the unconditional three-dice mean, ignoring both reveals.",
+        "C": "This adds two hidden dice, but only one die is hidden.",
+        "D": "Correct. 6 + 6 = 12 known, plus the hidden die's mean 3.5, gives 15.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_029",
+      "concept": "coin_one_revealed",
+      "question": "Two fair coins each pay 0 or 1; the contract pays their sum. The first coin shows 1; the second is hidden. Fair value?",
+      "options": [
+        "1.5",
+        "1",
+        "2",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 (known) + 0.5 (the hidden fair coin's mean) = 1.5.",
+        "B": "That counts only the revealed coin, ignoring the hidden coin's 0.5 mean.",
+        "C": "2 is the maximum possible sum, not the expected value.",
+        "D": "0.5 is a single coin's mean, not the expected sum given the reveal."
+      }
+    },
+    {
+      "id": "pr_mmpi_030",
+      "concept": "coin_one_revealed",
+      "question": "Two fair coins each pay 0 or 1; the contract pays their sum. The first coin shows 0; the second is hidden. Fair value?",
+      "options": [
+        "0",
+        "0.5",
+        "1",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That counts only the revealed coin, ignoring the hidden coin's 0.5 mean.",
+        "B": "Correct. 0 (known) + 0.5 (the hidden fair coin's mean) = 0.5.",
+        "C": "1 is the unconditional expected sum of two fair 0/1 coins, before any reveal.",
+        "D": "2 is the maximum possible sum, not the expected value."
+      }
+    },
+    {
+      "id": "pr_mmpi_031",
+      "concept": "coin_one_revealed",
+      "question": "Three fair 0/1 coins; payoff is the sum. One coin shows 1; two coins are hidden. Fair value?",
+      "options": [
+        "1.5",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This adds only one hidden coin's mean; two coins are hidden.",
+        "B": "That is only the revealed coin.",
+        "C": "Correct. 1 (known) + two hidden coins at 0.5 each = 1 + 1 = 2.",
+        "D": "3 is the maximum sum, not the expected value."
+      }
+    },
+    {
+      "id": "pr_mmpi_032",
+      "concept": "coin_one_revealed",
+      "question": "Three fair 0/1 coins; payoff is the sum. One coin shows 0; two coins are hidden. Fair value?",
+      "options": [
+        "0.5",
+        "1.5",
+        "0",
+        "1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This adds only one hidden coin's mean; two coins are hidden.",
+        "B": "1.5 is the unconditional mean of three fair 0/1 coins.",
+        "C": "That is only the revealed coin.",
+        "D": "Correct. 0 (known) + two hidden coins at 0.5 each = 0 + 1 = 1."
+      }
+    },
+    {
+      "id": "pr_mmpi_033",
+      "concept": "coin_one_revealed",
+      "question": "Three fair 0/1 coins; payoff is the sum. Two coins show 1 and 1; one is hidden. Fair value?",
+      "options": [
+        "2.5",
+        "2",
+        "1.5",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 + 1 = 2 known, plus the hidden coin's mean 0.5, gives 2.5.",
+        "B": "This ignores the hidden coin's 0.5 contribution.",
+        "C": "1.5 is the unconditional three-coin mean, ignoring the reveals.",
+        "D": "This adds two hidden coins, but only one is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_034",
+      "concept": "coin_one_revealed",
+      "question": "Three fair 0/1 coins; payoff is the sum. Two coins show 1 and 0; one is hidden. Fair value?",
+      "options": [
+        "1",
+        "1.5",
+        "2",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This ignores the hidden coin's 0.5 contribution.",
+        "B": "Correct. 1 + 0 = 1 known, plus the hidden coin's mean 0.5, gives 1.5.",
+        "C": "This adds two hidden coins, but only one is hidden.",
+        "D": "3 is the maximum sum, not the expected value."
+      }
+    },
+    {
+      "id": "pr_mmpi_035",
+      "concept": "coin_one_revealed",
+      "question": "Three fair 0/1 coins; payoff is the sum. Two coins show 0 and 0; one is hidden. Fair value?",
+      "options": [
+        "0",
+        "1.5",
+        "0.5",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ignores the hidden coin's 0.5 contribution.",
+        "B": "1.5 is the unconditional three-coin mean, ignoring the reveals.",
+        "C": "Correct. 0 + 0 = 0 known, plus the hidden coin's mean 0.5, gives 0.5.",
+        "D": "This adds two hidden coins, but only one is hidden."
+      }
+    },
+    {
+      "id": "pr_mmpi_036",
+      "concept": "two_stage_coin",
+      "question": "Two fair coins; payoff is the number of heads. One coin is flipped and shows heads; one is hidden. Updated fair value (expected heads)?",
+      "options": [
+        "1",
+        "2",
+        "0.5",
+        "1.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts only the heads already shown, ignoring the hidden coins' 0.5 each.",
+        "B": "This assumes every hidden coin is a head, not an average of 0.5.",
+        "C": "This counts only the hidden coins and forgets the heads already shown.",
+        "D": "Correct. 1 head(s) already shown plus 1 hidden coin(s) at 0.5 each = 1.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_037",
+      "concept": "two_stage_coin",
+      "question": "Two fair coins; payoff is the number of heads. One coin is flipped and shows tails; one is hidden. Updated fair value (expected heads)?",
+      "options": [
+        "0.5",
+        "0",
+        "1",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0 head(s) already shown plus 1 hidden coin(s) at 0.5 each = 0.5.",
+        "B": "This counts only the heads already shown, ignoring the hidden coins' 0.5 each.",
+        "C": "1 is the unconditional expected heads for 2 fair coins, before the reveal.",
+        "D": "2 is the maximum possible heads, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmpi_038",
+      "concept": "two_stage_coin",
+      "question": "Three fair coins; payoff is the number of heads. One coin shows heads; two are hidden. Updated fair value (expected heads)?",
+      "options": [
+        "1",
+        "2",
+        "1.5",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This counts only the heads already shown, ignoring the hidden coins' 0.5 each.",
+        "B": "Correct. 1 head(s) already shown plus 2 hidden coin(s) at 0.5 each = 2.",
+        "C": "1.5 is the unconditional expected heads for 3 fair coins, before the reveal.",
+        "D": "This assumes every hidden coin is a head, not an average of 0.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_039",
+      "concept": "two_stage_coin",
+      "question": "Three fair coins; payoff is the number of heads. Two coins show heads; one is hidden. Updated fair value (expected heads)?",
+      "options": [
+        "2",
+        "1.5",
+        "2.5",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This counts only the heads already shown, ignoring the hidden coins' 0.5 each.",
+        "B": "1.5 is the unconditional expected heads for 3 fair coins, before the reveal.",
+        "C": "Correct. 2 head(s) already shown plus 1 hidden coin(s) at 0.5 each = 2.5.",
+        "D": "This assumes every hidden coin is a head, not an average of 0.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_040",
+      "concept": "two_stage_coin",
+      "question": "Four fair coins; payoff is the number of heads. Two coins show heads; two are hidden. Updated fair value (expected heads)?",
+      "options": [
+        "2",
+        "4",
+        "1",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This counts only the heads already shown, ignoring the hidden coins' 0.5 each.",
+        "B": "This assumes every hidden coin is a head, not an average of 0.5.",
+        "C": "This counts only the hidden coins and forgets the heads already shown.",
+        "D": "Correct. 2 head(s) already shown plus 2 hidden coin(s) at 0.5 each = 3."
+      }
+    },
+    {
+      "id": "pr_mmpi_041",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as an Ace. Fair value now?",
+      "options": [
+        "1",
+        "7",
+        "13",
+        "6.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The outcome is fully known, so fair value equals the realized payoff of 1.",
+        "B": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "C": "That value belongs to a different rank than the one revealed.",
+        "D": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_042",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a 5. Fair value now?",
+      "options": [
+        "7",
+        "5",
+        "13",
+        "6.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "B": "Correct. The outcome is fully known, so fair value equals the realized payoff of 5.",
+        "C": "That value belongs to a different rank than the one revealed.",
+        "D": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_043",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a 7. Fair value now?",
+      "options": [
+        "13",
+        "6.5",
+        "7",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That value belongs to a different rank than the one revealed.",
+        "B": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown.",
+        "C": "Correct. The outcome is fully known, so fair value equals the realized payoff of 7.",
+        "D": "This is off by a rank from the card actually shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_044",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a 9. Fair value now?",
+      "options": [
+        "7",
+        "13",
+        "6.5",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "B": "That value belongs to a different rank than the one revealed.",
+        "C": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown.",
+        "D": "Correct. The outcome is fully known, so fair value equals the realized payoff of 9."
+      }
+    },
+    {
+      "id": "pr_mmpi_045",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a 10. Fair value now?",
+      "options": [
+        "10",
+        "7",
+        "13",
+        "6.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The outcome is fully known, so fair value equals the realized payoff of 10.",
+        "B": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "C": "That value belongs to a different rank than the one revealed.",
+        "D": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_046",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a Jack. Fair value now?",
+      "options": [
+        "7",
+        "11",
+        "13",
+        "6.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "B": "Correct. The outcome is fully known, so fair value equals the realized payoff of 11.",
+        "C": "That value belongs to a different rank than the one revealed.",
+        "D": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_047",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a Queen. Fair value now?",
+      "options": [
+        "7",
+        "13",
+        "12",
+        "6.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "B": "That value belongs to a different rank than the one revealed.",
+        "C": "Correct. The outcome is fully known, so fair value equals the realized payoff of 12.",
+        "D": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_048",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a King. Fair value now?",
+      "options": [
+        "7",
+        "11",
+        "6.5",
+        "13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "B": "That value belongs to a different rank than the one revealed.",
+        "C": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown.",
+        "D": "Correct. The outcome is fully known, so fair value equals the realized payoff of 13."
+      }
+    },
+    {
+      "id": "pr_mmpi_049",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a 3. Fair value now?",
+      "options": [
+        "3",
+        "7",
+        "13",
+        "6.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The outcome is fully known, so fair value equals the realized payoff of 3.",
+        "B": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "C": "That value belongs to a different rank than the one revealed.",
+        "D": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_050",
+      "concept": "card_partial",
+      "question": "A card is drawn; the payoff equals its rank value (Ace = 1, Jack = 11, Queen = 12, King = 13, number cards face value). The card is revealed as a 6. Fair value now?",
+      "options": [
+        "7",
+        "6",
+        "13",
+        "6.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 is the average rank value (1..13) before the reveal; the card is already known now.",
+        "B": "Correct. The outcome is fully known, so fair value equals the realized payoff of 6.",
+        "C": "That value belongs to a different rank than the one revealed.",
+        "D": "6.5 is a guess at the pre-reveal mean; no uncertainty remains once the card is shown."
+      }
+    },
+    {
+      "id": "pr_mmpi_051",
+      "concept": "card_bayes",
+      "question": "A card is drawn and you are told it is red. It pays $10 if it is a heart, $0 otherwise. Fair value?",
+      "options": [
+        "2.5",
+        "10",
+        "5",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2.5 is the unconditional EV before the color clue, when P(heart) = 1/4.",
+        "B": "10 assumes the card is certainly a heart.",
+        "C": "Correct. Among the 26 red cards, the 13 hearts make P(heart | red) = 1/2, so EV = 10 × 1/2 = 5.",
+        "D": "0 ignores the 50% heart chance among red cards."
+      }
+    },
+    {
+      "id": "pr_mmpi_052",
+      "concept": "card_bayes",
+      "question": "A card is drawn and you are told it is black. It pays $20 if it is a club, $0 otherwise. Fair value?",
+      "options": [
+        "5",
+        "20",
+        "0",
+        "10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5 is the unconditional EV before the color clue, when P(club) = 1/4.",
+        "B": "20 assumes the card is certainly a club.",
+        "C": "0 ignores the 1/2 club chance among black cards.",
+        "D": "Correct. Half of the 26 black cards are the 13 clubs, so EV = 20 × 1/2 = 10."
+      }
+    },
+    {
+      "id": "pr_mmpi_053",
+      "concept": "card_bayes",
+      "question": "A card is drawn and you are told it is a face card (J, Q, or K). It pays $30 if it is a Queen. Fair value?",
+      "options": [
+        "10",
+        "30",
+        "7.5",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among the three face ranks, P(Queen | face) = 1/3, so EV = 30 × 1/3 = 10.",
+        "B": "30 assumes the card is certainly a Queen.",
+        "C": "7.5 wrongly uses 1/4 instead of 1/3.",
+        "D": "0 ignores the 1/3 Queen chance among face cards."
+      }
+    },
+    {
+      "id": "pr_mmpi_054",
+      "concept": "card_bayes",
+      "question": "A card is drawn and you are told its rank is even (2,4,6,8,10). It pays $10 if the rank is exactly 10. Fair value?",
+      "options": [
+        "10",
+        "2",
+        "5",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10 assumes the card is certainly a 10.",
+        "B": "Correct. Five even ranks are equally likely, so P(10) = 1/5 and EV = 10 × 1/5 = 2.",
+        "C": "5 uses 1/2 instead of 1/5.",
+        "D": "0 ignores the 1/5 chance of a 10."
+      }
+    },
+    {
+      "id": "pr_mmpi_055",
+      "concept": "card_bayes",
+      "question": "A card is drawn and you are told its rank is at most 4 (A,2,3,4). It pays $8 if it is an Ace. Fair value?",
+      "options": [
+        "8",
+        "4",
+        "2",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "8 assumes the card is certainly an Ace.",
+        "B": "4 uses 1/2 instead of 1/4.",
+        "C": "Correct. Four ranks are equally likely, so P(Ace) = 1/4 and EV = 8 × 1/4 = 2.",
+        "D": "0 ignores the 1/4 Ace chance."
+      }
+    },
+    {
+      "id": "pr_mmpi_056",
+      "concept": "card_bayes",
+      "question": "A card is drawn from a full deck and you are told it is red. What is P(heart | red)?",
+      "options": [
+        "1/4",
+        "1/13",
+        "1/26",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/4 is the unconditional P(heart) before the color clue.",
+        "B": "1/13 is the probability of a specific rank, not a suit given color.",
+        "C": "1/26 is the chance of one specific red card.",
+        "D": "Correct. There are 13 hearts among the 26 red cards, so 13/26 = 1/2."
+      }
+    },
+    {
+      "id": "pr_mmpi_057",
+      "concept": "card_bayes",
+      "question": "A coin is either fair (P(heads) = 1/2) or double-headed (P(heads) = 1), each equally likely. You flip it once and see heads. What is P(double-headed | heads)?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Posterior = (1 × 1/2) / (1/2 × 1/2 + 1 × 1/2) = 0.5 / 0.75 = 2/3.",
+        "B": "1/2 is the prior; it ignores that heads is evidence for the double-headed coin.",
+        "C": "1/3 inverts the Bayes ratio.",
+        "D": "Heads can also come from the fair coin, so it is not certain."
+      }
+    },
+    {
+      "id": "pr_mmpi_058",
+      "concept": "card_bayes",
+      "question": "A fair die is rolled and you are told the face is even. It pays $12 if the face is a 6. Fair value?",
+      "options": [
+        "12",
+        "4",
+        "2",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "12 assumes the face is certainly a 6.",
+        "B": "Correct. Among {2,4,6}, P(6) = 1/3, so EV = 12 × 1/3 = 4.",
+        "C": "2 uses the unconditional 1/6 instead of 1/3.",
+        "D": "6 uses 1/2 instead of 1/3."
+      }
+    },
+    {
+      "id": "pr_mmpi_059",
+      "concept": "card_bayes",
+      "question": "A card is drawn and you are told it is a spade. It pays $13 if it is the Ace of spades. Fair value?",
+      "options": [
+        "13",
+        "0.25",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "13 assumes the card is certainly the Ace of spades.",
+        "B": "0.25 ≈ 13/52 is the unconditional EV, ignoring the spade clue.",
+        "C": "Correct. Given a spade, there are 13 equally likely ranks, so P(Ace) = 1/13 and EV = 13 × 1/13 = 1.",
+        "D": "0 ignores the 1/13 chance of the Ace given a spade."
+      }
+    },
+    {
+      "id": "pr_mmpi_060",
+      "concept": "card_bayes",
+      "question": "Two fair dice are rolled. You are told the sum is exactly 4. It pays $6 if the dice were (2,2). Fair value?",
+      "options": [
+        "3",
+        "6",
+        "0",
+        "2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3 wrongly treats only two outcomes (uses 1/2).",
+        "B": "6 assumes (2,2) is certain.",
+        "C": "0 ignores the 1/3 chance of (2,2) given sum 4.",
+        "D": "Correct. Sum 4 happens via (1,3),(2,2),(3,1) — three equally likely ordered pairs — so P((2,2)) = 1/3 and EV = 6 × 1/3 = 2."
+      }
+    },
+    {
+      "id": "pr_mmpi_061",
+      "concept": "range_update",
+      "question": "Two-dice sum game (unconditional fair 7). You learn only that the sum is at least 10. How should fair value move?",
+      "options": [
+        "Rise above 7, since low sums are ruled out.",
+        "Stay at 7, since no exact sum is known.",
+        "Become exactly 10.",
+        "Fall below 7."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Conditioning on sum ≥ 10 removes all low outcomes, pulling the conditional mean well above 7.",
+        "B": "Partial info still reshapes the distribution; ruling out low sums raises the mean.",
+        "C": "'At least 10' is a lower bound, not the exact sum.",
+        "D": "Removing low outcomes can only raise, never lower, the mean."
+      }
+    },
+    {
+      "id": "pr_mmpi_062",
+      "concept": "range_update",
+      "question": "Two-dice sum game (unconditional fair 7). You learn only that the sum is at most 4. How should fair value move?",
+      "options": [
+        "Stay at 7.",
+        "Fall below 7, since only low sums remain.",
+        "Become exactly 4.",
+        "Rise above 7."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Capping the sum changes the distribution, so the mean must move.",
+        "B": "Correct. Truncating away high sums pulls the conditional mean below 7.",
+        "C": "'At most 4' is an upper bound, not the exact value.",
+        "D": "Removing high outcomes cannot raise the mean."
+      }
+    },
+    {
+      "id": "pr_mmpi_063",
+      "concept": "range_update",
+      "question": "A contract pays the number of heads in two fair coins. You learn at least one coin is heads. How does fair value move versus the unconditional 1.0?",
+      "options": [
+        "Stay at 1.0.",
+        "Become exactly 2.",
+        "Rise above 1.0, since the all-tails case is removed.",
+        "Fall below 1.0."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Removing the zero-heads case shifts the distribution upward.",
+        "B": "At least one head does not force both to be heads.",
+        "C": "Correct. Conditioning on ≥1 head deletes the (0,0) outcome, raising expected heads above 1.",
+        "D": "Eliminating the lowest outcome cannot lower the mean."
+      }
+    },
+    {
+      "id": "pr_mmpi_064",
+      "concept": "range_update",
+      "question": "Two-dice sum game. You learn only that the sum is even. How should the fair value of 7 change?",
+      "options": [
+        "Rise above 7.",
+        "Fall below 7.",
+        "Become exactly 6.",
+        "Stay at 7, since the even sums are symmetric around 7."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The even sums are symmetric, so there is no upward pull.",
+        "B": "The even sums are symmetric, so there is no downward pull.",
+        "C": "6 ignores the symmetry of the even sums around 7.",
+        "D": "Correct. Even sums {2,4,...,12} are symmetric about 7, so the conditional mean is still 7."
+      }
+    },
+    {
+      "id": "pr_mmpi_065",
+      "concept": "range_update",
+      "question": "In general, learning a strict lower bound on an uncertain payoff (and nothing else) does what to conditional fair value?",
+      "options": [
+        "Raises it, since low outcomes are removed.",
+        "Always lowers it.",
+        "Never changes it.",
+        "Sets it to zero."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Truncating away the lowest outcomes can only increase the conditional mean.",
+        "B": "A lower bound removes small outcomes, so it raises the mean.",
+        "C": "Removing possible outcomes changes the distribution and its mean.",
+        "D": "There is no reason fair value collapses to zero."
+      }
+    },
+    {
+      "id": "pr_mmpi_066",
+      "concept": "range_update",
+      "question": "In general, learning a strict upper bound on an uncertain payoff (and nothing else) does what to conditional fair value?",
+      "options": [
+        "Always raises it.",
+        "Lowers it, since high outcomes are removed.",
+        "Never changes it.",
+        "Sets it to the bound."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An upper bound removes large outcomes, so it lowers the mean.",
+        "B": "Correct. Truncating away the largest outcomes can only decrease the conditional mean.",
+        "C": "Removing possible outcomes changes the distribution and its mean.",
+        "D": "An upper bound is a cap, not the exact realized value."
+      }
+    },
+    {
+      "id": "pr_mmpi_067",
+      "concept": "range_update",
+      "question": "Two-dice sum game. You learn the sum is at least 8. Which fair value is plausible?",
+      "options": [
+        "Exactly 8.",
+        "Still 7.",
+        "Around 9.7 — clearly above 7.",
+        "Below 7."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "'At least 8' is a lower bound, not the exact value.",
+        "B": "Removing sums below 8 raises the conditional mean above 7.",
+        "C": "Correct. Conditioning on sum ≥ 8 keeps only {8,9,10,11,12}, whose probability-weighted mean is about 9.7, well above 7.",
+        "D": "Removing low sums cannot lower the mean."
+      }
+    },
+    {
+      "id": "pr_mmpi_068",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is even, what is the expected face value?",
+      "options": [
+        "3.5",
+        "2",
+        "6",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "That is the smallest allowed face, not the average of the allowed faces.",
+        "C": "That is the largest allowed face, not the average.",
+        "D": "Correct. The remaining equally likely faces are {2, 4, 6}, whose average is 4."
+      }
+    },
+    {
+      "id": "pr_mmpi_069",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is odd, what is the expected face value?",
+      "options": [
+        "3",
+        "3.5",
+        "1",
+        "5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The remaining equally likely faces are {1, 3, 5}, whose average is 3.",
+        "B": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "C": "That is the smallest allowed face, not the average of the allowed faces.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_070",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is at least 3, what is the expected face value?",
+      "options": [
+        "3.5",
+        "4.5",
+        "3",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "Correct. The remaining equally likely faces are {3, 4, 5, 6}, whose average is 4.5.",
+        "C": "That is the smallest allowed face, not the average of the allowed faces.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_071",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is at most 4, what is the expected face value?",
+      "options": [
+        "3.5",
+        "1",
+        "2.5",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "That is the smallest allowed face, not the average of the allowed faces.",
+        "C": "Correct. The remaining equally likely faces are {1, 2, 3, 4}, whose average is 2.5.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_072",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is at least 4, what is the expected face value?",
+      "options": [
+        "3.5",
+        "4",
+        "6",
+        "5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "That is the smallest allowed face, not the average of the allowed faces.",
+        "C": "That is the largest allowed face, not the average.",
+        "D": "Correct. The remaining equally likely faces are {4, 5, 6}, whose average is 5."
+      }
+    },
+    {
+      "id": "pr_mmpi_073",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is at most 2, what is the expected face value?",
+      "options": [
+        "1.5",
+        "3.5",
+        "1",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The remaining equally likely faces are {1, 2}, whose average is 1.5.",
+        "B": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "C": "That is the smallest allowed face, not the average of the allowed faces.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_074",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is greater than 1, what is the expected face value?",
+      "options": [
+        "3.5",
+        "4",
+        "2",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "Correct. The remaining equally likely faces are {2, 3, 4, 5, 6}, whose average is 4.",
+        "C": "That is the smallest allowed face, not the average of the allowed faces.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_075",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is less than 6, what is the expected face value?",
+      "options": [
+        "3.5",
+        "1",
+        "3",
+        "5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "That is the smallest allowed face, not the average of the allowed faces.",
+        "C": "Correct. The remaining equally likely faces are {1, 2, 3, 4, 5}, whose average is 3.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_076",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is at least 5, what is the expected face value?",
+      "options": [
+        "3.5",
+        "5",
+        "6",
+        "5.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "That is the smallest allowed face, not the average of the allowed faces.",
+        "C": "That is the largest allowed face, not the average.",
+        "D": "Correct. The remaining equally likely faces are {5, 6}, whose average is 5.5."
+      }
+    },
+    {
+      "id": "pr_mmpi_077",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is at most 3, what is the expected face value?",
+      "options": [
+        "2",
+        "3.5",
+        "1",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The remaining equally likely faces are {1, 2, 3}, whose average is 2.",
+        "B": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "C": "That is the smallest allowed face, not the average of the allowed faces.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_078",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is a prime number (2, 3, or 5), what is the expected face value?",
+      "options": [
+        "3.5",
+        "3.333",
+        "2",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "Correct. The remaining equally likely faces are {2, 3, 5}, whose average is 3.333.",
+        "C": "That is the smallest allowed face, not the average of the allowed faces.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_079",
+      "concept": "conditional_expectation",
+      "question": "A single fair die is rolled. Given that the face is a perfect square (1 or 4), what is the expected face value?",
+      "options": [
+        "3.5",
+        "1",
+        "2.5",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3.5 is the unconditional die mean, ignoring the given condition.",
+        "B": "That is the smallest allowed face, not the average of the allowed faces.",
+        "C": "Correct. The remaining equally likely faces are {1, 4}, whose average is 2.5.",
+        "D": "That is the largest allowed face, not the average."
+      }
+    },
+    {
+      "id": "pr_mmpi_080",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on a two-dice sum. One die is revealed as 4, but you leave your quote centered at 7. What will a sharp trader do?",
+      "options": [
+        "Hit your bid — your bid is too high.",
+        "Nothing — your quote is still fine.",
+        "Trade both sides equally.",
+        "Lift your offer — your ask is now well below the new fair, so they buy from you cheaply."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Fair rose to 7.5, so your bid is actually too low, not too high; they lift your offer instead.",
+        "B": "The reveal moved fair to 7.5; a quote centered at 7 is stale and losable.",
+        "C": "The mispricing is one-directional, so the edge is only on one side.",
+        "D": "Correct. New fair = 4 + 3.5 = 7.5 > 7, so your stale ask near 7 is too cheap and gets lifted."
+      }
+    },
+    {
+      "id": "pr_mmpi_081",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on a two-dice sum. One die is revealed as 5, but you leave your quote centered at 7. What will a sharp trader do?",
+      "options": [
+        "Lift your offer — your ask is now well below the new fair, so they buy from you cheaply.",
+        "Hit your bid — your bid is too high.",
+        "Nothing — your quote is still fine.",
+        "Trade both sides equally."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. New fair = 5 + 3.5 = 8.5 > 7, so your stale ask near 7 is too cheap and gets lifted.",
+        "B": "Fair rose to 8.5, so your bid is actually too low, not too high; they lift your offer instead.",
+        "C": "The reveal moved fair to 8.5; a quote centered at 7 is stale and losable.",
+        "D": "The mispricing is one-directional, so the edge is only on one side."
+      }
+    },
+    {
+      "id": "pr_mmpi_082",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on a two-dice sum. One die is revealed as 6, but you leave your quote centered at 7. What will a sharp trader do?",
+      "options": [
+        "Hit your bid — your bid is too high.",
+        "Lift your offer — your ask is now well below the new fair, so they buy from you cheaply.",
+        "Nothing — your quote is still fine.",
+        "Trade both sides equally."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Fair rose to 9.5, so your bid is actually too low, not too high; they lift your offer instead.",
+        "B": "Correct. New fair = 6 + 3.5 = 9.5 > 7, so your stale ask near 7 is too cheap and gets lifted.",
+        "C": "The reveal moved fair to 9.5; a quote centered at 7 is stale and losable.",
+        "D": "The mispricing is one-directional, so the edge is only on one side."
+      }
+    },
+    {
+      "id": "pr_mmpi_083",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on a two-dice sum. One die is revealed as 1, but you leave your quote centered at 7. What will a sharp trader do?",
+      "options": [
+        "Lift your offer — your ask is too cheap.",
+        "Nothing — your quote is still fine.",
+        "Hit your bid — your bid is now well above the new fair, so they sell to you richly.",
+        "Trade both sides equally."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Fair fell to 4.5, so your offer is rich, not cheap; they hit your bid instead.",
+        "B": "The reveal moved fair to 4.5; a quote centered at 7 is stale and losable.",
+        "C": "Correct. New fair = 1 + 3.5 = 4.5 < 7, so your stale bid near 7 is too high and gets hit.",
+        "D": "The mispricing is one-directional, so the edge is only on one side."
+      }
+    },
+    {
+      "id": "pr_mmpi_084",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on a two-dice sum. One die is revealed as 2, but you leave your quote centered at 7. What will a sharp trader do?",
+      "options": [
+        "Lift your offer — your ask is too cheap.",
+        "Nothing — your quote is still fine.",
+        "Trade both sides equally.",
+        "Hit your bid — your bid is now well above the new fair, so they sell to you richly."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Fair fell to 5.5, so your offer is rich, not cheap; they hit your bid instead.",
+        "B": "The reveal moved fair to 5.5; a quote centered at 7 is stale and losable.",
+        "C": "The mispricing is one-directional, so the edge is only on one side.",
+        "D": "Correct. New fair = 2 + 3.5 = 5.5 < 7, so your stale bid near 7 is too high and gets hit."
+      }
+    },
+    {
+      "id": "pr_mmpi_085",
+      "concept": "stale_quote",
+      "question": "Fair was 7 on a two-dice sum. One die is revealed as 3, but you leave your quote centered at 7. What will a sharp trader do?",
+      "options": [
+        "Hit your bid — your bid is now well above the new fair, so they sell to you richly.",
+        "Lift your offer — your ask is too cheap.",
+        "Nothing — your quote is still fine.",
+        "Trade both sides equally."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. New fair = 3 + 3.5 = 6.5 < 7, so your stale bid near 7 is too high and gets hit.",
+        "B": "Fair fell to 6.5, so your offer is rich, not cheap; they hit your bid instead.",
+        "C": "The reveal moved fair to 6.5; a quote centered at 7 is stale and losable.",
+        "D": "The mispricing is one-directional, so the edge is only on one side."
+      }
+    },
+    {
+      "id": "pr_mmpi_086",
+      "concept": "speed",
+      "question": "A public clue moves fair value from 5 to 8. You reprice in 2 seconds; a rival reprices instantly. Who gets picked off?",
+      "options": [
+        "The rival — repricing fast is a mistake.",
+        "You — your stale quote sits at the old fair longer.",
+        "Neither — fair value is irrelevant.",
+        "Both equally — speed does not matter."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Fast repricing reduces, not increases, pick-off risk.",
+        "B": "Correct. Slow repricing leaves your mispriced quote exposed, and the fast rival (or other traders) trade against it.",
+        "C": "Fair value drives correct pricing; ignoring it is exactly what gets you picked off.",
+        "D": "With public info, speed determines who is left holding a stale quote."
+      }
+    },
+    {
+      "id": "pr_mmpi_087",
+      "concept": "speed",
+      "question": "When everyone sees the same public clue at the same time, your main edge is:",
+      "options": [
+        "Secret knowledge of fair value.",
+        "Quoting wider than everyone else.",
+        "Speed of repricing and spread discipline.",
+        "Refusing to update your quote."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If the clue is public, no one has secret knowledge of its implication.",
+        "B": "Excess width just cedes flow; the edge is speed, not blanket widening.",
+        "C": "Correct. Shared information leaves no secret knowledge; the advantage is repricing first and managing spread.",
+        "D": "Not updating leaves you with the stale quote that gets picked off."
+      }
+    },
+    {
+      "id": "pr_mmpi_088",
+      "concept": "speed",
+      "question": "A 'stale' quote is best described as one that:",
+      "options": [
+        "Simply has a wide spread.",
+        "Is always crossed with the other side.",
+        "Exactly matches current fair value.",
+        "Does not reflect the latest available information."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A wide quote can still be fresh; width is not the same as staleness.",
+        "B": "A crossed market is a different error, not the definition of stale.",
+        "C": "That describes a fresh, correct quote, the opposite of stale.",
+        "D": "Correct. Staleness is about lagging information; the quote is centered on outdated fair value."
+      }
+    },
+    {
+      "id": "pr_mmpi_089",
+      "concept": "speed",
+      "question": "Immediately after new information arrives, your first action should be to:",
+      "options": [
+        "Recompute fair value and re-center your quote.",
+        "Only widen the spread and leave the center.",
+        "Never change your quotes.",
+        "Deliberately cross your own market."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Repricing the midpoint to the new conditional expectation is the priority before anything else.",
+        "B": "Widening without re-centering still leaves a mis-centered, losable quote.",
+        "C": "Leaving quotes unchanged is exactly how you get picked off.",
+        "D": "Crossing your market is nonsensical and not a response to information."
+      }
+    },
+    {
+      "id": "pr_mmpi_090",
+      "concept": "speed",
+      "question": "Two market makers see the same clue. One reprices instantly; the other lags by a second. The laggard most likely:",
+      "options": [
+        "Earns more because they trade more slowly.",
+        "Offers stale prices that the fast trader can pick off.",
+        "Is unaffected because both saw the clue.",
+        "Automatically has a tighter spread."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Slower repricing increases adverse fills, not profit.",
+        "B": "Correct. During the lag the laggard's quote reflects old fair value and is exposed to being traded against.",
+        "C": "Seeing the clue is not enough; acting on it quickly is what protects you.",
+        "D": "Lagging does not tighten a spread; it just leaves it mispriced."
+      }
+    },
+    {
+      "id": "pr_mmpi_091",
+      "concept": "speed",
+      "question": "Why is raw speed an edge specifically when information is public?",
+      "options": [
+        "Because speed creates private information.",
+        "Because fast quotes are always wider.",
+        "Because the math is shared, so whoever reprices first avoids being the stale quote.",
+        "Because slow traders always quote better prices."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Speed does not manufacture private information; the clue is still public.",
+        "B": "Speed and width are independent; speed is about timing.",
+        "C": "Correct. With public info the conditional value is the same for all, so the only differentiator is acting first.",
+        "D": "Slow traders quote stale prices, which are worse, not better."
+      }
+    },
+    {
+      "id": "pr_mmpi_092",
+      "concept": "speed",
+      "question": "After a clue you adjust only your spread width but leave the midpoint at the old fair. The result is:",
+      "options": [
+        "A fully corrected, safe quote.",
+        "No difference from doing nothing.",
+        "Guaranteed profit on both sides.",
+        "A mis-centered quote that is still exposed to pick-off."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Without re-centering, the quote remains wrong on the side the news favored.",
+        "B": "Widening helps a little, but the uncorrected center is the core problem.",
+        "C": "A mis-centered quote tends to lose on the side the information favored.",
+        "D": "Correct. If the midpoint is wrong, one side is still mispriced regardless of how wide you make the spread."
+      }
+    },
+    {
+      "id": "pr_mmpi_093",
+      "concept": "speed",
+      "question": "The best summary of repricing discipline under partial information is:",
+      "options": [
+        "Treat every new clue as mandatory, immediate repricing.",
+        "Reprice only when you feel like it.",
+        "Reprice once per session regardless of clues.",
+        "Never reprice to avoid mistakes."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each clue changes the conditional expectation, so quotes must move at once to stay fair.",
+        "B": "Discretionary, delayed repricing is exactly what creates stale quotes.",
+        "C": "Information arrives continuously; one update per session leaves you stale most of the time.",
+        "D": "Not repricing guarantees the mistake of holding a stale quote."
+      }
+    },
+    {
+      "id": "pr_mmpi_094",
+      "concept": "order_flow_signal",
+      "question": "Your market is 9.9 bid / 10.1 ask. Buyers repeatedly lift your 10.1 offer and no one hits your bid. The most likely read is:",
+      "options": [
+        "Random noise — keep the same quote.",
+        "Informed buying — value is above your offer; raise your fair estimate and reprice up.",
+        "Value is below your quote — lower your fair.",
+        "Just widen the bid and keep selling at 10.1."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Persistent one-sided flow is information, not noise; ignoring it invites repeated pick-offs.",
+        "B": "Correct. Persistent one-sided buying is a signal that fair value sits above 10.1, so you should lift your fair and quotes.",
+        "C": "One-sided buying points to higher value, not lower.",
+        "D": "The offer side is being hit cheaply; you must lift fair, not only adjust the bid."
+      }
+    },
+    {
+      "id": "pr_mmpi_095",
+      "concept": "order_flow_signal",
+      "question": "Sellers keep hitting your 9.9 bid and no one lifts your offer. The signal is:",
+      "options": [
+        "Value is above your quote — raise your fair.",
+        "It is meaningless noise — do nothing.",
+        "Informed selling — value is below your bid; lower your fair and reprice down.",
+        "Just raise the offer and keep buying at 9.9."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "One-sided selling points to lower value, not higher.",
+        "B": "Sustained one-sided flow is a signal; ignoring it lets you keep buying too high.",
+        "C": "Correct. Persistent selling into your bid suggests fair value is under 9.9, so you should mark your fair down.",
+        "D": "Your bid is the side being hit richly; you must lower fair, not only move the offer."
+      }
+    },
+    {
+      "id": "pr_mmpi_096",
+      "concept": "order_flow_signal",
+      "question": "Size starts lifting offers across the market just before a scheduled reveal. This flow suggests:",
+      "options": [
+        "Nothing — pre-reveal flow is always uninformed.",
+        "You should cut your offer to win the trades.",
+        "You should lower your fair value.",
+        "Some traders may have an information edge; shade your offer up before requoting."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Flow concentrated right before news is often the most informed flow, not the least.",
+        "B": "Cutting your offer just hands cheap size to possibly-informed buyers.",
+        "C": "Buying pressure points to higher, not lower, fair value.",
+        "D": "Correct. Pre-reveal one-sided buying can reflect superior information, so protect yourself by lifting your offer."
+      }
+    },
+    {
+      "id": "pr_mmpi_097",
+      "concept": "order_flow_signal",
+      "question": "Flow is roughly balanced: about as many lifts as hits, in small size. The right inference is:",
+      "options": [
+        "No clear directional signal; keep your fair centered.",
+        "Strong buy signal — raise fair sharply.",
+        "Strong sell signal — drop fair sharply.",
+        "Stop quoting entirely."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Balanced, small two-sided flow looks uninformed, so there is little reason to move fair.",
+        "B": "Balanced flow shows no directional pressure to justify a big upward move.",
+        "C": "Balanced flow shows no directional pressure to justify a big downward move.",
+        "D": "Uninformed two-sided flow is exactly the business you want to make; no reason to step away."
+      }
+    },
+    {
+      "id": "pr_mmpi_098",
+      "concept": "order_flow_signal",
+      "question": "You get lifted once, in small size, with no follow-through. How much should you update fair value?",
+      "options": [
+        "Massively — treat it as certain information.",
+        "Only slightly, if at all — one small print is weak evidence.",
+        "Lower fair value.",
+        "Not at all, ever, under any flow."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "One small print is weak evidence and does not justify a large repricing.",
+        "B": "Correct. A single small fill is noisy; a large fair-value jump would over-react to thin information.",
+        "C": "A buy lifting your offer points up, not down.",
+        "D": "Flow is informative; the point is to scale the update to the evidence, not ignore it."
+      }
+    },
+    {
+      "id": "pr_mmpi_099",
+      "concept": "order_flow_signal",
+      "question": "Your offer is lifted in progressively larger size at higher and higher prices. This pattern is:",
+      "options": [
+        "Weaker evidence than a single small print.",
+        "A reason to lower your fair value.",
+        "Strong evidence of informed buying; update fair meaningfully higher.",
+        "Irrelevant as long as you keep your spread."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Larger, persistent, price-paying flow is stronger, not weaker, evidence.",
+        "B": "Aggressive buying points to higher, not lower, value.",
+        "C": "Correct. Growing size paying up across levels is a strong directional signal that fair value is rising.",
+        "D": "Holding a stale fair while size pays up is how you get run over."
+      }
+    },
+    {
+      "id": "pr_mmpi_100",
+      "concept": "order_flow_signal",
+      "question": "A seller dumps large size into your bid at successively lower prices. Your best response is:",
+      "options": [
+        "Keep your bid and buy all the size.",
+        "Raise your fair value.",
+        "Only widen the offer side.",
+        "Lower your fair value and your bid; your bid was too high."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Buying everything at a stale-high bid into informed selling bleeds edge.",
+        "B": "Heavy selling points to lower value, not higher.",
+        "C": "The bid is the side being hit; you must mark the bid (and fair) down.",
+        "D": "Correct. Aggressive selling at falling prices signals lower fair value, so mark down to avoid buying too rich."
+      }
+    },
+    {
+      "id": "pr_mmpi_101",
+      "concept": "order_flow_signal",
+      "question": "You raise your offer in response to buying, yet buyers keep lifting the new, higher offer. This implies:",
+      "options": [
+        "Fair value is still above your offer; keep repricing higher.",
+        "You have already over-priced; cut the offer.",
+        "The buying must now be uninformed.",
+        "You should stop updating and hold."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Continued lifting after a raise means your fair update was too small relative to the information.",
+        "B": "If buyers keep paying up, the offer is still too low, not too high.",
+        "C": "Persistent willingness to pay even higher is, if anything, stronger evidence of information.",
+        "D": "Holding a still-too-low offer keeps gifting cheap size to informed buyers."
+      }
+    },
+    {
+      "id": "pr_mmpi_102",
+      "concept": "order_flow_signal",
+      "question": "Compared with a public clue everyone sees, private order flow is special because:",
+      "options": [
+        "It is always less informative than public news.",
+        "It can reveal information not yet public, letting you update fair before others.",
+        "It never justifies changing your quote.",
+        "It only matters for the exchange, not the maker."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Order flow often contains information ahead of any public announcement.",
+        "B": "Correct. Reading informed flow gives an edge precisely because that information is not yet in the public price.",
+        "C": "Informed flow is one of the main reasons to update quotes.",
+        "D": "Makers live or die by reading flow; it is central to repricing."
+      }
+    },
+    {
+      "id": "pr_mmpi_103",
+      "concept": "order_flow_signal",
+      "question": "The best general response to persistent, clearly informed buying is to:",
+      "options": [
+        "Keep your quote fixed and trade more size.",
+        "Lower your offer to capture more flow.",
+        "Raise your quotes and/or widen the offer side to stop selling below true value.",
+        "Lower your fair value to match the buying."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Trading more at a stale fair multiplies your losses to informed flow.",
+        "B": "Lowering the offer hands informed buyers even cheaper size.",
+        "C": "Correct. Repricing up and protecting the offer reduces how much edge you give to informed buyers.",
+        "D": "Buying pressure implies higher value, so lowering fair is backwards."
+      }
+    },
+    {
+      "id": "pr_mmpi_104",
+      "concept": "order_flow_signal",
+      "question": "Order flow is informative mainly because:",
+      "options": [
+        "Trades are always perfectly random.",
+        "Only the exchange can see trades.",
+        "Prices never reflect trading activity.",
+        "Trades reveal what counterparties are willing to do at the price, which can carry information."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "If flow were purely random it would carry no signal, but informed flow exists.",
+        "B": "Makers observe their own fills and the tape, which is exactly the signal.",
+        "C": "Prices move precisely because trading activity carries information.",
+        "D": "Correct. Aggressive, persistent, one-sided trading often reflects a view or knowledge not yet in the quote."
+      }
+    },
+    {
+      "id": "pr_mmpi_105",
+      "concept": "order_flow_signal",
+      "question": "You see a burst of buying, then it stops and the price holds at the higher level. The lesson is:",
+      "options": [
+        "Trade-driven information lifted fair; your updated quotes should reflect the new level.",
+        "Snap your fair back down to the old level.",
+        "The move was meaningless since it stopped.",
+        "Quotes should ignore where price settled."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A durable higher price after informed buying confirms fair value moved up, so keep quotes there.",
+        "B": "If the price held higher, reverting fair would leave you stale-low again.",
+        "C": "A move that holds is exactly the case where the information was real.",
+        "D": "The settled price is your best new estimate of fair value."
+      }
+    },
+    {
+      "id": "pr_mmpi_106",
+      "concept": "adverse_selection",
+      "question": "Mostly faster, better-informed traders trade against your very tight quote. Over many fills you tend to:",
+      "options": [
+        "Win on average, because more volume is good.",
+        "Lose on average, because whoever trades is usually on the right side — so widen your spread.",
+        "Break even, since trades are symmetric.",
+        "Be unaffected, since spread covers everything."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Volume from informed counterparties is adverse; more of it means more losses.",
+        "B": "Correct. When informed traders choose when to hit you, your fills are skewed against you; a wider spread compensates.",
+        "C": "Informed flow is not symmetric — the counterparty trades only when it favors them.",
+        "D": "A too-tight spread does not cover the cost of trading against informed flow."
+      }
+    },
+    {
+      "id": "pr_mmpi_107",
+      "concept": "adverse_selection",
+      "question": "Adverse selection in market making refers to:",
+      "options": [
+        "Choosing which customers you like best.",
+        "Randomly being assigned trades by the exchange.",
+        "The counterparty who trades tends to have an informational edge, skewing fills against you.",
+        "Always getting the better side of every trade."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Adverse selection is about information asymmetry, not customer preference.",
+        "B": "It is not random assignment; it is informed counterparties self-selecting to trade.",
+        "C": "Correct. You disproportionately get filled exactly when the price is about to move against you.",
+        "D": "It is the opposite: you tend to get the worse side against informed flow."
+      }
+    },
+    {
+      "id": "pr_mmpi_108",
+      "concept": "adverse_selection",
+      "question": "A direct way to reduce adverse-selection cost is to:",
+      "options": [
+        "Tighten your spread to attract more flow.",
+        "Quote the same regardless of conditions.",
+        "Always increase your size.",
+        "Widen your spread or cut size when informed flow is likely."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Tightening invites even more informed flow at worse terms for you.",
+        "B": "Static quoting ignores when adverse selection risk spikes.",
+        "C": "More size against informed flow magnifies the loss.",
+        "D": "Correct. Charging more and risking less per trade offsets the expected loss from informed counterparties."
+      }
+    },
+    {
+      "id": "pr_mmpi_109",
+      "concept": "adverse_selection",
+      "question": "Quoting a very tight market right before a known reveal is risky because:",
+      "options": [
+        "Informed traders will pick off the side the reveal favors before you can adjust.",
+        "Tight quotes never get traded.",
+        "The reveal cannot affect fair value.",
+        "Spreads are irrelevant near news."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A tight pre-news quote offers cheap optionality to anyone who anticipates the outcome.",
+        "B": "Tight quotes get traded the most, which is the danger here.",
+        "C": "A reveal is exactly what moves fair value, creating the pick-off.",
+        "D": "Spreads matter most near news, when adverse selection is highest."
+      }
+    },
+    {
+      "id": "pr_mmpi_110",
+      "concept": "adverse_selection",
+      "question": "Every time you get filled, the market immediately moves against your new position. This means:",
+      "options": [
+        "You are simply unlucky; keep quoting the same.",
+        "You are being adversely selected; widen and re-check your fair value.",
+        "Your spread is too wide.",
+        "You should quote tighter to recover losses."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A persistent pattern is information, not luck; the quote needs to change.",
+        "B": "Correct. Consistent post-fill moves against you are the signature of trading with better-informed counterparties.",
+        "C": "If anything the spread is too tight to cover the adverse moves.",
+        "D": "Tightening into adverse flow accelerates losses."
+      }
+    },
+    {
+      "id": "pr_mmpi_111",
+      "concept": "adverse_selection",
+      "question": "How does uninformed flow differ from informed flow for a market maker?",
+      "options": [
+        "Both are equally profitable.",
+        "Uninformed flow is the one that costs you.",
+        "Uninformed flow is profitable to make; informed flow imposes adverse-selection costs.",
+        "Neither type affects your P&L."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "They are not equal — informed flow systematically costs you.",
+        "B": "It is reversed: informed flow is the costly one.",
+        "C": "Correct. Uninformed traders pay the spread without an edge, while informed traders extract value from you.",
+        "D": "The mix of informed vs uninformed flow is central to maker P&L."
+      }
+    },
+    {
+      "id": "pr_mmpi_112",
+      "concept": "adverse_selection",
+      "question": "Wider spreads help against adverse selection primarily by:",
+      "options": [
+        "Guaranteeing you never trade with informed traders.",
+        "Making your quotes update automatically.",
+        "Eliminating all inventory risk.",
+        "Charging more to compensate for sometimes trading with informed counterparties."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Width reduces but does not eliminate informed fills; it prices them in.",
+        "B": "Spread width and repricing speed are separate tools.",
+        "C": "Spread does not remove inventory risk; that is a different exposure.",
+        "D": "Correct. The extra spread is a premium that offsets expected losses to informed flow."
+      }
+    },
+    {
+      "id": "pr_mmpi_113",
+      "concept": "adverse_selection",
+      "question": "A market maker's edge erodes most when:",
+      "options": [
+        "Counterparties consistently know more than the posted quote reflects.",
+        "Counterparties are mostly uninformed.",
+        "Spreads are wide.",
+        "Quotes update too quickly."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Persistent information asymmetry in the counterparties' favor is what destroys maker edge.",
+        "B": "Uninformed flow is profitable; it builds, not erodes, edge.",
+        "C": "Wide spreads protect edge; they do not erode it.",
+        "D": "Fast updates protect against pick-off; they help, not hurt."
+      }
+    },
+    {
+      "id": "pr_mmpi_114",
+      "concept": "adverse_selection",
+      "question": "You suspect a single informed counterparty wants to trade large size with you. Best protection:",
+      "options": [
+        "Quote tighter to win their full size.",
+        "Widen, shade away from their direction, or step back rather than keep quoting tight.",
+        "Match their direction with your own fair.",
+        "Ignore them and keep your normal quote."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Winning size from an informed trader at tight prices maximizes your loss.",
+        "B": "Correct. Reducing exposure and pricing in their likely edge limits the damage from one informed player.",
+        "C": "Blindly chasing without pricing the risk still leaves you exposed.",
+        "D": "Ignoring a likely informed counterparty is how you get adversely selected in size."
+      }
+    },
+    {
+      "id": "pr_mmpi_115",
+      "concept": "adverse_selection",
+      "question": "Adverse selection is worst when your quotes are:",
+      "options": [
+        "Fresh and appropriately wide.",
+        "Updated faster than everyone else's.",
+        "Stale or too tight while others hold superior information.",
+        "Centered on the correct conditional mean."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Fresh, well-priced quotes minimize, not maximize, adverse selection.",
+        "B": "Being fastest reduces adverse selection.",
+        "C": "Correct. Cheap, outdated optionality plus informed counterparties is the perfect setup to be picked off.",
+        "D": "Correctly centered quotes are the goal, not the danger."
+      }
+    },
+    {
+      "id": "pr_mmpi_116",
+      "concept": "big_buyer",
+      "question": "A large, clearly informed buyer is sweeping offers across the whole market. Your best response is:",
+      "options": [
+        "Keep selling at the old fair to capture flow.",
+        "Lower your offers to attract the buyer.",
+        "Lower your fair value.",
+        "Raise your fair-value estimate and lift your offers before quoting again."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling into an informed buyer at stale prices is how you get run over.",
+        "B": "Cutting your offer hands the informed buyer even cheaper size.",
+        "C": "Aggressive buying implies higher value, not lower.",
+        "D": "Correct. Aggressive informed demand signals higher value, so reprice up to avoid selling cheap."
+      }
+    },
+    {
+      "id": "pr_mmpi_117",
+      "concept": "big_buyer",
+      "question": "A big buyer lifts your 50.0 offer in size. Before requoting you should:",
+      "options": [
+        "Mark fair value upward (e.g., toward 50.x and higher) because the trade itself is information.",
+        "Keep fair at 50.0 and reload the same offer.",
+        "Mark fair value down toward 49.",
+        "Leave fair unchanged but cut your offer."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The act of paying up in size updates your estimate of fair value, so your new quotes should be higher.",
+        "B": "Reloading the same offer just sells more cheap size into informed demand.",
+        "C": "A big lift points up, so marking down is backwards.",
+        "D": "Cutting the offer without raising fair worsens your selling price."
+      }
+    },
+    {
+      "id": "pr_mmpi_118",
+      "concept": "big_buyer",
+      "question": "How can you tell a big informed buyer from harmless noise?",
+      "options": [
+        "A single small lift that does not repeat.",
+        "Persistent size and willingness to pay up across price levels signals information.",
+        "Buying that immediately reverses.",
+        "Any trade at all, regardless of size."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "One small, non-repeating print is closer to noise than informed size.",
+        "B": "Correct. Sustained, price-insensitive buying is the hallmark of informed demand rather than random flow.",
+        "C": "Flow that reverses suggests no durable information.",
+        "D": "Not every trade is informed; size and persistence are what matter."
+      }
+    },
+    {
+      "id": "pr_mmpi_119",
+      "concept": "big_buyer",
+      "question": "A buyer is large but is known to be a forced, uninformed flow (e.g., a scheduled index rebalance). You should:",
+      "options": [
+        "Permanently mark fair value way up.",
+        "Refuse to trade entirely.",
+        "Expect mostly temporary price impact and be willing to provide liquidity without over-updating fair.",
+        "Treat it identically to informed buying."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Forced, uninformed flow does not carry lasting information about fair value.",
+        "B": "Uninformed forced flow is exactly the liquidity demand makers profit from supplying.",
+        "C": "Correct. Mechanical, non-informational demand moves price short term but does not change long-run fair value much.",
+        "D": "The whole point is that uninformed flow should be updated on less than informed flow."
+      }
+    },
+    {
+      "id": "pr_mmpi_120",
+      "concept": "big_buyer",
+      "question": "After a big informed buyer, keeping your offer unchanged means:",
+      "options": [
+        "You capture extra profit per trade.",
+        "Nothing changes for your P&L.",
+        "You are protected from inventory risk.",
+        "You keep selling below the new, higher fair and bleed edge."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling below the new fair is a loss per trade, not a profit.",
+        "B": "A stale-low offer into informed demand directly hurts P&L.",
+        "C": "If anything you build a growing short into a rising market.",
+        "D": "Correct. An unchanged offer is now stale-low relative to the updated fair, so each fill loses money."
+      }
+    },
+    {
+      "id": "pr_mmpi_121",
+      "concept": "big_buyer",
+      "question": "The size of your fair-value update after a big buyer should scale with:",
+      "options": [
+        "How informed the flow looks and how much it moves consensus value.",
+        "Only the exchange fee, nothing else.",
+        "A fixed amount regardless of the flow.",
+        "The time of day only."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. More clearly informed, larger, price-moving flow justifies a bigger update than thin or mechanical flow.",
+        "B": "Fees are unrelated to how much information the flow carries.",
+        "C": "A one-size update ignores how informative the particular flow is.",
+        "D": "Time of day alone does not determine the information content of the flow."
+      }
+    },
+    {
+      "id": "pr_mmpi_122",
+      "concept": "big_buyer",
+      "question": "A big buyer pays through several offers quickly, then the price stabilizes higher. The takeaway:",
+      "options": [
+        "You should fade it and quote back at the old level.",
+        "The trade-driven information shifted fair up, so your quotes should reflect the higher level.",
+        "The episode carried no information.",
+        "Quotes should ignore the settled price."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Quoting back down after the price held leaves you stale-low and exposed.",
+        "B": "Correct. A price that holds at the new high confirms fair value rose, so quoting there is correct.",
+        "C": "A durable price move after aggressive buying is exactly informative.",
+        "D": "The settled higher price is your best new fair-value estimate."
+      }
+    },
+    {
+      "id": "pr_mmpi_123",
+      "concept": "big_buyer",
+      "question": "As you sell into a big buyer, your inventory tends to:",
+      "options": [
+        "Go long automatically.",
+        "Stay flat no matter what.",
+        "Go short, adding inventory risk on top of adverse selection.",
+        "Become irrelevant to risk."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Selling to a buyer makes you short, not long.",
+        "B": "Continuous selling moves your inventory short; it does not stay flat.",
+        "C": "Correct. Filling the buyer's demand makes you progressively short while the price is rising against you.",
+        "D": "A growing short into a rising market is a major risk, not irrelevant."
+      }
+    },
+    {
+      "id": "pr_mmpi_124",
+      "concept": "big_buyer",
+      "question": "After selling a lot to a big buyer you are now short while fair value has risen. A sensible response is:",
+      "options": [
+        "Lower both quotes to sell even more.",
+        "Keep quotes unchanged and hope it reverts.",
+        "Widen only and never re-center.",
+        "Raise both your quotes to encourage buying stock back and reflect the higher fair."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Selling more deepens a losing short into a rising market.",
+        "B": "Hoping for reversion while stale-short is wishful, not risk management.",
+        "C": "Without re-centering up, your quotes stay mispriced for the new fair.",
+        "D": "Correct. Lifting your bid and offer both reduces the short and prices in the new, higher fair value."
+      }
+    },
+    {
+      "id": "pr_mmpi_125",
+      "concept": "big_buyer",
+      "question": "After a big buyer has lifted several levels, your offer should be:",
+      "options": [
+        "Higher than before — repriced up toward the new fair value.",
+        "Lower than before to win the next lift.",
+        "Exactly where it was.",
+        "Removed entirely so you never trade."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The informed buying raised fair value, so the offer must move up to stop selling cheap.",
+        "B": "A lower offer sells even more size below the new fair.",
+        "C": "Leaving the offer unchanged ignores the upward move in fair value.",
+        "D": "Stepping away forever forfeits legitimate edge; the fix is to reprice, not vanish."
+      }
+    },
+    {
+      "id": "pr_mmpi_126",
+      "concept": "spread_response",
+      "question": "One die of a two-dice sum shows 2; the other is hidden. Fair is 5.5 but the sum could be 3–8. Versus a fully-revealed sum, you should quote:",
+      "options": [
+        "A tighter spread, since you now know one die.",
+        "A wider spread, because residual uncertainty from the hidden die remains.",
+        "The same spread as a fully-known sum.",
+        "No quote at all."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Knowing one die reduces but does not remove uncertainty; the hidden die still varies.",
+        "B": "Correct. A range of 3–8 around 5.5 is real variance; a tight quote would be picked off on the tails.",
+        "C": "A fully-known sum has zero uncertainty; here meaningful variance remains.",
+        "D": "Residual uncertainty is normal; you still make a market, just wider."
+      }
+    },
+    {
+      "id": "pr_mmpi_127",
+      "concept": "spread_response",
+      "question": "The more dice that remain hidden in a sum contract, the spread you quote should be:",
+      "options": [
+        "Tighter, since fewer are revealed.",
+        "Unchanged, since fair value is all that matters.",
+        "Wider, since more hidden dice mean more variance around fair.",
+        "Zero, because you cannot know anything."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Fewer reveals means more uncertainty, which calls for a wider spread, not tighter.",
+        "B": "Fair value sets the center, but spread must reflect residual variance.",
+        "C": "Correct. Each hidden die adds variance, so the prudent spread grows with the number of hidden dice.",
+        "D": "You still know the conditional mean; you widen, you do not stop quoting."
+      }
+    },
+    {
+      "id": "pr_mmpi_128",
+      "concept": "spread_response",
+      "question": "Every die in the sum has now been revealed (the sum is fully known). The appropriate spread is:",
+      "options": [
+        "Very wide, just to be safe.",
+        "The same as before any reveal.",
+        "Impossible to set.",
+        "Very tight, since there is no remaining uncertainty in fair value."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "There is no residual uncertainty to protect against, so excessive width just cedes flow.",
+        "B": "Full revelation removes the uncertainty that justified the original width.",
+        "C": "A fully-known value is the easiest case to quote tightly.",
+        "D": "Correct. With zero residual variance the only spread you need covers fees and tiny execution risk."
+      }
+    },
+    {
+      "id": "pr_mmpi_129",
+      "concept": "spread_response",
+      "question": "Why widen your spread when residual uncertainty is large?",
+      "options": [
+        "To avoid being picked off when the true value could still move far from your center.",
+        "Because wide quotes always earn more.",
+        "Because the conditional mean is unknown.",
+        "Because spreads must equal fair value."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Wider quotes price in the chance the realized value lands far from the conditional mean.",
+        "B": "Excess width can simply lose flow; width should match uncertainty, not be maximal.",
+        "C": "You do know the conditional mean; it is the residual variance you are pricing.",
+        "D": "Spread width and the fair-value center are different quantities."
+      }
+    },
+    {
+      "id": "pr_mmpi_130",
+      "concept": "spread_response",
+      "question": "Which situation carries more residual variance: two dice before any reveal, or one die shown (=4) with one hidden?",
+      "options": [
+        "One die shown — knowing a die adds variance.",
+        "Two dice before any reveal — two hidden dice carry more variance than one.",
+        "They have identical variance.",
+        "Neither has any variance."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Revealing a die removes variance; it cannot add it.",
+        "B": "Correct. More hidden randomness means more variance, so the un-revealed case is the wider one.",
+        "C": "One hidden die has less variance than two hidden dice.",
+        "D": "Any hidden die leaves variance; both cases have some."
+      }
+    },
+    {
+      "id": "pr_mmpi_131",
+      "concept": "spread_response",
+      "question": "After seeing one die = 2, quoting a razor-tight market around 5.5 is dangerous because:",
+      "options": [
+        "5.5 is the wrong center.",
+        "Tight quotes can never be filled.",
+        "The true sum still ranges 3–8, so a tight quote gets picked off on the tails.",
+        "The hidden die has no effect."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "5.5 is the correct conditional mean; the issue is width, not center.",
+        "B": "Tight quotes get filled the most, which is the danger.",
+        "C": "Correct. Residual variance from the hidden die means outcomes far from 5.5 are common enough to exploit a tight quote.",
+        "D": "The hidden die is exactly what creates the residual variance."
+      }
+    },
+    {
+      "id": "pr_mmpi_132",
+      "concept": "spread_response",
+      "question": "As information accumulates and uncertainty shrinks, your spread should generally:",
+      "options": [
+        "Widen, since more info is risky.",
+        "Stay fixed forever.",
+        "Jump to maximum width.",
+        "Narrow, reflecting greater confidence in fair value."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "More information reduces uncertainty, which argues for tighter, not wider, quotes.",
+        "B": "Spread should track changing uncertainty, not stay constant.",
+        "C": "Falling uncertainty is the opposite of a reason to maximize width.",
+        "D": "Correct. Less residual variance means less pick-off risk, so you can quote tighter."
+      }
+    },
+    {
+      "id": "pr_mmpi_133",
+      "concept": "spread_response",
+      "question": "Spread width should primarily reflect:",
+      "options": [
+        "Residual uncertainty and adverse-selection risk, not just the fair-value point.",
+        "Only the exact fair-value number.",
+        "The maximum possible payoff alone.",
+        "Nothing in particular; pick any width."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The center is the conditional mean; the width prices the remaining variance and informed-flow risk.",
+        "B": "The fair value sets the center; width is about uncertainty and risk.",
+        "C": "Max payoff is not the right gauge; dispersion around the mean is.",
+        "D": "Arbitrary width ignores the uncertainty the spread is meant to price."
+      }
+    },
+    {
+      "id": "pr_mmpi_134",
+      "concept": "spread_response",
+      "question": "Two very different outcomes (a high tail and a low tail) both remain clearly possible. You should:",
+      "options": [
+        "Quote tight at the average.",
+        "Quote wide to protect against either tail.",
+        "Quote only one side.",
+        "Refuse to quote."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A tight quote at the mean is exposed when realized values land on either tail.",
+        "B": "Correct. Large dispersion in possible outcomes means a wide spread is needed to avoid pick-off on either side.",
+        "C": "One-sided quoting does not address two-sided tail risk.",
+        "D": "You can still make a market; you just widen for the dispersion."
+      }
+    },
+    {
+      "id": "pr_mmpi_135",
+      "concept": "spread_response",
+      "question": "Best practice for calibrating a quote after partial information is to:",
+      "options": [
+        "Center on the unconditional mean and quote tight.",
+        "Center anywhere and keep a fixed width.",
+        "Center on the conditional mean but widen for the remaining variance.",
+        "Only adjust the center, never the width."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Ignoring the clue's effect on the center leaves the quote mis-centered.",
+        "B": "The center must be the conditional mean and width must track uncertainty.",
+        "C": "Correct. Correct center plus uncertainty-scaled width is the disciplined way to quote under partial info.",
+        "D": "Residual variance means width must adapt too, not just the center."
+      }
+    },
+    {
+      "id": "pr_mmpi_136",
+      "concept": "information_edge",
+      "question": "You privately know one die's value in a two-dice sum game; others do not. Your edge is:",
+      "options": [
+        "Nonexistent — private info never helps.",
+        "Only about speed, like public info.",
+        "A reason to quote wider than everyone.",
+        "Real and one-sided — you can quote tighter or skewed toward what you know."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Private information is precisely what creates a genuine, durable edge.",
+        "B": "Private info gives knowledge edge, not just a timing race.",
+        "C": "With superior info you can often quote tighter on the side you know, not blindly wider.",
+        "D": "Correct. Private information lets you price more accurately than counterparties and capture edge from their uninformed trades."
+      }
+    },
+    {
+      "id": "pr_mmpi_137",
+      "concept": "information_edge",
+      "question": "Everyone sees the same public clue at the same instant. Your edge is now mostly:",
+      "options": [
+        "Speed of repricing and spread discipline, not secret knowledge.",
+        "Secret knowledge of the true value.",
+        "Trading against your own quotes.",
+        "Quoting the widest market possible."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shared information leaves no informational advantage, so execution speed and pricing discipline decide outcomes.",
+        "B": "Public info is by definition not secret, so no one has hidden knowledge.",
+        "C": "Self-trading is not an edge; it is meaningless.",
+        "D": "Maximal width just cedes flow; the edge is acting first."
+      }
+    },
+    {
+      "id": "pr_mmpi_138",
+      "concept": "information_edge",
+      "question": "Acting on a public clue more slowly than your rivals leads to:",
+      "options": [
+        "A consistent pricing advantage.",
+        "Being picked off on stale quotes.",
+        "Lower adverse selection.",
+        "Tighter effective spreads."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Lagging gives a disadvantage, not an advantage.",
+        "B": "Correct. While you lag, your quote reflects old fair value and is exposed to faster traders.",
+        "C": "Slowness increases, not decreases, adverse fills.",
+        "D": "Lagging does not tighten spreads; it leaves them mispriced."
+      }
+    },
+    {
+      "id": "pr_mmpi_139",
+      "concept": "information_edge",
+      "question": "Genuine private information lets a market maker:",
+      "options": [
+        "Guarantee a profit on every single trade.",
+        "Ignore fair value entirely.",
+        "Skew quotes toward their informational view and profit from less-informed flow.",
+        "Quote randomly without risk."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Even with an edge, individual trades vary; the edge is statistical.",
+        "B": "Private info refines fair value; it does not let you ignore it.",
+        "C": "Correct. Knowing more than the market lets you price the favored side aggressively and earn from uninformed counterparties.",
+        "D": "Random quoting throws away the very edge the information provides."
+      }
+    },
+    {
+      "id": "pr_mmpi_140",
+      "concept": "information_edge",
+      "question": "If your supposed 'edge' is information that everyone already has, then:",
+      "options": [
+        "It is your strongest possible edge.",
+        "You should bet your largest size on it.",
+        "It guarantees you beat faster traders.",
+        "It is not really an edge, because the price already reflects it."
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Shared information cannot be an edge; only differential knowledge or speed is.",
+        "B": "Sizing up on non-edge is a way to lose, not win.",
+        "C": "If anything, with common info the faster traders beat you.",
+        "D": "Correct. Widely-known information is impounded in the quote, leaving no informational advantage."
+      }
+    },
+    {
+      "id": "pr_mmpi_141",
+      "concept": "information_edge",
+      "question": "Raw speed matters most as an edge when:",
+      "options": [
+        "Information is public and everyone races to reprice.",
+        "You have unique private information.",
+        "Nothing is happening in the market.",
+        "You have decided never to trade."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With shared information the only differentiator is who updates and quotes first.",
+        "B": "With private info, your knowledge edge matters more than pure speed.",
+        "C": "Speed is irrelevant when there is no new information to react to.",
+        "D": "If you never trade, speed is moot."
+      }
+    },
+    {
+      "id": "pr_mmpi_142",
+      "concept": "information_edge",
+      "question": "The danger of trading on information that others also possess is that:",
+      "options": [
+        "Common information is always profitable.",
+        "You may be the slow one and get adversely selected.",
+        "It removes all competition.",
+        "It guarantees you are the fastest."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Common information offers no informational edge and can be a trap if you are slow.",
+        "B": "Correct. Common information becomes a speed race, and the slower participant ends up holding stale quotes.",
+        "C": "Shared information typically intensifies competition, not removes it.",
+        "D": "Possessing the info says nothing about your relative speed."
+      }
+    },
+    {
+      "id": "pr_mmpi_143",
+      "concept": "information_edge",
+      "question": "A genuine informational edge tends to show up over time as:",
+      "options": [
+        "Winning literally every trade.",
+        "Random, edgeless results.",
+        "Consistently being on the right side versus uninformed counterparties.",
+        "Losing to uninformed traders."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Even a strong edge loses some individual trades; it is statistical.",
+        "B": "Random results indicate no edge at all.",
+        "C": "Correct. A real edge manifests as a positive average outcome against less-informed flow, not as any single trade.",
+        "D": "Losing to uninformed flow is the opposite of having an edge."
+      }
+    },
+    {
+      "id": "pr_mmpi_144",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 0.75. The asset is worth 120 in the high state and 80 in the low state. Fair value?",
+      "options": [
+        "120",
+        "80",
+        "100",
+        "110"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "120 assumes the high state is certain, ignoring the low-state chance.",
+        "B": "80 assumes the low state is certain, ignoring the high-state chance.",
+        "C": "100 is the 50/50 average, ignoring the updated probability of 0.75.",
+        "D": "Correct. EV = 0.75×120 + (1−0.75)×80 = 110."
+      }
+    },
+    {
+      "id": "pr_mmpi_145",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 0.75. The asset is worth 110 in the high state and 90 in the low state. Fair value?",
+      "options": [
+        "105",
+        "110",
+        "90",
+        "100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.75×110 + (1−0.75)×90 = 105.",
+        "B": "110 assumes the high state is certain, ignoring the low-state chance.",
+        "C": "90 assumes the low state is certain, ignoring the high-state chance.",
+        "D": "100 is the 50/50 average, ignoring the updated probability of 0.75."
+      }
+    },
+    {
+      "id": "pr_mmpi_146",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 0.25. The asset is worth 120 in the high state and 80 in the low state. Fair value?",
+      "options": [
+        "120",
+        "90",
+        "80",
+        "100"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "120 assumes the high state is certain, ignoring the low-state chance.",
+        "B": "Correct. EV = 0.25×120 + (1−0.25)×80 = 90.",
+        "C": "80 assumes the low state is certain, ignoring the high-state chance.",
+        "D": "100 is the 50/50 average, ignoring the updated probability of 0.25."
+      }
+    },
+    {
+      "id": "pr_mmpi_147",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 0.8. The asset is worth 100 in the high state and 0 in the low state. Fair value?",
+      "options": [
+        "100",
+        "0",
+        "80",
+        "50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "100 assumes the high state is certain, ignoring the low-state chance.",
+        "B": "0 assumes the low state is certain, ignoring the high-state chance.",
+        "C": "Correct. EV = 0.8×100 + (1−0.8)×0 = 80.",
+        "D": "50 is the 50/50 average, ignoring the updated probability of 0.8."
+      }
+    },
+    {
+      "id": "pr_mmpi_148",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 0.6. The asset is worth 10 in the high state and 0 in the low state. Fair value?",
+      "options": [
+        "10",
+        "0",
+        "5",
+        "6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "10 assumes the high state is certain, ignoring the low-state chance.",
+        "B": "0 assumes the low state is certain, ignoring the high-state chance.",
+        "C": "5 is the 50/50 average, ignoring the updated probability of 0.6.",
+        "D": "Correct. EV = 0.6×10 + (1−0.6)×0 = 6."
+      }
+    },
+    {
+      "id": "pr_mmpi_149",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 1/3. The asset is worth 90 in the high state and 60 in the low state. Fair value?",
+      "options": [
+        "70",
+        "90",
+        "60",
+        "75"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 1/3×90 + (1−1/3)×60 = 70.",
+        "B": "90 assumes the high state is certain, ignoring the low-state chance.",
+        "C": "60 assumes the low state is certain, ignoring the high-state chance.",
+        "D": "75 is the 50/50 average, ignoring the updated probability of 1/3."
+      }
+    },
+    {
+      "id": "pr_mmpi_150",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 2/3. The asset is worth 90 in the high state and 60 in the low state. Fair value?",
+      "options": [
+        "90",
+        "80",
+        "60",
+        "75"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "90 assumes the high state is certain, ignoring the low-state chance.",
+        "B": "Correct. EV = 2/3×90 + (1−2/3)×60 = 80.",
+        "C": "60 assumes the low state is certain, ignoring the high-state chance.",
+        "D": "75 is the 50/50 average, ignoring the updated probability of 2/3."
+      }
+    },
+    {
+      "id": "pr_mmpi_151",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 0.2. The asset is worth 200 in the high state and 100 in the low state. Fair value?",
+      "options": [
+        "200",
+        "100",
+        "120",
+        "150"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "200 assumes the high state is certain, ignoring the low-state chance.",
+        "B": "100 assumes the low state is certain, ignoring the high-state chance.",
+        "C": "Correct. EV = 0.2×200 + (1−0.2)×100 = 120.",
+        "D": "150 is the 50/50 average, ignoring the updated probability of 0.2."
+      }
+    },
+    {
+      "id": "pr_mmpi_152",
+      "concept": "bayesian_fair_value",
+      "question": "After a clue, you assess the probability of the high state at 0.9. The asset is worth 50 in the high state and 30 in the low state. Fair value?",
+      "options": [
+        "50",
+        "30",
+        "40",
+        "48"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50 assumes the high state is certain, ignoring the low-state chance.",
+        "B": "30 assumes the low state is certain, ignoring the high-state chance.",
+        "C": "40 is the 50/50 average, ignoring the updated probability of 0.9.",
+        "D": "Correct. EV = 0.9×50 + (1−0.9)×30 = 48."
+      }
+    },
+    {
+      "id": "pr_mmpi_153",
+      "concept": "bayesian_fair_value",
+      "question": "A signal occurs 80% of the time in the high state and 40% of the time in the low state. The prior is 50/50. After seeing the signal, what is P(high)?",
+      "options": [
+        "2/3",
+        "1/2",
+        "0.8",
+        "0.4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Posterior = (0.8×0.5) / (0.8×0.5 + 0.4×0.5) = 0.4 / 0.6 = 2/3.",
+        "B": "1/2 is the prior; it ignores that the signal is twice as likely in the high state.",
+        "C": "0.8 is the likelihood of the signal given high, not the posterior probability of high.",
+        "D": "0.4 is the likelihood under the low state, not the posterior."
+      }
+    },
+    {
+      "id": "pr_mmpi_154",
+      "concept": "bayesian_fair_value",
+      "question": "A coin is fair (P(H)=1/2) or double-headed (P(H)=1), prior 50/50. It is flipped twice and shows heads both times. P(double-headed)?",
+      "options": [
+        "2/3",
+        "4/5",
+        "1/2",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2/3 is the posterior after only one head, not two.",
+        "B": "Correct. Posterior = (1×0.5) / (0.25×0.5 + 1×0.5) = 0.5 / 0.625 = 0.8 = 4/5.",
+        "C": "1/2 is the prior, ignoring the two-heads evidence.",
+        "D": "Two heads is still possible from the fair coin, so it is not certain."
+      }
+    },
+    {
+      "id": "pr_mmpi_155",
+      "concept": "bayesian_fair_value",
+      "question": "A big buyer arrives and you revise the probability of the high state from 0.5 up to 0.7. High = 120, low = 80. New fair value?",
+      "options": [
+        "100",
+        "120",
+        "108",
+        "112"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "100 is the prior fair value at 0.5; it ignores the upward revision to 0.7.",
+        "B": "120 assumes the high state is now certain.",
+        "C": "Correct. EV = 0.7×120 + 0.3×80 = 84 + 24 = 108.",
+        "D": "112 over-weights the high state beyond the stated 0.7."
+      }
+    },
+    {
+      "id": "pr_mmpi_156",
+      "concept": "bayesian_fair_value",
+      "question": "Order flow shifts your probability of the high state to 0.9. High = 50, low = 30. New fair value?",
+      "options": [
+        "50",
+        "40",
+        "32",
+        "48"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50 assumes the high state is certain, ignoring the 10% low chance.",
+        "B": "40 is the 50/50 average, ignoring the updated 0.9 probability.",
+        "C": "32 applies 0.9 to the low state by mistake.",
+        "D": "Correct. EV = 0.9×50 + 0.1×30 = 45 + 3 = 48."
+      }
+    },
+    {
+      "id": "pr_mmpi_157",
+      "concept": "bayesian_fair_value",
+      "question": "Conditional expectation given a clue is another name for:",
+      "options": [
+        "The Bayesian (posterior) fair value.",
+        "The unconditional mean.",
+        "The maximum possible payoff.",
+        "A random guess."
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Updating fair value to the expectation under the posterior distribution is exactly Bayesian fair value.",
+        "B": "The unconditional mean ignores the clue; the conditional expectation uses it.",
+        "C": "Conditional expectation is an average, not the maximum.",
+        "D": "It is a precise computation from the updated distribution, not a guess."
+      }
+    },
+    {
+      "id": "pr_mmpi_158",
+      "concept": "bayesian_fair_value",
+      "question": "A signal is equally likely under the high and low states (uninformative). After observing it, the posterior:",
+      "options": [
+        "Jumps to certainty of the high state.",
+        "Equals the prior — fair value does not move.",
+        "Always halves the prior.",
+        "Becomes zero."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An uninformative signal provides no reason to favor either state.",
+        "B": "Correct. If the signal carries no discriminating information, Bayes' rule leaves the probabilities unchanged.",
+        "C": "An uninformative signal leaves the prior unchanged, not halved.",
+        "D": "An uninformative signal does not drive any probability to zero."
+      }
+    },
+    {
+      "id": "pr_mmpi_159",
+      "concept": "bayesian_fair_value",
+      "question": "Stronger evidence in favor of the high state should move your fair value:",
+      "options": [
+        "Closer to the low-state value.",
+        "Exactly to the midpoint.",
+        "Closer to the high-state value.",
+        "Nowhere — evidence is irrelevant."
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Evidence for high pulls fair toward high, not low.",
+        "B": "The midpoint corresponds to 50/50, not to stronger high evidence.",
+        "C": "Correct. More evidence raises the posterior probability of high, pulling the expectation toward the high value.",
+        "D": "Evidence is exactly what updates fair value in Bayesian pricing."
+      }
+    },
+    {
+      "id": "pr_mmpi_160",
+      "concept": "bayesian_fair_value",
+      "question": "Prior P(high) = 0.25. A signal is three times as likely under the high state as the low state. After the signal, P(high)?",
+      "options": [
+        "0.75",
+        "0.25",
+        "3/4 of 0.25",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.75 confuses the likelihood ratio with the posterior probability.",
+        "B": "0.25 is the prior; it ignores the favorable likelihood ratio.",
+        "C": "Multiplying the prior by a fraction is not how Bayes' rule normalizes.",
+        "D": "Correct. Posterior = (0.25×3) / (0.25×3 + 0.75×1) = 0.75 / 1.5 = 1/2."
+      }
+    },
+    {
+      "id": "pr_mmpi_161",
+      "concept": "bayesian_fair_value",
+      "question": "Two equally likely states value an asset at 90 (high) and 60 (low). A clue raises P(high) to 2/3. Fair value?",
+      "options": [
+        "80",
+        "75",
+        "90",
+        "70"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (2/3)×90 + (1/3)×60 = 60 + 20 = 80.",
+        "B": "75 is the 50/50 prior fair, ignoring the update to 2/3.",
+        "C": "90 assumes the high state is certain.",
+        "D": "70 applies 2/3 to the low state by mistake."
+      }
+    },
+    {
+      "id": "pr_mmpi_162",
+      "concept": "bayesian_fair_value",
+      "question": "Why does a big informed buyer justify a Bayesian fair-value increase?",
+      "options": [
+        "Because trades never carry information.",
+        "The buying is evidence that raises the posterior probability of the high state.",
+        "Because fair value must always rise over time.",
+        "Because the prior is always wrong."
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "If trades carried no information there would be no reason to update at all.",
+        "B": "Correct. Treating the trade as a signal updates your probabilities upward, which lifts the expected value.",
+        "C": "Fair value moves with evidence in either direction, not mechanically upward.",
+        "D": "Bayesian updating refines the prior with evidence; it does not assume the prior is wrong."
+      }
+    }
+  ]
+}

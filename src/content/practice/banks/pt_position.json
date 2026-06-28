@@ -1,0 +1,3175 @@
+{
+  "lessonId": "pt_position",
+  "track": "poker-theory",
+  "title": "Position & Seat Advantage",
+  "questions": [
+    {
+      "id": "pr_ptpos_001",
+      "concept": "seat_names",
+      "question": "In a 9-handed game, which seat is the dealer button?",
+      "options": [
+        "The seat that receives the dealer marker and acts last postflop",
+        "The first seat to act preflop",
+        "The seat immediately left of UTG",
+        "The seat that posts the big blind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The button holds the dealer marker and is last to act on every postflop street.",
+        "B": "First preflop action belongs to UTG, who is several seats away from the button.",
+        "C": "The seat left of UTG is UTG+1, still early position, not the button.",
+        "D": "The big blind is two seats left of the button, not the button itself."
+      }
+    },
+    {
+      "id": "pr_ptpos_002",
+      "concept": "seat_names",
+      "question": "The 'cutoff' is the seat:",
+      "options": [
+        "Always under the gun",
+        "Immediately to the right of the button",
+        "Two seats to the left of the button",
+        "The same as the small blind"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "UTG is the earliest seat, far from the cutoff.",
+        "B": "Correct. The cutoff sits directly to the right of the button and is the second-best opening seat.",
+        "C": "Two seats left of the button is the small blind, not the cutoff.",
+        "D": "The small blind is on the opposite side of the button from the cutoff."
+      }
+    },
+    {
+      "id": "pr_ptpos_003",
+      "concept": "seat_names",
+      "question": "The 'hijack' seat is located:",
+      "options": [
+        "In the big blind",
+        "Under the gun",
+        "Directly to the right of the cutoff",
+        "Directly to the left of the button"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The big blind is an early-acting blind, not the hijack.",
+        "B": "UTG is the first main seat, several spots from the hijack.",
+        "C": "Correct. The hijack sits one seat to the right of the cutoff (two right of the button).",
+        "D": "One seat left of the cutoff is the button, not the hijack."
+      }
+    },
+    {
+      "id": "pr_ptpos_004",
+      "concept": "seat_names",
+      "question": "In a 6-max game, the typical seat order from first to last preflop (after blinds post) is:",
+      "options": [
+        "SB, BB, UTG, CO, HJ, BTN",
+        "BB, SB, BTN, CO, HJ, UTG",
+        "BTN, CO, HJ, SB, BB, UTG",
+        "UTG, HJ, CO, BTN, SB, BB"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The blinds act last preflop, not first, in a raised or opened pot.",
+        "B": "The big blind closes the action preflop and does not act first.",
+        "C": "This reverses the order; UTG acts first, not the button.",
+        "D": "Correct. Preflop action runs UTG, hijack, cutoff, button, small blind, then big blind closes."
+      }
+    },
+    {
+      "id": "pr_ptpos_005",
+      "concept": "seat_names",
+      "question": "'Under the gun' (UTG) refers to the player who:",
+      "options": [
+        "Is first to act on the opening round of betting preflop",
+        "Sits on the button",
+        "Acts last preflop",
+        "Posts the big blind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. UTG is the first seat to act voluntarily preflop, immediately left of the big blind.",
+        "B": "The button is the last main seat, the opposite of UTG.",
+        "C": "Acting last preflop describes the blinds/button, not UTG.",
+        "D": "The big blind is a forced bet seat that acts last preflop, not UTG."
+      }
+    },
+    {
+      "id": "pr_ptpos_006",
+      "concept": "seat_names",
+      "question": "The two forced bets posted before cards in Hold'em are called:",
+      "options": [
+        "The ante and the rake",
+        "The small blind and the big blind",
+        "The straddle and the bomb pot",
+        "The button and the cutoff"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The ante is an optional extra and rake is the house fee, not the standard forced bets.",
+        "B": "Correct. The small blind and big blind are the standard posted forced bets each hand.",
+        "C": "A straddle is an optional extra blind; not the standard pair of forced bets.",
+        "D": "The button and cutoff are seat names, not posted bets."
+      }
+    },
+    {
+      "id": "pr_ptpos_007",
+      "concept": "seat_names",
+      "question": "The small blind is seated:",
+      "options": [
+        "On the button",
+        "Immediately right of UTG",
+        "Immediately to the left of the button",
+        "Two seats left of the button"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The button and small blind are different, adjacent seats.",
+        "B": "Right of UTG is the big blind, not the small blind.",
+        "C": "Correct. The small blind sits directly to the left of the button.",
+        "D": "Two seats left of the button is the big blind, not the small blind."
+      }
+    },
+    {
+      "id": "pr_ptpos_008",
+      "concept": "seat_names",
+      "question": "The 'lojack' is generally the seat:",
+      "options": [
+        "On the button",
+        "In the small blind",
+        "The last to act preflop",
+        "One to the right of the hijack"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The button is the latest seat, not the lojack.",
+        "B": "The small blind is a blind seat, unrelated to the lojack.",
+        "C": "Last preflop action belongs to the blinds, not the lojack.",
+        "D": "Correct. The lojack sits one seat to the right of the hijack, just before middle/late position."
+      }
+    },
+    {
+      "id": "pr_ptpos_009",
+      "concept": "seat_names",
+      "question": "In full-ring, 'middle position' typically refers to seats:",
+      "options": [
+        "Between early position and the cutoff (e.g., MP/lojack)",
+        "The button and cutoff only",
+        "UTG only",
+        "The blinds only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Middle position covers the seats between the early seats and the cutoff/button.",
+        "B": "Button and cutoff are late position, not middle position.",
+        "C": "UTG is early position, not middle.",
+        "D": "The blinds are their own category, not middle position."
+      }
+    },
+    {
+      "id": "pr_ptpos_010",
+      "concept": "seat_names",
+      "question": "The dealer button's main strategic function is to:",
+      "options": [
+        "Force a player to post the most chips",
+        "Mark who acts last and rotate position each hand",
+        "Decide the winner of the pot",
+        "Set the size of the rake"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The forced posting is the blinds' role; the button marks order, not a max bet.",
+        "B": "Correct. The button marks the last-to-act seat and moves one spot clockwise each hand to rotate position.",
+        "C": "The best hand at showdown wins the pot, not the button.",
+        "D": "The rake is set by the room, independent of the button."
+      }
+    },
+    {
+      "id": "pr_ptpos_011",
+      "concept": "action_order",
+      "question": "Who is first to act on the preflop betting round?",
+      "options": [
+        "The big blind",
+        "The small blind",
+        "UTG (the seat left of the big blind)",
+        "The button"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The big blind closes preflop action, acting last in an unraised pot.",
+        "B": "The small blind acts late preflop, just before the big blind.",
+        "C": "Correct. UTG, the seat left of the big blind, opens the preflop betting.",
+        "D": "The button acts last among non-blind seats, not first."
+      }
+    },
+    {
+      "id": "pr_ptpos_012",
+      "concept": "action_order",
+      "question": "In an unraised, limped pot, who has the option to act last preflop?",
+      "options": [
+        "The button",
+        "The cutoff",
+        "UTG",
+        "The big blind"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The button acts before the blinds preflop.",
+        "B": "The cutoff acts before the button and blinds preflop.",
+        "C": "UTG acts first preflop, not last.",
+        "D": "Correct. With no raise, the big blind closes the action and can check or raise."
+      }
+    },
+    {
+      "id": "pr_ptpos_013",
+      "concept": "action_order",
+      "question": "Preflop, the small blind acts:",
+      "options": [
+        "Before the big blind but after all other seats",
+        "Before UTG",
+        "Exactly when the button does",
+        "Only on the flop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After all non-blind seats act, the small blind acts, then the big blind closes.",
+        "B": "UTG opens the action well before the small blind.",
+        "C": "The button acts before the small blind preflop.",
+        "D": "The small blind also has a preflop decision, not just the flop."
+      }
+    },
+    {
+      "id": "pr_ptpos_014",
+      "concept": "action_order",
+      "question": "After a raise and a re-raise preflop, action continues:",
+      "options": [
+        "In random order",
+        "Clockwise, with each player needing to call the latest raise to stay in",
+        "Counter-clockwise",
+        "Only between the two raisers"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Betting order is fixed clockwise, never random.",
+        "B": "Correct. Action proceeds clockwise and each remaining player must at least call the current raise to continue.",
+        "C": "Poker action moves clockwise, not counter-clockwise.",
+        "D": "All remaining players, not just the raisers, get to respond."
+      }
+    },
+    {
+      "id": "pr_ptpos_015",
+      "concept": "action_order",
+      "question": "When the button open-raises and only the big blind calls, who acts last preflop?",
+      "options": [
+        "The small blind",
+        "The button",
+        "The big blind",
+        "UTG"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The small blind folded before the big blind's decision here.",
+        "B": "The button raised and the big blind still has the closing decision after that raise.",
+        "C": "Correct. The big blind acts after the button's raise, closing the preflop action.",
+        "D": "UTG already folded earlier in this line."
+      }
+    },
+    {
+      "id": "pr_ptpos_016",
+      "concept": "postflop_order",
+      "question": "On the flop, action begins with:",
+      "options": [
+        "The last preflop raiser",
+        "A randomly chosen player",
+        "The button",
+        "The first active player to the left of the button (e.g., the small blind)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The preflop raiser does not automatically act first postflop.",
+        "B": "Postflop order is fixed, never random.",
+        "C": "The button acts last postflop, not first.",
+        "D": "Correct. Postflop action starts with the first active player left of the button, typically the small blind."
+      }
+    },
+    {
+      "id": "pr_ptpos_017",
+      "concept": "postflop_order",
+      "question": "Across the flop, turn, and river, the button acts:",
+      "options": [
+        "Last on every street",
+        "First on the flop only",
+        "Only when checked to",
+        "First on every street"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. In position, the button is last to act on every postflop street.",
+        "B": "The button is last on all three postflop streets, not just the flop.",
+        "C": "The button always acts last postflop regardless of checks or bets.",
+        "D": "The button never acts first postflop while still on the button."
+      }
+    },
+    {
+      "id": "pr_ptpos_018",
+      "concept": "postflop_order",
+      "question": "In a blind-vs-blind pot that reaches the flop, who acts first postflop?",
+      "options": [
+        "The big blind",
+        "The small blind",
+        "The button",
+        "Whoever bet last preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The big blind is to the small blind's left, so it acts after the small blind postflop.",
+        "B": "Correct. The small blind is first to the left of the button, so it acts first postflop.",
+        "C": "There is no button player in this pot; the blinds contest it.",
+        "D": "Preflop aggression does not change the fixed postflop order."
+      }
+    },
+    {
+      "id": "pr_ptpos_019",
+      "concept": "postflop_order",
+      "question": "Why does the player who acts last postflop have an edge?",
+      "options": [
+        "They can muck after seeing the river card only",
+        "They are dealt better cards",
+        "They see opponents' actions before deciding, gaining information",
+        "They pay no blinds"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Folding is available to everyone; the edge is information, not a special muck.",
+        "B": "Position has nothing to do with card quality.",
+        "C": "Correct. Acting last lets you observe checks, bets, and sizing before committing chips.",
+        "D": "Position does not exempt anyone from posting blinds in their turn."
+      }
+    },
+    {
+      "id": "pr_ptpos_020",
+      "concept": "postflop_order",
+      "question": "If three players see the flop, the player on the button acts:",
+      "options": [
+        "It alternates each card",
+        "First",
+        "Second",
+        "Last of the three"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Order is fixed for the whole street, not alternating per card.",
+        "B": "The button is never first to act postflop.",
+        "C": "The button is last, not second, among active players.",
+        "D": "Correct. The button acts after both other players on every postflop street."
+      }
+    },
+    {
+      "id": "pr_ptpos_021",
+      "concept": "heads_up",
+      "question": "In a heads-up (two-player) hand, the button:",
+      "options": [
+        "Posts the small blind, acts last preflop, and acts first postflop",
+        "Posts nothing",
+        "Always acts last postflop",
+        "Posts the big blind and acts first postflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Heads-up, the button is the small blind: it acts last preflop but first postflop.",
+        "B": "The button still posts the small blind heads-up.",
+        "C": "Heads-up the button acts first postflop, an exception to full-ring intuition.",
+        "D": "In heads-up the button posts the small blind, not the big blind."
+      }
+    },
+    {
+      "id": "pr_ptpos_022",
+      "concept": "heads_up",
+      "question": "Heads-up, who acts last preflop?",
+      "options": [
+        "The big blind",
+        "The button/small blind",
+        "Neither; they act simultaneously",
+        "The dealer (a third party)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The big blind acts last postflop heads-up, but not preflop.",
+        "B": "Correct. Heads-up the button (small blind) acts last preflop and the big blind acts first.",
+        "C": "Players never act simultaneously; turns are sequential.",
+        "D": "No third party acts in the betting; only the two players do."
+      }
+    },
+    {
+      "id": "pr_ptpos_023",
+      "concept": "heads_up",
+      "question": "Heads-up, the big blind is at a disadvantage postflop because:",
+      "options": [
+        "It posts no blind",
+        "It acts last preflop",
+        "It must act first on every postflop street",
+        "It always has worse cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The big blind posts the big blind; it is not blind-free.",
+        "B": "Acting last preflop would be an advantage, but the big blind acts first preflop heads-up.",
+        "C": "Correct. Heads-up the big blind acts first postflop, surrendering the information edge to the button.",
+        "D": "Card quality is random and unrelated to the seat."
+      }
+    },
+    {
+      "id": "pr_ptpos_024",
+      "concept": "late_position",
+      "question": "The single most profitable seat over the long run is generally the:",
+      "options": [
+        "Small blind",
+        "Big blind",
+        "Under the gun",
+        "Button"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The small blind acts first postflop and is among the least profitable seats.",
+        "B": "The big blind is a forced-bet seat that plays most pots out of position.",
+        "C": "UTG must act first and play the tightest range.",
+        "D": "Correct. The button acts last postflop and is consistently the most profitable seat."
+      }
+    },
+    {
+      "id": "pr_ptpos_025",
+      "concept": "late_position",
+      "question": "Late position lets you open a wider range mainly because:",
+      "options": [
+        "Fewer players remain to act behind you",
+        "The blinds are forced to fold",
+        "The rake is lower",
+        "The cards are better in late seats"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With fewer players left to act, there is less chance of running into a strong hand behind.",
+        "B": "The blinds are not forced to fold and often defend.",
+        "C": "Rake does not depend on your seat.",
+        "D": "Card distribution is independent of seat."
+      }
+    },
+    {
+      "id": "pr_ptpos_026",
+      "concept": "late_position",
+      "question": "Compared with UTG, the button can profitably open:",
+      "options": [
+        "About the same range",
+        "A much wider range",
+        "Only premium pairs",
+        "A narrower range"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The ranges differ substantially; the button is far wider.",
+        "B": "Correct. The button opens roughly twice as wide as UTG because of positional advantage.",
+        "C": "Restricting the button to premium pairs leaves huge value on the table.",
+        "D": "The button opens wider, not narrower, than UTG."
+      }
+    },
+    {
+      "id": "pr_ptpos_027",
+      "concept": "late_position",
+      "question": "A key reason the button realizes more of its equity than the blinds is that it:",
+      "options": [
+        "Pays no rake",
+        "Can see one extra card",
+        "Gets to act last postflop and can check behind or value bet optimally",
+        "Is dealt stronger ranges"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Rake is unrelated to equity realization.",
+        "B": "No seat sees extra cards; the edge is positional information.",
+        "C": "Correct. Acting last lets the button realize equity better by controlling pot size and extracting value.",
+        "D": "Position does not change the cards you are dealt."
+      }
+    },
+    {
+      "id": "pr_ptpos_028",
+      "concept": "late_position",
+      "question": "'Position is leverage' primarily means that acting last lets you:",
+      "options": [
+        "Avoid posting blinds forever",
+        "Always have the nuts",
+        "Guarantee winning the pot",
+        "Control pot size and apply pressure with more information"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Everyone posts blinds as the button rotates.",
+        "B": "Position does not change your hand strength.",
+        "C": "Position improves EV but never guarantees a win.",
+        "D": "Correct. Last action lets you size pots, bluff, and value bet with maximum information."
+      }
+    },
+    {
+      "id": "pr_ptpos_029",
+      "concept": "oop_ip",
+      "question": "You are 'in position' on a given street when you:",
+      "options": [
+        "Act after your opponent",
+        "Hold the stronger hand",
+        "Are in the small blind",
+        "Act before your opponent"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Being in position means you act after your opponent and see their action first.",
+        "B": "Position refers to action order, not hand strength.",
+        "C": "The small blind is out of position postflop, not in position.",
+        "D": "Acting first is being out of position, not in position."
+      }
+    },
+    {
+      "id": "pr_ptpos_030",
+      "concept": "oop_ip",
+      "question": "Being out of position imposes an 'information tax' because you:",
+      "options": [
+        "Always have to fold",
+        "Must bet or check without knowing the opponent's action",
+        "See an extra card",
+        "Pay a literal fee to the dealer"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You can still bet, call, or check out of position; you are not forced to fold.",
+        "B": "Correct. Out of position you commit chips first, blind to whether the opponent will raise or fold.",
+        "C": "Position does not grant extra cards.",
+        "D": "There is no literal fee; the 'tax' is the lost information."
+      }
+    },
+    {
+      "id": "pr_ptpos_031",
+      "concept": "oop_ip",
+      "question": "A major benefit of playing in position postflop is the ability to:",
+      "options": [
+        "See opponent hole cards",
+        "Re-deal the board",
+        "Check behind to take a free card when you want one",
+        "Skip the turn"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Hole cards remain hidden regardless of position.",
+        "B": "The board cannot be re-dealt.",
+        "C": "Correct. In position you can check behind to realize equity cheaply with a free card.",
+        "D": "Every active player faces the turn; you cannot skip it."
+      }
+    },
+    {
+      "id": "pr_ptpos_032",
+      "concept": "oop_ip",
+      "question": "'Relative position' describes:",
+      "options": [
+        "Your stack vs the average stack",
+        "How many chips are in the pot",
+        "The order blinds are posted",
+        "Where you sit relative to the preflop aggressor, especially as a caller"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Relative position concerns action order, not stack comparisons.",
+        "B": "Pot size is not what 'relative position' means.",
+        "C": "Blind posting order is absolute position, not relative position.",
+        "D": "Correct. Relative position is your spot relative to the aggressor; sitting just left of them is favorable for a caller."
+      }
+    },
+    {
+      "id": "pr_ptpos_033",
+      "concept": "oop_ip",
+      "question": "Calling a raise when you will be out of position postflop is generally:",
+      "options": [
+        "Worse than calling in position, so you should tighten up",
+        "Identical to calling in position",
+        "Only correct with exactly suited connectors",
+        "Better than calling in position"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Out of position you realize less equity, so your calling range should be tighter.",
+        "B": "Position materially changes EV; the two are not identical.",
+        "C": "Many hands can call in position; the issue is broader than suited connectors.",
+        "D": "Out-of-position calling performs worse, not better."
+      }
+    },
+    {
+      "id": "pr_ptpos_034",
+      "concept": "oop_ip",
+      "question": "One reason in-position players can bluff more effectively is that they:",
+      "options": [
+        "Pay no blinds",
+        "See the opponent check, signaling weakness, before deciding to bet",
+        "Always have a bigger stack",
+        "Are dealt more bluff-friendly cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "All seats post blinds in rotation.",
+        "B": "Correct. Seeing a check first lets the in-position player attack likely weakness profitably.",
+        "C": "Bluffing edge comes from information, not from stack size.",
+        "D": "Card distribution is unrelated to seat."
+      }
+    },
+    {
+      "id": "pr_ptpos_035",
+      "concept": "oop_ip",
+      "question": "Out of position, a common defensive tactic against a skilled in-position opponent is to:",
+      "options": [
+        "Only ever limp",
+        "Always lead big into them",
+        "Use check-raises and a tighter, more robust range",
+        "Open-fold every hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Limping only is passive and gives up initiative entirely.",
+        "B": "Always leading big is exploitable and surrenders flexibility.",
+        "C": "Correct. Check-raising and a sturdier range help counter the in-position information edge.",
+        "D": "Folding every hand forfeits all blinds and is far too tight."
+      }
+    },
+    {
+      "id": "pr_ptpos_036",
+      "concept": "open_range",
+      "question": "UTG should open the tightest range at the table because:",
+      "options": [
+        "The blinds are forced to call",
+        "It cannot win otherwise",
+        "It acts last postflop",
+        "The most players remain to act behind it"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Blinds defend by choice, not by force.",
+        "B": "UTG can win plenty; it simply needs a disciplined range.",
+        "C": "UTG acts first postflop in most pots, not last.",
+        "D": "Correct. With the whole table left to act, UTG faces the most risk of running into strength."
+      }
+    },
+    {
+      "id": "pr_ptpos_037",
+      "concept": "open_range",
+      "question": "Moving from UTG toward the button, a player's opening range should:",
+      "options": [
+        "Get progressively wider",
+        "Become all-in only",
+        "Get progressively tighter",
+        "Stay exactly the same"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Fewer players left to act each seat closer to the button justifies a wider open.",
+        "B": "Shoving every late hand is reckless and not range-based opening.",
+        "C": "Ranges widen toward late position, not tighten.",
+        "D": "Position materially changes optimal width; it does not stay the same."
+      }
+    },
+    {
+      "id": "pr_ptpos_038",
+      "concept": "open_range",
+      "question": "The cutoff opens wider than the hijack primarily because:",
+      "options": [
+        "It is dealt better cards",
+        "It is closer to the button with fewer players behind",
+        "It posts a blind",
+        "It acts first postflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Cards are random; the reason is positional.",
+        "B": "Correct. The cutoff has one fewer opponent behind than the hijack, so it can widen.",
+        "C": "The cutoff posts no blind.",
+        "D": "Acting first postflop would argue for tightening, not the reason here."
+      }
+    },
+    {
+      "id": "pr_ptpos_039",
+      "concept": "open_range",
+      "question": "Which opening range is widest?",
+      "options": [
+        "Middle position",
+        "Cutoff",
+        "Button",
+        "UTG"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Middle position is wider than UTG but tighter than late seats.",
+        "B": "The cutoff is wide but the button is wider still.",
+        "C": "Correct. The button, with only the blinds behind, opens the widest range.",
+        "D": "UTG is the tightest opener."
+      }
+    },
+    {
+      "id": "pr_ptpos_040",
+      "concept": "open_range",
+      "question": "A reasonable rule of thumb is that the button opens roughly:",
+      "options": [
+        "Ten times as wide as UTG",
+        "Half as wide as UTG",
+        "The same width as UTG",
+        "About twice as wide as UTG"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Roughly double, not tenfold; an all-table-wide button range is unrealistic.",
+        "B": "The button opens far wider than UTG, not narrower.",
+        "C": "The button's range is much wider than UTG's, not equal.",
+        "D": "Correct. Common solver-based guidance has the button opening around twice the width of UTG."
+      }
+    },
+    {
+      "id": "pr_ptpos_041",
+      "concept": "open_range",
+      "question": "Opening too wide from early position is punished because:",
+      "options": [
+        "Players behind can 3-bet or call with dominating hands",
+        "The flop comes faster",
+        "The blinds get a discount",
+        "The rake increases"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A loose early range gets dominated and 3-bet by the many players still to act.",
+        "B": "Flop timing is unaffected by your opening width.",
+        "C": "The big blind's discount exists regardless of your width.",
+        "D": "Rake does not scale with opening frequency."
+      }
+    },
+    {
+      "id": "pr_ptpos_042",
+      "concept": "steal",
+      "question": "A blind 'steal' is best described as:",
+      "options": [
+        "Folding the button",
+        "A late-position raise aiming to win the blinds uncontested",
+        "A call from UTG",
+        "A check on the river"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding the button surrenders the chance to steal.",
+        "B": "Correct. A steal is a late-position open-raise hoping the blinds fold so you take the pot preflop.",
+        "C": "A call cannot steal the blinds; you need a raise to fold them out.",
+        "D": "A river check is not a preflop steal."
+      }
+    },
+    {
+      "id": "pr_ptpos_043",
+      "concept": "steal",
+      "question": "Stealing from the button is profitable mainly because of:",
+      "options": [
+        "The button posting no cards",
+        "Guaranteed best hand",
+        "Fold equity on the blinds plus position when called",
+        "Lower rake in late seats"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "All players are dealt cards; the edge is fold equity and position.",
+        "B": "You open many hands stealing; you are rarely guaranteed best.",
+        "C": "Correct. Frequent folds win the blinds, and when called you have position postflop.",
+        "D": "Rake is unaffected by seat."
+      }
+    },
+    {
+      "id": "pr_ptpos_044",
+      "concept": "steal",
+      "question": "Against blinds that fold very often, you should:",
+      "options": [
+        "Stop raising entirely",
+        "Only steal with aces",
+        "Narrow your stealing range",
+        "Widen your stealing range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Stealing more, not stopping, exploits over-folding blinds.",
+        "B": "Restricting to aces wastes the huge fold equity available.",
+        "C": "High fold frequency rewards more steals, not fewer.",
+        "D": "Correct. More fold equity means you can profitably widen the hands you steal with."
+      }
+    },
+    {
+      "id": "pr_ptpos_045",
+      "concept": "steal",
+      "question": "A cutoff steal differs from a button steal mainly because the cutoff:",
+      "options": [
+        "Has the button still to act behind it",
+        "Acts last preflop",
+        "Posts the big blind",
+        "Can never be 3-bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The cutoff must get through the button (and blinds), so it steals a bit tighter than the button.",
+        "B": "The button, not the cutoff, acts last preflop.",
+        "C": "The cutoff posts no blind.",
+        "D": "The cutoff can certainly be 3-bet by the button or blinds."
+      }
+    },
+    {
+      "id": "pr_ptpos_046",
+      "concept": "steal",
+      "question": "A small-blind steal against only the big blind is attractive because:",
+      "options": [
+        "You will always have position postflop",
+        "Only one player must fold for it to work",
+        "The big blind cannot 3-bet",
+        "You skip the flop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The small blind is out of position postflop versus the big blind.",
+        "B": "Correct. With only the big blind left, a single fold wins the pot immediately.",
+        "C": "The big blind can and does 3-bet defend.",
+        "D": "You do not skip the flop if called."
+      }
+    },
+    {
+      "id": "pr_ptpos_047",
+      "concept": "steal",
+      "question": "Why do antes increase the incentive to steal?",
+      "options": [
+        "They lower your raise size",
+        "They shrink the pot",
+        "They add dead money, improving the reward for winning it uncontested",
+        "They force the blinds to call"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Antes do not change your chosen raise size.",
+        "B": "Antes grow the pot, they do not shrink it.",
+        "C": "Correct. Antes add dead money, so winning the blinds-plus-antes uncontested is more rewarding.",
+        "D": "Antes do not force blinds to call."
+      }
+    },
+    {
+      "id": "pr_ptpos_048",
+      "concept": "steal",
+      "question": "Over-stealing every button can be exploited by alert blinds who:",
+      "options": [
+        "Leave the table",
+        "Post extra blinds",
+        "Fold even more",
+        "3-bet and defend wider to punish your weak range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Leaving does not counter your strategy.",
+        "B": "Posting extra blinds is unrelated to countering steals.",
+        "C": "Folding more rewards your steals; that is not an exploit.",
+        "D": "Correct. Wider 3-bets and defends attack a steal range that is too weak."
+      }
+    },
+    {
+      "id": "pr_ptpos_049",
+      "concept": "defend_bb",
+      "question": "The big blind can defend (call) wider than other seats mainly because:",
+      "options": [
+        "It already has chips invested and is getting a price to continue",
+        "It always has position",
+        "It is dealt premium hands",
+        "It closes the action postflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The posted blind improves the pot odds, so the big blind needs only complete a discounted call.",
+        "B": "The big blind is usually out of position postflop.",
+        "C": "Card quality is random, not a reason to defend wider.",
+        "D": "The big blind acts first postflop, not last."
+      }
+    },
+    {
+      "id": "pr_ptpos_050",
+      "concept": "defend_bb",
+      "question": "'Closing the action' preflop means the big blind:",
+      "options": [
+        "Must raise",
+        "Acts last with no one able to raise behind it",
+        "Wins the pot",
+        "Sits on the button"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Closing the action does not require a raise; calling or checking is allowed.",
+        "B": "Correct. The big blind acts last preflop in an unraised pot, with no players left to raise.",
+        "C": "Closing action does not award the pot.",
+        "D": "The big blind is not the button."
+      }
+    },
+    {
+      "id": "pr_ptpos_051",
+      "concept": "defend_bb",
+      "question": "Despite defending wider, the big blind still loses money long-term because it:",
+      "options": [
+        "Never gets to raise",
+        "Pays the most rake",
+        "Plays most pots out of position",
+        "Is dealt the worst cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The big blind can and does raise (3-bet) frequently.",
+        "B": "Rake is not seat-specific in this way.",
+        "C": "Correct. The big blind plays the majority of its pots out of position, capping its win rate.",
+        "D": "Card quality is random across seats."
+      }
+    },
+    {
+      "id": "pr_ptpos_052",
+      "concept": "defend_bb",
+      "question": "Facing a small (2bb) button open, the big blind's pot odds suggest it should:",
+      "options": [
+        "Only call with pairs",
+        "Always 3-bet or fold",
+        "Fold almost everything",
+        "Defend a very wide range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Restricting to pairs is far too tight against a tiny raise.",
+        "B": "Calling is a strong option here; an all-or-nothing 3-bet/fold strategy is unnecessary.",
+        "C": "A cheap price to close the action argues for wide defense, not folding everything.",
+        "D": "Correct. The small price plus closing action lets the big blind defend a very wide range."
+      }
+    },
+    {
+      "id": "pr_ptpos_053",
+      "concept": "defend_bb",
+      "question": "Big-blind defense ranges are typically widest against an open from the:",
+      "options": [
+        "Button or small blind",
+        "UTG",
+        "Middle position",
+        "Hijack"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Late opens (button, small blind) are widest, so the big blind defends widest against them.",
+        "B": "UTG opens are strongest, so the big blind defends tighter against them.",
+        "C": "Middle-position opens are stronger than late-position opens.",
+        "D": "Hijack opens are tighter than button/blind opens."
+      }
+    },
+    {
+      "id": "pr_ptpos_054",
+      "concept": "threebet",
+      "question": "With position on the original raiser, a 3-bet can be sized:",
+      "options": [
+        "Larger than when out of position",
+        "Smaller than when out of position",
+        "Exactly all-in only",
+        "Equal to a min-raise always"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "In position you can 3-bet smaller, not larger, because position adds value postflop.",
+        "B": "Correct. In position you typically use a smaller 3-bet size since you realize equity better postflop.",
+        "C": "All-in is not the only in-position 3-bet size.",
+        "D": "A min-raise is rarely the standard 3-bet size."
+      }
+    },
+    {
+      "id": "pr_ptpos_055",
+      "concept": "threebet",
+      "question": "3-betting out of position usually requires a larger size because:",
+      "options": [
+        "You always have aces",
+        "The rake demands it",
+        "You want to reduce the caller's realization advantage",
+        "The pot is smaller"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Your range is wider than just aces.",
+        "B": "Rake does not dictate 3-bet sizing.",
+        "C": "Correct. A bigger out-of-position 3-bet charges the caller more and reduces their positional realization edge.",
+        "D": "Size is chosen for strategy, not because the pot is small."
+      }
+    },
+    {
+      "id": "pr_ptpos_056",
+      "concept": "threebet",
+      "question": "A 'light' 3-bet (with a non-premium hand) works better when you:",
+      "options": [
+        "Are guaranteed a call",
+        "Hold the worst hand at the table",
+        "Are out of position with no fold equity",
+        "Have position and fold equity against the opener"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Guaranteed calls remove the fold-equity benefit of a light 3-bet.",
+        "B": "Bluff 3-bets do not rely on actually holding a strong hand.",
+        "C": "Out of position with no fold equity is the worst spot for a light 3-bet.",
+        "D": "Correct. Position plus fold equity lets a light 3-bet win now or play well postflop."
+      }
+    },
+    {
+      "id": "pr_ptpos_057",
+      "concept": "threebet",
+      "question": "Choosing to flat-call instead of 3-bet is more attractive when you:",
+      "options": [
+        "Will be in position on the original raiser",
+        "Will be out of position",
+        "Have only premium hands",
+        "Want to fold out worse"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. In position, flatting keeps dominated hands in and lets you realize position postflop.",
+        "B": "Out of position, flatting realizes equity poorly, so 3-bet or fold is often better.",
+        "C": "Flatting is for a range, not only premiums.",
+        "D": "Folding out worse is the goal of a 3-bet, not a flat."
+      }
+    },
+    {
+      "id": "pr_ptpos_058",
+      "concept": "squeeze",
+      "question": "A 'squeeze' is a:",
+      "options": [
+        "Flat call after a raise",
+        "Re-raise after an open and at least one caller",
+        "Check on the flop",
+        "Fold from the blinds"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A flat call is not a squeeze.",
+        "B": "Correct. A squeeze re-raises an open plus caller(s) to leverage dead money and fold equity.",
+        "C": "A squeeze is a preflop raise, not a flop check.",
+        "D": "Folding cannot be a squeeze."
+      }
+    },
+    {
+      "id": "pr_ptpos_059",
+      "concept": "squeeze",
+      "question": "Squeeze raises target the:",
+      "options": [
+        "Antes only",
+        "Players who already folded",
+        "Dead money from the opener and the caller(s)",
+        "Rake"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Antes add dead money but the squeeze primarily targets the open and calls.",
+        "B": "Folded players have no further chips at risk.",
+        "C": "Correct. The opener's and caller's chips are dead money the squeeze tries to take down.",
+        "D": "The rake is not what the squeeze attacks."
+      }
+    },
+    {
+      "id": "pr_ptpos_060",
+      "concept": "squeeze",
+      "question": "Compared with a normal 3-bet, a squeeze is usually sized:",
+      "options": [
+        "Exactly the same",
+        "As a min-raise",
+        "Smaller",
+        "Larger, to account for the extra caller(s)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "More callers require a bigger size than a heads-up 3-bet.",
+        "B": "A min-raise gives callers too good a price in a squeeze spot.",
+        "C": "A squeeze is larger, not smaller, due to extra players.",
+        "D": "Correct. Each additional caller means a bigger squeeze to apply pressure and deny equity."
+      }
+    },
+    {
+      "id": "pr_ptpos_061",
+      "concept": "squeeze",
+      "question": "A squeeze from the button against an early open and one caller is appealing partly because:",
+      "options": [
+        "You will have position if called",
+        "You always hold the nuts",
+        "The blinds must fold",
+        "The opener cannot 4-bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. If the squeeze is called, the button plays the rest of the hand in position.",
+        "B": "Squeezes are made with a range, not only the nuts.",
+        "C": "The blinds are not forced to fold.",
+        "D": "The opener can certainly 4-bet a strong holding."
+      }
+    },
+    {
+      "id": "pr_ptpos_062",
+      "concept": "squeeze",
+      "question": "Good squeeze candidate hands often have:",
+      "options": [
+        "No blockers and poor playability",
+        "Blockers to strong hands and reasonable playability if called",
+        "Only tiny offsuit cards",
+        "Guaranteed showdown value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Squeeze hands ideally have blockers and playability, not the opposite.",
+        "B": "Correct. Blockers (e.g., an ace) reduce opponents' strong combos, and playability helps when called.",
+        "C": "Weak offsuit junk makes a poor squeeze hand.",
+        "D": "Squeezes rely on fold equity, not guaranteed showdown value."
+      }
+    },
+    {
+      "id": "pr_ptpos_063",
+      "concept": "cold_call",
+      "question": "Cold-calling an open is more attractive in position because:",
+      "options": [
+        "You are guaranteed to hit the flop",
+        "The opener must check to you",
+        "You will realize more equity acting last postflop",
+        "You pay less rake"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "No hand is guaranteed to connect with the flop.",
+        "B": "The opener is not forced to check, though position gives you control.",
+        "C": "Correct. Acting last postflop lets a cold-caller realize equity better than out of position.",
+        "D": "Rake is not the driver of cold-call EV."
+      }
+    },
+    {
+      "id": "pr_ptpos_064",
+      "concept": "cold_call",
+      "question": "Cold-calling from the small blind (cold caller sandwiched) is risky because:",
+      "options": [
+        "You always have the nuts",
+        "You close the action",
+        "You act last postflop",
+        "You may get squeezed by the big blind and play out of position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You do not always hold the nuts when flatting.",
+        "B": "Cold-calling from the small blind does not close the action; the big blind is behind.",
+        "C": "The small blind acts first, not last, postflop.",
+        "D": "Correct. The big blind can squeeze, and you will be out of position the rest of the hand."
+      }
+    },
+    {
+      "id": "pr_ptpos_065",
+      "concept": "cold_call",
+      "question": "When deciding to flat versus 3-bet a late open, having position favors:",
+      "options": [
+        "Including more flats to keep dominated hands in",
+        "Folding everything",
+        "Only calling with aces",
+        "Always 3-betting"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. In position you can profitably flat more, keeping worse hands in while you realize position.",
+        "B": "Folding everything wastes the positional advantage.",
+        "C": "A flatting range is wider than aces only.",
+        "D": "Position does not force a 3-bet-only strategy."
+      }
+    },
+    {
+      "id": "pr_ptpos_066",
+      "concept": "cbet",
+      "question": "In-position players can c-bet at a higher frequency because they:",
+      "options": [
+        "Get an extra card",
+        "See the opponent check first and can give up cheaply when needed",
+        "Always have a stronger range",
+        "Pay no blinds"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "No seat receives an extra card.",
+        "B": "Correct. Seeing a check first lets the in-position bettor c-bet profitably and check back to control the pot.",
+        "C": "C-bet frequency is about position and information, not guaranteed range strength.",
+        "D": "Blinds are unrelated to c-bet frequency."
+      }
+    },
+    {
+      "id": "pr_ptpos_067",
+      "concept": "cbet",
+      "question": "A 'delayed c-bet' (checking the flop, betting later) is easiest to execute:",
+      "options": [
+        "Only in the blinds",
+        "Out of position",
+        "In position, after taking a free card on the flop",
+        "Only when all-in"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The play is not restricted to the blinds; it is a positional tool.",
+        "B": "Out of position you cannot guarantee the chance to bet later after checking.",
+        "C": "Correct. In position you can check the flop for a free card, then bet the turn as a delayed c-bet.",
+        "D": "A delayed c-bet is not an all-in-only play."
+      }
+    },
+    {
+      "id": "pr_ptpos_068",
+      "concept": "cbet",
+      "question": "Out of position, c-betting requires more caution because:",
+      "options": [
+        "You always have the worst hand",
+        "The board is dealt twice",
+        "You pay extra rake",
+        "You bet before seeing the opponent's response and can be raised"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Position does not determine that you hold the worst hand.",
+        "B": "The board is dealt once.",
+        "C": "Rake is unrelated to c-bet caution.",
+        "D": "Correct. Betting out of position commits chips blind to a potential raise behind you."
+      }
+    },
+    {
+      "id": "pr_ptpos_069",
+      "concept": "float",
+      "question": "A 'float' is when you:",
+      "options": [
+        "Call a bet in position planning to take the pot away on a later street",
+        "Fold to any bet",
+        "Bet every street",
+        "Check in the dark"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Floating means calling in position with a plan to bluff a later street when the opponent shows weakness.",
+        "B": "Folding is the opposite of floating.",
+        "C": "Floating involves calling, then attacking later, not betting every street.",
+        "D": "Checking in the dark is unrelated to floating."
+      }
+    },
+    {
+      "id": "pr_ptpos_070",
+      "concept": "float",
+      "question": "Floating works best in position because you can:",
+      "options": [
+        "Force a fold preflop",
+        "See the turn check and then bet to win the pot",
+        "Always make the nuts",
+        "Skip the turn"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Floating is a postflop tactic, not a preflop fold-out.",
+        "B": "Correct. Acting last, you can fire when the opponent checks the turn, exploiting their weakness.",
+        "C": "Floating does not depend on making the nuts.",
+        "D": "You cannot skip the turn; floating uses it."
+      }
+    },
+    {
+      "id": "pr_ptpos_071",
+      "concept": "pot_control",
+      "question": "Checking back a medium-strength hand in position is a form of:",
+      "options": [
+        "Stealing the blinds",
+        "Squeezing",
+        "Pot control to keep the pot small and reach a cheaper showdown",
+        "Slow rolling"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Blind steals are preflop raises, unrelated here.",
+        "B": "A squeeze is a preflop re-raise, not a flop check-back.",
+        "C": "Correct. Checking behind controls pot size, getting to showdown cheaply with a marginal hand.",
+        "D": "Slow rolling is delaying a known winning showdown reveal, not pot control."
+      }
+    },
+    {
+      "id": "pr_ptpos_072",
+      "concept": "pot_control",
+      "question": "Out of position with a medium hand, pot control is harder because:",
+      "options": [
+        "You must always fold",
+        "You see an extra card",
+        "The pot cannot grow",
+        "If you check, the in-position player can bet and grow the pot anyway"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You are not forced to fold a medium hand.",
+        "B": "No extra card is dealt.",
+        "C": "The pot can certainly grow when the opponent bets.",
+        "D": "Correct. Checking out of position lets the in-position opponent bet, so you cannot reliably keep the pot small."
+      }
+    },
+    {
+      "id": "pr_ptpos_073",
+      "concept": "isolation",
+      "question": "Raising to isolate a weak limper is most effective from:",
+      "options": [
+        "Late position, where you can get heads-up in position",
+        "The big blind, out of position",
+        "Any seat equally",
+        "UTG with players still behind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. From late position an iso-raise often goes heads-up against the limper, and you act last postflop.",
+        "B": "Isolating from the big blind leaves you out of position postflop.",
+        "C": "Position changes iso-raise EV, so seats are not equal.",
+        "D": "Raising from UTG leaves many players who can cold-call or 3-bet behind you."
+      }
+    },
+    {
+      "id": "pr_ptpos_074",
+      "concept": "isolation",
+      "question": "The goal of an isolation raise is to:",
+      "options": [
+        "Build a multiway pot",
+        "Play heads-up against a weaker player, ideally in position",
+        "Always see a cheap flop",
+        "Fold out everyone including the limper"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Isolation aims to reduce the field, not build it.",
+        "B": "Correct. You raise to get heads-up versus the weak player, preferably with position.",
+        "C": "An iso-raise builds the pot rather than keeping it cheap.",
+        "D": "You want the weak limper to stay; you fold out the others."
+      }
+    },
+    {
+      "id": "pr_ptpos_075",
+      "concept": "multiway",
+      "question": "Position is even more valuable in multiway pots because:",
+      "options": [
+        "Blinds act last",
+        "There are fewer players to read",
+        "You see more players' actions before deciding",
+        "The pot is always smaller"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Blinds act early postflop, not last.",
+        "B": "Multiway means more players, not fewer.",
+        "C": "Correct. With more opponents acting first, the in-position player gathers more information.",
+        "D": "Multiway pots are typically larger, not smaller."
+      }
+    },
+    {
+      "id": "pr_ptpos_076",
+      "concept": "multiway",
+      "question": "Because position is so valuable multiway, ranges that play many-way should be:",
+      "options": [
+        "Always all-in",
+        "Identical to heads-up ranges",
+        "Wider and more speculative regardless of seat",
+        "Tighter from early seats and more selective overall"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Shoving is not the multiway adjustment.",
+        "B": "Multiway ranges differ from heads-up ranges.",
+        "C": "Multiway pots demand more selectivity, not indiscriminate widening.",
+        "D": "Correct. With multiple opponents, early seats especially should tighten and favor hands that play well multiway."
+      }
+    },
+    {
+      "id": "pr_ptpos_077",
+      "concept": "multiway",
+      "question": "A hand like a small suited connector goes up in relative value multiway when you also have position because:",
+      "options": [
+        "You can realize its drawing equity and act last on big pots",
+        "It becomes the nuts preflop",
+        "It blocks all aces",
+        "You skip postflop streets"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Position helps you realize the implied-odds equity of drawing hands across multiple opponents.",
+        "B": "No starting hand is the nuts preflop.",
+        "C": "Small suited connectors do not block aces meaningfully.",
+        "D": "You still play all postflop streets."
+      }
+    },
+    {
+      "id": "pr_ptpos_078",
+      "concept": "blind_vs_blind",
+      "question": "In a small-blind versus big-blind battle, the small blind is:",
+      "options": [
+        "In position postflop",
+        "Out of position postflop",
+        "Always the favorite",
+        "Unable to raise"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The small blind acts first postflop, so it is out of position.",
+        "B": "Correct. The small blind acts before the big blind on every postflop street, so it is out of position.",
+        "C": "Being out of position makes the small blind generally the underdog, not the favorite.",
+        "D": "The small blind can raise (and often should)."
+      }
+    },
+    {
+      "id": "pr_ptpos_079",
+      "concept": "blind_vs_blind",
+      "question": "Because the small blind is out of position blind-vs-blind, a common adjustment is to:",
+      "options": [
+        "Never raise",
+        "Limp the entire range",
+        "Use a raise-or-fold (or raise-heavy) strategy to avoid playing OOP cheaply",
+        "Always cold-call"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Never raising forfeits fold equity and value.",
+        "B": "Limping the whole range invites the big blind to realize position cheaply.",
+        "C": "Correct. Many strategies favor raising or folding from the small blind to avoid bloating OOP pots with weak holdings.",
+        "D": "Always flatting surrenders initiative while out of position."
+      }
+    },
+    {
+      "id": "pr_ptpos_080",
+      "concept": "blind_vs_blind",
+      "question": "The big blind's edge in a blind-vs-blind pot is that it:",
+      "options": [
+        "Is dealt better cards",
+        "Pays no blind",
+        "Acts first postflop",
+        "Acts last postflop and can defend with good pot odds"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Cards are random; the edge is positional.",
+        "B": "The big blind posts the big blind.",
+        "C": "The big blind acts last, not first, postflop versus the small blind.",
+        "D": "Correct. The big blind has position on the small blind postflop and gets a price to defend."
+      }
+    },
+    {
+      "id": "pr_ptpos_081",
+      "concept": "equity_realization",
+      "question": "'Equity realization' refers to how much of your hand's raw equity you actually:",
+      "options": [
+        "Win at showdown given how the hand plays out",
+        "Are dealt preflop",
+        "Pay in rake",
+        "Post as blinds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Realization is the share of theoretical equity you convert into winnings given position and play.",
+        "B": "Raw equity is what you start with; realization is what you capture.",
+        "C": "Rake is unrelated to equity realization.",
+        "D": "Blinds are forced bets, not a measure of realization."
+      }
+    },
+    {
+      "id": "pr_ptpos_082",
+      "concept": "equity_realization",
+      "question": "In position you tend to realize more than 100% of some hands' raw equity because you can:",
+      "options": [
+        "Force opponents all-in always",
+        "Bluff and value bet with control, winning pots you would not at showdown",
+        "See extra cards",
+        "Avoid the flop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You cannot force opponents all-in at will.",
+        "B": "Correct. Position lets you take down pots with bluffs and extract value, over-realizing equity.",
+        "C": "No seat sees extra cards.",
+        "D": "You do not avoid the flop in position."
+      }
+    },
+    {
+      "id": "pr_ptpos_083",
+      "concept": "equity_realization",
+      "question": "Out of position, hands typically realize:",
+      "options": [
+        "Zero equity",
+        "More than their raw equity",
+        "Less than their raw equity",
+        "Exactly their raw equity"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Hands still win sometimes; realization is reduced, not zero.",
+        "B": "Out of position usually under-realizes, not over-realizes, equity.",
+        "C": "Correct. The information disadvantage out of position causes hands to realize less than their raw equity.",
+        "D": "Position shifts realization away from the raw figure."
+      }
+    },
+    {
+      "id": "pr_ptpos_084",
+      "concept": "open_size",
+      "question": "Open-raising rather than limping from the button is preferred because raising:",
+      "options": [
+        "Guarantees a fold",
+        "Avoids the flop",
+        "Pays less rake",
+        "Builds a pot you will play in position with initiative"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Raising does not guarantee a fold.",
+        "B": "Raising does not let you avoid the flop.",
+        "C": "Rake is not the reason to raise over limp.",
+        "D": "Correct. Raising takes the initiative and builds a pot you play in position, with fold equity on the blinds."
+      }
+    },
+    {
+      "id": "pr_ptpos_085",
+      "concept": "open_size",
+      "question": "Limping (just calling the big blind) from early position is generally discouraged because it:",
+      "options": [
+        "Surrenders initiative and invites multiway pots out of position",
+        "Always wins the blinds",
+        "Guarantees position",
+        "Lowers the rake"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Limping gives up fold equity and often creates multiway pots you play without initiative or position.",
+        "B": "Limping does not win the blinds; you did not raise.",
+        "C": "Limping does not grant position.",
+        "D": "Rake is unrelated to the limp decision."
+      }
+    },
+    {
+      "id": "pr_ptpos_086",
+      "concept": "open_size",
+      "question": "A larger open size is more common from early position partly to:",
+      "options": [
+        "Avoid building a pot",
+        "Discourage too many callers and protect a strong, narrow range",
+        "Invite the whole table",
+        "Reduce your own fold equity"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Raising inherently builds a pot.",
+        "B": "Correct. A bigger early open thins the field and matches a stronger, narrower opening range.",
+        "C": "The goal is fewer callers, not the whole table.",
+        "D": "A larger size increases, not reduces, fold equity."
+      }
+    },
+    {
+      "id": "pr_ptpos_087",
+      "concept": "initiative",
+      "question": "Having the 'betting initiative' means you were the:",
+      "options": [
+        "Player who only called",
+        "Big blind who checked",
+        "Last aggressor (raiser) and can continue applying pressure",
+        "First to fold"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A caller does not hold the initiative.",
+        "B": "A checking big blind has not taken the initiative.",
+        "C": "Correct. The initiative belongs to the last raiser, who can keep representing strength.",
+        "D": "Folding forfeits the hand, not the initiative."
+      }
+    },
+    {
+      "id": "pr_ptpos_088",
+      "concept": "initiative",
+      "question": "Initiative combined with position is powerful because you can:",
+      "options": [
+        "See extra cards",
+        "Skip showdown fees",
+        "Force a chop",
+        "C-bet and barrel while always acting last with information"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "No extra cards come from initiative or position.",
+        "B": "There are no per-showdown fees to skip.",
+        "C": "You cannot force a chop with position.",
+        "D": "Correct. As the in-position aggressor you can apply pressure across streets with maximal information."
+      }
+    },
+    {
+      "id": "pr_ptpos_089",
+      "concept": "squeeze_dynamics",
+      "question": "After you open and face a 3-bet while out of position, you should generally:",
+      "options": [
+        "Tighten your continuing range since you will play OOP postflop",
+        "Always 4-bet bluff",
+        "Never fold premiums",
+        "Call very wide because you are OOP"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Out of position against a 3-bet you should continue with a tighter, sturdier range.",
+        "B": "Always 4-bet bluffing is exploitable and not mandatory.",
+        "C": "While you keep premiums, the key adjustment is tightening overall.",
+        "D": "Calling very wide out of position realizes equity poorly."
+      }
+    },
+    {
+      "id": "pr_ptpos_090",
+      "concept": "position_vs_aggressor",
+      "question": "As a caller, you most want to be seated:",
+      "options": [
+        "Anywhere; it does not matter",
+        "Directly to the left of the preflop aggressor",
+        "Directly to the right of the aggressor",
+        "In the small blind"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Relative position matters a great deal for a caller.",
+        "B": "Correct. Sitting just left of the aggressor gives you position on them throughout the hand.",
+        "C": "Sitting to their right means you act before them, out of position.",
+        "D": "The small blind is the worst relative spot, acting first postflop."
+      }
+    },
+    {
+      "id": "pr_ptpos_091",
+      "concept": "btn_vs_bb",
+      "question": "Button versus big blind single-raised pots are common; the button's structural edge is:",
+      "options": [
+        "Paying no rake",
+        "Closing the action preflop",
+        "Acting last on every postflop street",
+        "Being dealt stronger hands"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Rake is unrelated to the structural edge.",
+        "B": "The big blind closes preflop action, not the button.",
+        "C": "Correct. The button acts last on flop, turn, and river, giving it the information edge over the big blind.",
+        "D": "Hand strength is random, not seat-based."
+      }
+    },
+    {
+      "id": "pr_ptpos_092",
+      "concept": "co_vs_btn",
+      "question": "From the cutoff, you should open a bit tighter than the button because:",
+      "options": [
+        "The cutoff posts a blind",
+        "The cutoff acts last",
+        "The button always folds",
+        "The button can still 3-bet or call in position behind you"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The cutoff posts no blind.",
+        "B": "The button, not the cutoff, acts last.",
+        "C": "The button does not always fold to a cutoff open.",
+        "D": "Correct. The button sits behind the cutoff and can take position by calling or 3-betting, so the cutoff opens tighter."
+      }
+    },
+    {
+      "id": "pr_ptpos_093",
+      "concept": "stack_position",
+      "question": "Why is position especially important when stacks are deep?",
+      "options": [
+        "More postflop streets and bigger pots magnify the information edge",
+        "Deep stacks remove the blinds",
+        "Deep play skips the flop",
+        "Deep stacks make all hands equal"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Deeper stacks mean larger, more complex postflop decisions where acting last is more valuable.",
+        "B": "Blinds are posted regardless of stack depth.",
+        "C": "Deep play does not skip postflop streets; it adds to them.",
+        "D": "Stack depth does not equalize hand strengths."
+      }
+    },
+    {
+      "id": "pr_ptpos_094",
+      "concept": "short_stack",
+      "question": "With a very short stack, position matters somewhat less because:",
+      "options": [
+        "Blinds are not posted",
+        "Most decisions become preflop shove-or-fold with little postflop play",
+        "You always act last",
+        "The button disappears"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Blinds are still posted regardless of stack size.",
+        "B": "Correct. Short stacks compress play into preflop all-in decisions, reducing postflop positional value.",
+        "C": "A short stack does not change action order.",
+        "D": "The button still rotates with short stacks."
+      }
+    },
+    {
+      "id": "pr_ptpos_095",
+      "concept": "open_fold",
+      "question": "Folding a marginal hand UTG that you would open on the button is correct because:",
+      "options": [
+        "UTG acts last",
+        "The button is forbidden that hand",
+        "The same hand realizes far less equity from early position",
+        "Cards change value by suit only"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "UTG acts first, not last.",
+        "B": "The button is not forbidden the hand; rather the hand is fine there.",
+        "C": "Correct. A hand's playability depends on position; many button-opens are clear UTG folds.",
+        "D": "A hand's value depends on position and players behind, not suit alone."
+      }
+    },
+    {
+      "id": "pr_ptpos_096",
+      "concept": "check_behind",
+      "question": "Checking behind on the river with a marginal hand in position is correct when:",
+      "options": [
+        "You always want to bluff",
+        "You are out of position",
+        "You hold the nuts",
+        "Worse hands will not call and better hands will not fold"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Auto-bluffing a marginal hand burns money when called by better.",
+        "B": "Checking behind requires you to be in position, not out.",
+        "C": "With the nuts you should bet for value, not check back.",
+        "D": "Correct. If you cannot get called by worse or fold out better, checking back captures showdown value."
+      }
+    },
+    {
+      "id": "pr_ptpos_097",
+      "concept": "river_position",
+      "question": "In position on the river, after the opponent checks, you can:",
+      "options": [
+        "Choose to value bet, bluff, or check back based on their likely range",
+        "See their hole cards",
+        "Deal another card",
+        "Force a fold automatically"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acting last on the river lets you tailor value bets and bluffs to the opponent's range.",
+        "B": "You never see hidden hole cards.",
+        "C": "No further card is dealt after the river.",
+        "D": "A bet does not automatically force a fold."
+      }
+    },
+    {
+      "id": "pr_ptpos_098",
+      "concept": "info_advantage",
+      "question": "The core advantage of position on a single street is:",
+      "options": [
+        "More cards",
+        "More information before you must commit chips",
+        "A bigger stack",
+        "Lower blinds"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Position grants no extra cards.",
+        "B": "Correct. Acting later means you decide with more information about opponents' actions.",
+        "C": "Position does not change your stack size.",
+        "D": "Blinds are not lowered by position."
+      }
+    },
+    {
+      "id": "pr_ptpos_099",
+      "concept": "squeeze_target",
+      "question": "Squeezing is more profitable when the original caller's range is:",
+      "options": [
+        "Always all-in",
+        "Identical to the opener's",
+        "Capped and likely to fold to a re-raise",
+        "All premium hands"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Calling ranges are rarely all-in by definition.",
+        "B": "The caller's range is usually weaker and more capped than the opener's.",
+        "C": "Correct. A capped flat-calling range tends to fold to a squeeze, boosting fold equity.",
+        "D": "If the caller had all premiums, the squeeze would get called or 4-bet too often."
+      }
+    },
+    {
+      "id": "pr_ptpos_100",
+      "concept": "preflop_close",
+      "question": "Among these, who can never close the preflop action by calling?",
+      "options": [
+        "A player who flat-calls with the big blind still behind",
+        "The button when the blinds have folded",
+        "The big blind in an unraised pot",
+        "UTG, the first to act"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Such a flat does not close action because the big blind still acts.",
+        "B": "If both blinds folded, the button could be last to act preflop.",
+        "C": "The big blind closes the action in an unraised pot.",
+        "D": "Correct. UTG acts first, so players remain behind and it cannot close the action."
+      }
+    },
+    {
+      "id": "pr_ptpos_101",
+      "concept": "seat_value",
+      "question": "Ranking seats by long-run profitability, the usual order (best to worst) is roughly:",
+      "options": [
+        "BTN, CO, ..., SB, BB",
+        "SB, BB, BTN, CO",
+        "UTG, BTN, CO, BB",
+        "BB, SB, UTG, BTN"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Profitability descends from the button through late/middle seats down to the blinds.",
+        "B": "The blinds are the worst seats, not near the top.",
+        "C": "UTG is among the least profitable opening seats, not the best.",
+        "D": "This inverts reality; the blinds are the least profitable, not the most."
+      }
+    },
+    {
+      "id": "pr_ptpos_102",
+      "concept": "why_button_best",
+      "question": "The button is the only non-blind seat that is guaranteed to:",
+      "options": [
+        "Win the pot",
+        "Be in position against every other player postflop",
+        "Have the best hand",
+        "Avoid all 3-bets"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Position does not guarantee winning the pot.",
+        "B": "Correct. The button acts after everyone postflop, so it is in position versus the whole field.",
+        "C": "Position does not guarantee the best hand.",
+        "D": "The button can still face 3-bets from the blinds."
+      }
+    },
+    {
+      "id": "pr_ptpos_103",
+      "concept": "oop_check_raise",
+      "question": "Out of position, the check-raise is valuable because it:",
+      "options": [
+        "Skips the flop",
+        "Is only legal in the blinds",
+        "Lets you put in a raise despite acting first, regaining initiative",
+        "Guarantees a fold"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "It is a flop (or later) action, not a way to skip the flop.",
+        "B": "Check-raising is legal from any seat, not only the blinds.",
+        "C": "Correct. Check-raising lets an out-of-position player apply pressure and seize initiative after checking.",
+        "D": "A check-raise does not guarantee a fold."
+      }
+    },
+    {
+      "id": "pr_ptpos_104",
+      "concept": "delayed_steal",
+      "question": "If it folds to the small blind, attacking the big blind is essentially a steal but:",
+      "options": [
+        "You will be in position postflop",
+        "You post no blind",
+        "The big blind cannot defend",
+        "You will be out of position postflop, unlike a button steal"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The small blind is out of position to the big blind postflop.",
+        "B": "The small blind posts the small blind.",
+        "C": "The big blind can and frequently does defend.",
+        "D": "Correct. A small-blind steal leaves you out of position if called, unlike the in-position button steal."
+      }
+    },
+    {
+      "id": "pr_ptpos_105",
+      "concept": "raise_first_in",
+      "question": "'RFI' (raise first in) ranges are constructed to be:",
+      "options": [
+        "Wider the later your position",
+        "Widest from UTG",
+        "Only premium pairs anywhere",
+        "The same from every seat"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Raise-first-in ranges widen as you move to later position with fewer players behind.",
+        "B": "UTG has the tightest RFI range, not the widest.",
+        "C": "RFI ranges are far broader than premium pairs, especially late.",
+        "D": "RFI ranges differ by seat; they are not uniform."
+      }
+    },
+    {
+      "id": "pr_ptpos_106",
+      "concept": "position_bluff_freq",
+      "question": "All else equal, optimal bluffing frequency is higher when you are:",
+      "options": [
+        "Out of position",
+        "In position",
+        "In the big blind",
+        "Under the gun"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Out of position bluffs are riskier with less information.",
+        "B": "Correct. In position you bluff more effectively because you act with information about the opponent.",
+        "C": "The big blind is usually out of position postflop.",
+        "D": "UTG acts first postflop and bluffs less freely than in-position seats."
+      }
+    },
+    {
+      "id": "pr_ptpos_107",
+      "concept": "calling_range_shape",
+      "question": "Compared with an in-position calling range, an out-of-position calling range should be:",
+      "options": [
+        "All bluffs",
+        "Wider and looser",
+        "Tighter and more robust",
+        "Identical"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A calling range is value-heavy, not all bluffs.",
+        "B": "Out of position you should be tighter, not wider.",
+        "C": "Correct. Less equity realization out of position calls for a tighter, sturdier continuing range.",
+        "D": "Position meaningfully changes the optimal range; they are not identical."
+      }
+    },
+    {
+      "id": "pr_ptpos_108",
+      "concept": "squeeze_or_fold",
+      "question": "From the big blind facing an open and a call, a strong polar option is to:",
+      "options": [
+        "Always flat",
+        "Always limp-behind",
+        "Never raise",
+        "Squeeze or fold, rather than flat into a multiway OOP pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Always flatting commits you to OOP multiway pots with marginal hands.",
+        "B": "You cannot limp behind facing a raise.",
+        "C": "Never raising forfeits fold equity from the big blind.",
+        "D": "Correct. Squeezing or folding avoids playing a multiway pot out of position with a weak flat."
+      }
+    },
+    {
+      "id": "pr_ptpos_109",
+      "concept": "button_range_adv",
+      "question": "On many flops the button has a 'range advantage' partly because it:",
+      "options": [
+        "Opened a wide but capped-at-the-top-only range and acts last",
+        "Opened only premiums",
+        "Acts first",
+        "Posts the big blind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The button's wide opening range connects with many boards and it acts last, compounding the edge.",
+        "B": "The button opens far more than just premiums.",
+        "C": "The button acts last postflop, not first.",
+        "D": "The button posts no blind."
+      }
+    },
+    {
+      "id": "pr_ptpos_110",
+      "concept": "pos_freeplay",
+      "question": "The big blind 'sees a free flop' when:",
+      "options": [
+        "It 3-bets",
+        "Everyone limps or folds and no one raises, so it checks its option",
+        "It folds preflop",
+        "It is on the button"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3-betting invests more chips, not a free flop.",
+        "B": "Correct. With no raise, the big blind can check its option and see the flop for free.",
+        "C": "Folding means it does not see the flop at all.",
+        "D": "The big blind is not the button."
+      }
+    },
+    {
+      "id": "pr_ptpos_111",
+      "concept": "seat_after_button",
+      "question": "The seat that becomes the button next hand is currently the:",
+      "options": [
+        "Big blind",
+        "UTG",
+        "Cutoff",
+        "Small blind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The big blind moves to UTG-type early position next hand.",
+        "B": "UTG is far from receiving the button next hand.",
+        "C": "Correct. The button moves one seat clockwise, so the current cutoff becomes the next button.",
+        "D": "The small blind becomes the next big blind, not the button."
+      }
+    },
+    {
+      "id": "pr_ptpos_112",
+      "concept": "blinds_disadvantage",
+      "question": "The fundamental disadvantage of the blinds is that they:",
+      "options": [
+        "Always get dealt weak cards",
+        "Cannot win pots",
+        "Act last on every street",
+        "Invest chips before acting and then play out of position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Card quality is random for the blinds too.",
+        "B": "The blinds can and do win pots.",
+        "C": "The blinds act early postflop, not last.",
+        "D": "Correct. The blinds post chips blind and are out of position for the rest of the hand."
+      }
+    },
+    {
+      "id": "pr_ptpos_113",
+      "concept": "why_tighten_early",
+      "question": "Tightening your range from early position reduces the risk of:",
+      "options": [
+        "Being dominated or 3-bet by the many players behind you",
+        "Seeing the flop",
+        "Posting a blind",
+        "Holding a suited hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With many players behind, a tighter early range avoids domination and frequent 3-bets.",
+        "B": "Tightening does not change whether you reach the flop.",
+        "C": "Range width does not affect blind posting.",
+        "D": "Suitedness is unrelated to early tightening."
+      }
+    },
+    {
+      "id": "pr_ptpos_114",
+      "concept": "info_tax_example",
+      "question": "An example of paying the 'information tax' out of position is:",
+      "options": [
+        "Stealing on the button",
+        "Betting the turn and then getting raised by a hand you would have checked behind in position",
+        "Acting last on the river",
+        "Checking behind for a free card"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A button steal is an in-position play, not the tax.",
+        "B": "Correct. Out of position you bet first and can be raised off equity you would have realized acting last.",
+        "C": "Acting last on the river is the in-position benefit, not the tax.",
+        "D": "Checking behind for a free card is an in-position privilege."
+      }
+    },
+    {
+      "id": "pr_ptpos_115",
+      "concept": "multiway_cbet",
+      "question": "C-betting is generally less profitable multiway because:",
+      "options": [
+        "The pot is tiny",
+        "No one can call",
+        "More opponents are more likely to have connected, and folds are less certain",
+        "You always have position"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Multiway pots are usually larger, not tiny.",
+        "B": "More opponents means more callers, not fewer.",
+        "C": "Correct. With more players, someone is more likely to continue, so c-bets get called or raised more.",
+        "D": "Multiway does not guarantee you position over everyone."
+      }
+    },
+    {
+      "id": "pr_ptpos_116",
+      "concept": "pos_aggression",
+      "question": "Being in position lets you apply pressure across multiple streets because you:",
+      "options": [
+        "Get to bet twice per street",
+        "See the opponent's cards",
+        "Pay no blinds",
+        "Decide each street last, after seeing weakness"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You bet once per street, like everyone else.",
+        "B": "You cannot see hidden cards.",
+        "C": "Position does not exempt you from blinds.",
+        "D": "Correct. Acting last each street lets you barrel when the opponent signals weakness."
+      }
+    },
+    {
+      "id": "pr_ptpos_117",
+      "concept": "sb_complete",
+      "question": "Completing (limping) the small blind into the big blind is often discouraged because:",
+      "options": [
+        "You build a pot you will play out of position with a capped range",
+        "It folds out the big blind",
+        "It guarantees position",
+        "It posts no chips"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Completing creates an out-of-position pot with a weak, capped small-blind range.",
+        "B": "Completing does not fold out the big blind.",
+        "C": "The small blind is out of position postflop, not in position.",
+        "D": "Completing posts additional chips to match the big blind."
+      }
+    },
+    {
+      "id": "pr_ptpos_118",
+      "concept": "bb_vs_sb_raise",
+      "question": "Facing a small-blind raise, the big blind defends with the advantage of:",
+      "options": [
+        "Posting no blind",
+        "Acting last postflop and a price to call",
+        "Acting first postflop",
+        "Being dealt better cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The big blind posts the big blind.",
+        "B": "Correct. The big blind has position on the small blind postflop and gets a price to continue.",
+        "C": "The big blind acts last, not first, versus the small blind.",
+        "D": "Card quality is random."
+      }
+    },
+    {
+      "id": "pr_ptpos_119",
+      "concept": "late_3bet",
+      "question": "3-betting from the button against a cutoff open is attractive because, if called, you:",
+      "options": [
+        "Cannot c-bet",
+        "Must check every street",
+        "Play the pot in position with initiative",
+        "Are out of position"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "In-position 3-bettors c-bet frequently.",
+        "B": "You are free to bet, not forced to check.",
+        "C": "Correct. A called button 3-bet leaves you in position with the betting lead.",
+        "D": "The button is in position versus the cutoff."
+      }
+    },
+    {
+      "id": "pr_ptpos_120",
+      "concept": "range_vs_position",
+      "question": "Two players hold the same hand; the one more likely to profit is the one:",
+      "options": [
+        "In the small blind",
+        "Under the gun",
+        "Out of position",
+        "In position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The small blind is out of position postflop.",
+        "B": "UTG acts first and realizes equity worse than an in-position seat.",
+        "C": "The out-of-position player profits less with the identical hand.",
+        "D": "Correct. The same hand earns more in position thanks to better equity realization."
+      }
+    },
+    {
+      "id": "pr_ptpos_121",
+      "concept": "donk_bet",
+      "question": "A 'donk bet' is leading out of position into the previous street's aggressor; it is risky because:",
+      "options": [
+        "You bet before the aggressor acts, often into their range advantage",
+        "You always have the nuts",
+        "It is illegal",
+        "You act last"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Donk betting commits chips out of position, frequently into the aggressor's stronger range.",
+        "B": "A donk bet does not imply the nuts.",
+        "C": "Donk betting is legal, just often suboptimal.",
+        "D": "Donking is an out-of-position lead; you act first, not last."
+      }
+    },
+    {
+      "id": "pr_ptpos_122",
+      "concept": "pos_realize_draw",
+      "question": "With a flush draw, being in position helps because you can:",
+      "options": [
+        "Force a fold",
+        "Take a free card by checking behind if you miss",
+        "Always make the flush",
+        "See an extra card"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A draw does not force opponents to fold.",
+        "B": "Correct. In position you can check behind to realize your draw's equity cheaply.",
+        "C": "Position does not guarantee completing the draw.",
+        "D": "No extra card is dealt by position."
+      }
+    },
+    {
+      "id": "pr_ptpos_123",
+      "concept": "seat_name_recall",
+      "question": "Which list is ordered from earliest to latest preflop in 6-max?",
+      "options": [
+        "BTN, CO, HJ",
+        "SB, BB, BTN",
+        "UTG, HJ, CO, BTN",
+        "BB, BTN, CO"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is latest-to-earliest among those seats, reversed.",
+        "B": "The blinds act after these seats preflop in an opened pot, so this order is wrong.",
+        "C": "Correct. UTG, then hijack, then cutoff, then button is the earliest-to-latest order in 6-max.",
+        "D": "This mixes blinds and late seats out of sequence."
+      }
+    },
+    {
+      "id": "pr_ptpos_124",
+      "concept": "why_position_beats_cards",
+      "question": "The intro claims acting last can be worth more than extra cards because position:",
+      "options": [
+        "Improves your hole cards",
+        "Removes the blinds",
+        "Guarantees the nuts",
+        "Lets you act on information every street, compounding small edges"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Position does not change your hole cards.",
+        "B": "Blinds are posted regardless of position.",
+        "C": "Position never guarantees a specific hand.",
+        "D": "Correct. Position provides repeated informational edges each street that compound over a hand and a session."
+      }
+    },
+    {
+      "id": "pr_ptpos_125",
+      "concept": "overcall_position",
+      "question": "Overcalling (calling after an open and a call) is more comfortable when you will be:",
+      "options": [
+        "In position on both, e.g., on the button",
+        "In the small blind",
+        "Under the gun",
+        "Out of position to both players"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. On the button you overcall with position on both opponents, easing postflop play.",
+        "B": "The small blind acts first postflop, the worst spot to overcall from.",
+        "C": "UTG cannot overcall an open and a call that happen after it.",
+        "D": "Overcalling out of position to multiple players is difficult."
+      }
+    },
+    {
+      "id": "pr_ptpos_126",
+      "concept": "wide_btn_defense",
+      "question": "Because the button opens widest, the blinds counter by:",
+      "options": [
+        "Folding everything",
+        "Defending and 3-betting wider against button opens",
+        "Limping behind",
+        "Leaving the table"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding everything lets the button steal relentlessly.",
+        "B": "Correct. The blinds widen their defending and 3-betting ranges to attack the button's wide opens.",
+        "C": "You cannot limp behind a raise.",
+        "D": "Leaving the table is not a strategic counter."
+      }
+    },
+    {
+      "id": "pr_ptpos_127",
+      "concept": "pos_pot_geometry",
+      "question": "Acting last helps you control 'pot geometry' by:",
+      "options": [
+        "Dealing the river twice",
+        "Skipping streets",
+        "Choosing bet sizes and whether to check, shaping the pot toward your goal",
+        "Adding chips for free"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The river is dealt once.",
+        "B": "You cannot skip streets in position.",
+        "C": "Correct. In position you decide sizing and whether to check, steering the pot larger or smaller as desired.",
+        "D": "No chips are added for free by position."
+      }
+    },
+    {
+      "id": "pr_ptpos_128",
+      "concept": "squeeze_size_rule",
+      "question": "A practical squeeze sizing rule is to use a base 3-bet size plus extra for:",
+      "options": [
+        "The number of community cards",
+        "The rake",
+        "Your own stack only",
+        "Each additional caller in the pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Community card count does not set squeeze sizing.",
+        "B": "Rake is not the basis for squeeze size.",
+        "C": "Squeeze size scales with callers, not just your stack.",
+        "D": "Correct. Add to your 3-bet for every extra caller to charge the dead money and deny equity."
+      }
+    },
+    {
+      "id": "pr_ptpos_129",
+      "concept": "co_steal_target",
+      "question": "A cutoff open functions as a steal because it primarily tries to win:",
+      "options": [
+        "The blinds (and fold out the button)",
+        "A multiway pot",
+        "The antes only",
+        "Nothing"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A cutoff open aims to take the blinds and get the button to fold, winning uncontested.",
+        "B": "A steal seeks to avoid a multiway pot, not build one.",
+        "C": "It targets blinds (and antes if present), not antes alone.",
+        "D": "A successful steal wins the blinds, which is something."
+      }
+    },
+    {
+      "id": "pr_ptpos_130",
+      "concept": "position_defense_oop",
+      "question": "When you must play out of position, a sound principle is to:",
+      "options": [
+        "Only bluff",
+        "Play a tighter, more value-heavy range and use raises over flats",
+        "Call extremely wide",
+        "Limp everything"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An all-bluff strategy out of position is a losing one.",
+        "B": "Correct. Out of position you favor a tighter, value-heavy range and raising to avoid passive OOP spots.",
+        "C": "Calling very wide out of position realizes equity poorly.",
+        "D": "Limping everything is passive and exploitable."
+      }
+    },
+    {
+      "id": "pr_ptpos_131",
+      "concept": "btn_open_freq",
+      "question": "On the button with folds to you, you can open a very high percentage of hands because:",
+      "options": [
+        "The blinds cannot 3-bet",
+        "You skip the flop",
+        "Only the two blinds are left and you will have position if called",
+        "You always have a strong hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The blinds can 3-bet your button open.",
+        "B": "You do not skip the flop when called.",
+        "C": "Correct. With just the blinds behind and guaranteed position when called, a wide button open is profitable.",
+        "D": "You open many weak hands; you are not always strong."
+      }
+    },
+    {
+      "id": "pr_ptpos_132",
+      "concept": "mp_range",
+      "question": "Middle-position opening ranges sit between UTG and the cutoff because there are:",
+      "options": [
+        "No players behind",
+        "More players than UTG",
+        "Always exactly two players behind",
+        "Fewer players behind than UTG but more than the cutoff"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "There are still players behind middle position.",
+        "B": "Middle position has fewer players behind than UTG, not more.",
+        "C": "The number behind varies with table size and seat.",
+        "D": "Correct. Middle position has fewer opponents behind than UTG yet more than the cutoff, so its range is in between."
+      }
+    },
+    {
+      "id": "pr_ptpos_133",
+      "concept": "pos_value_summary",
+      "question": "Summarizing position: the later you act, the more you can:",
+      "options": [
+        "Tailor decisions to opponents' revealed actions",
+        "Improve your cards",
+        "Avoid the blinds",
+        "Guarantee profit"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acting later lets you base every decision on what opponents have already done.",
+        "B": "Position does not change card quality.",
+        "C": "Blinds come around to every seat.",
+        "D": "Position improves EV but never guarantees profit."
+      }
+    },
+    {
+      "id": "pr_ptpos_134",
+      "concept": "fold_to_3bet_oop",
+      "question": "After opening UTG and facing a button 3-bet, you are now:",
+      "options": [
+        "In position postflop",
+        "Out of position postflop",
+        "On the button",
+        "Closing the action"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "UTG is not in position against the button.",
+        "B": "Correct. The button 3-bettor will act after you on every street, leaving UTG out of position.",
+        "C": "UTG is not the button.",
+        "D": "The button, acting last, is closer to closing the action than UTG."
+      }
+    },
+    {
+      "id": "pr_ptpos_135",
+      "concept": "cold_4bet",
+      "question": "A 'cold 4-bet' (4-betting without having opened) is strongest when you:",
+      "options": [
+        "Already folded",
+        "Hold the worst hand",
+        "Have position and good blockers against the 3-bettor",
+        "Are out of position with junk"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A folded hand cannot 4-bet.",
+        "B": "Cold 4-bets are not made with the worst hand for value.",
+        "C": "Correct. Position plus blockers makes a cold 4-bet's fold equity and playability much better.",
+        "D": "Out of position with junk is a poor cold 4-bet."
+      }
+    },
+    {
+      "id": "pr_ptpos_136",
+      "concept": "limp_behind_btn",
+      "question": "Limping behind on the button after limpers can be fine when:",
+      "options": [
+        "You hold aces and want to fold out limpers",
+        "You are out of position",
+        "You want a multiway pot OOP",
+        "You have a speculative hand and want to see a cheap flop in position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "With aces you should raise to build the pot and isolate, not limp.",
+        "B": "The button is in position, not out.",
+        "C": "On the button you would be in position, not OOP, in such a pot.",
+        "D": "Correct. With a speculative hand, limping behind in position can be a low-cost way to realize equity."
+      }
+    },
+    {
+      "id": "pr_ptpos_137",
+      "concept": "pos_check_raise_value",
+      "question": "Out of position, building a check-raise range matters because without it you:",
+      "options": [
+        "Become too passive and easy to bet into profitably",
+        "Always win",
+        "Skip the flop",
+        "Act last"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Without check-raises, an out-of-position player is exploitably passive and easy to barrel.",
+        "B": "Lacking check-raises does not make you always win.",
+        "C": "You cannot skip the flop out of position.",
+        "D": "Out of position you act first, not last."
+      }
+    },
+    {
+      "id": "pr_ptpos_138",
+      "concept": "btn_iso",
+      "question": "Isolating a single limper from the button is ideal because you:",
+      "options": [
+        "Post the big blind",
+        "Likely go heads-up and keep position postflop",
+        "Build a five-way pot",
+        "Act first postflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The button posts no blind.",
+        "B": "Correct. A button iso-raise usually gets heads-up versus the limper while you keep position.",
+        "C": "Isolation aims to thin the field, not build a five-way pot.",
+        "D": "The button acts last postflop, not first."
+      }
+    },
+    {
+      "id": "pr_ptpos_139",
+      "concept": "seat_count_effect",
+      "question": "Moving from full-ring (9 seats) to 6-max, opening ranges generally:",
+      "options": [
+        "Become premium-only",
+        "Get tighter everywhere",
+        "Widen because there are fewer players behind each seat",
+        "Stay identical"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6-max play is generally looser, not premium-only.",
+        "B": "Fewer seats means wider, not tighter, ranges.",
+        "C": "Correct. With fewer players behind, 6-max opening ranges are wider than full-ring.",
+        "D": "Table size changes ranges; they are not identical."
+      }
+    },
+    {
+      "id": "pr_ptpos_140",
+      "concept": "pos_river_value",
+      "question": "Thin value betting the river is easier in position because you:",
+      "options": [
+        "Always get called",
+        "See hidden cards",
+        "Avoid showdown",
+        "Bet last and can fold to a raise, having seen a check"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Thin value bets are not always called; that is why they are thin.",
+        "B": "Hidden cards remain hidden.",
+        "C": "A river value bet aims for showdown, not avoidance.",
+        "D": "Correct. In position you bet after a check and can react to a raise, making thin value safer."
+      }
+    },
+    {
+      "id": "pr_ptpos_141",
+      "concept": "oop_protect",
+      "question": "Out of position with a vulnerable made hand, betting (rather than checking) is often right to:",
+      "options": [
+        "Charge draws and avoid giving free cards you cannot control",
+        "Slow the hand down",
+        "Guarantee a fold",
+        "Give a free card"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Out of position you cannot rely on controlling later streets, so betting protects against free cards.",
+        "B": "Slowing down out of position risks giving cheap cards to draws.",
+        "C": "Betting does not guarantee a fold.",
+        "D": "Betting denies, rather than gives, a free card."
+      }
+    },
+    {
+      "id": "pr_ptpos_142",
+      "concept": "pos_value_deep",
+      "question": "Among these spots, position is worth the most in a:",
+      "options": [
+        "Walk (everyone folds to the big blind)",
+        "Deep-stacked single-raised pot with multiple postflop streets",
+        "Preflop all-in",
+        "Short-stack shove"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A walk has no contested play at all.",
+        "B": "Correct. Deep stacks and many postflop streets maximize the value of acting last.",
+        "C": "An all-in removes postflop decisions where position matters.",
+        "D": "A short-stack shove is mostly a preflop decision."
+      }
+    },
+    {
+      "id": "pr_ptpos_143",
+      "concept": "cutoff_vs_blinds",
+      "question": "When the cutoff opens and only the big blind defends, the cutoff is:",
+      "options": [
+        "On the button",
+        "Forced to check",
+        "In position postflop",
+        "Out of position postflop"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The cutoff is not the button, but here it still has position on the big blind.",
+        "B": "The cutoff is free to bet; it is not forced to check.",
+        "C": "Correct. The cutoff acts after the big blind postflop, so it is in position.",
+        "D": "The cutoff is in position to the big blind, not out."
+      }
+    },
+    {
+      "id": "pr_ptpos_144",
+      "concept": "aggressor_position",
+      "question": "The preflop raiser prefers having position because it makes their c-bet strategy:",
+      "options": [
+        "Mandatory every street",
+        "Illegal",
+        "Independent of the opponent",
+        "More flexible, with the option to bet or check back with information"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "C-betting is never mandatory.",
+        "B": "C-betting is legal.",
+        "C": "Good c-bet strategy adapts to the opponent, especially with position.",
+        "D": "Correct. With position, the aggressor can c-bet or check back based on the opponent's revealed action."
+      }
+    },
+    {
+      "id": "pr_ptpos_145",
+      "concept": "why_bb_not_worst",
+      "question": "Although the big blind loses money, it is not the worst seat because it:",
+      "options": [
+        "Gets a discount to defend and closes the action preflop",
+        "Always has position",
+        "Is dealt the best cards",
+        "Pays no blind"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The big blind's price and closing action make it less costly than the small blind, which is the worst seat.",
+        "B": "The big blind is usually out of position postflop.",
+        "C": "Cards are random.",
+        "D": "The big blind does post the big blind."
+      }
+    },
+    {
+      "id": "pr_ptpos_146",
+      "concept": "sb_worst",
+      "question": "The small blind is often considered the worst seat because it:",
+      "options": [
+        "Has the widest range",
+        "Posts a blind and is out of position to everyone except the dealerless pots",
+        "Acts last postflop",
+        "Pays no blind"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The small blind cannot profitably play the widest range from out of position.",
+        "B": "Correct. The small blind invests chips and then plays out of position to the big blind and any callers.",
+        "C": "The small blind acts first postflop, not last.",
+        "D": "The small blind posts the small blind."
+      }
+    },
+    {
+      "id": "pr_ptpos_147",
+      "concept": "pos_bluff_river",
+      "question": "A pure bluff on the river is best attempted:",
+      "options": [
+        "Only with the nuts",
+        "When you must check",
+        "In position after the opponent shows weakness by checking",
+        "Out of position into the aggressor"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The nuts is for value betting, not bluffing.",
+        "B": "If you must check, you cannot bluff that turn.",
+        "C": "Correct. In position, a check by the opponent signals weakness you can attack with a bluff.",
+        "D": "Bluffing into the aggressor out of position is high-risk and less informed."
+      }
+    },
+    {
+      "id": "pr_ptpos_148",
+      "concept": "realization_pct",
+      "question": "Saying a hand realizes '80% of its equity' means it:",
+      "options": [
+        "Is an 80% favorite preflop",
+        "Folds 80% of the time",
+        "Pays 80% rake",
+        "Wins 80% of its theoretical share given how it gets played"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That would be its raw equity, not its realization.",
+        "B": "Realization is not a fold frequency.",
+        "C": "Rake is unrelated to realization percentage.",
+        "D": "Correct. Realization is the fraction of raw equity actually captured given position and play."
+      }
+    },
+    {
+      "id": "pr_ptpos_149",
+      "concept": "position_first_principle",
+      "question": "The first principle of positional play is to play more pots:",
+      "options": [
+        "In position and fewer out of position",
+        "Out of position to bluff more",
+        "From the blinds",
+        "All-in preflop"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Winning players gravitate toward in-position pots and avoid marginal out-of-position ones.",
+        "B": "Out-of-position bluffing is harder, not a first principle.",
+        "C": "The blinds are the least profitable seats to play many pots from.",
+        "D": "Jamming preflop ignores the value of postflop position."
+      }
+    },
+    {
+      "id": "pr_ptpos_150",
+      "concept": "btn_defend_3bet",
+      "question": "On the button facing a blind 3-bet, you can continue relatively wide because you:",
+      "options": [
+        "Cannot 4-bet",
+        "Will have position postflop if you call",
+        "Are out of position",
+        "Must fold"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You may 4-bet from the button if you choose.",
+        "B": "Correct. Position lets the button call a 3-bet a bit wider and realize equity well postflop.",
+        "C": "The button is in position versus the blinds.",
+        "D": "You are not forced to fold to a 3-bet."
+      }
+    },
+    {
+      "id": "pr_ptpos_151",
+      "concept": "seat_after_utg",
+      "question": "In full-ring, the seat immediately after UTG is:",
+      "options": [
+        "The small blind",
+        "The cutoff",
+        "UTG+1",
+        "The button"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The small blind is far from UTG.",
+        "B": "The cutoff is in late position, not right after UTG.",
+        "C": "Correct. The seat just to UTG's left is UTG+1, still early position.",
+        "D": "The button is several seats later."
+      }
+    },
+    {
+      "id": "pr_ptpos_152",
+      "concept": "pos_implied_odds",
+      "question": "Drawing hands gain implied odds in position because you can:",
+      "options": [
+        "Always get paid",
+        "See extra cards",
+        "Never lose",
+        "Extract bets when you hit and control the pot when you miss"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You do not always get paid when you hit.",
+        "B": "No extra cards come from position.",
+        "C": "Position reduces, but does not eliminate, losses.",
+        "D": "Correct. Position lets you bet when you complete a draw and check back to save chips when you miss."
+      }
+    },
+    {
+      "id": "pr_ptpos_153",
+      "concept": "multiway_position_caution",
+      "question": "Even with position, multiway pots demand caution because:",
+      "options": [
+        "Several opponents increase the chance someone has a strong hand",
+        "Position becomes a disadvantage",
+        "You act first",
+        "The pot shrinks"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. More players raise the likelihood that someone holds a strong hand, so bluffs work less often.",
+        "B": "Position remains an advantage multiway, just used more carefully.",
+        "C": "In position you still act last, not first.",
+        "D": "Multiway pots are larger, not smaller."
+      }
+    },
+    {
+      "id": "pr_ptpos_154",
+      "concept": "open_size_late",
+      "question": "Smaller open sizes are common from late position partly because you:",
+      "options": [
+        "Cannot be 3-bet",
+        "Risk less to steal blinds while keeping position when called",
+        "Always get folds",
+        "Want a multiway pot"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You can still be 3-bet by the blinds.",
+        "B": "Correct. A smaller late open risks fewer chips on a steal and keeps you in position if called.",
+        "C": "Smaller sizes do not always get folds.",
+        "D": "Late opens aim to thin the field, not build multiway pots."
+      }
+    },
+    {
+      "id": "pr_ptpos_155",
+      "concept": "position_and_initiative_combo",
+      "question": "The strongest postflop configuration is usually to have:",
+      "options": [
+        "Initiative but out of position",
+        "Neither",
+        "Both position and the betting initiative",
+        "Position but no initiative"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Initiative out of position is harder to leverage than in position.",
+        "B": "Having neither is the worst configuration.",
+        "C": "Correct. Holding position and the initiative lets you apply maximal, well-informed pressure.",
+        "D": "Position alone is good but weaker than also holding initiative."
+      }
+    },
+    {
+      "id": "pr_ptpos_156",
+      "concept": "bb_check_option",
+      "question": "When action folds around and the big blind checks its option, the pot goes to the flop with the big blind:",
+      "options": [
+        "Folding automatically",
+        "On the button",
+        "Acting last postflop",
+        "Having invested only the posted blind and now playing the flop"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Checking the option keeps the big blind in the hand, not folded.",
+        "B": "The big blind is not the button.",
+        "C": "The big blind acts early postflop, not last (unless heads-up vs the button).",
+        "D": "Correct. The big blind checks its option, having posted only the blind, and continues to the flop."
+      }
+    },
+    {
+      "id": "pr_ptpos_157",
+      "concept": "pos_vs_skill",
+      "question": "Position partially compensates a weaker player against a stronger one by:",
+      "options": [
+        "Reducing the information gap on later decisions",
+        "Improving their cards",
+        "Removing the blinds",
+        "Guaranteeing the win"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acting last narrows the practical information disadvantage on each decision.",
+        "B": "Position does not change card quality.",
+        "C": "Blinds are posted regardless of skill.",
+        "D": "Position never guarantees a win."
+      }
+    },
+    {
+      "id": "pr_ptpos_158",
+      "concept": "squeeze_cold",
+      "question": "A 'cold' squeeze from the blinds is tougher than from the button because the blinds:",
+      "options": [
+        "Cannot raise",
+        "Will be out of position if called",
+        "Will be in position",
+        "Close the action automatically"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The blinds can raise; that is what a squeeze is.",
+        "B": "Correct. A blind squeeze that gets called leaves you out of position the rest of the hand.",
+        "C": "The blinds are out of position postflop versus most callers.",
+        "D": "A squeeze (a raise) does not automatically close the action."
+      }
+    },
+    {
+      "id": "pr_ptpos_159",
+      "concept": "pos_information_river",
+      "question": "By the river, an in-position player has accumulated information from:",
+      "options": [
+        "The opponent's hole cards",
+        "The dealer's tells",
+        "Every prior street's actions before deciding",
+        "Only the flop"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Hole cards remain hidden.",
+        "B": "Dealer tells are not the source of positional information.",
+        "C": "Correct. In position you have seen the opponent's actions on every street before your river decision.",
+        "D": "Information accumulates across all streets, not just the flop."
+      }
+    },
+    {
+      "id": "pr_ptpos_160",
+      "concept": "why_blinds_defend",
+      "question": "Blinds must defend at some frequency rather than always folding to avoid:",
+      "options": [
+        "Posting the blind",
+        "Acting postflop",
+        "Seeing the flop",
+        "Being exploited by relentless, profitable steals"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Defending does not remove the posted blind.",
+        "B": "Defending leads to acting postflop, which is the point.",
+        "C": "Defending lets you see the flop, not avoid it.",
+        "D": "Correct. If the blinds always folded, opponents could steal any two cards profitably."
+      }
+    },
+    {
+      "id": "pr_ptpos_161",
+      "concept": "pos_widen_vs_tight",
+      "question": "Against very tight blinds, your late-position opens should:",
+      "options": [
+        "Widen, since they fold too often",
+        "Tighten, since they call a lot",
+        "Stay premium-only",
+        "Become all-in"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Tight, over-folding blinds let you profitably steal with a wider range.",
+        "B": "Tight blinds fold often, which rewards wider steals, not tighter ones.",
+        "C": "Premium-only wastes the fold equity tight blinds provide.",
+        "D": "All-in opens are unnecessary to exploit tight blinds."
+      }
+    },
+    {
+      "id": "pr_ptpos_162",
+      "concept": "pos_call_3bet_ip",
+      "question": "Calling a 3-bet in position is more profitable than out of position because you:",
+      "options": [
+        "See extra cards",
+        "Realize more equity and control the pot postflop",
+        "Always have the nuts",
+        "Pay less rake"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "No extra cards are dealt by position.",
+        "B": "Correct. In position you realize more of your equity and steer the pot, making the call better.",
+        "C": "You do not always hold the nuts.",
+        "D": "Rake is not the driver here."
+      }
+    },
+    {
+      "id": "pr_ptpos_163",
+      "concept": "seat_names_dealer_role",
+      "question": "The player physically dealing in a home game may differ from the 'button,' which marks:",
+      "options": [
+        "The winner",
+        "The rake",
+        "The nominal dealer position for action order",
+        "The biggest stack"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The button does not denote the winner.",
+        "B": "The button is unrelated to the rake.",
+        "C": "Correct. The button marks the nominal dealer seat that determines action order, even if someone else deals.",
+        "D": "The button is not tied to stack size."
+      }
+    },
+    {
+      "id": "pr_ptpos_164",
+      "concept": "pos_check_back_bluffcatch",
+      "question": "Checking back in position with a bluff-catcher can be good because it:",
+      "options": [
+        "Always wins",
+        "Forces a fold",
+        "Gives a free card to yourself only",
+        "Keeps the pot small and lets you call a smaller river bet at showdown"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Checking back does not always win.",
+        "B": "Checking back does not force a fold.",
+        "C": "A free card affects both players' equity, not just yours.",
+        "D": "Correct. Checking back controls the pot so your bluff-catcher faces a cheaper river decision."
+      }
+    },
+    {
+      "id": "pr_ptpos_165",
+      "concept": "pos_double_barrel",
+      "question": "Double-barreling (betting flop and turn) is easier in position because you:",
+      "options": [
+        "See the opponent's turn action before committing the second barrel",
+        "Always have a draw",
+        "Skip the river",
+        "See hidden cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. In position you observe the turn check or call before deciding to fire again.",
+        "B": "A double barrel does not require a draw.",
+        "C": "Betting the turn does not skip the river.",
+        "D": "Hidden cards remain hidden."
+      }
+    },
+    {
+      "id": "pr_ptpos_166",
+      "concept": "walk_definition",
+      "question": "A 'walk' occurs when:",
+      "options": [
+        "A squeeze succeeds",
+        "Everyone folds to the big blind, who wins without playing a hand",
+        "The big blind 3-bets",
+        "The button steals"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A successful squeeze is not a walk.",
+        "B": "Correct. A walk is when all players fold to the big blind preflop and it wins the small blind uncontested.",
+        "C": "A 3-bet is not a walk.",
+        "D": "A button steal that succeeds takes the blinds; the big blind did not get a walk."
+      }
+    },
+    {
+      "id": "pr_ptpos_167",
+      "concept": "pos_oop_range_cap",
+      "question": "Out-of-position ranges are often more 'capped' postflop because the player:",
+      "options": [
+        "Sees extra cards",
+        "Acts last",
+        "Tends to raise their strongest hands earlier and check the rest",
+        "Always has the nuts"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "No extra cards come from being out of position.",
+        "B": "Out of position you act first, not last.",
+        "C": "Correct. Out of position, strong hands often raise earlier, leaving the checking range capped.",
+        "D": "An out-of-position checking range is usually capped, not nutted."
+      }
+    },
+    {
+      "id": "pr_ptpos_168",
+      "concept": "pos_take_initiative",
+      "question": "Seizing initiative with position lets you:",
+      "options": [
+        "Add chips for free",
+        "Skip the turn",
+        "See the opponent's cards",
+        "Bet when checked to and represent strength credibly across streets"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Position adds no free chips.",
+        "B": "You cannot skip the turn.",
+        "C": "Hidden cards stay hidden.",
+        "D": "Correct. As the in-position aggressor you can bet into checks and tell a consistent story."
+      }
+    },
+    {
+      "id": "pr_ptpos_169",
+      "concept": "btn_widest_summary",
+      "question": "The reason the button can profitably play the widest range is best summarized as:",
+      "options": [
+        "Only two players behind and guaranteed postflop position",
+        "Always being dealt premiums",
+        "No blinds ever",
+        "Closing preflop action"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Few players behind plus guaranteed position make the button's wide range profitable.",
+        "B": "The button is dealt random hands, not always premiums.",
+        "C": "The button does post blinds as it rotates.",
+        "D": "The big blind, not the button, closes preflop action."
+      }
+    },
+    {
+      "id": "pr_ptpos_170",
+      "concept": "sb_3bet_strategy",
+      "question": "From the small blind facing a steal, a 3-bet-heavy strategy is favored because:",
+      "options": [
+        "It posts no chips",
+        "It avoids playing a flatted pot out of position",
+        "You will be in position",
+        "It folds out the dealer"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A 3-bet invests chips, not none.",
+        "B": "Correct. 3-betting (or folding) avoids the trap of calling and playing the pot out of position.",
+        "C": "The small blind is out of position postflop.",
+        "D": "There is no dealer to fold out in the betting."
+      }
+    },
+    {
+      "id": "pr_ptpos_171",
+      "concept": "gap_concept",
+      "question": "The 'gap concept' states that to 3-bet (or call a raise) you usually need:",
+      "options": [
+        "Any two cards",
+        "A weaker hand than to open-raise",
+        "A stronger hand than you would need to open the pot yourself",
+        "Exactly the same hand as to open"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Any two cards is far too loose against a raise.",
+        "B": "You need a stronger hand to play against a raise, not a weaker one.",
+        "C": "Correct. Because someone has shown strength, you need a better hand to enter than you would to open first-in.",
+        "D": "Facing a raise requires more than the threshold to open unopened."
+      }
+    },
+    {
+      "id": "pr_ptpos_172",
+      "concept": "iso_size_late",
+      "question": "When isolating a limper, you should size up from a normal open mainly to:",
+      "options": [
+        "Build a multiway pot",
+        "Reduce your fold equity",
+        "Give the limper a great price",
+        "Discourage overcalls and play heads-up in position"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Sizing up thins the field rather than building it.",
+        "B": "A bigger size increases fold equity, not reduces it.",
+        "C": "A larger size denies the limper a great price rather than offering one.",
+        "D": "Correct. A larger iso-raise discourages others from overcalling so you get heads-up, ideally in position."
+      }
+    },
+    {
+      "id": "pr_ptpos_173",
+      "concept": "overlimp",
+      "question": "Over-limping behind in late position is least bad when:",
+      "options": [
+        "You have a speculative hand and get a cheap, in-position flop",
+        "You are out of position with junk",
+        "You want a bloated OOP pot",
+        "You hold aces and want to fold out limpers"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A speculative hand can occasionally over-limp in position to see a cheap flop with implied odds.",
+        "B": "Over-limping junk out of position is a clear leak.",
+        "C": "Over-limping to bloat an out-of-position pot is the opposite of the goal.",
+        "D": "With aces you should raise to isolate and build the pot, not over-limp."
+      }
+    },
+    {
+      "id": "pr_ptpos_174",
+      "concept": "button_rotation",
+      "question": "After each hand, the dealer button moves:",
+      "options": [
+        "Counter-clockwise two seats",
+        "One seat clockwise to the next active player",
+        "Only when the previous button wins",
+        "To the biggest stack"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The button moves clockwise by one seat, not counter-clockwise by two.",
+        "B": "Correct. The button advances one seat clockwise each hand, rotating position around the table.",
+        "C": "Winning does not change the button's movement.",
+        "D": "Stack size does not determine the button's location."
+      }
+    },
+    {
+      "id": "pr_ptpos_175",
+      "concept": "pos_sizing_freedom",
+      "question": "Acting last gives you more freedom in bet sizing because you can:",
+      "options": [
+        "Bet the same amount regardless of action",
+        "Only ever bet pot",
+        "Choose a size after seeing the opponent check or bet",
+        "Never bet"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Position lets you vary sizing by the action, not bet a fixed amount.",
+        "B": "You are not restricted to pot-sized bets in position.",
+        "C": "Correct. In position you size your bet with knowledge of the opponent's action on that street.",
+        "D": "In position you can bet or check; you are not barred from betting."
+      }
+    },
+    {
+      "id": "pr_ptpos_176",
+      "concept": "oop_cr_frequency",
+      "question": "Out of position, a player who never check-raises will be exploited because opponents can:",
+      "options": [
+        "Never bluff",
+        "Always check back",
+        "Fold too often",
+        "Bet relentlessly into the capped checking range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The opponent gains a free license to bluff, not to stop bluffing.",
+        "B": "Opponents would bet, not check back, into an exploitable range.",
+        "C": "The opponent would bet, not fold, against a player who never check-raises.",
+        "D": "Correct. Without check-raises your checks look weak, so opponents can barrel your capped range profitably."
+      }
+    }
+  ]
+}

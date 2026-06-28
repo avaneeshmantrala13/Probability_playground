@@ -1,0 +1,3157 @@
+{
+  "lessonId": "pt_ranges",
+  "track": "poker-theory",
+  "title": "Range Thinking",
+  "questions": [
+    {
+      "id": "pr_ptrg_001",
+      "concept": "range_def",
+      "question": "In poker, a player's 'range' refers to:",
+      "options": [
+        "The single hand you are sure they hold",
+        "Only the community cards on the table",
+        "The full set of hands consistent with their actions so far",
+        "The size of their remaining stack"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Putting someone on one exact hand ignores all the other holdings their line allows; that is the opposite of range thinking.",
+        "B": "The board is shared information, not a description of one player's possible hands.",
+        "C": "Correct. A range is the entire collection of combinations a player could have given the actions they have taken.",
+        "D": "Stack size affects strategy but is not what 'range' means."
+      }
+    },
+    {
+      "id": "pr_ptrg_002",
+      "concept": "range_def",
+      "question": "Why do strong players think in ranges rather than guessing one hand?",
+      "options": [
+        "Because a single-hand guess is usually wrong and ignores all other possibilities",
+        "Because the dealer reveals hole cards on request",
+        "Because pot odds stop applying once you assign a range",
+        "Because ranges make blinds irrelevant"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Reasoning over a distribution of hands is far more accurate than betting everything on one specific holding.",
+        "B": "Dealers never reveal hidden cards; you must reason from actions.",
+        "C": "Pot odds always apply; range thinking complements them.",
+        "D": "Blinds still set the stakes and influence ranges."
+      }
+    },
+    {
+      "id": "pr_ptrg_003",
+      "concept": "narrow",
+      "question": "As a hand progresses through betting streets, an opponent's range typically:",
+      "options": [
+        "Disappears entirely after the flop",
+        "Widens to include every possible two cards",
+        "Stays exactly the same on every street",
+        "Narrows, because each aggressive action removes inconsistent hands"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The range still contains hands; it just becomes smaller and better defined.",
+        "B": "More information narrows rather than widens a range.",
+        "C": "New actions constantly update the range.",
+        "D": "Correct. Bets, raises, and calls each eliminate hands that would not take that line, shrinking the range."
+      }
+    },
+    {
+      "id": "pr_ptrg_004",
+      "concept": "narrow",
+      "question": "A tight player open-raises from under the gun. Compared with a button open, their range is best described as:",
+      "options": [
+        "Wider and weaker",
+        "Narrower and stronger on average",
+        "Identical to a button open",
+        "Made up only of suited connectors"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Early-position opens are tighter, not wider.",
+        "B": "Correct. UTG must act before many players, so a sound opening range is condensed to stronger hands.",
+        "C": "Button ranges are far wider because of position.",
+        "D": "Suited connectors are only a small slice of an UTG range."
+      }
+    },
+    {
+      "id": "pr_ptrg_005",
+      "concept": "range_def",
+      "question": "Which statement best reflects range-based thinking on the river?",
+      "options": [
+        "\"He has the ace of spades, I just know it.\"",
+        "\"His line is consistent with sets, two pair, and a few busted draws as bluffs.\"",
+        "\"Ranges only matter preflop.\"",
+        "\"Whatever I have, I should just call.\""
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Certainty about one exact card is rarely justified and ignores the rest of the range.",
+        "B": "Correct. Describing the line as a set of value hands plus some bluffs is the essence of range thinking.",
+        "C": "Ranges matter on every street, including the river.",
+        "D": "Decisions should depend on how your hand fares against the whole range, not a reflex."
+      }
+    },
+    {
+      "id": "pr_ptrg_006",
+      "concept": "narrow",
+      "question": "Which action narrows a player's range the most?",
+      "options": [
+        "Checking in an unraised pot",
+        "Being dealt cards before any action",
+        "Posting the big blind",
+        "A check-raise on the turn"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A check in a limped pot is consistent with almost anything, so it barely narrows the range.",
+        "B": "Before acting, the player still holds a full random range.",
+        "C": "Posting a blind is forced and reveals nothing about the cards.",
+        "D": "Correct. A turn check-raise is a strong, rare action that filters the range down to relatively few hands."
+      }
+    },
+    {
+      "id": "pr_ptrg_007",
+      "concept": "range_def",
+      "question": "Two players reach the river. 'Range vs range' analysis means you compare:",
+      "options": [
+        "Your entire range of hands against their entire range of hands",
+        "Your exact hand against their exact hand",
+        "Only the highest card each of you could hold",
+        "The dealer's hand against the house"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Equity and strategy are driven by how full ranges interact, not single hands.",
+        "B": "Comparing only the two actual hands is hindsight, not strategy at the decision point.",
+        "C": "High cards alone do not capture made hands, draws, or pairs.",
+        "D": "The dealer does not hold a competing hand."
+      }
+    },
+    {
+      "id": "pr_ptrg_008",
+      "concept": "narrow",
+      "question": "A passive line such as check-call, check-call, check-call most often signals a range that is:",
+      "options": [
+        "Full of the strongest possible hands",
+        "Made entirely of bluffs",
+        "Weighted toward medium-strength hands that want to see a showdown cheaply",
+        "Impossible to estimate"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Players usually bet or raise their strongest hands at some point, so calling lines lack many monsters.",
+        "B": "Pure bluffs usually give up rather than call three streets.",
+        "C": "Correct. Repeated calling without raising is typical of showdown-bound medium hands.",
+        "D": "The line gives plenty of information; the range leans toward medium strength."
+      }
+    },
+    {
+      "id": "pr_ptrg_009",
+      "concept": "range_def",
+      "question": "When you 'assign a range' to an opponent, you should base it primarily on:",
+      "options": [
+        "How long they have been sitting",
+        "The color of their chips",
+        "Their position, the actions they have taken, and bet sizes",
+        "Your own hole cards only"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Time at the table does not constrain which cards they hold.",
+        "B": "Chip color is cosmetic and irrelevant to holdings.",
+        "C": "Correct. Position, line, and sizing are the observable inputs that define a realistic range.",
+        "D": "Your cards block some combos but do not by themselves define their range."
+      }
+    },
+    {
+      "id": "pr_ptrg_010",
+      "concept": "narrow",
+      "question": "An opponent 4-bets preflop. Against a typical player, this range is usually:",
+      "options": [
+        "Quite narrow: premium pairs and big aces, sometimes a few bluffs",
+        "Very wide, any two cards",
+        "Only small pocket pairs",
+        "Only suited one-gappers"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A standard 4-bet range is condensed to premiums like QQ+/AK plus a small bluff portion.",
+        "B": "4-betting any two cards would be wildly unbalanced and unprofitable.",
+        "C": "Small pairs prefer to call or fold, not 4-bet for value.",
+        "D": "Suited one-gappers are too weak to make up a 4-bet range."
+      }
+    },
+    {
+      "id": "pr_ptrg_011",
+      "concept": "range_def",
+      "question": "Which is the best reason a single-hand read ('he has AK') is dangerous?",
+      "options": [
+        "AK is always the nuts",
+        "It guarantees you fold the best hand",
+        "Reads are never useful",
+        "It ignores every other hand the line allows and leads to large mistakes when wrong"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "AK is rarely the nuts and is often beaten.",
+        "B": "A single-hand read does not automatically make you fold the best hand, but it does distort decisions.",
+        "C": "Reads can be useful as part of, not a replacement for, range thinking.",
+        "D": "Correct. Locking onto one hand discards the rest of the distribution and produces big errors when the read misses."
+      }
+    },
+    {
+      "id": "pr_ptrg_012",
+      "concept": "narrow",
+      "question": "Preflop, before anyone acts, the big blind's range is:",
+      "options": [
+        "Only premium hands",
+        "Essentially every possible starting hand (random)",
+        "Only suited hands",
+        "Empty"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The blind is posted blind, so it is not yet filtered to premiums.",
+        "B": "Correct. With no action taken, the big blind can hold any two cards — the widest possible range.",
+        "C": "There is no reason the random posted hand would be only suited.",
+        "D": "A live player always has some range of hands."
+      }
+    },
+    {
+      "id": "pr_ptrg_013",
+      "concept": "range_def",
+      "question": "Ranges are most useful because poker is a game of:",
+      "options": [
+        "Perfect information",
+        "Incomplete information where you reason about probabilities of hidden hands",
+        "Pure luck with no decisions",
+        "Fixed outcomes"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "If information were perfect there would be no need to estimate ranges.",
+        "B": "Correct. Hidden cards force you to reason over the probabilities of many possible holdings.",
+        "C": "Skillful decisions, not pure luck, drive long-term results.",
+        "D": "Outcomes vary, which is exactly why distributions matter."
+      }
+    },
+    {
+      "id": "pr_ptrg_014",
+      "concept": "narrow",
+      "question": "On a final-street decision, you should weight the hands in a range by:",
+      "options": [
+        "The hand you saw last time",
+        "Alphabetical order of the hands",
+        "Which hand you would least like to face",
+        "How many combinations of each hand are possible after removal"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A previous hand does not determine current combinations.",
+        "B": "Alphabetical order has no bearing on probabilities.",
+        "C": "Fear is not a weighting; combo counts are.",
+        "D": "Correct. Combinatorics — how many combos remain of each holding — sets the weight of each hand in the range."
+      }
+    },
+    {
+      "id": "pr_ptrg_015",
+      "concept": "range_def",
+      "question": "A 'condensed' or 'capped' description of a range refers to a range that:",
+      "options": [
+        "Contains hands clustered in a strength band, lacking the very top holdings",
+        "Always contains the nuts",
+        "Has exactly four combos",
+        "Is impossible to act against"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A condensed/capped range is bunched in medium strength and missing the strongest possible hands.",
+        "B": "By definition a capped range lacks the nut hands.",
+        "C": "Combo count is unrelated to whether a range is condensed.",
+        "D": "Capped ranges are in fact easier to pressure, not impossible to face."
+      }
+    },
+    {
+      "id": "pr_ptrg_016",
+      "concept": "narrow",
+      "question": "You raise preflop and only the big blind calls. On the flop, whose range is generally narrower and stronger?",
+      "options": [
+        "The big blind caller",
+        "They are always identical",
+        "The preflop raiser",
+        "Neither has a range postflop"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The caller's range is wider and more defensive, including many speculative hands.",
+        "B": "Raiser and caller ranges differ meaningfully.",
+        "C": "Correct. The preflop raiser took the aggressive, range-narrowing action, so their range is tighter and stronger on average.",
+        "D": "Both players carry ranges into and through the flop."
+      }
+    },
+    {
+      "id": "pr_ptrg_017",
+      "concept": "range_def",
+      "question": "Which best completes the idea: 'Range thinking replaces I put him on ace-king with ___'?",
+      "options": [
+        "'ranges don't apply here'",
+        "'he must have exactly the ace of clubs'",
+        "'his line is consistent with AK, AQ, some pairs, and a few bluffs'",
+        "'I should always fold'"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Ranges apply to every spot.",
+        "B": "Naming an exact suit is even narrower than the mistake being replaced.",
+        "C": "Correct. Replacing one hand with a weighted set of plausible hands is the core upgrade range thinking provides.",
+        "D": "Folding reflexively is not what range thinking prescribes."
+      }
+    },
+    {
+      "id": "pr_ptrg_018",
+      "concept": "narrow",
+      "question": "A player limp-calls preflop, then check-calls all three streets on a dry board. The most consistent description is:",
+      "options": [
+        "A weak-to-medium, capped range that avoided raising at any point",
+        "A strong, uncapped range full of sets",
+        "A pure bluffing range",
+        "An impossible line"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Never raising across the hand caps the range at medium strength.",
+        "B": "Sets and other monsters usually raise somewhere, so they are underrepresented here.",
+        "C": "Bluffs rarely call down three streets out of position.",
+        "D": "The line is entirely plausible; it simply signals a capped range."
+      }
+    },
+    {
+      "id": "pr_ptrg_019",
+      "concept": "range_def",
+      "question": "Thinking about your own range (not just your hand) matters because:",
+      "options": [
+        "It changes the rules of the game",
+        "Your hand never matters",
+        "Only opponents have ranges",
+        "Opponents respond to the hands you could have, so your whole strategy must make sense"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Range thinking is analysis, not a rule change.",
+        "B": "Your specific hand still matters in the moment.",
+        "C": "Both players always have ranges.",
+        "D": "Correct. Skilled opponents react to your perceived range, so each action must be consistent across your full strategy."
+      }
+    },
+    {
+      "id": "pr_ptrg_020",
+      "concept": "narrow",
+      "question": "Which sequence narrows a range to the fewest hands?",
+      "options": [
+        "Open-call preflop",
+        "Open-raise, c-bet flop, barrel turn, shove river",
+        "Check preflop in a limped pot",
+        "Post the small blind"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A single preflop call leaves a wide range.",
+        "B": "Correct. Three streets of aggression culminating in a shove filters the range down to very few, polarized hands.",
+        "C": "A check in a limped pot barely narrows anything.",
+        "D": "Posting a blind is forced and uninformative."
+      }
+    },
+    {
+      "id": "pr_ptrg_021",
+      "concept": "combo",
+      "question": "How many combinations of a specific pocket pair (for example, pocket aces) exist before any cards are removed?",
+      "options": [
+        "4",
+        "6",
+        "12",
+        "16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4 is the number of cards of a rank, not the number of two-card pair combinations.",
+        "B": "Correct. Choosing 2 of the 4 aces gives C(4,2) = 6 combinations.",
+        "C": "12 is the number of offsuit combinations of an unpaired hand.",
+        "D": "16 is the total combinations of an unpaired hand, not a pair."
+      }
+    },
+    {
+      "id": "pr_ptrg_022",
+      "concept": "combo",
+      "question": "How many total combinations does a specific unpaired hand such as A-K have before any cards are removed?",
+      "options": [
+        "6",
+        "12",
+        "4",
+        "16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "6 is the count for a pocket pair.",
+        "B": "12 counts only the offsuit combinations of A-K.",
+        "C": "4 counts only the suited combinations of A-K.",
+        "D": "Correct. Any unpaired hand has 4 × 4 = 16 combinations (4 suited + 12 offsuit)."
+      }
+    },
+    {
+      "id": "pr_ptrg_023",
+      "concept": "combo",
+      "question": "How many suited combinations does a specific suited hand like A-K suited have?",
+      "options": [
+        "4",
+        "6",
+        "12",
+        "16"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There is exactly one suited combination per suit, so 4 in total.",
+        "B": "6 is the pocket-pair count.",
+        "C": "12 is the offsuit count for that hand.",
+        "D": "16 is the total of suited plus offsuit."
+      }
+    },
+    {
+      "id": "pr_ptrg_024",
+      "concept": "combo",
+      "question": "How many offsuit combinations does a specific offsuit hand like A-K offsuit have?",
+      "options": [
+        "4",
+        "6",
+        "12",
+        "16"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4 is the suited count, not offsuit.",
+        "B": "6 is the pocket-pair count.",
+        "C": "Correct. Offsuit combinations number 4 × 4 − 4 = 12.",
+        "D": "16 is the combined suited-plus-offsuit total."
+      }
+    },
+    {
+      "id": "pr_ptrg_025",
+      "concept": "combo",
+      "question": "There is one ace on the board. How many combinations of pocket aces can a player still hold?",
+      "options": [
+        "6",
+        "1",
+        "3",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6 assumes all four aces are available, but one is on the board.",
+        "B": "1 would be correct only if two aces were on the board.",
+        "C": "Correct. With three aces left, C(3,2) = 3 combinations of pocket aces remain.",
+        "D": "Players can still make pocket aces from the remaining three aces."
+      }
+    },
+    {
+      "id": "pr_ptrg_026",
+      "concept": "combo",
+      "question": "The board is A-A-7. How many combinations of pocket aces (quads) are possible?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With two aces on the board, only the two remaining aces form one pocket-aces combination.",
+        "B": "There is no way to make 2 combinations from the two remaining aces other than the single pair.",
+        "C": "3 applies when only one ace is on the board.",
+        "D": "6 assumes no aces are removed."
+      }
+    },
+    {
+      "id": "pr_ptrg_027",
+      "concept": "combo",
+      "question": "On a K-7-2 board, how many combinations of pocket sevens (a set) can a player have, assuming no other sevens are removed?",
+      "options": [
+        "6",
+        "4",
+        "1",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "6 would require all four sevens available, but one seven is on the board.",
+        "B": "4 is not the result of any standard combo calculation here.",
+        "C": "1 would require two sevens on the board.",
+        "D": "Correct. One seven on the board leaves three, and C(3,2) = 3 set combinations."
+      }
+    },
+    {
+      "id": "pr_ptrg_028",
+      "concept": "combo",
+      "question": "A range consists of exactly {AA, KK, AK}. How many total combinations is that?",
+      "options": [
+        "18",
+        "28",
+        "22",
+        "16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "18 would be three pocket pairs (3 × 6); this range has only two pairs plus AK.",
+        "B": "Correct. AA (6) + KK (6) + AK (16) = 28 combinations.",
+        "C": "22 forgets that AK has 16 combos, not 10.",
+        "D": "16 counts only the AK portion."
+      }
+    },
+    {
+      "id": "pr_ptrg_029",
+      "concept": "combo",
+      "question": "How many combinations make up the range 'QQ+' (that is, QQ, KK, AA)?",
+      "options": [
+        "12",
+        "18",
+        "6",
+        "24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "12 counts only two pairs.",
+        "B": "Correct. Three pocket pairs at 6 combos each give 3 × 6 = 18.",
+        "C": "6 is a single pocket pair.",
+        "D": "24 would be four pairs, but QQ+ contains three."
+      }
+    },
+    {
+      "id": "pr_ptrg_030",
+      "concept": "combo",
+      "question": "How many combinations are in 'TT+' (TT, JJ, QQ, KK, AA)?",
+      "options": [
+        "24",
+        "20",
+        "36",
+        "30"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "24 counts only four pairs.",
+        "B": "20 does not match 6 combos per pair across five pairs.",
+        "C": "36 would be six pairs.",
+        "D": "Correct. Five pocket pairs at 6 combos each give 5 × 6 = 30."
+      }
+    },
+    {
+      "id": "pr_ptrg_031",
+      "concept": "combo",
+      "question": "Suited connectors 98s, 87s, and 76s together contain how many combinations?",
+      "options": [
+        "12",
+        "16",
+        "9",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each suited hand has 4 combos, so 3 × 4 = 12.",
+        "B": "16 is the total for a single unpaired hand counting offsuit too.",
+        "C": "9 would understate the count; each suited hand has 4 combos.",
+        "D": "3 counts the number of hand types, not combinations."
+      }
+    },
+    {
+      "id": "pr_ptrg_032",
+      "concept": "combo",
+      "question": "How many total combinations of starting hands are dealt in Texas Hold'em?",
+      "options": [
+        "169",
+        "2652",
+        "1326",
+        "52"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "169 is the number of distinct hand types (e.g., AKs as one), not combinations.",
+        "B": "2652 is 52 × 51, which double-counts ordered pairs.",
+        "C": "Correct. C(52,2) = 1326 distinct two-card combinations.",
+        "D": "52 is the number of cards, not two-card combinations."
+      }
+    },
+    {
+      "id": "pr_ptrg_033",
+      "concept": "combo",
+      "question": "How many combinations of any pocket pair (all 13 ranks) are there?",
+      "options": [
+        "13",
+        "52",
+        "78",
+        "169"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "13 is the number of pair ranks, not combinations.",
+        "B": "52 is the number of cards in the deck.",
+        "C": "Correct. 13 ranks × 6 combos each = 78 pocket-pair combinations.",
+        "D": "169 is total distinct starting-hand types."
+      }
+    },
+    {
+      "id": "pr_ptrg_034",
+      "concept": "combo",
+      "question": "On an A-7-2 rainbow board, a player can have A-K. How many A-K combinations remain (one ace is on the board)?",
+      "options": [
+        "12",
+        "16",
+        "9",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With three aces and four kings available, 3 × 4 = 12 combinations of A-K remain.",
+        "B": "16 assumes all four aces are available, but one is on the board.",
+        "C": "9 would require a king to also be removed.",
+        "D": "4 is the suited-only count before any removal."
+      }
+    },
+    {
+      "id": "pr_ptrg_035",
+      "concept": "combo",
+      "question": "On a board of A-K-5, how many combinations of A-K (two pair) are possible, given one ace and one king are on the board?",
+      "options": [
+        "16",
+        "12",
+        "6",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "16 ignores both blockers on the board.",
+        "B": "12 accounts for only one removed card.",
+        "C": "6 is the count for a pocket pair, not unpaired two pair.",
+        "D": "Correct. Three aces and three kings remain, so 3 × 3 = 9 combinations."
+      }
+    },
+    {
+      "id": "pr_ptrg_036",
+      "concept": "combo",
+      "question": "A value range on the river is {AA, KK, set of 7s on a 7-high board}, where the 7s have 3 combos. AA and KK are full and unblocked (6 each). Total value combos?",
+      "options": [
+        "12",
+        "15",
+        "18",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "12 forgets the set of sevens.",
+        "B": "Correct. 6 (AA) + 6 (KK) + 3 (777) = 15 value combinations.",
+        "C": "18 would assume the set has a full 6 combos, but a board seven reduces it to 3.",
+        "D": "9 omits one of the pocket pairs."
+      }
+    },
+    {
+      "id": "pr_ptrg_037",
+      "concept": "combo",
+      "question": "If a player's value range has 12 combos and they want a pot-sized river bet to be balanced (2 value : 1 bluff), how many bluff combos should they include?",
+      "options": [
+        "12",
+        "6",
+        "24",
+        "3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "12 bluffs would make a 1:1 ratio, far too bluff-heavy for a pot bet.",
+        "B": "Correct. A 2:1 value-to-bluff ratio means bluffs = 12 ÷ 2 = 6.",
+        "C": "24 bluffs inverts the ratio and overbluffs massively.",
+        "D": "3 bluffs gives a 4:1 ratio, which underbluffs for a pot bet."
+      }
+    },
+    {
+      "id": "pr_ptrg_038",
+      "concept": "combo",
+      "question": "You hold A♠K♠. How does this affect the number of A-A combinations in your opponent's range?",
+      "options": [
+        "It has no effect",
+        "It removes all of their aces",
+        "It increases their AA combos",
+        "It removes one ace, cutting opponent's AA from 6 to 3 combos"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Your own cards are blockers and do affect opponent combinations.",
+        "B": "You hold only one ace, so three aces remain for them.",
+        "C": "Blocking a card can only reduce, never increase, the relevant combos.",
+        "D": "Correct. Holding one ace leaves three for the opponent, so C(3,2) = 3 AA combos."
+      }
+    },
+    {
+      "id": "pr_ptrg_039",
+      "concept": "combo",
+      "question": "Holding K♥Q♥, how many combinations of pocket kings does your opponent have?",
+      "options": [
+        "3",
+        "6",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. One king in your hand leaves three, so C(3,2) = 3 KK combos remain.",
+        "B": "6 assumes you hold no king, but you have the K♥.",
+        "C": "1 would require two kings removed.",
+        "D": "Three kings still remain available to the opponent."
+      }
+    },
+    {
+      "id": "pr_ptrg_040",
+      "concept": "combo",
+      "question": "On a Q-Q-4 board, how many combinations of pocket fours (a full house) are possible, assuming no fours are otherwise removed?",
+      "options": [
+        "6",
+        "1",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6 assumes all four fours are available, but one is on the board.",
+        "B": "1 would require two fours on the board.",
+        "C": "Correct. One four on the board leaves three, and C(3,2) = 3 combinations.",
+        "D": "4 is not produced by the combination formula here."
+      }
+    },
+    {
+      "id": "pr_ptrg_041",
+      "concept": "combo",
+      "question": "A flush draw needs two cards of a suit. On a two-tone flop with two hearts, how many remaining hearts are available to make heart combinations?",
+      "options": [
+        "13",
+        "9",
+        "11",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "13 is the number of hearts in a full deck before any are seen.",
+        "B": "9 is a common 'outs' figure for a flush draw, not the number of hearts left.",
+        "C": "Correct. With two hearts on the board, 13 − 2 = 11 hearts remain.",
+        "D": "2 is the number of hearts on the board, not those remaining."
+      }
+    },
+    {
+      "id": "pr_ptrg_042",
+      "concept": "combo",
+      "question": "With two hearts on the board, how many two-heart combinations (any flush) could a player hold among the remaining 11 hearts?",
+      "options": [
+        "55",
+        "22",
+        "121",
+        "11"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(11,2) = 55 two-heart combinations remain.",
+        "B": "22 is 11 × 2 and double counts unordered pairs incorrectly.",
+        "C": "121 is 11 × 11, counting ordered pairs and same-card pairs.",
+        "D": "11 counts single hearts, not two-card combinations."
+      }
+    },
+    {
+      "id": "pr_ptrg_043",
+      "concept": "combo",
+      "question": "Which hand type contributes the most combinations to a wide preflop calling range?",
+      "options": [
+        "A single pocket pair (6 combos)",
+        "Suited hands (4 combos each)",
+        "A specific suited connector (4 combos)",
+        "Offsuit unpaired hands (12 combos each)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Pocket pairs contribute only 6 combos each.",
+        "B": "Suited hands add just 4 combos apiece.",
+        "C": "A single suited connector is only 4 combos.",
+        "D": "Correct. Offsuit unpaired hands carry 12 combos each, the largest per-hand contribution among these."
+      }
+    },
+    {
+      "id": "pr_ptrg_044",
+      "concept": "combo",
+      "question": "A range is {AKs, AQs, AJs} (suited only). How many combinations is that?",
+      "options": [
+        "48",
+        "12",
+        "16",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "48 would treat each as a full 16-combo unpaired hand.",
+        "B": "Correct. Three suited hands at 4 combos each = 12 combinations.",
+        "C": "16 is the total of a single unpaired hand including offsuit.",
+        "D": "9 does not match 4 combos per suited hand."
+      }
+    },
+    {
+      "id": "pr_ptrg_045",
+      "concept": "combo",
+      "question": "On a paired board like J-J-3, how many combinations of pocket threes (a full house) can a player hold, with no other threes removed?",
+      "options": [
+        "1",
+        "3",
+        "6",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1 would require two threes on the board, but only the jacks are paired.",
+        "B": "Correct. One three on the board leaves three of them, so C(3,2) = 3 combos.",
+        "C": "6 assumes all four threes are available.",
+        "D": "4 is not the result of the combination calculation."
+      }
+    },
+    {
+      "id": "pr_ptrg_046",
+      "concept": "combo",
+      "question": "Why does removal (blockers) matter for range analysis?",
+      "options": [
+        "It adds combinations to the opponent's range",
+        "It is irrelevant because all hands are equally likely",
+        "It only matters preflop",
+        "It changes the relative weighting of hands by reducing certain combinations"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Blockers can only subtract combinations, not add them.",
+        "B": "Hands are not equally likely once cards are removed.",
+        "C": "Removal affects every street, including the river.",
+        "D": "Correct. Cards you and the board hold remove combos, shifting how likely each remaining hand is."
+      }
+    },
+    {
+      "id": "pr_ptrg_047",
+      "concept": "combo",
+      "question": "A player's value combos on the river total 9, and they have 9 bluff combos. For a pot-sized bet, this range is:",
+      "options": [
+        "Overbluffed — a pot bet wants about 2:1 value-to-bluff, not 1:1",
+        "Perfectly balanced",
+        "Underbluffed",
+        "Impossible to calculate"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A pot bet should be roughly 2 value : 1 bluff; 9:9 is too many bluffs.",
+        "B": "A 1:1 ratio is not balanced for a pot-sized bet.",
+        "C": "9:9 has too many bluffs, not too few.",
+        "D": "The ratio is straightforward to compute from the combo counts."
+      }
+    },
+    {
+      "id": "pr_ptrg_048",
+      "concept": "combo",
+      "question": "How many combinations of A-K offsuit remain if the board shows the A♣ and K♦?",
+      "options": [
+        "12",
+        "9",
+        "6",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 is the full offsuit count with no blockers.",
+        "B": "9 is the total A-K combos (suited + offsuit) after both blockers, not offsuit alone.",
+        "C": "Correct. Three aces and three kings remain; total combos 9, of which 3 are suited, leaving 9 − 3 = 6 offsuit.",
+        "D": "3 is the number of suited A-K combos remaining, not offsuit."
+      }
+    },
+    {
+      "id": "pr_ptrg_049",
+      "concept": "combo",
+      "question": "Comparing AA and AK preflop, which has more combinations and by how much?",
+      "options": [
+        "AA, by 10 combos",
+        "They are equal",
+        "AK, by 10 combos",
+        "AK, by 4 combos"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "AA has fewer, not more, combinations.",
+        "B": "They are not equal: 16 versus 6.",
+        "C": "Correct. AK has 16 combos and AA has 6, so AK leads by 10.",
+        "D": "The difference is 10, not 4."
+      }
+    },
+    {
+      "id": "pr_ptrg_050",
+      "concept": "combo",
+      "question": "A range contains all four 'broadway' suited aces {AKs, AQs, AJs, ATs}. How many combinations?",
+      "options": [
+        "16",
+        "12",
+        "8",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Four suited hands at 4 combos each = 16 combinations.",
+        "B": "12 would be three suited hands.",
+        "C": "8 would be two suited hands.",
+        "D": "4 is just one suited hand."
+      }
+    },
+    {
+      "id": "pr_ptrg_051",
+      "concept": "combo",
+      "question": "On a K-Q-J board, how many combinations of A-T (the nut straight) are possible, with no ace or ten removed?",
+      "options": [
+        "12",
+        "4",
+        "9",
+        "16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "12 counts only offsuit A-T.",
+        "B": "4 is only the suited count.",
+        "C": "9 would require one ace and one ten removed.",
+        "D": "Correct. With four aces and four tens available, A-T has 4 × 4 = 16 combinations."
+      }
+    },
+    {
+      "id": "pr_ptrg_052",
+      "concept": "combo",
+      "question": "If you block the nut straight by holding one of the needed cards, the opponent's nut-straight combinations:",
+      "options": [
+        "Increase",
+        "Decrease",
+        "Stay the same",
+        "Drop to zero always"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Blocking a card cannot increase the count.",
+        "B": "Correct. Holding a card the nuts needs removes some of those combinations from the opponent.",
+        "C": "Removing a key card changes the count.",
+        "D": "It typically reduces but rarely eliminates all combos unless you block both needed ranks heavily."
+      }
+    },
+    {
+      "id": "pr_ptrg_053",
+      "concept": "combo",
+      "question": "A value range is {set of kings (3 combos), set of queens (3 combos)} and you want a half-pot river bet balanced at 3 value : 1 bluff. How many bluff combos?",
+      "options": [
+        "6",
+        "2",
+        "3",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "6 bluffs would more than match the 6 value combos, far too many.",
+        "B": "Correct. 6 value combos at 3:1 means bluffs = 6 ÷ 3 = 2.",
+        "C": "3 bluffs gives 2:1, appropriate for a pot bet, not a half-pot.",
+        "D": "1 bluff gives 6:1, underbluffing the half-pot bet."
+      }
+    },
+    {
+      "id": "pr_ptrg_054",
+      "concept": "combo",
+      "question": "Which is the correct ordering of preflop combinations from most to fewest?",
+      "options": [
+        "Pair (6) > Offsuit (12) > Suited (4)",
+        "Pair (16) > Offsuit (6) > Suited (4)",
+        "Suited (4) > Offsuit (12) > Pair (6)",
+        "Offsuit (12) > Pair (6) > Suited (4)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This wrongly ranks a pair (6) above offsuit (12).",
+        "B": "A pair has 6 combos, not 16; 16 is total unpaired.",
+        "C": "Suited (4) is the fewest, not the most.",
+        "D": "Correct. Offsuit has 12, a pair has 6, and suited has 4 combinations."
+      }
+    },
+    {
+      "id": "pr_ptrg_055",
+      "concept": "combo",
+      "question": "A player's range on the turn is {AK (16), KQ (16), QJs (4)}. How many combinations total?",
+      "options": [
+        "36",
+        "32",
+        "40",
+        "20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 16 + 16 + 4 = 36 combinations.",
+        "B": "32 forgets the QJs portion.",
+        "C": "40 would treat QJs as a full 8-combo group, which is too many.",
+        "D": "20 undercounts the two 16-combo unpaired hands."
+      }
+    },
+    {
+      "id": "pr_ptrg_056",
+      "concept": "polarized",
+      "question": "A polarized betting range is composed mostly of:",
+      "options": [
+        "Medium-strength hands only",
+        "Random hands in equal proportion",
+        "Very strong hands and bluffs, with few medium hands",
+        "Hands that have already folded"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Medium hands are exactly what a polarized range lacks.",
+        "B": "Polarized ranges are structured, not random.",
+        "C": "Correct. Polarized means two poles: strong value and weak bluffs, with the middle removed.",
+        "D": "Folded hands are not part of any active betting range."
+      }
+    },
+    {
+      "id": "pr_ptrg_057",
+      "concept": "merged",
+      "question": "A merged betting range includes:",
+      "options": [
+        "Only the nuts",
+        "Only bluffs",
+        "Strong, medium, and some weaker value hands together",
+        "No hands at all"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Nuts-only is too narrow to be merged.",
+        "B": "Bluffs-only is closer to the air pole of a polarized range.",
+        "C": "Correct. A merged range bets a continuous band of strengths, typically at smaller sizes.",
+        "D": "Any betting range contains hands."
+      }
+    },
+    {
+      "id": "pr_ptrg_058",
+      "concept": "polarized",
+      "question": "Large overbets on the river most often represent a:",
+      "options": [
+        "Polarized range of nutted hands and bluffs",
+        "Merged range of medium hands",
+        "Range with no value",
+        "Range of only second pair"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Big sizings polarize: you bet your strongest hands and your bluffs, not your middle.",
+        "B": "Medium hands rarely overbet; they prefer smaller sizings or checks.",
+        "C": "Overbets contain plenty of value, not none.",
+        "D": "Second pair is a medium hand poorly suited to overbetting."
+      }
+    },
+    {
+      "id": "pr_ptrg_059",
+      "concept": "merged",
+      "question": "Small bet sizings (for example, a third of the pot) tend to be associated with:",
+      "options": [
+        "Highly polarized ranges",
+        "Only pure bluffs",
+        "Only the nuts",
+        "Merged ranges that include many medium-strength hands"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Polarization is more associated with large sizings.",
+        "B": "A small bet range is not all bluffs; it has lots of value too.",
+        "C": "Small bets are not restricted to the nuts.",
+        "D": "Correct. Small bets let a wide, merged range bet many medium hands cheaply for thin value and protection."
+      }
+    },
+    {
+      "id": "pr_ptrg_060",
+      "concept": "linear",
+      "question": "A 'linear' (or merged-for-value) range is best described as:",
+      "options": [
+        "Only bluffs",
+        "The strongest hands down through good hands, in order of strength, with no bluffs",
+        "Two poles with nothing in the middle",
+        "An empty range"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A bluff-only range is not linear.",
+        "B": "Correct. A linear range takes the top of your range continuously downward — value-weighted with few or no bluffs.",
+        "C": "Two poles with a gap describes a polarized range, not a linear one.",
+        "D": "A range with hands is not empty."
+      }
+    },
+    {
+      "id": "pr_ptrg_061",
+      "concept": "linear",
+      "question": "When are you most likely to use a linear (value-heavy, depolarized) 3-bet range?",
+      "options": [
+        "Against a loose player who calls and 4-bet bluffs often",
+        "Against a very tight player who only continues with strong hands",
+        "Never",
+        "Only when you have a bluff"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Against a loose, aggressive player a more polarized 3-bet (value + bluffs) is often better.",
+        "B": "Correct. Versus a tight opponent who folds weak hands and only continues strong, you want value hands that dominate their calling range, not bluffs.",
+        "C": "Linear 3-betting is a standard, useful tool.",
+        "D": "Linear ranges are chosen precisely when you want value, not bluffs."
+      }
+    },
+    {
+      "id": "pr_ptrg_062",
+      "concept": "polarized",
+      "question": "Why do medium-strength hands prefer checking or small bets rather than large polarizing bets?",
+      "options": [
+        "Large bets are illegal with medium hands",
+        "They are always the nuts",
+        "They never have showdown value",
+        "They want to keep the pot small and realize equity, since they beat bluffs but lose to value"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "There is no rule against it; it is simply usually unprofitable.",
+        "B": "Medium hands are by definition not the nuts.",
+        "C": "Medium hands have real showdown value, which is why they avoid bloating the pot.",
+        "D": "Correct. Medium hands do best in small pots: they get called by worse and avoid bloating the pot against better hands."
+      }
+    },
+    {
+      "id": "pr_ptrg_063",
+      "concept": "depolarized",
+      "question": "A 'depolarized' or 'condensed' range tends to:",
+      "options": [
+        "Concentrate around medium strength, lacking both the very top and pure air",
+        "Contain only the nuts and air",
+        "Be a random selection",
+        "Contain no value hands"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Condensing removes the extremes, clustering the range in the middle strength band.",
+        "B": "Nuts-and-air is the definition of a polarized range, the opposite of condensed.",
+        "C": "Condensed ranges are structured, not random.",
+        "D": "Condensed ranges still contain decent value, just not the top of the range."
+      }
+    },
+    {
+      "id": "pr_ptrg_064",
+      "concept": "polarized",
+      "question": "Against a polarized overbet, calling with a medium-strength hand is usually:",
+      "options": [
+        "Great, because it beats everything",
+        "Always mandatory",
+        "Tricky, because you mainly beat the bluffs and lose to the value",
+        "Impossible"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A medium hand does not beat the value portion of a polarized range.",
+        "B": "Calling is not always correct; it depends on the bettor's bluff ratio.",
+        "C": "Correct. Against nuts-or-air, a medium hand is a bluff-catcher: it beats bluffs and loses to value, so it depends on the bluff frequency.",
+        "D": "Calling is possible; whether it is profitable depends on the ratio."
+      }
+    },
+    {
+      "id": "pr_ptrg_065",
+      "concept": "merged",
+      "question": "A merged range is harder to play against than a clearly polarized one because:",
+      "options": [
+        "It removes pot odds",
+        "It shows its cards first",
+        "You face value and medium hands at once, so you cannot assume nuts-or-air",
+        "It changes hand rankings"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Pot odds always apply.",
+        "B": "No range reveals its cards before showdown.",
+        "C": "Correct. The continuous spread of strengths makes it hard to find a clean response that a polarized read would give.",
+        "D": "Hand rankings never change."
+      }
+    },
+    {
+      "id": "pr_ptrg_066",
+      "concept": "polarized",
+      "question": "On a dynamic, draw-heavy turn, a polarized range that bets big is typically made of:",
+      "options": [
+        "Strong made hands plus draws used as semi-bluffs",
+        "Only middle pairs",
+        "Only weak ace-highs",
+        "Hands that have folded"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. On wet turns the bluff pole is often strong draws (semi-bluffs) alongside the value hands.",
+        "B": "Middle pairs are the medium hands a polarized range avoids betting big.",
+        "C": "Weak ace-high without equity is a poor candidate for a big polarizing bet.",
+        "D": "Folded hands are not part of a betting range."
+      }
+    },
+    {
+      "id": "pr_ptrg_067",
+      "concept": "linear",
+      "question": "A linear value range bets, in order, from:",
+      "options": [
+        "Random points",
+        "Worst hand upward only",
+        "The exact middle outward",
+        "Best hand downward through strong and decent hands"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Linear ranges are ordered by strength, not random.",
+        "B": "Starting from the worst hand describes bluffing, not a linear value range.",
+        "C": "Betting from the middle outward is closer to a merged-for-protection idea, not linear.",
+        "D": "Correct. Linear means a continuous block from the top of the range downward, value-focused."
+      }
+    },
+    {
+      "id": "pr_ptrg_068",
+      "concept": "polarized",
+      "question": "Which best explains why polarized ranges use larger sizings?",
+      "options": [
+        "Larger bets are required by the rules",
+        "Larger bets maximize value from strong hands and apply maximum pressure with bluffs",
+        "Larger bets reduce your own risk to zero",
+        "Larger bets guarantee a fold"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "No rule mandates bet size.",
+        "B": "Correct. With nuts-or-air, you want to extract the most with value and put maximum fold pressure on with bluffs.",
+        "C": "Bluffs in a polarized range still carry risk of being called.",
+        "D": "Opponents defend correctly, so folds are not guaranteed."
+      }
+    },
+    {
+      "id": "pr_ptrg_069",
+      "concept": "merged",
+      "question": "A merged c-bet on a dry flop (small sizing, high frequency) primarily aims to:",
+      "options": [
+        "Only ever bluff",
+        "Deny equity and get thin value from a wide range cheaply",
+        "Only bet the nuts",
+        "Fold out your own value"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The range includes value, not only bluffs.",
+        "B": "Correct. A small, frequent c-bet bets a merged range to deny equity and extract thin value while keeping the pot manageable.",
+        "C": "A merged c-bet uses many hands, not only the nuts.",
+        "D": "You bet to profit with value, not to fold it."
+      }
+    },
+    {
+      "id": "pr_ptrg_070",
+      "concept": "polarized",
+      "question": "Which river holding is the clearest member of a polarized betting range's 'bluff pole'?",
+      "options": [
+        "Second pair with showdown value",
+        "A set",
+        "Top pair top kicker",
+        "A busted flush draw with no showdown value"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Second pair has showdown value and prefers to check or bet small, not bluff big.",
+        "B": "A set is value, the strong pole, not a bluff.",
+        "C": "Top pair is a value or medium hand, not a bluff.",
+        "D": "Correct. A busted draw that cannot win at showdown is an ideal bluff candidate for the air pole."
+      }
+    },
+    {
+      "id": "pr_ptrg_071",
+      "concept": "polarized",
+      "question": "Turning a medium-strength hand into a bluff (betting big with it) is usually a mistake because:",
+      "options": [
+        "You fold out worse hands you beat and only get called by better",
+        "It is against the rules",
+        "Medium hands always win at showdown",
+        "Bluffing is never correct"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Big bets with medium hands chase away the worse hands you dominate and keep in only the hands that beat you.",
+        "B": "It is legal, just typically unprofitable.",
+        "C": "Medium hands do not always win; they need to reach a cheap showdown.",
+        "D": "Bluffing with the right (low-showdown-value) hands is correct; medium hands are just poor bluff candidates."
+      }
+    },
+    {
+      "id": "pr_ptrg_072",
+      "concept": "merged",
+      "question": "When the board is static (unlikely to change) and you hold a merged range, smaller bets are attractive because:",
+      "options": [
+        "The nuts are impossible",
+        "You must protect against many draws",
+        "You can value-bet thinly and get called by worse without needing protection",
+        "Bluffs are forbidden"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The nuts can still exist on a static board.",
+        "B": "Static boards have few draws, so protection is less of a concern.",
+        "C": "Correct. On static boards there is little to protect against, so small thin value bets from a merged range work well.",
+        "D": "Bluffs are allowed; the point is that thin value is the main goal here."
+      }
+    },
+    {
+      "id": "pr_ptrg_073",
+      "concept": "polarized",
+      "question": "A range is 'maximally polarized' on the river when it consists of:",
+      "options": [
+        "Only one combo",
+        "All medium hands",
+        "Hands that beat everything and hands that beat nothing",
+        "Hands of identical strength"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Polarization is about strength distribution, not combo count.",
+        "B": "All-medium is the opposite extreme — fully condensed.",
+        "C": "Correct. The extreme of polarization is pure nuts and pure air, with nothing in between.",
+        "D": "Identical strength describes a condensed range, not a polarized one."
+      }
+    },
+    {
+      "id": "pr_ptrg_074",
+      "concept": "depolarized",
+      "question": "A capped, condensed range defending against bets should usually:",
+      "options": [
+        "Call with its better holdings and fold its weakest, rarely raising for value",
+        "Raise frequently for value",
+        "Always shove",
+        "Fold everything"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Lacking the nuts, a condensed range mostly bluff-catches with its best hands and folds the rest, with few value raises.",
+        "B": "Without top-of-range hands, frequent value raises are not justified.",
+        "C": "Shoving a capped range turns medium hands into bad bluffs against a stronger range.",
+        "D": "Folding everything overfolds and is exploitable."
+      }
+    },
+    {
+      "id": "pr_ptrg_075",
+      "concept": "polarized",
+      "question": "In a polarized range, the ratio of value to bluffs is chosen mainly to:",
+      "options": [
+        "Guarantee you never lose",
+        "Maximize the number of bluffs always",
+        "Match the dealer's preference",
+        "Make a bluff-catching opponent indifferent between calling and folding"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "No ratio guarantees you never lose any individual pot.",
+        "B": "Over-bluffing makes calling profitable for the opponent.",
+        "C": "The dealer has no say in strategy.",
+        "D": "Correct. The value-to-bluff ratio is set so the opponent's bluff-catchers break even, removing their edge."
+      }
+    },
+    {
+      "id": "pr_ptrg_076",
+      "concept": "merged",
+      "question": "Which scenario most calls for a merged (rather than polarized) value bet?",
+      "options": [
+        "A bluff with a busted draw",
+        "A thin value bet on the river with a hand like top pair good kicker against a calling station",
+        "An overbet shove with the nuts and air",
+        "Checking the nuts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A busted draw is a bluff, characteristic of a polarized line.",
+        "B": "Correct. Against a station, you merge by value-betting good-but-not-great hands that get called by worse.",
+        "C": "Nuts-and-air overbets are the definition of polarized.",
+        "D": "Checking the nuts is a slow-play, not a merged value bet."
+      }
+    },
+    {
+      "id": "pr_ptrg_077",
+      "concept": "linear",
+      "question": "Compared with a polarized 3-bet range, a linear 3-bet range contains:",
+      "options": [
+        "Only bluffs",
+        "Fewer or no bluffs and more strong-but-not-premium value hands",
+        "Only the nuts",
+        "Random hands"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bluff-only is not linear.",
+        "B": "Correct. Linear 3-betting adds value hands (like AQ, KQs, mid pairs) and cuts bluffs, aiming to dominate calls.",
+        "C": "Nuts-only is far too narrow for a linear range.",
+        "D": "Linear ranges are strength-ordered, not random."
+      }
+    },
+    {
+      "id": "pr_ptrg_078",
+      "concept": "polarized",
+      "question": "A common error when facing a polarized overbet is:",
+      "options": [
+        "Raising the nuts",
+        "Folding only the worst hands",
+        "Calling exactly the indifference frequency",
+        "Calling with too many medium hands that only beat bluffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Raising the nuts is a strong, correct play, not an error.",
+        "B": "Folding the worst hands is appropriate, not an error.",
+        "C": "Calling at the correct indifference frequency is the balanced response.",
+        "D": "Correct. Players often hero-call too wide against overbets, paying off the value-heavy side."
+      }
+    },
+    {
+      "id": "pr_ptrg_079",
+      "concept": "merged",
+      "question": "Which best distinguishes a merged range from a polarized range?",
+      "options": [
+        "A merged range includes medium-strength hands a polarized range would not bet",
+        "A merged range has no value hands",
+        "A polarized range has no bluffs",
+        "They are identical"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The defining difference is the medium-strength band that merged ranges keep and polarized ranges cut.",
+        "B": "Merged ranges are largely value-oriented.",
+        "C": "Polarized ranges contain bluffs by definition.",
+        "D": "They are structurally different distributions."
+      }
+    },
+    {
+      "id": "pr_ptrg_080",
+      "concept": "polarized",
+      "question": "You hold a pure bluff-catcher facing a river bet. Your call is profitable when the bettor's range:",
+      "options": [
+        "Contains only the nuts",
+        "Is all value",
+        "Contains more bluffs than the bet price requires you to beat",
+        "Has no bluffs at all"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Only-nuts means you are drawing dead at showdown.",
+        "B": "An all-value range means your bluff-catcher always loses.",
+        "C": "Correct. A bluff-catcher profits when bluffs are frequent enough that your pot odds are met.",
+        "D": "With no bluffs, calling a bluff-catcher loses money."
+      }
+    },
+    {
+      "id": "pr_ptrg_081",
+      "concept": "polarized",
+      "question": "Why are draws natural bluff candidates in a polarized betting range on early streets?",
+      "options": [
+        "They have no equity",
+        "They are always the nuts",
+        "They have equity to improve, so betting them combines fold equity with backup outs",
+        "Draws cannot be bet"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Draws have meaningful equity, which is the point.",
+        "B": "A draw is not yet made; it is not the nuts.",
+        "C": "Correct. A semi-bluff draw can win by making opponents fold now or by hitting later, an ideal bluff.",
+        "D": "Draws are frequently bet as semi-bluffs."
+      }
+    },
+    {
+      "id": "pr_ptrg_082",
+      "concept": "merged",
+      "question": "On the flop, a high-frequency small c-bet from the preflop raiser is best described as:",
+      "options": [
+        "A merged, range-betting strategy",
+        "A maximally polarized strategy",
+        "A pure bluffing strategy",
+        "A check-only strategy"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Betting most of your range small is a merged strategy that leverages range advantage.",
+        "B": "Range betting is the opposite of maximally polarized.",
+        "C": "It includes plenty of value, not only bluffs.",
+        "D": "By definition you are betting, not only checking."
+      }
+    },
+    {
+      "id": "pr_ptrg_083",
+      "concept": "depolarized",
+      "question": "A depolarized turn bet (smaller, with many medium hands) is most appropriate when:",
+      "options": [
+        "You want to fold the best hand",
+        "You have only the nuts and air",
+        "You are capped and weak",
+        "You have a range and nut advantage and want to bet many hands for thin value and denial"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Betting is meant to profit, not fold winners.",
+        "B": "Nuts-and-air pairs naturally with polarized, larger sizing.",
+        "C": "A capped, weak range is usually checking, not leading depolarized for value.",
+        "D": "Correct. With range/nut advantage you can bet a wide, depolarized range small to pressure the field."
+      }
+    },
+    {
+      "id": "pr_ptrg_084",
+      "concept": "polarized",
+      "question": "If a player only ever makes large bets with the nuts and never bluffs, their large bets are:",
+      "options": [
+        "Perfectly balanced",
+        "Polarized in structure but exploitably unbalanced — you should fold all bluff-catchers",
+        "Merged",
+        "Impossible to read"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A value-only betting range is the opposite of balanced.",
+        "B": "Correct. Value-only big bets look polarized but lack the bluff pole, so you simply fold everything but the nuts.",
+        "C": "It is not merged; it omits the medium band entirely.",
+        "D": "It is highly readable: big bet equals nuts."
+      }
+    },
+    {
+      "id": "pr_ptrg_085",
+      "concept": "merged",
+      "question": "Which hand most naturally belongs in a merged value-betting range but NOT in a maximally polarized one?",
+      "options": [
+        "The nut straight",
+        "Top pair, decent kicker",
+        "A busted bluff",
+        "Quads"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The nut straight is a top-pole hand in both range types.",
+        "B": "Correct. Top pair good kicker is a medium-strong value hand that merges, but is too weak to be the value pole of a maximally polarized line.",
+        "C": "A busted bluff is the air pole of a polarized range.",
+        "D": "Quads are nut-level value, included in a polarized value pole."
+      }
+    },
+    {
+      "id": "pr_ptrg_086",
+      "concept": "polarized",
+      "question": "Polarization tends to increase as the hand approaches the river because:",
+      "options": [
+        "The pot disappears",
+        "Hand rankings change",
+        "More cards are dealt face down",
+        "Medium hands lose value relative to going for max value or giving up, and ranges thin out"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The pot grows; it does not disappear.",
+        "B": "Hand rankings are fixed throughout.",
+        "C": "No additional hidden cards are dealt on the river decision.",
+        "D": "Correct. By the river, big bets favor nuts-or-air; medium hands prefer showdown, so ranges polarize."
+      }
+    },
+    {
+      "id": "pr_ptrg_087",
+      "concept": "linear",
+      "question": "A 'value-merge' on the river means:",
+      "options": [
+        "Betting a strong but non-nut hand for value because worse hands still call",
+        "Bluffing with air",
+        "Checking the nuts",
+        "Folding the best hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Value-merging extracts from worse calling hands with a strong, non-nut holding.",
+        "B": "Bluffing air is the bluff side, not value-merging.",
+        "C": "Checking the nuts forgoes value rather than merging it.",
+        "D": "Folding the best hand is the opposite of value-merging."
+      }
+    },
+    {
+      "id": "pr_ptrg_088",
+      "concept": "polarized",
+      "question": "Which board most encourages a polarized strategy from the aggressor on the river?",
+      "options": [
+        "A board with no possible strong hands",
+        "A board where both ranges are full of identical medium hands",
+        "A board where the aggressor holds the strongest possible hands and clear bluffs",
+        "A board that cannot be bet"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If no strong hands exist, there is no value pole to polarize around.",
+        "B": "Symmetric medium ranges favor small, merged bets.",
+        "C": "Correct. Holding the nut hands plus natural bluffs is exactly the setup for a polarized, large-sizing strategy.",
+        "D": "Any live board can be bet."
+      }
+    },
+    {
+      "id": "pr_ptrg_089",
+      "concept": "merged",
+      "question": "A key risk of always betting a merged range for small sizes is:",
+      "options": [
+        "You fold too much",
+        "You always overbluff",
+        "You may leave value on the table with your strongest hands",
+        "You can never win"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Betting is not folding.",
+        "B": "Merged betting is value-leaning, not overbluffed.",
+        "C": "Correct. Small merged bets undercharge your nut hands, so a balanced strategy mixes in larger polarized bets with the top.",
+        "D": "Merged betting wins plenty; it just may under-extract with the nuts."
+      }
+    },
+    {
+      "id": "pr_ptrg_090",
+      "concept": "polarized",
+      "question": "When defending against a polarized range, your continuing range should be:",
+      "options": [
+        "Weighted toward bluff-catchers and your own strong hands, folding the rest",
+        "All your medium hands",
+        "Only your weakest hands",
+        "Identical to facing a merged bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Against nuts-or-air you defend with bluff-catchers and value, folding hands that beat nothing in their range.",
+        "B": "Defending all medium hands overcalls against the value pole.",
+        "C": "Your weakest hands have no equity to continue.",
+        "D": "Defense against polarized ranges differs from defense against merged ranges."
+      }
+    },
+    {
+      "id": "pr_ptrg_091",
+      "concept": "range_adv",
+      "question": "'Range advantage' on a given board means:",
+      "options": [
+        "You posted the bigger blind",
+        "You always hold the single best hand",
+        "The board is empty",
+        "Your range has more equity on that board than your opponent's range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Blinds are unrelated to range advantage.",
+        "B": "Having more equity on average does not mean you always hold the nuts.",
+        "C": "Range advantage is evaluated relative to a board that exists.",
+        "D": "Correct. Range advantage is an equity comparison across whole ranges on a specific texture."
+      }
+    },
+    {
+      "id": "pr_ptrg_092",
+      "concept": "nut_advantage",
+      "question": "'Nut advantage' refers to which player:",
+      "options": [
+        "Has more chips",
+        "Holds the strongest possible hands (the nuts and near-nuts) more often",
+        "Acts last",
+        "Folds more often"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Chip counts are stack depth, not nut advantage.",
+        "B": "Correct. Nut advantage is about who can have the top of the range more frequently.",
+        "C": "Position is valuable but distinct from nut advantage.",
+        "D": "Folding frequency is unrelated to holding the nuts."
+      }
+    },
+    {
+      "id": "pr_ptrg_093",
+      "concept": "range_adv",
+      "question": "On a K-7-2 rainbow flop in a single-raised pot, who typically has the range advantage?",
+      "options": [
+        "The preflop caller (big blind)",
+        "The preflop raiser",
+        "Neither, equity is exactly equal",
+        "The dealer"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The caller's range has fewer strong kings and big pairs on this texture.",
+        "B": "Correct. The raiser holds more KK, AK, and big pairs that smash a king-high dry board.",
+        "C": "Equity is clearly skewed toward the raiser here.",
+        "D": "The dealer holds no competing range."
+      }
+    },
+    {
+      "id": "pr_ptrg_094",
+      "concept": "range_adv",
+      "question": "On a low connected flop like 6-5-4 with two of a suit, range advantage often shifts toward:",
+      "options": [
+        "The preflop raiser, who has all the big pairs",
+        "The player who acts first",
+        "Whoever has more chips",
+        "The big blind defender, whose range includes more suited connectors and small pairs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Big pairs are often overpairs but face many straights and draws here; the texture favors the defender's connected holdings.",
+        "B": "Acting order is position, not range advantage.",
+        "C": "Chips do not determine board interaction.",
+        "D": "Correct. The big blind's wide defending range hits low connected boards (straights, two pair, draws) more than a tight raising range."
+      }
+    },
+    {
+      "id": "pr_ptrg_095",
+      "concept": "range_adv",
+      "question": "Having a range advantage on the flop usually supports which strategy?",
+      "options": [
+        "Betting a high frequency, often with smaller sizing",
+        "Checking the entire range",
+        "Folding everything",
+        "Only ever overbetting"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With more equity across your range, you can bet often (frequently small) to pressure the weaker range.",
+        "B": "Checking everything wastes a range advantage.",
+        "C": "Folding squanders an equity edge.",
+        "D": "Range advantage does not require always overbetting; small frequent bets are common."
+      }
+    },
+    {
+      "id": "pr_ptrg_096",
+      "concept": "nut_advantage",
+      "question": "Even without an overall equity (range) advantage, why can nut advantage justify large bets and overbets?",
+      "options": [
+        "It changes the pot odds rules",
+        "It guarantees you win every pot",
+        "Holding the nuts more often lets you apply pressure your opponent cannot answer with their capped range",
+        "It removes variance"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Pot odds are unchanged.",
+        "B": "Nut advantage improves leverage, not certainty of winning.",
+        "C": "Correct. The player with the nuts can credibly threaten max pressure, and the capped opponent cannot match it.",
+        "D": "Variance still exists."
+      }
+    },
+    {
+      "id": "pr_ptrg_097",
+      "concept": "range_adv",
+      "question": "On an A-K-Q board, the preflop raiser usually has a range advantage because:",
+      "options": [
+        "The board is low",
+        "Their range is all small pairs",
+        "Their range contains more big broadway cards and strong pairs that connect",
+        "They posted a blind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A-K-Q is a high, not a low, board.",
+        "B": "A raising range is not made of only small pairs.",
+        "C": "Correct. Broadway-heavy boards favor the tighter raising range full of high cards.",
+        "D": "Blinds are irrelevant to range advantage."
+      }
+    },
+    {
+      "id": "pr_ptrg_098",
+      "concept": "range_adv",
+      "question": "Why might a player with a range advantage still sometimes check?",
+      "options": [
+        "To protect their checking range and avoid being too predictable, especially with medium hands",
+        "Because checking is always best",
+        "Because range advantage forbids betting",
+        "To show their cards"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Even an advantaged range checks some hands to keep its checking range robust and trap or pot-control.",
+        "B": "Checking is not always best; betting often is with an advantage.",
+        "C": "Range advantage encourages betting, it does not forbid it.",
+        "D": "Checking does not reveal cards."
+      }
+    },
+    {
+      "id": "pr_ptrg_099",
+      "concept": "nut_advantage",
+      "question": "On a monotone flop (three of one suit) in a single-raised pot, the player MORE likely to have the nut flush in their range is usually:",
+      "options": [
+        "The big blind defender, exclusively",
+        "The dealer",
+        "Neither — flushes are equally likely",
+        "The preflop raiser, who holds more suited aces"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The defender does have some suited hands but typically fewer nut-flush combos than a raiser.",
+        "B": "The dealer holds no range.",
+        "C": "The distribution of suited aces is not equal between ranges.",
+        "D": "Correct. Raising ranges are rich in suited aces (especially Ax of the suit), giving nut advantage on monotone boards."
+      }
+    },
+    {
+      "id": "pr_ptrg_100",
+      "concept": "range_adv",
+      "question": "Range advantage and nut advantage can diverge. Which statement captures this?",
+      "options": [
+        "They are always the same thing",
+        "You can have more total equity (range advantage) while your opponent holds the nuts more often (nut advantage)",
+        "Nut advantage implies you must fold",
+        "Range advantage means you hold the single best hand"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "They frequently differ depending on board texture.",
+        "B": "Correct. The two concepts are distinct; one player may win on average while the other monopolizes the very top hands.",
+        "C": "Nut advantage is a reason to apply pressure, not to fold.",
+        "D": "Range advantage is an average-equity edge, not a guarantee of the best single hand."
+      }
+    },
+    {
+      "id": "pr_ptrg_101",
+      "concept": "range_adv",
+      "question": "After you c-bet the flop and get called, then the turn brings a card that helps the caller's range more than yours, your range advantage:",
+      "options": [
+        "Always increases",
+        "Can shrink or flip to the caller",
+        "Is fixed for the whole hand",
+        "Does not depend on the turn card"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Advantage does not automatically grow each street.",
+        "B": "Correct. Turn and river cards continually shift equity; a card favoring the caller can erase your advantage.",
+        "C": "Range advantage is dynamic, recalculated each street.",
+        "D": "The turn card directly changes how the ranges connect."
+      }
+    },
+    {
+      "id": "pr_ptrg_102",
+      "concept": "nut_advantage",
+      "question": "Which is the best practical use of having the nut advantage on the river?",
+      "options": [
+        "Fold your strong hands",
+        "Always check",
+        "Only bet small",
+        "Use larger bet sizes and overbets to maximize pressure and value"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You would never fold the strong hands that create the advantage.",
+        "B": "Checking wastes nut advantage.",
+        "C": "Small bets under-leverage the threat of the nuts.",
+        "D": "Correct. With the top hands concentrated in your range, big sizings extract value and punish the capped opponent."
+      }
+    },
+    {
+      "id": "pr_ptrg_103",
+      "concept": "range_adv",
+      "question": "Which board most clearly gives the big blind defender a range advantage over a UTG raiser?",
+      "options": [
+        "5-4-3 two-tone",
+        "K-K-7",
+        "A-K-Q rainbow",
+        "A-A-K"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Low connected boards connect with the defender's suited connectors and small pairs far more than a tight UTG range.",
+        "B": "Paired king-high boards favor the raiser's strong kings.",
+        "C": "Broadway boards favor the high-card-heavy UTG range.",
+        "D": "Ace-king boards strongly favor the premium-laden raiser."
+      }
+    },
+    {
+      "id": "pr_ptrg_104",
+      "concept": "range_adv",
+      "question": "Range advantage is most useful as a guide to:",
+      "options": [
+        "How many chips to buy in for",
+        "Which single card the opponent holds",
+        "Your overall betting frequency and sizing on a given board",
+        "The order of betting"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buy-in size is unrelated.",
+        "B": "It is about distributions, not pinpointing one card.",
+        "C": "Correct. Range advantage informs how often and how large you should bet across your range.",
+        "D": "Betting order is positional, not a function of range advantage."
+      }
+    },
+    {
+      "id": "pr_ptrg_105",
+      "concept": "nut_advantage",
+      "question": "A capped player facing an opponent with a clear nut advantage should generally:",
+      "options": [
+        "Stack off lightly",
+        "Raise for value frequently",
+        "Play more cautiously, bluff-catch selectively, and avoid bloating the pot",
+        "Overbet their medium hands"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Stacking off light into a nut-advantaged range loses money.",
+        "B": "Frequent value raises are unjustified without top-of-range hands.",
+        "C": "Correct. Without the nuts, the capped player should control the pot and pick spots to bluff-catch.",
+        "D": "Overbetting medium hands turns them into poor bluffs against a stronger range."
+      }
+    },
+    {
+      "id": "pr_ptrg_106",
+      "concept": "range_adv",
+      "question": "Why does the preflop raiser usually start the flop with at least a small range advantage in a single-raised pot?",
+      "options": [
+        "They chose to raise a stronger range, while the caller continued with a wider, weaker one",
+        "They always have position",
+        "The board always favors them",
+        "They have more chips"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The aggressive preflop action condensed their range to stronger hands than the caller's defend range.",
+        "B": "Position is separate; the raiser is sometimes out of position.",
+        "C": "Some boards flip the advantage to the caller.",
+        "D": "Stack sizes do not create range advantage."
+      }
+    },
+    {
+      "id": "pr_ptrg_107",
+      "concept": "range_adv",
+      "question": "On a paired flop like 8-8-3, the preflop raiser's range advantage mostly comes from:",
+      "options": [
+        "Posting a blind",
+        "Holding all the trip eights",
+        "The board being a flush board",
+        "Higher overpairs and more big cards that still dominate the board"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Blinds are unrelated.",
+        "B": "Both players have similarly few trip-eight combos; that is not the source of the edge.",
+        "C": "8-8-3 is not described as a flush board.",
+        "D": "Correct. The raiser's overpairs and high cards dominate this low paired board even though trips are rare for both."
+      }
+    },
+    {
+      "id": "pr_ptrg_108",
+      "concept": "nut_advantage",
+      "question": "Nut advantage matters most for which decision?",
+      "options": [
+        "Whether the dealer shuffles",
+        "Whether you can profitably use very large bets and overbets",
+        "The size of the rake",
+        "When the blinds increase"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shuffling is procedural and unrelated.",
+        "B": "Correct. The credibility of big bets and overbets depends on who can have the nuts.",
+        "C": "Rake is fixed by the room, not by nut advantage.",
+        "D": "Blind levels are a tournament structure detail."
+      }
+    },
+    {
+      "id": "pr_ptrg_109",
+      "concept": "range_adv",
+      "question": "Two players check the flop. On the turn, the player with the range advantage who now bets is leveraging:",
+      "options": [
+        "A guaranteed winning hand",
+        "Their stronger overall range to apply pressure the weaker range struggles to meet",
+        "A rule that forces a fold",
+        "The dealer's assistance"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Range advantage is statistical, not a guarantee of holding the best hand.",
+        "B": "Correct. The bet uses the equity edge of the stronger range to pressure the weaker one.",
+        "C": "No rule forces opponents to fold.",
+        "D": "The dealer plays no part in strategy."
+      }
+    },
+    {
+      "id": "pr_ptrg_110",
+      "concept": "range_adv",
+      "question": "Which factor does NOT directly contribute to range advantage on a board?",
+      "options": [
+        "How well each player's range connects with the board",
+        "The number of strong combos each range holds",
+        "Average equity across the ranges",
+        "The color of the table felt"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "How ranges connect to the board is central to range advantage.",
+        "B": "Strong-combo counts directly affect range advantage.",
+        "C": "Average equity across ranges is the definition of range advantage.",
+        "D": "Correct. The felt color is irrelevant; it has no bearing on equities."
+      }
+    },
+    {
+      "id": "pr_ptrg_111",
+      "concept": "range_adv",
+      "question": "A flop comes Q-J-T with two of a suit. In a button-versus-big-blind single-raised pot, range advantage is:",
+      "options": [
+        "Close, but nut advantage (KK-A straights, sets, flush draws) can be contested by both ranges",
+        "Entirely the button's with no contest",
+        "Entirely the big blind's with no contest",
+        "Nonexistent for both players"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Both wide ranges connect heavily with this coordinated board, so equities and nut combos are split and contested.",
+        "B": "The big blind's wide range also smashes this connected board.",
+        "C": "The button's range likewise contains plenty of strong broadway combos.",
+        "D": "Both ranges clearly have meaningful equity here."
+      }
+    },
+    {
+      "id": "pr_ptrg_112",
+      "concept": "nut_advantage",
+      "question": "On the river, you hold the nut advantage and bet an overbet. A balanced opponent should:",
+      "options": [
+        "Raise their entire range",
+        "Call with every hand",
+        "Continue with their best bluff-catchers at the correct frequency and fold the rest",
+        "Fold everything"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Raising the whole range turns made hands into bad bluffs against your nuts.",
+        "B": "Calling everything overpays the value-heavy overbet.",
+        "C": "Correct. Against an overbet from a nut-advantaged range, defend the strongest bluff-catchers per the price and fold weak hands.",
+        "D": "Folding everything overfolds and is exploitable."
+      }
+    },
+    {
+      "id": "pr_ptrg_113",
+      "concept": "range_adv",
+      "question": "Equity realization can reduce the practical value of a raw range advantage when:",
+      "options": [
+        "The board is completely static",
+        "You are in position with the betting lead",
+        "You are out of position and cannot easily realize your equity",
+        "You hold the nuts"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Static boards do not by themselves prevent equity realization.",
+        "B": "Position helps you realize equity, enhancing the advantage.",
+        "C": "Correct. Out of position, a range may fail to realize its equity, dampening the benefit of a nominal edge.",
+        "D": "Holding the nuts realizes equity fully."
+      }
+    },
+    {
+      "id": "pr_ptrg_114",
+      "concept": "range_adv",
+      "question": "Which describes a 'nut-advantage but not range-advantage' spot?",
+      "options": [
+        "Your opponent has slightly more total equity, but only you can hold the absolute nuts",
+        "You have both more equity and the nuts",
+        "You have neither",
+        "Your opponent has both"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. This is the classic split: opponent edges average equity while you monopolize the top hands.",
+        "B": "That is holding both advantages, not just nut advantage.",
+        "C": "Having neither describes the disadvantaged player.",
+        "D": "If the opponent has both, you hold neither advantage."
+      }
+    },
+    {
+      "id": "pr_ptrg_115",
+      "concept": "nut_advantage",
+      "question": "Why is nut advantage often described as the key to 'who gets to apply maximum pressure'?",
+      "options": [
+        "Because it doubles the pot automatically",
+        "Because the nuts always win the pot uncontested",
+        "Because pressure is illegal otherwise",
+        "Only the player who can credibly hold the nuts can threaten the biggest bets without being raised off them"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Pot size grows through betting, not automatically.",
+        "B": "The nuts win at showdown but the point is leverage in betting, and opponents can still fold.",
+        "C": "Applying pressure with bets is always legal.",
+        "D": "Correct. The threat of the nuts backs up large bets; a capped opponent cannot credibly counter-pressure."
+      }
+    },
+    {
+      "id": "pr_ptrg_116",
+      "concept": "range_adv",
+      "question": "A useful first question to assess range advantage on a flop is:",
+      "options": [
+        "'What color are the cards?'",
+        "'Which range contains more of the hands that love this board?'",
+        "'How tall is my opponent?'",
+        "'What time is it?'"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Card color does not affect equities.",
+        "B": "Correct. Asking which range is more enriched in board-loving hands is the practical heuristic for range advantage.",
+        "C": "Physical traits are irrelevant.",
+        "D": "The time has no bearing on range interaction."
+      }
+    },
+    {
+      "id": "pr_ptrg_117",
+      "concept": "range_adv",
+      "question": "On A-7-2 rainbow, why does the preflop raiser typically c-bet a large fraction of their range?",
+      "options": [
+        "Because they are forced to bet",
+        "They have a clear range and nut advantage, so betting pressures the capped defender",
+        "Because they always have aces",
+        "Because the board is wet and scary"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "No rule forces a c-bet.",
+        "B": "Correct. Dry ace-high boards favor the raiser, enabling frequent, often small, c-bets against a weaker range.",
+        "C": "They do not always have aces; it is the range edge that matters.",
+        "D": "A-7-2 rainbow is dry, not wet."
+      }
+    },
+    {
+      "id": "pr_ptrg_118",
+      "concept": "nut_advantage",
+      "question": "Which player tends to have nut advantage on a 2-2-2 board in a single-raised pot?",
+      "options": [
+        "Neither, it is impossible to assess",
+        "Whoever has more deuces",
+        "The big blind, always",
+        "The player with more high pocket pairs and big cards (usually the raiser)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "It is assessable: the stronger high-card range holds the effective nuts more often.",
+        "B": "Quad deuces are vanishingly rare and roughly symmetric; kickers decide.",
+        "C": "The big blind's wider, weaker range does not have an automatic edge here.",
+        "D": "Correct. On extreme paired boards, the effective nuts becomes the best kicker/overpair, favoring the raiser's stronger range."
+      }
+    },
+    {
+      "id": "pr_ptrg_119",
+      "concept": "range_adv",
+      "question": "Multiway pots tend to make range advantage:",
+      "options": [
+        "Less reliable as a c-bet justification, since more ranges can connect with the board",
+        "Stronger for the original raiser",
+        "Irrelevant entirely",
+        "Always favor the dealer"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With more players, someone is more likely to have hit, so a raw range advantage justifies betting less often.",
+        "B": "Extra players dilute the raiser's edge, not strengthen it.",
+        "C": "Range advantage still matters; it is just shared among more ranges.",
+        "D": "The dealer holds no range."
+      }
+    },
+    {
+      "id": "pr_ptrg_120",
+      "concept": "range_adv",
+      "question": "Which combination of advantages most strongly supports a high-frequency, large-sizing river betting strategy?",
+      "options": [
+        "Nut disadvantage only",
+        "Range disadvantage with no nut advantage",
+        "Both range advantage and nut advantage",
+        "Neither advantage"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A nut disadvantage discourages large betting.",
+        "B": "Lacking both edges argues for checking and pot control.",
+        "C": "Correct. Holding both more equity and the top hands lets you bet often and large with maximum leverage.",
+        "D": "With neither advantage, aggression is poorly supported."
+      }
+    },
+    {
+      "id": "pr_ptrg_121",
+      "concept": "capped",
+      "question": "A 'capped' range is one that:",
+      "options": [
+        "Has exactly six combinations",
+        "Always contains the nuts",
+        "Has an upper limit on strength and is unlikely to contain the nuts",
+        "Cannot continue in the hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Combo count is unrelated to being capped.",
+        "B": "By definition a capped range lacks the nuts.",
+        "C": "Correct. Capped means the maximum strength is limited; the very best hands are largely absent.",
+        "D": "Capped ranges can still call and continue."
+      }
+    },
+    {
+      "id": "pr_ptrg_122",
+      "concept": "uncapped",
+      "question": "An 'uncapped' range is one that:",
+      "options": [
+        "Can still contain the strongest possible hands, including the nuts",
+        "Cannot bet",
+        "Contains only high cards",
+        "Has already folded"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Uncapped means the top of the range — including the nuts — is still possible.",
+        "B": "Uncapped ranges bet and raise freely.",
+        "C": "Uncapped ranges include strong made hands, not just high cards.",
+        "D": "Uncapped refers to strength, not fold status."
+      }
+    },
+    {
+      "id": "pr_ptrg_123",
+      "concept": "capped",
+      "question": "Why is a 'call, call, call' line on multiple streets typically a capped range?",
+      "options": [
+        "Because the dealer caps it",
+        "Because calling is illegal with strong hands",
+        "Because callers fold the nuts",
+        "Players usually raise their strongest hands at some point, so pure calling rarely hides the nuts"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The dealer does not influence range strength.",
+        "B": "Calling with strong hands is legal; it is just less common as a pure line.",
+        "C": "Callers do not fold the nuts; they simply rarely arrive via pure calling.",
+        "D": "Correct. Strong hands tend to raise for value somewhere, so a passive calling line is missing most monsters."
+      }
+    },
+    {
+      "id": "pr_ptrg_124",
+      "concept": "capped",
+      "question": "Against a clearly capped opponent on the river, a profitable adjustment is to:",
+      "options": [
+        "Only check",
+        "Bluff and bet for thin value more often, since they rarely have a hand strong enough to punish you",
+        "Fold all your hands",
+        "Never bet"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Checking forgoes the exploit a capped range invites.",
+        "B": "Correct. With few strong hands in their range, you can apply more pressure with bluffs and thin value.",
+        "C": "Folding everything wastes the advantage of facing a weak range.",
+        "D": "Betting more, not never, is the exploit."
+      }
+    },
+    {
+      "id": "pr_ptrg_125",
+      "concept": "capped",
+      "question": "Which line most strongly UNCAPS a player's range?",
+      "options": [
+        "Check-calling every street",
+        "Raising or check-raising aggressively at some point",
+        "Folding the river",
+        "Limping preflop"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Check-calling throughout is the classic capped line.",
+        "B": "Correct. A raise or check-raise represents the top of the range, signaling the nuts are possible (uncapped).",
+        "C": "Folding ends the hand; it does not uncap a range.",
+        "D": "Limping is a passive, often capping action."
+      }
+    },
+    {
+      "id": "pr_ptrg_126",
+      "concept": "uncapped",
+      "question": "The preflop raiser's range on the flop is generally considered:",
+      "options": [
+        "Only bluffs",
+        "Always capped",
+        "Empty",
+        "Uncapped — it can still contain overpairs and the strongest hands"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "It contains value hands, not only bluffs.",
+        "B": "An aggressive preflop range is the opposite of capped.",
+        "C": "The range is full of hands.",
+        "D": "Correct. By raising preflop they keep the premium hands, so their flop range is uncapped."
+      }
+    },
+    {
+      "id": "pr_ptrg_127",
+      "concept": "capped",
+      "question": "A big blind who only flat-calls a raise preflop (never 3-bets) often has a flop range that is:",
+      "options": [
+        "Somewhat capped, because the strongest hands would have 3-bet",
+        "Uncapped with all the aces",
+        "Made only of the nuts",
+        "Impossible to estimate"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. If premiums always 3-bet, the flat-call range is missing them and is capped to a degree.",
+        "B": "The flatting range typically lacks the very top hands.",
+        "C": "It is not nuts-only; it is a wide capped range.",
+        "D": "It is estimable: flatting caps the top."
+      }
+    },
+    {
+      "id": "pr_ptrg_128",
+      "concept": "uncapped",
+      "question": "Why does an uncapped range allow a player to defend more confidently against aggression?",
+      "options": [
+        "Because the rules protect them",
+        "Because they always win",
+        "Because they can credibly hold the nuts and raise back, deterring relentless bluffing",
+        "Because the pot is smaller"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Rules do not favor any range.",
+        "B": "An uncapped range does not guarantee winning.",
+        "C": "Correct. The threat of the nuts in an uncapped range discourages opponents from over-bluffing.",
+        "D": "Pot size is independent of being uncapped."
+      }
+    },
+    {
+      "id": "pr_ptrg_129",
+      "concept": "capped",
+      "question": "A player check-raises the flop, then check-calls turn and river. By the river their range is:",
+      "options": [
+        "Completely uncapped",
+        "Always the nuts",
+        "Often somewhat capped on the river, having shown willingness to play passively after the raise",
+        "Pure air only"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The later passivity caps, rather than uncaps, the range.",
+        "B": "Passive river calls argue against a nuts-only read.",
+        "C": "Correct. The passive turn and river calls suggest the very strongest hands would have kept betting, capping the river range somewhat.",
+        "D": "It contains made hands, not only air."
+      }
+    },
+    {
+      "id": "pr_ptrg_130",
+      "concept": "capped",
+      "question": "The main strategic consequence of facing a capped range is that you should:",
+      "options": [
+        "Increase your bluffing and overbetting frequency to exploit the missing strong hands",
+        "Decrease all aggression",
+        "Always check",
+        "Never value bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Because they rarely hold the nuts, you can pressure them more with bluffs and big bets.",
+        "B": "Less aggression fails to exploit the cap.",
+        "C": "Checking forgoes the exploit.",
+        "D": "You can value bet more, not less, against a capped range."
+      }
+    },
+    {
+      "id": "pr_ptrg_131",
+      "concept": "uncapped",
+      "question": "Which player most clearly has an uncapped range on the river?",
+      "options": [
+        "A player who folded the turn",
+        "A player who limp-called and check-called every street",
+        "A player who only called preflop and checked down",
+        "A player who 3-bet preflop, c-bet flop, barreled turn, and bet river"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A folded hand is out; it has no river range.",
+        "B": "Limp-call and check-call lines are classic capped lines.",
+        "C": "Calling and checking down caps the range.",
+        "D": "Correct. Consistent aggression across all streets keeps the top of the range intact — uncapped."
+      }
+    },
+    {
+      "id": "pr_ptrg_132",
+      "concept": "capped",
+      "question": "When you have a capped range and your opponent is uncapped, you should generally:",
+      "options": [
+        "Stack off with any pair",
+        "Avoid building a huge pot and bluff-catch carefully rather than stacking off",
+        "Overbet for value frequently",
+        "Raise every street"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Stacking off any pair into an uncapped range loses heavily.",
+        "B": "Correct. With the weaker, capped range, control the pot and pick bluff-catches instead of committing your stack.",
+        "C": "Overbetting for value with a capped range is rarely justified.",
+        "D": "Raising every street misrepresents a range that lacks the nuts."
+      }
+    },
+    {
+      "id": "pr_ptrg_133",
+      "concept": "capped",
+      "question": "A board runs out to put four cards to a straight, and a player who only called now bets small. Their range is likely:",
+      "options": [
+        "Definitely the straight",
+        "Capped — they would often have raised earlier with the straight",
+        "Uncapped and full of nut hands",
+        "All bluffs only"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The passive line argues against them holding the straight.",
+        "B": "Correct. Having only called, they rarely have the made straight that would have raised, so they remain capped.",
+        "C": "Calling-only lines cap the range, the opposite of uncapped.",
+        "D": "The range includes some made hands and thin value, not only bluffs."
+      }
+    },
+    {
+      "id": "pr_ptrg_134",
+      "concept": "uncapped",
+      "question": "Maintaining an uncapped range in your own play is valuable because:",
+      "options": [
+        "It removes variance",
+        "It guarantees you the nuts",
+        "It makes you fold less by rule",
+        "It lets you defend against aggression and discourages opponents from bluffing you relentlessly"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Variance remains regardless.",
+        "B": "It makes the nuts possible, not guaranteed.",
+        "C": "No rule changes your folding; it is strategic protection.",
+        "D": "Correct. Keeping strong hands in your checking/calling ranges protects you from being run over."
+      }
+    },
+    {
+      "id": "pr_ptrg_135",
+      "concept": "capped",
+      "question": "If you slow-play your strongest hands too often, the downside is:",
+      "options": [
+        "Your betting range becomes capped and easier to play against, and you under-extract value",
+        "You always win more",
+        "It is against the rules",
+        "Your range becomes uncapped"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Constantly trapping caps your aggressive lines and costs value when you fail to bet strong hands.",
+        "B": "Excessive slow-playing usually costs value, not gains it.",
+        "C": "Slow-playing is legal.",
+        "D": "Slow-playing removes strong hands from your betting range, capping (not uncapping) it."
+      }
+    },
+    {
+      "id": "pr_ptrg_136",
+      "concept": "capped",
+      "question": "The big blind defends by calling and the flop checks through. On the turn, the big blind leads small. This lead is often:",
+      "options": [
+        "Pure air with no equity",
+        "Always a set or better",
+        "A capped, merged range of medium hands rather than the nuts",
+        "Impossible to interpret"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "It usually contains real medium equity, not only air.",
+        "B": "It is not always a set; that read is too strong.",
+        "C": "Correct. A small turn lead after a checked flop is typically medium-strength and capped, since monsters often check to raise or bet bigger.",
+        "D": "The line is interpretable as a capped, merged lead."
+      }
+    },
+    {
+      "id": "pr_ptrg_137",
+      "concept": "uncapped",
+      "question": "Which action keeps your river checking range uncapped (protected)?",
+      "options": [
+        "Only checking your worst hands",
+        "Always betting every strong hand",
+        "Occasionally checking some very strong hands (slow-plays/traps) along with medium hands",
+        "Folding all strong hands"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Checking only weak hands is the definition of a capped check.",
+        "B": "Always betting strong hands leaves your checking range capped.",
+        "C": "Correct. Mixing some strong hands into your checks prevents your checking range from being capped and exploitable.",
+        "D": "You would never fold strong hands; that wastes equity."
+      }
+    },
+    {
+      "id": "pr_ptrg_138",
+      "concept": "capped",
+      "question": "Recognizing that an opponent's range is capped should most change your willingness to:",
+      "options": [
+        "Bluff at and apply pressure to the pot",
+        "Show your cards",
+        "Leave the table",
+        "Change seats"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A capped opponent is the prime target for increased bluffing and pressure.",
+        "B": "Showing cards gives away information for no reason.",
+        "C": "Leaving is unrelated to exploiting a capped range.",
+        "D": "Seat changes do not exploit a capped range in the current hand."
+      }
+    },
+    {
+      "id": "pr_ptrg_139",
+      "concept": "balance",
+      "question": "A 'balanced' range is one that:",
+      "options": [
+        "Shows cards early",
+        "Contains only bluffs",
+        "Always checks the nuts",
+        "Mixes value hands and bluffs so opponents cannot exploit you by always calling or always folding"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "You never show cards early.",
+        "B": "An all-bluff range is unbalanced and exploitable by calling.",
+        "C": "Checking the nuts forgoes value; it is not what balance means.",
+        "D": "Correct. Balance pairs value with the right number of bluffs so no single response by the opponent beats you."
+      }
+    },
+    {
+      "id": "pr_ptrg_140",
+      "concept": "value_bluff_ratio",
+      "question": "For a pot-sized river bet, the GTO value-to-bluff ratio is approximately:",
+      "options": [
+        "1:1",
+        "2:1 (two value combos per bluff)",
+        "3:1",
+        "1:2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1:1 over-bluffs a pot-sized bet, making calls profitable for the opponent.",
+        "B": "Correct. A pot-sized bet should be about two value combos for each bluff, so bluffs are one-third of the betting range.",
+        "C": "3:1 is the ratio for a half-pot bet, not a pot bet.",
+        "D": "1:2 has far too many bluffs."
+      }
+    },
+    {
+      "id": "pr_ptrg_141",
+      "concept": "value_bluff_ratio",
+      "question": "For a half-pot river bet, the balanced value-to-bluff ratio is approximately:",
+      "options": [
+        "1:1",
+        "3:1",
+        "2:1",
+        "4:1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1:1 over-bluffs at this small size.",
+        "B": "Correct. A half-pot bet gives the caller 3:1 pot odds, so you bluff one combo per three value combos.",
+        "C": "2:1 corresponds to a pot-sized bet, not a half-pot.",
+        "D": "4:1 corresponds to roughly a third-pot bet, under-bluffing a half-pot."
+      }
+    },
+    {
+      "id": "pr_ptrg_142",
+      "concept": "value_bluff_ratio",
+      "question": "For a 2x-pot overbet on the river, the balanced value-to-bluff ratio is approximately:",
+      "options": [
+        "3:1",
+        "2:1",
+        "1:1",
+        "1.5:1 (about 3 value : 2 bluffs)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3:1 corresponds to a half-pot bet, far too few bluffs for an overbet.",
+        "B": "2:1 is the pot-sized ratio, still too few bluffs for a 2x overbet.",
+        "C": "1:1 slightly over-bluffs even a large overbet.",
+        "D": "Correct. A 2x-pot overbet lays 1.5:1, so bluffs make up about 40% of the range, roughly 3 value to 2 bluffs."
+      }
+    },
+    {
+      "id": "pr_ptrg_143",
+      "concept": "mdf",
+      "question": "Minimum Defense Frequency (MDF) tells you:",
+      "options": [
+        "The fraction of your range you must continue with to stop opponents from profitably bluffing any two cards",
+        "How often you must bluff",
+        "How many chips to bet",
+        "The size of the blinds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF is the defending share needed so that a pure bluff cannot show an automatic profit.",
+        "B": "MDF concerns defending (calling/raising), not your bluffing frequency.",
+        "C": "It is a frequency, not a bet size.",
+        "D": "Blinds are unrelated to MDF."
+      }
+    },
+    {
+      "id": "pr_ptrg_144",
+      "concept": "mdf",
+      "question": "Against a pot-sized bet, the minimum defense frequency is approximately:",
+      "options": [
+        "33%",
+        "67%",
+        "50%",
+        "100%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "33% would massively overfold against a pot bet.",
+        "B": "67% is the MDF against a half-pot bet, not a pot bet.",
+        "C": "Correct. MDF = pot ÷ (pot + bet) = 1 ÷ 2 = 50% against a pot-sized bet.",
+        "D": "100% would never fold, which is not required."
+      }
+    },
+    {
+      "id": "pr_ptrg_145",
+      "concept": "mdf",
+      "question": "Against a half-pot bet, the minimum defense frequency is approximately:",
+      "options": [
+        "50%",
+        "33%",
+        "67%",
+        "25%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "50% is the MDF against a pot-sized bet, not a half-pot.",
+        "B": "33% would overfold dramatically.",
+        "C": "Correct. MDF = 1 ÷ (1 + 0.5) ≈ 67% against a half-pot bet.",
+        "D": "25% overfolds even more."
+      }
+    },
+    {
+      "id": "pr_ptrg_146",
+      "concept": "balance",
+      "question": "If you never bluff, a thinking opponent can exploit you by:",
+      "options": [
+        "Folding all bluff-catchers to your big bets, since you only ever have value",
+        "Calling every bet profitably",
+        "Winning every pot automatically",
+        "Changing the hand rankings"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With no bluffs, your big bets always mean value, so opponents correctly fold everything but the nuts.",
+        "B": "They cannot profitably call when you always have value.",
+        "C": "They do not win automatically; they just avoid paying off.",
+        "D": "Hand rankings are fixed."
+      }
+    },
+    {
+      "id": "pr_ptrg_147",
+      "concept": "balance",
+      "question": "If you bluff far too often, a thinking opponent exploits you by:",
+      "options": [
+        "Leaving the table",
+        "Folding everything",
+        "Bluffing more themselves",
+        "Calling down lightly with many bluff-catchers"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Leaving forgoes the exploit entirely.",
+        "B": "Folding everything against an over-bluffer is the opposite mistake.",
+        "C": "Bluffing back does not directly punish your over-bluffing; calling does.",
+        "D": "Correct. An over-bluffed range is beaten by wide, light calls that scoop your frequent bluffs."
+      }
+    },
+    {
+      "id": "pr_ptrg_148",
+      "concept": "value_bluff_ratio",
+      "question": "As your bet size increases, the share of bluffs in a balanced betting range should:",
+      "options": [
+        "Decrease",
+        "Increase",
+        "Stay constant",
+        "Drop to zero"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Bluff share rises, not falls, with size.",
+        "B": "Correct. Larger bets risk more, so you can include proportionally more bluffs while keeping the opponent indifferent.",
+        "C": "The balanced bluff share is size-dependent, not constant.",
+        "D": "Bluffs never drop to zero in a balanced betting range."
+      }
+    },
+    {
+      "id": "pr_ptrg_149",
+      "concept": "balance",
+      "question": "Balance matters most against:",
+      "options": [
+        "Players who have already folded",
+        "Observant, adjusting opponents who exploit patterns",
+        "The dealer",
+        "Dead cards in the muck"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folded players take no further action to exploit.",
+        "B": "Correct. Balance protects you from thinking players; against non-adjusting opponents, exploitative play is better.",
+        "C": "The dealer does not play against you.",
+        "D": "Mucked cards are out of play."
+      }
+    },
+    {
+      "id": "pr_ptrg_150",
+      "concept": "balance",
+      "question": "Against a weak opponent who calls far too much (a calling station), the best adjustment to your range is to:",
+      "options": [
+        "Only check",
+        "Bluff more often",
+        "Stop value betting",
+        "Bet more value hands thinly and cut most of your bluffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Checking forgoes the value a station hands you.",
+        "B": "Bluffing more against a station is a losing adjustment.",
+        "C": "You should value bet more, not stop.",
+        "D": "Correct. Stations pay off value, so widen your value bets and reduce bluffs that they will not fold to."
+      }
+    },
+    {
+      "id": "pr_ptrg_151",
+      "concept": "balance",
+      "question": "Against an opponent who folds far too often, the best adjustment is to:",
+      "options": [
+        "Bluff more frequently, since fold equity is high",
+        "Only value bet",
+        "Never bet",
+        "Slow-play everything"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Over-folders give up too much, so increasing bluff frequency is directly profitable.",
+        "B": "Value-only play leaves bluffing profit on the table against over-folders.",
+        "C": "Not betting forgoes easy fold equity.",
+        "D": "Slow-playing fails to capitalize on their tendency to fold."
+      }
+    },
+    {
+      "id": "pr_ptrg_152",
+      "concept": "value_bluff_ratio",
+      "question": "A river value range has 8 combos. To balance a pot-sized bet, how many bluff combos are needed?",
+      "options": [
+        "8",
+        "16",
+        "4",
+        "2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "8 bluffs gives a 1:1 ratio, over-bluffing a pot bet.",
+        "B": "16 bluffs would heavily over-bluff.",
+        "C": "Correct. A 2:1 value-to-bluff ratio means 8 ÷ 2 = 4 bluff combos.",
+        "D": "2 bluffs is a 4:1 ratio, suitable for a half-pot bet, not a pot bet."
+      }
+    },
+    {
+      "id": "pr_ptrg_153",
+      "concept": "value_bluff_ratio",
+      "question": "A river value range has 12 combos. To balance a half-pot bet (3:1 value:bluff), how many bluff combos?",
+      "options": [
+        "6",
+        "12",
+        "4",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6 bluffs gives a 2:1 ratio, suited to a pot bet, not a half-pot.",
+        "B": "12 bluffs is a 1:1 ratio, far too many for a half-pot bet.",
+        "C": "Correct. 12 ÷ 3 = 4 bluff combos for a 3:1 ratio.",
+        "D": "3 bluffs gives a 4:1 ratio, slightly under-bluffing a half-pot."
+      }
+    },
+    {
+      "id": "pr_ptrg_154",
+      "concept": "mdf",
+      "question": "Against a one-third-pot bet, the minimum defense frequency is approximately:",
+      "options": [
+        "75%",
+        "67%",
+        "50%",
+        "33%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF = 1 ÷ (1 + 1/3) = 1 ÷ (4/3) = 75% against a third-pot bet.",
+        "B": "67% is the MDF for a half-pot bet.",
+        "C": "50% is the MDF for a pot-sized bet.",
+        "D": "33% would heavily overfold against such a small bet."
+      }
+    },
+    {
+      "id": "pr_ptrg_155",
+      "concept": "mdf",
+      "question": "MDF is most relevant against opponents who:",
+      "options": [
+        "Have folded",
+        "Never bluff at all",
+        "Always have the nuts",
+        "Could be bluffing with a wide range, so you must defend enough to deny auto-profit"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folded players are not betting at you.",
+        "B": "Against a player who never bluffs, you should overfold and ignore MDF.",
+        "C": "If they always have the nuts, defending is pointless.",
+        "D": "Correct. MDF protects you from wide-bluffing opponents by defending enough that pure bluffs do not auto-profit."
+      }
+    },
+    {
+      "id": "pr_ptrg_156",
+      "concept": "balance",
+      "question": "Why is strict GTO balance sometimes the wrong goal at low stakes?",
+      "options": [
+        "Balance is illegal",
+        "Opponents make large mistakes, so exploitative deviations earn more than balanced play",
+        "Balance loses every pot",
+        "Low-stakes players are unbeatable"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Balanced play is perfectly legal.",
+        "B": "Correct. When opponents are far from optimal, exploiting their leaks outperforms perfectly balanced play.",
+        "C": "Balanced play does not lose every pot.",
+        "D": "Exploitable low-stakes players are very beatable."
+      }
+    },
+    {
+      "id": "pr_ptrg_157",
+      "concept": "value_bluff_ratio",
+      "question": "When choosing bluff combos to balance a value-heavy range, you should prefer hands that:",
+      "options": [
+        "Have the most showdown value",
+        "Have the least showdown value and good blockers to the opponent's calls",
+        "Are the nuts",
+        "Cannot lose"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "High-showdown-value hands should check and try to win unimproved, not bluff.",
+        "B": "Correct. Bluff with hands that cannot win at showdown and that block the opponent's continuing range.",
+        "C": "The nuts are value, not bluffs.",
+        "D": "Bluffs can lose; choosing low-equity hands minimizes the cost of giving up."
+      }
+    },
+    {
+      "id": "pr_ptrg_158",
+      "concept": "balance",
+      "question": "A range that bets only its nuts and its pure air, in the right proportion for the size, is:",
+      "options": [
+        "Impossible to construct",
+        "An unbalanced merged range",
+        "A capped range",
+        "A balanced polarized range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Such ranges are standard and constructable.",
+        "B": "It is polarized, not merged, and it can be balanced.",
+        "C": "A range containing the nuts is uncapped, not capped.",
+        "D": "Correct. Nuts and air at the correct value-to-bluff ratio is a textbook balanced polarized range."
+      }
+    },
+    {
+      "id": "pr_ptrg_159",
+      "concept": "mdf",
+      "question": "If you defend MORE than the MDF against a habitual over-bluffer, you are:",
+      "options": [
+        "Exploiting them correctly by catching extra bluffs",
+        "Making a mistake",
+        "Violating the rules",
+        "Guaranteed to lose"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF is a floor against unknown opponents; against a known over-bluffer you should defend even wider to profit.",
+        "B": "Defending wider versus an over-bluffer is the right exploit, not a mistake.",
+        "C": "There is no rule against over-defending.",
+        "D": "You profit, on average, by catching their extra bluffs."
+      }
+    },
+    {
+      "id": "pr_ptrg_160",
+      "concept": "value_bluff_ratio",
+      "question": "Why do smaller bets require a lower proportion of bluffs to stay balanced?",
+      "options": [
+        "Small bets always have the nuts",
+        "Smaller bets are illegal to bluff",
+        "A small bet risks little and lays the caller good odds, so fewer bluffs keep them indifferent",
+        "Bluffs scale with the pot, not the bet"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Small bets are not restricted to the nuts.",
+        "B": "Bluffing small bets is legal and common.",
+        "C": "Correct. Since the caller is getting a good price, you need proportionally fewer bluffs to make them indifferent.",
+        "D": "The balanced bluff share scales with bet size relative to the pot."
+      }
+    },
+    {
+      "id": "pr_ptrg_161",
+      "concept": "blockers",
+      "question": "A 'blocker' is a card that:",
+      "options": [
+        "Is face down on the board",
+        "Blocks the dealer from dealing",
+        "You hold, reducing the combinations of certain hands in the opponent's range",
+        "Increases the opponent's combos"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Board cards are exposed, not face down, and are also removal cards.",
+        "B": "Blockers are about card removal in analysis, not physically blocking the deal.",
+        "C": "Correct. Holding a card removes combos of any hand needing that card from the opponent's range.",
+        "D": "Blockers reduce, never increase, opponent combos."
+      }
+    },
+    {
+      "id": "pr_ptrg_162",
+      "concept": "blockers",
+      "question": "On a flush-completing river, holding the ace of the flush suit is a strong bluffing card mainly because:",
+      "options": [
+        "It blocks the nut flush, making it less likely the opponent has the hand that would call",
+        "It guarantees you the best hand",
+        "It increases their flush combos",
+        "It is required to bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The nut-flush blocker reduces the opponent's strongest calling combos, improving your bluff's success.",
+        "B": "A bare ace-high is rarely the best hand; the value is as a blocker.",
+        "C": "Holding the ace removes, not adds, nut-flush combos for them.",
+        "D": "No rule requires a blocker to bet."
+      }
+    },
+    {
+      "id": "pr_ptrg_163",
+      "concept": "blockers",
+      "question": "Which holding makes the BEST bluff when the opponent's calling range is mostly straights using a king?",
+      "options": [
+        "A pocket pair that blocks nothing relevant",
+        "A hand with no relevant blockers",
+        "A hand that is itself a straight",
+        "A hand containing a king (blocking their straights)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "An irrelevant pocket pair does not block their continuing range.",
+        "B": "A non-blocker bluff runs into their full calling range.",
+        "C": "A straight is a value hand, not a bluff.",
+        "D": "Correct. Holding a king reduces the combos of the king-straights they would call with, so your bluff works more often."
+      }
+    },
+    {
+      "id": "pr_ptrg_164",
+      "concept": "blockers",
+      "question": "When VALUE betting, you ideally want to hold cards that:",
+      "options": [
+        "Block all their hands",
+        "Unblock the opponent's calling range, so more worse hands can call you",
+        "Block only their bluffs",
+        "Are the same as the board"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Blocking their calls reduces your value bet's payoffs.",
+        "B": "Correct. For value, you want them to have as many calling hands as possible, so unblocking their calls is ideal.",
+        "C": "Blocking their bluffs is more relevant to bluff-catching decisions, not value betting.",
+        "D": "Matching the board has no special value-betting benefit by itself."
+      }
+    },
+    {
+      "id": "pr_ptrg_165",
+      "concept": "blockers",
+      "question": "You hold the A♠ on a three-spade board and are deciding whether to bluff. The blocker effect is:",
+      "options": [
+        "Nonexistent",
+        "Strong — you remove a large chunk of the opponent's nut-flush value hands",
+        "It helps the opponent",
+        "It blocks only your own outs"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The blocker effect is real and significant here.",
+        "B": "Correct. The bare ace of spades blocks the nut flush, the hand most likely to call, boosting your fold equity.",
+        "C": "It hurts, not helps, the opponent by removing their best hands.",
+        "D": "The ace of spades blocks their nut flush, not merely your own outs."
+      }
+    },
+    {
+      "id": "pr_ptrg_166",
+      "concept": "removal",
+      "question": "Card removal explains why, after you hold two cards of a rank, the opponent's sets of that rank:",
+      "options": [
+        "Always equal six combos",
+        "Become more likely",
+        "Are unaffected",
+        "Become less likely or impossible, since fewer of that rank remain"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A set needs a board card too, and removal changes the count away from six.",
+        "B": "Removal lowers, not raises, the count.",
+        "C": "Removal directly affects those combinations.",
+        "D": "Correct. Holding cards of a rank removes them from the deck, shrinking the opponent's set combos of that rank."
+      }
+    },
+    {
+      "id": "pr_ptrg_167",
+      "concept": "blockers",
+      "question": "Holding the case (last) card of a key rank means:",
+      "options": [
+        "The opponent cannot have a hand requiring that exact card",
+        "The opponent is more likely to hold it",
+        "The board changes",
+        "Nothing changes"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. If you hold the only remaining card of a rank, no opponent hand can include it.",
+        "B": "If you hold the last one, they cannot have it at all.",
+        "C": "Your hole card does not alter the board.",
+        "D": "It eliminates an entire category of opponent hands, a major change."
+      }
+    },
+    {
+      "id": "pr_ptrg_168",
+      "concept": "blockers",
+      "question": "Blocker effects are usually most impactful in which spot?",
+      "options": [
+        "When folding the flop",
+        "Preflop with deep stacks only",
+        "Close river bluff/bluff-catch decisions where a few combos swing the choice",
+        "When the pot is tiny and irrelevant"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Folding ends your involvement; blockers no longer matter.",
+        "B": "Preflop ranges are wide, so single blockers matter less.",
+        "C": "Correct. On the river, ranges are narrow, so blocking even a few key combos can decide a marginal spot.",
+        "D": "In trivial pots the blocker rarely changes the decision."
+      }
+    },
+    {
+      "id": "pr_ptrg_169",
+      "concept": "exploit",
+      "question": "An exploitative range adjustment against an opponent who folds too much to river bets is to:",
+      "options": [
+        "Stop betting",
+        "Tighten to value only",
+        "Widen your bluffing range beyond the balanced amount",
+        "Check your nuts"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Not betting wastes the fold equity they hand you.",
+        "B": "Value-only forgoes the extra bluff profit available.",
+        "C": "Correct. Against over-folders, deviating toward more bluffs than balance prescribes is maximally profitable.",
+        "D": "Checking the nuts is unrelated and forgoes value."
+      }
+    },
+    {
+      "id": "pr_ptrg_170",
+      "concept": "exploit",
+      "question": "Against an opponent whose betting range is heavily capped, the strongest exploit is to:",
+      "options": [
+        "Apply aggression — raise and bluff more, since they rarely have a strong enough hand",
+        "Fold more to their bets",
+        "Only call",
+        "Always slow-play"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A capped opponent cannot defend against pressure, so raising and bluffing more exploits them.",
+        "B": "Folding more rewards a range that lacks strong hands.",
+        "C": "Only calling fails to punish the cap.",
+        "D": "Slow-playing surrenders the initiative against a weak range."
+      }
+    },
+    {
+      "id": "pr_ptrg_171",
+      "concept": "exploit",
+      "question": "A player who 3-bets only premium hands (no bluffs) should be exploited by:",
+      "options": [
+        "Never folding",
+        "Calling with any two cards",
+        "4-bet bluffing constantly",
+        "Folding your marginal hands and continuing only with hands that beat premiums"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Refusing to fold pays off their strong range.",
+        "B": "Calling wide against a premium-only range is a costly leak.",
+        "C": "4-bet bluffing a range that never folds its premiums is unprofitable.",
+        "D": "Correct. Against a value-only 3-bettor, tighten up: continue only with hands that fare well against premiums."
+      }
+    },
+    {
+      "id": "pr_ptrg_172",
+      "concept": "exploit",
+      "question": "Exploitative play differs from balanced (GTO) play in that exploitative play:",
+      "options": [
+        "Is always the safest option",
+        "Deliberately becomes unbalanced to attack a specific opponent's mistakes",
+        "Never wins more than balanced play",
+        "Ignores opponents entirely"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Exploitation opens you to counter-exploitation; it is not always safest.",
+        "B": "Correct. Exploitation intentionally deviates from balance to punish a known leak, accepting some counter-exploitability.",
+        "C": "Against mistaken opponents, exploitation wins more than balanced play.",
+        "D": "Exploitation is built entirely around the opponent's tendencies."
+      }
+    },
+    {
+      "id": "pr_ptrg_173",
+      "concept": "exploit",
+      "question": "When you choose to deviate from a balanced range to exploit an opponent, the trade-off is that:",
+      "options": [
+        "You can never lose",
+        "You become more exploitable yourself if the opponent adjusts",
+        "The rules change against you",
+        "Your range becomes the nuts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Deviating does not guarantee winning.",
+        "B": "Correct. Every exploitative deviation creates a counter-strategy a sharp opponent could use against you.",
+        "C": "Rules are unaffected by your strategy.",
+        "D": "Deviating does not magically strengthen your holdings."
+      }
+    },
+    {
+      "id": "pr_ptrg_174",
+      "concept": "exploit",
+      "question": "You notice an opponent never folds top pair on the river. The best range adjustment is to:",
+      "options": [
+        "Fold your strong hands",
+        "Bluff every river",
+        "Check all value hands",
+        "Value bet your strong hands relentlessly and cut thin bluffs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding strong hands against a station throws away value.",
+        "B": "Bluffing a player who never folds top pair burns money.",
+        "C": "Checking value forgoes the easy profit they offer.",
+        "D": "Correct. Against a sticky calling tendency, extract maximum value and stop bluffing into someone who will not fold."
+      }
+    },
+    {
+      "id": "pr_ptrg_175",
+      "concept": "exploit",
+      "question": "Putting it together: the highest-level range thinking combines:",
+      "options": [
+        "Assigning ranges, counting combos, judging range/nut advantage, and then balancing or exploiting as the opponent warrants",
+        "Always playing one fixed strategy regardless of opponent",
+        "Putting opponents on a single hand every time",
+        "Ignoring board texture"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Elite play integrates range assignment, combinatorics, advantage assessment, and the choice to balance or exploit.",
+        "B": "A single fixed strategy ignores opponent-specific edges.",
+        "C": "Single-hand reads are the very habit range thinking replaces.",
+        "D": "Board texture is central to range and nut advantage and cannot be ignored."
+      }
+    }
+  ]
+}

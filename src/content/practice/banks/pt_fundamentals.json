@@ -1,0 +1,3157 @@
+{
+  "lessonId": "pt_fundamentals",
+  "track": "poker-theory",
+  "title": "Poker Fundamentals",
+  "questions": [
+    {
+      "id": "pr_ptf_001",
+      "concept": "hole_cards",
+      "question": "How many private hole cards is each player dealt in Texas Hold'em?",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each player is dealt exactly two private hole cards.",
+        "B": "One hole card appears in some exotic games, not standard Hold'em.",
+        "C": "Three hole cards is not a Hold'em deal.",
+        "D": "Four hole cards is the game of Omaha, not Hold'em."
+      }
+    },
+    {
+      "id": "pr_ptf_002",
+      "concept": "community_cards",
+      "question": "How many community cards are shown in total across the flop, turn, and river?",
+      "options": [
+        "3",
+        "5",
+        "4",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Three is only the flop, before the turn and river.",
+        "B": "Correct. Flop (3) + turn (1) + river (1) = 5 community cards.",
+        "C": "Four counts the flop and turn but omits the river.",
+        "D": "Six exceeds the five shared cards Hold'em deals."
+      }
+    },
+    {
+      "id": "pr_ptf_003",
+      "concept": "deck",
+      "question": "A standard deck used for Texas Hold'em contains how many cards?",
+      "options": [
+        "48",
+        "50",
+        "52",
+        "54"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "48 would be missing four cards from a standard deck.",
+        "B": "50 is not a standard deck size.",
+        "C": "Correct. A standard deck has 52 cards and no jokers in Hold'em.",
+        "D": "54 includes two jokers, which Hold'em does not use."
+      }
+    },
+    {
+      "id": "pr_ptf_004",
+      "concept": "deck",
+      "question": "How many suits are in a standard deck?",
+      "options": [
+        "2",
+        "3",
+        "5",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Two would ignore half of the four suits.",
+        "B": "Three misses one suit.",
+        "C": "Five is one more suit than a deck contains.",
+        "D": "Correct. The four suits are spades, hearts, diamonds, and clubs."
+      }
+    },
+    {
+      "id": "pr_ptf_005",
+      "concept": "deck",
+      "question": "How many cards of each rank (for example, kings) are in the deck?",
+      "options": [
+        "4",
+        "1",
+        "2",
+        "13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each rank has four cards, one per suit.",
+        "B": "One would mean a single king total, but each rank repeats per suit.",
+        "C": "Two undercounts the number of suits.",
+        "D": "13 is the number of ranks, not the cards per rank."
+      }
+    },
+    {
+      "id": "pr_ptf_006",
+      "concept": "hole_cards",
+      "question": "Before showdown, who is allowed to see your hole cards?",
+      "options": [
+        "Everyone at the table",
+        "Only you",
+        "The dealer as well",
+        "Players to your left"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Opponents only see your cards if you reach showdown and table them.",
+        "B": "Correct. Hole cards are private to you until showdown.",
+        "C": "The dealer does not look at your hole cards.",
+        "D": "No opponent sees your hole cards based on seat order."
+      }
+    },
+    {
+      "id": "pr_ptf_007",
+      "concept": "hand_rankings",
+      "question": "Which is the highest-ranking hand in poker?",
+      "options": [
+        "Four of a kind",
+        "A full house",
+        "A royal flush",
+        "A straight flush"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Four of a kind is strong but loses to any straight flush.",
+        "B": "A full house ranks below four of a kind and below a flush only in the other direction; it cannot beat a royal flush.",
+        "C": "Correct. A royal flush (A-K-Q-J-T of one suit) is the best possible hand.",
+        "D": "A straight flush is second best; the royal is the highest straight flush."
+      }
+    },
+    {
+      "id": "pr_ptf_008",
+      "concept": "hand_rankings",
+      "question": "Order these from strongest to weakest: flush, straight, full house.",
+      "options": [
+        "Straight, then flush, then full house",
+        "Flush, then full house, then straight",
+        "Full house, then straight, then flush",
+        "Full house, then flush, then straight"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A straight is the weakest of the three, not the strongest.",
+        "B": "A flush does not beat a full house.",
+        "C": "A straight does not beat a flush.",
+        "D": "Correct. A full house beats a flush, and a flush beats a straight."
+      }
+    },
+    {
+      "id": "pr_ptf_009",
+      "concept": "hand_rankings",
+      "question": "Does a flush beat a straight?",
+      "options": [
+        "Yes, a flush beats a straight",
+        "No, a straight beats a flush",
+        "They always tie",
+        "Only if the flush is ace-high"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A flush is harder to make and outranks a straight.",
+        "B": "This reverses the ranking; a flush is higher than a straight.",
+        "C": "Different hand classes do not tie by rank.",
+        "D": "Any flush beats any straight, regardless of its high card."
+      }
+    },
+    {
+      "id": "pr_ptf_010",
+      "concept": "hand_rankings",
+      "question": "Which ranks higher: three of a kind or two pair?",
+      "options": [
+        "Two pair",
+        "Three of a kind",
+        "They are equal",
+        "It depends on the suits"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two pair ranks below three of a kind.",
+        "B": "Correct. Three of a kind beats two pair.",
+        "C": "They are distinct ranks, not equal.",
+        "D": "Suits never break the ranking between these hands."
+      }
+    },
+    {
+      "id": "pr_ptf_011",
+      "concept": "hand_rankings",
+      "question": "The phrase 'aces full of kings' describes which hand?",
+      "options": [
+        "Two aces and three kings",
+        "An ace-high flush with kings",
+        "Three aces and two kings",
+        "Four aces and a king"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That would be called 'kings full of aces.'",
+        "B": "A flush has no trips or pairs described this way.",
+        "C": "Correct. A full house with three aces and two kings is 'aces full of kings.'",
+        "D": "Four aces is quads, not a full house."
+      }
+    },
+    {
+      "id": "pr_ptf_012",
+      "concept": "hand_rankings",
+      "question": "The lowest possible straight, A-2-3-4-5, is nicknamed the:",
+      "options": [
+        "Broadway",
+        "Royal",
+        "Gutshot",
+        "Wheel"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Broadway is the highest straight, T-J-Q-K-A.",
+        "B": "A royal flush is the top straight flush, not the lowest straight.",
+        "C": "A gutshot is a draw, not a completed straight.",
+        "D": "Correct. A-2-3-4-5 with the ace playing low is the 'wheel' or 'bicycle.'"
+      }
+    },
+    {
+      "id": "pr_ptf_013",
+      "concept": "hand_rankings",
+      "question": "Which five cards form 'Broadway,' the highest straight?",
+      "options": [
+        "T-J-Q-K-A",
+        "9-T-J-Q-K",
+        "A-2-3-4-5",
+        "J-Q-K-A-2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. T-J-Q-K-A is the ace-high straight known as Broadway.",
+        "B": "This king-high straight is high but not the highest.",
+        "C": "A-2-3-4-5 is the lowest straight, the wheel.",
+        "D": "Straights cannot wrap around the ace, so K-A-2 is not connected."
+      }
+    },
+    {
+      "id": "pr_ptf_014",
+      "concept": "best_five",
+      "question": "How many cards make up a final poker hand at showdown?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Four cards is not a complete poker hand.",
+        "B": "Correct. The best five-card combination determines the hand.",
+        "C": "Six is more than a poker hand uses.",
+        "D": "You choose the best five of the seven available, not all seven."
+      }
+    },
+    {
+      "id": "pr_ptf_015",
+      "concept": "best_five",
+      "question": "From your 2 hole cards and 5 board cards, you build your hand using:",
+      "options": [
+        "Exactly both hole cards",
+        "Only the community cards",
+        "Any five of the seven cards",
+        "Exactly three board cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You are not required to use both hole cards in Hold'em.",
+        "B": "You may use the board, but you may also use hole cards.",
+        "C": "Correct. You make the best five-card hand from any of the seven cards.",
+        "D": "There is no rule fixing exactly three board cards."
+      }
+    },
+    {
+      "id": "pr_ptf_016",
+      "concept": "best_five",
+      "question": "'Playing the board' means your best five-card hand:",
+      "options": [
+        "Uses both of your hole cards",
+        "Uses exactly one hole card",
+        "Is only a flush draw",
+        "Is made entirely of the community cards"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Using both hole cards is not playing the board.",
+        "B": "Using a hole card that helps is not playing the board.",
+        "C": "A draw is not a made hand.",
+        "D": "Correct. The five community cards alone form your best hand."
+      }
+    },
+    {
+      "id": "pr_ptf_017",
+      "concept": "best_five",
+      "question": "You hold A-K. The board runs out Q-J-T-2-7 with no flush possible. Your best five-card hand is:",
+      "options": [
+        "An ace-high straight (Broadway)",
+        "Just a pair of aces",
+        "A king-high straight",
+        "A flush"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A-K combine with Q-J-T to make Broadway, the ace-high straight.",
+        "B": "You actually have a straight, which is far stronger than one pair.",
+        "C": "A king-high straight needs a 9; your ace extends it to a higher straight.",
+        "D": "No five cards share a suit here, and your two cards cannot make a flush."
+      }
+    },
+    {
+      "id": "pr_ptf_018",
+      "concept": "best_five",
+      "question": "A 'set' specifically means three of a kind made with:",
+      "options": [
+        "One hole card plus a pair on the board",
+        "A pocket pair plus one matching board card",
+        "Three matching board cards",
+        "Three of your hole cards"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That describes 'trips,' not a set.",
+        "B": "Correct. A set is a pocket pair that pairs a board card.",
+        "C": "Three matching board cards are shared by everyone, not a set.",
+        "D": "You only ever hold two hole cards in Hold'em."
+      }
+    },
+    {
+      "id": "pr_ptf_019",
+      "concept": "best_five",
+      "question": "Two players each hold a pair of aces. The winner is decided by:",
+      "options": [
+        "The suits of the aces",
+        "An automatic split every time",
+        "The highest kicker (side card)",
+        "Position at the table"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Suits do not rank hands in standard Hold'em.",
+        "B": "It only splits if the full five-card hands are identical.",
+        "C": "Correct. The highest unmatched side card, the kicker, breaks the tie.",
+        "D": "Position has no bearing on hand strength."
+      }
+    },
+    {
+      "id": "pr_ptf_020",
+      "concept": "streets",
+      "question": "What is the correct order of the betting rounds?",
+      "options": [
+        "Flop, preflop, turn, river",
+        "Preflop, turn, flop, river",
+        "Preflop, flop, river, turn",
+        "Preflop, flop, turn, river"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Preflop always comes before the flop.",
+        "B": "The turn comes after the flop, not before it.",
+        "C": "The river is always the final street, after the turn.",
+        "D": "Correct. Action goes preflop, then flop, turn, and river."
+      }
+    },
+    {
+      "id": "pr_ptf_021",
+      "concept": "streets",
+      "question": "How many community cards are revealed on the flop?",
+      "options": [
+        "3",
+        "1",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The flop reveals three community cards at once.",
+        "B": "One card is the turn or river, not the flop.",
+        "C": "Two cards are never dealt as a single street.",
+        "D": "Four is the board total only after the turn."
+      }
+    },
+    {
+      "id": "pr_ptf_022",
+      "concept": "streets",
+      "question": "The single community card dealt after the flop is the:",
+      "options": [
+        "River",
+        "Turn",
+        "Burn",
+        "Showdown"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The river is the last community card, dealt after the turn.",
+        "B": "Correct. The turn is the fourth community card, dealt after the flop.",
+        "C": "A burn card is discarded face-down, not part of the board.",
+        "D": "Showdown is when hands are revealed, not a card."
+      }
+    },
+    {
+      "id": "pr_ptf_023",
+      "concept": "streets",
+      "question": "The fifth and final community card is called the:",
+      "options": [
+        "Turn",
+        "Flop",
+        "River",
+        "Door card"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The turn is the fourth card, dealt before the river.",
+        "B": "The flop is the first three community cards.",
+        "C": "Correct. The river is the fifth and final community card.",
+        "D": "'Door card' is a stud term, not used in Hold'em."
+      }
+    },
+    {
+      "id": "pr_ptf_024",
+      "concept": "streets",
+      "question": "How many betting rounds occur in a typical Hold'em hand?",
+      "options": [
+        "2",
+        "3",
+        "5",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Two would omit half of the streets.",
+        "B": "Three misses one street.",
+        "C": "Five is one more round than Hold'em has.",
+        "D": "Correct. Preflop, flop, turn, and river make four betting rounds."
+      }
+    },
+    {
+      "id": "pr_ptf_025",
+      "concept": "streets",
+      "question": "'Preflop' refers to the betting that happens:",
+      "options": [
+        "Before any community cards are dealt",
+        "Right after the flop",
+        "After the river",
+        "During showdown"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Preflop betting happens before any community cards appear.",
+        "B": "Betting after the flop is the flop round, not preflop.",
+        "C": "Betting after the river is the final round.",
+        "D": "Showdown has no betting."
+      }
+    },
+    {
+      "id": "pr_ptf_026",
+      "concept": "dealing",
+      "question": "Just before dealing the flop, the dealer typically:",
+      "options": [
+        "Deals two extra hole cards",
+        "Burns (discards) one card face-down",
+        "Reshuffles the whole deck",
+        "Reveals the river early"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "No additional hole cards are dealt after preflop.",
+        "B": "Correct. One card is burned before the flop to guard against marked cards.",
+        "C": "The deck is not reshuffled in the middle of a hand.",
+        "D": "The river comes much later in the hand."
+      }
+    },
+    {
+      "id": "pr_ptf_027",
+      "concept": "dealing",
+      "question": "Across a full hand (flop, turn, river), how many cards are burned?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "One burn covers only the flop.",
+        "B": "Two burns would omit one street.",
+        "C": "Correct. One card is burned before each of the flop, turn, and river.",
+        "D": "Five matches the board cards, not the burns."
+      }
+    },
+    {
+      "id": "pr_ptf_028",
+      "concept": "dealing",
+      "question": "Hole cards are dealt starting with which player?",
+      "options": [
+        "The button",
+        "The big blind",
+        "Under the gun",
+        "The small blind (first seat left of the button)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The button receives the last card on each pass, not the first.",
+        "B": "The big blind is dealt after the small blind.",
+        "C": "UTG is dealt later in the rotation.",
+        "D": "Correct. Dealing begins with the small blind and moves clockwise."
+      }
+    },
+    {
+      "id": "pr_ptf_029",
+      "concept": "blinds",
+      "question": "In a $1/$2 cash game, the small blind is:",
+      "options": [
+        "$1",
+        "$2",
+        "$0.50",
+        "$3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first number, $1, is the small blind.",
+        "B": "$2 is the big blind, the second number.",
+        "C": "$0.50 is not posted in this structure.",
+        "D": "$3 is not a blind in a $1/$2 game."
+      }
+    },
+    {
+      "id": "pr_ptf_030",
+      "concept": "blinds",
+      "question": "In a $2/$5 cash game, the big blind is:",
+      "options": [
+        "$2",
+        "$5",
+        "$7",
+        "$1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$2 is the small blind here.",
+        "B": "Correct. The second number, $5, is the big blind.",
+        "C": "$7 is the sum of both blinds, not the big blind.",
+        "D": "$1 is not posted in this structure."
+      }
+    },
+    {
+      "id": "pr_ptf_031",
+      "concept": "blinds",
+      "question": "Who normally posts the small blind?",
+      "options": [
+        "The button itself",
+        "The player two seats right of the button",
+        "The player immediately to the left of the button",
+        "Under the gun"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The button is to the right of the small blind.",
+        "B": "That seat is not the small blind in standard order.",
+        "C": "Correct. The small blind sits directly left of the button.",
+        "D": "UTG sits to the left of the big blind, not in the blinds."
+      }
+    },
+    {
+      "id": "pr_ptf_032",
+      "concept": "blinds",
+      "question": "Blinds are best described as:",
+      "options": [
+        "Optional bets a player may skip",
+        "Bets made only on the river",
+        "A type of side pot",
+        "Forced bets posted before cards are dealt"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Blinds are mandatory, not optional.",
+        "B": "Blinds are posted preflop, not on the river.",
+        "C": "A side pot comes from unequal all-ins, unrelated to blinds.",
+        "D": "Correct. Blinds are mandatory bets that seed the pot before the deal."
+      }
+    },
+    {
+      "id": "pr_ptf_033",
+      "concept": "blinds",
+      "question": "If everyone just calls the big blind preflop, the big blind may:",
+      "options": [
+        "Check or raise (the 'big blind option')",
+        "Only fold",
+        "Be forced to raise",
+        "Act first on that round"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With no raise in front, the big blind can check or raise their option.",
+        "B": "The big blind is not forced to fold a free option.",
+        "C": "Raising is allowed but not required.",
+        "D": "The big blind acts last preflop in an unraised pot."
+      }
+    },
+    {
+      "id": "pr_ptf_034",
+      "concept": "blinds",
+      "question": "A 'straddle' is:",
+      "options": [
+        "A mandatory ante for all players",
+        "A voluntary blind, usually twice the big blind, posted before the deal",
+        "A bet made only on the river",
+        "A type of fold"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An ante is a separate forced bet, usually for everyone.",
+        "B": "Correct. A straddle is an optional blind, often double the big blind, that buys last preflop action.",
+        "C": "A straddle is posted preflop, not on the river.",
+        "D": "A straddle is a bet, not a fold."
+      }
+    },
+    {
+      "id": "pr_ptf_035",
+      "concept": "blinds",
+      "question": "In tournaments, the blinds typically:",
+      "options": [
+        "Stay the same for the entire event",
+        "Decrease as the event goes on",
+        "Increase at timed level intervals",
+        "Are never posted at all"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Fixed blinds describe cash games, not tournaments.",
+        "B": "Blinds rise, not fall, in tournaments.",
+        "C": "Correct. Tournament blinds rise on a schedule to force action over time.",
+        "D": "Blinds are still posted each hand in tournaments."
+      }
+    },
+    {
+      "id": "pr_ptf_036",
+      "concept": "antes",
+      "question": "An ante is:",
+      "options": [
+        "A blind posted only by the button",
+        "A purely voluntary raise",
+        "A fee paid at showdown",
+        "A small forced bet contributed toward the pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Antes are not limited to the button in standard formats.",
+        "B": "Antes are forced, not voluntary.",
+        "C": "Antes are posted before the hand, not at showdown.",
+        "D": "Correct. An ante is a forced contribution that builds the pot, common in later tournament levels."
+      }
+    },
+    {
+      "id": "pr_ptf_037",
+      "concept": "button_advantage",
+      "question": "Why is the button the most powerful position?",
+      "options": [
+        "It acts last on every postflop street",
+        "It never has to post blinds",
+        "It is dealt its cards first",
+        "It always wins tied pots"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acting last postflop gives you maximum information before deciding.",
+        "B": "The button avoids blinds on its own hand but still pays them as it rotates.",
+        "C": "Deal order is not a strategic advantage.",
+        "D": "Ties are split by hand strength, not by position."
+      }
+    },
+    {
+      "id": "pr_ptf_038",
+      "concept": "position",
+      "question": "Being 'in position' on an opponent means you:",
+      "options": [
+        "Act before them postflop",
+        "Act after them on postflop streets",
+        "Are forced to bet first",
+        "Posted the big blind"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Acting before an opponent is being out of position.",
+        "B": "Correct. In position means you act after your opponent postflop.",
+        "C": "Position does not force any specific action.",
+        "D": "Position is about action order, not the blinds."
+      }
+    },
+    {
+      "id": "pr_ptf_039",
+      "concept": "position",
+      "question": "The 'cutoff' is the seat:",
+      "options": [
+        "Immediately to the left of the button",
+        "Two seats to the left of the button",
+        "Immediately to the right of the button",
+        "The same as the big blind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The seat left of the button is the small blind.",
+        "B": "Two seats left of the button is the big blind.",
+        "C": "Correct. The cutoff sits directly to the right of the button.",
+        "D": "The big blind is in the blinds, not the cutoff."
+      }
+    },
+    {
+      "id": "pr_ptf_040",
+      "concept": "position",
+      "question": "'Under the gun' (UTG) is the player who:",
+      "options": [
+        "Acts last preflop",
+        "Posts the big blind",
+        "Sits on the button",
+        "Acts first preflop in a full-ring or 6-max game"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The button or big blind option acts later preflop.",
+        "B": "UTG is left of the big blind, not the blind itself.",
+        "C": "The button is a late position, not UTG.",
+        "D": "Correct. UTG, seated left of the big blind, is first to act preflop."
+      }
+    },
+    {
+      "id": "pr_ptf_041",
+      "concept": "action_order",
+      "question": "Postflop, the betting action begins with:",
+      "options": [
+        "The first active player to the left of the button",
+        "The button",
+        "Under the gun by default",
+        "The last player to bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Postflop action starts with the first remaining player left of the button.",
+        "B": "The button acts last postflop.",
+        "C": "UTG ordering applies preflop, not postflop.",
+        "D": "Order follows seating, not who bet last."
+      }
+    },
+    {
+      "id": "pr_ptf_042",
+      "concept": "action_order",
+      "question": "Preflop, with blinds posted, the first player to act is:",
+      "options": [
+        "The small blind",
+        "The player to the left of the big blind (UTG)",
+        "The big blind",
+        "The button"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The small blind already has a forced bet and acts later preflop.",
+        "B": "Correct. Preflop action starts to the left of the big blind, with UTG.",
+        "C": "The big blind acts last preflop in an unraised pot.",
+        "D": "The button acts late preflop, not first."
+      }
+    },
+    {
+      "id": "pr_ptf_043",
+      "concept": "action_order",
+      "question": "In a heads-up (two-player) hand, preflop the button:",
+      "options": [
+        "Acts last preflop",
+        "Posts the big blind",
+        "Acts first, because the button is the small blind",
+        "Must fold automatically"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Heads-up, the button acts last only postflop, not preflop.",
+        "B": "Heads-up, the button posts the small blind, not the big blind.",
+        "C": "Correct. Heads-up, the button posts the small blind and acts first preflop.",
+        "D": "The button is never forced to fold."
+      }
+    },
+    {
+      "id": "pr_ptf_044",
+      "concept": "action_order",
+      "question": "In heads-up play, postflop the button acts:",
+      "options": [
+        "First on every street",
+        "Never, since it folds",
+        "Only on the river",
+        "Last on every street"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Heads-up, the big blind acts first postflop.",
+        "B": "The button acts on every postflop street it reaches.",
+        "C": "The button acts on all postflop streets, not just the river.",
+        "D": "Correct. Heads-up, the button acts last on each postflop street."
+      }
+    },
+    {
+      "id": "pr_ptf_045",
+      "concept": "action_order",
+      "question": "6-max: UTG opens, CO calls, BTN calls, SB folds, BB calls. Who acts first on the flop?",
+      "options": [
+        "The big blind",
+        "The button",
+        "UTG",
+        "The cutoff"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The big blind is the first active seat to the left of the button postflop.",
+        "B": "The button acts last among the remaining players.",
+        "C": "UTG acts after the big blind postflop.",
+        "D": "The cutoff acts late postflop, not first."
+      }
+    },
+    {
+      "id": "pr_ptf_046",
+      "concept": "actions",
+      "question": "Facing no bet, which action keeps you in the hand for free?",
+      "options": [
+        "Fold",
+        "Check",
+        "Call",
+        "Raise"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding gives up the hand entirely.",
+        "B": "Correct. Checking passes the action without adding chips.",
+        "C": "There is nothing to call when no bet has been made.",
+        "D": "Raising would put chips in voluntarily."
+      }
+    },
+    {
+      "id": "pr_ptf_047",
+      "concept": "actions",
+      "question": "To 'call' means to:",
+      "options": [
+        "Increase the size of the bet",
+        "Give up your hand",
+        "Match the amount of the current bet",
+        "Pass when there is no bet"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Increasing the bet is a raise.",
+        "B": "Giving up your hand is a fold.",
+        "C": "Correct. Calling matches the current bet to stay in the hand.",
+        "D": "Passing with no bet is a check."
+      }
+    },
+    {
+      "id": "pr_ptf_048",
+      "concept": "actions",
+      "question": "A 'raise' is an action that:",
+      "options": [
+        "Matches the bet exactly",
+        "Surrenders the hand",
+        "Can only be done on the river",
+        "Increases the amount opponents must call"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Matching exactly is a call.",
+        "B": "Surrendering the hand is a fold.",
+        "C": "Raises can occur on any betting round.",
+        "D": "Correct. A raise increases the bet, forcing others to call more or fold."
+      }
+    },
+    {
+      "id": "pr_ptf_049",
+      "concept": "actions",
+      "question": "Folding means you:",
+      "options": [
+        "Forfeit your hand and any claim to the pot",
+        "Stay in the hand for free",
+        "Must still match the bet",
+        "Win the side pot automatically"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Folding surrenders your cards and your claim to the pot.",
+        "B": "Staying in for free is checking.",
+        "C": "Folding lets you avoid matching the bet.",
+        "D": "Folded players cannot win any pot."
+      }
+    },
+    {
+      "id": "pr_ptf_050",
+      "concept": "actions",
+      "question": "A 'check-raise' occurs when a player:",
+      "options": [
+        "Folds and then re-enters the hand",
+        "Checks, then raises after an opponent bets",
+        "Bets and then folds to a raise",
+        "Calls two streets in a row"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "You cannot re-enter a hand after folding.",
+        "B": "Correct. You check first, then raise once an opponent bets behind you.",
+        "C": "Betting then folding is not a check-raise.",
+        "D": "Calling is passive and is not a raise."
+      }
+    },
+    {
+      "id": "pr_ptf_051",
+      "concept": "actions",
+      "question": "Facing a bet, your three options are to:",
+      "options": [
+        "Check, bet, or muck",
+        "Ante, straddle, or check",
+        "Fold, call, or raise",
+        "Burn, deal, or show"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You cannot check when you are facing a bet.",
+        "B": "Those are not in-turn options when facing a bet.",
+        "C": "Correct. Against a bet you may fold, call, or raise.",
+        "D": "Those are dealer mechanics, not player actions."
+      }
+    },
+    {
+      "id": "pr_ptf_052",
+      "concept": "betting_mechanics",
+      "question": "A 'string bet' (reaching back for more chips after your first motion) is:",
+      "options": [
+        "Always allowed",
+        "Required for every raise",
+        "Only legal preflop",
+        "Not allowed; you must declare or move chips in one motion"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "String bets are disallowed to prevent angle-shooting.",
+        "B": "A single clean motion is required, not a string of motions.",
+        "C": "The no-string-bet rule applies on every street.",
+        "D": "Correct. You must state your raise or place the chips in a single motion."
+      }
+    },
+    {
+      "id": "pr_ptf_053",
+      "concept": "betting_mechanics",
+      "question": "At a casino, a clear verbal declaration of 'raise' made in turn is:",
+      "options": [
+        "Binding; you must complete the raise",
+        "Completely non-binding",
+        "Only a friendly suggestion",
+        "Ignored by the dealer"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A clear in-turn verbal declaration commits you to that action.",
+        "B": "Verbal action in turn is binding, not optional.",
+        "C": "It is a commitment, not a suggestion.",
+        "D": "Dealers enforce binding verbal declarations."
+      }
+    },
+    {
+      "id": "pr_ptf_054",
+      "concept": "betting_mechanics",
+      "question": "In no-limit Hold'em, the minimum raise must be at least:",
+      "options": [
+        "Double the big blind in all cases",
+        "The size of the previous bet or raise",
+        "One chip more than the call",
+        "Half the size of the pot"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "It is not fixed at double the big blind on later streets.",
+        "B": "Correct. A legal raise must be at least as large as the previous bet or raise increment.",
+        "C": "A one-chip bump is not a legal full raise.",
+        "D": "Half-pot is a sizing choice, not the minimum-raise rule."
+      }
+    },
+    {
+      "id": "pr_ptf_055",
+      "concept": "betting_mechanics",
+      "question": "In no-limit Hold'em, the most you can bet at once is:",
+      "options": [
+        "Only the size of the pot",
+        "Only double the big blind",
+        "Your entire stack (all-in)",
+        "Exactly one buy-in"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A pot-sized cap describes pot-limit, not no-limit.",
+        "B": "There is no fixed cap at double the big blind.",
+        "C": "Correct. In no-limit you may bet up to your whole stack.",
+        "D": "You wager the chips in front of you, not 'buy-ins.'"
+      }
+    },
+    {
+      "id": "pr_ptf_056",
+      "concept": "betting_mechanics",
+      "question": "In pot-limit Hold'em, the largest legal bet equals:",
+      "options": [
+        "Your entire stack at any time",
+        "The big blind only",
+        "Exactly twice the last bet",
+        "The current size of the pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Betting your whole stack any time is no-limit.",
+        "B": "The big blind is a minimum reference, not the maximum.",
+        "C": "The cap is the pot size, not strictly twice the last bet.",
+        "D": "Correct. In pot-limit, the maximum bet is the size of the pot."
+      }
+    },
+    {
+      "id": "pr_ptf_057",
+      "concept": "betting_mechanics",
+      "question": "In fixed-limit Hold'em, bets and raises are made in:",
+      "options": [
+        "Fixed, predetermined increments",
+        "Any amount up to your stack",
+        "Multiples of the current pot",
+        "Random sizes each time"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Fixed-limit uses set bet sizes for each street.",
+        "B": "Any amount up to your stack is no-limit.",
+        "C": "Pot multiples describe pot-limit.",
+        "D": "Sizes are fixed, not random."
+      }
+    },
+    {
+      "id": "pr_ptf_058",
+      "concept": "showdown",
+      "question": "At showdown, the pot is awarded to:",
+      "options": [
+        "The last player to make a bet",
+        "The best five-card hand among players still in",
+        "Whoever is on the button",
+        "Whoever shows their cards first"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Betting last does not by itself win a contested showdown.",
+        "B": "Correct. The best five-card hand wins the pot at showdown.",
+        "C": "The button has no claim by position.",
+        "D": "Show order does not decide the winner."
+      }
+    },
+    {
+      "id": "pr_ptf_059",
+      "concept": "showdown",
+      "question": "If you bet the river and get called, to win you must:",
+      "options": [
+        "Muck your cards",
+        "Fold immediately",
+        "Table (show) your hand",
+        "Post another blind"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You cannot claim the pot by mucking when called.",
+        "B": "You did not fold; you were called.",
+        "C": "Correct. When called, you must show your hand to win.",
+        "D": "Blinds are posted before the hand, not at showdown."
+      }
+    },
+    {
+      "id": "pr_ptf_060",
+      "concept": "showdown",
+      "question": "A player who folded on the turn:",
+      "options": [
+        "Can still win with the best hand",
+        "Must show cards at showdown",
+        "Gets their earlier bets back",
+        "Is out of the hand and cannot win the pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding forfeits any claim, regardless of hand strength.",
+        "B": "Folded players do not show at showdown.",
+        "C": "Chips already bet stay in the pot.",
+        "D": "Correct. Once you fold, you cannot win the pot."
+      }
+    },
+    {
+      "id": "pr_ptf_061",
+      "concept": "showdown",
+      "question": "When two players have identical best five-card hands, the pot is:",
+      "options": [
+        "Split evenly between them",
+        "Given entirely to the button",
+        "Given to the last aggressor",
+        "Carried over to the next hand"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Identical best hands split the pot evenly.",
+        "B": "The button has no special claim to a tied pot.",
+        "C": "Aggression does not break a true tie.",
+        "D": "Pots are awarded that hand, not carried over."
+      }
+    },
+    {
+      "id": "pr_ptf_062",
+      "concept": "showdown",
+      "question": "When there is no betting on the river, showdown order generally starts with:",
+      "options": [
+        "The last player who raised",
+        "The first active player left of the button, clockwise",
+        "Whoever is on the button",
+        "Whoever asks to see a hand first"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "With no river bet, there is no last aggressor to lead.",
+        "B": "Correct. With no river bet, cards are shown starting left of the button.",
+        "C": "The button shows in turn, not necessarily first.",
+        "D": "Show order follows seating rules, not requests."
+      }
+    },
+    {
+      "id": "pr_ptf_063",
+      "concept": "side_pots",
+      "question": "Side pots are created when:",
+      "options": [
+        "All stacks at the table are equal",
+        "The board pairs on the turn",
+        "A player is all-in for less while others keep betting",
+        "The blinds are posted"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Equal stacks need no side pot.",
+        "B": "A paired board does not create side pots.",
+        "C": "Correct. An all-in for less than others' bets splits off a side pot.",
+        "D": "Blinds simply start the action; they do not create side pots."
+      }
+    },
+    {
+      "id": "pr_ptf_064",
+      "concept": "side_pots",
+      "question": "An all-in player who could not cover the later betting can win:",
+      "options": [
+        "Both the main and the side pot",
+        "Only the side pot",
+        "Nothing at all",
+        "Only the main pot they contributed to"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "They are not eligible for chips beyond what they covered.",
+        "B": "They did not contribute to the side pot, so they cannot win it.",
+        "C": "They can still win the main pot with the best hand.",
+        "D": "Correct. An all-in player can win only the main pot they matched."
+      }
+    },
+    {
+      "id": "pr_ptf_065",
+      "concept": "side_pots",
+      "question": "A is all-in for $40. B and C each match $40 and bet an extra $60 between them. The $60 forms:",
+      "options": [
+        "A side pot only B and C can win",
+        "Part of the main pot A can win",
+        "A pot that A wins automatically",
+        "Dead money returned to A"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The extra $60 is a side pot contested only by B and C.",
+        "B": "The first $40 from each forms the main pot; the extra is separate.",
+        "C": "A cannot win chips beyond the amount they covered.",
+        "D": "Live bets are not refunded mid-hand."
+      }
+    },
+    {
+      "id": "pr_ptf_066",
+      "concept": "all_in_rules",
+      "question": "An all-in raise that is smaller than a full legal raise:",
+      "options": [
+        "Always reopens the betting",
+        "May not reopen the betting for players who already acted",
+        "Ends the hand immediately",
+        "Is an illegal move"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A sub-minimum all-in does not always reopen action.",
+        "B": "Correct. An all-in short of a full raise often does not reopen action to those who already acted.",
+        "C": "The hand continues; it does not end.",
+        "D": "An all-in for one's whole stack is legal even if under a full raise."
+      }
+    },
+    {
+      "id": "pr_ptf_067",
+      "concept": "all_in_rules",
+      "question": "Under table-stakes rules, a player may wager:",
+      "options": [
+        "As much extra cash as they want mid-hand",
+        "Money pulled from their pocket anytime",
+        "Only the chips they had on the table at the start of the hand",
+        "Chips borrowed from another player"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "You cannot add cash to your wager mid-hand.",
+        "B": "Reaching into your pocket mid-hand is not allowed.",
+        "C": "Correct. Under table stakes, only chips in play at the start of the hand can be wagered.",
+        "D": "You only wager your own chips."
+      }
+    },
+    {
+      "id": "pr_ptf_068",
+      "concept": "all_in_rules",
+      "question": "A player who is all-in:",
+      "options": [
+        "Must fold to any later bet",
+        "Loses the hand automatically",
+        "Forfeits the main pot",
+        "Cannot be forced out and stays eligible for the pot they are in"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "An all-in player has no chips left to fold with.",
+        "B": "They can still win at showdown.",
+        "C": "They remain eligible for the main pot.",
+        "D": "Correct. An all-in player cannot be bet out and contests the pot(s) they are in at showdown."
+      }
+    },
+    {
+      "id": "pr_ptf_069",
+      "concept": "spr_decisions",
+      "question": "Stack-to-pot ratio (SPR) is calculated as:",
+      "options": [
+        "Effective stack divided by the pot",
+        "Pot divided by the effective stack",
+        "Big blind divided by the pot",
+        "Stack multiplied by the pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. SPR equals the effective stack divided by the size of the pot.",
+        "B": "That inverts the ratio.",
+        "C": "The big blind is not part of the SPR formula.",
+        "D": "SPR divides; it does not multiply."
+      }
+    },
+    {
+      "id": "pr_ptf_070",
+      "concept": "spr_decisions",
+      "question": "Effective stacks are $300 and the flop pot is $30. The SPR is:",
+      "options": [
+        "3",
+        "10",
+        "30",
+        "0.1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An SPR of 3 would require about a $100 pot.",
+        "B": "Correct. $300 divided by $30 equals 10.",
+        "C": "30 confuses the pot size with the ratio.",
+        "D": "0.1 inverts the calculation."
+      }
+    },
+    {
+      "id": "pr_ptf_071",
+      "concept": "spr_decisions",
+      "question": "A low SPR (around 1 to 3) usually means:",
+      "options": [
+        "There is lots of room to maneuver postflop",
+        "The blinds become irrelevant",
+        "Players are close to committed and stacks go in quickly",
+        "Implied odds become huge"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Low SPR means little room, not a lot.",
+        "B": "Blinds still set the structure of the hand.",
+        "C": "Correct. With a low SPR, strong top pairs and overpairs are often committing.",
+        "D": "Implied odds shrink as the SPR falls."
+      }
+    },
+    {
+      "id": "pr_ptf_072",
+      "concept": "spr_decisions",
+      "question": "A high SPR (say 10 or more) tends to:",
+      "options": [
+        "Force immediate all-ins",
+        "Eliminate the value of position",
+        "Make all draws worthless",
+        "Favor more maneuvering and stronger hands to stack off"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "High SPR allows multiple streets, not instant all-ins.",
+        "B": "Position matters more when stacks are deep.",
+        "C": "Draws gain value with deeper implied odds.",
+        "D": "Correct. A deep SPR rewards patience and requires stronger hands to commit."
+      }
+    },
+    {
+      "id": "pr_ptf_073",
+      "concept": "pot_odds",
+      "question": "Pot odds compare:",
+      "options": [
+        "The cost to call versus the size of the pot you could win",
+        "Your stack to the size of the blinds",
+        "Your hand strength to the board texture",
+        "The rake to the total pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Pot odds weigh the price of a call against the reward in the pot.",
+        "B": "Stack-to-blinds is a different measure.",
+        "C": "Comparing hand to board is hand reading, not pot odds.",
+        "D": "The rake is a fee, not the pot-odds comparison."
+      }
+    },
+    {
+      "id": "pr_ptf_074",
+      "concept": "pot_odds",
+      "question": "The pot is $100 and your opponent bets $50. You call $50 to win $150. The equity you need to break even is about:",
+      "options": [
+        "50%",
+        "25%",
+        "33%",
+        "10%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "50% would apply only if you risked as much as the total reward.",
+        "B": "Correct. $50 divided by ($150 + $50) equals 25%.",
+        "C": "33% corresponds to facing a pot-sized bet, not a half-pot bet.",
+        "D": "10% is far too low for this price."
+      }
+    },
+    {
+      "id": "pr_ptf_075",
+      "concept": "pot_odds",
+      "question": "Calling $50 to win a $150 pot offers odds of:",
+      "options": [
+        "1 to 1",
+        "2 to 1",
+        "3 to 1",
+        "5 to 1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1-to-1 would be calling $50 to win $50.",
+        "B": "2-to-1 would be calling $50 to win $100.",
+        "C": "Correct. $150 to $50 reduces to 3-to-1 odds.",
+        "D": "5-to-1 would be calling $50 to win $250."
+      }
+    },
+    {
+      "id": "pr_ptf_076",
+      "concept": "pot_odds",
+      "question": "An opponent makes a pot-sized bet. The equity you need to call is about:",
+      "options": [
+        "20%",
+        "25%",
+        "50%",
+        "33%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "20% is too generous a requirement for a pot-sized bet.",
+        "B": "25% corresponds to a half-pot bet, not a pot-sized one.",
+        "C": "50% applies to an over-bet much larger than the pot.",
+        "D": "Correct. A pot-sized bet lays you 2-to-1, so you need roughly 33% equity."
+      }
+    },
+    {
+      "id": "pr_ptf_077",
+      "concept": "outs",
+      "question": "In poker, 'outs' are:",
+      "options": [
+        "Unseen cards that improve your hand to likely the best",
+        "Players who have already folded",
+        "The chips sitting in the side pot",
+        "Cards that have been burned"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Outs are the remaining cards that complete or improve your hand.",
+        "B": "Folded players are not 'outs.'",
+        "C": "Side-pot chips are unrelated to outs.",
+        "D": "Burn cards are discards, not outs."
+      }
+    },
+    {
+      "id": "pr_ptf_078",
+      "concept": "outs",
+      "question": "You have four cards to a flush after the flop. How many outs complete it?",
+      "options": [
+        "4",
+        "9",
+        "7",
+        "13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Four would be the count for a gutshot, not a flush draw.",
+        "B": "Correct. With 13 cards in a suit and 4 already seen, 9 outs remain.",
+        "C": "Seven undercounts the cards left in the suit.",
+        "D": "13 is the full suit before removing the four you can see."
+      }
+    },
+    {
+      "id": "pr_ptf_079",
+      "concept": "outs",
+      "question": "An open-ended straight draw has how many outs?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Four outs is a gutshot, completing only one end.",
+        "B": "Six is not the standard open-ended count.",
+        "C": "Correct. Two ranks complete the straight, with 4 cards each, for 8 outs.",
+        "D": "15 outs is a combined flush-plus-straight draw."
+      }
+    },
+    {
+      "id": "pr_ptf_080",
+      "concept": "outs",
+      "question": "A gutshot (inside) straight draw has how many outs?",
+      "options": [
+        "2",
+        "8",
+        "9",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Two outs is closer to a set-to-quads draw.",
+        "B": "Eight outs is an open-ended straight draw.",
+        "C": "Nine outs is a flush draw.",
+        "D": "Correct. Only one rank fills the inside gap, giving 4 outs."
+      }
+    },
+    {
+      "id": "pr_ptf_081",
+      "concept": "outs",
+      "question": "The 'rule of 4' estimates your chance to hit by the river (from the flop) as:",
+      "options": [
+        "Outs times 4",
+        "Outs divided by 4",
+        "Outs times 2",
+        "Outs plus 4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With two cards to come, multiply your outs by about 4 for a quick percentage.",
+        "B": "Dividing badly understates your equity.",
+        "C": "Outs times 2 estimates only one card to come.",
+        "D": "Adding 4 is not the rule of 4."
+      }
+    },
+    {
+      "id": "pr_ptf_082",
+      "concept": "outs",
+      "question": "With one card to come (turn to river), a quick equity estimate is:",
+      "options": [
+        "Outs times 4",
+        "Outs times 2",
+        "Outs divided by 2",
+        "Outs times 10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Times 4 is for two cards to come, not one.",
+        "B": "Correct. Multiply your outs by about 2 for a single remaining card.",
+        "C": "Dividing underestimates the draw.",
+        "D": "Times 10 wildly overstates the draw."
+      }
+    },
+    {
+      "id": "pr_ptf_083",
+      "concept": "outs",
+      "question": "A flush draw (9 outs) on the flop has roughly what chance to complete by the river?",
+      "options": [
+        "About 10%",
+        "About 20%",
+        "About 35%",
+        "About 70%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "10% badly understates a 9-out draw.",
+        "B": "20% is closer to a single street, not two cards.",
+        "C": "Correct. About 35% (rule of 4: 9 times 4 is roughly 36%).",
+        "D": "70% is far too high for a flush draw."
+      }
+    },
+    {
+      "id": "pr_ptf_084",
+      "concept": "probability",
+      "question": "The chance of being dealt a specific pocket pair (such as pocket aces) is about:",
+      "options": [
+        "1 in 17",
+        "1 in 1326",
+        "1 in 52",
+        "1 in 221"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1 in 17 is the chance of any pocket pair.",
+        "B": "1 in 1326 is a single exact two-card combo, not a pair.",
+        "C": "1 in 52 is far too frequent.",
+        "D": "Correct. A specific pair like aces is 6 of 1326 combos, about 1 in 221."
+      }
+    },
+    {
+      "id": "pr_ptf_085",
+      "concept": "probability",
+      "question": "The chance of being dealt any pocket pair is about:",
+      "options": [
+        "1 in 17",
+        "1 in 5",
+        "1 in 221",
+        "1 in 1326"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 13 pairs times 6 combos, 78 of 1326, about 1 in 17.",
+        "B": "1 in 5 overstates how often pairs come.",
+        "C": "1 in 221 is the chance of one specific pair.",
+        "D": "1 in 1326 is a single exact combo."
+      }
+    },
+    {
+      "id": "pr_ptf_086",
+      "concept": "probability",
+      "question": "How many distinct two-card combinations make a specific pocket pair (such as KK)?",
+      "options": [
+        "2",
+        "6",
+        "4",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Two undercounts the suit pairings.",
+        "B": "Correct. Choosing 2 of the 4 kings gives 6 combinations.",
+        "C": "Four is the count for a suited non-pair hand.",
+        "D": "12 is the offsuit count for a non-pair hand."
+      }
+    },
+    {
+      "id": "pr_ptf_087",
+      "concept": "probability",
+      "question": "How many combinations of A-K suited (any suit) exist?",
+      "options": [
+        "1",
+        "6",
+        "4",
+        "12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "One would be a single exact card combo, not all suited versions.",
+        "B": "Six is the count for a pocket pair.",
+        "C": "Correct. One per suit gives 4 suited combinations of A-K.",
+        "D": "12 is the offsuit count of A-K."
+      }
+    },
+    {
+      "id": "pr_ptf_088",
+      "concept": "probability",
+      "question": "How many combinations of A-K offsuit are there?",
+      "options": [
+        "4",
+        "6",
+        "16",
+        "12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Four is the suited count.",
+        "B": "Six is a pocket-pair count.",
+        "C": "16 is all A-K combos, suited and offsuit together.",
+        "D": "Correct. 4 aces times 4 kings minus 4 suited equals 12 offsuit combos."
+      }
+    },
+    {
+      "id": "pr_ptf_089",
+      "concept": "probability",
+      "question": "Counting suited and offsuit, how many A-K combinations are there in total?",
+      "options": [
+        "16",
+        "4",
+        "12",
+        "78"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 4 aces times 4 kings equals 16 total A-K combos.",
+        "B": "Four is suited only.",
+        "C": "12 is offsuit only.",
+        "D": "78 is the number of distinct suited hands overall."
+      }
+    },
+    {
+      "id": "pr_ptf_090",
+      "concept": "probability",
+      "question": "How many distinct two-card starting combinations exist when suits are counted?",
+      "options": [
+        "169",
+        "1326",
+        "2652",
+        "52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "169 is the number of strategically distinct hands, not raw combos.",
+        "B": "Correct. The count of 2 cards chosen from 52 is 1326.",
+        "C": "2652 double-counts order, 52 times 51.",
+        "D": "52 is just the size of the deck."
+      }
+    },
+    {
+      "id": "pr_ptf_091",
+      "concept": "probability",
+      "question": "How many strategically distinct starting hands are there (pairs, suited, and offsuit)?",
+      "options": [
+        "1326",
+        "78",
+        "169",
+        "52"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1326 counts every suit combination separately.",
+        "B": "78 is just the suited (or just the offsuit) group.",
+        "C": "Correct. 13 pairs plus 78 suited plus 78 offsuit equals 169 distinct hands.",
+        "D": "52 is the size of the deck."
+      }
+    },
+    {
+      "id": "pr_ptf_092",
+      "concept": "probability",
+      "question": "Holding a pocket pair, your chance of flopping a set or better is about:",
+      "options": [
+        "About 1%",
+        "About 33%",
+        "About 50%",
+        "About 12% (roughly 1 in 8.5)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1% drastically understates it.",
+        "B": "33% is far too high.",
+        "C": "50% is wildly optimistic.",
+        "D": "Correct. You flop a set about 11.8% of the time, near 7.5-to-1 against."
+      }
+    },
+    {
+      "id": "pr_ptf_093",
+      "concept": "equity",
+      "question": "Your 'equity' in a pot is:",
+      "options": [
+        "Your share of the pot based on your chance to win",
+        "The chips you have already bet",
+        "The size of your stack",
+        "The rake the house takes"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Equity is your expected share given your probability of winning.",
+        "B": "Money already bet is sunk, not equity.",
+        "C": "Stack size is separate from pot equity.",
+        "D": "Rake is a fee, not equity."
+      }
+    },
+    {
+      "id": "pr_ptf_094",
+      "concept": "equity",
+      "question": "A 'coinflip' or 'race' (such as a pair versus two overcards) is a spot where each side has roughly:",
+      "options": [
+        "About 90% equity",
+        "About 50% equity",
+        "About 10% equity",
+        "About 0% equity"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "90% would not be a flip at all.",
+        "B": "Correct. A race is close to 50/50, often around 52-48.",
+        "C": "10% describes a heavy underdog.",
+        "D": "0% means drawing dead."
+      }
+    },
+    {
+      "id": "pr_ptf_095",
+      "concept": "equity",
+      "question": "'Drawing dead' means:",
+      "options": [
+        "You currently have the best hand",
+        "You are forced to fold",
+        "No remaining card can make you the winner",
+        "You happen to be all-in"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "If you already hold the best hand, you are not drawing dead.",
+        "B": "It describes your equity, not a forced fold.",
+        "C": "Correct. Drawing dead means no card can give you a winning hand.",
+        "D": "You can be all-in and still very much live."
+      }
+    },
+    {
+      "id": "pr_ptf_096",
+      "concept": "preflop",
+      "question": "The strongest starting hand in Hold'em is:",
+      "options": [
+        "A-K suited",
+        "Pocket kings",
+        "A-K offsuit",
+        "Pocket aces"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A-K suited is strong but an underdog to a high pair preflop.",
+        "B": "Pocket kings lose to pocket aces.",
+        "C": "A-K offsuit is weaker than any high pair preflop.",
+        "D": "Correct. Pocket aces (A-A) is the best preflop hand."
+      }
+    },
+    {
+      "id": "pr_ptf_097",
+      "concept": "preflop",
+      "question": "Compared with its offsuit version, a suited hand is:",
+      "options": [
+        "Slightly stronger because of its flush potential",
+        "Always weaker",
+        "Identical in value",
+        "Only better in limit games"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Suited cards add flush equity, a small but real edge.",
+        "B": "A suited hand is not worse than its offsuit version.",
+        "C": "The flush potential makes them non-identical.",
+        "D": "The suited edge applies across all formats."
+      }
+    },
+    {
+      "id": "pr_ptf_098",
+      "concept": "preflop",
+      "question": "Connected cards like 8-9 make straights more easily than 8-5 mainly because they:",
+      "options": [
+        "Are higher in rank",
+        "Have no gaps, allowing the most straight combinations",
+        "Are always suited",
+        "Cannot be counterfeited"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Rank height is not the reason here.",
+        "B": "Correct. Gapless connectors can complete the most straights.",
+        "C": "Connectedness is independent of being suited.",
+        "D": "Counterfeiting is a separate concept."
+      }
+    },
+    {
+      "id": "pr_ptf_099",
+      "concept": "terms",
+      "question": "The 'nuts' refers to:",
+      "options": [
+        "The worst possible hand",
+        "Any flush, regardless of rank",
+        "The best possible hand given the board",
+        "A pure bluff"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The worst hand is the opposite of the nuts.",
+        "B": "A flush may or may not be the nuts.",
+        "C": "Correct. The nuts is the strongest hand possible on a given board.",
+        "D": "A bluff is a betting action, not a hand."
+      }
+    },
+    {
+      "id": "pr_ptf_100",
+      "concept": "terms",
+      "question": "A 'bluff' is:",
+      "options": [
+        "Betting a strong hand to get called",
+        "Checking the nuts",
+        "Folding the best hand",
+        "Betting or raising a weak hand to make opponents fold"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Betting a strong hand for calls is value betting.",
+        "B": "Checking the nuts is a trap, not a bluff.",
+        "C": "Folding the best hand is a mistake, not a bluff.",
+        "D": "Correct. A bluff bets a weak hand to fold out better hands."
+      }
+    },
+    {
+      "id": "pr_ptf_101",
+      "concept": "terms",
+      "question": "A 'value bet' aims to:",
+      "options": [
+        "Get called by worse hands",
+        "Make better hands fold",
+        "Win the pot without a showdown",
+        "Build a side pot"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A value bet wants calls from weaker hands.",
+        "B": "Folding out better hands is bluffing.",
+        "C": "Winning without showdown is the goal of a bluff.",
+        "D": "Side pots come from all-ins, not from bet intent."
+      }
+    },
+    {
+      "id": "pr_ptf_102",
+      "concept": "terms",
+      "question": "A 'semi-bluff' is a bet made with:",
+      "options": [
+        "The nuts",
+        "A weak hand that can still improve, such as a draw",
+        "A hand with no equity at all",
+        "Only made hands"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Betting the nuts is pure value, not a semi-bluff.",
+        "B": "Correct. A semi-bluff bets a draw that can win now by a fold or later by improving.",
+        "C": "A pure bluff has little equity; a semi-bluff has draw equity.",
+        "D": "Semi-bluffs specifically involve drawing hands."
+      }
+    },
+    {
+      "id": "pr_ptf_103",
+      "concept": "terms",
+      "question": "A 'cooler' describes a situation where:",
+      "options": [
+        "You misplay a hand badly",
+        "You fold the best hand by mistake",
+        "Two very strong hands clash and a big loss is hard to avoid",
+        "The board produces only blanks"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A cooler is not primarily about misplay.",
+        "B": "Folding the best hand is a different kind of error.",
+        "C": "Correct. A cooler is when strong hands collide and losing is nearly unavoidable.",
+        "D": "A 'brick' is a blank card, which is not a cooler."
+      }
+    },
+    {
+      "id": "pr_ptf_104",
+      "concept": "terms",
+      "question": "'Tilt' refers to:",
+      "options": [
+        "A strong, focused mental state",
+        "A specific type of straight",
+        "A betting limit structure",
+        "Emotional play that leads to poor decisions"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Tilt is the opposite of focused control.",
+        "B": "Tilt is a mental state, not a hand.",
+        "C": "Tilt is not a betting structure.",
+        "D": "Correct. Tilt is letting emotion degrade your decision-making."
+      }
+    },
+    {
+      "id": "pr_ptf_105",
+      "concept": "terms",
+      "question": "The 'rake' is:",
+      "options": [
+        "A fee the house takes from pots or tournament entries",
+        "A bonus paid to the winner",
+        "Another name for the big blind",
+        "A type of all-in move"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rake is the house's fee for hosting the game.",
+        "B": "Rake is taken by the house, not given as a bonus.",
+        "C": "The big blind is a forced bet, not a fee.",
+        "D": "Rake is unrelated to going all-in."
+      }
+    },
+    {
+      "id": "pr_ptf_106",
+      "concept": "cash_vs_tournament",
+      "question": "A key difference in cash games is that:",
+      "options": [
+        "The blinds rise every level",
+        "Chips have direct cash value and you can rebuy or leave anytime",
+        "Busting eliminates you forever",
+        "There are no blinds at all"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Rising blinds are a tournament feature.",
+        "B": "Correct. Cash chips equal money, so you can buy in, top up, or cash out freely.",
+        "C": "Busting in a cash game just means rebuying.",
+        "D": "Cash games still post blinds."
+      }
+    },
+    {
+      "id": "pr_ptf_107",
+      "concept": "tournament",
+      "question": "In a freezeout tournament, losing all your chips means:",
+      "options": [
+        "You can rebuy instantly",
+        "The blinds reset",
+        "You are eliminated",
+        "You receive a refund"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A freezeout does not allow rebuys.",
+        "B": "Blinds keep rising regardless of eliminations.",
+        "C": "Correct. In a freezeout, reaching zero chips means elimination.",
+        "D": "There is no refund for busting."
+      }
+    },
+    {
+      "id": "pr_ptf_108",
+      "concept": "tournament",
+      "question": "The Independent Chip Model (ICM) reflects that:",
+      "options": [
+        "Chips always equal straight cash value",
+        "Blinds never matter",
+        "Only the chip leader can cash",
+        "Chip stacks map to real-money equity in a nonlinear way"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Tournament chips do not equal linear cash value.",
+        "B": "Blinds still drive ICM pressure.",
+        "C": "Many players cash, not just the leader.",
+        "D": "Correct. ICM ties stacks to prize equity, so each extra chip is worth a bit less."
+      }
+    },
+    {
+      "id": "pr_ptf_109",
+      "concept": "position",
+      "question": "Playing more hands from late position is justified because you:",
+      "options": [
+        "Act last postflop and can play more profitably",
+        "Are simply forced to play more",
+        "Are always dealt better cards",
+        "Never have to post any blinds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acting last lets you realize equity better and widen your profitable range.",
+        "B": "It is a choice based on edge, not a requirement.",
+        "C": "Card distribution is random regardless of seat.",
+        "D": "You still pay the blinds as they rotate to you."
+      }
+    },
+    {
+      "id": "pr_ptf_110",
+      "concept": "position",
+      "question": "Why are the blinds generally losing positions over the long run?",
+      "options": [
+        "They are dealt fewer cards",
+        "They invest forced chips and then act out of position postflop",
+        "They always receive worse hands",
+        "They are not allowed to raise"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Every seat is dealt the same number of cards.",
+        "B": "Correct. The blinds put money in blind and then act out of position postflop.",
+        "C": "Card quality is random by seat.",
+        "D": "The blinds can raise; that is not the issue."
+      }
+    },
+    {
+      "id": "pr_ptf_111",
+      "concept": "betting_mechanics",
+      "question": "Acting out of turn is discouraged because it:",
+      "options": [
+        "Is always punished by elimination",
+        "Automatically wins the pot",
+        "Gives away information and can be binding if the action does not change",
+        "Resets all prior betting"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "It is corrected, not punished by elimination.",
+        "B": "It does not award the pot.",
+        "C": "Correct. Out-of-turn action leaks information and may be held if the action to you is unchanged.",
+        "D": "It does not reset earlier betting."
+      }
+    },
+    {
+      "id": "pr_ptf_112",
+      "concept": "betting_mechanics",
+      "question": "Facing a bet, silently placing a single oversized chip without saying 'raise' is generally:",
+      "options": [
+        "A raise to that chip's full value",
+        "An illegal action",
+        "A fold",
+        "Treated as a call"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Without announcing a raise, one chip is treated as a call.",
+        "B": "Putting a chip out as a call is legal, not illegal.",
+        "C": "Putting chips forward is not a fold.",
+        "D": "Correct. A single oversized chip with no announced raise counts as a call."
+      }
+    },
+    {
+      "id": "pr_ptf_113",
+      "concept": "betting_mechanics",
+      "question": "If you release your cards into the muck and they touch the discards, your hand is:",
+      "options": [
+        "Dead; you cannot retrieve or play it",
+        "Still live and playable",
+        "Worth half of the pot",
+        "Automatically the winner"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Once your cards hit the muck, the hand is dead.",
+        "B": "A mucked hand is no longer live.",
+        "C": "A dead hand wins nothing.",
+        "D": "Mucking forfeits any claim to the pot."
+      }
+    },
+    {
+      "id": "pr_ptf_114",
+      "concept": "betting_mechanics",
+      "question": "At most casinos, if you say 'call' but the standing bet was a raise, you are bound to:",
+      "options": [
+        "Fold for free",
+        "Call the full raised amount",
+        "Make a re-raise",
+        "Take your chips back"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Saying 'call' does not let you fold for free.",
+        "B": "Correct. Saying 'call' commits you to the full current bet, including the raise.",
+        "C": "A call is not a raise.",
+        "D": "A verbal call is binding; you cannot simply retract it."
+      }
+    },
+    {
+      "id": "pr_ptf_115",
+      "concept": "board_reading",
+      "question": "When the board pairs (for example K-K-7), it becomes possible for a player to hold:",
+      "options": [
+        "A flush from the pair alone",
+        "Only a straight flush",
+        "A full house or trips",
+        "Nothing better than one pair"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A paired board does not by itself enable a flush.",
+        "B": "Straight flushes need suited connectors, not a pair.",
+        "C": "Correct. A pair on the board allows trips and full houses.",
+        "D": "Trips and boats beat one pair, so better hands exist."
+      }
+    },
+    {
+      "id": "pr_ptf_116",
+      "concept": "board_reading",
+      "question": "Three cards of the same suit on the board mean a flush is:",
+      "options": [
+        "Impossible to make",
+        "Already complete for everyone",
+        "Only possible with a pocket pair",
+        "Possible if a player holds two cards of that suit"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Three suited cards make a flush very possible.",
+        "B": "Three suited board cards are not yet a flush for anyone.",
+        "C": "Flushes are about suits, not pairs.",
+        "D": "Correct. A player with two cards of that suit completes a flush."
+      }
+    },
+    {
+      "id": "pr_ptf_117",
+      "concept": "board_reading",
+      "question": "A board of 9-T-J means a straight is possible for someone holding:",
+      "options": [
+        "Connectors like Q-8, K-Q, or 8-7",
+        "Any two pair",
+        "A flush draw",
+        "Pocket deuces"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Cards such as Q-8, K-Q, or 8-7 complete a straight with 9-T-J.",
+        "B": "Two pair is not a straight.",
+        "C": "A flush draw is a different kind of draw.",
+        "D": "Pocket deuces make at best a pair here."
+      }
+    },
+    {
+      "id": "pr_ptf_118",
+      "concept": "counterfeiting",
+      "question": "Your two pair (aces and fives) can be 'counterfeited' when:",
+      "options": [
+        "You complete a flush",
+        "The board pairs higher, demoting your second pair on kickers",
+        "An opponent simply folds",
+        "You decide to go all-in"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Hitting a flush improves you rather than counterfeiting you.",
+        "B": "Correct. A higher pair on the board can outrank your lower pair and weaken your hand.",
+        "C": "An opponent folding does not change your hand's rank.",
+        "D": "Going all-in does not change card values."
+      }
+    },
+    {
+      "id": "pr_ptf_119",
+      "concept": "expected_value",
+      "question": "The expected value (EV) of a decision is:",
+      "options": [
+        "The most you could possibly win",
+        "Your current stack size",
+        "The probability-weighted average outcome over the long run",
+        "The size of the current pot"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "EV is an average, not the best-case result.",
+        "B": "Stack size is not EV.",
+        "C": "Correct. EV weights each outcome by its probability and sums them.",
+        "D": "Pot size alone is not EV."
+      }
+    },
+    {
+      "id": "pr_ptf_120",
+      "concept": "expected_value",
+      "question": "A '+EV' play is one that:",
+      "options": [
+        "Always wins the current hand",
+        "Never loses any chips",
+        "Guarantees winning the pot",
+        "Profits on average over many repetitions"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "+EV does not guarantee winning any single hand.",
+        "B": "A +EV play can lose individual hands while profiting long-term.",
+        "C": "Nothing guarantees winning a single pot.",
+        "D": "Correct. A +EV decision earns money on average across many trials."
+      }
+    },
+    {
+      "id": "pr_ptf_121",
+      "concept": "variance",
+      "question": "'Variance' in poker describes:",
+      "options": [
+        "The short-term swings around your expected results",
+        "Your long-term win rate",
+        "The rake taken from the pot",
+        "The structure of the blinds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Variance is the up-and-down swing around your expectation.",
+        "B": "The long-term win rate is the EV trend, not variance.",
+        "C": "Rake is a fee, not variance.",
+        "D": "Blind structure is unrelated to variance."
+      }
+    },
+    {
+      "id": "pr_ptf_122",
+      "concept": "bankroll",
+      "question": "Proper bankroll management mainly helps a player:",
+      "options": [
+        "Win every single session",
+        "Survive downswings without going broke",
+        "Avoid ever paying blinds",
+        "Eliminate variance entirely"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "No strategy wins every session.",
+        "B": "Correct. A bankroll buffer lets you ride out variance without busting.",
+        "C": "You still pay blinds regardless of bankroll.",
+        "D": "Bankrolling manages, but cannot remove, variance."
+      }
+    },
+    {
+      "id": "pr_ptf_123",
+      "concept": "implied_odds",
+      "question": "Implied odds account for:",
+      "options": [
+        "Only the chips already in the pot",
+        "The rake on the pot",
+        "Extra chips you expect to win on later streets if you hit",
+        "Your opponent's exact two cards"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Current-pot-only thinking is plain pot odds.",
+        "B": "The rake is not part of implied odds.",
+        "C": "Correct. Implied odds add the future bets you expect to collect when you improve.",
+        "D": "You estimate ranges, not exact cards."
+      }
+    },
+    {
+      "id": "pr_ptf_124",
+      "concept": "reverse_implied_odds",
+      "question": "Reverse implied odds warn that:",
+      "options": [
+        "You will always win when you hit",
+        "Draws can never pay off",
+        "The pot size is fixed",
+        "You may lose extra chips even when you make your hand"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Hitting does not guarantee a win against a better hand.",
+        "B": "Draws can pay off; this concept is about the downside.",
+        "C": "The pot grows as players bet.",
+        "D": "Correct. You can complete your hand yet still pay off a stronger one."
+      }
+    },
+    {
+      "id": "pr_ptf_125",
+      "concept": "continuation_bet",
+      "question": "A 'continuation bet' (c-bet) is when the preflop raiser:",
+      "options": [
+        "Bets the flop to continue their preflop aggression",
+        "Folds the flop",
+        "Checks on every street",
+        "Only ever calls"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The preflop aggressor bets the flop to keep up the pressure.",
+        "B": "Folding is not a continuation bet.",
+        "C": "Checking is the opposite of c-betting.",
+        "D": "Calling is passive and is not a c-bet."
+      }
+    },
+    {
+      "id": "pr_ptf_126",
+      "concept": "preflop",
+      "question": "A '3-bet' preflop is:",
+      "options": [
+        "The initial big blind",
+        "A re-raise over the first raise",
+        "The first open raise",
+        "A simple call"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The big blind is the forced bet, counted as the first 'bet.'",
+        "B": "Correct. A re-raise over the opening raise is the 3-bet.",
+        "C": "The first raise is the 2-bet, the open.",
+        "D": "A call is not a raise."
+      }
+    },
+    {
+      "id": "pr_ptf_127",
+      "concept": "preflop",
+      "question": "A '4-bet' preflop is:",
+      "options": [
+        "The first open raise",
+        "A bet made on the flop",
+        "A re-raise of a 3-bet",
+        "A check"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "The first open raise is the 2-bet.",
+        "B": "Flop betting is a separate street.",
+        "C": "Correct. A 4-bet re-raises a 3-bet.",
+        "D": "A check adds no chips."
+      }
+    },
+    {
+      "id": "pr_ptf_128",
+      "concept": "preflop",
+      "question": "To 'limp' preflop means to:",
+      "options": [
+        "Make a large raise",
+        "Fold your hand",
+        "Move all-in",
+        "Just call the big blind without raising"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Limping is the opposite of raising.",
+        "B": "Folding exits the hand.",
+        "C": "Going all-in is a maximal raise, not a limp.",
+        "D": "Correct. Limping is entering the pot by only calling the big blind."
+      }
+    },
+    {
+      "id": "pr_ptf_129",
+      "concept": "preflop",
+      "question": "A typical preflop 'open' is a:",
+      "options": [
+        "Raise to roughly 2 to 3 times the big blind",
+        "Call of the big blind",
+        "Check",
+        "Fold"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Opens are commonly 2 to 3 times the big blind, larger with limpers.",
+        "B": "Calling the big blind is a limp, not an open-raise.",
+        "C": "You cannot check to open when facing the big blind.",
+        "D": "Folding exits the hand."
+      }
+    },
+    {
+      "id": "pr_ptf_130",
+      "concept": "board_texture",
+      "question": "A 'dry' board such as K-7-2 rainbow is one that:",
+      "options": [
+        "Contains many draws",
+        "Connects with few draws and is hard to improve against",
+        "Is all one suit",
+        "Always contains a flush"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Lots of draws describe a wet board.",
+        "B": "Correct. A dry board offers few straight or flush draws.",
+        "C": "All one suit is a monotone, wet board.",
+        "D": "A rainbow board cannot contain a flush."
+      }
+    },
+    {
+      "id": "pr_ptf_131",
+      "concept": "board_texture",
+      "question": "A 'wet' board such as 9-8-6 with two of a suit is dangerous because it:",
+      "options": [
+        "Contains no possible draws",
+        "Guarantees the nuts to everyone",
+        "Connects with many straight and flush draws",
+        "Cannot be bet on"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Wet boards are full of draws.",
+        "B": "It does not guarantee anyone the nuts.",
+        "C": "Correct. Coordinated, suited boards enable many drawing hands.",
+        "D": "Betting is allowed on any board."
+      }
+    },
+    {
+      "id": "pr_ptf_132",
+      "concept": "blockers",
+      "question": "Holding the ace of spades on a three-spade board gives you a 'blocker' because it:",
+      "options": [
+        "Guarantees you the flush",
+        "Wins the pot automatically",
+        "Is a dead, useless card",
+        "Lowers the chance an opponent holds the nut flush"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A single ace alone is not a made flush.",
+        "B": "A blocker does not auto-win the pot.",
+        "C": "It is a live, useful card, not dead.",
+        "D": "Correct. The ace of spades blocks the nut flush, reducing the odds an opponent has it."
+      }
+    },
+    {
+      "id": "pr_ptf_133",
+      "concept": "ranges",
+      "question": "Thinking in 'ranges' means you:",
+      "options": [
+        "Consider all the hands an opponent could plausibly hold",
+        "Try to guess one exact hand",
+        "Ignore your opponents entirely",
+        "Only count your own outs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Range-based thinking weighs every plausible holding.",
+        "B": "Pinning one exact hand is usually too narrow.",
+        "C": "Ranges are about reading opponents, not ignoring them.",
+        "D": "Counting outs is a separate calculation."
+      }
+    },
+    {
+      "id": "pr_ptf_134",
+      "concept": "ranges",
+      "question": "A 'polarized' betting range consists mostly of:",
+      "options": [
+        "Medium-strength hands",
+        "Very strong hands and bluffs",
+        "Only draws",
+        "Only the nuts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Medium hands define a 'merged,' not polarized, range.",
+        "B": "Correct. A polarized range pairs strong value hands with bluffs.",
+        "C": "Draws alone are not a complete polarized range.",
+        "D": "A polarized range includes bluffs too, not just the nuts."
+      }
+    },
+    {
+      "id": "pr_ptf_135",
+      "concept": "gto",
+      "question": "Game Theory Optimal (GTO) play aims to be:",
+      "options": [
+        "Maximally exploitative",
+        "Always aggressive no matter what",
+        "Unexploitable by balancing value bets and bluffs",
+        "Always passive"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Maximal exploitation is the opposite, exploitative play.",
+        "B": "GTO mixes actions; it is not always aggressive.",
+        "C": "Correct. GTO seeks balanced frequencies that opponents cannot exploit.",
+        "D": "GTO is not uniformly passive either."
+      }
+    },
+    {
+      "id": "pr_ptf_136",
+      "concept": "exploitative",
+      "question": "Exploitative play means you:",
+      "options": [
+        "Ignore opponent tendencies",
+        "Always play exactly the same way",
+        "Only ever fold",
+        "Deviate from balance to punish opponents' specific leaks"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Exploitative play focuses on opponent tendencies.",
+        "B": "Adjusting is the whole point; you change your strategy.",
+        "C": "It is not a fold-only approach.",
+        "D": "Correct. You adjust to attack predictable folding, calling, or sizing errors."
+      }
+    },
+    {
+      "id": "pr_ptf_137",
+      "concept": "balance",
+      "question": "'Balancing' your range means:",
+      "options": [
+        "Mixing bluffs with value so your bets are not predictable",
+        "Only ever value betting",
+        "Always bluffing",
+        "Folding all marginal hands"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Balance blends bluffs and value to keep you unpredictable.",
+        "B": "Value-only bets are easy to read.",
+        "C": "An all-bluff range is just as exploitable.",
+        "D": "Balance is about bet composition, not blanket folding."
+      }
+    },
+    {
+      "id": "pr_ptf_138",
+      "concept": "bet_sizing",
+      "question": "Choosing a larger bet on a draw-heavy board often aims to:",
+      "options": [
+        "Give opponents a great price to chase",
+        "Charge draws and protect your made hand",
+        "Slow the hand down",
+        "Always induce a bluff"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Small bets give draws cheap cards, the opposite goal.",
+        "B": "Correct. Larger bets make drawing hands pay a worse price to continue.",
+        "C": "Bigger bets build the pot rather than slow it.",
+        "D": "Sizing for protection is not mainly about inducing bluffs."
+      }
+    },
+    {
+      "id": "pr_ptf_139",
+      "concept": "fold_equity",
+      "question": "'Fold equity' is the value you gain from:",
+      "options": [
+        "Always being called",
+        "Hitting your draw",
+        "The chance your opponent folds to your bet",
+        "Posting the blinds"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Being always called means no fold equity.",
+        "B": "Hitting a draw is card equity, not fold equity.",
+        "C": "Correct. Fold equity is the added value from opponents folding.",
+        "D": "Blinds are forced bets, unrelated to fold equity."
+      }
+    },
+    {
+      "id": "pr_ptf_140",
+      "concept": "table_format",
+      "question": "A standard full-ring Hold'em table seats up to:",
+      "options": [
+        "6 players",
+        "2 players",
+        "15 players",
+        "9 or 10 players"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "6 players is 'six-max,' a shorter table.",
+        "B": "Two players is heads-up.",
+        "C": "15 exceeds a standard table and a safe deal from one deck.",
+        "D": "Correct. Full ring typically seats 9 or 10 players."
+      }
+    },
+    {
+      "id": "pr_ptf_141",
+      "concept": "table_format",
+      "question": "'Six-max' refers to a table with a maximum of:",
+      "options": [
+        "6 players",
+        "4 players",
+        "8 players",
+        "10 players"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Six-max seats up to six players.",
+        "B": "Four would be a shorter table than six-max.",
+        "C": "Eight exceeds the six-max maximum.",
+        "D": "Ten players is full ring."
+      }
+    },
+    {
+      "id": "pr_ptf_142",
+      "concept": "dealing",
+      "question": "After each hand, the dealer button moves:",
+      "options": [
+        "One seat counter-clockwise",
+        "One seat clockwise",
+        "To a random seat",
+        "Nowhere; it stays put"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The button moves clockwise, not counter-clockwise.",
+        "B": "Correct. The button advances one seat clockwise each hand.",
+        "C": "Its movement is fixed, not random.",
+        "D": "The button rotates rather than staying fixed."
+      }
+    },
+    {
+      "id": "pr_ptf_143",
+      "concept": "blinds",
+      "question": "In heads-up play, the player on the button posts:",
+      "options": [
+        "The big blind",
+        "No blind at all",
+        "The small blind",
+        "Both blinds"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Heads-up, the non-button player posts the big blind.",
+        "B": "A blind is still posted by the button heads-up.",
+        "C": "Correct. Heads-up, the button posts the small blind.",
+        "D": "Each player posts one blind, not both."
+      }
+    },
+    {
+      "id": "pr_ptf_144",
+      "concept": "odds",
+      "question": "Two unpaired overcards (such as A-K) against a lower pair (such as Q-Q) preflop are roughly:",
+      "options": [
+        "A big favorite",
+        "Drawing dead",
+        "Exactly 50%",
+        "A slight underdog, around 43 to 48%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The overcards are not a favorite here.",
+        "B": "A-K can pair up or make a straight, so it is not dead.",
+        "C": "It is close to, but not exactly, 50%.",
+        "D": "Correct. A-K versus Q-Q is about a 43 to 48% underdog, close to a coinflip."
+      }
+    },
+    {
+      "id": "pr_ptf_145",
+      "concept": "odds",
+      "question": "A pocket pair against two undercards (such as J-J versus 9-8) is about:",
+      "options": [
+        "A strong favorite, near 80%",
+        "A coinflip",
+        "An underdog",
+        "Drawing dead against the 9-8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The overpair is roughly an 80% favorite.",
+        "B": "It is clearly better than a coinflip.",
+        "C": "The pair is the favorite, not the underdog.",
+        "D": "The undercards have outs, but the pair dominates."
+      }
+    },
+    {
+      "id": "pr_ptf_146",
+      "concept": "odds",
+      "question": "A hand is 'dominated' when it shares a card with a stronger hand, like A-Q versus A-K. The A-Q is:",
+      "options": [
+        "A favorite",
+        "A big underdog, often around 25 to 30%",
+        "Exactly even",
+        "Drawing dead"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The shared ace with a worse kicker makes A-Q the underdog.",
+        "B": "Correct. Dominated by the better kicker, A-Q is only about 25 to 30% against A-K.",
+        "C": "Domination makes A-Q worse than even money.",
+        "D": "A-Q can still hit a queen or a straight, so it is not dead."
+      }
+    },
+    {
+      "id": "pr_ptf_147",
+      "concept": "dealing",
+      "question": "If a misdeal is declared before significant action, the dealer:",
+      "options": [
+        "Pays a penalty to all players",
+        "Awards the pot to the button",
+        "Reshuffles and re-deals the hand",
+        "Continues the hand anyway"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A misdeal is corrected, not penalized to players.",
+        "B": "No pot is awarded on a misdeal.",
+        "C": "Correct. A misdeal voids the deal, and the cards are reshuffled and dealt again.",
+        "D": "Play does not continue on a confirmed misdeal."
+      }
+    },
+    {
+      "id": "pr_ptf_148",
+      "concept": "dealing",
+      "question": "If a card is accidentally exposed during the deal, it is typically:",
+      "options": [
+        "Always simply played as is",
+        "Awarded to the button",
+        "Counted as a community card",
+        "Handled by house rule, often replaced or used as a burn"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Exposed deal cards are corrected, not simply kept.",
+        "B": "Exposed cards are not awarded to the button.",
+        "C": "An accidental deal card does not become a community card.",
+        "D": "Correct. House rules govern exposed cards, commonly replacing them or using them as a burn."
+      }
+    },
+    {
+      "id": "pr_ptf_149",
+      "concept": "initiative",
+      "question": "Having 'the initiative' in a hand usually means you:",
+      "options": [
+        "Were the last player to bet or raise",
+        "Called the last bet",
+        "Folded earlier",
+        "Checked the previous street"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Initiative belongs to the last aggressor in the hand.",
+        "B": "Calling is passive and does not give you the initiative.",
+        "C": "Folding exits the hand entirely.",
+        "D": "Checking does not seize the initiative."
+      }
+    },
+    {
+      "id": "pr_ptf_150",
+      "concept": "showdown_value",
+      "question": "A hand with 'showdown value' is one that:",
+      "options": [
+        "Must always be bluffed",
+        "Can win at showdown unimproved, so checking is reasonable",
+        "Is always the nuts",
+        "Has no equity at all"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Hands with showdown value usually prefer checking over bluffing.",
+        "B": "Correct. Such hands can win without betting, so passive lines are often fine.",
+        "C": "The nuts is a maximum, not merely 'showdown value.'",
+        "D": "No-equity hands lack showdown value by definition."
+      }
+    },
+    {
+      "id": "pr_ptf_151",
+      "concept": "etiquette",
+      "question": "The 'one player to a hand' rule means:",
+      "options": [
+        "Only one player can ever win",
+        "Only one card is dealt to each",
+        "You must make your own decisions without help during a hand",
+        "Only one bet is allowed per hand"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Multiple players can be eligible; this rule is about assistance.",
+        "B": "Each player is dealt two cards, not one.",
+        "C": "Correct. You may not receive help or discuss your live hand with others.",
+        "D": "Multiple bets are allowed across the streets."
+      }
+    },
+    {
+      "id": "pr_ptf_152",
+      "concept": "etiquette",
+      "question": "Discussing the contents of a live hand while others are still deciding is:",
+      "options": [
+        "Encouraged at the table",
+        "Required of folded players",
+        "Rewarded with extra chips",
+        "Against the rules because it can influence the action"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "It is discouraged, not encouraged.",
+        "B": "It is prohibited, not required.",
+        "C": "No chips are awarded for table talk.",
+        "D": "Correct. Talking about a live hand can unfairly influence the action."
+      }
+    },
+    {
+      "id": "pr_ptf_153",
+      "concept": "all_in_rules",
+      "question": "An all-in player who is later outdrawn:",
+      "options": [
+        "Owes nothing beyond the chips already committed",
+        "Owes additional chips",
+        "Must rebuy immediately",
+        "Wins the pot anyway"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Under table stakes you can never lose more than the chips you put in that hand.",
+        "B": "Table stakes cap losses at the chips committed.",
+        "C": "Rebuying is a separate, optional choice.",
+        "D": "Being outdrawn means losing that pot."
+      }
+    },
+    {
+      "id": "pr_ptf_154",
+      "concept": "probability",
+      "question": "Holding two suited cards, your chance of flopping a flush (three more of your suit) is about:",
+      "options": [
+        "About 10%",
+        "About 0.8%",
+        "About 35%",
+        "About 50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10% is closer to flopping a flush draw, not a made flush.",
+        "B": "Correct. Flopping a made flush with two suited cards is roughly 0.8%, about 118-to-1.",
+        "C": "35% is a flush draw's chance to complete by the river.",
+        "D": "50% is wildly too high."
+      }
+    },
+    {
+      "id": "pr_ptf_155",
+      "concept": "probability",
+      "question": "The chance that your two hole cards are suited is about:",
+      "options": [
+        "About 6%",
+        "About 50%",
+        "About 24%",
+        "About 75%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6% is far too low.",
+        "B": "50% overstates how often you are dealt suited cards.",
+        "C": "Correct. Any two suited is 312 of 1326, about 23.5%, or roughly 1 in 4.",
+        "D": "75% is far too high."
+      }
+    },
+    {
+      "id": "pr_ptf_156",
+      "concept": "probability",
+      "question": "Holding two suited cards, your chance of flopping a flush draw (two more of your suit) is about:",
+      "options": [
+        "About 35%",
+        "About 1%",
+        "About 50%",
+        "About 11%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "35% is the chance that such a draw then completes by the river.",
+        "B": "1% is closer to flopping a made flush.",
+        "C": "50% overstates it.",
+        "D": "Correct. You flop a four-card flush draw about 10 to 11% of the time."
+      }
+    },
+    {
+      "id": "pr_ptf_157",
+      "concept": "blinds",
+      "question": "When a straddle is posted, preflop action then opens with:",
+      "options": [
+        "The player to the left of the straddle",
+        "The straddler",
+        "The big blind",
+        "The button by default"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Action begins to the left of the straddle, and the straddler keeps last action.",
+        "B": "The straddler acts last preflop, like a larger blind.",
+        "C": "The big blind already posted; action passes the straddle.",
+        "D": "The button is not necessarily the first to act."
+      }
+    },
+    {
+      "id": "pr_ptf_158",
+      "concept": "terms",
+      "question": "A 'donk bet' is when a player:",
+      "options": [
+        "Raises preflop",
+        "Leads out into the previous street's aggressor from out of position",
+        "Folds the river",
+        "Checks the nuts"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A preflop raise is simply an open or re-raise.",
+        "B": "Correct. A donk bet leads into the prior aggressor from out of position.",
+        "C": "Folding the river is not a donk bet.",
+        "D": "Checking the nuts is a trap, not a donk bet."
+      }
+    },
+    {
+      "id": "pr_ptf_159",
+      "concept": "terms",
+      "question": "To 'float' is to:",
+      "options": [
+        "Fold to a bet",
+        "Move all-in",
+        "Call a bet with a weak hand intending to take the pot later",
+        "Check-raise the flop"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Floating is the opposite of folding.",
+        "B": "A float is a call, not an all-in.",
+        "C": "Correct. A float calls now, planning to win the pot on a later street.",
+        "D": "A check-raise is a different play."
+      }
+    },
+    {
+      "id": "pr_ptf_160",
+      "concept": "terms",
+      "question": "An 'overbet' is a bet that is:",
+      "options": [
+        "Smaller than the pot",
+        "Exactly the big blind",
+        "Always a bluff",
+        "Larger than the current size of the pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A bet smaller than the pot is a standard or small bet.",
+        "B": "The big blind is unrelated to overbet sizing.",
+        "C": "Overbets can be for value or as a bluff.",
+        "D": "Correct. An overbet exceeds the size of the pot."
+      }
+    },
+    {
+      "id": "pr_ptf_161",
+      "concept": "terms",
+      "question": "'Set over set,' where your set loses to a bigger set, is a classic example of:",
+      "options": [
+        "A cooler",
+        "A guaranteed win",
+        "A pure bluff",
+        "A routine fold"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Set over set is a textbook cooler, a strong hand losing to a stronger one.",
+        "B": "It is the opposite of a guaranteed win.",
+        "C": "No bluffing is involved in set over set.",
+        "D": "It is a clash of made hands, not a simple fold."
+      }
+    },
+    {
+      "id": "pr_ptf_162",
+      "concept": "blinds",
+      "question": "Blinds serve a purpose similar to the 'bring-in' in stud by:",
+      "options": [
+        "Revealing players' hole cards",
+        "Forcing initial money into the pot to create action",
+        "Ending the hand early",
+        "Setting the house rake"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Neither blinds nor the bring-in reveal hole cards.",
+        "B": "Correct. Both are forced bets that seed the pot and spur action.",
+        "C": "They start the hand, not end it.",
+        "D": "The rake is set separately by the house."
+      }
+    },
+    {
+      "id": "pr_ptf_163",
+      "concept": "outs",
+      "question": "On the flop with 5 outs to improve, your approximate chance to hit by the river is:",
+      "options": [
+        "About 5%",
+        "About 50%",
+        "About 20%",
+        "About 80%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "5% badly understates 5 outs over two cards.",
+        "B": "50% is far too high for only 5 outs.",
+        "C": "Correct. Using the rule of 4, 5 outs times 4 is about 20%.",
+        "D": "80% is unrealistic for this draw."
+      }
+    },
+    {
+      "id": "pr_ptf_164",
+      "concept": "equity",
+      "question": "When neither player is all-in, equity is best thought of as:",
+      "options": [
+        "One exact hand versus another",
+        "Always a flat 50/50",
+        "Determined purely by chip counts",
+        "Your range's equity against your opponent's range"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Single-hand matchups ignore the uncertainty about holdings.",
+        "B": "Equity is rarely an even 50/50.",
+        "C": "Chip counts do not set hand equity.",
+        "D": "Correct. Decisions weigh range-versus-range equity, not a single matchup."
+      }
+    },
+    {
+      "id": "pr_ptf_165",
+      "concept": "betting_mechanics",
+      "question": "In fixed-limit games, the number of raises per street is usually:",
+      "options": [
+        "Capped, commonly a bet plus three or four raises",
+        "Unlimited",
+        "Exactly one raise",
+        "Decided by the dealer's mood"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Limit games cap raises, often at a bet plus three or four raises.",
+        "B": "Limit betting is capped, not unlimited.",
+        "C": "More than one raise is allowed, up to the cap.",
+        "D": "The cap is a fixed rule, not arbitrary."
+      }
+    },
+    {
+      "id": "pr_ptf_166",
+      "concept": "betting_mechanics",
+      "question": "When a limit pot becomes heads-up between two players, the raise cap is often:",
+      "options": [
+        "Made stricter than usual",
+        "Removed, allowing unlimited raises",
+        "Reduced to a single raise",
+        "Ignored for the whole table"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Heads-up loosens, not tightens, the cap.",
+        "B": "Correct. Many rooms lift the raise cap once the pot is heads-up.",
+        "C": "It is uncapped, not limited to one raise.",
+        "D": "It applies to the two players still in, not the entire table."
+      }
+    },
+    {
+      "id": "pr_ptf_167",
+      "concept": "rules",
+      "question": "Standard Texas Hold'em is a 'high' game, meaning the pot goes to:",
+      "options": [
+        "The lowest hand",
+        "A split between high and low always",
+        "The highest-ranking hand",
+        "The first player to act"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Low hands win in split or lowball games, not standard Hold'em.",
+        "B": "Hold'em is not a split high-low game by default.",
+        "C": "Correct. In high-only Hold'em, the best (highest) hand wins the pot.",
+        "D": "Action order does not award the pot."
+      }
+    },
+    {
+      "id": "pr_ptf_168",
+      "concept": "equity_realization",
+      "question": "'Equity realization' improves when you:",
+      "options": [
+        "Play out of position",
+        "Fold far more often",
+        "Always move all-in",
+        "Play in position with the ability to control the pot"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Out of position usually realizes less equity.",
+        "B": "Over-folding sacrifices equity you could have realized.",
+        "C": "Always shoving ignores position and skill edges.",
+        "D": "Correct. Position helps you realize more of your raw equity."
+      }
+    },
+    {
+      "id": "pr_ptf_169",
+      "concept": "tournament",
+      "question": "A 'time bank' in tournaments gives a player:",
+      "options": [
+        "Extra time to make a difficult decision",
+        "Extra chips",
+        "A free rebuy",
+        "An automatic call"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A time bank is reserve time for tough decisions.",
+        "B": "A time bank grants time, not chips.",
+        "C": "It is unrelated to rebuys.",
+        "D": "It does not act for you automatically."
+      }
+    },
+    {
+      "id": "pr_ptf_170",
+      "concept": "dealing",
+      "question": "The 'dead button' rule, used when a blind player busts, results in:",
+      "options": [
+        "No button being used that hand",
+        "The button resting on an empty seat so blinds stay fair",
+        "Two buttons in play at once",
+        "The river being skipped"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "There is still a button position, even if on an empty seat.",
+        "B": "Correct. A dead button preserves fair blind rotation after a player leaves.",
+        "C": "There is only ever one button.",
+        "D": "The streets are unaffected by the dead button."
+      }
+    },
+    {
+      "id": "pr_ptf_171",
+      "concept": "blinds",
+      "question": "'Defending your big blind' means:",
+      "options": [
+        "Always folding the big blind",
+        "Posting the blind twice",
+        "Calling or raising to contest a steal attempt",
+        "Mucking your cards face up"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Always folding surrenders the blind without a fight.",
+        "B": "You post the blind once per orbit in that seat.",
+        "C": "Correct. Defending means calling or re-raising to fight for the pot.",
+        "D": "Mucking face up is unrelated to defending."
+      }
+    },
+    {
+      "id": "pr_ptf_172",
+      "concept": "steal",
+      "question": "A 'steal' attempt is typically a late-position raise aimed at:",
+      "options": [
+        "Building a huge pot with the nuts",
+        "Slow-playing a monster",
+        "Folding to avoid the blinds",
+        "Winning the blinds uncontested"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A steal is not necessarily made with a premium hand.",
+        "B": "A steal is an aggressive raise, not a slow-play.",
+        "C": "Raising to steal is the opposite of folding.",
+        "D": "Correct. A steal tries to pick up the blinds when the action folds to late position."
+      }
+    },
+    {
+      "id": "pr_ptf_173",
+      "concept": "squeeze",
+      "question": "A 'squeeze' play is a preflop re-raise made after:",
+      "options": [
+        "An open-raise and one or more callers",
+        "Everyone has already folded",
+        "The river card appears",
+        "A check from the blinds"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A squeeze re-raises an opener plus caller(s), leveraging the dead money.",
+        "B": "With everyone folded there is nothing to squeeze.",
+        "C": "A squeeze is a preflop play here.",
+        "D": "It follows a raise and calls, not a check."
+      }
+    },
+    {
+      "id": "pr_ptf_174",
+      "concept": "outs",
+      "question": "For very large draws (about 15 outs), the rule of 4 overestimates, so true equity is closer to:",
+      "options": [
+        "Over 90%",
+        "About 54%",
+        "About 15%",
+        "About 0%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "15 outs is strong but not over 90% by the river.",
+        "B": "Correct. Around 15 outs is roughly 54% by the river, less than 15 times 4 equals 60%.",
+        "C": "15% badly understates a 15-out monster.",
+        "D": "It is far from drawing dead."
+      }
+    },
+    {
+      "id": "pr_ptf_175",
+      "concept": "fundamentals",
+      "question": "Before continuing in any pot, the core question fundamentals teach you to ask is:",
+      "options": [
+        "Who is currently the dealer?",
+        "What is the house rake?",
+        "Am I getting the right price, and does my position help me control the pot?",
+        "How many chips are on the table in total?"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Identifying the dealer is trivia, not the key decision.",
+        "B": "Rake matters for game selection, not this in-hand decision.",
+        "C": "Correct. Price (pot odds) plus position drive sound fundamental decisions.",
+        "D": "Total table chips do not determine your specific choice."
+      }
+    }
+  ]
+}

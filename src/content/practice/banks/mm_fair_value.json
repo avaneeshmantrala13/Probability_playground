@@ -1,0 +1,2977 @@
+{
+  "lessonId": "mm_fair_value",
+  "track": "market-making",
+  "title": "Fair Value & Expected Value",
+  "questions": [
+    {
+      "id": "pr_mmfv_001",
+      "concept": "dice_ev",
+      "question": "A fair 6-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "3.5",
+        "6",
+        "1",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = (1+2+…+6)/6 = (6+1)/2 = 3.5.",
+        "B": "6 is the maximum face, not the average.",
+        "C": "1 is the minimum face, not the average.",
+        "D": "3 forgets the +1: the mean of 1..6 is (6+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_002",
+      "concept": "dice_ev",
+      "question": "A fair 4-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "4",
+        "2.5",
+        "1",
+        "2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4 is the maximum face, not the average.",
+        "B": "Correct. E = (1+2+…+4)/4 = (4+1)/2 = 2.5.",
+        "C": "1 is the minimum face, not the average.",
+        "D": "2 forgets the +1: the mean of 1..4 is (4+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_003",
+      "concept": "dice_ev",
+      "question": "A fair 8-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "8",
+        "1",
+        "4.5",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "8 is the maximum face, not the average.",
+        "B": "1 is the minimum face, not the average.",
+        "C": "Correct. E = (1+2+…+8)/8 = (8+1)/2 = 4.5.",
+        "D": "4 forgets the +1: the mean of 1..8 is (8+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_004",
+      "concept": "dice_ev",
+      "question": "A fair 10-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "10",
+        "1",
+        "5",
+        "5.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "10 is the maximum face, not the average.",
+        "B": "1 is the minimum face, not the average.",
+        "C": "5 forgets the +1: the mean of 1..10 is (10+1)/2.",
+        "D": "Correct. E = (1+2+…+10)/10 = (10+1)/2 = 5.5."
+      }
+    },
+    {
+      "id": "pr_mmfv_005",
+      "concept": "dice_ev",
+      "question": "A fair 12-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "6.5",
+        "12",
+        "1",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = (1+2+…+12)/12 = (12+1)/2 = 6.5.",
+        "B": "12 is the maximum face, not the average.",
+        "C": "1 is the minimum face, not the average.",
+        "D": "6 forgets the +1: the mean of 1..12 is (12+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_006",
+      "concept": "dice_ev",
+      "question": "A fair 20-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "20",
+        "10.5",
+        "1",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "20 is the maximum face, not the average.",
+        "B": "Correct. E = (1+2+…+20)/20 = (20+1)/2 = 10.5.",
+        "C": "1 is the minimum face, not the average.",
+        "D": "10 forgets the +1: the mean of 1..20 is (20+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_007",
+      "concept": "dice_ev",
+      "question": "A fair 3-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "3",
+        "1",
+        "2",
+        "1.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3 is the maximum face, not the average.",
+        "B": "1 is the minimum face, not the average.",
+        "C": "Correct. E = (1+2+…+3)/3 = (3+1)/2 = 2.",
+        "D": "1.5 forgets the +1: the mean of 1..3 is (3+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_008",
+      "concept": "dice_ev",
+      "question": "A fair 100-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "100",
+        "1",
+        "50",
+        "50.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "100 is the maximum face, not the average.",
+        "B": "1 is the minimum face, not the average.",
+        "C": "50 forgets the +1: the mean of 1..100 is (100+1)/2.",
+        "D": "Correct. E = (1+2+…+100)/100 = (100+1)/2 = 50.5."
+      }
+    },
+    {
+      "id": "pr_mmfv_009",
+      "concept": "dice_ev",
+      "question": "A fair 5-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "3",
+        "5",
+        "1",
+        "2.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = (1+2+…+5)/5 = (5+1)/2 = 3.",
+        "B": "5 is the maximum face, not the average.",
+        "C": "1 is the minimum face, not the average.",
+        "D": "2.5 forgets the +1: the mean of 1..5 is (5+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_010",
+      "concept": "dice_ev",
+      "question": "A fair 30-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "30",
+        "15.5",
+        "1",
+        "15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "30 is the maximum face, not the average.",
+        "B": "Correct. E = (1+2+…+30)/30 = (30+1)/2 = 15.5.",
+        "C": "1 is the minimum face, not the average.",
+        "D": "15 forgets the +1: the mean of 1..30 is (30+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_011",
+      "concept": "dice_ev",
+      "question": "A fair 2-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "2",
+        "1",
+        "1.5",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2 is the maximum face, not the average.",
+        "B": "1 is the minimum face, not the average.",
+        "C": "Correct. E = (1+2+…+2)/2 = (2+1)/2 = 1.5.",
+        "D": "3 is n+1, not (n+1)/2."
+      }
+    },
+    {
+      "id": "pr_mmfv_012",
+      "concept": "dice_ev",
+      "question": "A fair 7-sided die is rolled. What is the expected value of the face shown?",
+      "options": [
+        "7",
+        "1",
+        "3.5",
+        "4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "7 is the maximum face, not the average.",
+        "B": "1 is the minimum face, not the average.",
+        "C": "3.5 forgets the +1: the mean of 1..7 is (7+1)/2.",
+        "D": "Correct. E = (1+2+…+7)/7 = (7+1)/2 = 4."
+      }
+    },
+    {
+      "id": "pr_mmfv_013",
+      "concept": "coin_ev",
+      "question": "A contract pays $10 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$5",
+        "$10",
+        "$0",
+        "$2.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = ½·10 + ½·0 = 5.",
+        "B": "$10 is the larger payout (the max), not the average.",
+        "C": "$0 is the smaller payout, a lower bound, not the average.",
+        "D": "$2.5 is a quarter of the total, not half."
+      }
+    },
+    {
+      "id": "pr_mmfv_014",
+      "concept": "coin_ev",
+      "question": "A contract pays $8 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$8",
+        "$4",
+        "$0",
+        "$2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$8 is the larger payout (the max), not the average.",
+        "B": "Correct. EV = ½·8 + ½·0 = 4.",
+        "C": "$0 is the smaller payout, a lower bound, not the average.",
+        "D": "$2 is a quarter of the total, not half."
+      }
+    },
+    {
+      "id": "pr_mmfv_015",
+      "concept": "coin_ev",
+      "question": "A contract pays $1 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$1",
+        "$0",
+        "$0.5",
+        "$0.25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$1 is the larger payout (the max), not the average.",
+        "B": "$0 is the smaller payout, a lower bound, not the average.",
+        "C": "Correct. EV = ½·1 + ½·0 = 0.5.",
+        "D": "$0.25 is a quarter of the total, not half."
+      }
+    },
+    {
+      "id": "pr_mmfv_016",
+      "concept": "coin_ev",
+      "question": "A contract pays $20 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$20",
+        "$0",
+        "$5",
+        "$10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$20 is the larger payout (the max), not the average.",
+        "B": "$0 is the smaller payout, a lower bound, not the average.",
+        "C": "$5 is a quarter of the total, not half.",
+        "D": "Correct. EV = ½·20 + ½·0 = 10."
+      }
+    },
+    {
+      "id": "pr_mmfv_017",
+      "concept": "coin_ev",
+      "question": "A contract pays $6 if a fair coin lands heads and $2 if tails. What is its fair value?",
+      "options": [
+        "$4",
+        "$6",
+        "$8",
+        "$2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = ½·6 + ½·2 = 4.",
+        "B": "$6 is the larger payout (the max), not the average.",
+        "C": "$8 sums both payouts and double-counts — each occurs only half the time.",
+        "D": "$2 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_018",
+      "concept": "coin_ev",
+      "question": "A contract pays $10 if a fair coin lands heads and $4 if tails. What is its fair value?",
+      "options": [
+        "$10",
+        "$7",
+        "$14",
+        "$4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$10 is the larger payout (the max), not the average.",
+        "B": "Correct. EV = ½·10 + ½·4 = 7.",
+        "C": "$14 sums both payouts and double-counts — each occurs only half the time.",
+        "D": "$4 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_019",
+      "concept": "coin_ev",
+      "question": "A contract pays $12 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$12",
+        "$0",
+        "$6",
+        "$3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$12 is the larger payout (the max), not the average.",
+        "B": "$0 is the smaller payout, a lower bound, not the average.",
+        "C": "Correct. EV = ½·12 + ½·0 = 6.",
+        "D": "$3 is a quarter of the total, not half."
+      }
+    },
+    {
+      "id": "pr_mmfv_020",
+      "concept": "coin_ev",
+      "question": "A contract pays $5 if a fair coin lands heads and $1 if tails. What is its fair value?",
+      "options": [
+        "$5",
+        "$6",
+        "$1",
+        "$3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$5 is the larger payout (the max), not the average.",
+        "B": "$6 sums both payouts and double-counts — each occurs only half the time.",
+        "C": "$1 is the smaller payout, a lower bound, not the average.",
+        "D": "Correct. EV = ½·5 + ½·1 = 3."
+      }
+    },
+    {
+      "id": "pr_mmfv_021",
+      "concept": "coin_ev",
+      "question": "A contract pays $100 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$50",
+        "$100",
+        "$0",
+        "$25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = ½·100 + ½·0 = 50.",
+        "B": "$100 is the larger payout (the max), not the average.",
+        "C": "$0 is the smaller payout, a lower bound, not the average.",
+        "D": "$25 is a quarter of the total, not half."
+      }
+    },
+    {
+      "id": "pr_mmfv_022",
+      "concept": "coin_ev",
+      "question": "A contract pays $3 if a fair coin lands heads and $1 if tails. What is its fair value?",
+      "options": [
+        "$3",
+        "$2",
+        "$4",
+        "$1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$3 is the larger payout (the max), not the average.",
+        "B": "Correct. EV = ½·3 + ½·1 = 2.",
+        "C": "$4 sums both payouts and double-counts — each occurs only half the time.",
+        "D": "$1 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_023",
+      "concept": "coin_ev",
+      "question": "A contract pays $50 if a fair coin lands heads and $10 if tails. What is its fair value?",
+      "options": [
+        "$50",
+        "$60",
+        "$30",
+        "$10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$50 is the larger payout (the max), not the average.",
+        "B": "$60 sums both payouts and double-counts — each occurs only half the time.",
+        "C": "Correct. EV = ½·50 + ½·10 = 30.",
+        "D": "$10 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_024",
+      "concept": "coin_ev",
+      "question": "A contract pays $16 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$16",
+        "$0",
+        "$4",
+        "$8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$16 is the larger payout (the max), not the average.",
+        "B": "$0 is the smaller payout, a lower bound, not the average.",
+        "C": "$4 is a quarter of the total, not half.",
+        "D": "Correct. EV = ½·16 + ½·0 = 8."
+      }
+    },
+    {
+      "id": "pr_mmfv_025",
+      "concept": "coin_ev",
+      "question": "A contract pays $9 if a fair coin lands heads and $3 if tails. What is its fair value?",
+      "options": [
+        "$6",
+        "$9",
+        "$12",
+        "$3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = ½·9 + ½·3 = 6.",
+        "B": "$9 is the larger payout (the max), not the average.",
+        "C": "$12 sums both payouts and double-counts — each occurs only half the time.",
+        "D": "$3 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_026",
+      "concept": "coin_ev",
+      "question": "A contract pays $40 if a fair coin lands heads and $20 if tails. What is its fair value?",
+      "options": [
+        "$40",
+        "$30",
+        "$60",
+        "$20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$40 is the larger payout (the max), not the average.",
+        "B": "Correct. EV = ½·40 + ½·20 = 30.",
+        "C": "$60 sums both payouts and double-counts — each occurs only half the time.",
+        "D": "$20 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_027",
+      "concept": "coin_ev",
+      "question": "A contract pays $7 if a fair coin lands heads and $1 if tails. What is its fair value?",
+      "options": [
+        "$7",
+        "$8",
+        "$4",
+        "$1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$7 is the larger payout (the max), not the average.",
+        "B": "$8 sums both payouts and double-counts — each occurs only half the time.",
+        "C": "Correct. EV = ½·7 + ½·1 = 4.",
+        "D": "$1 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_028",
+      "concept": "coin_ev",
+      "question": "A contract pays $2 if a fair coin lands heads and $0 if tails. What is its fair value?",
+      "options": [
+        "$2",
+        "$0",
+        "$0.5",
+        "$1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$2 is the larger payout (the max), not the average.",
+        "B": "$0 is the smaller payout, a lower bound, not the average.",
+        "C": "$0.5 is a quarter of the total, not half.",
+        "D": "Correct. EV = ½·2 + ½·0 = 1."
+      }
+    },
+    {
+      "id": "pr_mmfv_029",
+      "concept": "coin_ev",
+      "question": "A contract pays $30 if a fair coin lands heads and $6 if tails. What is its fair value?",
+      "options": [
+        "$18",
+        "$30",
+        "$36",
+        "$6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = ½·30 + ½·6 = 18.",
+        "B": "$30 is the larger payout (the max), not the average.",
+        "C": "$36 sums both payouts and double-counts — each occurs only half the time.",
+        "D": "$6 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_030",
+      "concept": "coin_ev",
+      "question": "A contract pays $14 if a fair coin lands heads and $4 if tails. What is its fair value?",
+      "options": [
+        "$14",
+        "$9",
+        "$18",
+        "$4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$14 is the larger payout (the max), not the average.",
+        "B": "Correct. EV = ½·14 + ½·4 = 9.",
+        "C": "$18 sums both payouts and double-counts — each occurs only half the time.",
+        "D": "$4 is the smaller payout, a lower bound, not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_031",
+      "concept": "dice_sum_fair",
+      "question": "You make a market on the sum of two fair six-sided dice. What fair value should center your quote?",
+      "options": [
+        "12",
+        "2",
+        "7",
+        "3.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12 is the maximum sum (all sixes), not the average.",
+        "B": "2 is the minimum sum (all ones), not the average.",
+        "C": "Correct. E[sum] = 2 × 3.5 = 7.",
+        "D": "3.5 is one die's mean — you forgot to add across all the dice."
+      }
+    },
+    {
+      "id": "pr_mmfv_032",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 3 fair six-sided dice?",
+      "options": [
+        "18",
+        "3",
+        "3.5",
+        "10.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "18 is the maximum sum (all sixes), not the average.",
+        "B": "3 is the minimum sum (all ones), not the average.",
+        "C": "3.5 is one die's mean — you forgot to add across all the dice.",
+        "D": "Correct. E[sum] = 3 × 3.5 = 10.5."
+      }
+    },
+    {
+      "id": "pr_mmfv_033",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 4 fair six-sided dice?",
+      "options": [
+        "14",
+        "24",
+        "4",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = 4 × 3.5 = 14.",
+        "B": "24 is the maximum sum (all sixes), not the average.",
+        "C": "4 is the minimum sum (all ones), not the average.",
+        "D": "3.5 is one die's mean — you forgot to add across all the dice."
+      }
+    },
+    {
+      "id": "pr_mmfv_034",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 5 fair six-sided dice?",
+      "options": [
+        "30",
+        "17.5",
+        "5",
+        "3.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "30 is the maximum sum (all sixes), not the average.",
+        "B": "Correct. E[sum] = 5 × 3.5 = 17.5.",
+        "C": "5 is the minimum sum (all ones), not the average.",
+        "D": "3.5 is one die's mean — you forgot to add across all the dice."
+      }
+    },
+    {
+      "id": "pr_mmfv_035",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 10 fair six-sided dice?",
+      "options": [
+        "60",
+        "10",
+        "35",
+        "3.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "60 is the maximum sum (all sixes), not the average.",
+        "B": "10 is the minimum sum (all ones), not the average.",
+        "C": "Correct. E[sum] = 10 × 3.5 = 35.",
+        "D": "3.5 is one die's mean — you forgot to add across all the dice."
+      }
+    },
+    {
+      "id": "pr_mmfv_036",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 6 fair six-sided dice?",
+      "options": [
+        "36",
+        "6",
+        "3.5",
+        "21"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "36 is the maximum sum (all sixes), not the average.",
+        "B": "6 is the minimum sum (all ones), not the average.",
+        "C": "3.5 is one die's mean — you forgot to add across all the dice.",
+        "D": "Correct. E[sum] = 6 × 3.5 = 21."
+      }
+    },
+    {
+      "id": "pr_mmfv_037",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 7 fair six-sided dice?",
+      "options": [
+        "24.5",
+        "42",
+        "7",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = 7 × 3.5 = 24.5.",
+        "B": "42 is the maximum sum (all sixes), not the average.",
+        "C": "7 is the minimum sum (all ones), not the average.",
+        "D": "3.5 is one die's mean — you forgot to add across all the dice."
+      }
+    },
+    {
+      "id": "pr_mmfv_038",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 8 fair six-sided dice?",
+      "options": [
+        "48",
+        "28",
+        "8",
+        "3.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "48 is the maximum sum (all sixes), not the average.",
+        "B": "Correct. E[sum] = 8 × 3.5 = 28.",
+        "C": "8 is the minimum sum (all ones), not the average.",
+        "D": "3.5 is one die's mean — you forgot to add across all the dice."
+      }
+    },
+    {
+      "id": "pr_mmfv_039",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 20 fair six-sided dice?",
+      "options": [
+        "120",
+        "20",
+        "70",
+        "3.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "120 is the maximum sum (all sixes), not the average.",
+        "B": "20 is the minimum sum (all ones), not the average.",
+        "C": "Correct. E[sum] = 20 × 3.5 = 70.",
+        "D": "3.5 is one die's mean — you forgot to add across all the dice."
+      }
+    },
+    {
+      "id": "pr_mmfv_040",
+      "concept": "dice_sum_fair",
+      "question": "What is the expected value of the sum of 12 fair six-sided dice?",
+      "options": [
+        "72",
+        "12",
+        "3.5",
+        "42"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "72 is the maximum sum (all sixes), not the average.",
+        "B": "12 is the minimum sum (all ones), not the average.",
+        "C": "3.5 is one die's mean — you forgot to add across all the dice.",
+        "D": "Correct. E[sum] = 12 × 3.5 = 42."
+      }
+    },
+    {
+      "id": "pr_mmfv_041",
+      "concept": "conditional_fair",
+      "question": "2 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$1",
+        "$2",
+        "$0.5",
+        "$4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[heads] = 2 × 0.5 = 1, so EV = $1.",
+        "B": "$2 is the payout if every coin is heads (the max), not the expectation.",
+        "C": "$0.50 is a single coin's expected heads, not all of them.",
+        "D": "$4 doubles the count — there are only 2 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_042",
+      "concept": "conditional_fair",
+      "question": "3 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$3",
+        "$1.5",
+        "$0.5",
+        "$6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$3 is the payout if every coin is heads (the max), not the expectation.",
+        "B": "Correct. E[heads] = 3 × 0.5 = 1.5, so EV = $1.5.",
+        "C": "$0.50 is a single coin's expected heads, not all of them.",
+        "D": "$6 doubles the count — there are only 3 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_043",
+      "concept": "conditional_fair",
+      "question": "4 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$4",
+        "$0.5",
+        "$2",
+        "$8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$4 is the payout if every coin is heads (the max), not the expectation.",
+        "B": "$0.50 is a single coin's expected heads, not all of them.",
+        "C": "Correct. E[heads] = 4 × 0.5 = 2, so EV = $2.",
+        "D": "$8 doubles the count — there are only 4 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_044",
+      "concept": "conditional_fair",
+      "question": "5 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$5",
+        "$0.5",
+        "$10",
+        "$2.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$5 is the payout if every coin is heads (the max), not the expectation.",
+        "B": "$0.50 is a single coin's expected heads, not all of them.",
+        "C": "$10 doubles the count — there are only 5 coins.",
+        "D": "Correct. E[heads] = 5 × 0.5 = 2.5, so EV = $2.5."
+      }
+    },
+    {
+      "id": "pr_mmfv_045",
+      "concept": "conditional_fair",
+      "question": "10 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$5",
+        "$10",
+        "$0.5",
+        "$20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[heads] = 10 × 0.5 = 5, so EV = $5.",
+        "B": "$10 is the payout if every coin is heads (the max), not the expectation.",
+        "C": "$0.50 is a single coin's expected heads, not all of them.",
+        "D": "$20 doubles the count — there are only 10 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_046",
+      "concept": "conditional_fair",
+      "question": "8 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$8",
+        "$4",
+        "$0.5",
+        "$16"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$8 is the payout if every coin is heads (the max), not the expectation.",
+        "B": "Correct. E[heads] = 8 × 0.5 = 4, so EV = $4.",
+        "C": "$0.50 is a single coin's expected heads, not all of them.",
+        "D": "$16 doubles the count — there are only 8 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_047",
+      "concept": "conditional_fair",
+      "question": "6 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$6",
+        "$0.5",
+        "$3",
+        "$12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$6 is the payout if every coin is heads (the max), not the expectation.",
+        "B": "$0.50 is a single coin's expected heads, not all of them.",
+        "C": "Correct. E[heads] = 6 × 0.5 = 3, so EV = $3.",
+        "D": "$12 doubles the count — there are only 6 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_048",
+      "concept": "conditional_fair",
+      "question": "20 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$20",
+        "$0.5",
+        "$40",
+        "$10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$20 is the payout if every coin is heads (the max), not the expectation.",
+        "B": "$0.50 is a single coin's expected heads, not all of them.",
+        "C": "$40 doubles the count — there are only 20 coins.",
+        "D": "Correct. E[heads] = 20 × 0.5 = 10, so EV = $10."
+      }
+    },
+    {
+      "id": "pr_mmfv_049",
+      "concept": "conditional_fair",
+      "question": "7 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$3.5",
+        "$7",
+        "$0.5",
+        "$14"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[heads] = 7 × 0.5 = 3.5, so EV = $3.5.",
+        "B": "$7 is the payout if every coin is heads (the max), not the expectation.",
+        "C": "$0.50 is a single coin's expected heads, not all of them.",
+        "D": "$14 doubles the count — there are only 7 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_050",
+      "concept": "conditional_fair",
+      "question": "12 fair coins are flipped and a contract pays $1 for each head. What is its fair value?",
+      "options": [
+        "$12",
+        "$6",
+        "$0.5",
+        "$24"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$12 is the payout if every coin is heads (the max), not the expectation.",
+        "B": "Correct. E[heads] = 12 × 0.5 = 6, so EV = $6.",
+        "C": "$0.50 is a single coin's expected heads, not all of them.",
+        "D": "$24 doubles the count — there are only 12 coins."
+      }
+    },
+    {
+      "id": "pr_mmfv_051",
+      "concept": "weighted_ev",
+      "question": "A contract pays $60 if a fair die shows a 6 (probability 0.1667), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$60",
+        "0.1667",
+        "$10",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$60 is the full payout and ignores the probability weighting.",
+        "B": "0.1667 is the probability, not the dollar EV.",
+        "C": "Correct. EV = p × payoff = 0.1667 × 60 = 10.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_052",
+      "concept": "weighted_ev",
+      "question": "A contract pays $100 if a fair die shows a 6 (probability 0.1667), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$100",
+        "0.1667",
+        "$0",
+        "$16.6667"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$100 is the full payout and ignores the probability weighting.",
+        "B": "0.1667 is the probability, not the dollar EV.",
+        "C": "$0 is the losing outcome, but the win case has positive probability.",
+        "D": "Correct. EV = p × payoff = 0.1667 × 100 = 16.6667."
+      }
+    },
+    {
+      "id": "pr_mmfv_053",
+      "concept": "weighted_ev",
+      "question": "A contract pays $20 if a fair die shows an even number (probability 0.5), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$10",
+        "$20",
+        "0.5",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = p × payoff = 0.5 × 20 = 10.",
+        "B": "$20 is the full payout and ignores the probability weighting.",
+        "C": "0.5 is the probability, not the dollar EV.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_054",
+      "concept": "weighted_ev",
+      "question": "A contract pays $30 if a fair die shows 5 or 6 (probability 0.3333), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$30",
+        "$10",
+        "0.3333",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$30 is the full payout and ignores the probability weighting.",
+        "B": "Correct. EV = p × payoff = 0.3333 × 30 = 10.",
+        "C": "0.3333 is the probability, not the dollar EV.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_055",
+      "concept": "weighted_ev",
+      "question": "A contract pays $520 if a single card drawn is the ace of spades (probability 0.0192), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$520",
+        "0.0192",
+        "$10",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$520 is the full payout and ignores the probability weighting.",
+        "B": "0.0192 is the probability, not the dollar EV.",
+        "C": "Correct. EV = p × payoff = 0.0192 × 520 = 10.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_056",
+      "concept": "weighted_ev",
+      "question": "A contract pays $14 if a fair coin shows heads (probability 0.5), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$14",
+        "0.5",
+        "$0",
+        "$7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$14 is the full payout and ignores the probability weighting.",
+        "B": "0.5 is the probability, not the dollar EV.",
+        "C": "$0 is the losing outcome, but the win case has positive probability.",
+        "D": "Correct. EV = p × payoff = 0.5 × 14 = 7."
+      }
+    },
+    {
+      "id": "pr_mmfv_057",
+      "concept": "weighted_ev",
+      "question": "A contract pays $90 if a fair die shows a number greater than 4 (probability 0.3333), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$30",
+        "$90",
+        "0.3333",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = p × payoff = 0.3333 × 90 = 30.",
+        "B": "$90 is the full payout and ignores the probability weighting.",
+        "C": "0.3333 is the probability, not the dollar EV.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_058",
+      "concept": "weighted_ev",
+      "question": "A contract pays $40 if two fair coins are both heads (probability 0.25), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$40",
+        "$10",
+        "0.25",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$40 is the full payout and ignores the probability weighting.",
+        "B": "Correct. EV = p × payoff = 0.25 × 40 = 10.",
+        "C": "0.25 is the probability, not the dollar EV.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_059",
+      "concept": "weighted_ev",
+      "question": "A contract pays $24 if a fair die shows 1 (probability 0.1667), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$24",
+        "0.1667",
+        "$4",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$24 is the full payout and ignores the probability weighting.",
+        "B": "0.1667 is the probability, not the dollar EV.",
+        "C": "Correct. EV = p × payoff = 0.1667 × 24 = 4.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_060",
+      "concept": "weighted_ev",
+      "question": "A contract pays $25 if a spinner lands in a 1/5 sector (probability 0.2), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$25",
+        "0.2",
+        "$0",
+        "$5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$25 is the full payout and ignores the probability weighting.",
+        "B": "0.2 is the probability, not the dollar EV.",
+        "C": "$0 is the losing outcome, but the win case has positive probability.",
+        "D": "Correct. EV = p × payoff = 0.2 × 25 = 5."
+      }
+    },
+    {
+      "id": "pr_mmfv_061",
+      "concept": "weighted_ev",
+      "question": "A contract pays $18 if a fair die shows a prime (2,3,5) (probability 0.5), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$9",
+        "$18",
+        "0.5",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = p × payoff = 0.5 × 18 = 9.",
+        "B": "$18 is the full payout and ignores the probability weighting.",
+        "C": "0.5 is the probability, not the dollar EV.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_062",
+      "concept": "weighted_ev",
+      "question": "A contract pays $16 if a card drawn is a diamond (probability 0.25), and $0 otherwise. What is its fair value?",
+      "options": [
+        "$16",
+        "$4",
+        "0.25",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$16 is the full payout and ignores the probability weighting.",
+        "B": "Correct. EV = p × payoff = 0.25 × 16 = 4.",
+        "C": "0.25 is the probability, not the dollar EV.",
+        "D": "$0 is the losing outcome, but the win case has positive probability."
+      }
+    },
+    {
+      "id": "pr_mmfv_063",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $10 if the card is a heart, else $0. What is its fair value?",
+      "options": [
+        "$10",
+        "0.25",
+        "$2.5",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$10 is the conditional payout, not the unconditional EV.",
+        "B": "0.25 is the probability, not the dollar EV.",
+        "C": "Correct. P = 13/52 = 0.25; EV = 0.25 × 10 = 2.5.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_064",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $13 if the card is a face card (J, Q, K), else $0. What is its fair value?",
+      "options": [
+        "$13",
+        "0.2308",
+        "$0",
+        "$3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$13 is the conditional payout, not the unconditional EV.",
+        "B": "0.2308 is the probability, not the dollar EV.",
+        "C": "$0 ignores the winning outcome entirely.",
+        "D": "Correct. P = 12/52 = 0.2308; EV = 0.2308 × 13 = 3."
+      }
+    },
+    {
+      "id": "pr_mmfv_065",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $26 if the card is an ace, else $0. What is its fair value?",
+      "options": [
+        "$2",
+        "$26",
+        "0.0769",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = 4/52 = 0.0769; EV = 0.0769 × 26 = 2.",
+        "B": "$26 is the conditional payout, not the unconditional EV.",
+        "C": "0.0769 is the probability, not the dollar EV.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_066",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $4 if the card is red, else $0. What is its fair value?",
+      "options": [
+        "$4",
+        "$2",
+        "0.5",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$4 is the conditional payout, not the unconditional EV.",
+        "B": "Correct. P = 26/52 = 0.5; EV = 0.5 × 4 = 2.",
+        "C": "0.5 is the probability, not the dollar EV.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_067",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $52 if the card is the king of hearts, else $0. What is its fair value?",
+      "options": [
+        "$52",
+        "0.0192",
+        "$1",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$52 is the conditional payout, not the unconditional EV.",
+        "B": "0.0192 is the probability, not the dollar EV.",
+        "C": "Correct. P = 1/52 = 0.0192; EV = 0.0192 × 52 = 1.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_068",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $8 if the card is a spade or club, else $0. What is its fair value?",
+      "options": [
+        "$8",
+        "0.5",
+        "$0",
+        "$4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$8 is the conditional payout, not the unconditional EV.",
+        "B": "0.5 is the probability, not the dollar EV.",
+        "C": "$0 ignores the winning outcome entirely.",
+        "D": "Correct. P = 26/52 = 0.5; EV = 0.5 × 8 = 4."
+      }
+    },
+    {
+      "id": "pr_mmfv_069",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $13 if the card is a 7, else $0. What is its fair value?",
+      "options": [
+        "$1",
+        "$13",
+        "0.0769",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = 4/52 = 0.0769; EV = 0.0769 × 13 = 1.",
+        "B": "$13 is the conditional payout, not the unconditional EV.",
+        "C": "0.0769 is the probability, not the dollar EV.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_070",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $20 if the card is a club, else $0. What is its fair value?",
+      "options": [
+        "$20",
+        "$5",
+        "0.25",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$20 is the conditional payout, not the unconditional EV.",
+        "B": "Correct. P = 13/52 = 0.25; EV = 0.25 × 20 = 5.",
+        "C": "0.25 is the probability, not the dollar EV.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_071",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $13 if the card is a 10 or higher (10,J,Q,K), else $0. What is its fair value?",
+      "options": [
+        "$13",
+        "0.3077",
+        "$4",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$13 is the conditional payout, not the unconditional EV.",
+        "B": "0.3077 is the probability, not the dollar EV.",
+        "C": "Correct. P = 16/52 = 0.3077; EV = 0.3077 × 13 = 4.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_072",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $6 if the card is black, else $0. What is its fair value?",
+      "options": [
+        "$6",
+        "0.5",
+        "$0",
+        "$3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$6 is the conditional payout, not the unconditional EV.",
+        "B": "0.5 is the probability, not the dollar EV.",
+        "C": "$0 ignores the winning outcome entirely.",
+        "D": "Correct. P = 26/52 = 0.5; EV = 0.5 × 6 = 3."
+      }
+    },
+    {
+      "id": "pr_mmfv_073",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $39 if the card is a queen, else $0. What is its fair value?",
+      "options": [
+        "$3",
+        "$39",
+        "0.0769",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P = 4/52 = 0.0769; EV = 0.0769 × 39 = 3.",
+        "B": "$39 is the conditional payout, not the unconditional EV.",
+        "C": "0.0769 is the probability, not the dollar EV.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_074",
+      "concept": "card_ev",
+      "question": "One card is drawn from a standard 52-card deck. The contract pays $104 if the card is the two of clubs, else $0. What is its fair value?",
+      "options": [
+        "$104",
+        "$2",
+        "0.0192",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$104 is the conditional payout, not the unconditional EV.",
+        "B": "Correct. P = 1/52 = 0.0192; EV = 0.0192 × 104 = 2.",
+        "C": "0.0192 is the probability, not the dollar EV.",
+        "D": "$0 ignores the winning outcome entirely."
+      }
+    },
+    {
+      "id": "pr_mmfv_075",
+      "concept": "card_ev",
+      "question": "A card is drawn from a standard deck and pays its rank in dollars (Ace=$1, …, King=$13). What is its fair value?",
+      "options": [
+        "$13",
+        "$6.5",
+        "$7",
+        "$26"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$13 is the king (max rank), not the average.",
+        "B": "$6.5 averages 0..13; ranks run 1..13, giving 7.",
+        "C": "Correct. Ranks 1..13 are equally likely, so E = (1+13)/2 = 7.",
+        "D": "$26 has no basis as a probability-weighted average."
+      }
+    },
+    {
+      "id": "pr_mmfv_076",
+      "concept": "card_ev",
+      "question": "A card pays its blackjack value: Ace=$1, 2–10 at face, and J/Q/K=$10. What is the fair value of one draw?",
+      "options": [
+        "$7",
+        "$10",
+        "$6.5",
+        "$6.5385"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$7 treats all 13 ranks as 1..13; here J/Q/K cap at 10, lowering the mean.",
+        "B": "$10 is the max card value, not the average.",
+        "C": "$6.5 is a rounded guess, not the exact 85/13.",
+        "D": "Correct. Per suit values sum to 1+2+…+10+10+10+10 = 85 over 13 cards, so E = 85/13 ≈ 6.5385."
+      }
+    },
+    {
+      "id": "pr_mmfv_077",
+      "concept": "centering",
+      "question": "Fair value is 7 and you want a spread of 2 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "6 at 8",
+        "7 at 9",
+        "5 at 7",
+        "6 at 6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Midpoint 7, half-spread 1 → 6 at 8.",
+        "B": "That midpoint is 8, above fair — not centered.",
+        "C": "That midpoint is 6, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_078",
+      "concept": "centering",
+      "question": "Fair value is 50 and you want a spread of 6 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "50 at 56",
+        "47 at 53",
+        "44 at 50",
+        "47 at 47"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That midpoint is 53, above fair — not centered.",
+        "B": "Correct. Midpoint 50, half-spread 3 → 47 at 53.",
+        "C": "That midpoint is 47, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_079",
+      "concept": "centering",
+      "question": "Fair value is 12.25 and you want a spread of 1 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "12.25 at 13.25",
+        "11.25 at 12.25",
+        "11.75 at 12.75",
+        "11.75 at 11.75"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That midpoint is 12.75, above fair — not centered.",
+        "B": "That midpoint is 11.75, below fair — not centered.",
+        "C": "Correct. Midpoint 12.25, half-spread 0.5 → 11.75 at 12.75.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_080",
+      "concept": "centering",
+      "question": "Fair value is 20 and you want a spread of 4 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "20 at 24",
+        "16 at 20",
+        "18 at 18",
+        "18 at 22"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That midpoint is 22, above fair — not centered.",
+        "B": "That midpoint is 18, below fair — not centered.",
+        "C": "A zero-width quote leaves you no spread to earn.",
+        "D": "Correct. Midpoint 20, half-spread 2 → 18 at 22."
+      }
+    },
+    {
+      "id": "pr_mmfv_081",
+      "concept": "centering",
+      "question": "Fair value is 100 and you want a spread of 10 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "95 at 105",
+        "100 at 110",
+        "90 at 100",
+        "95 at 95"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Midpoint 100, half-spread 5 → 95 at 105.",
+        "B": "That midpoint is 105, above fair — not centered.",
+        "C": "That midpoint is 95, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_082",
+      "concept": "centering",
+      "question": "Fair value is 2.5 and you want a spread of 1 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "2.5 at 3.5",
+        "2 at 3",
+        "1.5 at 2.5",
+        "2 at 2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That midpoint is 3, above fair — not centered.",
+        "B": "Correct. Midpoint 2.5, half-spread 0.5 → 2 at 3.",
+        "C": "That midpoint is 2, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_083",
+      "concept": "centering",
+      "question": "Fair value is 16 and you want a spread of 8 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "16 at 24",
+        "8 at 16",
+        "12 at 20",
+        "12 at 12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That midpoint is 20, above fair — not centered.",
+        "B": "That midpoint is 12, below fair — not centered.",
+        "C": "Correct. Midpoint 16, half-spread 4 → 12 at 20.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_084",
+      "concept": "centering",
+      "question": "Fair value is 7 and you want a spread of 0.5 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "7 at 7.5",
+        "6.5 at 7",
+        "6.75 at 6.75",
+        "6.75 at 7.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That midpoint is 7.25, above fair — not centered.",
+        "B": "That midpoint is 6.75, below fair — not centered.",
+        "C": "A zero-width quote leaves you no spread to earn.",
+        "D": "Correct. Midpoint 7, half-spread 0.25 → 6.75 at 7.25."
+      }
+    },
+    {
+      "id": "pr_mmfv_085",
+      "concept": "centering",
+      "question": "Fair value is 35 and you want a spread of 4 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "33 at 37",
+        "35 at 39",
+        "31 at 35",
+        "33 at 33"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Midpoint 35, half-spread 2 → 33 at 37.",
+        "B": "That midpoint is 37, above fair — not centered.",
+        "C": "That midpoint is 33, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_086",
+      "concept": "centering",
+      "question": "Fair value is 60 and you want a spread of 10 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "60 at 70",
+        "55 at 65",
+        "50 at 60",
+        "55 at 55"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That midpoint is 65, above fair — not centered.",
+        "B": "Correct. Midpoint 60, half-spread 5 → 55 at 65.",
+        "C": "That midpoint is 55, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_087",
+      "concept": "centering",
+      "question": "Fair value is 8.5 and you want a spread of 3 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "8.5 at 11.5",
+        "5.5 at 8.5",
+        "7 at 10",
+        "7 at 7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That midpoint is 10, above fair — not centered.",
+        "B": "That midpoint is 7, below fair — not centered.",
+        "C": "Correct. Midpoint 8.5, half-spread 1.5 → 7 at 10.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_088",
+      "concept": "centering",
+      "question": "Fair value is 200 and you want a spread of 20 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "200 at 220",
+        "180 at 200",
+        "190 at 190",
+        "190 at 210"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "That midpoint is 210, above fair — not centered.",
+        "B": "That midpoint is 190, below fair — not centered.",
+        "C": "A zero-width quote leaves you no spread to earn.",
+        "D": "Correct. Midpoint 200, half-spread 10 → 190 at 210."
+      }
+    },
+    {
+      "id": "pr_mmfv_089",
+      "concept": "centering",
+      "question": "Fair value is 4 and you want a spread of 2 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "3 at 5",
+        "4 at 6",
+        "2 at 4",
+        "3 at 3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Midpoint 4, half-spread 1 → 3 at 5.",
+        "B": "That midpoint is 5, above fair — not centered.",
+        "C": "That midpoint is 3, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_090",
+      "concept": "centering",
+      "question": "Fair value is 25 and you want a spread of 5 centered on fair. What is your two-sided quote (bid at ask)?",
+      "options": [
+        "25 at 30",
+        "22.5 at 27.5",
+        "20 at 25",
+        "22.5 at 22.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That midpoint is 27.5, above fair — not centered.",
+        "B": "Correct. Midpoint 25, half-spread 2.5 → 22.5 at 27.5.",
+        "C": "That midpoint is 22.5, below fair — not centered.",
+        "D": "A zero-width quote leaves you no spread to earn."
+      }
+    },
+    {
+      "id": "pr_mmfv_091",
+      "concept": "weighted_fair",
+      "question": "A contract pays $100 with probability 0.7 and $0 otherwise. What is its fair price?",
+      "options": [
+        "$30",
+        "$50",
+        "$70",
+        "$100"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$50 treats the two outcomes as equally likely.",
+        "C": "Correct. EV = 0.7·100 + 0.3·0 = 70.",
+        "D": "$100 is the larger payout and ignores the probability 0.7."
+      }
+    },
+    {
+      "id": "pr_mmfv_092",
+      "concept": "weighted_fair",
+      "question": "A contract pays $40 with probability 0.25 and $0 otherwise. What is its fair price?",
+      "options": [
+        "$30",
+        "$20",
+        "$40",
+        "$10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$20 treats the two outcomes as equally likely.",
+        "C": "$40 is the larger payout and ignores the probability 0.25.",
+        "D": "Correct. EV = 0.25·40 + 0.75·0 = 10."
+      }
+    },
+    {
+      "id": "pr_mmfv_093",
+      "concept": "weighted_fair",
+      "question": "A contract pays $50 with probability 0.4 and $10 otherwise. What is its fair price?",
+      "options": [
+        "$26",
+        "$34",
+        "$30",
+        "$50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.4·50 + 0.6·10 = 26.",
+        "B": "This swaps the two probabilities onto the wrong payouts.",
+        "C": "$30 treats the two outcomes as equally likely.",
+        "D": "$50 is the larger payout and ignores the probability 0.4."
+      }
+    },
+    {
+      "id": "pr_mmfv_094",
+      "concept": "weighted_fair",
+      "question": "A contract pays $20 with probability 0.6 and $5 otherwise. What is its fair price?",
+      "options": [
+        "$11",
+        "$14",
+        "$12.5",
+        "$20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "Correct. EV = 0.6·20 + 0.4·5 = 14.",
+        "C": "$12.5 treats the two outcomes as equally likely.",
+        "D": "$20 is the larger payout and ignores the probability 0.6."
+      }
+    },
+    {
+      "id": "pr_mmfv_095",
+      "concept": "weighted_fair",
+      "question": "A contract pays $10 with probability 0.9 and $0 otherwise. What is its fair price?",
+      "options": [
+        "$1",
+        "$5",
+        "$9",
+        "$10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$5 treats the two outcomes as equally likely.",
+        "C": "Correct. EV = 0.9·10 + 0.1·0 = 9.",
+        "D": "$10 is the larger payout and ignores the probability 0.9."
+      }
+    },
+    {
+      "id": "pr_mmfv_096",
+      "concept": "weighted_fair",
+      "question": "A contract pays $8 with probability 0.55 and $2 otherwise. What is its fair price?",
+      "options": [
+        "$4.7",
+        "$5",
+        "$8",
+        "$5.3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$5 treats the two outcomes as equally likely.",
+        "C": "$8 is the larger payout and ignores the probability 0.55.",
+        "D": "Correct. EV = 0.55·8 + 0.45·2 = 5.3."
+      }
+    },
+    {
+      "id": "pr_mmfv_097",
+      "concept": "weighted_fair",
+      "question": "A contract pays $100 with probability 0.2 and $25 otherwise. What is its fair price?",
+      "options": [
+        "$40",
+        "$85",
+        "$62.5",
+        "$100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.2·100 + 0.8·25 = 40.",
+        "B": "This swaps the two probabilities onto the wrong payouts.",
+        "C": "$62.5 treats the two outcomes as equally likely.",
+        "D": "$100 is the larger payout and ignores the probability 0.2."
+      }
+    },
+    {
+      "id": "pr_mmfv_098",
+      "concept": "weighted_fair",
+      "question": "A contract pays $30 with probability 0.8 and $0 otherwise. What is its fair price?",
+      "options": [
+        "$6",
+        "$24",
+        "$15",
+        "$30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "Correct. EV = 0.8·30 + 0.2·0 = 24.",
+        "C": "$15 treats the two outcomes as equally likely.",
+        "D": "$30 is the larger payout and ignores the probability 0.8."
+      }
+    },
+    {
+      "id": "pr_mmfv_099",
+      "concept": "weighted_fair",
+      "question": "A contract pays $60 with probability 0.3 and $20 otherwise. What is its fair price?",
+      "options": [
+        "$48",
+        "$40",
+        "$32",
+        "$60"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$40 treats the two outcomes as equally likely.",
+        "C": "Correct. EV = 0.3·60 + 0.7·20 = 32.",
+        "D": "$60 is the larger payout and ignores the probability 0.3."
+      }
+    },
+    {
+      "id": "pr_mmfv_100",
+      "concept": "weighted_fair",
+      "question": "A contract pays $200 with probability 0.15 and $0 otherwise. What is its fair price?",
+      "options": [
+        "$170",
+        "$100",
+        "$200",
+        "$30"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$100 treats the two outcomes as equally likely.",
+        "C": "$200 is the larger payout and ignores the probability 0.15.",
+        "D": "Correct. EV = 0.15·200 + 0.85·0 = 30."
+      }
+    },
+    {
+      "id": "pr_mmfv_101",
+      "concept": "weighted_fair",
+      "question": "A contract pays $40 with probability 0.65 and $10 otherwise. What is its fair price?",
+      "options": [
+        "$29.5",
+        "$20.5",
+        "$25",
+        "$40"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.65·40 + 0.35·10 = 29.5.",
+        "B": "This swaps the two probabilities onto the wrong payouts.",
+        "C": "$25 treats the two outcomes as equally likely.",
+        "D": "$40 is the larger payout and ignores the probability 0.65."
+      }
+    },
+    {
+      "id": "pr_mmfv_102",
+      "concept": "weighted_fair",
+      "question": "A contract pays $80 with probability 0.45 and $20 otherwise. What is its fair price?",
+      "options": [
+        "$53",
+        "$47",
+        "$50",
+        "$80"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "Correct. EV = 0.45·80 + 0.55·20 = 47.",
+        "C": "$50 treats the two outcomes as equally likely.",
+        "D": "$80 is the larger payout and ignores the probability 0.45."
+      }
+    },
+    {
+      "id": "pr_mmfv_103",
+      "concept": "weighted_fair",
+      "question": "A contract pays $500 with probability 0.1 and $0 otherwise. What is its fair price?",
+      "options": [
+        "$450",
+        "$250",
+        "$50",
+        "$500"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$250 treats the two outcomes as equally likely.",
+        "C": "Correct. EV = 0.1·500 + 0.9·0 = 50.",
+        "D": "$500 is the larger payout and ignores the probability 0.1."
+      }
+    },
+    {
+      "id": "pr_mmfv_104",
+      "concept": "weighted_fair",
+      "question": "A contract pays $24 with probability 0.75 and $4 otherwise. What is its fair price?",
+      "options": [
+        "$9",
+        "$14",
+        "$24",
+        "$19"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This swaps the two probabilities onto the wrong payouts.",
+        "B": "$14 treats the two outcomes as equally likely.",
+        "C": "$24 is the larger payout and ignores the probability 0.75.",
+        "D": "Correct. EV = 0.75·24 + 0.25·4 = 19."
+      }
+    },
+    {
+      "id": "pr_mmfv_105",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair 6-sided dice. What is its fair value?",
+      "options": [
+        "12.25",
+        "7",
+        "36",
+        "3.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[XY] = E[X]·E[Y] = 3.5 × 3.5 = 12.25.",
+        "B": "7 is the expected sum E[X]+E[Y], not the product.",
+        "C": "36 is the maximum product (6×6), not the average.",
+        "D": "3.5 is one die's mean, not the product of two."
+      }
+    },
+    {
+      "id": "pr_mmfv_106",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair 4-sided dice. What is its fair value?",
+      "options": [
+        "5",
+        "6.25",
+        "16",
+        "2.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 is the expected sum E[X]+E[Y], not the product.",
+        "B": "Correct. E[XY] = E[X]·E[Y] = 2.5 × 2.5 = 6.25.",
+        "C": "16 is the maximum product (4×4), not the average.",
+        "D": "2.5 is one die's mean, not the product of two."
+      }
+    },
+    {
+      "id": "pr_mmfv_107",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair 3-sided dice. What is its fair value?",
+      "options": [
+        "9",
+        "2",
+        "4",
+        "3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "9 is the maximum product (3×3), not the average.",
+        "B": "2 is one die's mean, not the product of two.",
+        "C": "Correct. E[XY] = E[X]·E[Y] = 2 × 2 = 4.",
+        "D": "3 is a single die's maximum, not the product."
+      }
+    },
+    {
+      "id": "pr_mmfv_108",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair 8-sided dice. What is its fair value?",
+      "options": [
+        "9",
+        "64",
+        "4.5",
+        "20.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "9 is the expected sum E[X]+E[Y], not the product.",
+        "B": "64 is the maximum product (8×8), not the average.",
+        "C": "4.5 is one die's mean, not the product of two.",
+        "D": "Correct. E[XY] = E[X]·E[Y] = 4.5 × 4.5 = 20.25."
+      }
+    },
+    {
+      "id": "pr_mmfv_109",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair 10-sided dice. What is its fair value?",
+      "options": [
+        "30.25",
+        "11",
+        "100",
+        "5.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[XY] = E[X]·E[Y] = 5.5 × 5.5 = 30.25.",
+        "B": "11 is the expected sum E[X]+E[Y], not the product.",
+        "C": "100 is the maximum product (10×10), not the average.",
+        "D": "5.5 is one die's mean, not the product of two."
+      }
+    },
+    {
+      "id": "pr_mmfv_110",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair 12-sided dice. What is its fair value?",
+      "options": [
+        "13",
+        "42.25",
+        "144",
+        "6.5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "13 is the expected sum E[X]+E[Y], not the product.",
+        "B": "Correct. E[XY] = E[X]·E[Y] = 6.5 × 6.5 = 42.25.",
+        "C": "144 is the maximum product (12×12), not the average.",
+        "D": "6.5 is one die's mean, not the product of two."
+      }
+    },
+    {
+      "id": "pr_mmfv_111",
+      "concept": "dice_product_fair",
+      "question": "Payoff equals the product of two independent fair 20-sided dice. What is its fair value?",
+      "options": [
+        "21",
+        "400",
+        "110.25",
+        "10.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "21 is the expected sum E[X]+E[Y], not the product.",
+        "B": "400 is the maximum product (20×20), not the average.",
+        "C": "Correct. E[XY] = E[X]·E[Y] = 10.5 × 10.5 = 110.25.",
+        "D": "10.5 is one die's mean, not the product of two."
+      }
+    },
+    {
+      "id": "pr_mmfv_112",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 1 or 2. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "2.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4 is the maximum product (2×2), not the average.",
+        "B": "3 is the expected sum, not the product.",
+        "C": "2 is just one mixed outcome, not the probability-weighted mean.",
+        "D": "Correct. E[product] = E[X]·E[Y] = 1.5 × 1.5 = 2.25."
+      }
+    },
+    {
+      "id": "pr_mmfv_113",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 1 or 3. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "4",
+        "9",
+        "3",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[product] = E[X]·E[Y] = 2 × 2 = 4.",
+        "B": "9 is the maximum product (3×3), not the average.",
+        "C": "3 is just one mixed outcome, not the probability-weighted mean.",
+        "D": "1 is the minimum product (1×1), not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_114",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 2 or 4. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "16",
+        "9",
+        "6",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "16 is the maximum product (4×4), not the average.",
+        "B": "Correct. E[product] = E[X]·E[Y] = 3 × 3 = 9.",
+        "C": "6 is the expected sum, not the product.",
+        "D": "8 is just one mixed outcome, not the probability-weighted mean."
+      }
+    },
+    {
+      "id": "pr_mmfv_115",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 0 or 2. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "4",
+        "2",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4 is the maximum product (2×2), not the average.",
+        "B": "2 is the expected sum, not the product.",
+        "C": "Correct. E[product] = E[X]·E[Y] = 1 × 1 = 1.",
+        "D": "0 is just one mixed outcome, not the probability-weighted mean."
+      }
+    },
+    {
+      "id": "pr_mmfv_116",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 1 or 5. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "25",
+        "6",
+        "5",
+        "9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "25 is the maximum product (5×5), not the average.",
+        "B": "6 is the expected sum, not the product.",
+        "C": "5 is just one mixed outcome, not the probability-weighted mean.",
+        "D": "Correct. E[product] = E[X]·E[Y] = 3 × 3 = 9."
+      }
+    },
+    {
+      "id": "pr_mmfv_117",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 2 or 6. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "16",
+        "36",
+        "8",
+        "12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[product] = E[X]·E[Y] = 4 × 4 = 16.",
+        "B": "36 is the maximum product (6×6), not the average.",
+        "C": "8 is the expected sum, not the product.",
+        "D": "12 is just one mixed outcome, not the probability-weighted mean."
+      }
+    },
+    {
+      "id": "pr_mmfv_118",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 3 or 5. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "25",
+        "16",
+        "8",
+        "15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "25 is the maximum product (5×5), not the average.",
+        "B": "Correct. E[product] = E[X]·E[Y] = 4 × 4 = 16.",
+        "C": "8 is the expected sum, not the product.",
+        "D": "15 is just one mixed outcome, not the probability-weighted mean."
+      }
+    },
+    {
+      "id": "pr_mmfv_119",
+      "concept": "product_ev",
+      "question": "Two independent fair coins each show 4 or 6. The contract pays the product of the two values. What is its fair value?",
+      "options": [
+        "36",
+        "10",
+        "25",
+        "24"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "36 is the maximum product (6×6), not the average.",
+        "B": "10 is the expected sum, not the product.",
+        "C": "Correct. E[product] = E[X]·E[Y] = 5 × 5 = 25.",
+        "D": "24 is just one mixed outcome, not the probability-weighted mean."
+      }
+    },
+    {
+      "id": "pr_mmfv_120",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $100 (p=0.1), $50 (p=0.2), $0 (p=0.7). What is its fair value?",
+      "options": [
+        "$100",
+        "$50",
+        "$0",
+        "$20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$100 is the top prize, not the probability-weighted average.",
+        "B": "$50 averages the payouts ignoring their probabilities.",
+        "C": "$0 is the worst-case payout, not the expectation.",
+        "D": "Correct. EV = 0.1·100 + 0.2·50 + 0.7·0 = 20."
+      }
+    },
+    {
+      "id": "pr_mmfv_121",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $200 (p=0.05), $20 (p=0.25), $0 (p=0.7). What is its fair value?",
+      "options": [
+        "$15",
+        "$200",
+        "$73.3333",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.05·200 + 0.25·20 + 0.7·0 = 15.",
+        "B": "$200 is the top prize, not the probability-weighted average.",
+        "C": "$73.3333 averages the payouts ignoring their probabilities.",
+        "D": "$0 is the worst-case payout, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_122",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $10 (p=0.5), $4 (p=0.3), $1 (p=0.2). What is its fair value?",
+      "options": [
+        "$10",
+        "$6.4",
+        "$5",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$10 is the top prize, not the probability-weighted average.",
+        "B": "Correct. EV = 0.5·10 + 0.3·4 + 0.2·1 = 6.4.",
+        "C": "$5 averages the payouts ignoring their probabilities.",
+        "D": "$0 is the worst-case payout, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_123",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $100 (p=0.1), $10 (p=0.3), $0 (p=0.6). What is its fair value?",
+      "options": [
+        "$100",
+        "$36.6667",
+        "$13",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$100 is the top prize, not the probability-weighted average.",
+        "B": "$36.6667 averages the payouts ignoring their probabilities.",
+        "C": "Correct. EV = 0.1·100 + 0.3·10 + 0.6·0 = 13.",
+        "D": "$0 is the worst-case payout, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_124",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $12 (p=0.4), $8 (p=0.3), $4 (p=0.2), $0 (p=0.1). What is its fair value?",
+      "options": [
+        "$12",
+        "$6",
+        "$0",
+        "$8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$12 is the top prize, not the probability-weighted average.",
+        "B": "$6 averages the payouts ignoring their probabilities.",
+        "C": "$0 is the worst-case payout, not the expectation.",
+        "D": "Correct. EV = 0.4·12 + 0.3·8 + 0.2·4 + 0.1·0 = 8."
+      }
+    },
+    {
+      "id": "pr_mmfv_125",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $1000 (p=0.001), $10 (p=0.1), $0 (p=0.899). What is its fair value?",
+      "options": [
+        "$2",
+        "$1000",
+        "$336.6667",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.001·1000 + 0.1·10 + 0.899·0 = 2.",
+        "B": "$1000 is the top prize, not the probability-weighted average.",
+        "C": "$336.6667 averages the payouts ignoring their probabilities.",
+        "D": "$0 is the worst-case payout, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_126",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $5 (p=0.4), $3 (p=0.4), $1 (p=0.2). What is its fair value?",
+      "options": [
+        "$5",
+        "$3.4",
+        "$3",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$5 is the top prize, not the probability-weighted average.",
+        "B": "Correct. EV = 0.4·5 + 0.4·3 + 0.2·1 = 3.4.",
+        "C": "$3 averages the payouts ignoring their probabilities.",
+        "D": "$0 is the worst-case payout, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_127",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $50 (p=0.2), $25 (p=0.2), $0 (p=0.6). What is its fair value?",
+      "options": [
+        "$50",
+        "$25",
+        "$15",
+        "$0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$50 is the top prize, not the probability-weighted average.",
+        "B": "$25 averages the payouts ignoring their probabilities.",
+        "C": "Correct. EV = 0.2·50 + 0.2·25 + 0.6·0 = 15.",
+        "D": "$0 is the worst-case payout, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_128",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $80 (p=0.1), $40 (p=0.15), $10 (p=0.25), $0 (p=0.5). What is its fair value?",
+      "options": [
+        "$80",
+        "$32.5",
+        "$0",
+        "$16.5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$80 is the top prize, not the probability-weighted average.",
+        "B": "$32.5 averages the payouts ignoring their probabilities.",
+        "C": "$0 is the worst-case payout, not the expectation.",
+        "D": "Correct. EV = 0.1·80 + 0.15·40 + 0.25·10 + 0.5·0 = 16.5."
+      }
+    },
+    {
+      "id": "pr_mmfv_129",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $6 (p=0.5), $2 (p=0.5). What is its fair value?",
+      "options": [
+        "$4",
+        "$6",
+        "$0",
+        "$8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = 0.5·6 + 0.5·2 = 4.",
+        "B": "$6 is the top prize, not the probability-weighted average.",
+        "C": "$0 is the worst-case payout, not the expectation.",
+        "D": "This doubles the correct expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_130",
+      "concept": "weighted_ev",
+      "question": "A contract has payouts $100 (p=0.3), $0 (p=0.7). What is its fair value?",
+      "options": [
+        "$100",
+        "$30",
+        "$50",
+        "$0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$100 is the top prize, not the probability-weighted average.",
+        "B": "Correct. EV = 0.3·100 + 0.7·0 = 30.",
+        "C": "$50 averages the payouts ignoring their probabilities.",
+        "D": "$0 is the worst-case payout, not the expectation."
+      }
+    },
+    {
+      "id": "pr_mmfv_131",
+      "concept": "weighted_ev",
+      "question": "A spinner lands uniformly on the interval [0, 10] and pays that number in dollars. What is its fair value?",
+      "options": [
+        "$10",
+        "$0",
+        "$5",
+        "$2.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$10 is the maximum, not the average of a uniform interval.",
+        "B": "$0 is the minimum, not the average.",
+        "C": "Correct. For a uniform [0, 10], E = 10/2 = 5.",
+        "D": "$2.5 is a quarter of the range — the uniform mean is the midpoint."
+      }
+    },
+    {
+      "id": "pr_mmfv_132",
+      "concept": "weighted_ev",
+      "question": "A spinner lands uniformly on the interval [0, 100] and pays that number in dollars. What is its fair value?",
+      "options": [
+        "$100",
+        "$0",
+        "$25",
+        "$50"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$100 is the maximum, not the average of a uniform interval.",
+        "B": "$0 is the minimum, not the average.",
+        "C": "$25 is a quarter of the range — the uniform mean is the midpoint.",
+        "D": "Correct. For a uniform [0, 100], E = 100/2 = 50."
+      }
+    },
+    {
+      "id": "pr_mmfv_133",
+      "concept": "weighted_ev",
+      "question": "A spinner lands uniformly on the interval [0, 1] and pays that number in dollars. What is its fair value?",
+      "options": [
+        "$0.5",
+        "$1",
+        "$0",
+        "$0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a uniform [0, 1], E = 1/2 = 0.5.",
+        "B": "$1 is the maximum, not the average of a uniform interval.",
+        "C": "$0 is the minimum, not the average.",
+        "D": "$0.25 is a quarter of the range — the uniform mean is the midpoint."
+      }
+    },
+    {
+      "id": "pr_mmfv_134",
+      "concept": "weighted_ev",
+      "question": "A spinner lands uniformly on the interval [0, 60] and pays that number in dollars. What is its fair value?",
+      "options": [
+        "$60",
+        "$30",
+        "$0",
+        "$15"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$60 is the maximum, not the average of a uniform interval.",
+        "B": "Correct. For a uniform [0, 60], E = 60/2 = 30.",
+        "C": "$0 is the minimum, not the average.",
+        "D": "$15 is a quarter of the range — the uniform mean is the midpoint."
+      }
+    },
+    {
+      "id": "pr_mmfv_135",
+      "concept": "weighted_ev",
+      "question": "A spinner lands uniformly on the interval [0, 360] and pays that number in dollars. What is its fair value?",
+      "options": [
+        "$360",
+        "$0",
+        "$180",
+        "$90"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$360 is the maximum, not the average of a uniform interval.",
+        "B": "$0 is the minimum, not the average.",
+        "C": "Correct. For a uniform [0, 360], E = 360/2 = 180.",
+        "D": "$90 is a quarter of the range — the uniform mean is the midpoint."
+      }
+    },
+    {
+      "id": "pr_mmfv_136",
+      "concept": "weighted_ev",
+      "question": "A spinner lands uniformly on the interval [0, 50] and pays that number in dollars. What is its fair value?",
+      "options": [
+        "$50",
+        "$0",
+        "$12.5",
+        "$25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$50 is the maximum, not the average of a uniform interval.",
+        "B": "$0 is the minimum, not the average.",
+        "C": "$12.5 is a quarter of the range — the uniform mean is the midpoint.",
+        "D": "Correct. For a uniform [0, 50], E = 50/2 = 25."
+      }
+    },
+    {
+      "id": "pr_mmfv_137",
+      "concept": "weighted_ev",
+      "question": "A spinner lands uniformly on the interval [0, 8] and pays that number in dollars. What is its fair value?",
+      "options": [
+        "$4",
+        "$8",
+        "$0",
+        "$2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a uniform [0, 8], E = 8/2 = 4.",
+        "B": "$8 is the maximum, not the average of a uniform interval.",
+        "C": "$0 is the minimum, not the average.",
+        "D": "$2 is a quarter of the range — the uniform mean is the midpoint."
+      }
+    },
+    {
+      "id": "pr_mmfv_138",
+      "concept": "weighted_ev",
+      "question": "What is the expected number of rolls of a fair die until the first 6?",
+      "options": [
+        "0.1667",
+        "6",
+        "1",
+        "36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.1667 is the success probability, not the expected count (which is 1/p).",
+        "B": "Correct. For a geometric trial, E = 1/p = 1/0.1667 = 6.",
+        "C": "1 would be the count only if success were certain on the first try.",
+        "D": "36 squares the answer; the expectation is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmfv_139",
+      "concept": "weighted_ev",
+      "question": "What is the expected number of flips of a fair coin until the first head?",
+      "options": [
+        "0.5",
+        "1",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.5 is the success probability, not the expected count (which is 1/p).",
+        "B": "1 would be the count only if success were certain on the first try.",
+        "C": "Correct. For a geometric trial, E = 1/p = 1/0.5 = 2.",
+        "D": "4 squares the answer; the expectation is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmfv_140",
+      "concept": "weighted_ev",
+      "question": "What is the expected number of rolls of a fair die until you see a 1 or 2?",
+      "options": [
+        "0.3333",
+        "1",
+        "9",
+        "3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.3333 is the success probability, not the expected count (which is 1/p).",
+        "B": "1 would be the count only if success were certain on the first try.",
+        "C": "9 squares the answer; the expectation is 1/p.",
+        "D": "Correct. For a geometric trial, E = 1/p = 1/0.3333 = 3."
+      }
+    },
+    {
+      "id": "pr_mmfv_141",
+      "concept": "weighted_ev",
+      "question": "What is the expected number of draws (with replacement) from a deck until the first ace?",
+      "options": [
+        "13",
+        "0.0769",
+        "1",
+        "169"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a geometric trial, E = 1/p = 1/0.0769 = 13.",
+        "B": "0.0769 is the success probability, not the expected count (which is 1/p).",
+        "C": "1 would be the count only if success were certain on the first try.",
+        "D": "169 squares the answer; the expectation is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmfv_142",
+      "concept": "weighted_ev",
+      "question": "What is the expected number of rolls of a fair die until you see a number greater than 4?",
+      "options": [
+        "0.3333",
+        "3",
+        "1",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.3333 is the success probability, not the expected count (which is 1/p).",
+        "B": "Correct. For a geometric trial, E = 1/p = 1/0.3333 = 3.",
+        "C": "1 would be the count only if success were certain on the first try.",
+        "D": "9 squares the answer; the expectation is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmfv_143",
+      "concept": "weighted_ev",
+      "question": "What is the expected number of spins until a 1-in-10 jackpot sector hits?",
+      "options": [
+        "0.1",
+        "1",
+        "10",
+        "100"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.1 is the success probability, not the expected count (which is 1/p).",
+        "B": "1 would be the count only if success were certain on the first try.",
+        "C": "Correct. For a geometric trial, E = 1/p = 1/0.1 = 10.",
+        "D": "100 squares the answer; the expectation is 1/p."
+      }
+    },
+    {
+      "id": "pr_mmfv_144",
+      "concept": "dice_ev",
+      "question": "Two fair six-sided dice are rolled and the contract pays the larger of the two faces (the max). What is its fair value?",
+      "options": [
+        "3.5",
+        "6",
+        "2.5278",
+        "4.4722"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3.5 is one die's mean; the max is biased upward, above 3.5.",
+        "B": "6 is the largest possible max, not the average max.",
+        "C": "2.5278 is E[min], the expected smaller die, not the max.",
+        "D": "Correct. E[max] = Σ k·P(max=k) = 161/36 ≈ 4.4722."
+      }
+    },
+    {
+      "id": "pr_mmfv_145",
+      "concept": "dice_ev",
+      "question": "Two fair six-sided dice are rolled and the contract pays the smaller of the two faces (the min). What is its fair value?",
+      "options": [
+        "2.5278",
+        "3.5",
+        "1",
+        "4.4722"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[min] = 91/36 ≈ 2.5278 (and E[max]+E[min] = 7).",
+        "B": "3.5 is one die's mean; the min is biased below 3.5.",
+        "C": "1 is the smallest possible min, not the average min.",
+        "D": "4.4722 is E[max], not the min."
+      }
+    },
+    {
+      "id": "pr_mmfv_146",
+      "concept": "dice_ev",
+      "question": "Two fair six-sided dice are rolled and the contract pays the absolute difference |X − Y|. What is its fair value?",
+      "options": [
+        "0",
+        "1.9444",
+        "3.5",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0 is E[X−Y] (signed difference); the absolute value is positive on average.",
+        "B": "Correct. E|X−Y| = 70/36 = 35/18 ≈ 1.9444.",
+        "C": "3.5 is a single die mean, unrelated to the spread between two dice.",
+        "D": "5 is the maximum possible difference (6−1), not the average."
+      }
+    },
+    {
+      "id": "pr_mmfv_147",
+      "concept": "weighted_ev",
+      "question": "A fair six-sided die is rolled and the contract pays the square of the face. What is its fair value?",
+      "options": [
+        "12.25",
+        "36",
+        "15.1667",
+        "3.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12.25 is (E[X])² = 3.5²; E[X²] is larger because of variance.",
+        "B": "36 is the maximum square (6²), not the average.",
+        "C": "Correct. E[X²] = (1+4+9+16+25+36)/6 = 91/6 ≈ 15.1667.",
+        "D": "3.5 is E[X], not E[X²]."
+      }
+    },
+    {
+      "id": "pr_mmfv_148",
+      "concept": "centering",
+      "question": "Your two-sided quote's midpoint sits below true fair value. What does informed flow most likely do?",
+      "options": [
+        "Hit your bid, because it is rich versus fair",
+        "Stop trading entirely",
+        "Trade randomly on both sides",
+        "Lift your ask, because it is cheap versus fair"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "They sell only if your bid is ABOVE fair; here the whole quote is low.",
+        "B": "A mispriced quote attracts MORE informed flow, not less.",
+        "C": "Informed flow trades the profitable side, not randomly.",
+        "D": "Correct. An ask below fair is underpriced, so informed buyers buy from you."
+      }
+    },
+    {
+      "id": "pr_mmfv_149",
+      "concept": "centering",
+      "question": "You are long a large position and want to reduce inventory risk. How should you skew your quote around fair value?",
+      "options": [
+        "Lower both bid and ask (skew down) to encourage selling and discourage buying",
+        "Raise both bid and ask (skew up)",
+        "Widen the spread symmetrically",
+        "Keep the quote exactly centered on fair"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Skewing down makes your bid less attractive to sellers and your ask more attractive to buyers, so you shed the long.",
+        "B": "Skewing up invites more buying from you, increasing your long position.",
+        "C": "Widening reduces flow but does not preferentially shed your long inventory.",
+        "D": "A centered quote ignores your inventory risk."
+      }
+    },
+    {
+      "id": "pr_mmfv_150",
+      "concept": "centering",
+      "question": "Fair value is 7. You quote 7 at 9. Where is your edge weakest?",
+      "options": [
+        "On the ask: 9 is too far above fair",
+        "On the bid: at 7 (= fair) you earn nothing when someone sells to you",
+        "The spread of 2 is too wide",
+        "Nowhere — the quote is centered on fair"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "An ask above fair is the profitable side, not the weak one.",
+        "B": "Correct. A bid equal to fair captures no margin; all your spread sits on the ask side.",
+        "C": "Spread width is not the issue; the quote is simply not centered.",
+        "D": "Midpoint is 8, not 7, so it is skewed high."
+      }
+    },
+    {
+      "id": "pr_mmfv_151",
+      "concept": "centering",
+      "question": "Fair value of a contract is $4. A counterparty offers to sell it to you at $3. As a rational market maker, you should:",
+      "options": [
+        "Decline — $3 is below fair so it must be a trap",
+        "Sell at $3",
+        "Buy it — paying $3 for something worth $4 is +$1 EV",
+        "Wait until the price rises to $4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Buying BELOW fair is good for you; cheap is exactly what you want.",
+        "B": "Selling at $3 something worth $4 loses you $1.",
+        "C": "Correct. Price $3 < fair $4, so buying captures $1 of expected edge.",
+        "D": "Waiting forgoes a guaranteed positive-EV trade now."
+      }
+    },
+    {
+      "id": "pr_mmfv_152",
+      "concept": "centering",
+      "question": "Fair value is 100. You are flat (no inventory) and have no information edge. The textbook symmetric quote with spread 4 is:",
+      "options": [
+        "100 at 104",
+        "96 at 100",
+        "100 at 102",
+        "98 at 102"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Midpoint 102 skews the quote above fair.",
+        "B": "Midpoint 98 skews the quote below fair.",
+        "C": "Midpoint 101 is still above fair, not symmetric.",
+        "D": "Correct. Symmetric around 100 with width 4: 100 ± 2 = 98 at 102."
+      }
+    },
+    {
+      "id": "pr_mmfv_153",
+      "concept": "dice_sum_fair",
+      "question": "A contract pays the sum of two fair dice plus a fixed $5 bonus. What is its fair value?",
+      "options": [
+        "$12",
+        "$7",
+        "$5",
+        "$17"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[sum] = 7, plus the certain $5 → 7 + 5 = 12.",
+        "B": "$7 is the dice sum EV but omits the certain $5 bonus.",
+        "C": "$5 is only the bonus and omits the dice sum EV of 7.",
+        "D": "$17 adds the $5 to the max sum 12 instead of the EV 7."
+      }
+    },
+    {
+      "id": "pr_mmfv_154",
+      "concept": "dice_sum_fair",
+      "question": "A contract pays twice the sum of two fair dice. What is its fair value?",
+      "options": [
+        "$7",
+        "$14",
+        "$24",
+        "$28"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$7 forgets to apply the ×2 multiplier.",
+        "B": "Correct. 2 × E[sum] = 2 × 7 = 14.",
+        "C": "$24 is twice the maximum sum (12), not twice the EV.",
+        "D": "$28 doubles 14 — one extra factor of 2."
+      }
+    },
+    {
+      "id": "pr_mmfv_155",
+      "concept": "weighted_fair",
+      "question": "A biased coin pays $1 on heads with P(heads)=0.6, plus you collect a certain $2 fee. What total fair value centers your market?",
+      "options": [
+        "$0.6",
+        "$1",
+        "$2.6",
+        "$3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$0.60 is the coin EV only and omits the certain $2 fee.",
+        "B": "$1 assumes a fair coin and ignores the fee.",
+        "C": "Correct. Coin EV = 0.6×1 = 0.6, plus the certain $2 → 2.6.",
+        "D": "$3 overstates — it adds the fee to a full $1 payout, not the EV."
+      }
+    },
+    {
+      "id": "pr_mmfv_156",
+      "concept": "conditional_fair",
+      "question": "You roll one fair die. If it is even you win its value in dollars; if odd you win $0. What is the fair value?",
+      "options": [
+        "$3.5",
+        "$4",
+        "$6",
+        "$2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$3.50 is the unconditional die mean, but odd rolls pay $0.",
+        "B": "$4 is the average of the even faces only, not weighted by the 1/2 chance of being even.",
+        "C": "$6 is the max even face, not the EV.",
+        "D": "Correct. Even faces 2,4,6 each prob 1/6: (2+4+6)/6 = 12/6 = 2."
+      }
+    },
+    {
+      "id": "pr_mmfv_157",
+      "concept": "conditional_fair",
+      "question": "Two fair coins are flipped. The contract pays $4 only if both land heads, else $0. What is its fair value?",
+      "options": [
+        "$1",
+        "$4",
+        "$2",
+        "$0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(HH) = 1/4, so EV = (1/4)·4 = 1.",
+        "B": "$4 ignores that both-heads happens only 1/4 of the time.",
+        "C": "$2 assumes a 1/2 chance, but P(both heads)=1/4.",
+        "D": "$0.50 uses 1/8; two coins give P(HH)=1/4."
+      }
+    },
+    {
+      "id": "pr_mmfv_158",
+      "concept": "conditional_fair",
+      "question": "A contract pays $8 if at least one of two fair coins is heads, else $0. What is its fair value?",
+      "options": [
+        "$8",
+        "$6",
+        "$4",
+        "$2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$8 ignores the 1/4 chance of zero heads.",
+        "B": "Correct. P(at least one head) = 1 − 1/4 = 3/4, so EV = (3/4)·8 = 6.",
+        "C": "$4 uses probability 1/2 instead of 3/4.",
+        "D": "$2 uses 1/4, the probability of NO heads, not at least one."
+      }
+    },
+    {
+      "id": "pr_mmfv_159",
+      "concept": "conditional_fair",
+      "question": "A die is rolled. You learn only that it is greater than 3 (i.e., 4, 5, or 6). The contract pays the face in dollars. What is the conditional fair value?",
+      "options": [
+        "$3.5",
+        "$6",
+        "$5",
+        "$4.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$3.50 is the unconditional mean, ignoring the information that it exceeds 3.",
+        "B": "$6 is the max of the conditioned set, not its mean.",
+        "C": "Correct. Given {4,5,6} equally likely, E = (4+5+6)/3 = 5.",
+        "D": "$4.50 is the midpoint of 3 and 6, not the mean of {4,5,6}."
+      }
+    },
+    {
+      "id": "pr_mmfv_160",
+      "concept": "weighted_fair",
+      "question": "Fair value is 7. You buy the contract at 6. What is your expected edge per contract?",
+      "options": [
+        "$0",
+        "$-1",
+        "$7",
+        "$1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$0 would require trading exactly at fair value.",
+        "B": "$-1 has the sign backwards — this trade is profitable, not a loss.",
+        "C": "$7 is the fair value itself, not the edge over the traded price.",
+        "D": "Correct. Edge = fair − price = 7 − 6 = 1."
+      }
+    },
+    {
+      "id": "pr_mmfv_161",
+      "concept": "weighted_fair",
+      "question": "Fair value is 7. You sell the contract at 8. What is your expected edge per contract?",
+      "options": [
+        "$1",
+        "$0",
+        "$-1",
+        "$7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Edge = price − fair = 8 − 7 = 1.",
+        "B": "$0 would require trading exactly at fair value.",
+        "C": "$-1 has the sign backwards — this trade is profitable, not a loss.",
+        "D": "$7 is the fair value itself, not the edge over the traded price."
+      }
+    },
+    {
+      "id": "pr_mmfv_162",
+      "concept": "weighted_fair",
+      "question": "Fair value is 12.25. You buy the contract at 12. What is your expected edge per contract?",
+      "options": [
+        "$0",
+        "$0.25",
+        "$-0.25",
+        "$12.25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$0 would require trading exactly at fair value.",
+        "B": "Correct. Edge = fair − price = 12.25 − 12 = 0.25.",
+        "C": "$-0.25 has the sign backwards — this trade is profitable, not a loss.",
+        "D": "$12.25 is the fair value itself, not the edge over the traded price."
+      }
+    },
+    {
+      "id": "pr_mmfv_163",
+      "concept": "weighted_fair",
+      "question": "Fair value is 50. You buy the contract at 47. What is your expected edge per contract?",
+      "options": [
+        "$0",
+        "$-3",
+        "$3",
+        "$50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$0 would require trading exactly at fair value.",
+        "B": "$-3 has the sign backwards — this trade is profitable, not a loss.",
+        "C": "Correct. Edge = fair − price = 50 − 47 = 3.",
+        "D": "$50 is the fair value itself, not the edge over the traded price."
+      }
+    },
+    {
+      "id": "pr_mmfv_164",
+      "concept": "weighted_fair",
+      "question": "Fair value is 20. You sell the contract at 23. What is your expected edge per contract?",
+      "options": [
+        "$0",
+        "$-3",
+        "$20",
+        "$3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$0 would require trading exactly at fair value.",
+        "B": "$-3 has the sign backwards — this trade is profitable, not a loss.",
+        "C": "$20 is the fair value itself, not the edge over the traded price.",
+        "D": "Correct. Edge = price − fair = 23 − 20 = 3."
+      }
+    },
+    {
+      "id": "pr_mmfv_165",
+      "concept": "weighted_fair",
+      "question": "Fair value is 100. You buy the contract at 95. What is your expected edge per contract?",
+      "options": [
+        "$5",
+        "$0",
+        "$-5",
+        "$100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Edge = fair − price = 100 − 95 = 5.",
+        "B": "$0 would require trading exactly at fair value.",
+        "C": "$-5 has the sign backwards — this trade is profitable, not a loss.",
+        "D": "$100 is the fair value itself, not the edge over the traded price."
+      }
+    }
+  ]
+}

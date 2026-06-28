@@ -1,0 +1,3391 @@
+{
+  "lessonId": "lesson_5",
+  "track": "quant",
+  "title": "Conditional Probability Foundations",
+  "questions": [
+    {
+      "id": "pr_l5_001",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a heart. Given that, what is the probability the card is red?",
+      "options": [
+        "1",
+        "1/2",
+        "1/4",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Every heart is a red suit, so conditioning on a heart restricts the sample space (13 hearts) to entirely red cards, giving probability 1.",
+        "B": "1/2 is the unconditional chance of red before any information; knowing the card is a heart removes that uncertainty.",
+        "C": "1/4 is the unconditional chance of drawing a heart from the full deck, not P(red | heart).",
+        "D": "0 would mean a heart can never be red, but hearts are by definition a red suit."
+      }
+    },
+    {
+      "id": "pr_l5_002",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a heart. Given that, what is the probability the card is black?",
+      "options": [
+        "1/2",
+        "0",
+        "1",
+        "1/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/2 ignores the conditioning; once the card is known to be a heart it cannot be black.",
+        "B": "Correct. A heart is a red suit, so given the card is a heart the probability it is black is 0 — the two colors are mutually exclusive.",
+        "C": "1 would make black certain, but every heart is red, not black.",
+        "D": "1/4 is an unconditional suit chance, not P(black | heart)."
+      }
+    },
+    {
+      "id": "pr_l5_003",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a diamond. Given that, what is the probability the card is red?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is the unconditional chance of red before any information; knowing the card is a diamond removes that uncertainty.",
+        "B": "1/4 is the unconditional chance of drawing a diamond from the full deck, not P(red | diamond).",
+        "C": "Correct. Every diamond is a red suit, so conditioning on a diamond restricts the sample space (13 diamonds) to entirely red cards, giving probability 1.",
+        "D": "0 would mean a diamond can never be red, but diamonds are by definition a red suit."
+      }
+    },
+    {
+      "id": "pr_l5_004",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a diamond. Given that, what is the probability the card is black?",
+      "options": [
+        "1/2",
+        "1",
+        "1/4",
+        "0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/2 ignores the conditioning; once the card is known to be a diamond it cannot be black.",
+        "B": "1 would make black certain, but every diamond is red, not black.",
+        "C": "1/4 is an unconditional suit chance, not P(black | diamond).",
+        "D": "Correct. A diamond is a red suit, so given the card is a diamond the probability it is black is 0 — the two colors are mutually exclusive."
+      }
+    },
+    {
+      "id": "pr_l5_005",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a club. Given that, what is the probability the card is black?",
+      "options": [
+        "1",
+        "1/2",
+        "1/4",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Every club is a black suit, so conditioning on a club restricts the sample space (13 clubs) to entirely black cards, giving probability 1.",
+        "B": "1/2 is the unconditional chance of black before any information; knowing the card is a club removes that uncertainty.",
+        "C": "1/4 is the unconditional chance of drawing a club from the full deck, not P(black | club).",
+        "D": "0 would mean a club can never be black, but clubs are by definition a black suit."
+      }
+    },
+    {
+      "id": "pr_l5_006",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a club. Given that, what is the probability the card is red?",
+      "options": [
+        "1/2",
+        "0",
+        "1",
+        "1/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/2 ignores the conditioning; once the card is known to be a club it cannot be red.",
+        "B": "Correct. A club is a black suit, so given the card is a club the probability it is red is 0 — the two colors are mutually exclusive.",
+        "C": "1 would make red certain, but every club is black, not red.",
+        "D": "1/4 is an unconditional suit chance, not P(red | club)."
+      }
+    },
+    {
+      "id": "pr_l5_007",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a spade. Given that, what is the probability the card is black?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is the unconditional chance of black before any information; knowing the card is a spade removes that uncertainty.",
+        "B": "1/4 is the unconditional chance of drawing a spade from the full deck, not P(black | spade).",
+        "C": "Correct. Every spade is a black suit, so conditioning on a spade restricts the sample space (13 spades) to entirely black cards, giving probability 1.",
+        "D": "0 would mean a spade can never be black, but spades are by definition a black suit."
+      }
+    },
+    {
+      "id": "pr_l5_008",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "You draw one card and are told it is a spade. Given that, what is the probability the card is red?",
+      "options": [
+        "1/2",
+        "1",
+        "1/4",
+        "0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/2 ignores the conditioning; once the card is known to be a spade it cannot be red.",
+        "B": "1 would make red certain, but every spade is black, not red.",
+        "C": "1/4 is an unconditional suit chance, not P(red | spade).",
+        "D": "Correct. A spade is a black suit, so given the card is a spade the probability it is red is 0 — the two colors are mutually exclusive."
+      }
+    },
+    {
+      "id": "pr_l5_009",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "A bag holds red, blue, and green marbles. You are told the marble you drew is red. Given that, what is the probability it is blue?",
+      "options": [
+        "0",
+        "1/2",
+        "1/3",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The marble is already known to be red, so it cannot be blue; the probability is 0 (the colors are mutually exclusive).",
+        "B": "1/2 ignores the conditioning; you were already told the marble is red.",
+        "C": "1/3 is a guess based on three colors; the color is already known to be red.",
+        "D": "1/4 has no basis once the marble's color is given as red."
+      }
+    },
+    {
+      "id": "pr_l5_010",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "A bag holds red, blue, and green marbles. You are told the marble you drew is blue. Given that, what is the probability it is red?",
+      "options": [
+        "1/2",
+        "0",
+        "1/3",
+        "1/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/2 ignores the conditioning; you were already told the marble is blue.",
+        "B": "Correct. The marble is already known to be blue, so it cannot be red; the probability is 0 (the colors are mutually exclusive).",
+        "C": "1/3 is a guess based on three colors; the color is already known to be blue.",
+        "D": "1/4 has no basis once the marble's color is given as blue."
+      }
+    },
+    {
+      "id": "pr_l5_011",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "A bag holds red, blue, and green marbles. You are told the marble you drew is red. Given that, what is the probability it is red?",
+      "options": [
+        "1/2",
+        "1/3",
+        "1",
+        "1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 ignores the conditioning; you were already told the marble is red.",
+        "B": "1/3 is a guess based on three colors; the color is already known to be red.",
+        "C": "Correct. The marble is already known to be red, so the probability it is red is 1.",
+        "D": "1/4 has no basis once the marble's color is given as red."
+      }
+    },
+    {
+      "id": "pr_l5_012",
+      "concept": "conditioning_restricts_outcomes",
+      "question": "A bag holds red, blue, and green marbles. You are told the marble you drew is green. Given that, what is the probability it is blue?",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        "0"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/2 ignores the conditioning; you were already told the marble is green.",
+        "B": "1/3 is a guess based on three colors; the color is already known to be green.",
+        "C": "1/4 has no basis once the marble's color is given as green.",
+        "D": "Correct. The marble is already known to be green, so it cannot be blue; the probability is 0 (the colors are mutually exclusive)."
+      }
+    },
+    {
+      "id": "pr_l5_013",
+      "concept": "conditional_definition",
+      "question": "By definition, the conditional probability P(A | B) equals which expression?",
+      "options": [
+        "P(A ∩ B) / P(B)",
+        "P(A) / P(B)",
+        "P(B) / P(A)",
+        "P(A) × P(B)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(A | B) = P(A ∩ B) / P(B): restrict to the outcomes where B occurs, then measure the fraction that also lie in A.",
+        "B": "This omits the joint event in the numerator; conditioning measures A within B, i.e. P(A ∩ B).",
+        "C": "This reverses the ratio; the conditioning event B belongs in the denominator.",
+        "D": "That is the joint probability under independence, not the definition of conditional probability."
+      }
+    },
+    {
+      "id": "pr_l5_014",
+      "concept": "conditional_definition",
+      "question": "Drawing two cards \"without replacement\" means that for the second draw, the deck:",
+      "options": [
+        "is the same size as before the first draw",
+        "has one fewer card, so probabilities depend on the first draw",
+        "always gives each card probability 1/52",
+        "makes the two draws independent"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "That describes drawing WITH replacement; without replacement the deck shrinks by one.",
+        "B": "Correct. The first card is not returned, so the deck shrinks to 51 and the second-draw probabilities depend on what was removed (the draws are dependent).",
+        "C": "After one card is removed there are 51 cards, not 52, and the composition has changed.",
+        "D": "Without replacement the draws are dependent; the first outcome changes the second-draw probabilities."
+      }
+    },
+    {
+      "id": "pr_l5_015",
+      "concept": "conditional_definition",
+      "question": "For two draws, the quickest way to compute P(at least one red) is usually to:",
+      "options": [
+        "add P(first red) and P(second red)",
+        "multiply P(first red) by P(second red)",
+        "compute 1 − P(no reds)",
+        "use P(first red) alone"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Adding single-draw probabilities double-counts the both-red overlap and can exceed 1.",
+        "B": "That gives P(both red), a subset of \"at least one red\", not the whole event.",
+        "C": "Correct. \"At least one red\" is the complement of \"no reds at all\", so P(at least one red) = 1 − P(both non-red).",
+        "D": "The first draw alone ignores the chance the red appears only on the second draw."
+      }
+    },
+    {
+      "id": "pr_l5_016",
+      "concept": "conditional_definition",
+      "question": "Conditioning on an event B that has already occurred changes a probability by:",
+      "options": [
+        "keeping all outcomes but lowering every probability equally",
+        "always making the event more likely",
+        "having no effect unless the events are independent",
+        "restricting the sample space to outcomes where B is true"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Conditioning removes the outcomes inconsistent with B rather than scaling all of them uniformly.",
+        "B": "Conditioning can raise or lower a probability depending on how B overlaps the event.",
+        "C": "Conditioning generally changes probabilities; it leaves them unchanged only in the special case of independence.",
+        "D": "Correct. Knowing B occurred discards every outcome where B is false and renormalizes probabilities over the remaining (restricted) sample space."
+      }
+    },
+    {
+      "id": "pr_l5_017",
+      "concept": "restricted_color",
+      "question": "You draw a card and are told it is red. Given that, what is the probability it is a heart?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/13",
+        "1/26"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Conditioning on red leaves 26 cards — 13 hearts and 13 diamonds — so P(heart | red) = 13/26 = 1/2.",
+        "B": "1/4 is the unconditional heart probability in the full 52-card deck; it forgets the space shrank to 26 red cards.",
+        "C": "1/13 is a single-rank probability, not the share of hearts among the red cards.",
+        "D": "1/26 is the chance of one specific red card, not of any heart among the 26."
+      }
+    },
+    {
+      "id": "pr_l5_018",
+      "concept": "restricted_color",
+      "question": "You draw a card and are told it is red. Given that, what is the probability it is a diamond?",
+      "options": [
+        "1/4",
+        "1/2",
+        "1/13",
+        "1/26"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/4 is the unconditional diamond probability in the full 52-card deck; it forgets the space shrank to 26 red cards.",
+        "B": "Correct. Conditioning on red leaves 26 cards — 13 hearts and 13 diamonds — so P(diamond | red) = 13/26 = 1/2.",
+        "C": "1/13 is a single-rank probability, not the share of diamonds among the red cards.",
+        "D": "1/26 is the chance of one specific red card, not of any diamond among the 26."
+      }
+    },
+    {
+      "id": "pr_l5_019",
+      "concept": "restricted_color",
+      "question": "You draw a card and are told it is black. Given that, what is the probability it is a club?",
+      "options": [
+        "1/4",
+        "1/13",
+        "1/2",
+        "1/26"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/4 is the unconditional club probability in the full 52-card deck; it forgets the space shrank to 26 black cards.",
+        "B": "1/13 is a single-rank probability, not the share of clubs among the black cards.",
+        "C": "Correct. Conditioning on black leaves 26 cards — 13 clubs and 13 spades — so P(club | black) = 13/26 = 1/2.",
+        "D": "1/26 is the chance of one specific black card, not of any club among the 26."
+      }
+    },
+    {
+      "id": "pr_l5_020",
+      "concept": "restricted_color",
+      "question": "You draw a card and are told it is black. Given that, what is the probability it is a spade?",
+      "options": [
+        "1/4",
+        "1/13",
+        "1/26",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/4 is the unconditional spade probability in the full 52-card deck; it forgets the space shrank to 26 black cards.",
+        "B": "1/13 is a single-rank probability, not the share of spades among the black cards.",
+        "C": "1/26 is the chance of one specific black card, not of any spade among the 26.",
+        "D": "Correct. Conditioning on black leaves 26 cards — 13 clubs and 13 spades — so P(spade | black) = 13/26 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_021",
+      "concept": "restricted_face_card",
+      "question": "You are told the drawn card is a face card (Jack, Queen, or King = 12 cards). What is the probability it is a King?",
+      "options": [
+        "1/3",
+        "4/52",
+        "1/4",
+        "1/12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the 12 face cards, 4 are Kings, so P(King | face card) = 4/12 = 1/3.",
+        "B": "4/52 is the unconditional King probability in the full deck; we already conditioned on a face card.",
+        "C": "1/4 would require 4 face ranks; there are only 3 (J, Q, K), giving 1/3.",
+        "D": "1/12 is the chance of one specific face card, not all four Kings."
+      }
+    },
+    {
+      "id": "pr_l5_022",
+      "concept": "restricted_face_card",
+      "question": "You are told the drawn card is a face card (Jack, Queen, or King = 12 cards). What is the probability it is a Queen?",
+      "options": [
+        "4/52",
+        "1/3",
+        "1/4",
+        "1/12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4/52 is the unconditional Queen probability in the full deck; we already conditioned on a face card.",
+        "B": "Correct. Of the 12 face cards, 4 are Queens, so P(Queen | face card) = 4/12 = 1/3.",
+        "C": "1/4 would require 4 face ranks; there are only 3 (J, Q, K), giving 1/3.",
+        "D": "1/12 is the chance of one specific face card, not all four Queens."
+      }
+    },
+    {
+      "id": "pr_l5_023",
+      "concept": "restricted_face_card",
+      "question": "You are told the drawn card is a face card (Jack, Queen, or King = 12 cards). What is the probability it is a Jack?",
+      "options": [
+        "4/52",
+        "1/4",
+        "1/3",
+        "1/12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4/52 is the unconditional Jack probability in the full deck; we already conditioned on a face card.",
+        "B": "1/4 would require 4 face ranks; there are only 3 (J, Q, K), giving 1/3.",
+        "C": "Correct. Of the 12 face cards, 4 are Jacks, so P(Jack | face card) = 4/12 = 1/3.",
+        "D": "1/12 is the chance of one specific face card, not all four Jacks."
+      }
+    },
+    {
+      "id": "pr_l5_024",
+      "concept": "restricted_face_card",
+      "question": "Given the drawn card is a face card (12 cards), what is the probability it is a red face card?",
+      "options": [
+        "1/3",
+        "1/4",
+        "6/52",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/3 is the share of a single rank among face cards, not the red half.",
+        "B": "1/4 is the unconditional chance of a specific suit, not the red share of face cards.",
+        "C": "6/52 uses the full deck total; conditioning on face cards shrinks it to 12.",
+        "D": "Correct. Half of the 12 face cards are red (one heart and one diamond per rank = 6 cards), so P = 6/12 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_025",
+      "concept": "restricted_face_card",
+      "question": "Given the drawn card is a face card (12 cards), what is the probability it is a black face card?",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        "6/52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Half of the 12 face cards are black (one club and one spade per rank = 6 cards), so P = 6/12 = 1/2.",
+        "B": "1/3 is the share of a single rank among face cards, not the black half.",
+        "C": "1/4 is the unconditional chance of a specific suit, not the black share of face cards.",
+        "D": "6/52 uses the full deck total; conditioning on face cards shrinks it to 12."
+      }
+    },
+    {
+      "id": "pr_l5_026",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is even (3 equally likely outcomes: 2, 4, 6), what is the probability the roll is a 6?",
+      "options": [
+        "1/6",
+        "1/3",
+        "2/3",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "B": "Correct. Among the 3 conditioned outcomes {2, 4, 6}, 1 fall in the event {6}, so P = 1/3.",
+        "C": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "D": "This undercounts the favorable outcomes; 1 of the 3 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_027",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is even (3 equally likely outcomes: 2, 4, 6), what is the probability the roll is a 2?",
+      "options": [
+        "1/6",
+        "2/3",
+        "1/3",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "B": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "C": "Correct. Among the 3 conditioned outcomes {2, 4, 6}, 1 fall in the event {2}, so P = 1/3.",
+        "D": "This undercounts the favorable outcomes; 1 of the 3 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_028",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is odd (3 equally likely outcomes: 1, 3, 5), what is the probability the roll is a 3?",
+      "options": [
+        "1/6",
+        "2/3",
+        "0",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "B": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "C": "This undercounts the favorable outcomes; 1 of the 3 conditioned outcomes qualify.",
+        "D": "Correct. Among the 3 conditioned outcomes {1, 3, 5}, 1 fall in the event {3}, so P = 1/3."
+      }
+    },
+    {
+      "id": "pr_l5_029",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is greater than 3 (3 equally likely outcomes: 4, 5, 6), what is the probability the roll is a 5?",
+      "options": [
+        "1/3",
+        "1/6",
+        "2/3",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among the 3 conditioned outcomes {4, 5, 6}, 1 fall in the event {5}, so P = 1/3.",
+        "B": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "C": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "D": "This undercounts the favorable outcomes; 1 of the 3 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_030",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is at least 5 (2 equally likely outcomes: 5, 6), what is the probability the roll is a 6?",
+      "options": [
+        "1/6",
+        "1/2",
+        "1",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 2 conditioned outcomes.",
+        "B": "Correct. Among the 2 conditioned outcomes {5, 6}, 1 fall in the event {6}, so P = 1/2.",
+        "C": "This overcounts the favorable outcomes; only 1 of the 2 conditioned outcomes qualify.",
+        "D": "This undercounts the favorable outcomes; 1 of the 2 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_031",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is not a 1 (5 equally likely outcomes: 2, 3, 4, 5, 6), what is the probability the roll is a 6?",
+      "options": [
+        "1/6",
+        "4/5",
+        "1/5",
+        "2/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 5 conditioned outcomes.",
+        "B": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "C": "Correct. Among the 5 conditioned outcomes {2, 3, 4, 5, 6}, 1 fall in the event {6}, so P = 1/5.",
+        "D": "This overcounts the favorable outcomes; only 1 of the 5 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_032",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is a multiple of 3 (2 equally likely outcomes: 3, 6), what is the probability the roll is even?",
+      "options": [
+        "1/6",
+        "1",
+        "0",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 2.",
+        "B": "This overcounts the favorable outcomes; only 1 of the 2 conditioned outcomes qualify.",
+        "C": "This undercounts the favorable outcomes; 1 of the 2 conditioned outcomes qualify.",
+        "D": "Correct. Among the 2 conditioned outcomes {3, 6}, 1 fall in the event {6}, so P = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_033",
+      "concept": "independent_flips",
+      "question": "A fair coin is flipped twice. Given that the first flip was tails, what is the probability the second flip is heads?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Coin flips are independent, so the first outcome gives no information about the second: P(heads) = 1/2.",
+        "B": "1/4 is P(both flips heads); here the first flip is already fixed, so only the second matters.",
+        "C": "1/3 would apply if we conditioned on \"at least one head\", but conditioning on the first flip leaves the second independent at 1/2.",
+        "D": "0 would mean heads is impossible, but the second flip is an independent fair coin."
+      }
+    },
+    {
+      "id": "pr_l5_034",
+      "concept": "independent_flips",
+      "question": "A fair coin has just landed heads three times in a row. What is the probability the next flip is heads?",
+      "options": [
+        "1/16",
+        "1/2",
+        "1/8",
+        "0"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/16 = (1/2)^4 is the chance of four heads in a row from the start, not the next flip given three heads.",
+        "B": "Correct. Flips are independent, so past results do not change the next flip: P(heads) = 1/2.",
+        "C": "1/8 = (1/2)^3 is the chance of the three heads already observed, not the next flip.",
+        "D": "0 reflects the gambler's fallacy; the coin has no memory, so heads is still 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_035",
+      "concept": "with_replacement",
+      "question": "A bag has 4 red and 6 blue marbles. You draw a marble, note its color, and put it BACK. You then draw again. Given the first draw was blue, what is the probability the second draw is red?",
+      "options": [
+        "4/9",
+        "1/3",
+        "2/5",
+        "3/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "4/9 treats the draw as without replacement; replacing the blue marble keeps the total at 10.",
+        "B": "3/9 both removes a red and shrinks the total, but nothing was removed under replacement.",
+        "C": "Correct. With replacement the draws are independent and the bag is unchanged at 4 red of 10, so P(red) = 4/10 = 2/5.",
+        "D": "6/10 is the probability of blue, not red."
+      }
+    },
+    {
+      "id": "pr_l5_036",
+      "concept": "with_replacement",
+      "question": "A bag has 5 red and 5 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "5/9",
+        "4/9",
+        "6/11",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "This removes a red as if it were not replaced; the marble was put back.",
+        "C": "This invents an extra marble; replacement leaves the composition exactly 5 of 10.",
+        "D": "Correct. Replacement restores the bag to 5 red and 5 blue, so every draw has P(red) = 5/10 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_037",
+      "concept": "with_replacement",
+      "question": "A bag has 4 red and 6 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "2/5",
+        "4/9",
+        "1/3",
+        "3/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Replacement restores the bag to 4 red and 6 blue, so every draw has P(red) = 4/10 = 2/5.",
+        "B": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "C": "This removes a red as if it were not replaced; the marble was put back.",
+        "D": "This is the probability of NOT drawing red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_038",
+      "concept": "with_replacement",
+      "question": "A bag has 3 red and 7 blue marbles. You draw one blue marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/3",
+        "3/10",
+        "2/9",
+        "7/10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "Correct. Replacement restores the bag to 3 red and 7 blue, so every draw has P(red) = 3/10.",
+        "C": "This both removes a red and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_039",
+      "concept": "with_replacement",
+      "question": "A bag has 6 red and 4 blue marbles. You draw one blue marble and put it BACK (with replacement). What is the probability the next draw is blue?",
+      "options": [
+        "4/9",
+        "1/3",
+        "2/5",
+        "3/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "This removes a blue as if it were not replaced; the marble was put back.",
+        "C": "Correct. Replacement restores the bag to 6 red and 4 blue, so every draw has P(blue) = 4/10 = 2/5.",
+        "D": "This is the probability of NOT drawing blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_040",
+      "concept": "with_replacement",
+      "question": "A bag has 2 red and 6 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "2/7",
+        "1/7",
+        "3/4",
+        "1/4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 7; replacement keeps it at 8.",
+        "B": "This removes a red as if it were not replaced; the marble was put back.",
+        "C": "This is the probability of NOT drawing red, the complement of what was asked.",
+        "D": "Correct. Replacement restores the bag to 2 red and 6 blue, so every draw has P(red) = 2/8 = 1/4."
+      }
+    },
+    {
+      "id": "pr_l5_041",
+      "concept": "with_replacement",
+      "question": "A bag has 7 red and 3 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is blue?",
+      "options": [
+        "3/10",
+        "1/3",
+        "2/9",
+        "7/10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Replacement restores the bag to 7 red and 3 blue, so every draw has P(blue) = 3/10.",
+        "B": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "C": "This both removes a blue and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_042",
+      "concept": "with_replacement",
+      "question": "A bag has 3 red, 5 blue and 2 green marbles. You draw one green marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/3",
+        "3/10",
+        "2/9",
+        "7/10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "Correct. Replacement restores the bag to 3 red, 5 blue and 2 green, so every draw has P(red) = 3/10.",
+        "C": "This both removes a red and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_043",
+      "concept": "with_replacement",
+      "question": "A bag has 4 red, 4 blue and 2 green marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is green?",
+      "options": [
+        "2/9",
+        "1/9",
+        "1/5",
+        "4/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "This both removes a green and shrinks the total, but nothing was removed under replacement.",
+        "C": "Correct. Replacement restores the bag to 4 red, 4 blue and 2 green, so every draw has P(green) = 2/10 = 1/5.",
+        "D": "This is the probability of NOT drawing green, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_044",
+      "concept": "with_replacement",
+      "question": "A bag has 5 red, 3 blue and 2 green marbles. You draw one blue marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "5/9",
+        "4/9",
+        "6/11",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "This both removes a red and shrinks the total, but nothing was removed under replacement.",
+        "C": "This invents an extra marble; replacement leaves the composition exactly 5 of 10.",
+        "D": "Correct. Replacement restores the bag to 5 red, 3 blue and 2 green, so every draw has P(red) = 5/10 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_045",
+      "concept": "with_replacement",
+      "question": "A bag has 2 red, 3 blue and 5 green marbles. You draw one green marble and put it BACK (with replacement). What is the probability the next draw is blue?",
+      "options": [
+        "3/10",
+        "1/3",
+        "2/9",
+        "7/10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Replacement restores the bag to 2 red, 3 blue and 5 green, so every draw has P(blue) = 3/10.",
+        "B": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "C": "This both removes a blue and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_046",
+      "concept": "with_replacement",
+      "question": "A bag has 6 red, 2 blue and 2 green marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is green?",
+      "options": [
+        "2/9",
+        "1/5",
+        "1/9",
+        "4/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "Correct. Replacement restores the bag to 6 red, 2 blue and 2 green, so every draw has P(green) = 2/10 = 1/5.",
+        "C": "This both removes a green and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing green, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_047",
+      "concept": "with_replacement",
+      "question": "A bag has 1 red and 1 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "1",
+        "0",
+        "1/2",
+        "2/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 1; replacement keeps it at 2.",
+        "B": "This removes a red as if it were not replaced; the marble was put back.",
+        "C": "Correct. Replacement restores the bag to 1 red and 1 blue, so every draw has P(red) = 1/2.",
+        "D": "This invents an extra marble; replacement leaves the composition exactly 1 of 2."
+      }
+    },
+    {
+      "id": "pr_l5_048",
+      "concept": "with_replacement",
+      "question": "A bag has 3 red and 9 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "3/11",
+        "2/11",
+        "3/4",
+        "1/4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 11; replacement keeps it at 12.",
+        "B": "This removes a red as if it were not replaced; the marble was put back.",
+        "C": "This is the probability of NOT drawing red, the complement of what was asked.",
+        "D": "Correct. Replacement restores the bag to 3 red and 9 blue, so every draw has P(red) = 3/12 = 1/4."
+      }
+    },
+    {
+      "id": "pr_l5_049",
+      "concept": "with_replacement",
+      "question": "A bag has 8 red and 2 blue marbles. You draw one blue marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "4/5",
+        "8/9",
+        "7/9",
+        "1/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Replacement restores the bag to 8 red and 2 blue, so every draw has P(red) = 8/10 = 4/5.",
+        "B": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "C": "This both removes a red and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_050",
+      "concept": "with_replacement",
+      "question": "A bag has 5 red and 5 blue marbles. You draw one blue marble and put it BACK (with replacement). What is the probability the next draw is blue?",
+      "options": [
+        "5/9",
+        "1/2",
+        "4/9",
+        "6/11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "Correct. Replacement restores the bag to 5 red and 5 blue, so every draw has P(blue) = 5/10 = 1/2.",
+        "C": "This removes a blue as if it were not replaced; the marble was put back.",
+        "D": "This invents an extra marble; replacement leaves the composition exactly 5 of 10."
+      }
+    },
+    {
+      "id": "pr_l5_051",
+      "concept": "with_replacement",
+      "question": "A bag has 4 red and 8 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is blue?",
+      "options": [
+        "8/11",
+        "7/11",
+        "2/3",
+        "1/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 11; replacement keeps it at 12.",
+        "B": "This both removes a blue and shrinks the total, but nothing was removed under replacement.",
+        "C": "Correct. Replacement restores the bag to 4 red and 8 blue, so every draw has P(blue) = 8/12 = 2/3.",
+        "D": "This is the probability of NOT drawing blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_052",
+      "concept": "with_replacement",
+      "question": "A bag has 7 red and 5 blue marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "7/11",
+        "6/11",
+        "5/12",
+        "7/12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 11; replacement keeps it at 12.",
+        "B": "This removes a red as if it were not replaced; the marble was put back.",
+        "C": "This is the probability of NOT drawing red, the complement of what was asked.",
+        "D": "Correct. Replacement restores the bag to 7 red and 5 blue, so every draw has P(red) = 7/12."
+      }
+    },
+    {
+      "id": "pr_l5_053",
+      "concept": "with_replacement",
+      "question": "A bag has 2 red, 2 blue and 6 green marbles. You draw one green marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/5",
+        "2/9",
+        "1/9",
+        "4/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Replacement restores the bag to 2 red, 2 blue and 6 green, so every draw has P(red) = 2/10 = 1/5.",
+        "B": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "C": "This both removes a red and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_054",
+      "concept": "with_replacement",
+      "question": "A bag has 6 red, 6 blue and 3 green marbles. You draw one red marble and put it BACK (with replacement). What is the probability the next draw is green?",
+      "options": [
+        "3/14",
+        "1/5",
+        "1/7",
+        "4/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 14; replacement keeps it at 15.",
+        "B": "Correct. Replacement restores the bag to 6 red, 6 blue and 3 green, so every draw has P(green) = 3/15 = 1/5.",
+        "C": "This both removes a green and shrinks the total, but nothing was removed under replacement.",
+        "D": "This is the probability of NOT drawing green, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_055",
+      "concept": "with_replacement",
+      "question": "A bag has 1 red and 9 blue marbles. You draw one blue marble and put it BACK (with replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/9",
+        "0",
+        "1/10",
+        "9/10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This treats the draw as without replacement, shrinking the total to 9; replacement keeps it at 10.",
+        "B": "This both removes a red and shrinks the total, but nothing was removed under replacement.",
+        "C": "Correct. Replacement restores the bag to 1 red and 9 blue, so every draw has P(red) = 1/10.",
+        "D": "This is the probability of NOT drawing red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_056",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is odd (3 equally likely outcomes: 1, 3, 5), what is the probability the roll is a 1?",
+      "options": [
+        "1/6",
+        "2/3",
+        "0",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "B": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "C": "This undercounts the favorable outcomes; 1 of the 3 conditioned outcomes qualify.",
+        "D": "Correct. Among the 3 conditioned outcomes {1, 3, 5}, 1 fall in the event {1}, so P = 1/3."
+      }
+    },
+    {
+      "id": "pr_l5_057",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is at most 3 (3 equally likely outcomes: 1, 2, 3), what is the probability the roll is even?",
+      "options": [
+        "1/3",
+        "1/2",
+        "1/6",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among the 3 conditioned outcomes {1, 2, 3}, 1 fall in the event {2}, so P = 1/3.",
+        "B": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "C": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 3.",
+        "D": "This is the probability of the complementary event within the conditioned set, not the event asked."
+      }
+    },
+    {
+      "id": "pr_l5_058",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is at least 4 (3 equally likely outcomes: 4, 5, 6), what is the probability the roll is even?",
+      "options": [
+        "1/2",
+        "2/3",
+        "1/3",
+        "1/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "B": "Correct. Among the 3 conditioned outcomes {4, 5, 6}, 2 fall in the event {4, 6}, so P = 2/3.",
+        "C": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 3.",
+        "D": "1/6 is the chance of a single face on an unconditioned die, ignoring the given information."
+      }
+    },
+    {
+      "id": "pr_l5_059",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is composite (2 equally likely outcomes: 4, 6), what is the probability the roll is a 4?",
+      "options": [
+        "1/6",
+        "1",
+        "1/2",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 2 conditioned outcomes.",
+        "B": "This overcounts the favorable outcomes; only 1 of the 2 conditioned outcomes qualify.",
+        "C": "Correct. Among the 2 conditioned outcomes {4, 6}, 1 fall in the event {4}, so P = 1/2.",
+        "D": "This undercounts the favorable outcomes; 1 of the 2 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_060",
+      "concept": "restricted_rank",
+      "question": "You draw a card and are told it is red. Given that, what is the probability it is a King?",
+      "options": [
+        "1/26",
+        "1/2",
+        "1/4",
+        "1/13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/26 counts only one King; there are 2 Kings among the red cards.",
+        "B": "1/2 is the share of one suit among red cards, not the share of Kings.",
+        "C": "1/4 has no basis here; only 2 of the 26 red cards are Kings.",
+        "D": "Correct. Among the 26 red cards there are 2 Kings (one per red suit), so P(King | red) = 2/26 = 1/13."
+      }
+    },
+    {
+      "id": "pr_l5_061",
+      "concept": "restricted_rank",
+      "question": "You draw a card and are told it is red. Given that, what is the probability it is an Ace?",
+      "options": [
+        "1/13",
+        "1/26",
+        "1/2",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among the 26 red cards there are 2 Aces (one per red suit), so P(Ace | red) = 2/26 = 1/13.",
+        "B": "1/26 counts only one Ace; there are 2 Aces among the red cards.",
+        "C": "1/2 is the share of one suit among red cards, not the share of Aces.",
+        "D": "1/4 has no basis here; only 2 of the 26 red cards are Aces."
+      }
+    },
+    {
+      "id": "pr_l5_062",
+      "concept": "restricted_rank",
+      "question": "You draw a card and are told it is red. Given that, what is the probability it is the Ace of hearts specifically?",
+      "options": [
+        "1/52",
+        "1/26",
+        "1/13",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/52 is the unconditional chance of that exact card; conditioning on red shrinks the space to 26.",
+        "B": "Correct. There are 26 equally likely red cards and exactly one Ace of hearts, so the probability is 1/26.",
+        "C": "1/13 is the chance of an Ace of either red suit, but only the Ace of hearts is asked.",
+        "D": "1/2 is a suit share, not the chance of one specific card."
+      }
+    },
+    {
+      "id": "pr_l5_063",
+      "concept": "restricted_rank",
+      "question": "You draw a card and are told it is black. Given that, what is the probability it is a King?",
+      "options": [
+        "1/26",
+        "1/2",
+        "1/13",
+        "1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/26 counts only one King; there are 2 Kings among the black cards.",
+        "B": "1/2 is the share of one suit among black cards, not the share of Kings.",
+        "C": "Correct. Among the 26 black cards there are 2 Kings (one per black suit), so P(King | black) = 2/26 = 1/13.",
+        "D": "1/4 has no basis here; only 2 of the 26 black cards are Kings."
+      }
+    },
+    {
+      "id": "pr_l5_064",
+      "concept": "restricted_rank",
+      "question": "You draw a card and are told it is black. Given that, what is the probability it is an Ace?",
+      "options": [
+        "1/26",
+        "1/2",
+        "1/4",
+        "1/13"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/26 counts only one Ace; there are 2 Aces among the black cards.",
+        "B": "1/2 is the share of one suit among black cards, not the share of Aces.",
+        "C": "1/4 has no basis here; only 2 of the 26 black cards are Aces.",
+        "D": "Correct. Among the 26 black cards there are 2 Aces (one per black suit), so P(Ace | black) = 2/26 = 1/13."
+      }
+    },
+    {
+      "id": "pr_l5_065",
+      "concept": "restricted_rank",
+      "question": "You draw a card and are told it is black. Given that, what is the probability it is the Ace of clubs specifically?",
+      "options": [
+        "1/26",
+        "1/52",
+        "1/13",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 26 equally likely black cards and exactly one Ace of clubs, so the probability is 1/26.",
+        "B": "1/52 is the unconditional chance of that exact card; conditioning on black shrinks the space to 26.",
+        "C": "1/13 is the chance of an Ace of either black suit, but only the Ace of clubs is asked.",
+        "D": "1/2 is a suit share, not the chance of one specific card."
+      }
+    },
+    {
+      "id": "pr_l5_066",
+      "concept": "restricted_face_card",
+      "question": "Given the drawn card is a face card (12 cards), what is the probability it is the King of spades specifically?",
+      "options": [
+        "1/3",
+        "1/12",
+        "1/4",
+        "1/52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/3 is the chance of a King (any suit), but only the King of spades is asked.",
+        "B": "Correct. There are 12 equally likely face cards and exactly one King of spades, so the probability is 1/12.",
+        "C": "1/4 is the chance of a spade among face cards, not one specific card.",
+        "D": "1/52 is the unconditional chance of that exact card before conditioning on face cards."
+      }
+    },
+    {
+      "id": "pr_l5_067",
+      "concept": "restricted_face_card",
+      "question": "Given the drawn card is a face card (12 cards), what is the probability it is a spade?",
+      "options": [
+        "1/3",
+        "1/2",
+        "1/4",
+        "3/52"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/3 is the share of a single rank, not of one suit among face cards.",
+        "B": "1/2 is the red/black split of face cards, not the spade share.",
+        "C": "Correct. Each suit contributes 3 face cards, so 3 of the 12 face cards are spades: P = 3/12 = 1/4.",
+        "D": "3/52 uses the full deck total; the conditioned total is 12 face cards."
+      }
+    },
+    {
+      "id": "pr_l5_068",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is greater than 2 (4 equally likely outcomes: 3, 4, 5, 6), what is the probability the roll is even?",
+      "options": [
+        "1/3",
+        "1/6",
+        "3/4",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 4.",
+        "B": "1/6 is the chance of a single face on an unconditioned die, ignoring the given information.",
+        "C": "This overcounts the favorable outcomes; only 2 of the 4 conditioned outcomes qualify.",
+        "D": "Correct. Among the 4 conditioned outcomes {3, 4, 5, 6}, 2 fall in the event {4, 6}, so P = 2/4 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_069",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is prime (3 equally likely outcomes: 2, 3, 5), what is the probability the roll is even?",
+      "options": [
+        "1/3",
+        "1/2",
+        "1/6",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among the 3 conditioned outcomes {2, 3, 5}, 1 fall in the event {2}, so P = 1/3.",
+        "B": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "C": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 3.",
+        "D": "This is the probability of the complementary event within the conditioned set, not the event asked."
+      }
+    },
+    {
+      "id": "pr_l5_070",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is at most 4 (4 equally likely outcomes: 1, 2, 3, 4), what is the probability the roll is odd?",
+      "options": [
+        "1/3",
+        "1/2",
+        "1/6",
+        "3/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 4.",
+        "B": "Correct. Among the 4 conditioned outcomes {1, 2, 3, 4}, 2 fall in the event {1, 3}, so P = 2/4 = 1/2.",
+        "C": "1/6 is the chance of a single face on an unconditioned die, ignoring the given information.",
+        "D": "This overcounts the favorable outcomes; only 2 of the 4 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_071",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is greater than 3 (3 equally likely outcomes: 4, 5, 6), what is the probability the roll is a multiple of 3?",
+      "options": [
+        "1/6",
+        "2/3",
+        "1/3",
+        "0"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 3.",
+        "B": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "C": "Correct. Among the 3 conditioned outcomes {4, 5, 6}, 1 fall in the event {6}, so P = 1/3.",
+        "D": "This undercounts the favorable outcomes; 1 of the 3 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_072",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is odd (3 equally likely outcomes: 1, 3, 5), what is the probability the roll is greater than 2?",
+      "options": [
+        "1/3",
+        "1/6",
+        "1",
+        "2/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 3.",
+        "B": "1/6 is the chance of a single face on an unconditioned die, ignoring the given information.",
+        "C": "This overcounts the favorable outcomes; only 2 of the 3 conditioned outcomes qualify.",
+        "D": "Correct. Among the 3 conditioned outcomes {1, 3, 5}, 2 fall in the event {3, 5}, so P = 2/3."
+      }
+    },
+    {
+      "id": "pr_l5_073",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped twice. Given that the first flip is heads, what is the probability that both flips are heads?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The equally likely outcomes with the first flip is heads are {HT, HH} (2 of them); 1 give \"both flips are heads\", so P = 1/2.",
+        "B": "This uses the full 4-outcome space instead of the 2 outcomes consistent with the condition.",
+        "C": "This overcounts favorable outcomes; only 1 of the 2 conditioned outcomes qualify.",
+        "D": "2/3 reverses the roles; recount how many of the 2 conditioned outcomes give \"both flips are heads\"."
+      }
+    },
+    {
+      "id": "pr_l5_074",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped twice. Given that the two flips differ, what is the probability that the first flip is heads?",
+      "options": [
+        "1/4",
+        "1/2",
+        "1",
+        "2/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the full 4-outcome space instead of the 2 outcomes consistent with the condition.",
+        "B": "Correct. The equally likely outcomes with the two flips differ are {TH, HT} (2 of them); 1 give \"the first flip is heads\", so P = 1/2.",
+        "C": "This overcounts favorable outcomes; only 1 of the 2 conditioned outcomes qualify.",
+        "D": "2/3 reverses the roles; recount how many of the 2 conditioned outcomes give \"the first flip is heads\"."
+      }
+    },
+    {
+      "id": "pr_l5_075",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 2 red and 2 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/2",
+        "2/3",
+        "1/3",
+        "1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 3.",
+        "B": "This keeps all 2 red marbles, but one red was drawn and removed, leaving 1.",
+        "C": "Correct. Removing one red leaves 3 marbles with 1 red, so P(red) = 1/3.",
+        "D": "This uses the right count of red but the original total 4; the bag now holds 3 marbles."
+      }
+    },
+    {
+      "id": "pr_l5_076",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 3 red and 2 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "3/5",
+        "3/4",
+        "2/5",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 4.",
+        "B": "This keeps all 3 red marbles, but one red was drawn and removed, leaving 2.",
+        "C": "This uses the right count of red but the original total 5; the bag now holds 4 marbles.",
+        "D": "Correct. Removing one red leaves 4 marbles with 2 red, so P(red) = 2/4 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_077",
+      "concept": "without_replacement_single",
+      "question": "A bag has 3 red and 2 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "1/2",
+        "2/5",
+        "1/4",
+        "3/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one red leaves 4 marbles with 2 blue, so P(blue) = 2/4 = 1/2.",
+        "B": "This is the chance of blue before any draw; once a marble is removed the total drops to 4.",
+        "C": "This wrongly removes a blue; the drawn marble was red, so all 2 blue remain among 4.",
+        "D": "This overcounts the remaining blue; only 2 remain among 4."
+      }
+    },
+    {
+      "id": "pr_l5_078",
+      "concept": "without_replacement_single",
+      "question": "A bag has 3 red and 3 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/2",
+        "3/5",
+        "2/5",
+        "4/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 5.",
+        "B": "Correct. Removing one blue leaves 5 marbles with 3 red, so P(red) = 3/5.",
+        "C": "This wrongly removes a red; the drawn marble was blue, so all 3 red remain among 5.",
+        "D": "This overcounts the remaining red; only 3 remain among 5."
+      }
+    },
+    {
+      "id": "pr_l5_079",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 4 red and 2 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "2/3",
+        "4/5",
+        "3/5",
+        "2/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 5.",
+        "B": "This keeps all 4 red marbles, but one red was drawn and removed, leaving 3.",
+        "C": "Correct. Removing one red leaves 5 marbles with 3 red, so P(red) = 3/5.",
+        "D": "This is the probability the next marble is NOT red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_080",
+      "concept": "without_replacement_single",
+      "question": "A bag has 5 red and 3 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "5/8",
+        "4/7",
+        "2/7",
+        "5/7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 7.",
+        "B": "This wrongly removes a red; the drawn marble was blue, so all 5 red remain among 7.",
+        "C": "This is the probability the next marble is NOT red, the complement of what was asked.",
+        "D": "Correct. Removing one blue leaves 7 marbles with 5 red, so P(red) = 5/7."
+      }
+    },
+    {
+      "id": "pr_l5_081",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 6 red and 4 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "5/9",
+        "3/5",
+        "2/3",
+        "4/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one red leaves 9 marbles with 5 red, so P(red) = 5/9.",
+        "B": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "C": "This keeps all 6 red marbles, but one red was drawn and removed, leaving 5.",
+        "D": "This is the probability the next marble is NOT red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_082",
+      "concept": "without_replacement_single",
+      "question": "A bag has 4 red and 6 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "2/5",
+        "4/9",
+        "1/3",
+        "5/9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "B": "Correct. Removing one blue leaves 9 marbles with 4 red, so P(red) = 4/9.",
+        "C": "This wrongly removes a red; the drawn marble was blue, so all 4 red remain among 9.",
+        "D": "This is the probability the next marble is NOT red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_083",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 2 red and 3 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "3/5",
+        "3/4",
+        "1/2",
+        "2/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of blue before any draw; once a marble is removed the total drops to 4.",
+        "B": "This keeps all 3 blue marbles, but one blue was drawn and removed, leaving 2.",
+        "C": "Correct. Removing one blue leaves 4 marbles with 2 blue, so P(blue) = 2/4 = 1/2.",
+        "D": "This uses the right count of blue but the original total 5; the bag now holds 4 marbles."
+      }
+    },
+    {
+      "id": "pr_l5_084",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 5 red and 5 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/2",
+        "5/9",
+        "4/10",
+        "4/9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "B": "This keeps all 5 red marbles, but one red was drawn and removed, leaving 4.",
+        "C": "This uses the right count of red but the original total 10; the bag now holds 9 marbles.",
+        "D": "Correct. Removing one red leaves 9 marbles with 4 red, so P(red) = 4/9."
+      }
+    },
+    {
+      "id": "pr_l5_085",
+      "concept": "without_replacement_single",
+      "question": "A bag has 7 red and 3 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "1/3",
+        "3/10",
+        "2/9",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one red leaves 9 marbles with 3 blue, so P(blue) = 3/9 = 1/3.",
+        "B": "This is the chance of blue before any draw; once a marble is removed the total drops to 9.",
+        "C": "This wrongly removes a blue; the drawn marble was red, so all 3 blue remain among 9.",
+        "D": "This is the probability the next marble is NOT blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_086",
+      "concept": "without_replacement_single",
+      "question": "A bag has 1 red and 4 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/5",
+        "1/4",
+        "0",
+        "3/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 4.",
+        "B": "Correct. Removing one blue leaves 4 marbles with 1 red, so P(red) = 1/4.",
+        "C": "This wrongly removes a red; the drawn marble was blue, so all 1 red remain among 4.",
+        "D": "This is the probability the next marble is NOT red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_087",
+      "concept": "without_replacement_single",
+      "question": "A bag has 5 red, 3 blue and 2 green marbles. You draw one green marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/2",
+        "4/9",
+        "5/9",
+        "2/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "B": "This wrongly removes a red; the drawn marble was green, so all 5 red remain among 9.",
+        "C": "Correct. Removing one green leaves 9 marbles with 5 red, so P(red) = 5/9.",
+        "D": "This overcounts the remaining red; only 5 remain among 9."
+      }
+    },
+    {
+      "id": "pr_l5_088",
+      "concept": "without_replacement_single",
+      "question": "A bag has 4 red, 4 blue and 2 green marbles. You draw one green marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "2/5",
+        "1/3",
+        "5/9",
+        "4/9"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "B": "This wrongly removes a red; the drawn marble was green, so all 4 red remain among 9.",
+        "C": "This is the probability the next marble is NOT red, the complement of what was asked.",
+        "D": "Correct. Removing one green leaves 9 marbles with 4 red, so P(red) = 4/9."
+      }
+    },
+    {
+      "id": "pr_l5_089",
+      "concept": "without_replacement_single",
+      "question": "A bag has 6 red, 3 blue and 1 green marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "1/3",
+        "3/10",
+        "2/9",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one red leaves 9 marbles with 3 blue, so P(blue) = 3/9 = 1/3.",
+        "B": "This is the chance of blue before any draw; once a marble is removed the total drops to 9.",
+        "C": "This wrongly removes a blue; the drawn marble was red, so all 3 blue remain among 9.",
+        "D": "This is the probability the next marble is NOT blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_090",
+      "concept": "without_replacement_single",
+      "question": "A bag has 3 red, 3 blue and 4 green marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is green?",
+      "options": [
+        "2/5",
+        "4/9",
+        "1/3",
+        "5/9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of green before any draw; once a marble is removed the total drops to 9.",
+        "B": "Correct. Removing one blue leaves 9 marbles with 4 green, so P(green) = 4/9.",
+        "C": "This wrongly removes a green; the drawn marble was blue, so all 4 green remain among 9.",
+        "D": "This is the probability the next marble is NOT green, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_091",
+      "concept": "without_replacement_single",
+      "question": "A bag has 2 red, 5 blue and 3 green marbles. You draw one green marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "1/2",
+        "4/9",
+        "5/9",
+        "2/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of blue before any draw; once a marble is removed the total drops to 9.",
+        "B": "This wrongly removes a blue; the drawn marble was green, so all 5 blue remain among 9.",
+        "C": "Correct. Removing one green leaves 9 marbles with 5 blue, so P(blue) = 5/9.",
+        "D": "This overcounts the remaining blue; only 5 remain among 9."
+      }
+    },
+    {
+      "id": "pr_l5_092",
+      "concept": "without_replacement_single",
+      "question": "A bag has 4 red, 3 blue and 3 green marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is green?",
+      "options": [
+        "3/10",
+        "2/9",
+        "2/3",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of green before any draw; once a marble is removed the total drops to 9.",
+        "B": "This wrongly removes a green; the drawn marble was red, so all 3 green remain among 9.",
+        "C": "This is the probability the next marble is NOT green, the complement of what was asked.",
+        "D": "Correct. Removing one red leaves 9 marbles with 3 green, so P(green) = 3/9 = 1/3."
+      }
+    },
+    {
+      "id": "pr_l5_093",
+      "concept": "without_replacement_single",
+      "question": "A bag has 5 red, 4 blue and 1 green marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "5/9",
+        "1/2",
+        "4/9",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one blue leaves 9 marbles with 5 red, so P(red) = 5/9.",
+        "B": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "C": "This wrongly removes a red; the drawn marble was blue, so all 5 red remain among 9.",
+        "D": "This overcounts the remaining red; only 5 remain among 9."
+      }
+    },
+    {
+      "id": "pr_l5_094",
+      "concept": "without_replacement_single",
+      "question": "A bag has 3 red, 4 blue and 3 green marbles. You draw one green marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "3/10",
+        "1/3",
+        "2/9",
+        "2/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "B": "Correct. Removing one green leaves 9 marbles with 3 red, so P(red) = 3/9 = 1/3.",
+        "C": "This wrongly removes a red; the drawn marble was green, so all 3 red remain among 9.",
+        "D": "This is the probability the next marble is NOT red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_095",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 5 red, 3 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "1/2",
+        "5/9",
+        "5/8",
+        "3/8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 10 to 8.",
+        "B": "This removes only one green marble; all 2 green marbles are excluded, leaving 8.",
+        "C": "Correct. \"Not green\" rules out all 2 green marbles, leaving 8; of those, 5 are red, so P = 5/8.",
+        "D": "This is the chance of a non-red marble among the 8 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_096",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 5 red, 3 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is blue?",
+      "options": [
+        "3/10",
+        "1/3",
+        "5/8",
+        "3/8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 10 to 8.",
+        "B": "This removes only one green marble; all 2 green marbles are excluded, leaving 8.",
+        "C": "This is the chance of a non-blue marble among the 8 non-green ones, the complement.",
+        "D": "Correct. \"Not green\" rules out all 2 green marbles, leaving 8; of those, 3 are blue, so P = 3/8."
+      }
+    },
+    {
+      "id": "pr_l5_097",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 4 red, 4 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "1/2",
+        "2/5",
+        "4/9",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. \"Not green\" rules out all 2 green marbles, leaving 8; of those, 4 are red, so P = 4/8 = 1/2.",
+        "B": "This ignores the conditioning; once green is excluded the total drops from 10 to 8.",
+        "C": "This removes only one green marble; all 2 green marbles are excluded, leaving 8.",
+        "D": "This counts the excluded green marbles, which are no longer possible."
+      }
+    },
+    {
+      "id": "pr_l5_098",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 4 red, 3 blue and 3 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "2/5",
+        "4/7",
+        "4/9",
+        "3/7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 10 to 7.",
+        "B": "Correct. \"Not green\" rules out all 3 green marbles, leaving 7; of those, 4 are red, so P = 4/7.",
+        "C": "This removes only one green marble; all 3 green marbles are excluded, leaving 7.",
+        "D": "This is the chance of a non-red marble among the 7 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_099",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 6 red, 2 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "3/5",
+        "2/3",
+        "3/4",
+        "1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 10 to 8.",
+        "B": "This removes only one green marble; all 2 green marbles are excluded, leaving 8.",
+        "C": "Correct. \"Not green\" rules out all 2 green marbles, leaving 8; of those, 6 are red, so P = 6/8 = 3/4.",
+        "D": "This is the chance of a non-red marble among the 8 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_100",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 3 red, 5 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is blue?",
+      "options": [
+        "1/2",
+        "5/9",
+        "3/8",
+        "5/8"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 10 to 8.",
+        "B": "This removes only one green marble; all 2 green marbles are excluded, leaving 8.",
+        "C": "This is the chance of a non-blue marble among the 8 non-green ones, the complement.",
+        "D": "Correct. \"Not green\" rules out all 2 green marbles, leaving 8; of those, 5 are blue, so P = 5/8."
+      }
+    },
+    {
+      "id": "pr_l5_101",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 4 red, 4 blue and 4 green marbles. You are told the marble drawn is NOT red. Given that, what is the probability it is blue?",
+      "options": [
+        "1/2",
+        "1/3",
+        "4/11",
+        "5/8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. \"Not red\" rules out all 4 red marbles, leaving 8; of those, 4 are blue, so P = 4/8 = 1/2.",
+        "B": "This ignores the conditioning; once red is excluded the total drops from 12 to 8.",
+        "C": "This removes only one red marble; all 4 red marbles are excluded, leaving 8.",
+        "D": "This overcounts the blue marbles; there are 4 among the 8 non-red."
+      }
+    },
+    {
+      "id": "pr_l5_102",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 5 red, 4 blue and 3 green marbles. You are told the marble drawn is NOT blue. Given that, what is the probability it is green?",
+      "options": [
+        "1/4",
+        "3/8",
+        "3/11",
+        "5/8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This ignores the conditioning; once blue is excluded the total drops from 12 to 8.",
+        "B": "Correct. \"Not blue\" rules out all 4 blue marbles, leaving 8; of those, 3 are green, so P = 3/8.",
+        "C": "This removes only one blue marble; all 4 blue marbles are excluded, leaving 8.",
+        "D": "This is the chance of a non-green marble among the 8 non-blue ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_103",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 2 red, 4 blue and 4 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "1/5",
+        "2/9",
+        "1/3",
+        "2/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 10 to 6.",
+        "B": "This removes only one green marble; all 4 green marbles are excluded, leaving 6.",
+        "C": "Correct. \"Not green\" rules out all 4 green marbles, leaving 6; of those, 2 are red, so P = 2/6 = 1/3.",
+        "D": "This is the chance of a non-red marble among the 6 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_104",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 6 red, 3 blue and 3 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "1/2",
+        "6/11",
+        "1/3",
+        "2/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 12 to 9.",
+        "B": "This removes only one green marble; all 3 green marbles are excluded, leaving 9.",
+        "C": "This is the chance of a non-red marble among the 9 non-green ones, the complement.",
+        "D": "Correct. \"Not green\" rules out all 3 green marbles, leaving 9; of those, 6 are red, so P = 6/9 = 2/3."
+      }
+    },
+    {
+      "id": "pr_l5_105",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 3 red, 3 blue and 6 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "1/2",
+        "1/4",
+        "3/11",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. \"Not green\" rules out all 6 green marbles, leaving 6; of those, 3 are red, so P = 3/6 = 1/2.",
+        "B": "This ignores the conditioning; once green is excluded the total drops from 12 to 6.",
+        "C": "This removes only one green marble; all 6 green marbles are excluded, leaving 6.",
+        "D": "This counts the excluded green marbles, which are no longer possible."
+      }
+    },
+    {
+      "id": "pr_l5_106",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 4 red, 5 blue and 1 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is blue?",
+      "options": [
+        "1/2",
+        "5/9",
+        "4/9",
+        "1/9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 10 to 9.",
+        "B": "Correct. \"Not green\" rules out all 1 green marbles, leaving 9; of those, 5 are blue, so P = 5/9.",
+        "C": "This is the chance of a non-blue marble among the 9 non-green ones, the complement.",
+        "D": "This counts the excluded green marbles, which are no longer possible."
+      }
+    },
+    {
+      "id": "pr_l5_107",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 4 red and 3 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "4/7",
+        "2/3",
+        "1/2",
+        "3/7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 6.",
+        "B": "This keeps all 4 red marbles, but one red was drawn and removed, leaving 3.",
+        "C": "Correct. Removing one red leaves 6 marbles with 3 red, so P(red) = 3/6 = 1/2.",
+        "D": "This uses the right count of red but the original total 7; the bag now holds 6 marbles."
+      }
+    },
+    {
+      "id": "pr_l5_108",
+      "concept": "without_replacement_single",
+      "question": "A bag has 6 red and 2 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "3/4",
+        "5/7",
+        "1/7",
+        "6/7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 7.",
+        "B": "This wrongly removes a red; the drawn marble was blue, so all 6 red remain among 7.",
+        "C": "This is the probability the next marble is NOT red, the complement of what was asked.",
+        "D": "Correct. Removing one blue leaves 7 marbles with 6 red, so P(red) = 6/7."
+      }
+    },
+    {
+      "id": "pr_l5_109",
+      "concept": "without_replacement_single",
+      "question": "A bag has 3 red and 5 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "5/7",
+        "5/8",
+        "4/7",
+        "2/7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one red leaves 7 marbles with 5 blue, so P(blue) = 5/7.",
+        "B": "This is the chance of blue before any draw; once a marble is removed the total drops to 7.",
+        "C": "This wrongly removes a blue; the drawn marble was red, so all 5 blue remain among 7.",
+        "D": "This is the probability the next marble is NOT blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_110",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 7 red and 5 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "7/12",
+        "6/11",
+        "7/11",
+        "5/11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 11.",
+        "B": "Correct. Removing one red leaves 11 marbles with 6 red, so P(red) = 6/11.",
+        "C": "This keeps all 7 red marbles, but one red was drawn and removed, leaving 6.",
+        "D": "This is the probability the next marble is NOT red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_111",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 5 red and 7 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "7/12",
+        "7/11",
+        "6/11",
+        "5/11"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of blue before any draw; once a marble is removed the total drops to 11.",
+        "B": "This keeps all 7 blue marbles, but one blue was drawn and removed, leaving 6.",
+        "C": "Correct. Removing one blue leaves 11 marbles with 6 blue, so P(blue) = 6/11.",
+        "D": "This is the probability the next marble is NOT blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_112",
+      "concept": "without_replacement_single",
+      "question": "A bag has 8 red and 4 blue marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "2/3",
+        "7/11",
+        "3/11",
+        "8/11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 11.",
+        "B": "This wrongly removes a red; the drawn marble was blue, so all 8 red remain among 11.",
+        "C": "This is the probability the next marble is NOT red, the complement of what was asked.",
+        "D": "Correct. Removing one blue leaves 11 marbles with 8 red, so P(red) = 8/11."
+      }
+    },
+    {
+      "id": "pr_l5_113",
+      "concept": "without_replacement_single",
+      "question": "A bag has 2 red and 6 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "6/7",
+        "3/4",
+        "5/7",
+        "1/7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one red leaves 7 marbles with 6 blue, so P(blue) = 6/7.",
+        "B": "This is the chance of blue before any draw; once a marble is removed the total drops to 7.",
+        "C": "This wrongly removes a blue; the drawn marble was red, so all 6 blue remain among 7.",
+        "D": "This is the probability the next marble is NOT blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_114",
+      "concept": "without_replacement_basic",
+      "question": "A bag has 6 red and 6 blue marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "1/2",
+        "5/11",
+        "6/11",
+        "5/12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 11.",
+        "B": "Correct. Removing one red leaves 11 marbles with 5 red, so P(red) = 5/11.",
+        "C": "This keeps all 6 red marbles, but one red was drawn and removed, leaving 5.",
+        "D": "This uses the right count of red but the original total 12; the bag now holds 11 marbles."
+      }
+    },
+    {
+      "id": "pr_l5_115",
+      "concept": "without_replacement_single",
+      "question": "A bag has 4 red, 5 blue and 3 green marbles. You draw one red marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "5/12",
+        "4/11",
+        "5/11",
+        "6/11"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the chance of blue before any draw; once a marble is removed the total drops to 11.",
+        "B": "This wrongly removes a blue; the drawn marble was red, so all 5 blue remain among 11.",
+        "C": "Correct. Removing one red leaves 11 marbles with 5 blue, so P(blue) = 5/11.",
+        "D": "This is the probability the next marble is NOT blue, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_116",
+      "concept": "without_replacement_single",
+      "question": "A bag has 5 red, 5 blue and 2 green marbles. You draw one green marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "5/12",
+        "4/11",
+        "6/11",
+        "5/11"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the chance of red before any draw; once a marble is removed the total drops to 11.",
+        "B": "This wrongly removes a red; the drawn marble was green, so all 5 red remain among 11.",
+        "C": "This is the probability the next marble is NOT red, the complement of what was asked.",
+        "D": "Correct. Removing one green leaves 11 marbles with 5 red, so P(red) = 5/11."
+      }
+    },
+    {
+      "id": "pr_l5_117",
+      "concept": "without_replacement_single",
+      "question": "A bag has 7 red, 2 blue and 1 green marbles. You draw one blue marble and keep it out (no replacement). What is the probability the next draw is red?",
+      "options": [
+        "7/9",
+        "7/10",
+        "2/3",
+        "2/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Removing one blue leaves 9 marbles with 7 red, so P(red) = 7/9.",
+        "B": "This is the chance of red before any draw; once a marble is removed the total drops to 9.",
+        "C": "This wrongly removes a red; the drawn marble was blue, so all 7 red remain among 9.",
+        "D": "This is the probability the next marble is NOT red, the complement of what was asked."
+      }
+    },
+    {
+      "id": "pr_l5_118",
+      "concept": "without_replacement_single",
+      "question": "A bag has 3 red, 6 blue and 3 green marbles. You draw one green marble and keep it out (no replacement). What is the probability the next draw is blue?",
+      "options": [
+        "1/2",
+        "6/11",
+        "5/11",
+        "7/11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the chance of blue before any draw; once a marble is removed the total drops to 11.",
+        "B": "Correct. Removing one green leaves 11 marbles with 6 blue, so P(blue) = 6/11.",
+        "C": "This wrongly removes a blue; the drawn marble was green, so all 6 blue remain among 11.",
+        "D": "This overcounts the remaining blue; only 6 remain among 11."
+      }
+    },
+    {
+      "id": "pr_l5_119",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 6 red, 4 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "1/2",
+        "6/11",
+        "3/5",
+        "2/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 12 to 10.",
+        "B": "This removes only one green marble; all 2 green marbles are excluded, leaving 10.",
+        "C": "Correct. \"Not green\" rules out all 2 green marbles, leaving 10; of those, 6 are red, so P = 6/10 = 3/5.",
+        "D": "This is the chance of a non-red marble among the 10 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_120",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 5 red, 5 blue and 4 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is blue?",
+      "options": [
+        "5/14",
+        "5/13",
+        "2/5",
+        "1/2"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 14 to 10.",
+        "B": "This removes only one green marble; all 4 green marbles are excluded, leaving 10.",
+        "C": "This counts the excluded green marbles, which are no longer possible.",
+        "D": "Correct. \"Not green\" rules out all 4 green marbles, leaving 10; of those, 5 are blue, so P = 5/10 = 1/2."
+      }
+    },
+    {
+      "id": "pr_l5_121",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 7 red, 3 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "7/10",
+        "7/12",
+        "7/11",
+        "3/10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. \"Not green\" rules out all 2 green marbles, leaving 10; of those, 7 are red, so P = 7/10.",
+        "B": "This ignores the conditioning; once green is excluded the total drops from 12 to 10.",
+        "C": "This removes only one green marble; all 2 green marbles are excluded, leaving 10.",
+        "D": "This is the chance of a non-red marble among the 10 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_122",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 3 red, 6 blue and 3 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "1/4",
+        "1/3",
+        "3/11",
+        "2/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 12 to 9.",
+        "B": "Correct. \"Not green\" rules out all 3 green marbles, leaving 9; of those, 3 are red, so P = 3/9 = 1/3.",
+        "C": "This removes only one green marble; all 3 green marbles are excluded, leaving 9.",
+        "D": "This is the chance of a non-red marble among the 9 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_123",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 4 red, 6 blue and 2 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is blue?",
+      "options": [
+        "1/2",
+        "6/11",
+        "3/5",
+        "2/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 12 to 10.",
+        "B": "This removes only one green marble; all 2 green marbles are excluded, leaving 10.",
+        "C": "Correct. \"Not green\" rules out all 2 green marbles, leaving 10; of those, 6 are blue, so P = 6/10 = 3/5.",
+        "D": "This is the chance of a non-blue marble among the 10 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_124",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 5 red, 2 blue and 5 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is red?",
+      "options": [
+        "5/12",
+        "5/11",
+        "2/7",
+        "5/7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 12 to 7.",
+        "B": "This removes only one green marble; all 5 green marbles are excluded, leaving 7.",
+        "C": "This is the chance of a non-red marble among the 7 non-green ones, the complement.",
+        "D": "Correct. \"Not green\" rules out all 5 green marbles, leaving 7; of those, 5 are red, so P = 5/7."
+      }
+    },
+    {
+      "id": "pr_l5_125",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 6 red, 4 blue and 5 green marbles. You are told the marble drawn is NOT blue. Given that, what is the probability it is red?",
+      "options": [
+        "6/11",
+        "2/5",
+        "3/7",
+        "5/11"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. \"Not blue\" rules out all 4 blue marbles, leaving 11; of those, 6 are red, so P = 6/11.",
+        "B": "This ignores the conditioning; once blue is excluded the total drops from 15 to 11.",
+        "C": "This removes only one blue marble; all 4 blue marbles are excluded, leaving 11.",
+        "D": "This is the chance of a non-red marble among the 11 non-blue ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_126",
+      "concept": "restricted_marble_exclusion",
+      "question": "A bag has 2 red, 7 blue and 3 green marbles. You are told the marble drawn is NOT green. Given that, what is the probability it is blue?",
+      "options": [
+        "7/12",
+        "7/9",
+        "7/11",
+        "2/9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This ignores the conditioning; once green is excluded the total drops from 12 to 9.",
+        "B": "Correct. \"Not green\" rules out all 3 green marbles, leaving 9; of those, 7 are blue, so P = 7/9.",
+        "C": "This removes only one green marble; all 3 green marbles are excluded, leaving 9.",
+        "D": "This is the chance of a non-blue marble among the 9 non-green ones, the complement."
+      }
+    },
+    {
+      "id": "pr_l5_127",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is even (3 equally likely outcomes: 2, 4, 6), what is the probability the roll is greater than 3?",
+      "options": [
+        "1/2",
+        "1/3",
+        "2/3",
+        "1/6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 3 conditioned outcomes.",
+        "B": "This keeps the right favorable count but the unconditioned denominator 6; the space shrank to 3.",
+        "C": "Correct. Among the 3 conditioned outcomes {2, 4, 6}, 2 fall in the event {4, 6}, so P = 2/3.",
+        "D": "1/6 is the chance of a single face on an unconditioned die, ignoring the given information."
+      }
+    },
+    {
+      "id": "pr_l5_128",
+      "concept": "dice_restricted",
+      "question": "You roll a fair six-sided die. Given that the roll is greater than 1 (5 equally likely outcomes: 2, 3, 4, 5, 6), what is the probability the roll is prime?",
+      "options": [
+        "1/2",
+        "2/5",
+        "1/6",
+        "3/5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses the full 6-sided sample space instead of the 5 conditioned outcomes.",
+        "B": "This is the probability of the complementary event within the conditioned set, not the event asked.",
+        "C": "1/6 is the chance of a single face on an unconditioned die, ignoring the given information.",
+        "D": "Correct. Among the 5 conditioned outcomes {2, 3, 4, 5, 6}, 3 fall in the event {2, 3, 5}, so P = 3/5."
+      }
+    },
+    {
+      "id": "pr_l5_129",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped twice. Given that at least one flip is heads, what is the probability that both flips are heads?",
+      "options": [
+        "1/3",
+        "1/4",
+        "2/3",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The equally likely outcomes with at least one flip is heads are {TH, HT, HH} (3 of them); 1 give \"both flips are heads\", so P = 1/3.",
+        "B": "This uses the full 4-outcome space instead of the 3 outcomes consistent with the condition.",
+        "C": "This is the probability of the complement within the conditioned outcomes, not the event asked.",
+        "D": "1/2 ignores the conditioning; recount the favorable outcomes among the 3 consistent ones."
+      }
+    },
+    {
+      "id": "pr_l5_130",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped twice. Given that at least one flip is heads, what is the probability that exactly one flip is heads?",
+      "options": [
+        "1/2",
+        "2/3",
+        "1/3",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the full 4-outcome space instead of the 3 outcomes consistent with the condition.",
+        "B": "Correct. The equally likely outcomes with at least one flip is heads are {TH, HT, HH} (3 of them); 2 give \"exactly one flip is heads\", so P = 2/3.",
+        "C": "This is the probability of the complement within the conditioned outcomes, not the event asked.",
+        "D": "This overcounts favorable outcomes; only 2 of the 3 conditioned outcomes qualify."
+      }
+    },
+    {
+      "id": "pr_l5_131",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped twice. Given that at least one flip is tails, what is the probability that both flips are tails?",
+      "options": [
+        "1/4",
+        "2/3",
+        "1/3",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the full 4-outcome space instead of the 3 outcomes consistent with the condition.",
+        "B": "This is the probability of the complement within the conditioned outcomes, not the event asked.",
+        "C": "Correct. The equally likely outcomes with at least one flip is tails are {TT, TH, HT} (3 of them); 1 give \"both flips are tails\", so P = 1/3.",
+        "D": "1/2 ignores the conditioning; recount the favorable outcomes among the 3 consistent ones."
+      }
+    },
+    {
+      "id": "pr_l5_132",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped 3 times. Given that the first flip is heads, what is the probability that all three flips are heads?",
+      "options": [
+        "1/8",
+        "3/4",
+        "1/2",
+        "1/4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses the full 8-outcome space instead of the 4 outcomes consistent with the condition.",
+        "B": "This is the probability of the complement within the conditioned outcomes, not the event asked.",
+        "C": "1/2 ignores the conditioning; recount the favorable outcomes among the 4 consistent ones.",
+        "D": "Correct. The equally likely outcomes with the first flip is heads are {HTT, HTH, HHT, HHH} (4 of them); 1 give \"all three flips are heads\", so P = 1/4."
+      }
+    },
+    {
+      "id": "pr_l5_133",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 3 red and 2 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "3/10",
+        "9/25",
+        "3/5",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both red) = (3/5)(2/4) = 6/20 = 3/10.",
+        "B": "This squares 3/5 as if the draws were independent (with replacement); the second draw is 2/4.",
+        "C": "3/5 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "D": "2/4 is only the second-draw probability; multiply it by the first draw 3/5."
+      }
+    },
+    {
+      "id": "pr_l5_134",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 4 red and 2 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "4/9",
+        "2/5",
+        "2/3",
+        "3/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This squares 4/6 as if the draws were independent (with replacement); the second draw is 3/5.",
+        "B": "Correct. P(both red) = (4/6)(3/5) = 12/30 = 2/5.",
+        "C": "4/6 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "D": "3/5 is only the second-draw probability; multiply it by the first draw 4/6."
+      }
+    },
+    {
+      "id": "pr_l5_135",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 5 red and 3 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "25/64",
+        "5/8",
+        "5/14",
+        "4/7"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This squares 5/8 as if the draws were independent (with replacement); the second draw is 4/7.",
+        "B": "5/8 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "C": "Correct. P(both red) = (5/8)(4/7) = 20/56 = 5/14.",
+        "D": "4/7 is only the second-draw probability; multiply it by the first draw 5/8."
+      }
+    },
+    {
+      "id": "pr_l5_136",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 3 red and 3 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "1/4",
+        "1/2",
+        "2/5",
+        "1/5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This squares 3/6 as if the draws were independent (with replacement); the second draw is 2/5.",
+        "B": "3/6 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "C": "2/5 is only the second-draw probability; multiply it by the first draw 3/6.",
+        "D": "Correct. P(both red) = (3/6)(2/5) = 6/30 = 1/5."
+      }
+    },
+    {
+      "id": "pr_l5_137",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 2 red and 3 blue marbles. You draw two marbles without replacement. What is the probability both are blue?",
+      "options": [
+        "3/10",
+        "9/25",
+        "3/5",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both blue) = (3/5)(2/4) = 6/20 = 3/10.",
+        "B": "This squares 3/5 as if the draws were independent; without replacement the second draw is 2/4.",
+        "C": "3/5 is just the first-draw blue probability; multiply by the updated second draw.",
+        "D": "2/4 is only the second-draw probability; multiply by the first draw 3/5."
+      }
+    },
+    {
+      "id": "pr_l5_138",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 4 red and 4 blue marbles. You draw two marbles without replacement. What is the probability both are blue?",
+      "options": [
+        "1/4",
+        "3/14",
+        "1/2",
+        "3/7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This squares 4/8 as if the draws were independent; without replacement the second draw is 3/7.",
+        "B": "Correct. P(both blue) = (4/8)(3/7) = 12/56 = 3/14.",
+        "C": "4/8 is just the first-draw blue probability; multiply by the updated second draw.",
+        "D": "3/7 is only the second-draw probability; multiply by the first draw 4/8."
+      }
+    },
+    {
+      "id": "pr_l5_139",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 5 red and 2 blue marbles. You draw two marbles without replacement. What is the probability both are blue?",
+      "options": [
+        "4/49",
+        "2/7",
+        "1/21",
+        "1/6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This squares 2/7 as if the draws were independent; without replacement the second draw is 1/6.",
+        "B": "2/7 is just the first-draw blue probability; multiply by the updated second draw.",
+        "C": "Correct. P(both blue) = (2/7)(1/6) = 2/42 = 1/21.",
+        "D": "1/6 is only the second-draw probability; multiply by the first draw 2/7."
+      }
+    },
+    {
+      "id": "pr_l5_140",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 3 red and 2 blue marbles. You draw two without replacement. What is the probability the first is red and the second is blue (in that order)?",
+      "options": [
+        "6/25",
+        "3/5",
+        "1/2",
+        "3/10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses 5 for both denominators (with replacement); the second draw is out of 4.",
+        "B": "This counts both orders (red-blue and blue-red); the question fixes the order red then blue.",
+        "C": "2/4 is only the second-draw blue probability after a red; multiply by 3/5.",
+        "D": "Correct. P(red then blue) = (3/5)(2/4) = 6/20 = 3/10."
+      }
+    },
+    {
+      "id": "pr_l5_141",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 4 red and 3 blue marbles. You draw two without replacement. What is the probability the first is red and the second is blue (in that order)?",
+      "options": [
+        "2/7",
+        "12/49",
+        "4/7",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(red then blue) = (4/7)(3/6) = 12/42 = 2/7.",
+        "B": "This uses 7 for both denominators (with replacement); the second draw is out of 6.",
+        "C": "This counts both orders (red-blue and blue-red); the question fixes the order red then blue.",
+        "D": "3/6 is only the second-draw blue probability after a red; multiply by 4/7."
+      }
+    },
+    {
+      "id": "pr_l5_142",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 5 red and 5 blue marbles. You draw two without replacement. What is the probability the first is red and the second is blue (in that order)?",
+      "options": [
+        "1/4",
+        "5/18",
+        "5/9",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses 10 for both denominators (with replacement); the second draw is out of 9.",
+        "B": "Correct. P(red then blue) = (5/10)(5/9) = 25/90 = 5/18.",
+        "C": "This counts both orders (red-blue and blue-red); the question fixes the order red then blue.",
+        "D": "5/10 is only the first-draw red probability; multiply by the second-draw blue probability 5/9."
+      }
+    },
+    {
+      "id": "pr_l5_143",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 6 red and 4 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "9/25",
+        "3/5",
+        "1/3",
+        "5/9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This squares 6/10 as if the draws were independent (with replacement); the second draw is 5/9.",
+        "B": "6/10 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "C": "Correct. P(both red) = (6/10)(5/9) = 30/90 = 1/3.",
+        "D": "5/9 is only the second-draw probability; multiply it by the first draw 6/10."
+      }
+    },
+    {
+      "id": "pr_l5_144",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 2 red and 4 blue marbles. You draw two marbles without replacement. What is the probability both are blue?",
+      "options": [
+        "4/9",
+        "2/3",
+        "3/5",
+        "2/5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This squares 4/6 as if the draws were independent; without replacement the second draw is 3/5.",
+        "B": "4/6 is just the first-draw blue probability; multiply by the updated second draw.",
+        "C": "3/5 is only the second-draw probability; multiply by the first draw 4/6.",
+        "D": "Correct. P(both blue) = (4/6)(3/5) = 12/30 = 2/5."
+      }
+    },
+    {
+      "id": "pr_l5_145",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was an Ace, what is the probability the second card is also an Ace?",
+      "options": [
+        "1/17",
+        "4/52",
+        "4/51",
+        "3/52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After the first card is removed, 3 qualifying cards remain among 51, so the probability is 3/51 = 1/17.",
+        "B": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "C": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 3 remain.",
+        "D": "This keeps the right count of 3 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_146",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a King, what is the probability the second card is also a King?",
+      "options": [
+        "4/52",
+        "1/17",
+        "4/51",
+        "3/52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "Correct. After the first card is removed, 3 qualifying cards remain among 51, so the probability is 3/51 = 1/17.",
+        "C": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 3 remain.",
+        "D": "This keeps the right count of 3 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_147",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was an Ace, what is the probability the second card is a King?",
+      "options": [
+        "4/52",
+        "3/51",
+        "4/51",
+        "5/51"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "This removes one too many; 4 qualifying cards remain among 51.",
+        "C": "Correct. After the first card is removed, 4 qualifying cards remain among 51, so the probability is 4/51.",
+        "D": "This counts one extra qualifying card; only 4 remain among 51."
+      }
+    },
+    {
+      "id": "pr_l5_148",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a heart, what is the probability the second card is also a heart?",
+      "options": [
+        "13/52",
+        "13/51",
+        "12/52",
+        "4/17"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 12 remain.",
+        "C": "This keeps the right count of 12 but uses 52; the deck now holds 51 cards.",
+        "D": "Correct. After the first card is removed, 12 qualifying cards remain among 51, so the probability is 12/51 = 4/17."
+      }
+    },
+    {
+      "id": "pr_l5_149",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a heart, what is the probability the second card is a spade?",
+      "options": [
+        "13/51",
+        "13/52",
+        "12/51",
+        "14/51"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After the first card is removed, 13 qualifying cards remain among 51, so the probability is 13/51.",
+        "B": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "C": "This removes one too many; 13 qualifying cards remain among 51.",
+        "D": "This counts one extra qualifying card; only 13 remain among 51."
+      }
+    },
+    {
+      "id": "pr_l5_150",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was red, what is the probability the second card is also red?",
+      "options": [
+        "26/52",
+        "25/51",
+        "26/51",
+        "25/52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "Correct. After the first card is removed, 25 qualifying cards remain among 51, so the probability is 25/51.",
+        "C": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 25 remain.",
+        "D": "This keeps the right count of 25 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_151",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was red, what is the probability the second card is black?",
+      "options": [
+        "26/52",
+        "25/51",
+        "26/51",
+        "27/51"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "This removes one too many; 26 qualifying cards remain among 51.",
+        "C": "Correct. After the first card is removed, 26 qualifying cards remain among 51, so the probability is 26/51.",
+        "D": "This counts one extra qualifying card; only 26 remain among 51."
+      }
+    },
+    {
+      "id": "pr_l5_152",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a spade, what is the probability the second card is also a spade?",
+      "options": [
+        "13/52",
+        "13/51",
+        "12/52",
+        "4/17"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 12 remain.",
+        "C": "This keeps the right count of 12 but uses 52; the deck now holds 51 cards.",
+        "D": "Correct. After the first card is removed, 12 qualifying cards remain among 51, so the probability is 12/51 = 4/17."
+      }
+    },
+    {
+      "id": "pr_l5_153",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn without replacement. Given that the first card is a heart, what is the probability that BOTH cards are a heart? (The first is already a heart, so this is just the second-card probability.)",
+      "options": [
+        "4/17",
+        "13/52",
+        "13/51",
+        "12/52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Given the first card is a heart, 12 matching cards remain among 51, so P(both a heart | first a heart) = 12/51 = 4/17.",
+        "B": "This is the unconditional single-draw probability of a heart, before the first card was removed.",
+        "C": "This shrinks the deck to 51 but forgets one a heart card was already used.",
+        "D": "This keeps 12 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_154",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn without replacement. Given that the first card is red, what is the probability that BOTH cards are red? (The first is already red, so this is just the second-card probability.)",
+      "options": [
+        "26/52",
+        "25/51",
+        "26/51",
+        "25/52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This is the unconditional single-draw probability of red, before the first card was removed.",
+        "B": "Correct. Given the first card is red, 25 matching cards remain among 51, so P(both red | first red) = 25/51.",
+        "C": "This shrinks the deck to 51 but forgets one red card was already used.",
+        "D": "This keeps 25 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_155",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn without replacement. Given that the first card is a club, what is the probability that BOTH cards are a club? (The first is already a club, so this is just the second-card probability.)",
+      "options": [
+        "13/52",
+        "13/51",
+        "4/17",
+        "12/52"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This is the unconditional single-draw probability of a club, before the first card was removed.",
+        "B": "This shrinks the deck to 51 but forgets one a club card was already used.",
+        "C": "Correct. Given the first card is a club, 12 matching cards remain among 51, so P(both a club | first a club) = 12/51 = 4/17.",
+        "D": "This keeps 12 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_156",
+      "concept": "conditional_cards",
+      "question": "Two cards are drawn without replacement. Given that the first card is black, what is the probability that BOTH cards are black? (The first is already black, so this is just the second-card probability.)",
+      "options": [
+        "26/52",
+        "26/51",
+        "25/52",
+        "25/51"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This is the unconditional single-draw probability of black, before the first card was removed.",
+        "B": "This shrinks the deck to 51 but forgets one black card was already used.",
+        "C": "This keeps 25 but uses 52; the deck now holds 51 cards.",
+        "D": "Correct. Given the first card is black, 25 matching cards remain among 51, so P(both black | first black) = 25/51."
+      }
+    },
+    {
+      "id": "pr_l5_157",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 4 red and 3 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "2/7",
+        "16/49",
+        "4/7",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both red) = (4/7)(3/6) = 12/42 = 2/7.",
+        "B": "This squares 4/7 as if the draws were independent (with replacement); the second draw is 3/6.",
+        "C": "4/7 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "D": "3/6 is only the second-draw probability; multiply it by the first draw 4/7."
+      }
+    },
+    {
+      "id": "pr_l5_158",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 5 red and 4 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "25/81",
+        "5/18",
+        "5/9",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This squares 5/9 as if the draws were independent (with replacement); the second draw is 4/8.",
+        "B": "Correct. P(both red) = (5/9)(4/8) = 20/72 = 5/18.",
+        "C": "5/9 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "D": "4/8 is only the second-draw probability; multiply it by the first draw 5/9."
+      }
+    },
+    {
+      "id": "pr_l5_159",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 3 red and 4 blue marbles. You draw two marbles without replacement. What is the probability both are blue?",
+      "options": [
+        "16/49",
+        "4/7",
+        "2/7",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This squares 4/7 as if the draws were independent; without replacement the second draw is 3/6.",
+        "B": "4/7 is just the first-draw blue probability; multiply by the updated second draw.",
+        "C": "Correct. P(both blue) = (4/7)(3/6) = 12/42 = 2/7.",
+        "D": "3/6 is only the second-draw probability; multiply by the first draw 4/7."
+      }
+    },
+    {
+      "id": "pr_l5_160",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 5 red and 3 blue marbles. You draw two marbles without replacement. What is the probability both are blue?",
+      "options": [
+        "9/64",
+        "3/8",
+        "2/7",
+        "3/28"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This squares 3/8 as if the draws were independent; without replacement the second draw is 2/7.",
+        "B": "3/8 is just the first-draw blue probability; multiply by the updated second draw.",
+        "C": "2/7 is only the second-draw probability; multiply by the first draw 3/8.",
+        "D": "Correct. P(both blue) = (3/8)(2/7) = 6/56 = 3/28."
+      }
+    },
+    {
+      "id": "pr_l5_161",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 4 red and 4 blue marbles. You draw two without replacement. What is the probability the first is red and the second is blue (in that order)?",
+      "options": [
+        "2/7",
+        "1/4",
+        "4/7",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(red then blue) = (4/8)(4/7) = 16/56 = 2/7.",
+        "B": "This uses 8 for both denominators (with replacement); the second draw is out of 7.",
+        "C": "This counts both orders (red-blue and blue-red); the question fixes the order red then blue.",
+        "D": "4/8 is only the first-draw red probability; multiply by the second-draw blue probability 4/7."
+      }
+    },
+    {
+      "id": "pr_l5_162",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 6 red and 3 blue marbles. You draw two without replacement. What is the probability the first is red and the second is blue (in that order)?",
+      "options": [
+        "2/9",
+        "1/4",
+        "1/2",
+        "2/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses 9 for both denominators (with replacement); the second draw is out of 8.",
+        "B": "Correct. P(red then blue) = (6/9)(3/8) = 18/72 = 1/4.",
+        "C": "This counts both orders (red-blue and blue-red); the question fixes the order red then blue.",
+        "D": "6/9 is only the first-draw red probability; multiply by the second-draw blue probability 3/8."
+      }
+    },
+    {
+      "id": "pr_l5_163",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 2 red and 5 blue marbles. You draw two marbles without replacement. What is the probability both are blue?",
+      "options": [
+        "25/49",
+        "5/7",
+        "10/21",
+        "2/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This squares 5/7 as if the draws were independent; without replacement the second draw is 4/6.",
+        "B": "5/7 is just the first-draw blue probability; multiply by the updated second draw.",
+        "C": "Correct. P(both blue) = (5/7)(4/6) = 20/42 = 10/21.",
+        "D": "4/6 is only the second-draw probability; multiply by the first draw 5/7."
+      }
+    },
+    {
+      "id": "pr_l5_164",
+      "concept": "both_red_without_replacement",
+      "question": "A bag has 6 red and 2 blue marbles. You draw two marbles without replacement. What is the probability both are red?",
+      "options": [
+        "9/16",
+        "3/4",
+        "5/7",
+        "15/28"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This squares 6/8 as if the draws were independent (with replacement); the second draw is 5/7.",
+        "B": "6/8 is the chance the first marble is red; you must also multiply by the updated second-draw probability.",
+        "C": "5/7 is only the second-draw probability; multiply it by the first draw 6/8.",
+        "D": "Correct. P(both red) = (6/8)(5/7) = 30/56 = 15/28."
+      }
+    },
+    {
+      "id": "pr_l5_165",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a club, what is the probability the second card is also a club?",
+      "options": [
+        "4/17",
+        "13/52",
+        "13/51",
+        "12/52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. After the first card is removed, 12 qualifying cards remain among 51, so the probability is 12/51 = 4/17.",
+        "B": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "C": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 12 remain.",
+        "D": "This keeps the right count of 12 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_166",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a diamond, what is the probability the second card is also a diamond?",
+      "options": [
+        "13/52",
+        "4/17",
+        "13/51",
+        "12/52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "Correct. After the first card is removed, 12 qualifying cards remain among 51, so the probability is 12/51 = 4/17.",
+        "C": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 12 remain.",
+        "D": "This keeps the right count of 12 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_167",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a Queen, what is the probability the second card is also a Queen?",
+      "options": [
+        "4/52",
+        "4/51",
+        "1/17",
+        "3/52"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "This shrinks the deck to 51 but forgets the first card was one of the qualifying cards, so only 3 remain.",
+        "C": "Correct. After the first card is removed, 3 qualifying cards remain among 51, so the probability is 3/51 = 1/17.",
+        "D": "This keeps the right count of 3 but uses 52; the deck now holds 51 cards."
+      }
+    },
+    {
+      "id": "pr_l5_168",
+      "concept": "sequential_card_given_first",
+      "question": "Two cards are drawn from a standard 52-card deck without replacement. Given that the first card was a King, what is the probability the second card is a Queen?",
+      "options": [
+        "4/52",
+        "3/51",
+        "5/51",
+        "4/51"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This uses the original 52-card deck and ignores that one card was already drawn and removed.",
+        "B": "This removes one too many; 4 qualifying cards remain among 51.",
+        "C": "This counts one extra qualifying card; only 4 remain among 51.",
+        "D": "Correct. After the first card is removed, 4 qualifying cards remain among 51, so the probability is 4/51."
+      }
+    },
+    {
+      "id": "pr_l5_169",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped 3 times. Given that at least one flip is heads, what is the probability that all three flips are heads?",
+      "options": [
+        "1/7",
+        "1/8",
+        "6/7",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The equally likely outcomes with at least one flip is heads are {TTH, THT, THH, HTT, HTH, HHT, HHH} (7 of them); 1 give \"all three flips are heads\", so P = 1/7.",
+        "B": "This uses the full 8-outcome space instead of the 7 outcomes consistent with the condition.",
+        "C": "This is the probability of the complement within the conditioned outcomes, not the event asked.",
+        "D": "1/2 ignores the conditioning; recount the favorable outcomes among the 7 consistent ones."
+      }
+    },
+    {
+      "id": "pr_l5_170",
+      "concept": "conditional_two_flips",
+      "question": "A fair coin is flipped 3 times. Given that exactly two of the three flips are heads, what is the probability that the first flip is heads?",
+      "options": [
+        "1/4",
+        "2/3",
+        "1/3",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This uses the full 8-outcome space instead of the 3 outcomes consistent with the condition.",
+        "B": "Correct. The equally likely outcomes with exactly two of the three flips are heads are {THH, HTH, HHT} (3 of them); 2 give \"the first flip is heads\", so P = 2/3.",
+        "C": "This is the probability of the complement within the conditioned outcomes, not the event asked.",
+        "D": "1/2 ignores the conditioning; recount the favorable outcomes among the 3 consistent ones."
+      }
+    },
+    {
+      "id": "pr_l5_171",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 3 red and 2 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "1/10",
+        "3/5",
+        "9/10",
+        "4/25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/10 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "3/5 is the single-draw red probability, not P(at least one red) over two draws.",
+        "C": "Correct. P(both blue) = (2/5)(1/4) = 1/10, so P(at least one red) = 1 − 1/10 = 9/10.",
+        "D": "This is (2/5)² (with replacement) for both blue; without replacement the second draw is 1/4."
+      }
+    },
+    {
+      "id": "pr_l5_172",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 2 red and 3 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "3/10",
+        "2/5",
+        "9/25",
+        "7/10"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/10 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "2/5 is the single-draw red probability, not P(at least one red) over two draws.",
+        "C": "This is (3/5)² (with replacement) for both blue; without replacement the second draw is 2/4.",
+        "D": "Correct. P(both blue) = (3/5)(2/4) = 3/10, so P(at least one red) = 1 − 3/10 = 7/10."
+      }
+    },
+    {
+      "id": "pr_l5_173",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 4 red and 2 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "14/15",
+        "1/15",
+        "2/3",
+        "1/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both blue) = (2/6)(1/5) = 1/15, so P(at least one red) = 1 − 1/15 = 14/15.",
+        "B": "1/15 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "C": "4/6 is the single-draw red probability, not P(at least one red) over two draws.",
+        "D": "This is (2/6)² (with replacement) for both blue; without replacement the second draw is 1/5."
+      }
+    },
+    {
+      "id": "pr_l5_174",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 3 red and 3 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "1/5",
+        "4/5",
+        "1/2",
+        "1/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/5 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "Correct. P(both blue) = (3/6)(2/5) = 1/5, so P(at least one red) = 1 − 1/5 = 4/5.",
+        "C": "3/6 is the single-draw red probability, not P(at least one red) over two draws.",
+        "D": "This is (3/6)² (with replacement) for both blue; without replacement the second draw is 2/5."
+      }
+    },
+    {
+      "id": "pr_l5_175",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 2 red and 4 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "2/5",
+        "1/3",
+        "3/5",
+        "4/9"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2/5 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "2/6 is the single-draw red probability, not P(at least one red) over two draws.",
+        "C": "Correct. P(both blue) = (4/6)(3/5) = 2/5, so P(at least one red) = 1 − 2/5 = 3/5.",
+        "D": "This is (4/6)² (with replacement) for both blue; without replacement the second draw is 3/5."
+      }
+    },
+    {
+      "id": "pr_l5_176",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 4 red and 4 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "3/14",
+        "1/2",
+        "1/4",
+        "11/14"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3/14 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "4/8 is the single-draw red probability, not P(at least one red) over two draws.",
+        "C": "This is (4/8)² (with replacement) for both blue; without replacement the second draw is 3/7.",
+        "D": "Correct. P(both blue) = (4/8)(3/7) = 3/14, so P(at least one red) = 1 − 3/14 = 11/14."
+      }
+    },
+    {
+      "id": "pr_l5_177",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 5 red and 2 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "20/21",
+        "1/21",
+        "5/7",
+        "4/49"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both blue) = (2/7)(1/6) = 1/21, so P(at least one red) = 1 − 1/21 = 20/21.",
+        "B": "1/21 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "C": "5/7 is the single-draw red probability, not P(at least one red) over two draws.",
+        "D": "This is (2/7)² (with replacement) for both blue; without replacement the second draw is 1/6."
+      }
+    },
+    {
+      "id": "pr_l5_178",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 2 red and 5 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "10/21",
+        "11/21",
+        "2/7",
+        "25/49"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10/21 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "Correct. P(both blue) = (5/7)(4/6) = 10/21, so P(at least one red) = 1 − 10/21 = 11/21.",
+        "C": "2/7 is the single-draw red probability, not P(at least one red) over two draws.",
+        "D": "This is (5/7)² (with replacement) for both blue; without replacement the second draw is 4/6."
+      }
+    },
+    {
+      "id": "pr_l5_179",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 5 red and 3 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "3/28",
+        "5/8",
+        "25/28",
+        "9/64"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/28 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "5/8 is the single-draw red probability, not P(at least one red) over two draws.",
+        "C": "Correct. P(both blue) = (3/8)(2/7) = 3/28, so P(at least one red) = 1 − 3/28 = 25/28.",
+        "D": "This is (3/8)² (with replacement) for both blue; without replacement the second draw is 2/7."
+      }
+    },
+    {
+      "id": "pr_l5_180",
+      "concept": "at_least_one_red_without_replacement",
+      "question": "A bag has 3 red and 4 blue marbles. You draw two without replacement. What is the probability of getting at least one red?",
+      "options": [
+        "2/7",
+        "3/7",
+        "16/49",
+        "5/7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "2/7 is P(both blue), the complement; subtract it from 1 to get P(at least one red).",
+        "B": "3/7 is the single-draw red probability, not P(at least one red) over two draws.",
+        "C": "This is (4/7)² (with replacement) for both blue; without replacement the second draw is 3/6.",
+        "D": "Correct. P(both blue) = (4/7)(3/6) = 2/7, so P(at least one red) = 1 − 2/7 = 5/7."
+      }
+    },
+    {
+      "id": "pr_l5_181",
+      "concept": "conditional_urn",
+      "question": "An urn holds 4 red and 6 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "1/5",
+        "2/15",
+        "2/3",
+        "2/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both red) = C(4,2)/C(10,2) = 6/45. P(at least one red) = 1 − C(6,2)/C(10,2) = 30/45. So P(both red | ≥1 red) = 6/30 = 1/5.",
+        "B": "2/15 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "C": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "D": "This divides by C(6,2) = P(both blue) counts, the wrong restricting event."
+      }
+    },
+    {
+      "id": "pr_l5_182",
+      "concept": "conditional_urn",
+      "question": "An urn holds 3 red and 5 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "3/28",
+        "1/6",
+        "9/14",
+        "3/10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3/28 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "B": "Correct. P(both red) = C(3,2)/C(8,2) = 3/28. P(at least one red) = 1 − C(5,2)/C(8,2) = 18/28. So P(both red | ≥1 red) = 3/18 = 1/6.",
+        "C": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "D": "This divides by C(5,2) = P(both blue) counts, the wrong restricting event."
+      }
+    },
+    {
+      "id": "pr_l5_183",
+      "concept": "conditional_urn",
+      "question": "An urn holds 5 red and 5 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "2/9",
+        "7/9",
+        "2/7",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2/9 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "B": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "C": "Correct. P(both red) = C(5,2)/C(10,2) = 10/45. P(at least one red) = 1 − C(5,2)/C(10,2) = 35/45. So P(both red | ≥1 red) = 10/35 = 2/7.",
+        "D": "This divides by C(5,2) = P(both blue) counts, the wrong restricting event."
+      }
+    },
+    {
+      "id": "pr_l5_184",
+      "concept": "conditional_urn",
+      "question": "An urn holds 3 red and 3 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "1/5",
+        "4/5",
+        "1",
+        "1/4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/5 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "B": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "C": "This divides by C(3,2) = P(both blue) counts, the wrong restricting event.",
+        "D": "Correct. P(both red) = C(3,2)/C(6,2) = 3/15. P(at least one red) = 1 − C(3,2)/C(6,2) = 12/15. So P(both red | ≥1 red) = 3/12 = 1/4."
+      }
+    },
+    {
+      "id": "pr_l5_185",
+      "concept": "conditional_urn",
+      "question": "An urn holds 4 red and 4 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "3/11",
+        "3/14",
+        "11/14",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both red) = C(4,2)/C(8,2) = 6/28. P(at least one red) = 1 − C(4,2)/C(8,2) = 22/28. So P(both red | ≥1 red) = 6/22 = 3/11.",
+        "B": "3/14 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "C": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "D": "This divides by C(4,2) = P(both blue) counts, the wrong restricting event."
+      }
+    },
+    {
+      "id": "pr_l5_186",
+      "concept": "conditional_urn",
+      "question": "An urn holds 6 red and 4 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "1/3",
+        "5/13",
+        "13/15",
+        "1/2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/3 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "B": "Correct. P(both red) = C(6,2)/C(10,2) = 15/45. P(at least one red) = 1 − C(4,2)/C(10,2) = 39/45. So P(both red | ≥1 red) = 15/39 = 5/13.",
+        "C": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "D": "1/2 does not match 15/39."
+      }
+    },
+    {
+      "id": "pr_l5_187",
+      "concept": "conditional_urn",
+      "question": "An urn holds 4 red and 5 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "1/6",
+        "13/18",
+        "3/13",
+        "3/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/6 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "B": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "C": "Correct. P(both red) = C(4,2)/C(9,2) = 6/36. P(at least one red) = 1 − C(5,2)/C(9,2) = 26/36. So P(both red | ≥1 red) = 6/26 = 3/13.",
+        "D": "This divides by C(5,2) = P(both blue) counts, the wrong restricting event."
+      }
+    },
+    {
+      "id": "pr_l5_188",
+      "concept": "conditional_urn",
+      "question": "An urn holds 5 red and 4 blue marbles. Two marbles are drawn without replacement. Given that at least one of them is red, what is the probability that both are red?",
+      "options": [
+        "5/18",
+        "5/6",
+        "1/2",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5/18 is the UNconditional P(both red); conditioning on \"at least one red\" shrinks the sample space.",
+        "B": "This is P(at least one red), the conditioning event itself, not P(both red | at least one red).",
+        "C": "1/2 does not match 10/30.",
+        "D": "Correct. P(both red) = C(5,2)/C(9,2) = 10/36. P(at least one red) = 1 − C(4,2)/C(9,2) = 30/36. So P(both red | ≥1 red) = 10/30 = 1/3."
+      }
+    }
+  ]
+}

@@ -1,0 +1,3157 @@
+{
+  "lessonId": "lesson_10",
+  "track": "quant",
+  "title": "Brain Teasers & Quant Estimation",
+  "questions": [
+    {
+      "id": "pr_l10_001",
+      "concept": "fermi_decomposition",
+      "question": "What is the core idea behind a Fermi estimate?",
+      "options": [
+        "Look up the exact answer in a reference table",
+        "Break the unknown into factors you can each estimate, then multiply them",
+        "Guess one number and hope it is close",
+        "Average the smallest and largest values you can imagine"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Exact reference tables rarely exist for these questions, and looking one up defeats the purpose of a quick estimate.",
+        "B": "Correct. A Fermi estimate splits the unknown into estimable factors and multiplies them, e.g. population x rate x fraction.",
+        "C": "A single blind guess carries no structure and enormous error; decomposition is the whole point.",
+        "D": "Averaging the extremes ignores the multiplicative structure that actually makes Fermi estimates accurate."
+      }
+    },
+    {
+      "id": "pr_l10_002",
+      "concept": "fermi_estimation",
+      "question": "To estimate the number of barbershops in a city of 1,000,000 people, which decomposition gives the count of shops?",
+      "options": [
+        "(city area) / (barbershop size)",
+        "(city population) / 2",
+        "(haircuts demanded per year) / (haircuts one shop supplies per year)",
+        "(city population) x (haircuts per person per year)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Area divided by shop size estimates how many could physically fit, not how many the demand supports.",
+        "B": "Halving the population has no connection to haircut demand or shop capacity.",
+        "C": "Correct. Number of shops = total annual demand / annual supply per shop, matching demand to capacity.",
+        "D": "Population times haircuts per person gives total demand (haircuts), not the number of shops."
+      }
+    },
+    {
+      "id": "pr_l10_003",
+      "concept": "order_of_magnitude",
+      "question": "About how many times does a human heart beat in a 75-year lifetime (roughly 70 beats per minute)?",
+      "options": [
+        "About 10^3 (a few thousand)",
+        "About 10^6 (a million)",
+        "About 10^9 (a few billion)",
+        "About 10^12 (a trillion)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A few thousand beats is reached in under an hour, far short of a lifetime.",
+        "B": "A million beats happens in about ten days, not a lifetime.",
+        "C": "Correct. 70/min x 60 x 24 x 365 x 75 is about 2.8 x 10^9, on the order of 10^9.",
+        "D": "A trillion overshoots by roughly three orders of magnitude."
+      }
+    },
+    {
+      "id": "pr_l10_004",
+      "concept": "scaling_units",
+      "question": "Roughly how many seconds are in a 75-year human lifetime?",
+      "options": [
+        "About 10^9 (a couple billion)",
+        "About 10^6 (a million)",
+        "About 10^12 (a trillion)",
+        "About 10^4 (ten thousand)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 75 x 3.15 x 10^7 seconds/year is about 2.4 x 10^9 seconds.",
+        "B": "A million seconds is only about 11.6 days.",
+        "C": "A trillion seconds is roughly 31,700 years, far too long.",
+        "D": "Ten thousand seconds is under three hours."
+      }
+    },
+    {
+      "id": "pr_l10_005",
+      "concept": "order_of_magnitude",
+      "question": "About how many breaths does a person take in a single day (around 15 breaths per minute)?",
+      "options": [
+        "About 10^2 (hundreds)",
+        "About 10^4 (tens of thousands)",
+        "About 10^6 (a million)",
+        "About 10^8 (a hundred million)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Hundreds of breaths is reached within about half an hour, not a full day.",
+        "B": "Correct. 15 x 60 x 24 is about 21,600, on the order of 10^4.",
+        "C": "A million breaths would take roughly 46 days at this rate.",
+        "D": "A hundred million breaths is wildly beyond a single day."
+      }
+    },
+    {
+      "id": "pr_l10_006",
+      "concept": "fermi_estimation",
+      "question": "Estimate how many golf balls fit inside a standard school bus. Which order of magnitude is most reasonable?",
+      "options": [
+        "About 10^2 (hundreds)",
+        "About 10^4 (tens of thousands)",
+        "About 10^6 (around a million)",
+        "About 10^9 (a billion)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Hundreds is far too few; a single seat's footprint already holds many golf balls.",
+        "B": "Tens of thousands undercounts a bus interior of tens of cubic meters.",
+        "C": "Correct. Bus volume ~75 m^3 (7.5 x 10^7 cm^3) divided by ~65 cm^3 per packed golf ball is about 10^6.",
+        "D": "A billion golf balls would need a volume thousands of times larger than a bus."
+      }
+    },
+    {
+      "id": "pr_l10_007",
+      "concept": "fermi_decomposition",
+      "question": "Why is tracking units (people, years, cups) through a Fermi estimate important?",
+      "options": [
+        "Units make the final number larger",
+        "Units catch inconsistent steps and confirm the result has the right dimension",
+        "Units are only needed for the final answer",
+        "Units have no effect on estimates"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Units do not inflate the answer; they discipline the reasoning.",
+        "B": "Correct. Carrying units through each factor exposes mismatches and ensures the answer ends in sensible units (e.g. cups/year).",
+        "C": "Units must be tracked at every step, not just tacked on at the end.",
+        "D": "Ignoring units is exactly how order-of-magnitude blunders sneak in."
+      }
+    },
+    {
+      "id": "pr_l10_008",
+      "concept": "scaling_units",
+      "question": "When you multiply two estimates written as powers of ten, the exponents:",
+      "options": [
+        "add together",
+        "subtract",
+        "multiply together",
+        "stay unchanged"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 10^a x 10^b = 10^(a+b), so the exponents add.",
+        "B": "Exponents subtract when you divide powers of ten, not when you multiply.",
+        "C": "Multiplying the exponents (a x b) is a common confusion but is incorrect.",
+        "D": "Exponents change unless one factor is 10^0 = 1."
+      }
+    },
+    {
+      "id": "pr_l10_009",
+      "concept": "order_of_magnitude",
+      "question": "Estimate the annual number of cups of coffee consumed in the U.S. (population ~3.3 x 10^8, about 1 cup per person per day).",
+      "options": [
+        "About 10^8",
+        "About 10^11 (around 100 billion)",
+        "About 10^14",
+        "About 10^5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10^8 is only the population; it ignores the 365 days per year factor.",
+        "B": "Correct. 3.3 x 10^8 people x 3.65 x 10^2 days x 1 cup is about 1.2 x 10^11.",
+        "C": "10^14 overshoots by about three orders of magnitude.",
+        "D": "10^5 is smaller than the population itself, far too low."
+      }
+    },
+    {
+      "id": "pr_l10_010",
+      "concept": "fermi_estimation",
+      "question": "Estimate the number of words an average adult speaks in one day. Which magnitude is most defensible?",
+      "options": [
+        "About 10^1 (tens)",
+        "About 10^4 (tens of thousands)",
+        "About 10^7 (tens of millions)",
+        "About 10^10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Tens of words is exhausted in a single sentence.",
+        "B": "Correct. At ~125 words/min for a few hours of talking, totals land near 10^4 words per day.",
+        "C": "Tens of millions of words a day would require speaking nonstop at impossible speeds.",
+        "D": "10^10 words per day is physically impossible for one person."
+      }
+    },
+    {
+      "id": "pr_l10_011",
+      "concept": "order_of_magnitude",
+      "question": "The number 7.2 x 10^6 has which order of magnitude?",
+      "options": [
+        "10^5",
+        "10^6",
+        "10^7",
+        "10^8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10^5 would describe numbers near a few hundred thousand, not 7.2 million.",
+        "B": "Correct. 7.2 x 10^6 is on the order of 10^6 (millions); the leading power of ten is 6.",
+        "C": "10^7 describes numbers near 10 million; 7.2 million is below that.",
+        "D": "10^8 is a hundred million, far above 7.2 million."
+      }
+    },
+    {
+      "id": "pr_l10_012",
+      "concept": "fermi_estimation",
+      "question": "Estimate how many pizzas are eaten in the U.S. per day (population ~3.3 x 10^8, suppose ~1 slice per person per day, 8 slices per pizza).",
+      "options": [
+        "About 10^4",
+        "About 10^7 (tens of millions)",
+        "About 10^10",
+        "About 10^2"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10^4 is far below even one pizza per thousand people.",
+        "B": "Correct. 3.3 x 10^8 slices / 8 slices per pizza is about 4 x 10^7, on the order of 10^7.",
+        "C": "10^10 exceeds the population by two orders of magnitude.",
+        "D": "10^2 (hundreds) is absurdly small for a nation."
+      }
+    },
+    {
+      "id": "pr_l10_013",
+      "concept": "scaling_units",
+      "question": "If a quantity grows by a factor of 1000, by how many orders of magnitude does it increase?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A factor of 10 is one order of magnitude, not 1000.",
+        "B": "A factor of 100 is two orders of magnitude.",
+        "C": "Correct. 1000 = 10^3, which is three orders of magnitude.",
+        "D": "Ten orders of magnitude would be a factor of 10^10, far larger than 1000."
+      }
+    },
+    {
+      "id": "pr_l10_014",
+      "concept": "fermi_estimation",
+      "question": "Estimate the number of hairs on a typical human head. Which order of magnitude is best?",
+      "options": [
+        "About 10^2 (hundreds)",
+        "About 10^5 (around 100,000)",
+        "About 10^8",
+        "About 10^11"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Hundreds of hairs would look nearly bald.",
+        "B": "Correct. A human scalp holds roughly 100,000 hairs, on the order of 10^5.",
+        "C": "10^8 hairs is a thousand times too many for one head.",
+        "D": "10^11 exceeds the number of stars some estimates give for the galaxy."
+      }
+    },
+    {
+      "id": "pr_l10_015",
+      "concept": "order_of_magnitude",
+      "question": "Roughly how many minutes are in one (non-leap) year?",
+      "options": [
+        "About 5 x 10^5 (half a million)",
+        "About 5 x 10^3",
+        "About 5 x 10^7",
+        "About 5 x 10^9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 365 x 24 x 60 = 525,600, about 5.3 x 10^5 minutes.",
+        "B": "5 x 10^3 (5000) minutes is only about 3.5 days.",
+        "C": "5 x 10^7 is closer to the number of seconds in a year, not minutes.",
+        "D": "5 x 10^9 overshoots minutes-per-year by four orders of magnitude."
+      }
+    },
+    {
+      "id": "pr_l10_016",
+      "concept": "fermi_decomposition",
+      "question": "A good first step when estimating 'how many X per year' for a population is to estimate:",
+      "options": [
+        "the exact government statistic",
+        "a per-person (or per-household) rate, then scale by population",
+        "the largest possible value only",
+        "a single random total"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "The exact statistic is what you are approximating; it is usually unavailable.",
+        "B": "Correct. Estimating a per-capita rate and multiplying by population is the standard, unit-consistent decomposition.",
+        "C": "Using only the maximum gives a loose upper bound, not a central estimate.",
+        "D": "A single random total abandons the structure that controls the error."
+      }
+    },
+    {
+      "id": "pr_l10_017",
+      "concept": "fermi_estimation",
+      "question": "Estimate how many cars pass through a busy intersection in one hour during the day. Which magnitude is most reasonable?",
+      "options": [
+        "About 10^0 (a few)",
+        "About 10^3 (around a thousand)",
+        "About 10^6 (a million)",
+        "About 10^9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A few cars per hour describes a deserted rural road, not a busy intersection.",
+        "B": "Correct. Roughly 10-20 cars per minute over 60 minutes gives about 10^3 per hour.",
+        "C": "A million cars per hour is over 250 per second, physically impossible.",
+        "D": "10^9 cars per hour exceeds the number of cars on Earth."
+      }
+    },
+    {
+      "id": "pr_l10_018",
+      "concept": "scaling_units",
+      "question": "Dividing 6 x 10^9 by 3 x 10^3 gives:",
+      "options": [
+        "2 x 10^6",
+        "2 x 10^12",
+        "3 x 10^6",
+        "2 x 10^3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 6/3 = 2 and 10^9 / 10^3 = 10^6, giving 2 x 10^6.",
+        "B": "Adding the exponents instead of subtracting wrongly gives 10^12.",
+        "C": "The coefficient is 6/3 = 2, not 3.",
+        "D": "Subtracting the wrong way (3 - 9) would give 10^(-6), and 2 x 10^3 is simply incorrect."
+      }
+    },
+    {
+      "id": "pr_l10_019",
+      "concept": "fermi_estimation",
+      "question": "Estimate the total mass of water (in kg) in a full Olympic swimming pool (about 50 m x 25 m x 2 m).",
+      "options": [
+        "About 10^3 kg",
+        "About 10^6 kg (a few million)",
+        "About 10^9 kg",
+        "About 10^1 kg"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10^3 kg is one cubic meter of water; the pool holds thousands of cubic meters.",
+        "B": "Correct. Volume ~2500 m^3 x 1000 kg/m^3 = 2.5 x 10^6 kg.",
+        "C": "10^9 kg would be a pool a thousand times larger.",
+        "D": "10^1 kg is about a bucket of water, far too little."
+      }
+    },
+    {
+      "id": "pr_l10_020",
+      "concept": "order_of_magnitude",
+      "question": "Which of these is closest to one billion (10^9)?",
+      "options": [
+        "The number of seconds in 31.7 years",
+        "The number of seconds in a day",
+        "The number of seconds in an hour",
+        "The number of seconds in a century"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. One year is ~3.15 x 10^7 s, so 10^9 / 3.15 x 10^7 is about 31.7 years.",
+        "B": "A day is only 86,400 seconds (about 10^5).",
+        "C": "An hour is 3600 seconds (about 10^3.6).",
+        "D": "A century is about 3.15 x 10^9 seconds, roughly three billion, not one."
+      }
+    },
+    {
+      "id": "pr_l10_021",
+      "concept": "fermi_estimation",
+      "question": "Estimate how many gallons of gasoline a typical car uses per year (12,000 miles/year, 25 miles/gallon).",
+      "options": [
+        "About 480 gallons",
+        "About 48 gallons",
+        "About 4800 gallons",
+        "About 5 gallons"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 12,000 miles / 25 miles per gallon = 480 gallons per year.",
+        "B": "48 gallons is off by a factor of ten; check the division.",
+        "C": "4800 gallons multiplies instead of divides by mileage.",
+        "D": "5 gallons is roughly one tank, not a year of driving."
+      }
+    },
+    {
+      "id": "pr_l10_022",
+      "concept": "fermi_decomposition",
+      "question": "When an estimate requires guessing a fraction (e.g. fraction of homes with a piano), a sensible habit is to:",
+      "options": [
+        "always assume the fraction is exactly 1/2",
+        "pick a plausible round fraction and note it as an assumption",
+        "treat the fraction as zero to be safe",
+        "ignore the fraction entirely"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Defaulting to 1/2 is rarely justified and can be wildly off for rare items.",
+        "B": "Correct. Choosing a defensible round fraction and stating the assumption keeps the estimate transparent and adjustable.",
+        "C": "A fraction of zero forces the whole estimate to zero, which is clearly wrong.",
+        "D": "Dropping the fraction overcounts by assuming everyone qualifies."
+      }
+    },
+    {
+      "id": "pr_l10_023",
+      "concept": "order_of_magnitude",
+      "question": "An estimate that is 'within an order of magnitude' of the truth is off by at most a factor of about:",
+      "options": [
+        "1.1",
+        "10",
+        "100",
+        "1,000,000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A factor of 1.1 is 10% accuracy, far stricter than order-of-magnitude.",
+        "B": "Correct. Within one order of magnitude means within a factor of about 10.",
+        "C": "A factor of 100 is two orders of magnitude.",
+        "D": "A factor of a million is six orders of magnitude, essentially useless."
+      }
+    },
+    {
+      "id": "pr_l10_024",
+      "concept": "fermi_estimation",
+      "question": "Estimate how many times a typical clock's minute hand passes the 12 in a 24-hour day.",
+      "options": [
+        "12",
+        "24",
+        "60",
+        "1440"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "12 would be the count for a 12-hour span, not 24 hours.",
+        "B": "Correct. The minute hand completes one loop per hour, so 24 loops pass the 12 in a day.",
+        "C": "60 is the number of minute marks, not loops per day.",
+        "D": "1440 is the number of minutes in a day, not laps of the minute hand."
+      }
+    },
+    {
+      "id": "pr_l10_025",
+      "concept": "fermi_estimation",
+      "question": "Estimate the number of public elementary schools in a U.S. city of 500,000 people (assume ~7% are elementary-age children and ~400 students per school).",
+      "options": [
+        "About 90",
+        "About 9",
+        "About 900",
+        "About 9000"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 500,000 x 0.07 = 35,000 children; 35,000 / 400 is about 88, roughly 90 schools.",
+        "B": "9 schools would need ~3900 students each, far above the assumption.",
+        "C": "900 schools implies ~39 students per school, far too few.",
+        "D": "9000 schools is more than one per 56 residents, impossible."
+      }
+    },
+    {
+      "id": "pr_l10_026",
+      "concept": "mental_math_percent",
+      "question": "Quick mental math: 20% of 350 is:",
+      "options": [
+        "70",
+        "35",
+        "7",
+        "700"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 10% of 350 is 35, and 20% is double that: 70.",
+        "B": "35 is only 10% of 350.",
+        "C": "7 is 2% of 350, not 20%.",
+        "D": "700 is 200% of 350; you misplaced the decimal."
+      }
+    },
+    {
+      "id": "pr_l10_027",
+      "concept": "mental_math_percent",
+      "question": "What is 25% of 88?",
+      "options": [
+        "11",
+        "44",
+        "22",
+        "17.6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "11 is 12.5% (one eighth) of 88, not a quarter.",
+        "B": "44 is 50% of 88, double the correct amount.",
+        "C": "Correct. 25% is one quarter, and 88 / 4 = 22.",
+        "D": "17.6 is 20% of 88, not 25%."
+      }
+    },
+    {
+      "id": "pr_l10_028",
+      "concept": "mental_math_tricks",
+      "question": "Use the difference-of-squares trick to compute 49 x 51:",
+      "options": [
+        "2499",
+        "2500",
+        "2401",
+        "2601"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (50 - 1)(50 + 1) = 50^2 - 1 = 2500 - 1 = 2499.",
+        "B": "2500 is 50^2; you forgot to subtract the 1.",
+        "C": "2401 is 49^2, not 49 x 51.",
+        "D": "2601 is 51^2, not 49 x 51."
+      }
+    },
+    {
+      "id": "pr_l10_029",
+      "concept": "mental_math_tricks",
+      "question": "Fast way to do 18 x 5: multiply by 10 then halve. The result is:",
+      "options": [
+        "95",
+        "90",
+        "80",
+        "45"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "95 is not 18 x 5; recheck 180 / 2.",
+        "B": "Correct. 18 x 10 = 180, and half of 180 is 90.",
+        "C": "80 would be 16 x 5, not 18 x 5.",
+        "D": "45 halves 90 a second time; you only halve once."
+      }
+    },
+    {
+      "id": "pr_l10_030",
+      "concept": "mental_math_fractions",
+      "question": "Expressed as a percent, 1/8 equals:",
+      "options": [
+        "12.5%",
+        "8%",
+        "18%",
+        "0.125%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1/8 = 0.125 = 12.5%.",
+        "B": "8% comes from reading the denominator as the percent, which is wrong.",
+        "C": "18% has no basis; 1/8 is 0.125, not 0.18.",
+        "D": "0.125% is off by a factor of 100 from 12.5%."
+      }
+    },
+    {
+      "id": "pr_l10_031",
+      "concept": "mental_math_fractions",
+      "question": "What is 3/4 of 60?",
+      "options": [
+        "80",
+        "15",
+        "45",
+        "30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "80 is larger than 60, impossible for a fraction less than 1.",
+        "B": "15 is 1/4 of 60, not 3/4.",
+        "C": "Correct. 60 / 4 = 15, and 15 x 3 = 45.",
+        "D": "30 is 1/2 of 60, not 3/4."
+      }
+    },
+    {
+      "id": "pr_l10_032",
+      "concept": "mental_math_estimation",
+      "question": "The square root of 150 is closest to:",
+      "options": [
+        "11",
+        "12.2",
+        "13.5",
+        "50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "11^2 = 121, which is below 150.",
+        "B": "Correct. 12^2 = 144 and 12.5^2 = 156, so sqrt(150) is about 12.2.",
+        "C": "13.5^2 is about 182, above 150.",
+        "D": "50 is 150 / 3, not its square root."
+      }
+    },
+    {
+      "id": "pr_l10_033",
+      "concept": "mental_math_percent",
+      "question": "A price rises 10% one month and falls 10% the next. The net change is:",
+      "options": [
+        "Down about 1%",
+        "No change",
+        "Down 10%",
+        "Up 1%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1.10 x 0.90 = 0.99, a 1% net decline.",
+        "B": "Percent changes are multiplicative, so they do not cancel exactly.",
+        "C": "Down 10% would require the second drop to be much larger.",
+        "D": "The product is below 1, so the net change is a decrease, not an increase."
+      }
+    },
+    {
+      "id": "pr_l10_034",
+      "concept": "mental_math_percent",
+      "question": "A $100 item gets 20% off, then an extra 25% off the reduced price. Final price?",
+      "options": [
+        "$55",
+        "$65",
+        "$60",
+        "$40"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$55 adds the discounts to 45%, but successive discounts multiply, not add.",
+        "B": "$65 does not match either order of applying the discounts.",
+        "C": "Correct. 100 x 0.80 x 0.75 = 60, so the final price is $60.",
+        "D": "$40 would be a single 60% discount, more than was applied."
+      }
+    },
+    {
+      "id": "pr_l10_035",
+      "concept": "mental_math_tricks",
+      "question": "Compute 16 x 25 quickly (25 = 100 / 4):",
+      "options": [
+        "400",
+        "4000",
+        "40",
+        "320"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 16 x 100 = 1600, divided by 4 is 400.",
+        "B": "4000 is off by a factor of ten.",
+        "C": "40 is off by a factor of ten the other way.",
+        "D": "320 would be 16 x 20, not 16 x 25."
+      }
+    },
+    {
+      "id": "pr_l10_036",
+      "concept": "mental_math_percent",
+      "question": "What is 0.5% of 2000?",
+      "options": [
+        "100",
+        "10",
+        "1",
+        "1000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "100 is 5% of 2000; you dropped a decimal place.",
+        "B": "Correct. 0.5% = 0.005, and 0.005 x 2000 = 10.",
+        "C": "1 is 0.05% of 2000, ten times too small.",
+        "D": "1000 is 50% of 2000."
+      }
+    },
+    {
+      "id": "pr_l10_037",
+      "concept": "mental_math_tricks",
+      "question": "Compute 9 x 99 using 99 = 100 - 1:",
+      "options": [
+        "900",
+        "909",
+        "990",
+        "891"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "900 is 9 x 100; you must still subtract 9 x 1.",
+        "B": "909 adds 9 instead of subtracting it.",
+        "C": "990 is 9 x 110, not 9 x 99.",
+        "D": "Correct. 9 x 100 - 9 x 1 = 900 - 9 = 891."
+      }
+    },
+    {
+      "id": "pr_l10_038",
+      "concept": "mental_math_fractions",
+      "question": "Which is larger, 5/8 or 0.6?",
+      "options": [
+        "5/8",
+        "0.6",
+        "They are equal",
+        "Cannot be determined"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 5/8 = 0.625, which is greater than 0.6.",
+        "B": "0.6 is smaller than 0.625.",
+        "C": "0.625 does not equal 0.6, so they are not equal.",
+        "D": "Both are exact numbers, so the comparison is fully determined."
+      }
+    },
+    {
+      "id": "pr_l10_039",
+      "concept": "mental_math_estimation",
+      "question": "Estimate 1234 + 5678. The sum is closest to:",
+      "options": [
+        "About 5900",
+        "About 6900",
+        "About 7900",
+        "About 12,000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "About 5900 undercounts; 1200 + 5700 alone exceeds 6800.",
+        "B": "Correct. 1234 + 5678 = 6912, closest to 6900.",
+        "C": "About 7900 overshoots the true sum by roughly 1000.",
+        "D": "12,000 roughly doubles the larger number instead of adding."
+      }
+    },
+    {
+      "id": "pr_l10_040",
+      "concept": "mental_math_percent",
+      "question": "What is 12.5% of 64?",
+      "options": [
+        "8",
+        "16",
+        "4",
+        "12.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 12.5% is one eighth, and 64 / 8 = 8.",
+        "B": "16 is 25% of 64, double the correct value.",
+        "C": "4 is 6.25% of 64, half of what is asked.",
+        "D": "12.5 confuses the percent figure with the resulting value."
+      }
+    },
+    {
+      "id": "pr_l10_041",
+      "concept": "mental_math_fractions",
+      "question": "As a simple fraction, 0.375 equals:",
+      "options": [
+        "1/4",
+        "1/3",
+        "3/8",
+        "5/8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/4 = 0.25, not 0.375.",
+        "B": "1/3 is about 0.333, not 0.375.",
+        "C": "Correct. 3/8 = 0.375.",
+        "D": "5/8 = 0.625, not 0.375."
+      }
+    },
+    {
+      "id": "pr_l10_042",
+      "concept": "mental_math_percent",
+      "question": "A team wins 18 of its 24 games. Its win rate is:",
+      "options": [
+        "60%",
+        "75%",
+        "70%",
+        "80%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "60% would be 14.4 wins out of 24, fewer than 18.",
+        "B": "Correct. 18 / 24 = 0.75 = 75%.",
+        "C": "70% is 16.8 of 24, below 18.",
+        "D": "80% is 19.2 of 24, above 18."
+      }
+    },
+    {
+      "id": "pr_l10_043",
+      "concept": "mental_math_tricks",
+      "question": "What is 7! (seven factorial)?",
+      "options": [
+        "49",
+        "720",
+        "40320",
+        "5040"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "49 is 7^2, not 7!.",
+        "B": "720 is 6!, one factor short.",
+        "C": "40320 is 8!, one factor too many.",
+        "D": "Correct. 7! = 7 x 6 x 5 x 4 x 3 x 2 x 1 = 5040."
+      }
+    },
+    {
+      "id": "pr_l10_044",
+      "concept": "mental_math_estimation",
+      "question": "Estimate 396 / 4:",
+      "options": [
+        "99",
+        "90",
+        "100",
+        "79"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 400 / 4 = 100, minus 4 / 4 = 1, gives 99.",
+        "B": "90 is too low; that would be 360 / 4.",
+        "C": "100 is 400 / 4; you must subtract for the 4 you removed.",
+        "D": "79 is far below; recheck the division."
+      }
+    },
+    {
+      "id": "pr_l10_045",
+      "concept": "mental_math_tricks",
+      "question": "What is 2^10?",
+      "options": [
+        "100",
+        "512",
+        "1024",
+        "2048"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "100 confuses 2^10 with 10^2.",
+        "B": "512 is 2^9, one doubling short.",
+        "C": "Correct. 2^10 = 1024.",
+        "D": "2048 is 2^11, one doubling too many."
+      }
+    },
+    {
+      "id": "pr_l10_046",
+      "concept": "mental_math_percent",
+      "question": "What is 30% of 30% of 1000?",
+      "options": [
+        "180",
+        "90",
+        "300",
+        "900"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "180 does not match 0.30 x 0.30 x 1000.",
+        "B": "Correct. 0.30 x 0.30 = 0.09, and 0.09 x 1000 = 90.",
+        "C": "300 is just 30% of 1000, applying the percent only once.",
+        "D": "900 is 90% of 1000, not 9%."
+      }
+    },
+    {
+      "id": "pr_l10_047",
+      "concept": "mental_math_fractions",
+      "question": "After a 25% discount, you pay what fraction of the original price?",
+      "options": [
+        "3/4",
+        "1/4",
+        "1/2",
+        "1/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A 25% discount means you pay 100% - 25% = 75% = 3/4.",
+        "B": "1/4 is the discount removed, not the amount paid.",
+        "C": "1/2 would be a 50% discount.",
+        "D": "1/3 has no relation to a 25% discount."
+      }
+    },
+    {
+      "id": "pr_l10_048",
+      "concept": "mental_math_estimation",
+      "question": "The square root of 2 is closest to:",
+      "options": [
+        "1.21",
+        "1.41",
+        "1.73",
+        "2.00"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1.21 squared is about 1.46, below 2.",
+        "B": "Correct. sqrt(2) is about 1.414, since 1.414^2 is about 2.",
+        "C": "1.73 is approximately sqrt(3), not sqrt(2).",
+        "D": "2.00 squared is 4, far above 2."
+      }
+    },
+    {
+      "id": "pr_l10_049",
+      "concept": "mental_math_tricks",
+      "question": "What is log base 10 of 1000?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "1000"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1 would mean 10^1 = 1000, which is false.",
+        "B": "2 would mean 10^2 = 1000, but 10^2 = 100.",
+        "C": "Correct. 10^3 = 1000, so log10(1000) = 3.",
+        "D": "1000 confuses the logarithm with the argument."
+      }
+    },
+    {
+      "id": "pr_l10_050",
+      "concept": "mental_math_estimation",
+      "question": "Using the Rule of 72, money growing at 7% per year roughly doubles in about how many years?",
+      "options": [
+        "About 10 years",
+        "About 7 years",
+        "About 36 years",
+        "About 72 years"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 72 / 7 is about 10.3 years to double.",
+        "B": "7 years confuses the growth rate with the doubling time.",
+        "C": "36 years would be the doubling time at about 2% growth.",
+        "D": "72 years would correspond to roughly 1% growth."
+      }
+    },
+    {
+      "id": "pr_l10_051",
+      "concept": "complement_trick",
+      "question": "Three fair coins are flipped. What is P(at least one head)?",
+      "options": [
+        "7/8",
+        "1/8",
+        "3/8",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(no head) = (1/2)^3 = 1/8, so P(at least one head) = 1 - 1/8 = 7/8.",
+        "B": "1/8 is P(all tails), the complement event, not the answer.",
+        "C": "3/8 is P(exactly one head), a narrower event.",
+        "D": "1/2 ignores that getting zero heads in three flips is unlikely."
+      }
+    },
+    {
+      "id": "pr_l10_052",
+      "concept": "complement_trick",
+      "question": "A fair die is rolled 3 times. What is P(at least one 1)?",
+      "options": [
+        "125/216",
+        "1/216",
+        "91/216",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "125/216 = (5/6)^3 is P(no 1 at all), the complement.",
+        "B": "1/216 is P(all three rolls are 1).",
+        "C": "Correct. 1 - (5/6)^3 = 1 - 125/216 = 91/216.",
+        "D": "1/2 is a guess; the exact complement gives 91/216."
+      }
+    },
+    {
+      "id": "pr_l10_053",
+      "concept": "basic_probability",
+      "question": "A fair six-sided die is rolled once. What is P(even)?",
+      "options": [
+        "1/3",
+        "1/2",
+        "1/6",
+        "2/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/3 would be only two favorable faces; there are three even faces.",
+        "B": "Correct. The even faces {2, 4, 6} are 3 of 6 outcomes, so 1/2.",
+        "C": "1/6 is the chance of a single specific face.",
+        "D": "2/3 overcounts; only half the faces are even."
+      }
+    },
+    {
+      "id": "pr_l10_054",
+      "concept": "complement_trick",
+      "question": "A fair coin is flipped 4 times. What is P(at least one tail)?",
+      "options": [
+        "1/16",
+        "1/2",
+        "1/4",
+        "15/16"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/16 is P(all heads), the complement event.",
+        "B": "1/2 ignores how unlikely four straight heads are.",
+        "C": "1/4 has no basis for this 'at least one' calculation.",
+        "D": "Correct. 1 - (1/2)^4 = 1 - 1/16 = 15/16."
+      }
+    },
+    {
+      "id": "pr_l10_055",
+      "concept": "basic_probability",
+      "question": "One card is drawn from a standard 52-card deck. What is P(heart)?",
+      "options": [
+        "1/4",
+        "1/13",
+        "1/2",
+        "1/52"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. There are 13 hearts in 52 cards: 13/52 = 1/4.",
+        "B": "1/13 is the chance of a specific rank, not a suit.",
+        "C": "1/2 would require 26 hearts.",
+        "D": "1/52 is the chance of one specific card."
+      }
+    },
+    {
+      "id": "pr_l10_056",
+      "concept": "basic_probability",
+      "question": "Two fair dice are rolled. What is P(sum = 7)?",
+      "options": [
+        "1/12",
+        "5/36",
+        "1/6",
+        "7/36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/12 (3/36) undercounts the ways to make 7.",
+        "B": "5/36 is the count for a sum of 6 or of 8, not 7.",
+        "C": "Correct. There are 6 ways to roll a 7 out of 36, so 6/36 = 1/6.",
+        "D": "7/36 mistakes the target sum for the number of favorable outcomes."
+      }
+    },
+    {
+      "id": "pr_l10_057",
+      "concept": "basic_probability",
+      "question": "Two fair dice are rolled. What is P(sum = 2)?",
+      "options": [
+        "1/36",
+        "1/18",
+        "1/6",
+        "2/36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Only (1,1) gives a sum of 2, so 1/36.",
+        "B": "1/18 (2/36) would require two ways to make 2.",
+        "C": "1/6 vastly overstates this rarest sum.",
+        "D": "2/36 counts two outcomes, but only one produces a sum of 2."
+      }
+    },
+    {
+      "id": "pr_l10_058",
+      "concept": "basic_probability",
+      "question": "Two fair dice are rolled. What is P(doubles), i.e. both dice show the same number?",
+      "options": [
+        "1/36",
+        "1/6",
+        "1/12",
+        "1/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/36 is the chance of one specific double like (3,3).",
+        "B": "Correct. There are 6 doubles out of 36 outcomes, so 6/36 = 1/6.",
+        "C": "1/12 (3/36) undercounts the six doubles.",
+        "D": "1/3 overcounts; only six outcomes are doubles."
+      }
+    },
+    {
+      "id": "pr_l10_059",
+      "concept": "complement_trick",
+      "question": "Two independent events each have probability 0.1. What is P(at least one occurs)?",
+      "options": [
+        "0.20",
+        "0.01",
+        "0.19",
+        "0.10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.20 adds the probabilities and double-counts the overlap.",
+        "B": "0.01 is P(both occur), not P(at least one).",
+        "C": "Correct. 1 - (0.9)(0.9) = 1 - 0.81 = 0.19.",
+        "D": "0.10 is the chance of a single event, ignoring the second."
+      }
+    },
+    {
+      "id": "pr_l10_060",
+      "concept": "basic_probability",
+      "question": "A bag holds 3 red and 2 blue marbles. One is drawn at random. What is P(red)?",
+      "options": [
+        "3/5",
+        "2/5",
+        "3/2",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 3 red out of 5 total marbles gives 3/5.",
+        "B": "2/5 is P(blue), not P(red).",
+        "C": "3/2 exceeds 1 and cannot be a probability.",
+        "D": "1/2 ignores that red marbles outnumber blue."
+      }
+    },
+    {
+      "id": "pr_l10_061",
+      "concept": "basic_probability",
+      "question": "Two fair coins are flipped. What is P(both heads)?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        "3/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/2 is the chance for a single coin, not two.",
+        "B": "Correct. (1/2)(1/2) = 1/4 for two independent heads.",
+        "C": "1/3 wrongly treats {HH, HT/TH, TT} as equally likely groups.",
+        "D": "3/4 is P(at least one head), not both heads."
+      }
+    },
+    {
+      "id": "pr_l10_062",
+      "concept": "basic_probability",
+      "question": "Two cards are drawn without replacement from a 52-card deck. What is P(both aces)?",
+      "options": [
+        "1/169",
+        "1/16",
+        "2/52",
+        "1/221"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/169 = (4/52)^2 assumes replacement, which the problem excludes.",
+        "B": "1/16 ignores the deck composition entirely.",
+        "C": "2/52 is unrelated to drawing two aces.",
+        "D": "Correct. (4/52)(3/51) = 12/2652 = 1/221."
+      }
+    },
+    {
+      "id": "pr_l10_063",
+      "concept": "complement_trick",
+      "question": "A fair die is rolled 4 times. What is P(at least one 6)? (Use the complement.)",
+      "options": [
+        "About 0.52",
+        "About 0.48",
+        "About 0.67",
+        "About 0.33"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 - (5/6)^4 = 1 - 625/1296, about 0.518.",
+        "B": "About 0.48 is (5/6)^4, the probability of no 6.",
+        "C": "About 0.67 overstates the chance.",
+        "D": "About 0.33 understates it; the four rolls give better than even odds."
+      }
+    },
+    {
+      "id": "pr_l10_064",
+      "concept": "basic_probability",
+      "question": "A spinner has 8 equal sections numbered 1-8. What is P(number greater than 5)?",
+      "options": [
+        "1/2",
+        "3/8",
+        "5/8",
+        "1/4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/2 would be four favorable sections, but only three exceed 5.",
+        "B": "Correct. The values {6, 7, 8} are 3 of 8 sections, so 3/8.",
+        "C": "5/8 counts the numbers 5 or below by mistake.",
+        "D": "1/4 (2/8) undercounts the three qualifying sections."
+      }
+    },
+    {
+      "id": "pr_l10_065",
+      "concept": "basic_probability",
+      "question": "Independent events have P(A) = 0.5 and P(B) = 0.4. What is P(A and B)?",
+      "options": [
+        "0.90",
+        "0.10",
+        "0.20",
+        "0.45"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.90 adds the probabilities, which gives a union upper bound, not the intersection.",
+        "B": "0.10 is the difference of the probabilities, not their product.",
+        "C": "Correct. For independent events, P(A and B) = 0.5 x 0.4 = 0.20.",
+        "D": "0.45 averages the two probabilities, which is not how intersection works."
+      }
+    },
+    {
+      "id": "pr_l10_066",
+      "concept": "complement_trick",
+      "question": "A player makes 80% of free throws. What is P(missing at least one of 3 attempts)?",
+      "options": [
+        "0.20",
+        "0.512",
+        "0.60",
+        "0.488"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.20 is the chance of missing a single attempt, not 'at least one of three'.",
+        "B": "0.512 is P(making all three), the complement event.",
+        "C": "0.60 has no basis in this calculation.",
+        "D": "Correct. 1 - (0.8)^3 = 1 - 0.512 = 0.488."
+      }
+    },
+    {
+      "id": "pr_l10_067",
+      "concept": "complement_trick",
+      "question": "Two fair dice are rolled. What is P(at least one die is even)?",
+      "options": [
+        "3/4",
+        "1/2",
+        "1/4",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(both odd) = (1/2)^2 = 1/4, so P(at least one even) = 3/4.",
+        "B": "1/2 is the chance a single die is even, not the two-dice event.",
+        "C": "1/4 is P(both odd), the complement.",
+        "D": "1 would mean an even die is guaranteed, which is false."
+      }
+    },
+    {
+      "id": "pr_l10_068",
+      "concept": "basic_probability",
+      "question": "A fair die is rolled. What is P(rolling a prime number)?",
+      "options": [
+        "1/3",
+        "1/2",
+        "2/3",
+        "1/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/3 counts only two primes, but there are three.",
+        "B": "Correct. The primes on a die are {2, 3, 5}, which is 3 of 6, so 1/2.",
+        "C": "2/3 likely counts 1 as prime, but 1 is not prime.",
+        "D": "1/6 is the chance of a single specific face."
+      }
+    },
+    {
+      "id": "pr_l10_069",
+      "concept": "basic_probability",
+      "question": "A fair coin is flipped until the first head. What is P(the first head appears on the 2nd flip)?",
+      "options": [
+        "1/2",
+        "1/8",
+        "1/4",
+        "3/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is the chance the first head appears on the very first flip.",
+        "B": "1/8 is the chance the first head appears on the 3rd flip.",
+        "C": "Correct. Tail then head: (1/2)(1/2) = 1/4.",
+        "D": "3/4 exceeds the chance for any single specific stopping time here."
+      }
+    },
+    {
+      "id": "pr_l10_070",
+      "concept": "complement_trick",
+      "question": "Two dice are rolled 24 times. What is P(at least one double-six)? (A classic gambling puzzle.)",
+      "options": [
+        "About 0.49",
+        "About 0.51",
+        "About 0.67",
+        "About 1.0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 - (35/36)^24 is about 0.491, just under even odds.",
+        "B": "About 0.51 is (35/36)^24, the chance of no double-six.",
+        "C": "About 0.67 overstates the probability.",
+        "D": "About 1.0 wrongly assumes a double-six is nearly certain in 24 throws."
+      }
+    },
+    {
+      "id": "pr_l10_071",
+      "concept": "basic_probability",
+      "question": "One card is drawn from a standard deck. What is P(face card: J, Q, or K)?",
+      "options": [
+        "1/4",
+        "3/13",
+        "1/13",
+        "12/13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/4 (13/52) counts a full suit, not the 12 face cards.",
+        "B": "Correct. There are 12 face cards in 52: 12/52 = 3/13.",
+        "C": "1/13 is the chance of one specific rank like all jacks-only miscount.",
+        "D": "12/13 inverts the fraction; face cards are a minority of the deck."
+      }
+    },
+    {
+      "id": "pr_l10_072",
+      "concept": "basic_probability",
+      "question": "Two fair dice are rolled. What is P(the sum is even)?",
+      "options": [
+        "1/2",
+        "1/3",
+        "2/3",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A sum is even when both dice are even or both odd, which is 18 of 36 outcomes, so 1/2.",
+        "B": "1/3 undercounts the even-sum outcomes.",
+        "C": "2/3 overcounts; even and odd sums are equally likely.",
+        "D": "1/4 is far too small for an even sum."
+      }
+    },
+    {
+      "id": "pr_l10_073",
+      "concept": "basic_probability",
+      "question": "Three fair coins are flipped. What is P(all three match, i.e. all heads or all tails)?",
+      "options": [
+        "1/8",
+        "1/2",
+        "3/8",
+        "1/4"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/8 counts only one matching outcome (e.g. HHH), not both.",
+        "B": "1/2 vastly overstates the chance of all three matching.",
+        "C": "3/8 is the chance of exactly one head (or one tail), a different event.",
+        "D": "Correct. HHH and TTT are 2 of 8 outcomes, so 2/8 = 1/4."
+      }
+    },
+    {
+      "id": "pr_l10_074",
+      "concept": "basic_probability",
+      "question": "Two fair dice are rolled. What is P(sum is at least 10)?",
+      "options": [
+        "1/12",
+        "1/9",
+        "1/6",
+        "1/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/12 (3/36) counts only the sums of 10, missing 11 and 12.",
+        "B": "1/9 (4/36) still undercounts the qualifying outcomes.",
+        "C": "Correct. Sums of 10, 11, 12 occur in 3 + 2 + 1 = 6 ways, so 6/36 = 1/6.",
+        "D": "1/4 (9/36) overcounts the high-sum outcomes."
+      }
+    },
+    {
+      "id": "pr_l10_075",
+      "concept": "complement_trick",
+      "question": "A factory's defect rate is 2%. In a random sample of 5 items, what is P(at least one defective)?",
+      "options": [
+        "0.02",
+        "About 0.10",
+        "About 0.90",
+        "0.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.02 is the chance a single item is defective, not the sample.",
+        "B": "Correct. 1 - (0.98)^5 is about 1 - 0.904 = 0.096, roughly 0.10.",
+        "C": "About 0.90 is (0.98)^5, the chance of zero defectives.",
+        "D": "0.50 has no basis; defects are rare, so the chance is well under half."
+      }
+    },
+    {
+      "id": "pr_l10_076",
+      "concept": "expected_value_linearity",
+      "question": "Three fair dice are rolled and summed. What is the expected value of the total?",
+      "options": [
+        "7",
+        "10.5",
+        "3.5",
+        "21"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 is the expected sum of two dice, not three.",
+        "B": "Correct. By linearity, E[sum] = 3 x 3.5 = 10.5.",
+        "C": "3.5 is the expectation of a single die.",
+        "D": "21 is the maximum possible total, not the average."
+      }
+    },
+    {
+      "id": "pr_l10_077",
+      "concept": "expected_value",
+      "question": "A game pays $10 with probability 0.3 and $0 otherwise. What is its expected value?",
+      "options": [
+        "$10",
+        "$7",
+        "$3",
+        "$0.30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$10 is the prize, not the probability-weighted average.",
+        "B": "$7 weights by the losing probability instead of the winning one.",
+        "C": "Correct. 0.3 x $10 + 0.7 x $0 = $3.",
+        "D": "$0.30 confuses the probability with a dollar amount."
+      }
+    },
+    {
+      "id": "pr_l10_078",
+      "concept": "expected_value",
+      "question": "You pay $2 to play. You win $5 with probability 0.5, else nothing. What is your expected net result?",
+      "options": [
+        "+$0.50",
+        "-$0.50",
+        "+$2.50",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected winnings are 0.5 x $5 = $2.50; minus the $2 cost gives +$0.50.",
+        "B": "-$0.50 has the sign wrong; the game is favorable.",
+        "C": "+$2.50 forgets to subtract the $2 cost to play.",
+        "D": "$0 would require expected winnings to equal the $2 cost exactly."
+      }
+    },
+    {
+      "id": "pr_l10_079",
+      "concept": "expected_value_linearity",
+      "question": "If E[X] = 4, what is E[3X + 2]?",
+      "options": [
+        "6",
+        "12",
+        "4",
+        "14"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "6 only adds 2 to E[X] and ignores the factor of 3.",
+        "B": "12 is 3 x E[X] but forgets the +2 constant.",
+        "C": "4 is E[X] itself, before the transformation.",
+        "D": "Correct. E[3X + 2] = 3 x 4 + 2 = 14."
+      }
+    },
+    {
+      "id": "pr_l10_080",
+      "concept": "expected_value_linearity",
+      "question": "A fair die is rolled 6 times. What is the expected number of 6s?",
+      "options": [
+        "1",
+        "6",
+        "1/6",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By linearity of indicators, E[count] = 6 x (1/6) = 1.",
+        "B": "6 would require a 6 on every roll.",
+        "C": "1/6 is the chance of a 6 on a single roll, not the expected count over six.",
+        "D": "36 confuses the count with the number of die-face pairs."
+      }
+    },
+    {
+      "id": "pr_l10_081",
+      "concept": "symmetry_argument",
+      "question": "Two players each draw one card from a 52-card deck (no replacement). By symmetry, what is P(player 1's card outranks player 2's)? (Ties are possible by rank.)",
+      "options": [
+        "1/2",
+        "1/17",
+        "8/17",
+        "16/17"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 ignores that the two cards can tie in rank, which removes some probability.",
+        "B": "1/17 is P(a rank tie), since 3 of the remaining 51 cards match player 1's rank.",
+        "C": "Correct. P(tie) = 3/51 = 1/17; by symmetry the remaining 16/17 splits evenly, giving 8/17.",
+        "D": "16/17 is the chance of no tie, not the chance player 1 is higher."
+      }
+    },
+    {
+      "id": "pr_l10_082",
+      "concept": "symmetry_argument",
+      "question": "Five equally-matched runners race. What is P(a specific runner finishes first)?",
+      "options": [
+        "1/2",
+        "1/5",
+        "1/4",
+        "1/120"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/2 would only make sense with two runners.",
+        "B": "Correct. By symmetry each of the 5 runners is equally likely to be first: 1/5.",
+        "C": "1/4 would correspond to four runners.",
+        "D": "1/120 is 1/5!, the chance of one specific full ordering."
+      }
+    },
+    {
+      "id": "pr_l10_083",
+      "concept": "symmetry_coin_game",
+      "question": "Alice and Bob alternately flip a fair coin, Alice first; the first head wins. What is P(Alice wins)?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "3/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With p = P(Alice wins), p = 1/2 + (1/4)p gives p = 2/3.",
+        "B": "1/2 ignores Alice's first-move advantage.",
+        "C": "1/3 is Bob's win probability.",
+        "D": "3/4 overstates the first-mover edge."
+      }
+    },
+    {
+      "id": "pr_l10_084",
+      "concept": "symmetry_argument",
+      "question": "Two fair dice (A and B) are rolled. What is P(die A shows strictly more than die B)?",
+      "options": [
+        "1/2",
+        "1/6",
+        "7/12",
+        "5/12"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/2 ignores the chance of a tie, which uses up some probability.",
+        "B": "1/6 is P(a tie), since the dice match in 6 of 36 outcomes.",
+        "C": "7/12 overstates it; it would leave too little for ties and the reverse.",
+        "D": "Correct. P(tie) = 1/6, so the remaining 5/6 splits evenly: (5/6)/2 = 5/12."
+      }
+    },
+    {
+      "id": "pr_l10_085",
+      "concept": "expected_value",
+      "question": "A $1 lottery ticket wins $500 with probability 1/1000. What is the expected net value of buying one ticket?",
+      "options": [
+        "+$0.50",
+        "-$0.50",
+        "-$1.00",
+        "+$499"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "+$0.50 is the expected payout but forgets to subtract the $1 cost.",
+        "B": "Correct. Expected payout is 500/1000 = $0.50; minus the $1 ticket gives -$0.50.",
+        "C": "-$1.00 ignores the expected payout entirely.",
+        "D": "+$499 is the net only in the rare winning case, not the expectation."
+      }
+    },
+    {
+      "id": "pr_l10_086",
+      "concept": "expected_value_linearity",
+      "question": "Linearity of expectation, E[X + Y] = E[X] + E[Y], holds when X and Y are:",
+      "options": [
+        "only if independent",
+        "only if identically distributed",
+        "always, even if dependent",
+        "never for random variables"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Independence is required for products, not for the sum's expectation.",
+        "B": "The variables need not share a distribution.",
+        "C": "Correct. Linearity of expectation always holds, regardless of dependence.",
+        "D": "It holds for all random variables with finite expectations."
+      }
+    },
+    {
+      "id": "pr_l10_087",
+      "concept": "expected_value",
+      "question": "Roll a fair die. If the face is even you receive that many dollars; if odd you receive $0. What is the expected payout?",
+      "options": [
+        "$2.00",
+        "$3.50",
+        "$1.75",
+        "$6.00"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (2 + 4 + 6)/6 = 12/6 = $2.00, since odd rolls pay nothing.",
+        "B": "$3.50 is the plain die mean, ignoring that odd rolls pay $0.",
+        "C": "$1.75 halves the result incorrectly.",
+        "D": "$6.00 is the best case, not the average."
+      }
+    },
+    {
+      "id": "pr_l10_088",
+      "concept": "symmetry_argument",
+      "question": "From 100 people, two are chosen in order at random. What is P(you are chosen first AND your friend second)?",
+      "options": [
+        "1/100",
+        "1/200",
+        "1/10000",
+        "1/9900"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/100 is only the chance you are chosen first.",
+        "B": "1/200 has no basis in the sequential selection.",
+        "C": "1/10000 = (1/100)^2 assumes selection with replacement.",
+        "D": "Correct. (1/100)(1/99) = 1/9900 without replacement."
+      }
+    },
+    {
+      "id": "pr_l10_089",
+      "concept": "expected_value",
+      "question": "What is the expected number of flips of a fair coin needed to get the first head?",
+      "options": [
+        "1",
+        "2",
+        "0.5",
+        "4"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1 would mean the first flip is always a head.",
+        "B": "Correct. For a geometric distribution, E = 1/p = 1/0.5 = 2.",
+        "C": "0.5 is the success probability, not the expected wait.",
+        "D": "4 would correspond to p = 1/4, not a fair coin."
+      }
+    },
+    {
+      "id": "pr_l10_090",
+      "concept": "expected_value",
+      "question": "What is the expected value of a single roll of a fair 4-sided die (faces 1-4)?",
+      "options": [
+        "2",
+        "3",
+        "2.5",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2 is below the true average of the four faces.",
+        "B": "3 is above the midpoint of 1 through 4.",
+        "C": "Correct. (1 + 2 + 3 + 4)/4 = 10/4 = 2.5.",
+        "D": "4 is the maximum face, not the mean."
+      }
+    },
+    {
+      "id": "pr_l10_091",
+      "concept": "symmetry_argument",
+      "question": "A deck is shuffled uniformly at random. What is P(the ace of spades is the top card)?",
+      "options": [
+        "1/52",
+        "1/13",
+        "1/4",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By symmetry every card is equally likely on top: 1/52.",
+        "B": "1/13 is the chance of a given rank, not a specific card.",
+        "C": "1/4 is the chance of a given suit.",
+        "D": "1/2 has no basis for a single specific card."
+      }
+    },
+    {
+      "id": "pr_l10_092",
+      "concept": "symmetry_argument",
+      "question": "A deck is shuffled at random. What is P(the ace of spades lands in the top half, the first 26 cards)?",
+      "options": [
+        "1/26",
+        "1/2",
+        "1/4",
+        "1/52"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/26 is the chance of one specific position, not the top 26.",
+        "B": "Correct. By symmetry the card is equally likely in any of 52 positions; 26/52 = 1/2.",
+        "C": "1/4 understates the half-deck region.",
+        "D": "1/52 is a single position, not a range of 26."
+      }
+    },
+    {
+      "id": "pr_l10_093",
+      "concept": "expected_value_linearity",
+      "question": "Thirteen cards are dealt from a 52-card deck. What is the expected number of aces in the hand?",
+      "options": [
+        "1",
+        "4",
+        "13",
+        "0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 13 x (4/52) = 13/13 = 1 by linearity of expectation.",
+        "B": "4 would mean all aces are always dealt.",
+        "C": "13 is the hand size, not the ace count.",
+        "D": "0.25 is the per-card chance of an ace, not the expected total."
+      }
+    },
+    {
+      "id": "pr_l10_094",
+      "concept": "symmetry_argument",
+      "question": "A fair coin is flipped 10 times. Given P(exactly 5 heads) is about 0.246, what is P(more heads than tails)?",
+      "options": [
+        "0.50",
+        "0.246",
+        "About 0.377",
+        "About 0.62"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "0.50 ignores the substantial chance of an exact 5-5 tie.",
+        "B": "0.246 is P(a tie), not P(more heads).",
+        "C": "Correct. By symmetry, (1 - 0.246)/2 is about 0.377.",
+        "D": "About 0.62 double-counts; it omits dividing the non-tie probability in half."
+      }
+    },
+    {
+      "id": "pr_l10_095",
+      "concept": "expected_value_linearity",
+      "question": "A biased coin lands heads with probability 0.7. What is the expected number of heads in 10 flips?",
+      "options": [
+        "5",
+        "10",
+        "3",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5 would be the expectation only for a fair coin.",
+        "B": "10 would require heads on every flip.",
+        "C": "3 is the expected number of tails, not heads.",
+        "D": "Correct. E = 10 x 0.7 = 7."
+      }
+    },
+    {
+      "id": "pr_l10_096",
+      "concept": "symmetry_argument",
+      "question": "Two people are seated at random in a row of 3 chairs. What is P(they sit next to each other)?",
+      "options": [
+        "2/3",
+        "1/3",
+        "1/2",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the C(3,2) = 3 possible seat pairs, 2 are adjacent, so 2/3.",
+        "B": "1/3 is the chance they are NOT adjacent (the end seats).",
+        "C": "1/2 does not match the three equally likely seat pairs.",
+        "D": "1 would mean they always sit together, which is false."
+      }
+    },
+    {
+      "id": "pr_l10_097",
+      "concept": "expected_value",
+      "question": "Two fair dice are rolled. What is the expected value of the larger of the two faces (ties count that value)?",
+      "options": [
+        "3.5",
+        "About 4.47",
+        "6",
+        "7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3.5 is the mean of a single die, but the max skews higher.",
+        "B": "Correct. Sum of k(2k-1)/36 over k=1..6 equals 161/36, about 4.47.",
+        "C": "6 is the largest possible max, not the average max.",
+        "D": "7 is the expected sum, not the expected maximum."
+      }
+    },
+    {
+      "id": "pr_l10_098",
+      "concept": "expected_value_linearity",
+      "question": "A coin pays $1 for heads and $0 for tails, played 100 times with a fair coin. What is the expected total?",
+      "options": [
+        "$100",
+        "$1",
+        "$50",
+        "$25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$100 would require heads every single time.",
+        "B": "$1 is the payout per win, not the expected total.",
+        "C": "Correct. E = 100 x (0.5 x $1) = $50.",
+        "D": "$25 would correspond to a heads probability of 0.25."
+      }
+    },
+    {
+      "id": "pr_l10_099",
+      "concept": "symmetry_argument",
+      "question": "The letters A, B, C are arranged in random order. What is P(A appears before B)?",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/6",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By symmetry A is equally likely before or after B, so 1/2.",
+        "B": "1/3 has no basis; C's position does not change the A-vs-B symmetry.",
+        "C": "1/6 is the chance of one specific full ordering.",
+        "D": "2/3 overstates the symmetric 50-50 outcome."
+      }
+    },
+    {
+      "id": "pr_l10_100",
+      "concept": "expected_value_linearity",
+      "question": "n people toss their hats into a pile and each picks one at random. What is the expected number who get their own hat back?",
+      "options": [
+        "n",
+        "1",
+        "0",
+        "1/n"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "n would mean everyone always gets their own hat.",
+        "B": "Correct. Each person matches with probability 1/n; by linearity E = n x (1/n) = 1.",
+        "C": "0 ignores that matches do happen on average.",
+        "D": "1/n is one person's match chance, not the expected total."
+      }
+    },
+    {
+      "id": "pr_l10_101",
+      "concept": "conditional_trap",
+      "question": "A card is drawn from a standard deck. What is P(heart | the card is red)?",
+      "options": [
+        "1/2",
+        "1/4",
+        "13/52",
+        "1/13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Among the 26 red cards, 13 are hearts: 13/26 = 1/2.",
+        "B": "1/4 is the unconditional P(heart), ignoring that we know the card is red.",
+        "C": "13/52 is also the unconditional probability, not the conditional one.",
+        "D": "1/13 confuses a rank probability with the hearts-among-red calculation."
+      }
+    },
+    {
+      "id": "pr_l10_102",
+      "concept": "conditional_trap",
+      "question": "A family has two children. You learn at least one is a boy. What is P(both are boys)?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        "2/3"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is the tempting trap; it ignores that {BG, GB, BB} are the three equally likely qualifying cases.",
+        "B": "1/4 is the unconditional P(both boys) before learning anything.",
+        "C": "Correct. Given at least one boy, the cases BB, BG, GB are equally likely, so P(BB) = 1/3.",
+        "D": "2/3 inverts the count of favorable cases."
+      }
+    },
+    {
+      "id": "pr_l10_103",
+      "concept": "conditional_trap",
+      "question": "A family has two children. You learn the ELDER child is a boy. What is P(both are boys)?",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Fixing the elder as a boy leaves the younger as a 50-50 coin, so P(both boys) = 1/2.",
+        "B": "1/3 is the answer to the different 'at least one boy' problem.",
+        "C": "1/4 is the unconditional probability before any information.",
+        "D": "2/3 does not match the single remaining 50-50 child."
+      }
+    },
+    {
+      "id": "pr_l10_104",
+      "concept": "bayes_reasoning",
+      "question": "A disease affects 1% of people. A test is 99% sensitive and 95% specific. If you test positive, what is P(disease)?",
+      "options": [
+        "99%",
+        "About 17%",
+        "95%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "99% is the sensitivity, not the chance you are sick given a positive test.",
+        "B": "Correct. TP = 0.01 x 0.99 = 0.0099; FP = 0.99 x 0.05 = 0.0495; PPV = 0.0099/0.0594 is about 17%.",
+        "C": "95% is the specificity, not the posterior probability.",
+        "D": "50% ignores the low 1% base rate that keeps the posterior small."
+      }
+    },
+    {
+      "id": "pr_l10_105",
+      "concept": "bayes_reasoning",
+      "question": "Ignoring the base rate when interpreting a positive medical test typically leads to:",
+      "options": [
+        "overestimating the probability of disease",
+        "perfectly calibrated estimates",
+        "underestimating the probability of disease",
+        "no effect on the estimate"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a rare disease, neglecting the low base rate makes people wildly overstate P(disease | positive).",
+        "B": "Dropping the prior is exactly what breaks calibration.",
+        "C": "The error runs the other way: people overestimate, not underestimate.",
+        "D": "The base rate strongly affects the posterior, so ignoring it matters a lot."
+      }
+    },
+    {
+      "id": "pr_l10_106",
+      "concept": "conditional_trap",
+      "question": "If P(A and B) = 0.12 and P(B) = 0.3, what is P(A | B)?",
+      "options": [
+        "0.12",
+        "0.30",
+        "0.036",
+        "0.40"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.12 is the joint probability, not the conditional one.",
+        "B": "0.30 is P(B), the denominator, not the result.",
+        "C": "0.036 multiplies the two values instead of dividing.",
+        "D": "Correct. P(A | B) = P(A and B)/P(B) = 0.12/0.3 = 0.40."
+      }
+    },
+    {
+      "id": "pr_l10_107",
+      "concept": "conditional_trap",
+      "question": "If P(A | B) = P(A), then events A and B are:",
+      "options": [
+        "mutually exclusive",
+        "dependent",
+        "independent",
+        "identical"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Mutually exclusive events have P(A | B) = 0, not P(A).",
+        "B": "Dependence would mean B changes A's probability, but here it does not.",
+        "C": "Correct. P(A | B) = P(A) is precisely the definition of independence.",
+        "D": "Identical events would force P(A | B) = 1, not P(A)."
+      }
+    },
+    {
+      "id": "pr_l10_108",
+      "concept": "conditional_trap",
+      "question": "Two fair coins are flipped. You are told at least one shows heads. What is P(both heads)?",
+      "options": [
+        "1/3",
+        "1/2",
+        "1/4",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The qualifying outcomes HH, HT, TH are equally likely, so P(HH) = 1/3.",
+        "B": "1/2 is the intuitive trap that forgets HT and TH are two distinct cases.",
+        "C": "1/4 is the unconditional P(both heads).",
+        "D": "2/3 inverts the favorable count."
+      }
+    },
+    {
+      "id": "pr_l10_109",
+      "concept": "bayes_reasoning",
+      "question": "1 in 1000 people has a condition. The test is always positive when present and has a 5% false-positive rate. If you test positive, P(condition)?",
+      "options": [
+        "95%",
+        "About 2%",
+        "50%",
+        "99%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "95% confuses the specificity with the posterior probability.",
+        "B": "Correct. TP = 0.001; FP = 0.999 x 0.05 = 0.04995; PPV = 0.001/0.05095 is about 2%.",
+        "C": "50% ignores how rare the condition is.",
+        "D": "99% wildly overstates the chance given the tiny base rate."
+      }
+    },
+    {
+      "id": "pr_l10_110",
+      "concept": "conditional_trap",
+      "question": "Two cards are drawn without replacement. Given the first card was an ace, what is P(the second is also an ace)?",
+      "options": [
+        "4/52",
+        "1/13",
+        "3/52",
+        "1/17"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4/52 ignores that one ace is already gone and the deck has shrunk.",
+        "B": "1/13 is the unconditional ace probability for a full deck.",
+        "C": "3/52 uses the right numerator but the wrong (full-deck) denominator.",
+        "D": "Correct. After removing one ace, 3 aces remain in 51 cards: 3/51 = 1/17."
+      }
+    },
+    {
+      "id": "pr_l10_111",
+      "concept": "conditional_trap",
+      "question": "On 70% of days it is cloudy, and on cloudy days it rains 50% of the time. What is P(cloudy AND rain)?",
+      "options": [
+        "0.35",
+        "0.50",
+        "0.70",
+        "1.20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(cloudy) x P(rain | cloudy) = 0.7 x 0.5 = 0.35.",
+        "B": "0.50 is the conditional rain probability, not the joint event.",
+        "C": "0.70 is just P(cloudy).",
+        "D": "1.20 adds the probabilities, exceeding 1, which is impossible."
+      }
+    },
+    {
+      "id": "pr_l10_112",
+      "concept": "bayes_reasoning",
+      "question": "One coin is fair, the other has heads on both sides. You pick one at random, flip it, and get heads. What is P(you picked the two-headed coin)?",
+      "options": [
+        "1/2",
+        "1/3",
+        "2/3",
+        "1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 is the prior, before observing the heads.",
+        "B": "1/3 inverts the Bayesian update.",
+        "C": "Correct. (0.5 x 1)/(0.5 x 1 + 0.5 x 0.5) = 0.5/0.75 = 2/3.",
+        "D": "1 would ignore that the fair coin can also show heads."
+      }
+    },
+    {
+      "id": "pr_l10_113",
+      "concept": "bayes_reasoning",
+      "question": "Box A has 2 gold and 1 silver coin; Box B has 1 gold and 2 silver. You pick a box at random and draw a gold coin. What is P(it was Box A)?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "3/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (0.5 x 2/3)/(0.5 x 2/3 + 0.5 x 1/3) = (1/3)/(1/2) = 2/3.",
+        "B": "1/2 is the prior before seeing the gold coin.",
+        "C": "1/3 is P(Box B | gold), the complement.",
+        "D": "3/4 does not match the Bayesian update."
+      }
+    },
+    {
+      "id": "pr_l10_114",
+      "concept": "conditional_trap",
+      "question": "Two fair dice are rolled. Are the events 'first die shows 6' and 'the sum is 7' independent?",
+      "options": [
+        "Yes, they are independent",
+        "No, they are mutually exclusive",
+        "No, they are positively dependent",
+        "It cannot be determined"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(first=6) = 1/6, P(sum=7) = 1/6, and P(both) = P(6,1) = 1/36 = (1/6)(1/6), so they are independent.",
+        "B": "They are not mutually exclusive; (6,1) satisfies both.",
+        "C": "The joint probability equals the product, so there is no positive dependence.",
+        "D": "The probabilities are fully specified, so independence can be checked directly."
+      }
+    },
+    {
+      "id": "pr_l10_115",
+      "concept": "bayes_reasoning",
+      "question": "20% of emails are spam. The word 'free' appears in 60% of spam and 5% of non-spam. If an email contains 'free', what is P(spam)?",
+      "options": [
+        "0.60",
+        "0.75",
+        "0.20",
+        "0.50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.60 is the likelihood P('free' | spam), not the posterior.",
+        "B": "Correct. (0.2 x 0.6)/(0.2 x 0.6 + 0.8 x 0.05) = 0.12/0.16 = 0.75.",
+        "C": "0.20 is the prior, before seeing the word 'free'.",
+        "D": "0.50 ignores the actual likelihood ratio of the word."
+      }
+    },
+    {
+      "id": "pr_l10_116",
+      "concept": "conditional_trap",
+      "question": "Two fair dice are rolled and the sum is 8. What is P(at least one die shows a 5)?",
+      "options": [
+        "1/6",
+        "1/5",
+        "2/5",
+        "1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/6 is the unconditional chance a die shows 5, ignoring the sum=8 condition.",
+        "B": "1/5 counts only one favorable outcome among the five.",
+        "C": "Correct. Sum 8 has outcomes (2,6),(3,5),(4,4),(5,3),(6,2); two of these include a 5, so 2/5.",
+        "D": "1/2 overcounts the outcomes containing a 5."
+      }
+    },
+    {
+      "id": "pr_l10_117",
+      "concept": "bayes_reasoning",
+      "question": "The 'prosecutor's fallacy' confuses P(evidence | innocent) with:",
+      "options": [
+        "P(innocent | evidence)",
+        "P(evidence)",
+        "P(guilty)",
+        "the prior probability"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The fallacy treats the small P(evidence | innocent) as if it were P(innocent | evidence), which requires the base rate.",
+        "B": "P(evidence) is the normalizing term, not what is being confused.",
+        "C": "P(guilty) alone is not the conditional being swapped.",
+        "D": "The prior is an ingredient in Bayes' rule, not the quantity confused with the likelihood."
+      }
+    },
+    {
+      "id": "pr_l10_118",
+      "concept": "conditional_trap",
+      "question": "A card is drawn. What is P(red | the card is a king)?",
+      "options": [
+        "1/2",
+        "1/26",
+        "2/52",
+        "1/13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the 4 kings, 2 are red, so 2/4 = 1/2.",
+        "B": "1/26 is the chance of one specific red card, not this conditional.",
+        "C": "2/52 is the unconditional chance of a red king.",
+        "D": "1/13 ignores that we have already conditioned on the card being a king."
+      }
+    },
+    {
+      "id": "pr_l10_119",
+      "concept": "bayes_reasoning",
+      "question": "When two independent tests both come back positive, you update your belief by:",
+      "options": [
+        "averaging the two probabilities",
+        "multiplying the likelihood ratios",
+        "ignoring the second test",
+        "subtracting the probabilities"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Averaging probabilities is not how Bayesian updates combine evidence.",
+        "B": "Correct. Independent evidence multiplies the likelihood ratios applied to the prior odds.",
+        "C": "Ignoring the second test discards real information.",
+        "D": "Subtracting probabilities has no basis in Bayes' rule."
+      }
+    },
+    {
+      "id": "pr_l10_120",
+      "concept": "conditional_trap",
+      "question": "A Monty Hall variant: the host opens a remaining door at RANDOM (not knowing the prize) and it happens to reveal a goat. Now what is P(winning by switching)?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "2/3 is the answer only when the host knowingly avoids the prize; a random reveal is different.",
+        "B": "Correct. With an uninformed host who happened to reveal a goat, the two remaining doors are equally likely, so switching wins 1/2.",
+        "C": "1/3 understates the updated probability after the random reveal.",
+        "D": "1 would mean switching always wins, which is false."
+      }
+    },
+    {
+      "id": "pr_l10_121",
+      "concept": "conditional_trap",
+      "question": "If P(A) = 0.5, P(B) = 0.5, and P(A and B) = 0.25, what is P(A or B)?",
+      "options": [
+        "1.00",
+        "0.25",
+        "0.50",
+        "0.75"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1.00 adds the probabilities without subtracting the overlap.",
+        "B": "0.25 is the intersection, not the union.",
+        "C": "0.50 is a single event's probability, not the union.",
+        "D": "Correct. P(A or B) = 0.5 + 0.5 - 0.25 = 0.75."
+      }
+    },
+    {
+      "id": "pr_l10_122",
+      "concept": "bayes_reasoning",
+      "question": "A hypothesis has prior probability 0.1%. New evidence has a likelihood ratio of 50 in its favor. The posterior probability is closest to:",
+      "options": [
+        "About 5%",
+        "About 50%",
+        "About 95%",
+        "About 0.1%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Prior odds about 0.001, times 50, gives posterior odds about 0.05, i.e. roughly 5%.",
+        "B": "About 50% would require far stronger evidence against such a low prior.",
+        "C": "About 95% would need an enormous likelihood ratio.",
+        "D": "About 0.1% ignores the substantial update from the evidence."
+      }
+    },
+    {
+      "id": "pr_l10_123",
+      "concept": "conditional_trap",
+      "question": "Drawing items from a bag WITH replacement makes successive draws:",
+      "options": [
+        "dependent",
+        "mutually exclusive",
+        "independent",
+        "impossible"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Dependence arises without replacement, when earlier draws change the composition.",
+        "B": "Successive draws are not mutually exclusive events.",
+        "C": "Correct. Replacing each item restores the bag, so each draw is independent of the others.",
+        "D": "Drawing with replacement is entirely possible."
+      }
+    },
+    {
+      "id": "pr_l10_124",
+      "concept": "bayes_reasoning",
+      "question": "Three cards: one red on both sides, one red/black, one black on both sides. You draw one, and the face shown is red. What is P(its other side is also red)?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "3/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Of the 3 equally likely red faces, 2 belong to the red/red card, so 2/3.",
+        "B": "1/2 is the classic trap; it counts cards rather than the equally likely red faces.",
+        "C": "1/3 inverts the favorable count.",
+        "D": "3/4 does not match the three red faces."
+      }
+    },
+    {
+      "id": "pr_l10_125",
+      "concept": "bayes_reasoning",
+      "question": "Holding test sensitivity and specificity fixed, as disease prevalence increases, the positive predictive value (PPV):",
+      "options": [
+        "decreases",
+        "increases",
+        "stays the same",
+        "becomes zero"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "PPV does not fall as prevalence rises; true positives become relatively more common.",
+        "B": "Correct. Higher prevalence yields more true positives per false positive, raising the PPV.",
+        "C": "PPV depends on prevalence, so it does not stay fixed.",
+        "D": "PPV approaches 0 only as prevalence approaches 0, the opposite direction."
+      }
+    },
+    {
+      "id": "pr_l10_126",
+      "concept": "combinatorial_puzzle",
+      "question": "How many ways can 5 distinct books be arranged on a shelf?",
+      "options": [
+        "25",
+        "120",
+        "5",
+        "3125"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "25 is 5^2, not the number of orderings.",
+        "B": "Correct. 5! = 5 x 4 x 3 x 2 x 1 = 120.",
+        "C": "5 counts the books, not their arrangements.",
+        "D": "3125 is 5^5, which would allow repeats in 5 slots."
+      }
+    },
+    {
+      "id": "pr_l10_127",
+      "concept": "combinatorial_puzzle",
+      "question": "What is C(5, 2), the number of 2-element subsets of a 5-element set?",
+      "options": [
+        "10",
+        "20",
+        "25",
+        "60"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(5,2) = 5!/(2!3!) = 10.",
+        "B": "20 is P(5,2), the number of ordered pairs.",
+        "C": "25 is 5^2, allowing repeats and order.",
+        "D": "60 is P(5,3), not C(5,2)."
+      }
+    },
+    {
+      "id": "pr_l10_128",
+      "concept": "combinatorial_puzzle",
+      "question": "How many ways can a committee of 3 be chosen from 10 people?",
+      "options": [
+        "30",
+        "720",
+        "120",
+        "1000"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "30 is 10 x 3, which has no combinatorial meaning here.",
+        "B": "720 is P(10,3), counting ordered selections.",
+        "C": "Correct. C(10,3) = 10!/(3!7!) = 120.",
+        "D": "1000 is 10^3, allowing repeats and order."
+      }
+    },
+    {
+      "id": "pr_l10_129",
+      "concept": "combinatorial_puzzle",
+      "question": "How many 3-digit PIN codes are possible using digits 0-9 with repeats allowed?",
+      "options": [
+        "720",
+        "30",
+        "100",
+        "1000"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "720 is P(10,3), which forbids repeats.",
+        "B": "30 is 10 x 3, not the count of codes.",
+        "C": "100 is 10^2, only two positions.",
+        "D": "Correct. With repeats allowed, 10 x 10 x 10 = 1000."
+      }
+    },
+    {
+      "id": "pr_l10_130",
+      "concept": "combinatorial_puzzle",
+      "question": "How many distinct arrangements are there of the letters in 'LEVEL'?",
+      "options": [
+        "30",
+        "120",
+        "60",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 'LEVEL' has two L's and two E's: 5!/(2!2!) = 120/4 = 30.",
+        "B": "120 is 5! and ignores the repeated letters.",
+        "C": "60 divides by only one pair of repeats.",
+        "D": "10 is far too small; it does not match the multiset count."
+      }
+    },
+    {
+      "id": "pr_l10_131",
+      "concept": "combinatorial_puzzle",
+      "question": "How many distinct handshakes occur if 6 people all shake hands once?",
+      "options": [
+        "30",
+        "15",
+        "36",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "30 is 6 x 5, which counts each handshake twice.",
+        "B": "Correct. C(6,2) = 15 distinct pairs.",
+        "C": "36 is 6^2, counting self-pairs and order.",
+        "D": "6 counts the people, not the handshakes."
+      }
+    },
+    {
+      "id": "pr_l10_132",
+      "concept": "combinatorial_puzzle",
+      "question": "How many subsets does a set with 4 elements have (including the empty set)?",
+      "options": [
+        "8",
+        "4",
+        "16",
+        "24"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "8 is 2^3, the count for a 3-element set.",
+        "B": "4 counts the elements, not the subsets.",
+        "C": "Correct. A 4-element set has 2^4 = 16 subsets.",
+        "D": "24 is 4!, the number of orderings, not subsets."
+      }
+    },
+    {
+      "id": "pr_l10_133",
+      "concept": "combinatorial_puzzle",
+      "question": "How many ways can 4 people be seated around a round table, treating rotations as identical?",
+      "options": [
+        "6",
+        "24",
+        "12",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Circular arrangements of n people number (n-1)! = 3! = 6.",
+        "B": "24 = 4! counts linear arrangements, not circular ones.",
+        "C": "12 has no standard basis for this count.",
+        "D": "4 counts the seats, not the arrangements."
+      }
+    },
+    {
+      "id": "pr_l10_134",
+      "concept": "combinatorial_puzzle",
+      "question": "A fair coin is flipped 5 times. How many of the 32 sequences have exactly 2 heads?",
+      "options": [
+        "20",
+        "10",
+        "32",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "20 is P(5,2), counting order of the two head positions.",
+        "B": "Correct. C(5,2) = 10 choices of which two flips are heads.",
+        "C": "32 is the total number of sequences (2^5).",
+        "D": "5 counts the flips, not the 2-head sequences."
+      }
+    },
+    {
+      "id": "pr_l10_135",
+      "concept": "combinatorial_puzzle",
+      "question": "From 5 ice-cream flavors, how many ways can you choose 2 scoops if repeats are allowed and order does not matter?",
+      "options": [
+        "10",
+        "25",
+        "20",
+        "15"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "10 = C(5,2) forbids choosing the same flavor twice.",
+        "B": "25 = 5^2 counts ordered selections with repeats.",
+        "C": "20 = P(5,2) counts ordered selections without repeats.",
+        "D": "Correct. Combinations with repetition: C(5+2-1, 2) = C(6,2) = 15."
+      }
+    },
+    {
+      "id": "pr_l10_136",
+      "concept": "combinatorial_puzzle",
+      "question": "How many distinct arrangements are there of the letters in 'MISSISSIPPI' (4 S, 4 I, 2 P, 1 M)?",
+      "options": [
+        "34650",
+        "39916800",
+        "165",
+        "2520"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 11!/(4!4!2!1!) = 39,916,800/1152 = 34,650.",
+        "B": "39,916,800 is 11! and ignores the repeated letters.",
+        "C": "165 is far too small for an 11-letter multiset.",
+        "D": "2520 does not match the correct factorial division."
+      }
+    },
+    {
+      "id": "pr_l10_137",
+      "concept": "combinatorial_puzzle",
+      "question": "How many diagonals does a hexagon (6 vertices) have?",
+      "options": [
+        "6",
+        "9",
+        "15",
+        "12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "6 counts the sides, not the diagonals.",
+        "B": "Correct. n(n-3)/2 = 6 x 3/2 = 9 diagonals.",
+        "C": "15 = C(6,2) counts all vertex pairs, including the 6 sides.",
+        "D": "12 overcounts the diagonals."
+      }
+    },
+    {
+      "id": "pr_l10_138",
+      "concept": "combinatorial_puzzle",
+      "question": "How many license plates have 3 letters (A-Z) followed by 3 digits (0-9), with repeats allowed?",
+      "options": [
+        "17,576",
+        "1,757,600",
+        "17,576,000",
+        "456,976"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "17,576 = 26^3 counts only the letter portion.",
+        "B": "1,757,600 is off by a factor of ten from the correct product.",
+        "C": "Correct. 26^3 x 10^3 = 17,576 x 1000 = 17,576,000.",
+        "D": "456,976 = 26^4, an extra letter and no digits."
+      }
+    },
+    {
+      "id": "pr_l10_139",
+      "concept": "combinatorial_puzzle",
+      "question": "How many distinct 5-card hands can be dealt from a 52-card deck?",
+      "options": [
+        "2,598,960",
+        "311,875,200",
+        "380,204,032",
+        "22,100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. C(52,5) = 2,598,960.",
+        "B": "311,875,200 is P(52,5), counting ordered deals.",
+        "C": "380,204,032 is 52^5, allowing repeats and order.",
+        "D": "22,100 is C(52,3), a 3-card count."
+      }
+    },
+    {
+      "id": "pr_l10_140",
+      "concept": "combinatorial_puzzle",
+      "question": "How many ways can 3 identical candies be distributed between 2 children (each child gets 0 or more)?",
+      "options": [
+        "8",
+        "4",
+        "6",
+        "9"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "8 = 2^3 would treat the candies as distinct and ordered.",
+        "B": "Correct. Stars and bars: C(3+2-1, 2-1) = C(4,1) = 4 (splits 0-3, 1-2, 2-1, 3-0).",
+        "C": "6 overcounts the symmetric splits.",
+        "D": "9 = 3^2 has no basis for identical candies."
+      }
+    },
+    {
+      "id": "pr_l10_141",
+      "concept": "combinatorial_puzzle",
+      "question": "How many binary strings of length 6 are there?",
+      "options": [
+        "12",
+        "36",
+        "32",
+        "64"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "12 = 6 x 2 has no combinatorial meaning here.",
+        "B": "36 = 6^2 uses the wrong base and exponent.",
+        "C": "32 = 2^5 is the count for length 5.",
+        "D": "Correct. Each of 6 positions has 2 choices: 2^6 = 64."
+      }
+    },
+    {
+      "id": "pr_l10_142",
+      "concept": "combinatorial_puzzle",
+      "question": "What is P(4,2), the number of ways to arrange 2 of 4 distinct items in order?",
+      "options": [
+        "12",
+        "6",
+        "8",
+        "24"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(4,2) = 4 x 3 = 12 ordered pairs.",
+        "B": "6 = C(4,2) ignores order.",
+        "C": "8 has no basis for this permutation count.",
+        "D": "24 = 4! arranges all four items."
+      }
+    },
+    {
+      "id": "pr_l10_143",
+      "concept": "combinatorial_puzzle",
+      "question": "A pizza shop offers 8 toppings. How many distinct topping combinations are possible (any number of toppings, including none)?",
+      "options": [
+        "64",
+        "256",
+        "40320",
+        "8"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "64 = 2^6 would be the count for 6 toppings.",
+        "B": "Correct. Each topping is in or out: 2^8 = 256.",
+        "C": "40320 = 8! counts orderings, which are irrelevant for a topping set.",
+        "D": "8 counts the toppings, not their combinations."
+      }
+    },
+    {
+      "id": "pr_l10_144",
+      "concept": "combinatorial_puzzle",
+      "question": "In how many ways can gold, silver, and bronze medals be awarded among 8 contestants?",
+      "options": [
+        "56",
+        "512",
+        "336",
+        "24"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "56 = C(8,3) ignores that the three medals are distinct (ordered).",
+        "B": "512 = 8^3 would let one person win multiple medals.",
+        "C": "Correct. P(8,3) = 8 x 7 x 6 = 336.",
+        "D": "24 = 4! is unrelated to choosing 3 of 8 in order."
+      }
+    },
+    {
+      "id": "pr_l10_145",
+      "concept": "combinatorial_puzzle",
+      "question": "In how many ways can 4 people be split into 2 unlabeled pairs?",
+      "options": [
+        "3",
+        "6",
+        "12",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The pairings are {AB,CD}, {AC,BD}, {AD,BC}: 3 ways.",
+        "B": "6 = C(4,2) counts a single pair, double-counting the partner pair.",
+        "C": "12 overcounts by treating the pairs as ordered.",
+        "D": "4 has no basis for unlabeled pairings."
+      }
+    },
+    {
+      "id": "pr_l10_146",
+      "concept": "combinatorial_puzzle",
+      "question": "Four people each independently pick a number from 1 to 4. What is P(all four pick different numbers)?",
+      "options": [
+        "1/256",
+        "1/4",
+        "1/24",
+        "3/32"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/256 is the chance of one specific assignment, not all-distinct.",
+        "B": "1/4 has no basis for the all-different event.",
+        "C": "1/24 forgets the total of 4^4 equally likely outcomes.",
+        "D": "Correct. 4!/4^4 = 24/256 = 3/32."
+      }
+    },
+    {
+      "id": "pr_l10_147",
+      "concept": "combinatorial_puzzle",
+      "question": "How many ways can 3 men and 2 women (all distinct) stand in a single row?",
+      "options": [
+        "12",
+        "120",
+        "10",
+        "60"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "12 undercounts the arrangements of five distinct people.",
+        "B": "Correct. All 5 are distinct, so 5! = 120.",
+        "C": "10 = C(5,2) is a selection count, not an ordering.",
+        "D": "60 divides 120 by 2 without justification."
+      }
+    },
+    {
+      "id": "pr_l10_148",
+      "concept": "combinatorial_puzzle",
+      "question": "What is the probability that a random 5-card hand is a flush (all five cards the same suit)?",
+      "options": [
+        "About 0.25",
+        "About 0.05",
+        "About 0.002",
+        "About 0.5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "About 0.25 confuses the chance of one suit with the rare all-same-suit event.",
+        "B": "About 0.05 is still far too high for a flush.",
+        "C": "Correct. 4 x C(13,5)/C(52,5) = 5148/2,598,960 is about 0.00198.",
+        "D": "About 0.5 vastly overstates how often a flush occurs."
+      }
+    },
+    {
+      "id": "pr_l10_149",
+      "concept": "combinatorial_puzzle",
+      "question": "How many ways can 3 toppings be chosen from 6 when order does not matter and repeats are not allowed?",
+      "options": [
+        "18",
+        "120",
+        "216",
+        "20"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "18 = 6 x 3 has no combinatorial meaning here.",
+        "B": "120 = P(6,3) counts ordered selections.",
+        "C": "216 = 6^3 allows repeats and order.",
+        "D": "Correct. C(6,3) = 20."
+      }
+    },
+    {
+      "id": "pr_l10_150",
+      "concept": "combinatorial_puzzle",
+      "question": "How many distinct anagrams does the word 'BOOK' have?",
+      "options": [
+        "12",
+        "24",
+        "6",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 'BOOK' has two O's: 4!/2! = 24/2 = 12.",
+        "B": "24 = 4! ignores the repeated O.",
+        "C": "6 over-divides the factorial.",
+        "D": "4 counts the letters, not the arrangements."
+      }
+    },
+    {
+      "id": "pr_l10_151",
+      "concept": "monty_hall_pattern",
+      "question": "In the classic 3-door Monty Hall game, after the host knowingly opens a goat door, what is P(winning by switching)?",
+      "options": [
+        "2/3",
+        "1/2",
+        "1/3",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Your first pick stays at 1/3, so the other unopened door carries the remaining 2/3.",
+        "B": "1/2 wrongly treats the two remaining doors as equally likely after an informed reveal.",
+        "C": "1/3 is the probability of winning by staying.",
+        "D": "1 would mean switching guarantees a win, which it does not."
+      }
+    },
+    {
+      "id": "pr_l10_152",
+      "concept": "monty_hall_pattern",
+      "question": "A 100-door Monty Hall game: you pick 1 door, the host knowingly opens 98 goat doors. What is P(winning by switching to the last door)?",
+      "options": [
+        "1/2",
+        "1/100",
+        "98/100",
+        "99/100"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/2 ignores how unlikely your single original pick was.",
+        "B": "1/100 is the chance your original door is correct (the stay probability).",
+        "C": "98/100 miscounts; the remaining probability concentrates fully on the one unopened door.",
+        "D": "Correct. Your pick stays at 1/100, so the surviving door holds 99/100."
+      }
+    },
+    {
+      "id": "pr_l10_153",
+      "concept": "birthday_paradox_intuition",
+      "question": "What is the smallest group size for which it is more likely than not that two people share a birthday?",
+      "options": [
+        "183",
+        "23",
+        "366",
+        "50"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "183 (about half of 365) is the intuitive but wrong guess; pairs accumulate much faster.",
+        "B": "Correct. At 23 people the probability of a shared birthday first exceeds 50%.",
+        "C": "366 guarantees a shared birthday (pigeonhole), not just better-than-even odds.",
+        "D": "50 is more than needed; the 50% threshold is already crossed at 23."
+      }
+    },
+    {
+      "id": "pr_l10_154",
+      "concept": "birthday_paradox_intuition",
+      "question": "How many distinct pairs can be formed from 23 people?",
+      "options": [
+        "23",
+        "46",
+        "253",
+        "506"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "23 is the number of people, not pairs.",
+        "B": "46 is 2 x 23, not the count of pairs.",
+        "C": "Correct. C(23,2) = 23 x 22/2 = 253.",
+        "D": "506 = 23 x 22 counts each pair twice."
+      }
+    },
+    {
+      "id": "pr_l10_155",
+      "concept": "expected_value",
+      "question": "What is the expected number of rolls of a fair die needed to first see a 6?",
+      "options": [
+        "6",
+        "1",
+        "36",
+        "3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a geometric distribution, E = 1/p = 1/(1/6) = 6.",
+        "B": "1 would mean a 6 always appears on the first roll.",
+        "C": "36 squares the expected wait without reason.",
+        "D": "3 understates the geometric mean of 6."
+      }
+    },
+    {
+      "id": "pr_l10_156",
+      "concept": "expected_value",
+      "question": "You flip a fair coin: each heads pays $1 and you flip again; the first tails ends the game. What is your expected total winnings?",
+      "options": [
+        "$2",
+        "$1",
+        "$0.50",
+        "Infinite"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$2 double-counts; the expected number of heads before the first tail is 1, not 2.",
+        "B": "Correct. The heads before the first tail form a geometric count with mean (1/2)/(1/2) = 1, so $1.",
+        "C": "$0.50 is only the chance of the first flip being heads, not the expectation.",
+        "D": "The payout per head is bounded at $1, so the total is finite."
+      }
+    },
+    {
+      "id": "pr_l10_157",
+      "concept": "probability_puzzle",
+      "question": "In the two-envelope problem, one envelope has twice the other. You open one with $100 and reason the other averages (50 + 200)/2 = $125, so you should always switch. The flaw is:",
+      "options": [
+        "assuming $50 and $200 are equally likely without a proper prior over amounts",
+        "the $125 calculation is correct and you should always switch",
+        "money cannot actually double",
+        "switching costs nothing, so the paradox is real"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The naive argument assumes a uniform prior that cannot exist over all amounts; with a proper prior the symmetric 'always switch' conclusion disappears.",
+        "B": "If switching were always better, it would be better before opening too, which is absurd by symmetry.",
+        "C": "Doubling is fine; the error is probabilistic, not physical.",
+        "D": "Zero switching cost does not rescue the flawed equal-likelihood assumption."
+      }
+    },
+    {
+      "id": "pr_l10_158",
+      "concept": "probability_puzzle",
+      "question": "A fair coin has just landed heads 5 times in a row. What is P(heads) on the next flip?",
+      "options": [
+        "Less than 1/2",
+        "0",
+        "1/2",
+        "More than 1/2"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "'Less than 1/2' is the gambler's fallacy; the coin has no memory.",
+        "B": "0 would mean heads is now impossible, which is false.",
+        "C": "Correct. Independent flips are memoryless, so P(heads) stays 1/2.",
+        "D": "'More than 1/2' wrongly assumes a streak makes heads more likely."
+      }
+    },
+    {
+      "id": "pr_l10_159",
+      "concept": "expected_value",
+      "question": "You win the face value (in dollars) of one fair die roll. What is the fair price to play?",
+      "options": [
+        "$3.50",
+        "$6.00",
+        "$1.00",
+        "$3.00"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[face value] = (1+2+3+4+5+6)/6 = 3.5, so a fair price is $3.50.",
+        "B": "$6.00 is the maximum payout, not the expected one.",
+        "C": "$1.00 is the minimum payout, far below the average.",
+        "D": "$3.00 is close but below the true mean of 3.5."
+      }
+    },
+    {
+      "id": "pr_l10_160",
+      "concept": "expected_value",
+      "question": "Two fair dice are rolled and you are paid the absolute difference |a - b| in dollars. What is the expected payout?",
+      "options": [
+        "$0",
+        "$1.00",
+        "$3.50",
+        "About $1.94"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$0 would require the dice to always match.",
+        "B": "$1.00 undercounts the larger differences.",
+        "C": "$3.50 is the mean of a single die, unrelated to the difference.",
+        "D": "Correct. Summing d x count gives 70/36, about $1.94."
+      }
+    },
+    {
+      "id": "pr_l10_161",
+      "concept": "fermi_estimation",
+      "question": "Estimate piano tuners in a city of 2 million: ~2.5 people/household, 1 in 20 households owns a piano, each piano tuned once/year, one tuner does ~1000 tunings/year. About how many tuners?",
+      "options": [
+        "About 4",
+        "About 40",
+        "About 400",
+        "About 4000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "About 4 undercounts; recheck the number of pianos.",
+        "B": "Correct. 800,000 households x (1/20) = 40,000 pianos/tunings; 40,000/1000 is about 40 tuners.",
+        "C": "About 400 overcounts by a factor of ten.",
+        "D": "About 4000 is the number of pianos divided by 10, not the tuners."
+      }
+    },
+    {
+      "id": "pr_l10_162",
+      "concept": "fermi_estimation",
+      "question": "Estimate the number of fast-food restaurants in a city of 1 million if there is roughly 1 per 5000 residents.",
+      "options": [
+        "About 20",
+        "About 2000",
+        "About 200",
+        "About 50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "About 20 would imply 1 per 50,000 residents.",
+        "B": "About 2000 would imply 1 per 500 residents, far too dense.",
+        "C": "Correct. 1,000,000 / 5000 = 200 restaurants.",
+        "D": "About 50 implies 1 per 20,000 residents, too sparse."
+      }
+    },
+    {
+      "id": "pr_l10_163",
+      "concept": "expected_value",
+      "question": "A stick of length 1 is broken at a uniformly random point. What is the expected length of the longer piece?",
+      "options": [
+        "3/4",
+        "1/2",
+        "2/3",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[max(X, 1-X)] = 2 times the integral of x from 1/2 to 1 = 3/4.",
+        "B": "1/2 is the average length of each piece, not specifically the longer one.",
+        "C": "2/3 does not match the integral for the longer piece.",
+        "D": "1 would be the whole stick, ignoring that it is broken."
+      }
+    },
+    {
+      "id": "pr_l10_164",
+      "concept": "expected_value",
+      "question": "A cereal box contains 1 of 4 equally likely toys. What is the expected number of boxes needed to collect all 4 distinct toys?",
+      "options": [
+        "4",
+        "10",
+        "16",
+        "About 8.3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4 is the minimum possible, not the expected number with repeats.",
+        "B": "10 overshoots the coupon-collector sum for 4 toys.",
+        "C": "16 = 4^2 has no basis here.",
+        "D": "Correct. 4 x (1 + 1/2 + 1/3 + 1/4) = 4 x 25/12 = 25/3, about 8.3."
+      }
+    },
+    {
+      "id": "pr_l10_165",
+      "concept": "expected_value_linearity",
+      "question": "In a uniformly random permutation of 1..n, what is the expected number of fixed points (positions i holding value i)?",
+      "options": [
+        "1",
+        "n",
+        "0",
+        "n/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each position is a fixed point with probability 1/n; by linearity, E = n x (1/n) = 1.",
+        "B": "n would mean every position is fixed, i.e. the identity permutation always.",
+        "C": "0 ignores that fixed points do occur on average.",
+        "D": "n/2 has no basis; the expectation is exactly 1 for any n."
+      }
+    },
+    {
+      "id": "pr_l10_166",
+      "concept": "basic_probability",
+      "question": "Two people each roll a fair die. What is P(they roll the same number)?",
+      "options": [
+        "1/36",
+        "1/6",
+        "1/2",
+        "1/12"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/36 is the chance of one specific matching pair like (3,3).",
+        "B": "Correct. The first roll can be anything; the second matches it with probability 1/6.",
+        "C": "1/2 vastly overstates the chance of a match.",
+        "D": "1/12 undercounts; there are 6 matching outcomes out of 36."
+      }
+    },
+    {
+      "id": "pr_l10_167",
+      "concept": "probability_puzzle",
+      "question": "Three ants sit on the corners of a triangle. Each independently walks along one of the two edges from its corner. What is P(no two ants collide)?",
+      "options": [
+        "1/2",
+        "1/8",
+        "1/4",
+        "3/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 overstates it; collisions are avoided only in two of eight cases.",
+        "B": "1/8 counts just one no-collision case, but there are two.",
+        "C": "Correct. No collision requires all ants to circulate the same way: 2 of 2^3 = 2/8 = 1/4.",
+        "D": "3/4 inverts the probability; collisions are the common outcome."
+      }
+    },
+    {
+      "id": "pr_l10_168",
+      "concept": "fermi_estimation",
+      "question": "Estimate how many times the word 'the' appears in a 300-page novel (~300 words per page, about 5% of words are 'the').",
+      "options": [
+        "About 4,500",
+        "About 450",
+        "About 45,000",
+        "About 90"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 300 x 300 = 90,000 words; 5% of 90,000 is 4,500.",
+        "B": "About 450 is only 0.5% of the words.",
+        "C": "About 45,000 would be half of all words being 'the'.",
+        "D": "About 90 ignores the per-page word count entirely."
+      }
+    },
+    {
+      "id": "pr_l10_169",
+      "concept": "symmetry_argument",
+      "question": "You roll a fair die repeatedly. What is P(you see a 6 before you see a 1)?",
+      "options": [
+        "1/6",
+        "1/2",
+        "1/3",
+        "5/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/6 is the chance of a 6 on a single roll, not the race against the 1.",
+        "B": "Correct. By symmetry, 6 and 1 are equally likely to appear first, so 1/2.",
+        "C": "1/3 has no basis for this symmetric two-outcome race.",
+        "D": "5/6 confuses 'not a 1 on one roll' with the long-run race."
+      }
+    },
+    {
+      "id": "pr_l10_170",
+      "concept": "expected_value",
+      "question": "You roll a fair die. You may keep the value or reroll once and must take the second roll. Playing optimally, what is the expected value?",
+      "options": [
+        "3.5",
+        "4.0",
+        "5.0",
+        "4.25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "3.5 is the value of never using the reroll option.",
+        "B": "4.0 does not match the optimal keep-or-reroll calculation.",
+        "C": "5.0 is the average of {4,5,6} alone, ignoring the reroll cases.",
+        "D": "Correct. Keep 4-6 (mean 5), reroll on 1-3 (then expect 3.5): 0.5 x 5 + 0.5 x 3.5 = 4.25."
+      }
+    },
+    {
+      "id": "pr_l10_171",
+      "concept": "birthday_paradox_intuition",
+      "question": "Roughly how many people must be in a room before it is more likely than not that someone shares YOUR specific birthday?",
+      "options": [
+        "About 253",
+        "About 23",
+        "About 183",
+        "366"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Solving 1 - (364/365)^n > 0.5 gives n about 253.",
+        "B": "About 23 is the answer for ANY shared pair, not a match to your specific date.",
+        "C": "About 183 is a common but incorrect 'half of 365' guess.",
+        "D": "366 guarantees a pair shares some birthday, but not specifically yours."
+      }
+    },
+    {
+      "id": "pr_l10_172",
+      "concept": "order_of_magnitude",
+      "question": "The mass of a typical adult human is closest to:",
+      "options": [
+        "7 kg",
+        "70 kg",
+        "700 kg",
+        "7000 kg"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "7 kg is about the mass of a house cat.",
+        "B": "Correct. A typical adult is roughly 70 kg.",
+        "C": "700 kg is closer to a large horse.",
+        "D": "7000 kg is about the mass of an elephant."
+      }
+    },
+    {
+      "id": "pr_l10_173",
+      "concept": "basic_probability",
+      "question": "A bag has 1 red and 1 blue marble. You draw, replace, and repeat 3 times. What is P(exactly 2 reds)?",
+      "options": [
+        "1/2",
+        "1/8",
+        "3/8",
+        "3/4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1/2 ignores the binomial structure of three draws.",
+        "B": "1/8 is the chance of one specific sequence, not all with two reds.",
+        "C": "Correct. C(3,2)(1/2)^3 = 3 x 1/8 = 3/8.",
+        "D": "3/4 overcounts the favorable sequences."
+      }
+    },
+    {
+      "id": "pr_l10_174",
+      "concept": "probability_puzzle",
+      "question": "A martingale strategy doubles the bet after each loss on a fair coin. Each completed cycle nets +$1, yet it fails in practice mainly because:",
+      "options": [
+        "a finite bankroll makes a rare long losing streak catastrophic",
+        "the coin is secretly biased",
+        "the expected value of each bet is negative",
+        "the strategy mathematically always loses"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Required bets grow exponentially, so a long losing run exhausts any real bankroll before the guaranteed $1 arrives.",
+        "B": "The fatal flaw exists even with a perfectly fair coin.",
+        "C": "On a fair coin each bet has zero expected value, not negative.",
+        "D": "Each cycle does win $1 when it completes; the problem is the rare ruinous streak, not certain loss."
+      }
+    },
+    {
+      "id": "pr_l10_175",
+      "concept": "order_of_magnitude",
+      "question": "Estimate the number of red blood cells in an adult body (~5 million per microliter, ~5 liters of blood). Which order of magnitude is best?",
+      "options": [
+        "About 10^6",
+        "About 10^13",
+        "About 10^9",
+        "About 10^20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "About 10^6 is the count in just one microliter, not the whole body.",
+        "B": "Correct. 5 x 10^6 cells/uL x 5 x 10^6 uL = 2.5 x 10^13.",
+        "C": "About 10^9 undercounts by roughly four orders of magnitude.",
+        "D": "About 10^20 overshoots the body's cell count enormously."
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import { redirectPreviewToCanonical } from "./lib/appUrl";
@@ -31,6 +31,14 @@ import { PokerTheory } from "./pages/PokerTheory";
 import { PokerTheoryPlayer } from "./pages/PokerTheoryPlayer";
 import { MentalMathHub } from "./pages/MentalMath/Hub";
 import { MentalMathDrill } from "./pages/MentalMath/Drill";
+// Practice banks are large (5k+ questions); lazy-load so they don't bloat the
+// initial bundle for users who never open the Practice tab.
+const Practice = lazy(() =>
+  import("./pages/Practice").then((m) => ({ default: m.Practice })),
+);
+const PracticeSession = lazy(() =>
+  import("./pages/PracticeSession").then((m) => ({ default: m.PracticeSession })),
+);
 import { AccentThemeApplier } from "./components/store/AccentThemeApplier";
 import { DailyRewardsGate } from "./components/dailyRewards/DailyRewardsGate";
 
@@ -75,6 +83,26 @@ export function App() {
         <Route path="/market-making/lessons/:lessonId" element={<Protected><MarketMakingLessonPlayer /></Protected>} />
         <Route path="/mental-math" element={<Protected><MentalMathHub /></Protected>} />
         <Route path="/mental-math/play/:difficulty" element={<Protected><MentalMathDrill /></Protected>} />
+        <Route
+          path="/practice"
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingScreen />}>
+                <Practice />
+              </Suspense>
+            </Protected>
+          }
+        />
+        <Route
+          path="/practice/:lessonId"
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingScreen />}>
+                <PracticeSession />
+              </Suspense>
+            </Protected>
+          }
+        />
         <Route path="/calendar" element={<Protected><Calendar /></Protected>} />
         <Route path="/badges" element={<Protected><Badges /></Protected>} />
         <Route path="/leaderboard" element={<Protected><Leaderboard /></Protected>} />

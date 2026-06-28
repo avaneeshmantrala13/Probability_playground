@@ -1,0 +1,3157 @@
+{
+  "lessonId": "lesson_2",
+  "track": "quant",
+  "title": "Combinatorics & Counting",
+  "questions": [
+    {
+      "id": "pr_l2_001",
+      "concept": "factorial_counting",
+      "question": "How many ways can 4 distinct trading desks be arranged in a line?",
+      "options": [
+        "24",
+        "4",
+        "12",
+        "256"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. All 4 positions must be filled in order, so this is 4! = 4 × 3 × 2 × 1 = 24.",
+        "B": "4 is just the number of items, not the number of orderings. Every arrangement uses all 4.",
+        "C": "12 = 4 × 3 stops after two factors; a full line uses all 4 factors down to 1.",
+        "D": "256 = 4^4 allows repetition, reusing the same item in multiple spots, which is not allowed."
+      }
+    },
+    {
+      "id": "pr_l2_002",
+      "concept": "factorial_counting",
+      "question": "How many ways can 5 distinct stocks be arranged in a line?",
+      "options": [
+        "5",
+        "120",
+        "20",
+        "3,125"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 is just the number of items, not the number of orderings. Every arrangement uses all 5.",
+        "B": "Correct. All 5 positions must be filled in order, so this is 5! = 5 × 4 × 3 × 2 × 1 = 120.",
+        "C": "20 = 5 × 4 stops after two factors; a full line uses all 5 factors down to 1.",
+        "D": "3,125 = 5^5 allows repetition, reusing the same item in multiple spots, which is not allowed."
+      }
+    },
+    {
+      "id": "pr_l2_003",
+      "concept": "factorial_counting",
+      "question": "How many ways can 6 distinct analysts be arranged in a line?",
+      "options": [
+        "6",
+        "30",
+        "720",
+        "46,656"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6 is just the number of items, not the number of orderings. Every arrangement uses all 6.",
+        "B": "30 = 6 × 5 stops after two factors; a full line uses all 6 factors down to 1.",
+        "C": "Correct. All 6 positions must be filled in order, so this is 6! = 6 × 5 × 4 × 3 × 2 × 1 = 720.",
+        "D": "46,656 = 6^6 allows repetition, reusing the same item in multiple spots, which is not allowed."
+      }
+    },
+    {
+      "id": "pr_l2_004",
+      "concept": "factorial_counting",
+      "question": "How many ways can 7 distinct chess pieces be arranged in a line?",
+      "options": [
+        "7",
+        "42",
+        "823,543",
+        "5,040"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "7 is just the number of items, not the number of orderings. Every arrangement uses all 7.",
+        "B": "42 = 7 × 6 stops after two factors; a full line uses all 7 factors down to 1.",
+        "C": "823,543 = 7^7 allows repetition, reusing the same item in multiple spots, which is not allowed.",
+        "D": "Correct. All 7 positions must be filled in order, so this is 7! = 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5,040."
+      }
+    },
+    {
+      "id": "pr_l2_005",
+      "concept": "factorial_counting",
+      "question": "How many ways can 8 distinct playing cards be arranged in a line?",
+      "options": [
+        "40,320",
+        "8",
+        "56",
+        "16,777,216"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. All 8 positions must be filled in order, so this is 8! = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 40,320.",
+        "B": "8 is just the number of items, not the number of orderings. Every arrangement uses all 8.",
+        "C": "56 = 8 × 7 stops after two factors; a full line uses all 8 factors down to 1.",
+        "D": "16,777,216 = 8^8 allows repetition, reusing the same item in multiple spots, which is not allowed."
+      }
+    },
+    {
+      "id": "pr_l2_006",
+      "concept": "factorial_counting",
+      "question": "How many ways can 9 distinct books be arranged in a line?",
+      "options": [
+        "9",
+        "362,880",
+        "72",
+        "387,420,489"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "9 is just the number of items, not the number of orderings. Every arrangement uses all 9.",
+        "B": "Correct. All 9 positions must be filled in order, so this is 9! = 9 × 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 362,880.",
+        "C": "72 = 9 × 8 stops after two factors; a full line uses all 9 factors down to 1.",
+        "D": "387,420,489 = 9^9 allows repetition, reusing the same item in multiple spots, which is not allowed."
+      }
+    },
+    {
+      "id": "pr_l2_007",
+      "concept": "factorial_counting",
+      "question": "What is 4! (4 factorial)?",
+      "options": [
+        "6",
+        "12",
+        "24",
+        "120"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "6 = 3!, one factor short of 4!.",
+        "B": "12 = 4 × 3 only, but factorial multiplies all integers down to 1.",
+        "C": "Correct. 4! = 4 × 3 × 2 × 1 = 24.",
+        "D": "120 = 5!, one factor too many."
+      }
+    },
+    {
+      "id": "pr_l2_008",
+      "concept": "factorial_counting",
+      "question": "What is 5! (5 factorial)?",
+      "options": [
+        "24",
+        "20",
+        "720",
+        "120"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "24 = 4!, one factor short of 5!.",
+        "B": "20 = 5 × 4 only, but factorial multiplies all integers down to 1.",
+        "C": "720 = 6!, one factor too many.",
+        "D": "Correct. 5! = 5 × 4 × 3 × 2 × 1 = 120."
+      }
+    },
+    {
+      "id": "pr_l2_009",
+      "concept": "factorial_counting",
+      "question": "What is 6! (6 factorial)?",
+      "options": [
+        "720",
+        "120",
+        "30",
+        "5,040"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 6! = 6 × 5 × 4 × 3 × 2 × 1 = 720.",
+        "B": "120 = 5!, one factor short of 6!.",
+        "C": "30 = 6 × 5 only, but factorial multiplies all integers down to 1.",
+        "D": "5,040 = 7!, one factor too many."
+      }
+    },
+    {
+      "id": "pr_l2_010",
+      "concept": "factorial_counting",
+      "question": "What is 7! (7 factorial)?",
+      "options": [
+        "720",
+        "5,040",
+        "42",
+        "40,320"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "720 = 6!, one factor short of 7!.",
+        "B": "Correct. 7! = 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5,040.",
+        "C": "42 = 7 × 6 only, but factorial multiplies all integers down to 1.",
+        "D": "40,320 = 8!, one factor too many."
+      }
+    },
+    {
+      "id": "pr_l2_011",
+      "concept": "factorial_counting",
+      "question": "What is 8! (8 factorial)?",
+      "options": [
+        "5,040",
+        "56",
+        "40,320",
+        "362,880"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "5,040 = 7!, one factor short of 8!.",
+        "B": "56 = 8 × 7 only, but factorial multiplies all integers down to 1.",
+        "C": "Correct. 8! = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 40,320.",
+        "D": "362,880 = 9!, one factor too many."
+      }
+    },
+    {
+      "id": "pr_l2_012",
+      "concept": "permutations",
+      "question": "From 6 distinct stocks, how many ways can you pick and rank a top 3 (no ties)?",
+      "options": [
+        "20",
+        "216",
+        "720",
+        "120"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "20 = C(6,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "216 = 6^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "720 = 6! ranks all 6 items, not just the top 3.",
+        "D": "Correct. Order matters, so this is P(6,3) = 6 × 5 × 4 = 120."
+      }
+    },
+    {
+      "id": "pr_l2_013",
+      "concept": "permutations",
+      "question": "From 5 distinct stocks, how many ways can you pick and rank a top 2 (no ties)?",
+      "options": [
+        "20",
+        "10",
+        "25",
+        "120"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order matters, so this is P(5,2) = 5 × 4 = 20.",
+        "B": "10 = C(5,2) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "C": "25 = 5^2 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "120 = 5! ranks all 5 items, not just the top 2."
+      }
+    },
+    {
+      "id": "pr_l2_014",
+      "concept": "permutations",
+      "question": "A manager assigns 3 labeled, distinct roles to 7 candidates. How many assignments?",
+      "options": [
+        "35",
+        "210",
+        "343",
+        "5,040"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "35 = C(7,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "Correct. Order matters, so this is P(7,3) = 7 × 6 × 5 = 210.",
+        "C": "343 = 7^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "5,040 = 7! ranks all 7 items, not just the top 3."
+      }
+    },
+    {
+      "id": "pr_l2_015",
+      "concept": "permutations",
+      "question": "How many 2-letter codes use distinct letters chosen from 8 different letters?",
+      "options": [
+        "28",
+        "64",
+        "56",
+        "40,320"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "28 = C(8,2) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "64 = 8^2 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "Correct. Order matters, so this is P(8,2) = 8 × 7 = 56.",
+        "D": "40,320 = 8! ranks all 8 items, not just the top 2."
+      }
+    },
+    {
+      "id": "pr_l2_016",
+      "concept": "permutations",
+      "question": "From 9 distinct stocks, how many ways can you pick and rank a top 3 (no ties)?",
+      "options": [
+        "84",
+        "729",
+        "362,880",
+        "504"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "84 = C(9,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "729 = 9^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "362,880 = 9! ranks all 9 items, not just the top 3.",
+        "D": "Correct. Order matters, so this is P(9,3) = 9 × 8 × 7 = 504."
+      }
+    },
+    {
+      "id": "pr_l2_017",
+      "concept": "permutations",
+      "question": "From 7 distinct stocks, how many ways can you pick and rank a top 4 (no ties)?",
+      "options": [
+        "840",
+        "35",
+        "2,401",
+        "5,040"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order matters, so this is P(7,4) = 7 × 6 × 5 × 4 = 840.",
+        "B": "35 = C(7,4) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "C": "2,401 = 7^4 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "5,040 = 7! ranks all 7 items, not just the top 4."
+      }
+    },
+    {
+      "id": "pr_l2_018",
+      "concept": "permutations",
+      "question": "A manager assigns 3 labeled, distinct roles to 10 candidates. How many assignments?",
+      "options": [
+        "120",
+        "720",
+        "1,000",
+        "3,628,800"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "120 = C(10,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "Correct. Order matters, so this is P(10,3) = 10 × 9 × 8 = 720.",
+        "C": "1,000 = 10^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "3,628,800 = 10! ranks all 10 items, not just the top 3."
+      }
+    },
+    {
+      "id": "pr_l2_019",
+      "concept": "permutations",
+      "question": "How many 4-letter codes use distinct letters chosen from 6 different letters?",
+      "options": [
+        "15",
+        "1,296",
+        "360",
+        "720"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "15 = C(6,4) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "1,296 = 6^4 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "Correct. Order matters, so this is P(6,4) = 6 × 5 × 4 × 3 = 360.",
+        "D": "720 = 6! ranks all 6 items, not just the top 4."
+      }
+    },
+    {
+      "id": "pr_l2_020",
+      "concept": "permutations",
+      "question": "From 8 distinct stocks, how many ways can you pick and rank a top 3 (no ties)?",
+      "options": [
+        "56",
+        "512",
+        "40,320",
+        "336"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "56 = C(8,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "512 = 8^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "40,320 = 8! ranks all 8 items, not just the top 3.",
+        "D": "Correct. Order matters, so this is P(8,3) = 8 × 7 × 6 = 336."
+      }
+    },
+    {
+      "id": "pr_l2_021",
+      "concept": "permutations",
+      "question": "5 sprinters race; how many ways can the gold, silver, and bronze finishers be ordered?",
+      "options": [
+        "60",
+        "10",
+        "125",
+        "120"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order matters, so this is P(5,3) = 5 × 4 × 3 = 60.",
+        "B": "10 = C(5,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "C": "125 = 5^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "120 = 5! ranks all 5 items, not just the top 3."
+      }
+    },
+    {
+      "id": "pr_l2_022",
+      "concept": "permutations",
+      "question": "A manager assigns 2 labeled, distinct roles to 10 candidates. How many assignments?",
+      "options": [
+        "45",
+        "90",
+        "100",
+        "3,628,800"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "45 = C(10,2) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "Correct. Order matters, so this is P(10,2) = 10 × 9 = 90.",
+        "C": "100 = 10^2 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "3,628,800 = 10! ranks all 10 items, not just the top 2."
+      }
+    },
+    {
+      "id": "pr_l2_023",
+      "concept": "permutations",
+      "question": "How many 2-letter codes use distinct letters chosen from 9 different letters?",
+      "options": [
+        "36",
+        "81",
+        "72",
+        "362,880"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "36 = C(9,2) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "81 = 9^2 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "Correct. Order matters, so this is P(9,2) = 9 × 8 = 72.",
+        "D": "362,880 = 9! ranks all 9 items, not just the top 2."
+      }
+    },
+    {
+      "id": "pr_l2_024",
+      "concept": "permutations",
+      "question": "From 11 distinct stocks, how many ways can you pick and rank a top 3 (no ties)?",
+      "options": [
+        "165",
+        "1,331",
+        "39,916,800",
+        "990"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "165 = C(11,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "1,331 = 11^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "39,916,800 = 11! ranks all 11 items, not just the top 3.",
+        "D": "Correct. Order matters, so this is P(11,3) = 11 × 10 × 9 = 990."
+      }
+    },
+    {
+      "id": "pr_l2_025",
+      "concept": "permutations",
+      "question": "From 12 distinct stocks, how many ways can you pick and rank a top 2 (no ties)?",
+      "options": [
+        "132",
+        "66",
+        "144",
+        "479,001,600"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order matters, so this is P(12,2) = 12 × 11 = 132.",
+        "B": "66 = C(12,2) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "C": "144 = 12^2 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "479,001,600 = 12! ranks all 12 items, not just the top 2."
+      }
+    },
+    {
+      "id": "pr_l2_026",
+      "concept": "permutations",
+      "question": "A manager assigns 2 labeled, distinct roles to 7 candidates. How many assignments?",
+      "options": [
+        "21",
+        "42",
+        "49",
+        "5,040"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "21 = C(7,2) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "Correct. Order matters, so this is P(7,2) = 7 × 6 = 42.",
+        "C": "49 = 7^2 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "5,040 = 7! ranks all 7 items, not just the top 2."
+      }
+    },
+    {
+      "id": "pr_l2_027",
+      "concept": "permutations",
+      "question": "How many 2-letter codes use distinct letters chosen from 11 different letters?",
+      "options": [
+        "55",
+        "121",
+        "110",
+        "39,916,800"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "55 = C(11,2) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "121 = 11^2 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "Correct. Order matters, so this is P(11,2) = 11 × 10 = 110.",
+        "D": "39,916,800 = 11! ranks all 11 items, not just the top 2."
+      }
+    },
+    {
+      "id": "pr_l2_028",
+      "concept": "permutations",
+      "question": "From 9 distinct stocks, how many ways can you pick and rank a top 4 (no ties)?",
+      "options": [
+        "126",
+        "6,561",
+        "362,880",
+        "3,024"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "126 = C(9,4) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "B": "6,561 = 9^4 allows repetition (the same item in several positions); selections here must be distinct.",
+        "C": "362,880 = 9! ranks all 9 items, not just the top 4.",
+        "D": "Correct. Order matters, so this is P(9,4) = 9 × 8 × 7 × 6 = 3,024."
+      }
+    },
+    {
+      "id": "pr_l2_029",
+      "concept": "permutations",
+      "question": "12 sprinters race; how many ways can the gold, silver, and bronze finishers be ordered?",
+      "options": [
+        "1,320",
+        "220",
+        "1,728",
+        "479,001,600"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order matters, so this is P(12,3) = 12 × 11 × 10 = 1,320.",
+        "B": "220 = C(12,3) counts unordered selections, but here the positions are ranked/labeled so order matters.",
+        "C": "1,728 = 12^3 allows repetition (the same item in several positions); selections here must be distinct.",
+        "D": "479,001,600 = 12! ranks all 12 items, not just the top 3."
+      }
+    },
+    {
+      "id": "pr_l2_030",
+      "concept": "combinations",
+      "question": "A committee picks 2 stocks from 5 candidates; order does not matter. How many portfolios?",
+      "options": [
+        "20",
+        "10",
+        "25",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "20 = P(5,2) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "Correct. Order does not matter, so this is C(5,2) = 5 × 4 / 2 × 1 = 10.",
+        "C": "25 = 5^2 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "5 = C(5,1) chooses 1 items instead of 2."
+      }
+    },
+    {
+      "id": "pr_l2_031",
+      "concept": "combinations",
+      "question": "How many ways can you choose a team of 2 from 6 people (order irrelevant)?",
+      "options": [
+        "30",
+        "36",
+        "15",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "30 = P(6,2) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "36 = 6^2 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "Correct. Order does not matter, so this is C(6,2) = 6 × 5 / 2 × 1 = 15.",
+        "D": "6 = C(6,1) chooses 1 items instead of 2."
+      }
+    },
+    {
+      "id": "pr_l2_032",
+      "concept": "combinations",
+      "question": "From 7 desserts you may take any 3 (order does not matter). How many choices?",
+      "options": [
+        "210",
+        "343",
+        "21",
+        "35"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "210 = P(7,3) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "343 = 7^3 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "21 = C(7,2) chooses 2 items instead of 3.",
+        "D": "Correct. Order does not matter, so this is C(7,3) = 7 × 6 × 5 / 3 × 2 × 1 = 35."
+      }
+    },
+    {
+      "id": "pr_l2_033",
+      "concept": "combinations",
+      "question": "How many 3-card subsets can be chosen from 8 distinct cards?",
+      "options": [
+        "56",
+        "336",
+        "512",
+        "28"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter, so this is C(8,3) = 8 × 7 × 6 / 3 × 2 × 1 = 56.",
+        "B": "336 = P(8,3) counts ordered selections, but here the chosen items form an unordered set.",
+        "C": "512 = 8^3 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "28 = C(8,2) chooses 2 items instead of 3."
+      }
+    },
+    {
+      "id": "pr_l2_034",
+      "concept": "combinations",
+      "question": "A committee picks 4 stocks from 10 candidates; order does not matter. How many portfolios?",
+      "options": [
+        "5,040",
+        "210",
+        "10,000",
+        "120"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5,040 = P(10,4) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "Correct. Order does not matter, so this is C(10,4) = 10 × 9 × 8 × 7 / 4 × 3 × 2 × 1 = 210.",
+        "C": "10,000 = 10^4 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "120 = C(10,3) chooses 3 items instead of 4."
+      }
+    },
+    {
+      "id": "pr_l2_035",
+      "concept": "combinations",
+      "question": "How many ways can you choose a team of 3 from 9 people (order irrelevant)?",
+      "options": [
+        "504",
+        "729",
+        "84",
+        "36"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "504 = P(9,3) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "729 = 9^3 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "Correct. Order does not matter, so this is C(9,3) = 9 × 8 × 7 / 3 × 2 × 1 = 84.",
+        "D": "36 = C(9,2) chooses 2 items instead of 3."
+      }
+    },
+    {
+      "id": "pr_l2_036",
+      "concept": "combinations",
+      "question": "From 11 desserts you may take any 4 (order does not matter). How many choices?",
+      "options": [
+        "7,920",
+        "14,641",
+        "165",
+        "330"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "7,920 = P(11,4) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "14,641 = 11^4 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "165 = C(11,3) chooses 3 items instead of 4.",
+        "D": "Correct. Order does not matter, so this is C(11,4) = 11 × 10 × 9 × 8 / 4 × 3 × 2 × 1 = 330."
+      }
+    },
+    {
+      "id": "pr_l2_037",
+      "concept": "combinations",
+      "question": "How many 3-card subsets can be chosen from 6 distinct cards?",
+      "options": [
+        "20",
+        "120",
+        "216",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter, so this is C(6,3) = 6 × 5 × 4 / 3 × 2 × 1 = 20.",
+        "B": "120 = P(6,3) counts ordered selections, but here the chosen items form an unordered set.",
+        "C": "216 = 6^3 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "15 = C(6,2) chooses 2 items instead of 3."
+      }
+    },
+    {
+      "id": "pr_l2_038",
+      "concept": "combinations",
+      "question": "A committee picks 2 stocks from 7 candidates; order does not matter. How many portfolios?",
+      "options": [
+        "42",
+        "21",
+        "49",
+        "7"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "42 = P(7,2) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "Correct. Order does not matter, so this is C(7,2) = 7 × 6 / 2 × 1 = 21.",
+        "C": "49 = 7^2 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "7 = C(7,1) chooses 1 items instead of 2."
+      }
+    },
+    {
+      "id": "pr_l2_039",
+      "concept": "combinations",
+      "question": "How many ways can you choose a team of 3 from 12 people (order irrelevant)?",
+      "options": [
+        "1,320",
+        "1,728",
+        "220",
+        "66"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1,320 = P(12,3) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "1,728 = 12^3 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "Correct. Order does not matter, so this is C(12,3) = 12 × 11 × 10 / 3 × 2 × 1 = 220.",
+        "D": "66 = C(12,2) chooses 2 items instead of 3."
+      }
+    },
+    {
+      "id": "pr_l2_040",
+      "concept": "combinations",
+      "question": "From 10 desserts you may take any 2 (order does not matter). How many choices?",
+      "options": [
+        "90",
+        "100",
+        "10",
+        "45"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "90 = P(10,2) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "100 = 10^2 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "10 = C(10,1) chooses 1 items instead of 2.",
+        "D": "Correct. Order does not matter, so this is C(10,2) = 10 × 9 / 2 × 1 = 45."
+      }
+    },
+    {
+      "id": "pr_l2_041",
+      "concept": "combinations",
+      "question": "How many 4-card subsets can be chosen from 8 distinct cards?",
+      "options": [
+        "70",
+        "1,680",
+        "4,096",
+        "56"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter, so this is C(8,4) = 8 × 7 × 6 × 5 / 4 × 3 × 2 × 1 = 70.",
+        "B": "1,680 = P(8,4) counts ordered selections, but here the chosen items form an unordered set.",
+        "C": "4,096 = 8^4 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "56 = C(8,3) chooses 3 items instead of 4."
+      }
+    },
+    {
+      "id": "pr_l2_042",
+      "concept": "combinations",
+      "question": "A committee picks 4 stocks from 13 candidates; order does not matter. How many portfolios?",
+      "options": [
+        "17,160",
+        "715",
+        "28,561",
+        "286"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "17,160 = P(13,4) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "Correct. Order does not matter, so this is C(13,4) = 13 × 12 × 11 × 10 / 4 × 3 × 2 × 1 = 715.",
+        "C": "28,561 = 13^4 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "286 = C(13,3) chooses 3 items instead of 4."
+      }
+    },
+    {
+      "id": "pr_l2_043",
+      "concept": "combinations",
+      "question": "How many ways can you choose a team of 4 from 9 people (order irrelevant)?",
+      "options": [
+        "3,024",
+        "6,561",
+        "126",
+        "84"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3,024 = P(9,4) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "6,561 = 9^4 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "Correct. Order does not matter, so this is C(9,4) = 9 × 8 × 7 × 6 / 4 × 3 × 2 × 1 = 126.",
+        "D": "84 = C(9,3) chooses 3 items instead of 4."
+      }
+    },
+    {
+      "id": "pr_l2_044",
+      "concept": "combinations",
+      "question": "From 14 desserts you may take any 3 (order does not matter). How many choices?",
+      "options": [
+        "2,184",
+        "2,744",
+        "91",
+        "364"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "2,184 = P(14,3) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "2,744 = 14^3 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "91 = C(14,2) chooses 2 items instead of 3.",
+        "D": "Correct. Order does not matter, so this is C(14,3) = 14 × 13 × 12 / 3 × 2 × 1 = 364."
+      }
+    },
+    {
+      "id": "pr_l2_045",
+      "concept": "combinations",
+      "question": "How many 2-card subsets can be chosen from 8 distinct cards?",
+      "options": [
+        "28",
+        "56",
+        "64",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter, so this is C(8,2) = 8 × 7 / 2 × 1 = 28.",
+        "B": "56 = P(8,2) counts ordered selections, but here the chosen items form an unordered set.",
+        "C": "64 = 8^2 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "8 = C(8,1) chooses 1 items instead of 2."
+      }
+    },
+    {
+      "id": "pr_l2_046",
+      "concept": "combinations",
+      "question": "A committee picks 3 stocks from 10 candidates; order does not matter. How many portfolios?",
+      "options": [
+        "720",
+        "120",
+        "1,000",
+        "45"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "720 = P(10,3) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "Correct. Order does not matter, so this is C(10,3) = 10 × 9 × 8 / 3 × 2 × 1 = 120.",
+        "C": "1,000 = 10^3 allows repetition and treats positions as distinct; neither applies here.",
+        "D": "45 = C(10,2) chooses 2 items instead of 3."
+      }
+    },
+    {
+      "id": "pr_l2_047",
+      "concept": "combinations",
+      "question": "How many ways can you choose a team of 5 from 13 people (order irrelevant)?",
+      "options": [
+        "154,440",
+        "371,293",
+        "1,287",
+        "715"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "154,440 = P(13,5) counts ordered selections, but here the chosen items form an unordered set.",
+        "B": "371,293 = 13^5 allows repetition and treats positions as distinct; neither applies here.",
+        "C": "Correct. Order does not matter, so this is C(13,5) = 13 × 12 × 11 × 10 × 9 / 5 × 4 × 3 × 2 × 1 = 1,287.",
+        "D": "715 = C(13,4) chooses 4 items instead of 5."
+      }
+    },
+    {
+      "id": "pr_l2_048",
+      "concept": "permutation_vs_combination",
+      "question": "Choose a president and a vice-president from 7 members (distinct roles). How many slates?",
+      "options": [
+        "21",
+        "49",
+        "5,040",
+        "42"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "21 = C(7,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "49 = 7^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "C": "5,040 = 7! ranks all 7 members rather than filling just two posts.",
+        "D": "Correct. The two posts are labeled, so order matters: P(7,2) = 7 × 6 = 42."
+      }
+    },
+    {
+      "id": "pr_l2_049",
+      "concept": "permutation_vs_combination",
+      "question": "Assign a Lead and a Backup from 8 engineers. How many labeled assignments?",
+      "options": [
+        "56",
+        "28",
+        "64",
+        "40,320"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The two posts are labeled, so order matters: P(8,2) = 8 × 7 = 56.",
+        "B": "28 = C(8,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "C": "64 = 8^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "D": "40,320 = 8! ranks all 8 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_050",
+      "concept": "permutation_vs_combination",
+      "question": "From 6 traders, pick a chair and a co-chair (distinct posts). How many ways?",
+      "options": [
+        "15",
+        "30",
+        "36",
+        "720"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "15 = C(6,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "Correct. The two posts are labeled, so order matters: P(6,2) = 6 × 5 = 30.",
+        "C": "36 = 6^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "D": "720 = 6! ranks all 6 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_051",
+      "concept": "permutation_vs_combination",
+      "question": "Choose a president and a vice-president from 9 members (distinct roles). How many slates?",
+      "options": [
+        "36",
+        "81",
+        "72",
+        "362,880"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "36 = C(9,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "81 = 9^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "C": "Correct. The two posts are labeled, so order matters: P(9,2) = 9 × 8 = 72.",
+        "D": "362,880 = 9! ranks all 9 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_052",
+      "concept": "permutation_vs_combination",
+      "question": "Assign a Lead and a Backup from 10 engineers. How many labeled assignments?",
+      "options": [
+        "45",
+        "100",
+        "3,628,800",
+        "90"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "45 = C(10,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "100 = 10^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "C": "3,628,800 = 10! ranks all 10 members rather than filling just two posts.",
+        "D": "Correct. The two posts are labeled, so order matters: P(10,2) = 10 × 9 = 90."
+      }
+    },
+    {
+      "id": "pr_l2_053",
+      "concept": "permutation_vs_combination",
+      "question": "From 5 traders, pick a chair and a co-chair (distinct posts). How many ways?",
+      "options": [
+        "20",
+        "10",
+        "25",
+        "120"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The two posts are labeled, so order matters: P(5,2) = 5 × 4 = 20.",
+        "B": "10 = C(5,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "C": "25 = 5^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "D": "120 = 5! ranks all 5 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_054",
+      "concept": "permutation_vs_combination",
+      "question": "Choose a president and a vice-president from 11 members (distinct roles). How many slates?",
+      "options": [
+        "55",
+        "110",
+        "121",
+        "39,916,800"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "55 = C(11,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "Correct. The two posts are labeled, so order matters: P(11,2) = 11 × 10 = 110.",
+        "C": "121 = 11^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "D": "39,916,800 = 11! ranks all 11 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_055",
+      "concept": "permutation_vs_combination",
+      "question": "Assign a Lead and a Backup from 12 engineers. How many labeled assignments?",
+      "options": [
+        "66",
+        "144",
+        "132",
+        "479,001,600"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "66 = C(12,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "144 = 12^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "C": "Correct. The two posts are labeled, so order matters: P(12,2) = 12 × 11 = 132.",
+        "D": "479,001,600 = 12! ranks all 12 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_056",
+      "concept": "permutation_vs_combination",
+      "question": "From 13 traders, pick a chair and a co-chair (distinct posts). How many ways?",
+      "options": [
+        "78",
+        "169",
+        "6,227,020,800",
+        "156"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "78 = C(13,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "169 = 13^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "C": "6,227,020,800 = 13! ranks all 13 members rather than filling just two posts.",
+        "D": "Correct. The two posts are labeled, so order matters: P(13,2) = 13 × 12 = 156."
+      }
+    },
+    {
+      "id": "pr_l2_057",
+      "concept": "permutation_vs_combination",
+      "question": "Choose a president and a vice-president from 14 members (distinct roles). How many slates?",
+      "options": [
+        "182",
+        "91",
+        "196",
+        "87,178,291,200"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The two posts are labeled, so order matters: P(14,2) = 14 × 13 = 182.",
+        "B": "91 = C(14,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "C": "196 = 14^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "D": "87,178,291,200 = 14! ranks all 14 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_058",
+      "concept": "permutation_vs_combination",
+      "question": "Assign a Lead and a Backup from 15 engineers. How many labeled assignments?",
+      "options": [
+        "105",
+        "210",
+        "225",
+        "1,307,674,368,000"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "105 = C(15,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "Correct. The two posts are labeled, so order matters: P(15,2) = 15 × 14 = 210.",
+        "C": "225 = 15^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "D": "1,307,674,368,000 = 15! ranks all 15 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_059",
+      "concept": "permutation_vs_combination",
+      "question": "From 16 traders, pick a chair and a co-chair (distinct posts). How many ways?",
+      "options": [
+        "120",
+        "256",
+        "240",
+        "20,922,789,888,000"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "120 = C(16,2) treats the two officers as an unordered pair, ignoring the distinct roles.",
+        "B": "256 = 16^2 allows one person to hold both posts (repetition); each role needs a different person.",
+        "C": "Correct. The two posts are labeled, so order matters: P(16,2) = 16 × 15 = 240.",
+        "D": "20,922,789,888,000 = 16! ranks all 16 members rather than filling just two posts."
+      }
+    },
+    {
+      "id": "pr_l2_060",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 18 members in set A and 15 in set B, with 8 in both. How many are in at least one set?",
+      "options": [
+        "33",
+        "41",
+        "17",
+        "25"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "33 = 18 + 15 double-counts the 8 members in both sets; subtract the overlap once.",
+        "B": "41 adds the overlap (8) instead of subtracting it.",
+        "C": "17 subtracts the overlap twice; inclusion-exclusion removes it only once.",
+        "D": "Correct. |A ∪ B| = 18 + 15 − 8 = 25 by inclusion-exclusion."
+      }
+    },
+    {
+      "id": "pr_l2_061",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 30 members in set A and 25 in set B, with 10 in both. How many are in at least one set?",
+      "options": [
+        "45",
+        "55",
+        "65",
+        "35"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. |A ∪ B| = 30 + 25 − 10 = 45 by inclusion-exclusion.",
+        "B": "55 = 30 + 25 double-counts the 10 members in both sets; subtract the overlap once.",
+        "C": "65 adds the overlap (10) instead of subtracting it.",
+        "D": "35 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_062",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 12 members in set A and 9 in set B, with 4 in both. How many are in at least one set?",
+      "options": [
+        "21",
+        "17",
+        "25",
+        "13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "21 = 12 + 9 double-counts the 4 members in both sets; subtract the overlap once.",
+        "B": "Correct. |A ∪ B| = 12 + 9 − 4 = 17 by inclusion-exclusion.",
+        "C": "25 adds the overlap (4) instead of subtracting it.",
+        "D": "13 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_063",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 20 members in set A and 14 in set B, with 6 in both. How many are in at least one set?",
+      "options": [
+        "34",
+        "40",
+        "28",
+        "22"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "34 = 20 + 14 double-counts the 6 members in both sets; subtract the overlap once.",
+        "B": "40 adds the overlap (6) instead of subtracting it.",
+        "C": "Correct. |A ∪ B| = 20 + 14 − 6 = 28 by inclusion-exclusion.",
+        "D": "22 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_064",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 40 members in set A and 30 in set B, with 12 in both. How many are in at least one set?",
+      "options": [
+        "70",
+        "82",
+        "46",
+        "58"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "70 = 40 + 30 double-counts the 12 members in both sets; subtract the overlap once.",
+        "B": "82 adds the overlap (12) instead of subtracting it.",
+        "C": "46 subtracts the overlap twice; inclusion-exclusion removes it only once.",
+        "D": "Correct. |A ∪ B| = 40 + 30 − 12 = 58 by inclusion-exclusion."
+      }
+    },
+    {
+      "id": "pr_l2_065",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 22 members in set A and 17 in set B, with 9 in both. How many are in at least one set?",
+      "options": [
+        "30",
+        "39",
+        "48",
+        "21"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. |A ∪ B| = 22 + 17 − 9 = 30 by inclusion-exclusion.",
+        "B": "39 = 22 + 17 double-counts the 9 members in both sets; subtract the overlap once.",
+        "C": "48 adds the overlap (9) instead of subtracting it.",
+        "D": "21 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_066",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 16 members in set A and 11 in set B, with 5 in both. How many are in at least one set?",
+      "options": [
+        "27",
+        "22",
+        "32",
+        "17"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "27 = 16 + 11 double-counts the 5 members in both sets; subtract the overlap once.",
+        "B": "Correct. |A ∪ B| = 16 + 11 − 5 = 22 by inclusion-exclusion.",
+        "C": "32 adds the overlap (5) instead of subtracting it.",
+        "D": "17 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_067",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 25 members in set A and 20 in set B, with 7 in both. How many are in at least one set?",
+      "options": [
+        "45",
+        "52",
+        "38",
+        "31"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "45 = 25 + 20 double-counts the 7 members in both sets; subtract the overlap once.",
+        "B": "52 adds the overlap (7) instead of subtracting it.",
+        "C": "Correct. |A ∪ B| = 25 + 20 − 7 = 38 by inclusion-exclusion.",
+        "D": "31 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_068",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 35 members in set A and 28 in set B, with 15 in both. How many are in at least one set?",
+      "options": [
+        "63",
+        "78",
+        "33",
+        "48"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "63 = 35 + 28 double-counts the 15 members in both sets; subtract the overlap once.",
+        "B": "78 adds the overlap (15) instead of subtracting it.",
+        "C": "33 subtracts the overlap twice; inclusion-exclusion removes it only once.",
+        "D": "Correct. |A ∪ B| = 35 + 28 − 15 = 48 by inclusion-exclusion."
+      }
+    },
+    {
+      "id": "pr_l2_069",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 14 members in set A and 10 in set B, with 3 in both. How many are in at least one set?",
+      "options": [
+        "21",
+        "24",
+        "27",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. |A ∪ B| = 14 + 10 − 3 = 21 by inclusion-exclusion.",
+        "B": "24 = 14 + 10 double-counts the 3 members in both sets; subtract the overlap once.",
+        "C": "27 adds the overlap (3) instead of subtracting it.",
+        "D": "18 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_070",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 50 members in set A and 30 in set B, with 20 in both. How many are in at least one set?",
+      "options": [
+        "80",
+        "60",
+        "100",
+        "40"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "80 = 50 + 30 double-counts the 20 members in both sets; subtract the overlap once.",
+        "B": "Correct. |A ∪ B| = 50 + 30 − 20 = 60 by inclusion-exclusion.",
+        "C": "100 adds the overlap (20) instead of subtracting it.",
+        "D": "40 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_071",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 27 members in set A and 19 in set B, with 11 in both. How many are in at least one set?",
+      "options": [
+        "46",
+        "57",
+        "35",
+        "24"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "46 = 27 + 19 double-counts the 11 members in both sets; subtract the overlap once.",
+        "B": "57 adds the overlap (11) instead of subtracting it.",
+        "C": "Correct. |A ∪ B| = 27 + 19 − 11 = 35 by inclusion-exclusion.",
+        "D": "24 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_072",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 24 members in set A and 18 in set B, with 10 in both. How many are in at least one set?",
+      "options": [
+        "42",
+        "52",
+        "22",
+        "32"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "42 = 24 + 18 double-counts the 10 members in both sets; subtract the overlap once.",
+        "B": "52 adds the overlap (10) instead of subtracting it.",
+        "C": "22 subtracts the overlap twice; inclusion-exclusion removes it only once.",
+        "D": "Correct. |A ∪ B| = 24 + 18 − 10 = 32 by inclusion-exclusion."
+      }
+    },
+    {
+      "id": "pr_l2_073",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 33 members in set A and 21 in set B, with 13 in both. How many are in at least one set?",
+      "options": [
+        "41",
+        "54",
+        "67",
+        "28"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. |A ∪ B| = 33 + 21 − 13 = 41 by inclusion-exclusion.",
+        "B": "54 = 33 + 21 double-counts the 13 members in both sets; subtract the overlap once.",
+        "C": "67 adds the overlap (13) instead of subtracting it.",
+        "D": "28 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_074",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 19 members in set A and 16 in set B, with 7 in both. How many are in at least one set?",
+      "options": [
+        "35",
+        "28",
+        "42",
+        "21"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "35 = 19 + 16 double-counts the 7 members in both sets; subtract the overlap once.",
+        "B": "Correct. |A ∪ B| = 19 + 16 − 7 = 28 by inclusion-exclusion.",
+        "C": "42 adds the overlap (7) instead of subtracting it.",
+        "D": "21 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_075",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 28 members in set A and 23 in set B, with 12 in both. How many are in at least one set?",
+      "options": [
+        "51",
+        "63",
+        "39",
+        "27"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "51 = 28 + 23 double-counts the 12 members in both sets; subtract the overlap once.",
+        "B": "63 adds the overlap (12) instead of subtracting it.",
+        "C": "Correct. |A ∪ B| = 28 + 23 − 12 = 39 by inclusion-exclusion.",
+        "D": "27 subtracts the overlap twice; inclusion-exclusion removes it only once."
+      }
+    },
+    {
+      "id": "pr_l2_076",
+      "concept": "inclusion_exclusion_two_sets",
+      "question": "One group has 45 members in set A and 32 in set B, with 18 in both. How many are in at least one set?",
+      "options": [
+        "77",
+        "95",
+        "41",
+        "59"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "77 = 45 + 32 double-counts the 18 members in both sets; subtract the overlap once.",
+        "B": "95 adds the overlap (18) instead of subtracting it.",
+        "C": "41 subtracts the overlap twice; inclusion-exclusion removes it only once.",
+        "D": "Correct. |A ∪ B| = 45 + 32 − 18 = 59 by inclusion-exclusion."
+      }
+    },
+    {
+      "id": "pr_l2_077",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.50, P(B) = 0.40, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
+      "options": [
+        "0.75",
+        "0.90",
+        "0.60",
+        "1.05"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(A ∪ B) = 0.50 + 0.40 − 0.15 = 0.75.",
+        "B": "0.90 = 0.50 + 0.40 omits subtracting the intersection, double-counting the overlap.",
+        "C": "0.60 subtracts the intersection twice instead of once.",
+        "D": "1.05 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_078",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.60, P(B) = 0.30, and P(A ∩ B) = 0.10. What is P(A ∪ B)?",
+      "options": [
+        "0.90",
+        "0.80",
+        "0.70",
+        "1.00"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.90 = 0.60 + 0.30 omits subtracting the intersection, double-counting the overlap.",
+        "B": "Correct. P(A ∪ B) = 0.60 + 0.30 − 0.10 = 0.80.",
+        "C": "0.70 subtracts the intersection twice instead of once.",
+        "D": "1.00 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_079",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.70, P(B) = 0.50, and P(A ∩ B) = 0.30. What is P(A ∪ B)?",
+      "options": [
+        "1.20",
+        "0.60",
+        "0.90",
+        "1.50"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1.20 = 0.70 + 0.50 omits subtracting the intersection, double-counting the overlap.",
+        "B": "0.60 subtracts the intersection twice instead of once.",
+        "C": "Correct. P(A ∪ B) = 0.70 + 0.50 − 0.30 = 0.90.",
+        "D": "1.50 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_080",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.60, P(B) = 0.50, and P(A ∩ B) = 0.20. What is P(A ∪ B)?",
+      "options": [
+        "1.10",
+        "0.70",
+        "1.30",
+        "0.90"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1.10 = 0.60 + 0.50 omits subtracting the intersection, double-counting the overlap.",
+        "B": "0.70 subtracts the intersection twice instead of once.",
+        "C": "1.30 adds the intersection rather than subtracting it.",
+        "D": "Correct. P(A ∪ B) = 0.60 + 0.50 − 0.20 = 0.90."
+      }
+    },
+    {
+      "id": "pr_l2_081",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.40, P(B) = 0.35, and P(A ∩ B) = 0.10. What is P(A ∪ B)?",
+      "options": [
+        "0.65",
+        "0.75",
+        "0.55",
+        "0.85"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(A ∪ B) = 0.40 + 0.35 − 0.10 = 0.65.",
+        "B": "0.75 = 0.40 + 0.35 omits subtracting the intersection, double-counting the overlap.",
+        "C": "0.55 subtracts the intersection twice instead of once.",
+        "D": "0.85 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_082",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.55, P(B) = 0.45, and P(A ∩ B) = 0.25. What is P(A ∪ B)?",
+      "options": [
+        "1.00",
+        "0.75",
+        "0.50",
+        "1.25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1.00 = 0.55 + 0.45 omits subtracting the intersection, double-counting the overlap.",
+        "B": "Correct. P(A ∪ B) = 0.55 + 0.45 − 0.25 = 0.75.",
+        "C": "0.50 subtracts the intersection twice instead of once.",
+        "D": "1.25 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_083",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.80, P(B) = 0.30, and P(A ∩ B) = 0.20. What is P(A ∪ B)?",
+      "options": [
+        "1.10",
+        "0.70",
+        "0.90",
+        "1.30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1.10 = 0.80 + 0.30 omits subtracting the intersection, double-counting the overlap.",
+        "B": "0.70 subtracts the intersection twice instead of once.",
+        "C": "Correct. P(A ∪ B) = 0.80 + 0.30 − 0.20 = 0.90.",
+        "D": "1.30 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_084",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.50, P(B) = 0.50, and P(A ∩ B) = 0.25. What is P(A ∪ B)?",
+      "options": [
+        "1.00",
+        "0.50",
+        "1.25",
+        "0.75"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1.00 = 0.50 + 0.50 omits subtracting the intersection, double-counting the overlap.",
+        "B": "0.50 subtracts the intersection twice instead of once.",
+        "C": "1.25 adds the intersection rather than subtracting it.",
+        "D": "Correct. P(A ∪ B) = 0.50 + 0.50 − 0.25 = 0.75."
+      }
+    },
+    {
+      "id": "pr_l2_085",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.65, P(B) = 0.40, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
+      "options": [
+        "0.90",
+        "1.05",
+        "0.75",
+        "1.20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(A ∪ B) = 0.65 + 0.40 − 0.15 = 0.90.",
+        "B": "1.05 = 0.65 + 0.40 omits subtracting the intersection, double-counting the overlap.",
+        "C": "0.75 subtracts the intersection twice instead of once.",
+        "D": "1.20 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_086",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.45, P(B) = 0.40, and P(A ∩ B) = 0.05. What is P(A ∪ B)?",
+      "options": [
+        "0.85",
+        "0.80",
+        "0.75",
+        "0.90"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "0.85 = 0.45 + 0.40 omits subtracting the intersection, double-counting the overlap.",
+        "B": "Correct. P(A ∪ B) = 0.45 + 0.40 − 0.05 = 0.80.",
+        "C": "0.75 subtracts the intersection twice instead of once.",
+        "D": "0.90 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_087",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.70, P(B) = 0.60, and P(A ∩ B) = 0.40. What is P(A ∪ B)?",
+      "options": [
+        "1.30",
+        "0.50",
+        "0.90",
+        "1.70"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1.30 = 0.70 + 0.60 omits subtracting the intersection, double-counting the overlap.",
+        "B": "0.50 subtracts the intersection twice instead of once.",
+        "C": "Correct. P(A ∪ B) = 0.70 + 0.60 − 0.40 = 0.90.",
+        "D": "1.70 adds the intersection rather than subtracting it."
+      }
+    },
+    {
+      "id": "pr_l2_088",
+      "concept": "inclusion_exclusion_probability",
+      "question": "P(A) = 0.30, P(B) = 0.25, and P(A ∩ B) = 0.10. What is P(A ∪ B)?",
+      "options": [
+        "0.55",
+        "0.35",
+        "0.65",
+        "0.45"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "0.55 = 0.30 + 0.25 omits subtracting the intersection, double-counting the overlap.",
+        "B": "0.35 subtracts the intersection twice instead of once.",
+        "C": "0.65 adds the intersection rather than subtracting it.",
+        "D": "Correct. P(A ∪ B) = 0.30 + 0.25 − 0.10 = 0.45."
+      }
+    },
+    {
+      "id": "pr_l2_089",
+      "concept": "counting_for_probability",
+      "question": "Two fair dice are rolled. By counting ordered outcomes, what is P(sum = 4)?",
+      "options": [
+        "1/12",
+        "1/9",
+        "1/4",
+        "1/6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 3 of the 36 equally likely ordered pairs sum to 4, so P = 3/36 = 1/12.",
+        "B": "This matches a different sum's count, not the 3 ordered pairs giving 4.",
+        "C": "This uses 12 as the denominator instead of 36, the true number of ordered outcomes for two dice.",
+        "D": "This overcounts the ordered pairs that sum to 4; only 3 do."
+      }
+    },
+    {
+      "id": "pr_l2_090",
+      "concept": "counting_for_probability",
+      "question": "Two fair dice are rolled. By counting ordered outcomes, what is P(sum = 5)?",
+      "options": [
+        "5/36",
+        "1/9",
+        "1/12",
+        "1/3"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This matches a different sum's count, not the 4 ordered pairs giving 5.",
+        "B": "Correct. 4 of the 36 equally likely ordered pairs sum to 5, so P = 4/36 = 1/9.",
+        "C": "1/12 would mean one favorable pair out of twelve, but there are 36 equally likely ordered pairs.",
+        "D": "This uses 12 as the denominator instead of 36, the true number of ordered outcomes for two dice."
+      }
+    },
+    {
+      "id": "pr_l2_091",
+      "concept": "counting_for_probability",
+      "question": "Two fair dice are rolled. By counting ordered outcomes, what is P(sum = 6)?",
+      "options": [
+        "1/6",
+        "1/12",
+        "5/36",
+        "5/12"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "This matches a different sum's count, not the 5 ordered pairs giving 6.",
+        "B": "1/12 would mean one favorable pair out of twelve, but there are 36 equally likely ordered pairs.",
+        "C": "Correct. 5 of the 36 equally likely ordered pairs sum to 6, so P = 5/36 = 5/36.",
+        "D": "This uses 12 as the denominator instead of 36, the true number of ordered outcomes for two dice."
+      }
+    },
+    {
+      "id": "pr_l2_092",
+      "concept": "counting_for_probability",
+      "question": "Two fair dice are rolled. By counting ordered outcomes, what is P(sum = 7)?",
+      "options": [
+        "5/36",
+        "1/12",
+        "1/2",
+        "1/6"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "This matches a different sum's count, not the 6 ordered pairs giving 7.",
+        "B": "1/12 would mean one favorable pair out of twelve, but there are 36 equally likely ordered pairs.",
+        "C": "This uses 12 as the denominator instead of 36, the true number of ordered outcomes for two dice.",
+        "D": "Correct. 6 of the 36 equally likely ordered pairs sum to 7, so P = 6/36 = 1/6."
+      }
+    },
+    {
+      "id": "pr_l2_093",
+      "concept": "counting_for_probability",
+      "question": "Two fair dice are rolled. By counting ordered outcomes, what is P(sum = 8)?",
+      "options": [
+        "5/36",
+        "1/9",
+        "1/12",
+        "5/12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 5 of the 36 equally likely ordered pairs sum to 8, so P = 5/36 = 5/36.",
+        "B": "This matches a different sum's count, not the 5 ordered pairs giving 8.",
+        "C": "1/12 would mean one favorable pair out of twelve, but there are 36 equally likely ordered pairs.",
+        "D": "This uses 12 as the denominator instead of 36, the true number of ordered outcomes for two dice."
+      }
+    },
+    {
+      "id": "pr_l2_094",
+      "concept": "counting_for_probability",
+      "question": "Two fair dice are rolled. By counting ordered outcomes, what is P(sum = 10)?",
+      "options": [
+        "1/18",
+        "1/12",
+        "1/4",
+        "1/6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "This matches a different sum's count, not the 3 ordered pairs giving 10.",
+        "B": "Correct. 3 of the 36 equally likely ordered pairs sum to 10, so P = 3/36 = 1/12.",
+        "C": "This uses 12 as the denominator instead of 36, the true number of ordered outcomes for two dice.",
+        "D": "This overcounts the ordered pairs that sum to 10; only 3 do."
+      }
+    },
+    {
+      "id": "pr_l2_095",
+      "concept": "counting_for_probability",
+      "question": "A bag has 3 red and 7 blue marbles. One marble is drawn at random. What is P(red)?",
+      "options": [
+        "3/7",
+        "7/10",
+        "3/10",
+        "2/5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/7 compares red to blue only; probability divides by the total of 10 marbles.",
+        "B": "7/10 is P(blue), the complement of drawing red.",
+        "C": "Correct. 3 favorable out of 10 equally likely marbles gives 3/10.",
+        "D": "This miscounts the red marbles; there are 3 red out of 10."
+      }
+    },
+    {
+      "id": "pr_l2_096",
+      "concept": "counting_for_probability",
+      "question": "A bag has 2 red and 8 blue marbles. One marble is drawn at random. What is P(red)?",
+      "options": [
+        "1/4",
+        "4/5",
+        "3/10",
+        "1/5"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/4 compares red to blue only; probability divides by the total of 10 marbles.",
+        "B": "4/5 is P(blue), the complement of drawing red.",
+        "C": "This miscounts the red marbles; there are 2 red out of 10.",
+        "D": "Correct. 2 favorable out of 10 equally likely marbles gives 1/5."
+      }
+    },
+    {
+      "id": "pr_l2_097",
+      "concept": "counting_for_probability",
+      "question": "A bag has 4 red and 6 blue marbles. One marble is drawn at random. What is P(red)?",
+      "options": [
+        "2/5",
+        "2/3",
+        "3/5",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 4 favorable out of 10 equally likely marbles gives 2/5.",
+        "B": "2/3 compares red to blue only; probability divides by the total of 10 marbles.",
+        "C": "3/5 is P(blue), the complement of drawing red.",
+        "D": "This miscounts the red marbles; there are 4 red out of 10."
+      }
+    },
+    {
+      "id": "pr_l2_098",
+      "concept": "counting_for_probability",
+      "question": "A bag has 1 red and 9 blue marbles. One marble is drawn at random. What is P(red)?",
+      "options": [
+        "1/9",
+        "1/10",
+        "9/10",
+        "1/5"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1/9 compares red to blue only; probability divides by the total of 10 marbles.",
+        "B": "Correct. 1 favorable out of 10 equally likely marbles gives 1/10.",
+        "C": "9/10 is P(blue), the complement of drawing red.",
+        "D": "This miscounts the red marbles; there are 1 red out of 10."
+      }
+    },
+    {
+      "id": "pr_l2_099",
+      "concept": "counting_for_probability",
+      "question": "A bag has 6 red and 4 blue marbles. One marble is drawn at random. What is P(red)?",
+      "options": [
+        "3/2",
+        "2/5",
+        "3/5",
+        "7/10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3/2 compares red to blue only; probability divides by the total of 10 marbles.",
+        "B": "2/5 is P(blue), the complement of drawing red.",
+        "C": "Correct. 6 favorable out of 10 equally likely marbles gives 3/5.",
+        "D": "This miscounts the red marbles; there are 6 red out of 10."
+      }
+    },
+    {
+      "id": "pr_l2_100",
+      "concept": "counting_for_probability",
+      "question": "A bag has 4 red and 8 blue marbles. One marble is drawn at random. What is P(red)?",
+      "options": [
+        "1/2",
+        "2/3",
+        "5/12",
+        "1/3"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1/2 compares red to blue only; probability divides by the total of 12 marbles.",
+        "B": "2/3 is P(blue), the complement of drawing red.",
+        "C": "This miscounts the red marbles; there are 4 red out of 12.",
+        "D": "Correct. 4 favorable out of 12 equally likely marbles gives 1/3."
+      }
+    },
+    {
+      "id": "pr_l2_101",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 40, |B| = 35, |C| = 30; |A∩B| = 12, |A∩C| = 10, |B∩C| = 8; |A∩B∩C| = 3. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "78",
+        "75",
+        "105",
+        "72"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 40+35+30 − 12−10−8 + 3 = 78 by inclusion-exclusion.",
+        "B": "75 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "C": "105 just sums the set sizes, ignoring all overlaps.",
+        "D": "72 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_102",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 20, |B| = 18, |C| = 15; |A∩B| = 6, |A∩C| = 5, |B∩C| = 4; |A∩B∩C| = 2. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "38",
+        "40",
+        "53",
+        "36"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "38 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "B": "Correct. 20+18+15 − 6−5−4 + 2 = 40 by inclusion-exclusion.",
+        "C": "53 just sums the set sizes, ignoring all overlaps.",
+        "D": "36 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_103",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 50, |B| = 40, |C| = 30; |A∩B| = 15, |A∩C| = 12, |B∩C| = 10; |A∩B∩C| = 5. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "83",
+        "120",
+        "88",
+        "78"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "83 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "B": "120 just sums the set sizes, ignoring all overlaps.",
+        "C": "Correct. 50+40+30 − 15−12−10 + 5 = 88 by inclusion-exclusion.",
+        "D": "78 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_104",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 30, |B| = 25, |C| = 20; |A∩B| = 8, |A∩C| = 6, |B∩C| = 5; |A∩B∩C| = 2. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "56",
+        "75",
+        "54",
+        "58"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "56 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "B": "75 just sums the set sizes, ignoring all overlaps.",
+        "C": "54 subtracts the triple intersection instead of adding it back.",
+        "D": "Correct. 30+25+20 − 8−6−5 + 2 = 58 by inclusion-exclusion."
+      }
+    },
+    {
+      "id": "pr_l2_105",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 25, |B| = 22, |C| = 18; |A∩B| = 7, |A∩C| = 5, |B∩C| = 4; |A∩B∩C| = 1. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "50",
+        "49",
+        "65",
+        "48"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 25+22+18 − 7−5−4 + 1 = 50 by inclusion-exclusion.",
+        "B": "49 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "C": "65 just sums the set sizes, ignoring all overlaps.",
+        "D": "48 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_106",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 45, |B| = 38, |C| = 33; |A∩B| = 14, |A∩C| = 11, |B∩C| = 9; |A∩B∩C| = 4. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "82",
+        "86",
+        "116",
+        "78"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "82 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "B": "Correct. 45+38+33 − 14−11−9 + 4 = 86 by inclusion-exclusion.",
+        "C": "116 just sums the set sizes, ignoring all overlaps.",
+        "D": "78 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_107",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 35, |B| = 30, |C| = 28; |A∩B| = 10, |A∩C| = 9, |B∩C| = 8; |A∩B∩C| = 3. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "66",
+        "93",
+        "69",
+        "63"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "66 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "B": "93 just sums the set sizes, ignoring all overlaps.",
+        "C": "Correct. 35+30+28 − 10−9−8 + 3 = 69 by inclusion-exclusion.",
+        "D": "63 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_108",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 60, |B| = 50, |C| = 40; |A∩B| = 20, |A∩C| = 15, |B∩C| = 12; |A∩B∩C| = 6. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "103",
+        "150",
+        "97",
+        "109"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "103 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "B": "150 just sums the set sizes, ignoring all overlaps.",
+        "C": "97 subtracts the triple intersection instead of adding it back.",
+        "D": "Correct. 60+50+40 − 20−15−12 + 6 = 109 by inclusion-exclusion."
+      }
+    },
+    {
+      "id": "pr_l2_109",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 22, |B| = 19, |C| = 17; |A∩B| = 5, |A∩C| = 4, |B∩C| = 3; |A∩B∩C| = 1. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "47",
+        "46",
+        "58",
+        "45"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 22+19+17 − 5−4−3 + 1 = 47 by inclusion-exclusion.",
+        "B": "46 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "C": "58 just sums the set sizes, ignoring all overlaps.",
+        "D": "45 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_110",
+      "concept": "inclusion_exclusion_three_sets",
+      "question": "|A| = 33, |B| = 28, |C| = 24; |A∩B| = 9, |A∩C| = 7, |B∩C| = 6; |A∩B∩C| = 2. How many elements are in A ∪ B ∪ C?",
+      "options": [
+        "63",
+        "65",
+        "85",
+        "61"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "63 forgets to add back |A∩B∩C|, which was over-subtracted by the pairwise terms.",
+        "B": "Correct. 33+28+24 − 9−7−6 + 2 = 65 by inclusion-exclusion.",
+        "C": "85 just sums the set sizes, ignoring all overlaps.",
+        "D": "61 subtracts the triple intersection instead of adding it back."
+      }
+    },
+    {
+      "id": "pr_l2_111",
+      "concept": "combinations_selection",
+      "question": "A portfolio manager picks exactly 4 distinct names from a universe of 11 for a long-only basket. How many baskets?",
+      "options": [
+        "495",
+        "165",
+        "330",
+        "7,920"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "495 = C(12,4) uses the wrong universe size of 12.",
+        "B": "165 = C(11,3) selects 3 names instead of 4.",
+        "C": "Correct. Order does not matter: C(11,4) = 11 × 10 × 9 × 8 / 4 × 3 × 2 × 1 = 330.",
+        "D": "7,920 = P(11,4) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_112",
+      "concept": "combinations_selection",
+      "question": "From 12 job applicants, 4 will be hired (no ranking). How many possible hiring sets?",
+      "options": [
+        "715",
+        "220",
+        "11,880",
+        "495"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "715 = C(13,4) uses the wrong universe size of 13.",
+        "B": "220 = C(12,3) selects 3 names instead of 4.",
+        "C": "11,880 = P(12,4) counts ordered selections, but the basket is unordered.",
+        "D": "Correct. Order does not matter: C(12,4) = 12 × 11 × 10 × 9 / 4 × 3 × 2 × 1 = 495."
+      }
+    },
+    {
+      "id": "pr_l2_113",
+      "concept": "combinations_selection",
+      "question": "How many 5-element subsets does a set of 13 elements have?",
+      "options": [
+        "1,287",
+        "2,002",
+        "715",
+        "154,440"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter: C(13,5) = 13 × 12 × 11 × 10 × 9 / 5 × 4 × 3 × 2 × 1 = 1,287.",
+        "B": "2,002 = C(14,5) uses the wrong universe size of 14.",
+        "C": "715 = C(13,4) selects 4 names instead of 5.",
+        "D": "154,440 = P(13,5) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_114",
+      "concept": "combinations_selection",
+      "question": "A portfolio manager picks exactly 5 distinct names from a universe of 10 for a long-only basket. How many baskets?",
+      "options": [
+        "462",
+        "252",
+        "210",
+        "30,240"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "462 = C(11,5) uses the wrong universe size of 11.",
+        "B": "Correct. Order does not matter: C(10,5) = 10 × 9 × 8 × 7 × 6 / 5 × 4 × 3 × 2 × 1 = 252.",
+        "C": "210 = C(10,4) selects 4 names instead of 5.",
+        "D": "30,240 = P(10,5) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_115",
+      "concept": "combinations_selection",
+      "question": "From 9 job applicants, 4 will be hired (no ranking). How many possible hiring sets?",
+      "options": [
+        "210",
+        "84",
+        "126",
+        "3,024"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "210 = C(10,4) uses the wrong universe size of 10.",
+        "B": "84 = C(9,3) selects 3 names instead of 4.",
+        "C": "Correct. Order does not matter: C(9,4) = 9 × 8 × 7 × 6 / 4 × 3 × 2 × 1 = 126.",
+        "D": "3,024 = P(9,4) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_116",
+      "concept": "combinations_selection",
+      "question": "How many 3-element subsets does a set of 14 elements have?",
+      "options": [
+        "455",
+        "91",
+        "2,184",
+        "364"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "455 = C(15,3) uses the wrong universe size of 15.",
+        "B": "91 = C(14,2) selects 2 names instead of 3.",
+        "C": "2,184 = P(14,3) counts ordered selections, but the basket is unordered.",
+        "D": "Correct. Order does not matter: C(14,3) = 14 × 13 × 12 / 3 × 2 × 1 = 364."
+      }
+    },
+    {
+      "id": "pr_l2_117",
+      "concept": "combinations_selection",
+      "question": "A portfolio manager picks exactly 2 distinct names from a universe of 15 for a long-only basket. How many baskets?",
+      "options": [
+        "105",
+        "120",
+        "15",
+        "210"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter: C(15,2) = 15 × 14 / 2 × 1 = 105.",
+        "B": "120 = C(16,2) uses the wrong universe size of 16.",
+        "C": "15 = C(15,1) selects 1 names instead of 2.",
+        "D": "210 = P(15,2) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_118",
+      "concept": "combinations_selection",
+      "question": "From 12 job applicants, 5 will be hired (no ranking). How many possible hiring sets?",
+      "options": [
+        "1,287",
+        "792",
+        "495",
+        "95,040"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1,287 = C(13,5) uses the wrong universe size of 13.",
+        "B": "Correct. Order does not matter: C(12,5) = 12 × 11 × 10 × 9 × 8 / 5 × 4 × 3 × 2 × 1 = 792.",
+        "C": "495 = C(12,4) selects 4 names instead of 5.",
+        "D": "95,040 = P(12,5) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_119",
+      "concept": "combinations_selection",
+      "question": "How many 4-element subsets does a set of 13 elements have?",
+      "options": [
+        "1,001",
+        "286",
+        "715",
+        "17,160"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1,001 = C(14,4) uses the wrong universe size of 14.",
+        "B": "286 = C(13,3) selects 3 names instead of 4.",
+        "C": "Correct. Order does not matter: C(13,4) = 13 × 12 × 11 × 10 / 4 × 3 × 2 × 1 = 715.",
+        "D": "17,160 = P(13,4) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_120",
+      "concept": "combinations_selection",
+      "question": "A portfolio manager picks exactly 3 distinct names from a universe of 16 for a long-only basket. How many baskets?",
+      "options": [
+        "680",
+        "120",
+        "3,360",
+        "560"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "680 = C(17,3) uses the wrong universe size of 17.",
+        "B": "120 = C(16,2) selects 2 names instead of 3.",
+        "C": "3,360 = P(16,3) counts ordered selections, but the basket is unordered.",
+        "D": "Correct. Order does not matter: C(16,3) = 16 × 15 × 14 / 3 × 2 × 1 = 560."
+      }
+    },
+    {
+      "id": "pr_l2_121",
+      "concept": "combinations_selection",
+      "question": "From 11 job applicants, 5 will be hired (no ranking). How many possible hiring sets?",
+      "options": [
+        "462",
+        "792",
+        "330",
+        "55,440"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter: C(11,5) = 11 × 10 × 9 × 8 × 7 / 5 × 4 × 3 × 2 × 1 = 462.",
+        "B": "792 = C(12,5) uses the wrong universe size of 12.",
+        "C": "330 = C(11,4) selects 4 names instead of 5.",
+        "D": "55,440 = P(11,5) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_122",
+      "concept": "combinations_selection",
+      "question": "How many 6-element subsets does a set of 10 elements have?",
+      "options": [
+        "462",
+        "210",
+        "252",
+        "151,200"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "462 = C(11,6) uses the wrong universe size of 11.",
+        "B": "Correct. Order does not matter: C(10,6) = 10 × 9 × 8 × 7 × 6 × 5 / 6 × 5 × 4 × 3 × 2 × 1 = 210.",
+        "C": "252 = C(10,5) selects 5 names instead of 6.",
+        "D": "151,200 = P(10,6) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_123",
+      "concept": "combinations_selection",
+      "question": "A portfolio manager picks exactly 4 distinct names from a universe of 14 for a long-only basket. How many baskets?",
+      "options": [
+        "1,365",
+        "364",
+        "1,001",
+        "24,024"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1,365 = C(15,4) uses the wrong universe size of 15.",
+        "B": "364 = C(14,3) selects 3 names instead of 4.",
+        "C": "Correct. Order does not matter: C(14,4) = 14 × 13 × 12 × 11 / 4 × 3 × 2 × 1 = 1,001.",
+        "D": "24,024 = P(14,4) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_124",
+      "concept": "combinations_selection",
+      "question": "From 15 job applicants, 3 will be hired (no ranking). How many possible hiring sets?",
+      "options": [
+        "560",
+        "105",
+        "2,730",
+        "455"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "560 = C(16,3) uses the wrong universe size of 16.",
+        "B": "105 = C(15,2) selects 2 names instead of 3.",
+        "C": "2,730 = P(15,3) counts ordered selections, but the basket is unordered.",
+        "D": "Correct. Order does not matter: C(15,3) = 15 × 14 × 13 / 3 × 2 × 1 = 455."
+      }
+    },
+    {
+      "id": "pr_l2_125",
+      "concept": "combinations_selection",
+      "question": "How many 2-element subsets does a set of 17 elements have?",
+      "options": [
+        "136",
+        "153",
+        "17",
+        "272"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Order does not matter: C(17,2) = 17 × 16 / 2 × 1 = 136.",
+        "B": "153 = C(18,2) uses the wrong universe size of 18.",
+        "C": "17 = C(17,1) selects 1 names instead of 2.",
+        "D": "272 = P(17,2) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_126",
+      "concept": "combinations_selection",
+      "question": "A portfolio manager picks exactly 6 distinct names from a universe of 13 for a long-only basket. How many baskets?",
+      "options": [
+        "3,003",
+        "1,716",
+        "1,287",
+        "1,235,520"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "3,003 = C(14,6) uses the wrong universe size of 14.",
+        "B": "Correct. Order does not matter: C(13,6) = 13 × 12 × 11 × 10 × 9 × 8 / 6 × 5 × 4 × 3 × 2 × 1 = 1,716.",
+        "C": "1,287 = C(13,5) selects 5 names instead of 6.",
+        "D": "1,235,520 = P(13,6) counts ordered selections, but the basket is unordered."
+      }
+    },
+    {
+      "id": "pr_l2_127",
+      "concept": "combinations_probability",
+      "question": "From 52 items containing 4 aces, a random 5-card hand is drawn. Which expression gives P(exactly 2 aces)?",
+      "options": [
+        "C(4,2)C(48,5) / C(52,5)",
+        "C(4,2) / C(52,2)",
+        "C(4,2)C(48,3) / C(52,5)",
+        "C(48,3) / C(52,5)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Here C(48,5) picks 5 non-aces, leaving no room for the 2 aces the event requires.",
+        "B": "C(4,2) / C(52,2) only counts a 2-item draw and ignores the remaining 3 cards of the 5-card hand.",
+        "C": "Correct. Choose 2 of the 4 aces and 3 of the 48 others, divided by all C(52,5) equally likely 5-card hands.",
+        "D": "This drops the C(4,2) factor, forgetting to actually choose which 2 aces appear."
+      }
+    },
+    {
+      "id": "pr_l2_128",
+      "concept": "combinations_probability",
+      "question": "From 52 items containing 13 hearts, a random 5-card hand is drawn. Which expression gives P(exactly 2 hearts)?",
+      "options": [
+        "C(13,2)C(39,5) / C(52,5)",
+        "C(13,2) / C(52,2)",
+        "C(39,3) / C(52,5)",
+        "C(13,2)C(39,3) / C(52,5)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Here C(39,5) picks 5 non-hearts, leaving no room for the 2 hearts the event requires.",
+        "B": "C(13,2) / C(52,2) only counts a 2-item draw and ignores the remaining 3 cards of the 5-card hand.",
+        "C": "This drops the C(13,2) factor, forgetting to actually choose which 2 hearts appear.",
+        "D": "Correct. Choose 2 of the 13 hearts and 3 of the 39 others, divided by all C(52,5) equally likely 5-card hands."
+      }
+    },
+    {
+      "id": "pr_l2_129",
+      "concept": "combinations_probability",
+      "question": "From 10 items containing 3 tech stocks, a random 4-stock portfolio is drawn. Which expression gives P(exactly 1 tech stocks)?",
+      "options": [
+        "C(3,1)C(7,3) / C(10,4)",
+        "C(3,1)C(7,4) / C(10,4)",
+        "C(3,1) / C(10,1)",
+        "C(7,3) / C(10,4)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Choose 1 of the 3 tech stocks and 3 of the 7 others, divided by all C(10,4) equally likely 4-stock portfolios.",
+        "B": "Here C(7,4) picks 4 non-tech stocks, leaving no room for the 1 tech stocks the event requires.",
+        "C": "C(3,1) / C(10,1) only counts a 1-item draw and ignores the remaining 3 cards of the 4-stock portfolio.",
+        "D": "This drops the C(3,1) factor, forgetting to actually choose which 1 tech stocks appear."
+      }
+    },
+    {
+      "id": "pr_l2_130",
+      "concept": "combinations_probability",
+      "question": "From 12 items containing 5 defective units, a random sample of 4 is drawn. Which expression gives P(exactly 2 defective units)?",
+      "options": [
+        "C(5,2)C(7,4) / C(12,4)",
+        "C(5,2)C(7,2) / C(12,4)",
+        "C(5,2) / C(12,2)",
+        "C(7,2) / C(12,4)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Here C(7,4) picks 4 non-defective units, leaving no room for the 2 defective units the event requires.",
+        "B": "Correct. Choose 2 of the 5 defective units and 2 of the 7 others, divided by all C(12,4) equally likely sample of 4s.",
+        "C": "C(5,2) / C(12,2) only counts a 2-item draw and ignores the remaining 2 cards of the sample of 4.",
+        "D": "This drops the C(5,2) factor, forgetting to actually choose which 2 defective units appear."
+      }
+    },
+    {
+      "id": "pr_l2_131",
+      "concept": "combinations_probability",
+      "question": "From 20 items containing 8 winning tickets, a random batch of 5 is drawn. Which expression gives P(exactly 3 winning tickets)?",
+      "options": [
+        "C(8,3)C(12,5) / C(20,5)",
+        "C(8,3) / C(20,3)",
+        "C(8,3)C(12,2) / C(20,5)",
+        "C(12,2) / C(20,5)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Here C(12,5) picks 5 non-winning tickets, leaving no room for the 3 winning tickets the event requires.",
+        "B": "C(8,3) / C(20,3) only counts a 3-item draw and ignores the remaining 2 cards of the batch of 5.",
+        "C": "Correct. Choose 3 of the 8 winning tickets and 2 of the 12 others, divided by all C(20,5) equally likely batch of 5s.",
+        "D": "This drops the C(8,3) factor, forgetting to actually choose which 3 winning tickets appear."
+      }
+    },
+    {
+      "id": "pr_l2_132",
+      "concept": "combinations_probability",
+      "question": "From 15 items containing 6 red balls, a random draw of 4 is drawn. Which expression gives P(exactly 2 red balls)?",
+      "options": [
+        "C(6,2)C(9,4) / C(15,4)",
+        "C(6,2) / C(15,2)",
+        "C(9,2) / C(15,4)",
+        "C(6,2)C(9,2) / C(15,4)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Here C(9,4) picks 4 non-red balls, leaving no room for the 2 red balls the event requires.",
+        "B": "C(6,2) / C(15,2) only counts a 2-item draw and ignores the remaining 2 cards of the draw of 4.",
+        "C": "This drops the C(6,2) factor, forgetting to actually choose which 2 red balls appear.",
+        "D": "Correct. Choose 2 of the 6 red balls and 2 of the 9 others, divided by all C(15,4) equally likely draw of 4s."
+      }
+    },
+    {
+      "id": "pr_l2_133",
+      "concept": "combinations_probability",
+      "question": "From 9 items containing 4 women, a random panel of 3 is drawn. Which expression gives P(exactly 2 women)?",
+      "options": [
+        "C(4,2)C(5,1) / C(9,3)",
+        "C(4,2)C(5,3) / C(9,3)",
+        "C(4,2) / C(9,2)",
+        "C(5,1) / C(9,3)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Choose 2 of the 4 women and 1 of the 5 others, divided by all C(9,3) equally likely panel of 3s.",
+        "B": "Here C(5,3) picks 3 non-women, leaving no room for the 2 women the event requires.",
+        "C": "C(4,2) / C(9,2) only counts a 2-item draw and ignores the remaining 1 cards of the panel of 3.",
+        "D": "This drops the C(4,2) factor, forgetting to actually choose which 2 women appear."
+      }
+    },
+    {
+      "id": "pr_l2_134",
+      "concept": "combinations_probability",
+      "question": "From 16 items containing 7 bonds, a random selection of 5 is drawn. Which expression gives P(exactly 3 bonds)?",
+      "options": [
+        "C(7,3)C(9,5) / C(16,5)",
+        "C(7,3)C(9,2) / C(16,5)",
+        "C(7,3) / C(16,3)",
+        "C(9,2) / C(16,5)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Here C(9,5) picks 5 non-bonds, leaving no room for the 3 bonds the event requires.",
+        "B": "Correct. Choose 3 of the 7 bonds and 2 of the 9 others, divided by all C(16,5) equally likely selection of 5s.",
+        "C": "C(7,3) / C(16,3) only counts a 3-item draw and ignores the remaining 2 cards of the selection of 5.",
+        "D": "This drops the C(7,3) factor, forgetting to actually choose which 3 bonds appear."
+      }
+    },
+    {
+      "id": "pr_l2_135",
+      "concept": "combinations_probability",
+      "question": "From 11 items containing 3 senior analysts, a random team of 4 is drawn. Which expression gives P(exactly 1 senior analysts)?",
+      "options": [
+        "C(3,1)C(8,4) / C(11,4)",
+        "C(3,1) / C(11,1)",
+        "C(3,1)C(8,3) / C(11,4)",
+        "C(8,3) / C(11,4)"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Here C(8,4) picks 4 non-senior analysts, leaving no room for the 1 senior analysts the event requires.",
+        "B": "C(3,1) / C(11,1) only counts a 1-item draw and ignores the remaining 3 cards of the team of 4.",
+        "C": "Correct. Choose 1 of the 3 senior analysts and 3 of the 8 others, divided by all C(11,4) equally likely team of 4s.",
+        "D": "This drops the C(3,1) factor, forgetting to actually choose which 1 senior analysts appear."
+      }
+    },
+    {
+      "id": "pr_l2_136",
+      "concept": "combinations_probability",
+      "question": "From 18 items containing 6 flagged accounts, a random audit of 5 is drawn. Which expression gives P(exactly 2 flagged accounts)?",
+      "options": [
+        "C(6,2)C(12,5) / C(18,5)",
+        "C(6,2) / C(18,2)",
+        "C(12,3) / C(18,5)",
+        "C(6,2)C(12,3) / C(18,5)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Here C(12,5) picks 5 non-flagged accounts, leaving no room for the 2 flagged accounts the event requires.",
+        "B": "C(6,2) / C(18,2) only counts a 2-item draw and ignores the remaining 3 cards of the audit of 5.",
+        "C": "This drops the C(6,2) factor, forgetting to actually choose which 2 flagged accounts appear.",
+        "D": "Correct. Choose 2 of the 6 flagged accounts and 3 of the 12 others, divided by all C(18,5) equally likely audit of 5s."
+      }
+    },
+    {
+      "id": "pr_l2_137",
+      "concept": "combinations_probability",
+      "question": "From 8 items containing 3 kings, a random draw of 3 is drawn. Which expression gives P(exactly 2 kings)?",
+      "options": [
+        "C(3,2)C(5,1) / C(8,3)",
+        "C(3,2)C(5,3) / C(8,3)",
+        "C(3,2) / C(8,2)",
+        "C(5,1) / C(8,3)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Choose 2 of the 3 kings and 1 of the 5 others, divided by all C(8,3) equally likely draw of 3s.",
+        "B": "Here C(5,3) picks 3 non-kings, leaving no room for the 2 kings the event requires.",
+        "C": "C(3,2) / C(8,2) only counts a 2-item draw and ignores the remaining 1 cards of the draw of 3.",
+        "D": "This drops the C(3,2) factor, forgetting to actually choose which 2 kings appear."
+      }
+    },
+    {
+      "id": "pr_l2_138",
+      "concept": "combinations_probability",
+      "question": "From 14 items containing 5 growth funds, a random set of 4 is drawn. Which expression gives P(exactly 3 growth funds)?",
+      "options": [
+        "C(5,3)C(9,4) / C(14,4)",
+        "C(5,3)C(9,1) / C(14,4)",
+        "C(5,3) / C(14,3)",
+        "C(9,1) / C(14,4)"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Here C(9,4) picks 4 non-growth funds, leaving no room for the 3 growth funds the event requires.",
+        "B": "Correct. Choose 3 of the 5 growth funds and 1 of the 9 others, divided by all C(14,4) equally likely set of 4s.",
+        "C": "C(5,3) / C(14,3) only counts a 3-item draw and ignores the remaining 1 cards of the set of 4.",
+        "D": "This drops the C(5,3) factor, forgetting to actually choose which 3 growth funds appear."
+      }
+    },
+    {
+      "id": "pr_l2_139",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 5 identical shares be distributed among 3 distinct accounts (an account may receive 0)?",
+      "options": [
+        "35",
+        "243",
+        "21",
+        "10"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "35 = C(7,3) uses 3 bars; there are only 2 dividers between 3 bins.",
+        "B": "243 = 3^5 would count distinguishable shares; the shares here are identical.",
+        "C": "Correct. Stars and bars: C(n+k−1, k−1) = C(5+3−1, 3−1) = C(7,2) = 21.",
+        "D": "10 = C(5,2) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_140",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 6 identical shares be distributed among 3 distinct accounts (an account may receive 0)?",
+      "options": [
+        "56",
+        "729",
+        "15",
+        "28"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "56 = C(8,3) uses 3 bars; there are only 2 dividers between 3 bins.",
+        "B": "729 = 3^6 would count distinguishable shares; the shares here are identical.",
+        "C": "15 = C(6,2) forgets the +k−1 offset in the stars-and-bars formula.",
+        "D": "Correct. Stars and bars: C(n+k−1, k−1) = C(6+3−1, 3−1) = C(8,2) = 28."
+      }
+    },
+    {
+      "id": "pr_l2_141",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 7 identical shares be distributed among 2 distinct accounts (an account may receive 0)?",
+      "options": [
+        "8",
+        "28",
+        "128",
+        "7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Stars and bars: C(n+k−1, k−1) = C(7+2−1, 2−1) = C(8,1) = 8.",
+        "B": "28 = C(8,2) uses 2 bars; there are only 1 dividers between 2 bins.",
+        "C": "128 = 2^7 would count distinguishable shares; the shares here are identical.",
+        "D": "7 = C(7,1) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_142",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 8 identical shares be distributed among 3 distinct accounts (an account may receive 0)?",
+      "options": [
+        "120",
+        "45",
+        "6,561",
+        "28"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "120 = C(10,3) uses 3 bars; there are only 2 dividers between 3 bins.",
+        "B": "Correct. Stars and bars: C(n+k−1, k−1) = C(8+3−1, 3−1) = C(10,2) = 45.",
+        "C": "6,561 = 3^8 would count distinguishable shares; the shares here are identical.",
+        "D": "28 = C(8,2) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_143",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 10 identical shares be distributed among 4 distinct accounts (an account may receive 0)?",
+      "options": [
+        "715",
+        "1,048,576",
+        "286",
+        "120"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "715 = C(13,4) uses 4 bars; there are only 3 dividers between 4 bins.",
+        "B": "1,048,576 = 4^10 would count distinguishable shares; the shares here are identical.",
+        "C": "Correct. Stars and bars: C(n+k−1, k−1) = C(10+4−1, 4−1) = C(13,3) = 286.",
+        "D": "120 = C(10,3) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_144",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 6 identical shares be distributed among 4 distinct accounts (an account may receive 0)?",
+      "options": [
+        "126",
+        "4,096",
+        "20",
+        "84"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "126 = C(9,4) uses 4 bars; there are only 3 dividers between 4 bins.",
+        "B": "4,096 = 4^6 would count distinguishable shares; the shares here are identical.",
+        "C": "20 = C(6,3) forgets the +k−1 offset in the stars-and-bars formula.",
+        "D": "Correct. Stars and bars: C(n+k−1, k−1) = C(6+4−1, 4−1) = C(9,3) = 84."
+      }
+    },
+    {
+      "id": "pr_l2_145",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 9 identical shares be distributed among 3 distinct accounts (an account may receive 0)?",
+      "options": [
+        "55",
+        "165",
+        "19,683",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Stars and bars: C(n+k−1, k−1) = C(9+3−1, 3−1) = C(11,2) = 55.",
+        "B": "165 = C(11,3) uses 3 bars; there are only 2 dividers between 3 bins.",
+        "C": "19,683 = 3^9 would count distinguishable shares; the shares here are identical.",
+        "D": "36 = C(9,2) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_146",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 5 identical shares be distributed among 4 distinct accounts (an account may receive 0)?",
+      "options": [
+        "70",
+        "56",
+        "1,024",
+        "10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "70 = C(8,4) uses 4 bars; there are only 3 dividers between 4 bins.",
+        "B": "Correct. Stars and bars: C(n+k−1, k−1) = C(5+4−1, 4−1) = C(8,3) = 56.",
+        "C": "1,024 = 4^5 would count distinguishable shares; the shares here are identical.",
+        "D": "10 = C(5,3) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_147",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 7 identical shares be distributed among 3 distinct accounts (an account may receive 0)?",
+      "options": [
+        "84",
+        "2,187",
+        "36",
+        "21"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "84 = C(9,3) uses 3 bars; there are only 2 dividers between 3 bins.",
+        "B": "2,187 = 3^7 would count distinguishable shares; the shares here are identical.",
+        "C": "Correct. Stars and bars: C(n+k−1, k−1) = C(7+3−1, 3−1) = C(9,2) = 36.",
+        "D": "21 = C(7,2) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_148",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 8 identical shares be distributed among 4 distinct accounts (an account may receive 0)?",
+      "options": [
+        "330",
+        "65,536",
+        "56",
+        "165"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "330 = C(11,4) uses 4 bars; there are only 3 dividers between 4 bins.",
+        "B": "65,536 = 4^8 would count distinguishable shares; the shares here are identical.",
+        "C": "56 = C(8,3) forgets the +k−1 offset in the stars-and-bars formula.",
+        "D": "Correct. Stars and bars: C(n+k−1, k−1) = C(8+4−1, 4−1) = C(11,3) = 165."
+      }
+    },
+    {
+      "id": "pr_l2_149",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 9 identical shares be distributed among 4 distinct accounts (an account may receive 0)?",
+      "options": [
+        "220",
+        "495",
+        "262,144",
+        "84"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Stars and bars: C(n+k−1, k−1) = C(9+4−1, 4−1) = C(12,3) = 220.",
+        "B": "495 = C(12,4) uses 4 bars; there are only 3 dividers between 4 bins.",
+        "C": "262,144 = 4^9 would count distinguishable shares; the shares here are identical.",
+        "D": "84 = C(9,3) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_150",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 11 identical shares be distributed among 3 distinct accounts (an account may receive 0)?",
+      "options": [
+        "286",
+        "78",
+        "177,147",
+        "55"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "286 = C(13,3) uses 3 bars; there are only 2 dividers between 3 bins.",
+        "B": "Correct. Stars and bars: C(n+k−1, k−1) = C(11+3−1, 3−1) = C(13,2) = 78.",
+        "C": "177,147 = 3^11 would count distinguishable shares; the shares here are identical.",
+        "D": "55 = C(11,2) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_151",
+      "concept": "stars_and_bars",
+      "question": "How many ways can 6 identical shares be distributed among 5 distinct accounts (an account may receive 0)?",
+      "options": [
+        "252",
+        "15,625",
+        "210",
+        "15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "252 = C(10,5) uses 5 bars; there are only 4 dividers between 5 bins.",
+        "B": "15,625 = 5^6 would count distinguishable shares; the shares here are identical.",
+        "C": "Correct. Stars and bars: C(n+k−1, k−1) = C(6+5−1, 5−1) = C(10,4) = 210.",
+        "D": "15 = C(6,4) forgets the +k−1 offset in the stars-and-bars formula."
+      }
+    },
+    {
+      "id": "pr_l2_152",
+      "concept": "complementary_counting",
+      "question": "A fair coin is flipped 3 times. How many of the 8 ordered outcomes contain at least one head?",
+      "options": [
+        "8",
+        "3",
+        "6",
+        "7"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "8 counts every outcome, including the all-tails sequence that has no heads.",
+        "B": "3 counts only the outcomes with exactly one head, not all with at least one.",
+        "C": "6 removes two outcomes; only the single all-tails outcome should be excluded.",
+        "D": "Correct. Use the complement: total 8 minus the 1 all-tails outcome = 7."
+      }
+    },
+    {
+      "id": "pr_l2_153",
+      "concept": "complementary_counting",
+      "question": "A fair coin is flipped 4 times. How many of the 16 ordered outcomes contain at least one head?",
+      "options": [
+        "15",
+        "16",
+        "4",
+        "14"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Use the complement: total 16 minus the 1 all-tails outcome = 15.",
+        "B": "16 counts every outcome, including the all-tails sequence that has no heads.",
+        "C": "4 counts only the outcomes with exactly one head, not all with at least one.",
+        "D": "14 removes two outcomes; only the single all-tails outcome should be excluded."
+      }
+    },
+    {
+      "id": "pr_l2_154",
+      "concept": "complementary_counting",
+      "question": "A fair coin is flipped 5 times. How many of the 32 ordered outcomes contain at least one head?",
+      "options": [
+        "32",
+        "31",
+        "5",
+        "30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "32 counts every outcome, including the all-tails sequence that has no heads.",
+        "B": "Correct. Use the complement: total 32 minus the 1 all-tails outcome = 31.",
+        "C": "5 counts only the outcomes with exactly one head, not all with at least one.",
+        "D": "30 removes two outcomes; only the single all-tails outcome should be excluded."
+      }
+    },
+    {
+      "id": "pr_l2_155",
+      "concept": "complementary_counting",
+      "question": "From 10 units (3 defective), a sample of 3 is chosen. How many samples contain at least one defective unit?",
+      "options": [
+        "35",
+        "120",
+        "85",
+        "108"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "35 = C(7,3) counts samples with zero defectives — the complement, not the event.",
+        "B": "120 = C(10,3) counts all samples, not just those with a defective.",
+        "C": "Correct. Complement: all C(10,3) = 120 samples minus the C(7,3) = 35 with no defectives = 85.",
+        "D": "This over-counts by picking one defective then any others, double-counting samples with multiple defectives."
+      }
+    },
+    {
+      "id": "pr_l2_156",
+      "concept": "complementary_counting",
+      "question": "From 12 units (4 defective), a sample of 4 is chosen. How many samples contain at least one defective unit?",
+      "options": [
+        "70",
+        "495",
+        "660",
+        "425"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "70 = C(8,4) counts samples with zero defectives — the complement, not the event.",
+        "B": "495 = C(12,4) counts all samples, not just those with a defective.",
+        "C": "This over-counts by picking one defective then any others, double-counting samples with multiple defectives.",
+        "D": "Correct. Complement: all C(12,4) = 495 samples minus the C(8,4) = 70 with no defectives = 425."
+      }
+    },
+    {
+      "id": "pr_l2_157",
+      "concept": "complementary_counting",
+      "question": "From 9 units (2 defective), a sample of 3 is chosen. How many samples contain at least one defective unit?",
+      "options": [
+        "49",
+        "35",
+        "84",
+        "56"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Complement: all C(9,3) = 84 samples minus the C(7,3) = 35 with no defectives = 49.",
+        "B": "35 = C(7,3) counts samples with zero defectives — the complement, not the event.",
+        "C": "84 = C(9,3) counts all samples, not just those with a defective.",
+        "D": "This over-counts by picking one defective then any others, double-counting samples with multiple defectives."
+      }
+    },
+    {
+      "id": "pr_l2_158",
+      "concept": "complementary_counting",
+      "question": "From 11 units (3 defective), a sample of 4 is chosen. How many samples contain at least one defective unit?",
+      "options": [
+        "70",
+        "260",
+        "330",
+        "360"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "70 = C(8,4) counts samples with zero defectives — the complement, not the event.",
+        "B": "Correct. Complement: all C(11,4) = 330 samples minus the C(8,4) = 70 with no defectives = 260.",
+        "C": "330 = C(11,4) counts all samples, not just those with a defective.",
+        "D": "This over-counts by picking one defective then any others, double-counting samples with multiple defectives."
+      }
+    },
+    {
+      "id": "pr_l2_159",
+      "concept": "complementary_counting",
+      "question": "From 8 units (2 defective), a sample of 3 is chosen. How many samples contain at least one defective unit?",
+      "options": [
+        "20",
+        "56",
+        "36",
+        "42"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "20 = C(6,3) counts samples with zero defectives — the complement, not the event.",
+        "B": "56 = C(8,3) counts all samples, not just those with a defective.",
+        "C": "Correct. Complement: all C(8,3) = 56 samples minus the C(6,3) = 20 with no defectives = 36.",
+        "D": "This over-counts by picking one defective then any others, double-counting samples with multiple defectives."
+      }
+    },
+    {
+      "id": "pr_l2_160",
+      "concept": "complementary_counting",
+      "question": "From 10 units (4 defective), a sample of 4 is chosen. How many samples contain at least one defective unit?",
+      "options": [
+        "15",
+        "210",
+        "336",
+        "195"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "15 = C(6,4) counts samples with zero defectives — the complement, not the event.",
+        "B": "210 = C(10,4) counts all samples, not just those with a defective.",
+        "C": "This over-counts by picking one defective then any others, double-counting samples with multiple defectives.",
+        "D": "Correct. Complement: all C(10,4) = 210 samples minus the C(6,4) = 15 with no defectives = 195."
+      }
+    },
+    {
+      "id": "pr_l2_161",
+      "concept": "circular_permutations",
+      "question": "How many distinct ways can 4 guests be seated around a round table (rotations counted as the same)?",
+      "options": [
+        "6",
+        "24",
+        "2",
+        "7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Fix one seat to remove rotational symmetry: (4−1)! = 3 × 2 × 1 = 6.",
+        "B": "24 = 4! counts a line; around a circle, 4 rotations of each arrangement are identical.",
+        "C": "2 = (4−2)! divides by too much; only one rotation factor (4) is removed.",
+        "D": "This has no standard meaning here; the circular count is (4−1)!."
+      }
+    },
+    {
+      "id": "pr_l2_162",
+      "concept": "circular_permutations",
+      "question": "How many distinct ways can 5 traders be seated around a round table (rotations counted as the same)?",
+      "options": [
+        "120",
+        "24",
+        "6",
+        "25"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "120 = 5! counts a line; around a circle, 5 rotations of each arrangement are identical.",
+        "B": "Correct. Fix one seat to remove rotational symmetry: (5−1)! = 4 × 3 × 2 × 1 = 24.",
+        "C": "6 = (5−2)! divides by too much; only one rotation factor (5) is removed.",
+        "D": "This has no standard meaning here; the circular count is (5−1)!."
+      }
+    },
+    {
+      "id": "pr_l2_163",
+      "concept": "circular_permutations",
+      "question": "How many distinct ways can 6 knights be seated around a round table (rotations counted as the same)?",
+      "options": [
+        "720",
+        "24",
+        "120",
+        "121"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "720 = 6! counts a line; around a circle, 6 rotations of each arrangement are identical.",
+        "B": "24 = (6−2)! divides by too much; only one rotation factor (6) is removed.",
+        "C": "Correct. Fix one seat to remove rotational symmetry: (6−1)! = 5 × 4 × 3 × 2 × 1 = 120.",
+        "D": "This has no standard meaning here; the circular count is (6−1)!."
+      }
+    },
+    {
+      "id": "pr_l2_164",
+      "concept": "circular_permutations",
+      "question": "How many distinct ways can 7 delegates be seated around a round table (rotations counted as the same)?",
+      "options": [
+        "5,040",
+        "120",
+        "721",
+        "720"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "5,040 = 7! counts a line; around a circle, 7 rotations of each arrangement are identical.",
+        "B": "120 = (7−2)! divides by too much; only one rotation factor (7) is removed.",
+        "C": "This has no standard meaning here; the circular count is (7−1)!.",
+        "D": "Correct. Fix one seat to remove rotational symmetry: (7−1)! = 6 × 5 × 4 × 3 × 2 × 1 = 720."
+      }
+    },
+    {
+      "id": "pr_l2_165",
+      "concept": "circular_permutations",
+      "question": "How many distinct ways can 8 players be seated around a round table (rotations counted as the same)?",
+      "options": [
+        "5,040",
+        "40,320",
+        "720",
+        "5,041"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Fix one seat to remove rotational symmetry: (8−1)! = 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5,040.",
+        "B": "40,320 = 8! counts a line; around a circle, 8 rotations of each arrangement are identical.",
+        "C": "720 = (8−2)! divides by too much; only one rotation factor (8) is removed.",
+        "D": "This has no standard meaning here; the circular count is (8−1)!."
+      }
+    },
+    {
+      "id": "pr_l2_166",
+      "concept": "circular_permutations",
+      "question": "How many distinct ways can 9 directors be seated around a round table (rotations counted as the same)?",
+      "options": [
+        "362,880",
+        "40,320",
+        "5,040",
+        "40,321"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "362,880 = 9! counts a line; around a circle, 9 rotations of each arrangement are identical.",
+        "B": "Correct. Fix one seat to remove rotational symmetry: (9−1)! = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 40,320.",
+        "C": "5,040 = (9−2)! divides by too much; only one rotation factor (9) is removed.",
+        "D": "This has no standard meaning here; the circular count is (9−1)!."
+      }
+    },
+    {
+      "id": "pr_l2_167",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"LEVEL\"?",
+      "options": [
+        "120",
+        "60",
+        "30",
+        "15"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "120 = 5! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "B": "This divides by only one repeated letter's factorial (2!), forgetting the other repeats.",
+        "C": "Correct. 5! divided by the factorials of repeated letters: 5! / (2!·2!) = 30.",
+        "D": "This over-divides; only repeated letters contribute factorial divisors."
+      }
+    },
+    {
+      "id": "pr_l2_168",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"BANANA\"?",
+      "options": [
+        "720",
+        "120",
+        "30",
+        "60"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "720 = 6! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "B": "This divides by only one repeated letter's factorial (3!), forgetting the other repeats.",
+        "C": "This over-divides; only repeated letters contribute factorial divisors.",
+        "D": "Correct. 6! divided by the factorials of repeated letters: 6! / (3!·2!) = 60."
+      }
+    },
+    {
+      "id": "pr_l2_169",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"BOOK\"?",
+      "options": [
+        "12",
+        "24",
+        "6",
+        "22"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 4! divided by the factorials of repeated letters: 4! / (2!) = 12.",
+        "B": "24 = 4! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "C": "This over-divides; only repeated letters contribute factorial divisors.",
+        "D": "You subtract instead of divide; multiset permutations divide 4! by the repeat factorials."
+      }
+    },
+    {
+      "id": "pr_l2_170",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"PEPPER\"?",
+      "options": [
+        "720",
+        "60",
+        "120",
+        "30"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "720 = 6! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "B": "Correct. 6! divided by the factorials of repeated letters: 6! / (3!·2!) = 60.",
+        "C": "This divides by only one repeated letter's factorial (3!), forgetting the other repeats.",
+        "D": "This over-divides; only repeated letters contribute factorial divisors."
+      }
+    },
+    {
+      "id": "pr_l2_171",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"BUBBLE\"?",
+      "options": [
+        "720",
+        "240",
+        "120",
+        "60"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "720 = 6! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "B": "This is double the correct count; you divide 6! by exactly the factorials of the repeat counts, no extra factor.",
+        "C": "Correct. 6! divided by the factorials of repeated letters: 6! / (3!) = 120.",
+        "D": "This over-divides; only repeated letters contribute factorial divisors."
+      }
+    },
+    {
+      "id": "pr_l2_172",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"OFFICE\"?",
+      "options": [
+        "720",
+        "180",
+        "718",
+        "360"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "720 = 6! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "B": "This over-divides; only repeated letters contribute factorial divisors.",
+        "C": "You subtract instead of divide; multiset permutations divide 6! by the repeat factorials.",
+        "D": "Correct. 6! divided by the factorials of repeated letters: 6! / (2!) = 360."
+      }
+    },
+    {
+      "id": "pr_l2_173",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"ARRAY\"?",
+      "options": [
+        "30",
+        "120",
+        "60",
+        "15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 5! divided by the factorials of repeated letters: 5! / (2!·2!) = 30.",
+        "B": "120 = 5! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "C": "This divides by only one repeated letter's factorial (2!), forgetting the other repeats.",
+        "D": "This over-divides; only repeated letters contribute factorial divisors."
+      }
+    },
+    {
+      "id": "pr_l2_174",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"SETTLE\"?",
+      "options": [
+        "720",
+        "180",
+        "360",
+        "90"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "720 = 6! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "B": "Correct. 6! divided by the factorials of repeated letters: 6! / (2!·2!) = 180.",
+        "C": "This divides by only one repeated letter's factorial (2!), forgetting the other repeats.",
+        "D": "This over-divides; only repeated letters contribute factorial divisors."
+      }
+    },
+    {
+      "id": "pr_l2_175",
+      "concept": "multiset_permutations",
+      "question": "How many distinct arrangements are there of the letters in \"LEDGER\"?",
+      "options": [
+        "720",
+        "180",
+        "360",
+        "718"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "720 = 6! treats every letter as distinct, but repeated letters produce identical arrangements.",
+        "B": "This over-divides; only repeated letters contribute factorial divisors.",
+        "C": "Correct. 6! divided by the factorials of repeated letters: 6! / (2!) = 360.",
+        "D": "You subtract instead of divide; multiset permutations divide 6! by the repeat factorials."
+      }
+    }
+  ]
+}

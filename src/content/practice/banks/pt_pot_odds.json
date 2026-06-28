@@ -1,0 +1,3157 @@
+{
+  "lessonId": "pt_pot_odds",
+  "track": "poker-theory",
+  "title": "Pot Odds & Expected Value",
+  "questions": [
+    {
+      "id": "pr_ptpo_001",
+      "concept": "pot_odds_def",
+      "question": "The pot is $80 and your opponent bets $20. If you call $20, how big is the pot you can win?",
+      "options": [
+        "$120",
+        "$100",
+        "$80",
+        "$20"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The pot already holds $80, plus the $20 bet, plus your $20 call: $80 + $20 + $20 = $120.",
+        "B": "$100 counts the bet but forgets to add your own $20 call.",
+        "C": "$80 is only the pot before the bet, ignoring both the bet and your call.",
+        "D": "$20 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_002",
+      "concept": "pot_odds_def",
+      "question": "The pot is $40 and your opponent bets $20. If you call $20, how big is the pot you can win?",
+      "options": [
+        "$60",
+        "$80",
+        "$40",
+        "$20"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$60 counts the bet but forgets to add your own $20 call.",
+        "B": "Correct. The pot already holds $40, plus the $20 bet, plus your $20 call: $40 + $20 + $20 = $80.",
+        "C": "$40 is only the pot before the bet, ignoring both the bet and your call.",
+        "D": "$20 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_003",
+      "concept": "pot_odds_def",
+      "question": "The pot is $60 and your opponent bets $30. If you call $30, how big is the pot you can win?",
+      "options": [
+        "$90",
+        "$60",
+        "$120",
+        "$30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$90 counts the bet but forgets to add your own $30 call.",
+        "B": "$60 is only the pot before the bet, ignoring both the bet and your call.",
+        "C": "Correct. The pot already holds $60, plus the $30 bet, plus your $30 call: $60 + $30 + $30 = $120.",
+        "D": "$30 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_004",
+      "concept": "pot_odds_def",
+      "question": "The pot is $100 and your opponent bets $50. If you call $50, how big is the pot you can win?",
+      "options": [
+        "$150",
+        "$100",
+        "$50",
+        "$200"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$150 counts the bet but forgets to add your own $50 call.",
+        "B": "$100 is only the pot before the bet, ignoring both the bet and your call.",
+        "C": "$50 is just the size of your call, not the whole pot.",
+        "D": "Correct. The pot already holds $100, plus the $50 bet, plus your $50 call: $100 + $50 + $50 = $200."
+      }
+    },
+    {
+      "id": "pr_ptpo_005",
+      "concept": "pot_odds_def",
+      "question": "The pot is $50 and your opponent bets $25. If you call $25, how big is the pot you can win?",
+      "options": [
+        "$100",
+        "$75",
+        "$50",
+        "$25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The pot already holds $50, plus the $25 bet, plus your $25 call: $50 + $25 + $25 = $100.",
+        "B": "$75 counts the bet but forgets to add your own $25 call.",
+        "C": "$50 is only the pot before the bet, ignoring both the bet and your call.",
+        "D": "$25 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_006",
+      "concept": "pot_odds_def",
+      "question": "The pot is $120 and your opponent bets $40. If you call $40, how big is the pot you can win?",
+      "options": [
+        "$160",
+        "$200",
+        "$120",
+        "$40"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$160 counts the bet but forgets to add your own $40 call.",
+        "B": "Correct. The pot already holds $120, plus the $40 bet, plus your $40 call: $120 + $40 + $40 = $200.",
+        "C": "$120 is only the pot before the bet, ignoring both the bet and your call.",
+        "D": "$40 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_007",
+      "concept": "pot_odds_def",
+      "question": "The pot is $90 and your opponent bets $30. If you call $30, how big is the pot you can win?",
+      "options": [
+        "$120",
+        "$90",
+        "$150",
+        "$30"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$120 counts the bet but forgets to add your own $30 call.",
+        "B": "$90 is only the pot before the bet, ignoring both the bet and your call.",
+        "C": "Correct. The pot already holds $90, plus the $30 bet, plus your $30 call: $90 + $30 + $30 = $150.",
+        "D": "$30 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_008",
+      "concept": "pot_odds_def",
+      "question": "The pot is $150 and your opponent bets $100. If you call $100, how big is the pot you can win?",
+      "options": [
+        "$250",
+        "$150",
+        "$100",
+        "$350"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$250 counts the bet but forgets to add your own $100 call.",
+        "B": "$150 is only the pot before the bet, ignoring both the bet and your call.",
+        "C": "$100 is just the size of your call, not the whole pot.",
+        "D": "Correct. The pot already holds $150, plus the $100 bet, plus your $100 call: $150 + $100 + $100 = $350."
+      }
+    },
+    {
+      "id": "pr_ptpo_009",
+      "concept": "pot_odds_def",
+      "question": "The pot is $200 and your opponent bets $100. If you call $100, how big is the pot you can win?",
+      "options": [
+        "$400",
+        "$300",
+        "$200",
+        "$100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The pot already holds $200, plus the $100 bet, plus your $100 call: $200 + $100 + $100 = $400.",
+        "B": "$300 counts the bet but forgets to add your own $100 call.",
+        "C": "$200 is only the pot before the bet, ignoring both the bet and your call.",
+        "D": "$100 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_010",
+      "concept": "pot_odds_def",
+      "question": "The pot is $30 and your opponent bets $10. If you call $10, how big is the pot you can win?",
+      "options": [
+        "$40",
+        "$50",
+        "$30",
+        "$10"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$40 counts the bet but forgets to add your own $10 call.",
+        "B": "Correct. The pot already holds $30, plus the $10 bet, plus your $10 call: $30 + $10 + $10 = $50.",
+        "C": "$30 is only the pot before the bet, ignoring both the bet and your call.",
+        "D": "$10 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_011",
+      "concept": "pot_odds_def",
+      "question": "The pot is $75 and your opponent bets $25. If you call $25, how big is the pot you can win?",
+      "options": [
+        "$100",
+        "$75",
+        "$125",
+        "$25"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$100 counts the bet but forgets to add your own $25 call.",
+        "B": "$75 is only the pot before the bet, ignoring both the bet and your call.",
+        "C": "Correct. The pot already holds $75, plus the $25 bet, plus your $25 call: $75 + $25 + $25 = $125.",
+        "D": "$25 is just the size of your call, not the whole pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_012",
+      "concept": "pot_odds_def",
+      "question": "The pot is $160 and your opponent bets $80. If you call $80, how big is the pot you can win?",
+      "options": [
+        "$240",
+        "$160",
+        "$80",
+        "$320"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$240 counts the bet but forgets to add your own $80 call.",
+        "B": "$160 is only the pot before the bet, ignoring both the bet and your call.",
+        "C": "$80 is just the size of your call, not the whole pot.",
+        "D": "Correct. The pot already holds $160, plus the $80 bet, plus your $80 call: $160 + $80 + $80 = $320."
+      }
+    },
+    {
+      "id": "pr_ptpo_013",
+      "concept": "pot_odds_def",
+      "question": "You must call $10 to win a pot of $40. Expressed as pot odds, you are getting:",
+      "options": [
+        "4:1",
+        "1:4",
+        "5:1",
+        "1:1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Pot odds compare reward to risk: $40 to win versus $10 to call reduces to 4:1.",
+        "B": "1:4 inverts the ratio — it puts your call first instead of the reward.",
+        "C": "5:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_014",
+      "concept": "pot_odds_def",
+      "question": "You must call $20 to win a pot of $60. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:3",
+        "3:1",
+        "4:1",
+        "1:1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1:3 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "Correct. Pot odds compare reward to risk: $60 to win versus $20 to call reduces to 3:1.",
+        "C": "4:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_015",
+      "concept": "pot_odds_def",
+      "question": "You must call $30 to win a pot of $90. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:3",
+        "4:1",
+        "3:1",
+        "1:1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1:3 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "4:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "C": "Correct. Pot odds compare reward to risk: $90 to win versus $30 to call reduces to 3:1.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_016",
+      "concept": "pot_odds_def",
+      "question": "You must call $25 to win a pot of $100. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:4",
+        "5:1",
+        "1:1",
+        "4:1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1:4 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "5:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "C": "1:1 (even money) would require the call to equal the pot, which is not the case here.",
+        "D": "Correct. Pot odds compare reward to risk: $100 to win versus $25 to call reduces to 4:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_017",
+      "concept": "pot_odds_def",
+      "question": "You must call $10 to win a pot of $50. Expressed as pot odds, you are getting:",
+      "options": [
+        "5:1",
+        "1:5",
+        "6:1",
+        "1:1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Pot odds compare reward to risk: $50 to win versus $10 to call reduces to 5:1.",
+        "B": "1:5 inverts the ratio — it puts your call first instead of the reward.",
+        "C": "6:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_018",
+      "concept": "pot_odds_def",
+      "question": "You must call $20 to win a pot of $80. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:4",
+        "4:1",
+        "5:1",
+        "1:1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1:4 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "Correct. Pot odds compare reward to risk: $80 to win versus $20 to call reduces to 4:1.",
+        "C": "5:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_019",
+      "concept": "pot_odds_def",
+      "question": "You must call $40 to win a pot of $120. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:3",
+        "4:1",
+        "3:1",
+        "1:1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1:3 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "4:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "C": "Correct. Pot odds compare reward to risk: $120 to win versus $40 to call reduces to 3:1.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_020",
+      "concept": "pot_odds_def",
+      "question": "You must call $50 to win a pot of $150. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:3",
+        "4:1",
+        "1:1",
+        "3:1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1:3 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "4:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "C": "1:1 (even money) would require the call to equal the pot, which is not the case here.",
+        "D": "Correct. Pot odds compare reward to risk: $150 to win versus $50 to call reduces to 3:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_021",
+      "concept": "pot_odds_def",
+      "question": "You must call $20 to win a pot of $100. Expressed as pot odds, you are getting:",
+      "options": [
+        "5:1",
+        "1:5",
+        "6:1",
+        "1:1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Pot odds compare reward to risk: $100 to win versus $20 to call reduces to 5:1.",
+        "B": "1:5 inverts the ratio — it puts your call first instead of the reward.",
+        "C": "6:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_022",
+      "concept": "pot_odds_def",
+      "question": "You must call $25 to win a pot of $75. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:3",
+        "3:1",
+        "4:1",
+        "1:1"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "1:3 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "Correct. Pot odds compare reward to risk: $75 to win versus $25 to call reduces to 3:1.",
+        "C": "4:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_023",
+      "concept": "pot_odds_def",
+      "question": "You must call $60 to win a pot of $180. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:3",
+        "4:1",
+        "3:1",
+        "1:1"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1:3 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "4:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "C": "Correct. Pot odds compare reward to risk: $180 to win versus $60 to call reduces to 3:1.",
+        "D": "1:1 (even money) would require the call to equal the pot, which is not the case here."
+      }
+    },
+    {
+      "id": "pr_ptpo_024",
+      "concept": "pot_odds_def",
+      "question": "You must call $50 to win a pot of $200. Expressed as pot odds, you are getting:",
+      "options": [
+        "1:4",
+        "5:1",
+        "1:1",
+        "4:1"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "1:4 inverts the ratio — it puts your call first instead of the reward.",
+        "B": "5:1 mistakenly adds your call into the reward side before forming the ratio.",
+        "C": "1:1 (even money) would require the call to equal the pot, which is not the case here.",
+        "D": "Correct. Pot odds compare reward to risk: $200 to win versus $50 to call reduces to 4:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_025",
+      "concept": "breakeven",
+      "question": "You are getting 1:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "50%",
+        "100%",
+        "33.3%",
+        "25%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At 1:1 you risk 1 to win 1, so you must win 1 out of every 2 attempts: 1/2 = 50%.",
+        "B": "100% divides by 1 instead of 2; it forgets to add your own call to the denominator.",
+        "C": "33.3% would correspond to 2:1 odds, not 1:1.",
+        "D": "25% corresponds to longer odds than 1:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_026",
+      "concept": "breakeven",
+      "question": "You are getting 2:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "50%",
+        "33.3%",
+        "66.7%",
+        "25%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "50% divides by 2 instead of 3; it forgets to add your own call to the denominator.",
+        "B": "Correct. At 2:1 you risk 1 to win 2, so you must win 1 out of every 3 attempts: 1/3 = 33.3%.",
+        "C": "66.7% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "D": "25% would correspond to 3:1 odds, not 2:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_027",
+      "concept": "breakeven",
+      "question": "You are getting 3:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "33.3%",
+        "75%",
+        "25%",
+        "20%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "33.3% divides by 3 instead of 4; it forgets to add your own call to the denominator.",
+        "B": "75% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "C": "Correct. At 3:1 you risk 1 to win 3, so you must win 1 out of every 4 attempts: 1/4 = 25%.",
+        "D": "20% would correspond to 4:1 odds, not 3:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_028",
+      "concept": "breakeven",
+      "question": "You are getting 4:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "25%",
+        "80%",
+        "16.7%",
+        "20%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "25% divides by 4 instead of 5; it forgets to add your own call to the denominator.",
+        "B": "80% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "C": "16.7% would correspond to 5:1 odds, not 4:1.",
+        "D": "Correct. At 4:1 you risk 1 to win 4, so you must win 1 out of every 5 attempts: 1/5 = 20%."
+      }
+    },
+    {
+      "id": "pr_ptpo_029",
+      "concept": "breakeven",
+      "question": "You are getting 5:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "16.7%",
+        "20%",
+        "83.3%",
+        "14.3%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At 5:1 you risk 1 to win 5, so you must win 1 out of every 6 attempts: 1/6 = 16.7%.",
+        "B": "20% divides by 5 instead of 6; it forgets to add your own call to the denominator.",
+        "C": "83.3% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "D": "14.3% would correspond to 6:1 odds, not 5:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_030",
+      "concept": "breakeven",
+      "question": "You are getting 6:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "16.7%",
+        "14.3%",
+        "85.7%",
+        "12.5%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "16.7% divides by 6 instead of 7; it forgets to add your own call to the denominator.",
+        "B": "Correct. At 6:1 you risk 1 to win 6, so you must win 1 out of every 7 attempts: 1/7 = 14.3%.",
+        "C": "85.7% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "D": "12.5% would correspond to 7:1 odds, not 6:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_031",
+      "concept": "breakeven",
+      "question": "You are getting 7:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "14.3%",
+        "87.5%",
+        "12.5%",
+        "11.1%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "14.3% divides by 7 instead of 8; it forgets to add your own call to the denominator.",
+        "B": "87.5% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "C": "Correct. At 7:1 you risk 1 to win 7, so you must win 1 out of every 8 attempts: 1/8 = 12.5%.",
+        "D": "11.1% would correspond to 8:1 odds, not 7:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_032",
+      "concept": "breakeven",
+      "question": "You are getting 8:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "12.5%",
+        "88.9%",
+        "10%",
+        "11.1%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "12.5% divides by 8 instead of 9; it forgets to add your own call to the denominator.",
+        "B": "88.9% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "C": "10% would correspond to 9:1 odds, not 8:1.",
+        "D": "Correct. At 8:1 you risk 1 to win 8, so you must win 1 out of every 9 attempts: 1/9 = 11.1%."
+      }
+    },
+    {
+      "id": "pr_ptpo_033",
+      "concept": "breakeven",
+      "question": "You are getting 9:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "10%",
+        "11.1%",
+        "90%",
+        "9.1%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. At 9:1 you risk 1 to win 9, so you must win 1 out of every 10 attempts: 1/10 = 10%.",
+        "B": "11.1% divides by 9 instead of 10; it forgets to add your own call to the denominator.",
+        "C": "90% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "D": "9.1% would correspond to 10:1 odds, not 9:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_034",
+      "concept": "breakeven",
+      "question": "You are getting 10:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "10%",
+        "9.1%",
+        "90.9%",
+        "8.3%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "10% divides by 10 instead of 11; it forgets to add your own call to the denominator.",
+        "B": "Correct. At 10:1 you risk 1 to win 10, so you must win 1 out of every 11 attempts: 1/11 = 9.1%.",
+        "C": "90.9% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "D": "8.3% would correspond to 11:1 odds, not 10:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_035",
+      "concept": "breakeven",
+      "question": "You are getting 11:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "9.1%",
+        "91.7%",
+        "8.3%",
+        "7.7%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "9.1% divides by 11 instead of 12; it forgets to add your own call to the denominator.",
+        "B": "91.7% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "C": "Correct. At 11:1 you risk 1 to win 11, so you must win 1 out of every 12 attempts: 1/12 = 8.3%.",
+        "D": "7.7% would correspond to 12:1 odds, not 11:1."
+      }
+    },
+    {
+      "id": "pr_ptpo_036",
+      "concept": "breakeven",
+      "question": "You are getting 12:1 pot odds on a call. What is the minimum (break-even) equity you need to make the call profitable?",
+      "options": [
+        "8.3%",
+        "92.3%",
+        "7.1%",
+        "7.7%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "8.3% divides by 12 instead of 13; it forgets to add your own call to the denominator.",
+        "B": "92.3% is the chance you must NOT win — it is the complement of the break-even equity.",
+        "C": "7.1% would correspond to 13:1 odds, not 12:1.",
+        "D": "Correct. At 12:1 you risk 1 to win 12, so you must win 1 out of every 13 attempts: 1/13 = 7.7%."
+      }
+    },
+    {
+      "id": "pr_ptpo_037",
+      "concept": "breakeven",
+      "question": "The pot is $100 and your opponent bets $100. What equity do you need to break even on a call?",
+      "options": [
+        "33.3%",
+        "50%",
+        "100%",
+        "66.7%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You call $100 to win $200, and the final pot is $300. Break-even equity = $100 / $300 = 33.3%.",
+        "B": "50% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "C": "100% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "66.7% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_038",
+      "concept": "breakeven",
+      "question": "The pot is $100 and your opponent bets $50. What equity do you need to break even on a call?",
+      "options": [
+        "33.3%",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "33.3% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "Correct. You call $50 to win $150, and the final pot is $200. Break-even equity = $50 / $200 = 25%.",
+        "C": "50% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "75% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_039",
+      "concept": "breakeven",
+      "question": "The pot is $120 and your opponent bets $60. What equity do you need to break even on a call?",
+      "options": [
+        "33.3%",
+        "50%",
+        "25%",
+        "75%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "33.3% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "50% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "C": "Correct. You call $60 to win $180, and the final pot is $240. Break-even equity = $60 / $240 = 25%.",
+        "D": "75% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_040",
+      "concept": "breakeven",
+      "question": "The pot is $90 and your opponent bets $30. What equity do you need to break even on a call?",
+      "options": [
+        "25%",
+        "33.3%",
+        "80%",
+        "20%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "25% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "33.3% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "C": "80% is the share of the pot you win when you win — not the equity you need to break even.",
+        "D": "Correct. You call $30 to win $120, and the final pot is $150. Break-even equity = $30 / $150 = 20%."
+      }
+    },
+    {
+      "id": "pr_ptpo_041",
+      "concept": "breakeven",
+      "question": "The pot is $100 and your opponent bets $75. What equity do you need to break even on a call?",
+      "options": [
+        "30%",
+        "42.9%",
+        "75%",
+        "70%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You call $75 to win $175, and the final pot is $250. Break-even equity = $75 / $250 = 30%.",
+        "B": "42.9% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "C": "75% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "70% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_042",
+      "concept": "breakeven",
+      "question": "The pot is $120 and your opponent bets $80. What equity do you need to break even on a call?",
+      "options": [
+        "40%",
+        "28.6%",
+        "66.7%",
+        "71.4%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "40% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "Correct. You call $80 to win $200, and the final pot is $280. Break-even equity = $80 / $280 = 28.6%.",
+        "C": "66.7% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "71.4% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_043",
+      "concept": "breakeven",
+      "question": "The pot is $60 and your opponent bets $40. What equity do you need to break even on a call?",
+      "options": [
+        "40%",
+        "66.7%",
+        "28.6%",
+        "71.4%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "40% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "66.7% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "C": "Correct. You call $40 to win $100, and the final pot is $140. Break-even equity = $40 / $140 = 28.6%.",
+        "D": "71.4% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_044",
+      "concept": "breakeven",
+      "question": "The pot is $200 and your opponent bets $50. What equity do you need to break even on a call?",
+      "options": [
+        "20%",
+        "25%",
+        "83.3%",
+        "16.7%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "20% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "25% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "C": "83.3% is the share of the pot you win when you win — not the equity you need to break even.",
+        "D": "Correct. You call $50 to win $250, and the final pot is $300. Break-even equity = $50 / $300 = 16.7%."
+      }
+    },
+    {
+      "id": "pr_ptpo_045",
+      "concept": "breakeven",
+      "question": "The pot is $100 and your opponent bets $25. What equity do you need to break even on a call?",
+      "options": [
+        "16.7%",
+        "20%",
+        "25%",
+        "83.3%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You call $25 to win $125, and the final pot is $150. Break-even equity = $25 / $150 = 16.7%.",
+        "B": "20% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "C": "25% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "83.3% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_046",
+      "concept": "breakeven",
+      "question": "The pot is $150 and your opponent bets $100. What equity do you need to break even on a call?",
+      "options": [
+        "40%",
+        "28.6%",
+        "66.7%",
+        "71.4%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "40% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "Correct. You call $100 to win $250, and the final pot is $350. Break-even equity = $100 / $350 = 28.6%.",
+        "C": "66.7% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "71.4% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_047",
+      "concept": "breakeven",
+      "question": "The pot is $80 and your opponent bets $60. What equity do you need to break even on a call?",
+      "options": [
+        "42.9%",
+        "75%",
+        "30%",
+        "70%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "42.9% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "75% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "C": "Correct. You call $60 to win $140, and the final pot is $200. Break-even equity = $60 / $200 = 30%.",
+        "D": "70% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_048",
+      "concept": "breakeven",
+      "question": "The pot is $120 and your opponent bets $40. What equity do you need to break even on a call?",
+      "options": [
+        "25%",
+        "33.3%",
+        "80%",
+        "20%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "25% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "33.3% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "C": "80% is the share of the pot you win when you win — not the equity you need to break even.",
+        "D": "Correct. You call $40 to win $160, and the final pot is $200. Break-even equity = $40 / $200 = 20%."
+      }
+    },
+    {
+      "id": "pr_ptpo_049",
+      "concept": "breakeven",
+      "question": "The pot is $100 and your opponent bets $200. What equity do you need to break even on a call?",
+      "options": [
+        "40%",
+        "66.7%",
+        "200%",
+        "60%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You call $200 to win $300, and the final pot is $500. Break-even equity = $200 / $500 = 40%.",
+        "B": "66.7% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "C": "200% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "60% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_050",
+      "concept": "breakeven",
+      "question": "The pot is $90 and your opponent bets $60. What equity do you need to break even on a call?",
+      "options": [
+        "40%",
+        "28.6%",
+        "66.7%",
+        "71.4%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "40% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "Correct. You call $60 to win $150, and the final pot is $210. Break-even equity = $60 / $210 = 28.6%.",
+        "C": "66.7% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "D": "71.4% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_051",
+      "concept": "breakeven",
+      "question": "The pot is $150 and your opponent bets $50. What equity do you need to break even on a call?",
+      "options": [
+        "25%",
+        "33.3%",
+        "20%",
+        "80%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "25% divides the call by the pot after the bet but before your call — it omits your own call from the denominator.",
+        "B": "33.3% compares the bet to the original pot only, ignoring that the bet and your call also grow the pot.",
+        "C": "Correct. You call $50 to win $200, and the final pot is $250. Break-even equity = $50 / $250 = 20%.",
+        "D": "80% is the share of the pot you win when you win — not the equity you need to break even."
+      }
+    },
+    {
+      "id": "pr_ptpo_052",
+      "concept": "outs",
+      "question": "On the flop you have 2 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "4%",
+        "6%",
+        "2%",
+        "8%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "6% multiplies by 3, which is not the standard outs shortcut.",
+        "C": "2% uses the raw out count, far too low for two cards to come.",
+        "D": "Correct. The rule of 4 estimates flop equity as outs × 4: 2 × 4 = 8%."
+      }
+    },
+    {
+      "id": "pr_ptpo_053",
+      "concept": "outs",
+      "question": "On the flop you have 3 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "12%",
+        "6%",
+        "9%",
+        "3%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rule of 4 estimates flop equity as outs × 4: 3 × 4 = 12%.",
+        "B": "6% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "C": "9% multiplies by 3, which is not the standard outs shortcut.",
+        "D": "3% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_054",
+      "concept": "outs",
+      "question": "On the flop you have 4 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "8%",
+        "16%",
+        "12%",
+        "4%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "8% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "Correct. The rule of 4 estimates flop equity as outs × 4: 4 × 4 = 16%.",
+        "C": "12% multiplies by 3, which is not the standard outs shortcut.",
+        "D": "4% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_055",
+      "concept": "outs",
+      "question": "On the flop you have 5 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "10%",
+        "15%",
+        "20%",
+        "5%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "10% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "15% multiplies by 3, which is not the standard outs shortcut.",
+        "C": "Correct. The rule of 4 estimates flop equity as outs × 4: 5 × 4 = 20%.",
+        "D": "5% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_056",
+      "concept": "outs",
+      "question": "On the flop you have 6 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "12%",
+        "18%",
+        "6%",
+        "24%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "12% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "18% multiplies by 3, which is not the standard outs shortcut.",
+        "C": "6% uses the raw out count, far too low for two cards to come.",
+        "D": "Correct. The rule of 4 estimates flop equity as outs × 4: 6 × 4 = 24%."
+      }
+    },
+    {
+      "id": "pr_ptpo_057",
+      "concept": "outs",
+      "question": "On the flop you have 7 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "28%",
+        "14%",
+        "21%",
+        "7%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rule of 4 estimates flop equity as outs × 4: 7 × 4 = 28%.",
+        "B": "14% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "C": "21% multiplies by 3, which is not the standard outs shortcut.",
+        "D": "7% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_058",
+      "concept": "outs",
+      "question": "On the flop you have 8 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "16%",
+        "32%",
+        "24%",
+        "8%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "16% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "Correct. The rule of 4 estimates flop equity as outs × 4: 8 × 4 = 32%.",
+        "C": "24% multiplies by 3, which is not the standard outs shortcut.",
+        "D": "8% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_059",
+      "concept": "outs",
+      "question": "On the flop you have 9 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "18%",
+        "27%",
+        "36%",
+        "9%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "18% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "27% multiplies by 3, which is not the standard outs shortcut.",
+        "C": "Correct. The rule of 4 estimates flop equity as outs × 4: 9 × 4 = 36%.",
+        "D": "9% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_060",
+      "concept": "outs",
+      "question": "On the flop you have 10 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "20%",
+        "30%",
+        "10%",
+        "40%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "20% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "30% multiplies by 3, which is not the standard outs shortcut.",
+        "C": "10% uses the raw out count, far too low for two cards to come.",
+        "D": "Correct. The rule of 4 estimates flop equity as outs × 4: 10 × 4 = 40%."
+      }
+    },
+    {
+      "id": "pr_ptpo_061",
+      "concept": "outs",
+      "question": "On the flop you have 11 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "44%",
+        "22%",
+        "33%",
+        "11%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rule of 4 estimates flop equity as outs × 4: 11 × 4 = 44%.",
+        "B": "22% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "C": "33% multiplies by 3, which is not the standard outs shortcut.",
+        "D": "11% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_062",
+      "concept": "outs",
+      "question": "On the flop you have 12 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "24%",
+        "48%",
+        "36%",
+        "12%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "24% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "Correct. The rule of 4 estimates flop equity as outs × 4: 12 × 4 = 48%.",
+        "C": "36% multiplies by 3, which is not the standard outs shortcut.",
+        "D": "12% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_063",
+      "concept": "outs",
+      "question": "On the flop you have 13 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "26%",
+        "39%",
+        "52%",
+        "13%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "26% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "39% multiplies by 3, which is not the standard outs shortcut.",
+        "C": "Correct. The rule of 4 estimates flop equity as outs × 4: 13 × 4 = 52%.",
+        "D": "13% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_064",
+      "concept": "outs",
+      "question": "On the flop you have 14 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "28%",
+        "42%",
+        "14%",
+        "56%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "28% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "B": "42% multiplies by 3, which is not the standard outs shortcut.",
+        "C": "14% uses the raw out count, far too low for two cards to come.",
+        "D": "Correct. The rule of 4 estimates flop equity as outs × 4: 14 × 4 = 56%."
+      }
+    },
+    {
+      "id": "pr_ptpo_065",
+      "concept": "outs",
+      "question": "On the flop you have 15 outs with two cards still to come. Using the rule of 4, your approximate equity to improve by the river is:",
+      "options": [
+        "60%",
+        "30%",
+        "45%",
+        "15%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rule of 4 estimates flop equity as outs × 4: 15 × 4 = 60%.",
+        "B": "30% applies the rule of 2 (one card to come) instead of the rule of 4 for two cards.",
+        "C": "45% multiplies by 3, which is not the standard outs shortcut.",
+        "D": "15% uses the raw out count, far too low for two cards to come."
+      }
+    },
+    {
+      "id": "pr_ptpo_066",
+      "concept": "outs",
+      "question": "On the turn you have 2 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "8%",
+        "4%",
+        "2%",
+        "6%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "8% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "Correct. The rule of 2 estimates one-card equity as outs × 2: 2 × 2 = 4%.",
+        "C": "2% uses the raw out count without doubling for a single card.",
+        "D": "6% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_067",
+      "concept": "outs",
+      "question": "On the turn you have 3 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "12%",
+        "3%",
+        "6%",
+        "9%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "12% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "3% uses the raw out count without doubling for a single card.",
+        "C": "Correct. The rule of 2 estimates one-card equity as outs × 2: 3 × 2 = 6%.",
+        "D": "9% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_068",
+      "concept": "outs",
+      "question": "On the turn you have 4 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "16%",
+        "4%",
+        "12%",
+        "8%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "16% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "4% uses the raw out count without doubling for a single card.",
+        "C": "12% multiplies by 3, which is not a standard shortcut.",
+        "D": "Correct. The rule of 2 estimates one-card equity as outs × 2: 4 × 2 = 8%."
+      }
+    },
+    {
+      "id": "pr_ptpo_069",
+      "concept": "outs",
+      "question": "On the turn you have 5 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "10%",
+        "20%",
+        "5%",
+        "15%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rule of 2 estimates one-card equity as outs × 2: 5 × 2 = 10%.",
+        "B": "20% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "C": "5% uses the raw out count without doubling for a single card.",
+        "D": "15% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_070",
+      "concept": "outs",
+      "question": "On the turn you have 6 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "24%",
+        "12%",
+        "6%",
+        "18%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "24% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "Correct. The rule of 2 estimates one-card equity as outs × 2: 6 × 2 = 12%.",
+        "C": "6% uses the raw out count without doubling for a single card.",
+        "D": "18% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_071",
+      "concept": "outs",
+      "question": "On the turn you have 7 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "28%",
+        "7%",
+        "14%",
+        "21%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "28% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "7% uses the raw out count without doubling for a single card.",
+        "C": "Correct. The rule of 2 estimates one-card equity as outs × 2: 7 × 2 = 14%.",
+        "D": "21% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_072",
+      "concept": "outs",
+      "question": "On the turn you have 8 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "32%",
+        "8%",
+        "24%",
+        "16%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "32% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "8% uses the raw out count without doubling for a single card.",
+        "C": "24% multiplies by 3, which is not a standard shortcut.",
+        "D": "Correct. The rule of 2 estimates one-card equity as outs × 2: 8 × 2 = 16%."
+      }
+    },
+    {
+      "id": "pr_ptpo_073",
+      "concept": "outs",
+      "question": "On the turn you have 9 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "18%",
+        "36%",
+        "9%",
+        "27%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rule of 2 estimates one-card equity as outs × 2: 9 × 2 = 18%.",
+        "B": "36% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "C": "9% uses the raw out count without doubling for a single card.",
+        "D": "27% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_074",
+      "concept": "outs",
+      "question": "On the turn you have 10 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "40%",
+        "20%",
+        "10%",
+        "30%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "40% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "Correct. The rule of 2 estimates one-card equity as outs × 2: 10 × 2 = 20%.",
+        "C": "10% uses the raw out count without doubling for a single card.",
+        "D": "30% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_075",
+      "concept": "outs",
+      "question": "On the turn you have 11 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "44%",
+        "11%",
+        "22%",
+        "33%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "44% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "11% uses the raw out count without doubling for a single card.",
+        "C": "Correct. The rule of 2 estimates one-card equity as outs × 2: 11 × 2 = 22%.",
+        "D": "33% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_076",
+      "concept": "outs",
+      "question": "On the turn you have 12 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "48%",
+        "12%",
+        "36%",
+        "24%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "48% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "12% uses the raw out count without doubling for a single card.",
+        "C": "36% multiplies by 3, which is not a standard shortcut.",
+        "D": "Correct. The rule of 2 estimates one-card equity as outs × 2: 12 × 2 = 24%."
+      }
+    },
+    {
+      "id": "pr_ptpo_077",
+      "concept": "outs",
+      "question": "On the turn you have 13 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "26%",
+        "52%",
+        "13%",
+        "39%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The rule of 2 estimates one-card equity as outs × 2: 13 × 2 = 26%.",
+        "B": "52% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "C": "13% uses the raw out count without doubling for a single card.",
+        "D": "39% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_078",
+      "concept": "outs",
+      "question": "On the turn you have 14 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "56%",
+        "28%",
+        "14%",
+        "42%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "56% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "Correct. The rule of 2 estimates one-card equity as outs × 2: 14 × 2 = 28%.",
+        "C": "14% uses the raw out count without doubling for a single card.",
+        "D": "42% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_079",
+      "concept": "outs",
+      "question": "On the turn you have 15 outs with only the river to come. Using the rule of 2, your approximate equity to hit is:",
+      "options": [
+        "60%",
+        "15%",
+        "30%",
+        "45%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "60% is the rule of 4, which applies on the flop with two cards to come, not on the turn.",
+        "B": "15% uses the raw out count without doubling for a single card.",
+        "C": "Correct. The rule of 2 estimates one-card equity as outs × 2: 15 × 2 = 30%.",
+        "D": "45% multiplies by 3, which is not a standard shortcut."
+      }
+    },
+    {
+      "id": "pr_ptpo_080",
+      "concept": "flush_draw",
+      "question": "How many outs does a flush draw have on the flop?",
+      "options": [
+        "10 outs",
+        "8 outs",
+        "13 outs",
+        "9 outs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "10 outs over-counts the draw by one card.",
+        "B": "8 outs under-counts the draw by one card.",
+        "C": "13 outs is too many for this draw.",
+        "D": "Correct. A flush draw has 9 outs."
+      }
+    },
+    {
+      "id": "pr_ptpo_081",
+      "concept": "flush_draw",
+      "question": "How many outs does an open-ended straight draw have on the flop?",
+      "options": [
+        "8 outs",
+        "9 outs",
+        "7 outs",
+        "12 outs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. An open-ended straight draw has 8 outs.",
+        "B": "9 outs over-counts the draw by one card.",
+        "C": "7 outs under-counts the draw by one card.",
+        "D": "12 outs is too many for this draw."
+      }
+    },
+    {
+      "id": "pr_ptpo_082",
+      "concept": "flush_draw",
+      "question": "How many outs does a gutshot (inside) straight draw have on the flop?",
+      "options": [
+        "5 outs",
+        "4 outs",
+        "3 outs",
+        "8 outs"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 outs over-counts the draw by one card.",
+        "B": "Correct. A gutshot (inside) straight draw has 4 outs.",
+        "C": "3 outs under-counts the draw by one card.",
+        "D": "8 outs is too many for this draw."
+      }
+    },
+    {
+      "id": "pr_ptpo_083",
+      "concept": "flush_draw",
+      "question": "How many outs does two overcards have on the flop?",
+      "options": [
+        "7 outs",
+        "5 outs",
+        "6 outs",
+        "10 outs"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "7 outs over-counts the draw by one card.",
+        "B": "5 outs under-counts the draw by one card.",
+        "C": "Correct. Two overcards has 6 outs.",
+        "D": "10 outs is too many for this draw."
+      }
+    },
+    {
+      "id": "pr_ptpo_084",
+      "concept": "flush_draw",
+      "question": "How many outs does one overcard have on the flop?",
+      "options": [
+        "4 outs",
+        "2 outs",
+        "7 outs",
+        "3 outs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "4 outs over-counts the draw by one card.",
+        "B": "2 outs under-counts the draw by one card.",
+        "C": "7 outs is too many for this draw.",
+        "D": "Correct. One overcard has 3 outs."
+      }
+    },
+    {
+      "id": "pr_ptpo_085",
+      "concept": "flush_draw",
+      "question": "How many outs does a pocket pair hoping to flop a set have on the flop?",
+      "options": [
+        "2 outs",
+        "3 outs",
+        "1 outs",
+        "6 outs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A pocket pair hoping to flop a set has 2 outs.",
+        "B": "3 outs over-counts the draw by one card.",
+        "C": "1 outs under-counts the draw by one card.",
+        "D": "6 outs is too many for this draw."
+      }
+    },
+    {
+      "id": "pr_ptpo_086",
+      "concept": "flush_draw",
+      "question": "How many outs does a flush draw plus an open-ended straight draw have on the flop?",
+      "options": [
+        "16 outs",
+        "15 outs",
+        "14 outs",
+        "19 outs"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "16 outs over-counts the draw by one card.",
+        "B": "Correct. A flush draw plus an open-ended straight draw has 15 outs.",
+        "C": "14 outs under-counts the draw by one card.",
+        "D": "19 outs is too many for this draw."
+      }
+    },
+    {
+      "id": "pr_ptpo_087",
+      "concept": "flush_draw",
+      "question": "How many outs does a flush draw plus a gutshot have on the flop?",
+      "options": [
+        "13 outs",
+        "11 outs",
+        "12 outs",
+        "16 outs"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "13 outs over-counts the draw by one card.",
+        "B": "11 outs under-counts the draw by one card.",
+        "C": "Correct. A flush draw plus a gutshot has 12 outs.",
+        "D": "16 outs is too many for this draw."
+      }
+    },
+    {
+      "id": "pr_ptpo_088",
+      "concept": "flush_draw",
+      "question": "How many outs does a double gutshot have on the flop?",
+      "options": [
+        "9 outs",
+        "7 outs",
+        "12 outs",
+        "8 outs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "9 outs over-counts the draw by one card.",
+        "B": "7 outs under-counts the draw by one card.",
+        "C": "12 outs is too many for this draw.",
+        "D": "Correct. A double gutshot has 8 outs."
+      }
+    },
+    {
+      "id": "pr_ptpo_089",
+      "concept": "flush_draw",
+      "question": "You flop a flush draw (9 outs). Roughly what is your equity to improve by the river?",
+      "options": [
+        "~36%",
+        "~18%",
+        "~9%",
+        "~46%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Rule of 4: 9 outs × 4 ≈ 36% by the river.",
+        "B": "~18% is the one-card (rule of 2) estimate, not equity over two cards.",
+        "C": "~9% uses the raw out count, far too low for two cards.",
+        "D": "~46% overestimates this draw's equity."
+      }
+    },
+    {
+      "id": "pr_ptpo_090",
+      "concept": "flush_draw",
+      "question": "You flop an open-ended straight draw (8 outs). Roughly what is your equity to improve by the river?",
+      "options": [
+        "~16%",
+        "~32%",
+        "~8%",
+        "~42%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "~16% is the one-card (rule of 2) estimate, not equity over two cards.",
+        "B": "Correct. Rule of 4: 8 outs × 4 ≈ 32% by the river.",
+        "C": "~8% uses the raw out count, far too low for two cards.",
+        "D": "~42% overestimates this draw's equity."
+      }
+    },
+    {
+      "id": "pr_ptpo_091",
+      "concept": "flush_draw",
+      "question": "You flop a gutshot (4 outs). Roughly what is your equity to improve by the river?",
+      "options": [
+        "~8%",
+        "~4%",
+        "~16%",
+        "~26%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "~8% is the one-card (rule of 2) estimate, not equity over two cards.",
+        "B": "~4% uses the raw out count, far too low for two cards.",
+        "C": "Correct. Rule of 4: 4 outs × 4 ≈ 16% by the river.",
+        "D": "~26% overestimates this draw's equity."
+      }
+    },
+    {
+      "id": "pr_ptpo_092",
+      "concept": "flush_draw",
+      "question": "You flop a flush draw plus a gutshot (12 outs). Roughly what is your equity to improve by the river?",
+      "options": [
+        "~24%",
+        "~12%",
+        "~58%",
+        "~48%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "~24% is the one-card (rule of 2) estimate, not equity over two cards.",
+        "B": "~12% uses the raw out count, far too low for two cards.",
+        "C": "~58% overestimates this draw's equity.",
+        "D": "Correct. Rule of 4: 12 outs × 4 ≈ 48% by the river."
+      }
+    },
+    {
+      "id": "pr_ptpo_093",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $100, and you estimate 30% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "+EV — call",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Break-even equity is 33.3% but you only have 30%, which is short, so the call is -EV.",
+        "B": "A +EV call needs equity above the 33.3% break-even.",
+        "C": "A 0 EV call requires equity exactly at the 33.3% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_094",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $100, and you estimate 40% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "+EV — call",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 33.3% break-even.",
+        "B": "Correct. Break-even equity is 33.3% and you have 40%, which is higher, so the call is +EV.",
+        "C": "A 0 EV call requires equity exactly at the 33.3% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_095",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $50, and you estimate 30% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "+EV — call",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 25% break-even.",
+        "B": "A 0 EV call requires equity exactly at the 25% break-even.",
+        "C": "Correct. Break-even equity is 25% and you have 30%, which is higher, so the call is +EV.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_096",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $50, and you estimate 20% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "+EV — call",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here",
+        "-EV — fold"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A +EV call needs equity above the 25% break-even.",
+        "B": "A 0 EV call requires equity exactly at the 25% break-even.",
+        "C": "Pot odds always apply when facing a bet; this is never the reason.",
+        "D": "Correct. Break-even equity is 25% but you only have 20%, which is short, so the call is -EV."
+      }
+    },
+    {
+      "id": "pr_ptpo_097",
+      "concept": "ev_positive",
+      "question": "The pot is $120, your opponent bets $60, and you estimate 30% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "+EV — call",
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Break-even equity is 25% and you have 30%, which is higher, so the call is +EV.",
+        "B": "Folding is only correct when equity is below the 25% break-even.",
+        "C": "A 0 EV call requires equity exactly at the 25% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_098",
+      "concept": "ev_positive",
+      "question": "The pot is $90, your opponent bets $30, and you estimate 30% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "+EV — call",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 20% break-even.",
+        "B": "Correct. Break-even equity is 20% and you have 30%, which is higher, so the call is +EV.",
+        "C": "A 0 EV call requires equity exactly at the 20% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_099",
+      "concept": "ev_positive",
+      "question": "The pot is $120, your opponent bets $80, and you estimate 35% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "+EV — call",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 28.6% break-even.",
+        "B": "A 0 EV call requires equity exactly at the 28.6% break-even.",
+        "C": "Correct. Break-even equity is 28.6% and you have 35%, which is higher, so the call is +EV.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_100",
+      "concept": "ev_positive",
+      "question": "The pot is $200, your opponent bets $50, and you estimate 25% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here",
+        "+EV — call"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 16.7% break-even.",
+        "B": "A 0 EV call requires equity exactly at the 16.7% break-even.",
+        "C": "Pot odds always apply when facing a bet; this is never the reason.",
+        "D": "Correct. Break-even equity is 16.7% and you have 25%, which is higher, so the call is +EV."
+      }
+    },
+    {
+      "id": "pr_ptpo_101",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $75, and you estimate 40% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "+EV — call",
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Break-even equity is 30% and you have 40%, which is higher, so the call is +EV.",
+        "B": "Folding is only correct when equity is below the 30% break-even.",
+        "C": "A 0 EV call requires equity exactly at the 30% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_102",
+      "concept": "ev_positive",
+      "question": "The pot is $60, your opponent bets $40, and you estimate 45% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "+EV — call",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 28.6% break-even.",
+        "B": "Correct. Break-even equity is 28.6% and you have 45%, which is higher, so the call is +EV.",
+        "C": "A 0 EV call requires equity exactly at the 28.6% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_103",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $25, and you estimate 25% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "+EV — call",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 16.7% break-even.",
+        "B": "A 0 EV call requires equity exactly at the 16.7% break-even.",
+        "C": "Correct. Break-even equity is 16.7% and you have 25%, which is higher, so the call is +EV.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_104",
+      "concept": "ev_positive",
+      "question": "The pot is $150, your opponent bets $100, and you estimate 50% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "Pot odds do not apply here",
+        "+EV — call"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 28.6% break-even.",
+        "B": "A 0 EV call requires equity exactly at the 28.6% break-even.",
+        "C": "Pot odds always apply when facing a bet; this is never the reason.",
+        "D": "Correct. Break-even equity is 28.6% and you have 50%, which is higher, so the call is +EV."
+      }
+    },
+    {
+      "id": "pr_ptpo_105",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $100, and you estimate 33.3% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "Break-even (0 EV)",
+        "+EV — call",
+        "-EV — fold",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Break-even equity here is 33.3%, and your 33.3% equity matches it, so the call is roughly 0 EV.",
+        "B": "A +EV call needs equity above the 33.3% break-even.",
+        "C": "Folding is only correct when equity is below the 33.3% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_106",
+      "concept": "ev_positive",
+      "question": "The pot is $120, your opponent bets $60, and you estimate 25% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "+EV — call",
+        "Break-even (0 EV)",
+        "-EV — fold",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "A +EV call needs equity above the 25% break-even.",
+        "B": "Correct. Break-even equity here is 25%, and your 25% equity matches it, so the call is roughly 0 EV.",
+        "C": "Folding is only correct when equity is below the 25% break-even.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_107",
+      "concept": "ev_positive",
+      "question": "The pot is $80, your opponent bets $40, and you estimate 40% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "-EV — fold",
+        "Break-even (0 EV)",
+        "+EV — call",
+        "Pot odds do not apply here"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Folding is only correct when equity is below the 25% break-even.",
+        "B": "A 0 EV call requires equity exactly at the 25% break-even.",
+        "C": "Correct. Break-even equity is 25% and you have 40%, which is higher, so the call is +EV.",
+        "D": "Pot odds always apply when facing a bet; this is never the reason."
+      }
+    },
+    {
+      "id": "pr_ptpo_108",
+      "concept": "ev_positive",
+      "question": "The pot is $100, your opponent bets $200, and you estimate 40% equity. Is calling +EV, -EV, or break-even?",
+      "options": [
+        "+EV — call",
+        "-EV — fold",
+        "Pot odds do not apply here",
+        "Break-even (0 EV)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A +EV call needs equity above the 40% break-even.",
+        "B": "Folding is only correct when equity is below the 40% break-even.",
+        "C": "Pot odds always apply when facing a bet; this is never the reason.",
+        "D": "Correct. Break-even equity here is 40%, and your 40% equity matches it, so the call is roughly 0 EV."
+      }
+    },
+    {
+      "id": "pr_ptpo_109",
+      "concept": "ev",
+      "question": "The pot is $100 and your opponent bets $50. With 40% equity, what is the EV of calling $50?",
+      "options": [
+        "$30",
+        "$60",
+        "$10",
+        "$70"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (equity × pot won) - (lose chance × call) = 40% × $150 - 60% × $50 = $30.",
+        "B": "$60 counts the winnings but forgets to subtract the times you call and lose.",
+        "C": "$10 forgets that the $50 bet is added to what you win when you call and win.",
+        "D": "$70 swaps your win and lose probabilities."
+      }
+    },
+    {
+      "id": "pr_ptpo_110",
+      "concept": "ev",
+      "question": "The pot is $120 and your opponent bets $60. With 50% equity, what is the EV of calling $60?",
+      "options": [
+        "$90",
+        "$60",
+        "$30",
+        "-$60"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$90 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "Correct. EV = (equity × pot won) - (lose chance × call) = 50% × $180 - 50% × $60 = $60.",
+        "C": "$30 forgets that the $60 bet is added to what you win when you call and win.",
+        "D": "-$60 has the sign reversed."
+      }
+    },
+    {
+      "id": "pr_ptpo_111",
+      "concept": "ev",
+      "question": "The pot is $100 and your opponent bets $100. With 30% equity, what is the EV of calling $100?",
+      "options": [
+        "$60",
+        "-$40",
+        "-$10",
+        "$110"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$60 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "-$40 forgets that the $100 bet is added to what you win when you call and win.",
+        "C": "Correct. EV = (equity × pot won) - (lose chance × call) = 30% × $200 - 70% × $100 = -$10.",
+        "D": "$110 swaps your win and lose probabilities."
+      }
+    },
+    {
+      "id": "pr_ptpo_112",
+      "concept": "ev",
+      "question": "The pot is $80 and your opponent bets $40. With 50% equity, what is the EV of calling $40?",
+      "options": [
+        "$60",
+        "$20",
+        "-$40",
+        "$40"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$60 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "$20 forgets that the $40 bet is added to what you win when you call and win.",
+        "C": "-$40 has the sign reversed.",
+        "D": "Correct. EV = (equity × pot won) - (lose chance × call) = 50% × $120 - 50% × $40 = $40."
+      }
+    },
+    {
+      "id": "pr_ptpo_113",
+      "concept": "ev",
+      "question": "The pot is $100 and your opponent bets $50. With 60% equity, what is the EV of calling $50?",
+      "options": [
+        "$70",
+        "$90",
+        "$40",
+        "$30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (equity × pot won) - (lose chance × call) = 60% × $150 - 40% × $50 = $70.",
+        "B": "$90 counts the winnings but forgets to subtract the times you call and lose.",
+        "C": "$40 forgets that the $50 bet is added to what you win when you call and win.",
+        "D": "$30 swaps your win and lose probabilities."
+      }
+    },
+    {
+      "id": "pr_ptpo_114",
+      "concept": "ev",
+      "question": "The pot is $120 and your opponent bets $60. With 25% equity, what is the EV of calling $60?",
+      "options": [
+        "$45",
+        "$0",
+        "-$15",
+        "$120"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$45 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "Correct. EV = (equity × pot won) - (lose chance × call) = 25% × $180 - 75% × $60 = $0.",
+        "C": "-$15 forgets that the $60 bet is added to what you win when you call and win.",
+        "D": "$120 swaps your win and lose probabilities."
+      }
+    },
+    {
+      "id": "pr_ptpo_115",
+      "concept": "ev",
+      "question": "The pot is $200 and your opponent bets $100. With 40% equity, what is the EV of calling $100?",
+      "options": [
+        "$120",
+        "$20",
+        "$60",
+        "$140"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$120 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "$20 forgets that the $100 bet is added to what you win when you call and win.",
+        "C": "Correct. EV = (equity × pot won) - (lose chance × call) = 40% × $300 - 60% × $100 = $60.",
+        "D": "$140 swaps your win and lose probabilities."
+      }
+    },
+    {
+      "id": "pr_ptpo_116",
+      "concept": "ev",
+      "question": "The pot is $60 and your opponent bets $30. With 50% equity, what is the EV of calling $30?",
+      "options": [
+        "$45",
+        "$15",
+        "-$30",
+        "$30"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$45 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "$15 forgets that the $30 bet is added to what you win when you call and win.",
+        "C": "-$30 has the sign reversed.",
+        "D": "Correct. EV = (equity × pot won) - (lose chance × call) = 50% × $90 - 50% × $30 = $30."
+      }
+    },
+    {
+      "id": "pr_ptpo_117",
+      "concept": "ev",
+      "question": "The pot is $100 and your opponent bets $50. With 20% equity, what is the EV of calling $50?",
+      "options": [
+        "-$10",
+        "$30",
+        "-$20",
+        "$110"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. EV = (equity × pot won) - (lose chance × call) = 20% × $150 - 80% × $50 = -$10.",
+        "B": "$30 counts the winnings but forgets to subtract the times you call and lose.",
+        "C": "-$20 forgets that the $50 bet is added to what you win when you call and win.",
+        "D": "$110 swaps your win and lose probabilities."
+      }
+    },
+    {
+      "id": "pr_ptpo_118",
+      "concept": "ev",
+      "question": "The pot is $150 and your opponent bets $50. With 40% equity, what is the EV of calling $50?",
+      "options": [
+        "$80",
+        "$50",
+        "$30",
+        "$100"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "$80 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "Correct. EV = (equity × pot won) - (lose chance × call) = 40% × $200 - 60% × $50 = $50.",
+        "C": "$30 forgets that the $50 bet is added to what you win when you call and win.",
+        "D": "$100 swaps your win and lose probabilities."
+      }
+    },
+    {
+      "id": "pr_ptpo_119",
+      "concept": "ev",
+      "question": "The pot is $120 and your opponent bets $40. With 50% equity, what is the EV of calling $40?",
+      "options": [
+        "$80",
+        "$40",
+        "$60",
+        "-$60"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "$80 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "$40 forgets that the $40 bet is added to what you win when you call and win.",
+        "C": "Correct. EV = (equity × pot won) - (lose chance × call) = 50% × $160 - 50% × $40 = $60.",
+        "D": "-$60 has the sign reversed."
+      }
+    },
+    {
+      "id": "pr_ptpo_120",
+      "concept": "ev",
+      "question": "The pot is $100 and your opponent bets $100. With 60% equity, what is the EV of calling $100?",
+      "options": [
+        "$120",
+        "$20",
+        "-$80",
+        "$80"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "$120 counts the winnings but forgets to subtract the times you call and lose.",
+        "B": "$20 forgets that the $100 bet is added to what you win when you call and win.",
+        "C": "-$80 has the sign reversed.",
+        "D": "Correct. EV = (equity × pot won) - (lose chance × call) = 60% × $200 - 40% × $100 = $80."
+      }
+    },
+    {
+      "id": "pr_ptpo_121",
+      "concept": "mdf",
+      "question": "The pot is $100 and your opponent bets $50. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "66.7%",
+        "33.3%",
+        "50%",
+        "75%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF = pot / (pot + bet) = $100 / $150 = 66.7%.",
+        "B": "33.3% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "C": "50% compares the bet to the pot rather than using pot/(pot+bet).",
+        "D": "That figure mixes up the pot growth and is not the MDF."
+      }
+    },
+    {
+      "id": "pr_ptpo_122",
+      "concept": "mdf",
+      "question": "The pot is $100 and your opponent bets $100. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "100%",
+        "50%",
+        "33.3%",
+        "66.7%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "100% compares the bet to the pot rather than using pot/(pot+bet).",
+        "B": "Correct. MDF = pot / (pot + bet) = $100 / $200 = 50%.",
+        "C": "33.3% uses the wrong denominator for MDF.",
+        "D": "That figure mixes up the pot growth and is not the MDF."
+      }
+    },
+    {
+      "id": "pr_ptpo_123",
+      "concept": "mdf",
+      "question": "The pot is $90 and your opponent bets $30. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "25%",
+        "33.3%",
+        "75%",
+        "50%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "25% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "33.3% compares the bet to the pot rather than using pot/(pot+bet).",
+        "C": "Correct. MDF = pot / (pot + bet) = $90 / $120 = 75%.",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_124",
+      "concept": "mdf",
+      "question": "The pot is $120 and your opponent bets $60. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "33.3%",
+        "50%",
+        "75%",
+        "66.7%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "33.3% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "50% compares the bet to the pot rather than using pot/(pot+bet).",
+        "C": "That figure mixes up the pot growth and is not the MDF.",
+        "D": "Correct. MDF = pot / (pot + bet) = $120 / $180 = 66.7%."
+      }
+    },
+    {
+      "id": "pr_ptpo_125",
+      "concept": "mdf",
+      "question": "The pot is $120 and your opponent bets $80. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "60%",
+        "40%",
+        "66.7%",
+        "50%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF = pot / (pot + bet) = $120 / $200 = 60%.",
+        "B": "40% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "C": "66.7% compares the bet to the pot rather than using pot/(pot+bet).",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_126",
+      "concept": "mdf",
+      "question": "The pot is $100 and your opponent bets $75. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "42.9%",
+        "57.1%",
+        "75%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "42.9% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "Correct. MDF = pot / (pot + bet) = $100 / $175 = 57.1%.",
+        "C": "75% compares the bet to the pot rather than using pot/(pot+bet).",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_127",
+      "concept": "mdf",
+      "question": "The pot is $150 and your opponent bets $50. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "25%",
+        "33.3%",
+        "75%",
+        "50%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "25% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "33.3% compares the bet to the pot rather than using pot/(pot+bet).",
+        "C": "Correct. MDF = pot / (pot + bet) = $150 / $200 = 75%.",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_128",
+      "concept": "mdf",
+      "question": "The pot is $120 and your opponent bets $40. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "25%",
+        "33.3%",
+        "50%",
+        "75%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "25% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "33.3% compares the bet to the pot rather than using pot/(pot+bet).",
+        "C": "50% is the MDF only when the bet equals the pot.",
+        "D": "Correct. MDF = pot / (pot + bet) = $120 / $160 = 75%."
+      }
+    },
+    {
+      "id": "pr_ptpo_129",
+      "concept": "mdf",
+      "question": "The pot is $100 and your opponent bets $200. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "33.3%",
+        "66.7%",
+        "200%",
+        "50%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF = pot / (pot + bet) = $100 / $300 = 33.3%.",
+        "B": "66.7% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "C": "200% compares the bet to the pot rather than using pot/(pot+bet).",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_130",
+      "concept": "mdf",
+      "question": "The pot is $60 and your opponent bets $40. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "40%",
+        "60%",
+        "66.7%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "40% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "Correct. MDF = pot / (pot + bet) = $60 / $100 = 60%.",
+        "C": "66.7% compares the bet to the pot rather than using pot/(pot+bet).",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_131",
+      "concept": "mdf",
+      "question": "The pot is $200 and your opponent bets $100. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "33.3%",
+        "50%",
+        "66.7%",
+        "75%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "33.3% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "50% compares the bet to the pot rather than using pot/(pot+bet).",
+        "C": "Correct. MDF = pot / (pot + bet) = $200 / $300 = 66.7%.",
+        "D": "That figure mixes up the pot growth and is not the MDF."
+      }
+    },
+    {
+      "id": "pr_ptpo_132",
+      "concept": "mdf",
+      "question": "The pot is $80 and your opponent bets $60. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "42.9%",
+        "75%",
+        "50%",
+        "57.1%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "42.9% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "75% compares the bet to the pot rather than using pot/(pot+bet).",
+        "C": "50% is the MDF only when the bet equals the pot.",
+        "D": "Correct. MDF = pot / (pot + bet) = $80 / $140 = 57.1%."
+      }
+    },
+    {
+      "id": "pr_ptpo_133",
+      "concept": "mdf",
+      "question": "The pot is $90 and your opponent bets $60. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "60%",
+        "40%",
+        "66.7%",
+        "50%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. MDF = pot / (pot + bet) = $90 / $150 = 60%.",
+        "B": "40% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "C": "66.7% compares the bet to the pot rather than using pot/(pot+bet).",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_134",
+      "concept": "mdf",
+      "question": "The pot is $100 and your opponent bets $25. What is the minimum defense frequency (MDF) — the share of your range you must continue with to stop pure bluffs from auto-profiting?",
+      "options": [
+        "20%",
+        "80%",
+        "25%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "20% is the bluffer's break-even (alpha = bet/(pot+bet)) — the fraction you may fold, not defend.",
+        "B": "Correct. MDF = pot / (pot + bet) = $100 / $125 = 80%.",
+        "C": "25% compares the bet to the pot rather than using pot/(pot+bet).",
+        "D": "50% is the MDF only when the bet equals the pot."
+      }
+    },
+    {
+      "id": "pr_ptpo_135",
+      "concept": "breakeven",
+      "question": "Your opponent bets a quarter-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "20%",
+        "25%",
+        "16.7%",
+        "50%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "20% leaves your own call out of the final pot in the denominator.",
+        "B": "25% compares the bet to the starting pot only.",
+        "C": "Correct. With a bet of 1/4 of the pot, break-even equity = bet / (pot + 2×bet) = 16.7%.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_136",
+      "concept": "breakeven",
+      "question": "Your opponent bets a third-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "25%",
+        "33.3%",
+        "50%",
+        "20%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "25% leaves your own call out of the final pot in the denominator.",
+        "B": "33.3% compares the bet to the starting pot only.",
+        "C": "50% would require risking the entire final pot to call.",
+        "D": "Correct. With a bet of 1/3 of the pot, break-even equity = bet / (pot + 2×bet) = 20%."
+      }
+    },
+    {
+      "id": "pr_ptpo_137",
+      "concept": "breakeven",
+      "question": "Your opponent bets a half-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "25%",
+        "33.3%",
+        "50%",
+        "75%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With a bet of 1/2 of the pot, break-even equity = bet / (pot + 2×bet) = 25%.",
+        "B": "33.3% leaves your own call out of the final pot in the denominator.",
+        "C": "50% compares the bet to the starting pot only.",
+        "D": "That figure is the pot share you win, not the equity you need."
+      }
+    },
+    {
+      "id": "pr_ptpo_138",
+      "concept": "breakeven",
+      "question": "Your opponent bets a two-thirds-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "40%",
+        "28.6%",
+        "66.7%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "40% leaves your own call out of the final pot in the denominator.",
+        "B": "Correct. With a bet of 2/3 of the pot, break-even equity = bet / (pot + 2×bet) = 28.6%.",
+        "C": "66.7% compares the bet to the starting pot only.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_139",
+      "concept": "breakeven",
+      "question": "Your opponent bets a three-quarter-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "42.9%",
+        "75%",
+        "30%",
+        "50%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "42.9% leaves your own call out of the final pot in the denominator.",
+        "B": "75% compares the bet to the starting pot only.",
+        "C": "Correct. With a bet of 3/4 of the pot, break-even equity = bet / (pot + 2×bet) = 30%.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_140",
+      "concept": "breakeven",
+      "question": "Your opponent bets a full-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "50%",
+        "100%",
+        "66.7%",
+        "33.3%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50% leaves your own call out of the final pot in the denominator.",
+        "B": "100% compares the bet to the starting pot only.",
+        "C": "That figure is the pot share you win, not the equity you need.",
+        "D": "Correct. With a bet of 1/1 of the pot, break-even equity = bet / (pot + 2×bet) = 33.3%."
+      }
+    },
+    {
+      "id": "pr_ptpo_141",
+      "concept": "breakeven",
+      "question": "Your opponent bets a 1.5x pot overbet bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "37.5%",
+        "60%",
+        "150%",
+        "50%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With a bet of 3/2 of the pot, break-even equity = bet / (pot + 2×bet) = 37.5%.",
+        "B": "60% leaves your own call out of the final pot in the denominator.",
+        "C": "150% compares the bet to the starting pot only.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_142",
+      "concept": "breakeven",
+      "question": "Your opponent bets a double-pot overbet bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "66.7%",
+        "40%",
+        "200%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "66.7% leaves your own call out of the final pot in the denominator.",
+        "B": "Correct. With a bet of 2/1 of the pot, break-even equity = bet / (pot + 2×bet) = 40%.",
+        "C": "200% compares the bet to the starting pot only.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_143",
+      "concept": "breakeven",
+      "question": "Your opponent bets a 1.25x pot overbet bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "55.6%",
+        "125%",
+        "35.7%",
+        "50%"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "55.6% leaves your own call out of the final pot in the denominator.",
+        "B": "125% compares the bet to the starting pot only.",
+        "C": "Correct. With a bet of 5/4 of the pot, break-even equity = bet / (pot + 2×bet) = 35.7%.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_144",
+      "concept": "breakeven",
+      "question": "Your opponent bets a 60%-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "37.5%",
+        "60%",
+        "50%",
+        "27.3%"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "37.5% leaves your own call out of the final pot in the denominator.",
+        "B": "60% compares the bet to the starting pot only.",
+        "C": "50% would require risking the entire final pot to call.",
+        "D": "Correct. With a bet of 3/5 of the pot, break-even equity = bet / (pot + 2×bet) = 27.3%."
+      }
+    },
+    {
+      "id": "pr_ptpo_145",
+      "concept": "breakeven",
+      "question": "Your opponent bets a 40%-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "22.2%",
+        "28.6%",
+        "40%",
+        "50%"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With a bet of 2/5 of the pot, break-even equity = bet / (pot + 2×bet) = 22.2%.",
+        "B": "28.6% leaves your own call out of the final pot in the denominator.",
+        "C": "40% compares the bet to the starting pot only.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_146",
+      "concept": "breakeven",
+      "question": "Your opponent bets a 80%-pot bet on the river. What equity do you need to call profitably?",
+      "options": [
+        "44.4%",
+        "30.8%",
+        "80%",
+        "50%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "44.4% leaves your own call out of the final pot in the denominator.",
+        "B": "Correct. With a bet of 4/5 of the pot, break-even equity = bet / (pot + 2×bet) = 30.8%.",
+        "C": "80% compares the bet to the starting pot only.",
+        "D": "50% would require risking the entire final pot to call."
+      }
+    },
+    {
+      "id": "pr_ptpo_147",
+      "concept": "river_call",
+      "question": "River: pot is $200 and villain shoves $100. Their range is 70% value (beats you) and 30% bluffs (you beat). Should you call?",
+      "options": [
+        "Fold — it's -EV",
+        "Indifferent (≈0 EV)",
+        "Call — it's +EV",
+        "Always call regardless of range"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Folding is right only when the bluff share is below the 25% break-even.",
+        "B": "Indifference requires the bluff share to equal the 25% break-even.",
+        "C": "Correct. You beat the 30% bluffs, which exceeds the 25% break-even equity, so the call is +EV.",
+        "D": "Range composition matters; you cannot ignore how often villain has value."
+      }
+    },
+    {
+      "id": "pr_ptpo_148",
+      "concept": "river_call",
+      "question": "River: pot is $200 and villain shoves $100. Their range is 80% value (beats you) and 20% bluffs (you beat). Should you call?",
+      "options": [
+        "Call — it's +EV",
+        "Indifferent (≈0 EV)",
+        "Always call regardless of range",
+        "Fold — it's -EV"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Calling profits only when the bluff share beats the 25% break-even.",
+        "B": "Indifference requires the bluff share to equal the 25% break-even.",
+        "C": "Range composition matters; you cannot ignore how often villain has value.",
+        "D": "Correct. You beat only the 20% bluffs, below the 25% break-even equity, so the call is -EV."
+      }
+    },
+    {
+      "id": "pr_ptpo_149",
+      "concept": "river_call",
+      "question": "River: pot is $100 and villain shoves $50. Their range is 70% value (beats you) and 30% bluffs (you beat). Should you call?",
+      "options": [
+        "Call — it's +EV",
+        "Fold — it's -EV",
+        "Indifferent (≈0 EV)",
+        "Always call regardless of range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You beat the 30% bluffs, which exceeds the 25% break-even equity, so the call is +EV.",
+        "B": "Folding is right only when the bluff share is below the 25% break-even.",
+        "C": "Indifference requires the bluff share to equal the 25% break-even.",
+        "D": "Range composition matters; you cannot ignore how often villain has value."
+      }
+    },
+    {
+      "id": "pr_ptpo_150",
+      "concept": "river_call",
+      "question": "River: pot is $100 and villain shoves $100. Their range is 60% value (beats you) and 40% bluffs (you beat). Should you call?",
+      "options": [
+        "Fold — it's -EV",
+        "Call — it's +EV",
+        "Indifferent (≈0 EV)",
+        "Always call regardless of range"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding is right only when the bluff share is below the 33.3% break-even.",
+        "B": "Correct. You beat the 40% bluffs, which exceeds the 33.3% break-even equity, so the call is +EV.",
+        "C": "Indifference requires the bluff share to equal the 33.3% break-even.",
+        "D": "Range composition matters; you cannot ignore how often villain has value."
+      }
+    },
+    {
+      "id": "pr_ptpo_151",
+      "concept": "river_call",
+      "question": "River: pot is $120 and villain shoves $60. Their range is 75% value (beats you) and 25% bluffs (you beat). Should you call?",
+      "options": [
+        "Call — it's +EV",
+        "Fold — it's -EV",
+        "Indifferent (≈0 EV)",
+        "Always call regardless of range"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Calling profits only when the bluff share beats the 25% break-even.",
+        "B": "Folding is right only when the bluff share is below the 25% break-even.",
+        "C": "Correct. You beat only the 25% bluffs, and break-even equity is 25%; they match, so calling is ≈0 EV.",
+        "D": "Range composition matters; you cannot ignore how often villain has value."
+      }
+    },
+    {
+      "id": "pr_ptpo_152",
+      "concept": "river_call",
+      "question": "River: pot is $150 and villain shoves $100. Their range is 55% value (beats you) and 45% bluffs (you beat). Should you call?",
+      "options": [
+        "Fold — it's -EV",
+        "Indifferent (≈0 EV)",
+        "Always call regardless of range",
+        "Call — it's +EV"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Folding is right only when the bluff share is below the 28.6% break-even.",
+        "B": "Indifference requires the bluff share to equal the 28.6% break-even.",
+        "C": "Range composition matters; you cannot ignore how often villain has value.",
+        "D": "Correct. You beat the 45% bluffs, which exceeds the 28.6% break-even equity, so the call is +EV."
+      }
+    },
+    {
+      "id": "pr_ptpo_153",
+      "concept": "river_call",
+      "question": "River: pot is $100 and villain shoves $50. Their range is 85% value (beats you) and 15% bluffs (you beat). Should you call?",
+      "options": [
+        "Fold — it's -EV",
+        "Call — it's +EV",
+        "Indifferent (≈0 EV)",
+        "Always call regardless of range"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You beat only the 15% bluffs, below the 25% break-even equity, so the call is -EV.",
+        "B": "Calling profits only when the bluff share beats the 25% break-even.",
+        "C": "Indifference requires the bluff share to equal the 25% break-even.",
+        "D": "Range composition matters; you cannot ignore how often villain has value."
+      }
+    },
+    {
+      "id": "pr_ptpo_154",
+      "concept": "river_call",
+      "question": "River: pot is $240 and villain shoves $120. Their range is 65% value (beats you) and 35% bluffs (you beat). Should you call?",
+      "options": [
+        "Fold — it's -EV",
+        "Call — it's +EV",
+        "Indifferent (≈0 EV)",
+        "Always call regardless of range"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Folding is right only when the bluff share is below the 25% break-even.",
+        "B": "Correct. You beat the 35% bluffs, which exceeds the 25% break-even equity, so the call is +EV.",
+        "C": "Indifference requires the bluff share to equal the 25% break-even.",
+        "D": "Range composition matters; you cannot ignore how often villain has value."
+      }
+    },
+    {
+      "id": "pr_ptpo_155",
+      "concept": "river_call",
+      "question": "River: pot is $100 and villain shoves $100. Their range is 70% value (beats you) and 30% bluffs (you beat). Should you call?",
+      "options": [
+        "Call — it's +EV",
+        "Indifferent (≈0 EV)",
+        "Fold — it's -EV",
+        "Always call regardless of range"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Calling profits only when the bluff share beats the 33.3% break-even.",
+        "B": "Indifference requires the bluff share to equal the 33.3% break-even.",
+        "C": "Correct. You beat only the 30% bluffs, below the 33.3% break-even equity, so the call is -EV.",
+        "D": "Range composition matters; you cannot ignore how often villain has value."
+      }
+    },
+    {
+      "id": "pr_ptpo_156",
+      "concept": "river_call",
+      "question": "River: pot is $180 and villain shoves $60. Their range is 80% value (beats you) and 20% bluffs (you beat). Should you call?",
+      "options": [
+        "Call — it's +EV",
+        "Fold — it's -EV",
+        "Always call regardless of range",
+        "Indifferent (≈0 EV)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "Calling profits only when the bluff share beats the 20% break-even.",
+        "B": "Folding is right only when the bluff share is below the 20% break-even.",
+        "C": "Range composition matters; you cannot ignore how often villain has value.",
+        "D": "Correct. You beat only the 20% bluffs, and break-even equity is 20%; they match, so calling is ≈0 EV."
+      }
+    },
+    {
+      "id": "pr_ptpo_157",
+      "concept": "implied_odds",
+      "question": "Implied odds refer to:",
+      "options": [
+        "The extra chips you expect to win on later streets if you complete your draw",
+        "Only the chips currently in the pot",
+        "The rake the house takes from the pot",
+        "The chips you lose when you fold"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Implied odds account for future bets you can win beyond the current pot when you hit.",
+        "B": "That describes direct pot odds, which ignore future betting.",
+        "C": "Rake is a fee, unrelated to implied odds.",
+        "D": "Folding wins or loses nothing future; this is not implied odds."
+      }
+    },
+    {
+      "id": "pr_ptpo_158",
+      "concept": "implied_odds",
+      "question": "Implied odds are largest when:",
+      "options": [
+        "Stacks are very shallow",
+        "Stacks are deep and an opponent is likely to pay you off when you hit",
+        "Your draw is already the nuts",
+        "Your opponent always folds when you hit"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Shallow stacks limit how much you can win later, shrinking implied odds.",
+        "B": "Correct. Deep stacks and a paying opponent maximize the future chips you can win.",
+        "C": "A made nut hand needs no draw and gains nothing from implied odds.",
+        "D": "If they fold when you hit, you collect no future chips."
+      }
+    },
+    {
+      "id": "pr_ptpo_159",
+      "concept": "implied_odds",
+      "question": "A flush draw that is slightly short on direct pot odds can still be a profitable call when:",
+      "options": [
+        "You ignore the math entirely",
+        "The board is guaranteed to pair",
+        "Implied odds from future streets cover the shortfall",
+        "You have zero equity"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Profitability still depends on the math, just including future bets.",
+        "B": "A paired board can hurt a flush via full houses, not help.",
+        "C": "Correct. Expected future winnings can bridge a small direct-odds deficit.",
+        "D": "With no equity the call cannot be profitable."
+      }
+    },
+    {
+      "id": "pr_ptpo_160",
+      "concept": "implied_odds",
+      "question": "Implied odds tend to be poor against:",
+      "options": [
+        "A loose opponent who pays off everything",
+        "Very deep stacks",
+        "A pot with many future streets left",
+        "An observant opponent who shuts down when obvious draws complete"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A calling station boosts implied odds, not hurts them.",
+        "B": "Deep stacks generally improve implied odds.",
+        "C": "More future streets usually add to implied odds.",
+        "D": "Correct. If they stop paying when your draw hits, you win little extra, killing implied odds."
+      }
+    },
+    {
+      "id": "pr_ptpo_161",
+      "concept": "implied_odds",
+      "question": "Compared with direct pot odds, implied odds:",
+      "options": [
+        "Can justify some calls that direct pot odds alone would not",
+        "Are always equal to direct pot odds",
+        "Make every draw an automatic call",
+        "Only matter on the river"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Future winnings add reward beyond the current pot, loosening the calling threshold.",
+        "B": "They differ precisely because they include future bets.",
+        "C": "They adjust the threshold but do not justify every draw.",
+        "D": "On the river there are no future streets, so implied odds are minimal."
+      }
+    },
+    {
+      "id": "pr_ptpo_162",
+      "concept": "implied_odds",
+      "question": "Effective stack size matters for implied odds because:",
+      "options": [
+        "It changes the rules of the game",
+        "It caps how many chips you can possibly win after hitting",
+        "It determines the rank of your hand",
+        "Deeper stacks always reduce implied odds"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Stack size does not change the rules, only the payoffs.",
+        "B": "Correct. You can only win up to the smaller stack, which bounds your implied odds.",
+        "C": "Hand rankings are fixed regardless of stack size.",
+        "D": "Deeper stacks generally increase, not reduce, implied odds."
+      }
+    },
+    {
+      "id": "pr_ptpo_163",
+      "concept": "reverse_implied",
+      "question": "Reverse implied odds describe the risk that:",
+      "options": [
+        "You never improve your hand",
+        "The pot is too small to matter",
+        "Even when you complete your hand, you may lose a large pot to a stronger hand",
+        "You always win when you hit"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "That is just missing the draw, not reverse implied odds.",
+        "B": "A small pot limits losses; reverse implied odds are about large future losses.",
+        "C": "Correct. Reverse implied odds are the extra chips you can lose when hitting a second-best hand.",
+        "D": "That is the opposite of reverse implied odds."
+      }
+    },
+    {
+      "id": "pr_ptpo_164",
+      "concept": "reverse_implied",
+      "question": "Which draw suffers most from reverse implied odds?",
+      "options": [
+        "The nut flush draw",
+        "A set on a dry board",
+        "Top set",
+        "A low (non-nut) flush draw against an opponent who may hold the nut flush draw"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "The nut flush is the best possible flush and has minimal reverse implied odds.",
+        "B": "A set on a dry board is usually the best hand with little reverse risk.",
+        "C": "Top set is near the top of the range and rarely dominated.",
+        "D": "Correct. Completing a non-nut flush can still lose a big pot to a higher flush."
+      }
+    },
+    {
+      "id": "pr_ptpo_165",
+      "concept": "reverse_implied",
+      "question": "On a paired board, a flush is more dangerous because:",
+      "options": [
+        "An opponent may have a full house or quads that beats the flush",
+        "Flushes cannot be made on paired boards",
+        "The flush automatically becomes the nuts",
+        "Pot odds no longer exist"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Paired boards enable full houses, creating reverse implied odds for flushes.",
+        "B": "Flushes can still be made; pairing the board does not prevent that.",
+        "C": "On a paired board the flush is often not the nuts.",
+        "D": "Pot odds always exist; the issue is hidden downside risk."
+      }
+    },
+    {
+      "id": "pr_ptpo_166",
+      "concept": "reverse_implied",
+      "question": "Dominated drawing hands (like a weak ace for a non-nut straight or flush) are dangerous because:",
+      "options": [
+        "They always make the nuts",
+        "When you hit, a stronger version of the same hand may stack you",
+        "They have more outs than nut draws",
+        "They cannot lose any chips"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Dominated hands by definition can be beaten by a better version.",
+        "B": "Correct. Dominated draws realize value poorly and can lose maximally when they connect.",
+        "C": "Out counts are similar; the difference is the quality when you hit.",
+        "D": "They can lose large pots precisely because they look strong."
+      }
+    },
+    {
+      "id": "pr_ptpo_167",
+      "concept": "reverse_implied",
+      "question": "Reverse implied odds should make you:",
+      "options": [
+        "Call wider with every draw",
+        "Ignore your opponent's range",
+        "Discount the value of marginal draws that can be second-best when they hit",
+        "Treat all draws as equal"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Reverse implied odds argue for tighter, not wider, calling.",
+        "B": "Their range determines how often you are dominated.",
+        "C": "Correct. Anticipated future losses reduce the effective price you can pay for such draws.",
+        "D": "Nut and non-nut draws differ sharply once reverse implied odds are considered."
+      }
+    },
+    {
+      "id": "pr_ptpo_168",
+      "concept": "implied_odds",
+      "question": "About how often does a pocket pair flop a set (three of a kind)?",
+      "options": [
+        "~50%",
+        "~2%",
+        "~35%",
+        "~12% (about 1 in 8.5)"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "50% is far too high; sets are relatively rare on the flop.",
+        "B": "2% is too low — that is closer to flopping quads.",
+        "C": "35% is closer to a flush draw's equity by the river, not a flopped set.",
+        "D": "Correct. A pocket pair flops a set roughly 11.8% of the time, near 1 in 8.5."
+      }
+    },
+    {
+      "id": "pr_ptpo_169",
+      "concept": "implied_odds",
+      "question": "Set mining with a small pocket pair relies mainly on:",
+      "options": [
+        "Implied odds — flopping a set rarely but winning a big pot when you do",
+        "Direct pot odds alone preflop",
+        "Having over 50% equity preflop",
+        "Shallow 10bb stacks"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The direct price is poor; profit comes from stacking opponents when you hit a set.",
+        "B": "Direct preflop pot odds rarely justify set mining by themselves.",
+        "C": "A small pair is usually well under 50% versus a raising range.",
+        "D": "Shallow stacks kill the implied odds set mining depends on."
+      }
+    },
+    {
+      "id": "pr_ptpo_170",
+      "concept": "implied_odds",
+      "question": "A common rule of thumb for set mining is that you should be able to win at least:",
+      "options": [
+        "Exactly your call back, no more",
+        "Roughly 10-15x your preflop call when you flop a set",
+        "Twice your call",
+        "Nothing extra — it is profitable regardless"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "Winning only your call back does not cover the times you miss.",
+        "B": "Correct. Because you flop a set ~1 in 8.5, you need a large payoff to profit, often cited as 10-15x the call.",
+        "C": "2x is far short of compensating for missing ~7 of 8 flops.",
+        "D": "Without a sizable payoff, set mining loses money long term."
+      }
+    },
+    {
+      "id": "pr_ptpo_171",
+      "concept": "implied_odds",
+      "question": "Set mining is least attractive when:",
+      "options": [
+        "Stacks are very deep",
+        "Opponents are loose and pay off big",
+        "Stacks are shallow so you cannot win much when you flop a set",
+        "You are getting a cheap price to call"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "Deep stacks improve set-mining implied odds.",
+        "B": "Loose, paying opponents make set mining more profitable.",
+        "C": "Correct. Shallow effective stacks remove the implied odds that make set mining profitable.",
+        "D": "A cheap price helps set mining, not hurts it."
+      }
+    },
+    {
+      "id": "pr_ptpo_172",
+      "concept": "implied_odds",
+      "question": "After flopping a set, your hand is strong partly because:",
+      "options": [
+        "It is the worst possible hand",
+        "Opponents can always see you have it",
+        "It guarantees winning every pot",
+        "It is well disguised and can stack overpairs and top pairs"
+      ],
+      "correctAnswer": 3,
+      "explanations": {
+        "A": "A flopped set is among the strongest flop holdings.",
+        "B": "Sets are hard to read, which is exactly why they pay off.",
+        "C": "Sets can lose to higher sets, straights, or flushes; nothing is guaranteed.",
+        "D": "Correct. Sets are hidden and extract maximum value, the payoff that set mining counts on."
+      }
+    },
+    {
+      "id": "pr_ptpo_173",
+      "concept": "combo_draw",
+      "question": "You have both a flush draw (9 outs) and an open-ended straight draw (8 outs) on the flop, sharing 2 outs. How many clean outs do you have?",
+      "options": [
+        "15 outs",
+        "17 outs",
+        "13 outs",
+        "9 outs"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 9 + 8 = 17, minus the 2 shared straight-flush cards = 15 clean outs.",
+        "B": "17 double-counts the 2 cards that complete both the straight and the flush.",
+        "C": "13 removes too many overlapping outs.",
+        "D": "9 counts only the flush outs and ignores the straight outs."
+      }
+    },
+    {
+      "id": "pr_ptpo_174",
+      "concept": "combo_draw",
+      "question": "A 15-out combo draw on the flop has roughly what equity by the river (rule of 4)?",
+      "options": [
+        "~30%",
+        "~60%",
+        "~15%",
+        "~75%"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "~30% is the one-card (rule of 2) estimate, not two cards to come.",
+        "B": "Correct. 15 outs × 4 ≈ 60%, so the combo draw is often a slight favorite.",
+        "C": "~15% uses the raw out count, far too low.",
+        "D": "~75% overshoots; the rule of 4 caps near 60% for 15 outs."
+      }
+    },
+    {
+      "id": "pr_ptpo_175",
+      "concept": "combo_draw",
+      "question": "Why is a strong combo draw often played aggressively?",
+      "options": [
+        "It has fewer outs than a single draw",
+        "It can never improve",
+        "It has high equity and can win by hitting or by making opponents fold",
+        "It is already the nuts"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "A combo draw has more outs, not fewer.",
+        "B": "Combo draws improve frequently due to many outs.",
+        "C": "Correct. Big draws have both fold equity and high hit equity, making semi-bluffs profitable.",
+        "D": "A draw is not yet a made hand."
+      }
+    }
+  ]
+}

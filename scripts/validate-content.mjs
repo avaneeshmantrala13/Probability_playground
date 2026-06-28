@@ -107,10 +107,57 @@ for (const track of TRACKS) {
   }
 }
 
+// ---------------------------- practice banks ----------------------------
+// Ungated "endless practice" pools. These enforce STRICTER quality than lessons:
+// every A–D explanation must be a non-empty string.
+const practiceDir = join(root, "practice", "banks");
+let totalPractice = 0;
+const VALID_TRACKS = new Set(["quant", "poker-theory", "market-making"]);
+
+function checkPracticeQuestion(where, q, ids) {
+  if (typeof q.id !== "string" || !q.id) errors.push(`${where}: missing id`);
+  else if (ids.has(q.id)) errors.push(`${where}: duplicate id ${q.id}`);
+  else ids.add(q.id);
+  if (typeof q.question !== "string" || !q.question.trim())
+    errors.push(`${where}: missing question text`);
+  if (!Array.isArray(q.options) || q.options.length !== 4)
+    errors.push(`${where}: must have 4 options`);
+  if (typeof q.correctAnswer !== "number" || q.correctAnswer < 0 || q.correctAnswer > 3)
+    errors.push(`${where}: correctAnswer out of range`);
+  if (!q.explanations) errors.push(`${where}: missing explanations`);
+  else
+    for (const key of ["A", "B", "C", "D"]) {
+      if (typeof q.explanations[key] !== "string" || !q.explanations[key].trim())
+        errors.push(`${where}: explanation ${key} must be a non-empty string`);
+    }
+  totalPractice += 1;
+}
+
+if (existsSync(practiceDir)) {
+  const files = readdirSync(practiceDir).filter((f) => f.endsWith(".json")).sort();
+  for (const file of files) {
+    const bank = JSON.parse(readFileSync(join(practiceDir, file), "utf8"));
+    const tag = `practice/${bank.lessonId ?? file}`;
+    if (!VALID_TRACKS.has(bank.track))
+      errors.push(`${tag}: invalid track "${bank.track}"`);
+    if (typeof bank.title !== "string" || !bank.title)
+      errors.push(`${tag}: missing title`);
+    if (!Array.isArray(bank.questions) || bank.questions.length === 0)
+      errors.push(`${tag}: expected a non-empty questions array`);
+    else {
+      const ids = new Set();
+      for (const q of bank.questions) checkPracticeQuestion(`${tag}/${q.id ?? "?"}`, q, ids);
+    }
+  }
+}
+
 if (errors.length) {
   console.error(`Content validation FAILED with ${errors.length} issue(s):`);
   for (const e of errors) console.error("  - " + e);
   process.exit(1);
 }
 
-console.log(`Content OK: all tracks validated, ${totalAuthored} authored questions (incl. remediation).`);
+const grandTotal = totalAuthored + totalPractice;
+console.log(
+  `Content OK: all tracks validated. ${totalAuthored} lesson questions (incl. remediation) + ${totalPractice} practice questions = ${grandTotal} total authored.`,
+);
