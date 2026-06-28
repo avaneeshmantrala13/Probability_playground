@@ -139,6 +139,61 @@ Rules:
 - No markdown inside any string.`;
 }
 
+/**
+ * Heuristic: does this interviewer turn make a DEFINITIVE mathematical claim
+ * (a specific value or a correctness verdict) worth double-checking? Kept
+ * conservative so we only spend the extra call when there's real risk of the
+ * model bluffing a wrong number.
+ */
+function looksAssertive(text: string): boolean {
+  return /(the\s+(correct\s+)?answer\s+is|that'?s\s+(correct|right|wrong)|probability\s+is|expected\s+value\s+is|\bEV\b\s+(is|=)|equals|=\s*-?\d|\b\d+\s*\/\s*\d+\b|\b\d+(\.\d+)?\s*%)/i.test(
+    text,
+  );
+}
+
+/**
+ * Second-pass self-check. Re-reads the interviewer's drafted turn with a
+ * meticulous checker and fixes any incorrect definitive math while preserving
+ * tone. Fails OPEN (returns the original) on any error so the interview never
+ * breaks because of the checker.
+ */
+async function selfCheckTurn(
+  apiKey: string,
+  model: string,
+  draft: string,
+): Promise<string> {
+  try {
+    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model,
+        max_tokens: 800,
+        temperature: 0,
+        response_format: { type: "json_object" },
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are a meticulous quant fact-checker. You are given one interviewer message from a mock interview. If it makes a DEFINITIVE mathematical claim (a specific numeric answer, probability, EV, or a 'that's correct/wrong' verdict) that is actually INCORRECT, rewrite the message to fix ONLY the math, preserving the interviewer's tone, brevity, and the fact that it should not over-explain. If the math is correct, or the message makes no definitive claim, return it unchanged. Never introduce new questions. Output ONLY JSON: {\"revised\": \"<the message>\"}.",
+          },
+          { role: "user", content: draft },
+        ],
+      }),
+    });
+    if (!res.ok) return draft;
+    const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };
+    const raw = data.choices?.[0]?.message?.content?.trim();
+    if (!raw) return draft;
+    const parsed = JSON.parse(raw) as { revised?: unknown };
+    return typeof parsed.revised === "string" && parsed.revised.trim()
+      ? parsed.revised.trim()
+      : draft;
+  } catch {
+    return draft;
+  }
+}
+
 function cleanHistory(messages: IncomingMessage[]): { role: Role; content: string }[] {
   return messages
     .filter(
@@ -288,7 +343,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const reply = data.choices?.[0]?.message?.content?.trim();
     if (!reply) return res.status(502).json({ error: "Empty interviewer response" });
 
-    return res.status(200).json({ reply, phase });
+    // Second-pass self-check: only when the turn asserts definitive math, and
+    // only mid-interview (the intro turn has no answer to verify).
+    const finalReply =
+      messages.length > 0 && looksAssertive(reply)
+        ? await selfCheckTurn(apiKey, model, reply)
+        : reply;
+
+    return res.status(200).json({ reply: finalReply, phase });
   } catch (err) {
     console.error("mock-interview error:", err);
     return res.status(500).json({
