@@ -104,10 +104,40 @@ service cloud.firestore {
         );
     }
 
+    // Plan/entitlement fields are written ONLY by the Stripe webhook (Admin SDK,
+    // which bypasses these rules). Clients may never grant themselves access.
+    // A field is "unchanged" when it's absent on both sides, or present on both
+    // with equal values (merge writes preserve untouched fields, so normal
+    // progress updates pass this unchanged).
+    function fieldUnchanged(field) {
+      return (
+        !(field in request.resource.data) && !(field in resource.data)
+      ) || (
+        (field in request.resource.data)
+        && (field in resource.data)
+        && request.resource.data[field] == resource.data[field]
+      );
+    }
+
+    function planFieldsLockedOnUpdate() {
+      return fieldUnchanged('plan') && fieldUnchanged('planExpiresAt');
+    }
+
+    // On create a fresh account must be free with no paid expiry.
+    function planFieldsFreshOk() {
+      return (
+        !('plan' in request.resource.data) || request.resource.data.plan == 'free'
+      ) && (
+        !('planExpiresAt' in request.resource.data)
+        || request.resource.data.planExpiresAt == null
+      );
+    }
+
     function courseProgressWriteOk() {
       return numMonotonic('problemsCorrect', 25)
         && numMonotonic('lifetimeTokens', 5000)
         && streakUpdateOk()
+        && planFieldsLockedOnUpdate()
         && mentalMathFieldOk('easy', 120)
         && mentalMathFieldOk('medium', 90)
         && mentalMathFieldOk('hard', 70);
@@ -140,6 +170,7 @@ service cloud.firestore {
         && numMaxOnCreate('tokens', 1000)
         && numMaxOnCreate('peakTokens', 1000)
         && numMaxOnCreate('streak', 1)
+        && planFieldsFreshOk()
         && mentalMathCreateOk('easy', 120)
         && mentalMathCreateOk('medium', 90)
         && mentalMathCreateOk('hard', 70);

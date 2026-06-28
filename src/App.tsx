@@ -31,6 +31,11 @@ import { PokerTheory } from "./pages/PokerTheory";
 import { PokerTheoryPlayer } from "./pages/PokerTheoryPlayer";
 import { MentalMathHub } from "./pages/MentalMath/Hub";
 import { MentalMathDrill } from "./pages/MentalMath/Drill";
+import { Pricing } from "./pages/Pricing";
+import { Readiness } from "./pages/Readiness/Dashboard";
+import { MockInterview } from "./pages/MockInterview/Hub";
+import { MockInterviewSession } from "./pages/MockInterview/Session";
+import { RequirePlan } from "./lib/billing";
 // Practice banks are large (5k+ questions); lazy-load so they don't bloat the
 // initial bundle for users who never open the Practice tab.
 const Practice = lazy(() =>
@@ -100,6 +105,37 @@ export function App() {
               <Suspense fallback={<LoadingScreen />}>
                 <PracticeSession />
               </Suspense>
+            </Protected>
+          }
+        />
+        <Route path="/pricing" element={<Protected><Pricing /></Protected>} />
+        <Route
+          path="/readiness"
+          element={
+            <Protected>
+              <RequirePlan feature="readiness_dashboard">
+                <Readiness />
+              </RequirePlan>
+            </Protected>
+          }
+        />
+        <Route
+          path="/mock-interview"
+          element={
+            <Protected>
+              <RequirePlan feature="mock_interview">
+                <MockInterview />
+              </RequirePlan>
+            </Protected>
+          }
+        />
+        <Route
+          path="/mock-interview/:firmId"
+          element={
+            <Protected>
+              <RequirePlan feature="mock_interview">
+                <MockInterviewSession />
+              </RequirePlan>
             </Protected>
           }
         />
