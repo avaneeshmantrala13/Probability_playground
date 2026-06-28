@@ -1,6 +1,11 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { verifyBearerToken } from "./_lib/firebase-auth";
 import { checkRateLimit } from "./_lib/rate-limit";
+import { consumeDailyQuota } from "./_lib/usage";
+
+// Core gameplay flavor — keep the free cap generous so the table never goes
+// quiet. On block we degrade to the client fallback line (no hard 429).
+const FREE_POKER_LINES_PER_DAY = 200;
 
 const POKER_BOT_SYSTEM = `You write ONE short in-character poker table line (max 18 words).
 
@@ -36,6 +41,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const apiKey = process.env.OPENAI_API_KEY?.trim();
   if (!apiKey) {
+    return res.status(200).json({ line: fallback || null });
+  }
+
+  const quota = await consumeDailyQuota(session.uid, "poker_line", {
+    freeLimit: FREE_POKER_LINES_PER_DAY,
+  });
+  if (!quota.ok) {
     return res.status(200).json({ line: fallback || null });
   }
 

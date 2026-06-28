@@ -2,7 +2,11 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { verifyBearerToken } from "./_lib/firebase-auth";
 import { chatCompletion } from "./_lib/openai";
 import { checkRateLimit } from "./_lib/rate-limit";
+import { consumeDailyQuota } from "./_lib/usage";
 import { QUESTION_GEN_SYSTEM, questionGenUserPrompt } from "./_lib/prompts";
+
+// Free-tier daily cap for AI-generated lesson questions (server-side margin guard).
+const FREE_LESSON_GEN_PER_DAY = 10;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -16,6 +20,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const limited = checkRateLimit(session.uid, "generate-question", 15);
   if (!limited.ok) {
     return res.status(429).json({ error: "Too many requests. Try again shortly." });
+  }
+
+  const quota = await consumeDailyQuota(session.uid, "lesson_gen", {
+    freeLimit: FREE_LESSON_GEN_PER_DAY,
+  });
+  if (!quota.ok) {
+    return res.status(429).json({
+      error: `You've reached today's free limit of ${quota.limit} AI-generated questions. Upgrade at /pricing for unlimited practice.`,
+    });
   }
 
   const body = req.body ?? {};

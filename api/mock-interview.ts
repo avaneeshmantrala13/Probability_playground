@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { verifyBearerToken } from "./_lib/firebase-auth";
 import { checkRateLimit } from "./_lib/rate-limit";
+import { consumeDailyQuota } from "./_lib/usage";
 
 /**
  * AI LIVE MOCK INTERVIEW — conversational quant interviewer.
@@ -229,6 +230,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const messages = cleanHistory(Array.isArray(body.messages) ? body.messages : []);
 
   if (!firmId) return res.status(400).json({ error: "Missing firmId" });
+
+  // Defense-in-depth daily cap (mocks are also plan-gated in the UI). Count one
+  // unit per interview by metering only the opening turn; feedback + follow-up
+  // turns of an in-progress interview are not re-charged.
+  if (mode === "interview" && messages.length === 0) {
+    const quota = await consumeDailyQuota(session.uid, "mock", { freeLimit: 1 });
+    if (!quota.ok) {
+      return res.status(429).json({
+        error: `Live mock interviews aren't included on the free plan. Upgrade at /pricing to run unlimited mocks.`,
+      });
+    }
+  }
 
   try {
     const apiKey = process.env.OPENAI_API_KEY?.trim();

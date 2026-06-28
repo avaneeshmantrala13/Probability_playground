@@ -1,7 +1,11 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { verifyBearerToken } from "./_lib/firebase-auth";
 import { checkRateLimit } from "./_lib/rate-limit";
+import { consumeDailyQuota } from "./_lib/usage";
 import { QUANT_TUTOR_SYSTEM } from "./_lib/prompts";
+
+// Mirrors src/lib/billing/plans.ts FREE_LIMITS.aiTutorPerDay (api bundles separately).
+const FREE_TUTOR_PER_DAY = 5;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -15,6 +19,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const limited = checkRateLimit(session.uid, "tutor-chat", 20);
   if (!limited.ok) {
     return res.status(429).json({ error: "Too many requests. Try again shortly." });
+  }
+
+  const quota = await consumeDailyQuota(session.uid, "tutor", { freeLimit: FREE_TUTOR_PER_DAY });
+  if (!quota.ok) {
+    return res.status(429).json({
+      error: `You've hit today's free AI tutor limit (${quota.limit}/day). Upgrade at /pricing for unlimited tutoring.`,
+    });
   }
 
   const body = req.body ?? {};

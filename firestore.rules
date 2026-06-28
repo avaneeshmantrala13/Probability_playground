@@ -204,6 +204,13 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Daily AI usage counters — written ONLY by the server (Admin SDK, which
+    // bypasses rules). Users may read their own doc; clients can never write.
+    match /aiUsage/{uid} {
+      allow read: if isOwner(uid);
+      allow write: if false;
+    }
+
     // Room code lookup for joining friends games.
     match /roomCodes/{code} {
       allow read: if isSignedIn();
