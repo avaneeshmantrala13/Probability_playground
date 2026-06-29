@@ -22,10 +22,11 @@ export async function consumeQuotaSafe(
   uid: string,
   feature: string,
   freeLimit: number,
+  tzOffsetMinutes?: number,
 ): Promise<QuotaResult> {
   try {
     const mod = await import("./usage.js");
-    return await mod.consumeDailyQuota(uid, feature, { freeLimit });
+    return await mod.consumeDailyQuota(uid, feature, { freeLimit, tzOffsetMinutes });
   } catch (err) {
     console.error(
       `[quota] usage module unavailable — failing open for feature=${feature}:`,

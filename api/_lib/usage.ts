@@ -30,6 +30,15 @@ export interface ConsumeOptions {
    * unlimited; this only guards against pathological abuse.
    */
   paidCap?: number;
+  /**
+   * The caller's timezone offset in minutes, as returned by JS
+   * `Date.prototype.getTimezoneOffset()` (positive for zones behind UTC, e.g.
+   * +300 for UTC-5). Used so the daily counter resets at the user's LOCAL
+   * midnight instead of UTC midnight. Clamped to ±14h; left at 0 (UTC) when
+   * absent. Client-controlled, but bounded — it can only shift the day boundary
+   * by at most a day, never grant unlimited resets.
+   */
+  tzOffsetMinutes?: number;
 }
 
 export interface ConsumeResult {
@@ -40,10 +49,24 @@ export interface ConsumeResult {
   failedOpen?: boolean;
 }
 
-function dayKey(now: Date): string {
-  const y = now.getUTCFullYear();
-  const m = String(now.getUTCMonth() + 1).padStart(2, "0");
-  const d = String(now.getUTCDate()).padStart(2, "0");
+/** Max plausible timezone offset (±14h) — clamps a client-supplied value. */
+const MAX_TZ_OFFSET_MIN = 14 * 60;
+
+function clampOffset(min: unknown): number {
+  if (typeof min !== "number" || !Number.isFinite(min)) return 0;
+  return Math.max(-MAX_TZ_OFFSET_MIN, Math.min(MAX_TZ_OFFSET_MIN, Math.trunc(min)));
+}
+
+/**
+ * Calendar day key in the caller's LOCAL time so the daily quota resets at their
+ * local midnight. `tzOffsetMinutes` follows JS getTimezoneOffset() sign
+ * (UTC = local + offset), so local time = UTC − offset.
+ */
+function dayKey(now: Date, tzOffsetMinutes = 0): string {
+  const local = new Date(now.getTime() - tzOffsetMinutes * 60_000);
+  const y = local.getUTCFullYear();
+  const m = String(local.getUTCMonth() + 1).padStart(2, "0");
+  const d = String(local.getUTCDate()).padStart(2, "0");
   return `${y}${m}${d}`;
 }
 
@@ -77,7 +100,7 @@ export async function consumeDailyQuota(
   }
 
   const now = Date.now();
-  const field = `${dayKey(new Date(now))}:${feature}`;
+  const field = `${dayKey(new Date(now), clampOffset(opts.tzOffsetMinutes))}:${feature}`;
   const usageRef = db.collection("aiUsage").doc(uid);
   const progressRef = db.collection("courseProgress").doc(uid);
 

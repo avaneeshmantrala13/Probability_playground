@@ -4,6 +4,7 @@
  * error extraction.
  */
 import { auth } from "../firebase";
+import { tzOffsetMinutes } from "../ai/tz";
 import type {
   FirmInterviewContext,
   InterviewMessage,
@@ -31,7 +32,7 @@ export async function sendMockInterviewTurn(body: {
   const res = await fetch("/api/mock-interview", {
     method: "POST",
     headers: await authHeaders(),
-    body: JSON.stringify({ ...body, mode: "interview" }),
+    body: JSON.stringify({ ...body, mode: "interview", tzOffsetMinutes: tzOffsetMinutes() }),
   });
   if (!res.ok) {
     const err = (await res.json().catch(() => ({}))) as { error?: string };

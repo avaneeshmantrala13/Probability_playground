@@ -34,7 +34,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Quota enforcement must never break tutoring: fail open on any error.
-    const quota = await consumeQuotaSafe(session.uid, "tutor", FREE_TUTOR_PER_DAY);
+    // Reset at the user's local midnight (tz offset is clamped server-side).
+    const tzOffsetMinutes =
+      typeof req.body?.tzOffsetMinutes === "number" ? req.body.tzOffsetMinutes : undefined;
+    const quota = await consumeQuotaSafe(session.uid, "tutor", FREE_TUTOR_PER_DAY, tzOffsetMinutes);
     if (!quota.ok) {
       return res.status(429).json({
         error: `You've hit today's free AI tutor limit (${quota.limit}/day). Upgrade at /pricing for unlimited tutoring.`,

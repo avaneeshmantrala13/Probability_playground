@@ -235,7 +235,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // unit per interview by metering only the opening turn; feedback + follow-up
   // turns of an in-progress interview are not re-charged.
   if (mode === "interview" && messages.length === 0) {
-    const quota = await consumeQuotaSafe(session.uid, "mock", 1);
+    const tzOffsetMinutes =
+      typeof body.tzOffsetMinutes === "number" ? body.tzOffsetMinutes : undefined;
+    const quota = await consumeQuotaSafe(session.uid, "mock", 1, tzOffsetMinutes);
     if (!quota.ok) {
       return res.status(429).json({
         error: `Live mock interviews aren't included on the free plan. Upgrade at /pricing to run unlimited mocks.`,

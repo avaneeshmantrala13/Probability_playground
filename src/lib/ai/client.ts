@@ -1,4 +1,5 @@
 import { auth } from "../firebase";
+import { tzOffsetMinutes } from "./tz";
 
 async function authHeaders(): Promise<HeadersInit> {
   const user = auth.currentUser;
@@ -57,7 +58,7 @@ export async function rewordQuestionStem(stem: string): Promise<string | null> {
     const res = await fetch("/api/reword-question", {
       method: "POST",
       headers: await authHeaders(),
-      body: JSON.stringify({ stem }),
+      body: JSON.stringify({ stem, tzOffsetMinutes: tzOffsetMinutes() }),
       signal: controller.signal,
     });
     if (!res.ok) return null;
@@ -82,7 +83,7 @@ export async function sendTutorMessage(body: {
   const res = await fetch("/api/tutor-chat", {
     method: "POST",
     headers: await authHeaders(),
-    body: JSON.stringify(body),
+    body: JSON.stringify({ ...body, tzOffsetMinutes: tzOffsetMinutes() }),
   });
   if (!res.ok) {
     throw new Error(await readError(res, "Tutor unavailable."));

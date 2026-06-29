@@ -44,7 +44,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ line: fallback || null });
   }
 
-  const quota = await consumeQuotaSafe(session.uid, "poker_line", FREE_POKER_LINES_PER_DAY);
+  const tzOffsetMinutes =
+    typeof body.tzOffsetMinutes === "number" ? body.tzOffsetMinutes : undefined;
+  const quota = await consumeQuotaSafe(
+    session.uid,
+    "poker_line",
+    FREE_POKER_LINES_PER_DAY,
+    tzOffsetMinutes,
+  );
   if (!quota.ok) {
     return res.status(200).json({ line: fallback || null });
   }

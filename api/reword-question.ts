@@ -23,7 +23,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(429).json({ error: "Too many requests. Try again shortly." });
     }
 
-    const quota = await consumeQuotaSafe(session.uid, "reword", FREE_REWORD_PER_DAY);
+    const tzOffsetMinutes =
+      typeof req.body?.tzOffsetMinutes === "number" ? req.body.tzOffsetMinutes : undefined;
+    const quota = await consumeQuotaSafe(session.uid, "reword", FREE_REWORD_PER_DAY, tzOffsetMinutes);
     if (!quota.ok) {
       // Rewording is optional flavor — never block practice; just signal no-op.
       return res.status(200).json({ question: null });

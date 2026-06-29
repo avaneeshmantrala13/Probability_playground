@@ -1,4 +1,5 @@
 import { auth } from "../firebase";
+import { tzOffsetMinutes } from "./tz";
 
 export async function fetchPokerBotLine(body: {
   personaName: string;
@@ -19,7 +20,7 @@ export async function fetchPokerBotLine(body: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ ...body, tzOffsetMinutes: tzOffsetMinutes() }),
     });
     if (!res.ok) return null;
     const data = (await res.json()) as { line?: string | null };
