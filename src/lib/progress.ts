@@ -226,6 +226,34 @@ export async function saveProgress(
   );
 }
 
+/**
+ * Read the doc back from the server and confirm a just-passed lesson actually
+ * landed. The Firestore web SDK only resolves `setDoc` after a server ack (no
+ * offline persistence is enabled here), so a thrown save is the usual failure
+ * signal — but for the highest-value write (finishing a lesson) we double-check
+ * against the server so a silent drop can never masquerade as success.
+ *
+ * Best-effort: returns `false` (rather than throwing) if the read itself fails,
+ * so callers can decide to retry without crashing the finish flow.
+ */
+export async function verifyLessonPersisted(
+  uid: string,
+  lessonId: string,
+): Promise<boolean> {
+  try {
+    const snap = await getDoc(doc(db, "courseProgress", uid));
+    if (!snap.exists()) return false;
+    const data = snap.data() as Partial<CourseProgress>;
+    return (
+      (data.completedLessons ?? []).includes(lessonId) ||
+      data.lessonMastery?.[lessonId]?.passed === true
+    );
+  } catch (err) {
+    console.error("[progress] verify read failed:", err);
+    return false;
+  }
+}
+
 export interface LessonAttemptRecord {
   lessonId: string;
   round: number;

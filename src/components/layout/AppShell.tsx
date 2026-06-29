@@ -10,6 +10,7 @@ import { useThemeSync } from "../../hooks/useThemeSync";
 import { CloseIcon, LogOutIcon, MenuIcon } from "../icons";
 import { FallingCards } from "../home/FallingCards";
 import { NAV_ITEMS, SPRINT_NAV_ITEM, type NavItem } from "./navItems";
+import { SaveStatusBanner } from "./SaveStatusBanner";
 
 function navLinkClass(isActive: boolean, item: NavItem): string {
   return [
@@ -119,6 +120,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         )}
       </header>
+
+      <SaveStatusBanner />
 
       <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:px-6 sm:py-10">
         {children}

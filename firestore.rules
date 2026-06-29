@@ -133,9 +133,15 @@ service cloud.firestore {
       );
     }
 
+    // NOTE: these per-write delta caps are anti-cheat guards for the
+    // leaderboard, but they must NEVER be tight enough to reject a legitimate
+    // progress write — a rejected write silently drops the whole document update
+    // (including completedLessons/lessonMastery), which loses real progress.
+    // Caps are sized so normal play can't reach them in one debounced write
+    // while still blocking absurd one-shot injection.
     function courseProgressWriteOk() {
-      return numMonotonic('problemsCorrect', 25)
-        && numMonotonic('lifetimeTokens', 5000)
+      return numMonotonic('problemsCorrect', 1000)
+        && numMonotonic('lifetimeTokens', 250000)
         && streakUpdateOk()
         && planFieldsLockedOnUpdate()
         && mentalMathFieldOk('easy', 120)

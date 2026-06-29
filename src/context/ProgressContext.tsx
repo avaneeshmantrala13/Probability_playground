@@ -17,6 +17,7 @@ import {
   recordLessonAttempt,
   saveProgress,
   todayKey,
+  verifyLessonPersisted,
   type ActiveAttempt,
   type AttemptAnswer,
   type CosmeticCategory,
@@ -90,11 +91,24 @@ interface ProgressContextValue {
   tickFreePlayMinutes: (minutes: number) => void;
   quizLives: number;
   freePlayMinutesRemaining: number;
+  /** True when the most recent save attempts all failed (progress at risk). */
+  saveFailed: boolean;
+  /** Manually retry persisting the latest progress to the server right now. */
+  retrySave: () => void;
 }
 
 const ProgressContext = createContext<ProgressContextValue | undefined>(undefined);
 
 const SAVE_DEBOUNCE_MS = 700;
+
+// Bounded retry schedule for a single save (ms before each attempt). A dropped
+// write — a network blip, a transient 5xx — is the classic way progress quietly
+// disappears, so we retry before giving up rather than losing the write.
+const SAVE_ATTEMPT_BACKOFF_MS = [0, 700, 2000, 5000];
+
+// While a save is known-failed, retry the latest snapshot on this cadence so it
+// lands as soon as connectivity (or a fixed permission) recovers.
+const SAVE_RETRY_INTERVAL_MS = 12_000;
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const { user, loading: authLoading } = useAuth();
@@ -102,16 +116,59 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const uidRef = useRef<string | null>(null);
+  // The uid whose progress we have SUCCESSFULLY loaded from Firestore. Saves are
+  // only ever allowed for this exact uid — this is the core guarantee that we
+  // never overwrite a user's server data from an un-hydrated / empty / stale
+  // in-memory state (e.g. after a transient fetch failure or account switch).
+  const loadedUidRef = useRef<string | null>(null);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const latest = useRef<CourseProgress>(progress);
   latest.current = progress;
 
+  // Surfaced to the UI so a dropped write can never *silently* lose progress —
+  // the user sees a warning and we keep retrying in the background.
+  const [saveFailed, setSaveFailed] = useState(false);
+  const saveFailedRef = useRef(false);
+  const setSaveFailedState = useCallback((failed: boolean) => {
+    if (saveFailedRef.current === failed) return;
+    saveFailedRef.current = failed;
+    setSaveFailed(failed);
+  }, []);
+
+  // Persist with bounded retries + backoff. On success we clear the failure
+  // flag; only after every attempt fails do we flip it so the periodic/online
+  // retries (and the UI banner) take over. `setDoc` resolves only on a server
+  // ack here, so a clean resolve means the data really landed.
   const persistProgress = useCallback(
     (uid: string, snapshot: CourseProgress) => {
-      void saveProgress(uid, snapshot).catch(() => undefined);
+      void (async () => {
+        for (let attempt = 0; attempt < SAVE_ATTEMPT_BACKOFF_MS.length; attempt++) {
+          if (attempt > 0) {
+            await new Promise((r) => setTimeout(r, SAVE_ATTEMPT_BACKOFF_MS[attempt]));
+          }
+          // Account switched or signed out mid-retry: the new session owns saves.
+          if (uidRef.current !== uid || loadedUidRef.current !== uid) return;
+          try {
+            await saveProgress(uid, snapshot);
+            setSaveFailedState(false);
+            return;
+          } catch (err) {
+            console.error(
+              `[progress] save attempt ${attempt + 1}/${SAVE_ATTEMPT_BACKOFF_MS.length} failed — progress not yet persisted:`,
+              err,
+            );
+          }
+        }
+        setSaveFailedState(true);
+      })();
     },
-    [],
+    [setSaveFailedState],
   );
+
+  // A save may only run for a uid whose progress we've actually loaded.
+  const canPersist = useCallback((uid: string | null): uid is string => {
+    return !!uid && loadedUidRef.current === uid;
+  }, []);
 
   // Hydrate on sign-in; reset on sign-out. Also bumps the daily streak.
   useEffect(() => {
@@ -127,25 +184,54 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }
     if (!user) {
       uidRef.current = null;
+      loadedUidRef.current = null;
       setProgress(emptyProgress());
       setLoading(false);
       return;
     }
-    setLoading(true);
+
+    const uid = user.uid;
+    const alreadyLoaded = loadedUidRef.current === uid;
+    const switchingAccounts =
+      loadedUidRef.current != null && loadedUidRef.current !== uid;
+    uidRef.current = uid;
+    if (switchingAccounts) {
+      // A different account: block saves and drop the previous user's data from
+      // view until the new account is loaded, so it can never be written back.
+      loadedUidRef.current = null;
+      setProgress(emptyProgress());
+    }
+    setLoading(!alreadyLoaded);
+
     (async () => {
-      try {
-        const remote = await fetchProgress(user.uid);
-        const { progress: hydrated } = processLoginRewards(remote);
-        if (!cancelled) {
-          uidRef.current = user.uid;
+      // Retry transient failures with backoff. A network blip must never drop a
+      // user into a blank (and therefore overwrite-able) progress state.
+      const MAX_HYDRATE_ATTEMPTS = 4;
+      for (let attempt = 0; attempt < MAX_HYDRATE_ATTEMPTS && !cancelled; attempt++) {
+        try {
+          const remote = await fetchProgress(uid);
+          const { progress: hydrated } = processLoginRewards(remote);
+          if (cancelled) return;
+          loadedUidRef.current = uid;
           setProgress(hydrated);
-          void persistProgress(user.uid, hydrated);
+          setLoading(false);
+          void persistProgress(uid, hydrated);
+          return;
+        } catch (err) {
+          console.error(
+            `[progress] hydrate attempt ${attempt + 1}/${MAX_HYDRATE_ATTEMPTS} failed for ${uid}:`,
+            err,
+          );
+          await new Promise((r) => setTimeout(r, 600 * (attempt + 1)));
         }
-      } catch {
-        if (!cancelled) setProgress(emptyProgress());
-      } finally {
-        if (!cancelled) setLoading(false);
       }
+      if (cancelled) return;
+      // All attempts failed. Do NOT replace good data with empty and do NOT
+      // enable saving: leaving loadedUidRef unset keeps the server safe. If this
+      // account had loaded before in this session, its data stays intact and
+      // saveable; otherwise the user sees an empty (but non-destructive) view
+      // that recovers on the next successful load/refresh.
+      setLoading(false);
     })();
     return () => {
       cancelled = true;
@@ -154,24 +240,61 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   const scheduleSave = useCallback(() => {
     const uid = uidRef.current;
-    if (!uid) return;
+    if (!canPersist(uid)) return;
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
       saveTimer.current = null;
-      void persistProgress(uid, latest.current);
+      if (canPersist(uidRef.current)) persistProgress(uid, latest.current);
     }, SAVE_DEBOUNCE_MS);
-  }, [persistProgress]);
+  }, [persistProgress, canPersist]);
 
   // Immediately persist the latest snapshot if a debounced save is pending.
   // Nulling the timer first makes this idempotent, so overlapping unload/hide
   // events (e.g. visibilitychange then pagehide) can't trigger duplicate writes.
   const flushNow = useCallback(() => {
     const uid = uidRef.current;
-    if (!uid || !saveTimer.current) return;
+    if (!canPersist(uid) || !saveTimer.current) return;
     clearTimeout(saveTimer.current);
     saveTimer.current = null;
-    void persistProgress(uid, latest.current);
-  }, [persistProgress]);
+    persistProgress(uid, latest.current);
+  }, [persistProgress, canPersist]);
+
+  // Persist the very next committed snapshot right away (no debounce). Used for
+  // high-value events like finishing a lesson, where waiting on the debounce
+  // window risks losing the result to a crash/close. Deferred one tick so the
+  // pending setProgress updater has written the new snapshot into latest.current.
+  const persistImmediately = useCallback(() => {
+    if (saveTimer.current) {
+      clearTimeout(saveTimer.current);
+      saveTimer.current = null;
+    }
+    setTimeout(() => {
+      const uid = uidRef.current;
+      if (canPersist(uid)) persistProgress(uid, latest.current);
+    }, 0);
+  }, [canPersist, persistProgress]);
+
+  // Manual + automatic recovery: re-persist the latest snapshot. Used by the
+  // "Retry now" banner button and by the background recovery effect below.
+  const retrySave = useCallback(() => {
+    const uid = uidRef.current;
+    if (canPersist(uid)) persistProgress(uid, latest.current);
+  }, [canPersist, persistProgress]);
+
+  // Safety net: while a save is known-failed, keep retrying the *latest*
+  // snapshot on an interval and immediately when the network reconnects, so
+  // progress lands the moment connectivity (or a fixed permission) recovers.
+  useEffect(() => {
+    const retry = () => {
+      if (saveFailedRef.current) retrySave();
+    };
+    const interval = setInterval(retry, SAVE_RETRY_INTERVAL_MS);
+    window.addEventListener("online", retry);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("online", retry);
+    };
+  }, [retrySave]);
 
   // Flush pending progress on any signal that the tab may be going away.
   // 'beforeunload' is unreliable on mobile and during Vite HMR reloads, so we
@@ -276,6 +399,10 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         };
       });
 
+      // Finishing a lesson is the highest-value write: persist it immediately
+      // instead of waiting on the debounce so it can't be lost to a close/crash.
+      persistImmediately();
+
       const uid = uidRef.current;
       if (uid) {
         void recordLessonAttempt(uid, {
@@ -288,9 +415,24 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         }).catch(() => undefined);
       }
 
+      if (passed && uid) {
+        // Belt-and-suspenders for the single most important write: read the doc
+        // back from the server and confirm the finished lesson actually landed.
+        // If it didn't, surface it and re-persist so it can never be lost.
+        void (async () => {
+          await new Promise((r) => setTimeout(r, 1500));
+          if (uidRef.current !== uid || loadedUidRef.current !== uid) return;
+          const ok = await verifyLessonPersisted(uid, lessonId);
+          if (!ok) {
+            setSaveFailedState(true);
+            persistProgress(uid, latest.current);
+          }
+        })();
+      }
+
       return { correct, total, scorePercent, passed };
     },
-    [update],
+    [update, persistImmediately, persistProgress, setSaveFailedState],
   );
 
   const addTokens = useCallback(
@@ -429,10 +571,14 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     try {
       const remote = await fetchProgress(uid);
       const { progress: hydrated } = processLoginRewards(remote);
+      loadedUidRef.current = uid;
       latest.current = hydrated;
       setProgress(hydrated);
       return true;
-    } catch {
+    } catch (err) {
+      // Don't clobber: keep the current in-memory progress and leave the save
+      // guard as-is so a failed refresh never drops the user's data.
+      console.error("[progress] refetch failed:", err);
       return false;
     }
   }, []);
@@ -518,6 +664,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       tickFreePlayMinutes,
       quizLives: progress.quizLives ?? 0,
       freePlayMinutesRemaining: progress.freePlayMinutesRemaining ?? 0,
+      saveFailed,
+      retrySave,
     }),
     [
       progress,
@@ -541,6 +689,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       claimPendingChest,
       consumeQuizLife,
       tickFreePlayMinutes,
+      saveFailed,
+      retrySave,
     ],
   );
 
