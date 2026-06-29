@@ -7,7 +7,11 @@ import {
   initializeAuth,
   type Auth,
 } from "firebase/auth";
-import { getFirestore, type Firestore } from "firebase/firestore";
+import {
+  getFirestore,
+  initializeFirestore,
+  type Firestore,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -41,7 +45,15 @@ if (isFirebaseConfigured) {
     // Hot reload / duplicate init — fall back to the existing Auth instance.
     authInstance = getAuth(app);
   }
-  dbInstance = getFirestore(app);
+  try {
+    // `ignoreUndefinedProperties` makes Firestore silently drop undefined fields
+    // instead of rejecting the WHOLE write with `invalid-argument` — a single
+    // stray undefined must never be able to lose a user's progress.
+    dbInstance = initializeFirestore(app, { ignoreUndefinedProperties: true });
+  } catch {
+    // Already initialized (e.g. HMR / duplicate init): reuse the existing one.
+    dbInstance = getFirestore(app);
+  }
 }
 
 export const auth = authInstance as Auth;

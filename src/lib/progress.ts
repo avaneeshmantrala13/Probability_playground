@@ -7,6 +7,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { db } from "./firebase";
+import { stripUndefined } from "./firestore/sanitize";
 
 /** Per-question state inside an in-progress lesson attempt. */
 export interface AttemptAnswer {
@@ -219,9 +220,14 @@ export async function saveProgress(
   uid: string,
   progress: CourseProgress,
 ): Promise<void> {
+  // Firestore rejects the ENTIRE write with `invalid-argument` if any field is
+  // `undefined` (e.g. optional fields like `pokerTheoryLastPassDate` that aren't
+  // in emptyProgress). Strip them so a stray undefined can never drop a save.
+  // Sanitize only the plain progress data — `serverTimestamp()` is a FieldValue
+  // sentinel that must be added afterward so stripUndefined never rebuilds it.
   await setDoc(
     doc(db, "courseProgress", uid),
-    { ...progress, updatedAt: serverTimestamp() },
+    { ...stripUndefined(progress), updatedAt: serverTimestamp() },
     { merge: true },
   );
 }
