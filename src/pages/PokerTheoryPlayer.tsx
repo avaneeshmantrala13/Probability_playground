@@ -39,6 +39,19 @@ function freshAnswers(count: number): AttemptAnswer[] {
   return Array.from({ length: count }, () => ({ selected: null, checked: false }));
 }
 
+/** An ephemeral AI bonus question, anchored right after a base question. */
+interface BonusQuestion {
+  id: string;
+  q: RenderableQuestion;
+  /** Index of the base question this bonus was generated from. */
+  after: number;
+}
+
+/** A single navigable quiz item: graded base question or bonus practice one. */
+type ViewItem =
+  | { kind: "base"; q: RenderableQuestion; baseIndex: number }
+  | { kind: "bonus"; q: RenderableQuestion; id: string; baseIndex: number };
+
 export function PokerTheoryPlayer() {
   const { lessonId = "" } = useParams();
   const lesson = getPokerTheoryLesson(lessonId);
@@ -61,7 +74,12 @@ export function PokerTheoryPlayer() {
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [showIntroModal, setShowIntroModal] = useState(false);
   const [earnedBefore, setEarnedBefore] = useState<Set<string>>(() => new Set());
-  const [extraAiQuestions, setExtraAiQuestions] = useState<RenderableQuestion[]>([]);
+  // Bonus AI questions are ephemeral practice: inserted right after the base
+  // question they were generated from, never persisted, and never graded.
+  const [bonus, setBonus] = useState<BonusQuestion[]>([]);
+  const [bonusAnswers, setBonusAnswers] = useState<Record<string, AttemptAnswer>>({});
+  // Bumped on restart/retry so the per-question tutor chat fully resets.
+  const [runId, setRunId] = useState(0);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
   const hydratedFor = useRef<string | null>(null);
@@ -70,6 +88,10 @@ export function PokerTheoryPlayer() {
     if (!lesson || loading) return;
     if (!isPokerTheoryLessonUnlocked(lesson.lessonId, progress)) return;
     if (hydratedFor.current === lesson.lessonId) return;
+
+    // Bonus questions are ephemeral — never restored across reloads/re-entry.
+    setBonus([]);
+    setBonusAnswers({});
 
     const attempt = progress.activeAttempt;
     if (
@@ -118,20 +140,27 @@ export function PokerTheoryPlayer() {
     saveAttempt,
   ]);
 
-  useEffect(() => {
-    if (!lesson || hydratedFor.current !== lesson.lessonId) return;
-    if (phase === "quiz") setPosition(lesson.lessonId, index);
-  }, [index, lesson, phase, setPosition]);
-
   const baseQuestions = useMemo(
     () => (lesson ? buildPokerTheoryAttemptQuestions(lesson, round) : []),
     [lesson, round],
   );
 
-  const quizQuestions = useMemo(
-    () => [...baseQuestions, ...extraAiQuestions],
-    [baseQuestions, extraAiQuestions],
-  );
+  const quizView = useMemo<ViewItem[]>(() => {
+    const out: ViewItem[] = [];
+    baseQuestions.forEach((q, i) => {
+      out.push({ kind: "base", q, baseIndex: i });
+      for (const b of bonus) {
+        if (b.after === i) out.push({ kind: "bonus", q: b.q, id: b.id, baseIndex: i });
+      }
+    });
+    return out;
+  }, [baseQuestions, bonus]);
+
+  useEffect(() => {
+    if (!lesson || hydratedFor.current !== lesson.lessonId) return;
+    if (phase === "quiz")
+      setPosition(lesson.lessonId, quizView[index]?.baseIndex ?? 0);
+  }, [index, lesson, phase, quizView, setPosition]);
 
   const placementQuestions: RenderableQuestion[] = useMemo(
     () =>
@@ -152,31 +181,51 @@ export function PokerTheoryPlayer() {
   }
 
   const isPlacementPhase = phase === "placement";
-  const activeQuestions = isPlacementPhase ? placementQuestions : quizQuestions;
-  const activeAnswers = isPlacementPhase ? placementAnswers : answers;
-  const activeTotal = activeQuestions.length;
-  const current = activeQuestions[index];
+  const currentItem = isPlacementPhase ? null : quizView[index];
+  const current = isPlacementPhase ? placementQuestions[index] : currentItem?.q;
+  const activeTotal = isPlacementPhase ? placementQuestions.length : quizView.length;
 
   if (!current && phase !== "intro" && phase !== "placement-offer" && phase !== "results") {
     return <LoadingScreen />;
   }
 
-  const state = activeAnswers[index] ?? { selected: null, checked: false };
+  const fresh: AttemptAnswer = { selected: null, checked: false };
+  const state: AttemptAnswer = isPlacementPhase
+    ? placementAnswers[index] ?? fresh
+    : currentItem?.kind === "base"
+      ? answers[currentItem.baseIndex] ?? fresh
+      : currentItem
+        ? bonusAnswers[currentItem.id] ?? fresh
+        : fresh;
   const { selected, checked } = state;
   const isRemediation = round > 0 && !isPlacementPhase;
-
-  function setActiveAnswers(next: AttemptAnswer[]) {
-    if (isPlacementPhase) setPlacementAnswers(next);
-    else {
-      setAnswers(next);
-      if (lesson) saveAttempt(lesson.lessonId, round, next);
-    }
-  }
+  const tutorKey =
+    currentItem?.kind === "base"
+      ? `${runId}:b${currentItem.baseIndex}`
+      : currentItem
+        ? `${runId}:x${currentItem.id}`
+        : `${runId}:none`;
 
   function update(patch: Partial<AttemptAnswer>) {
-    const next = [...activeAnswers];
-    next[index] = { ...next[index], ...patch };
-    setActiveAnswers(next);
+    if (isPlacementPhase) {
+      const next = [...placementAnswers];
+      next[index] = { ...next[index], ...patch };
+      setPlacementAnswers(next);
+      return;
+    }
+    if (!currentItem) return;
+    if (currentItem.kind === "base") {
+      const next = [...answers];
+      next[currentItem.baseIndex] = { ...next[currentItem.baseIndex], ...patch };
+      setAnswers(next);
+      if (lesson) saveAttempt(lesson.lessonId, round, next);
+    } else {
+      const id = currentItem.id;
+      setBonusAnswers((prev) => ({
+        ...prev,
+        [id]: { ...(prev[id] ?? { selected: null, checked: false }), ...patch },
+      }));
+    }
   }
 
   function select(optionIndex: number) {
@@ -185,9 +234,11 @@ export function PokerTheoryPlayer() {
   }
 
   function check() {
-    if (selected === null) return;
+    if (selected === null || !current) return;
     update({ checked: true });
-    if (selected === current.correctAnswer) recordCorrectAnswer();
+    // Bonus practice is never graded; placement and base questions are.
+    const isGraded = isPlacementPhase || currentItem?.kind === "base";
+    if (isGraded && selected === current.correctAnswer) recordCorrectAnswer();
   }
 
   const correctIndex = current?.correctAnswer ?? 0;
@@ -201,22 +252,23 @@ export function PokerTheoryPlayer() {
   }
 
   const isLast = index === activeTotal - 1;
-  const isLastBase =
+  const isOnLastBase =
     !isPlacementPhase &&
-    index === baseQuestions.length - 1 &&
-    index >= total - 1;
+    currentItem?.kind === "base" &&
+    currentItem.baseIndex === baseQuestions.length - 1;
 
   async function loadAiQuestion() {
-    if (!lesson || aiLoading || isPlacementPhase) return;
+    if (!lesson || aiLoading || isPlacementPhase || !currentItem) return;
     setAiError(null);
     setAiLoading(true);
+    const afterBaseIndex = currentItem.baseIndex;
     try {
       const gen = await fetchGeneratedQuestion({
         lessonId: lesson.lessonId,
         lessonTitle: lesson.title,
         topics: lesson.topics,
         order: lesson.order,
-        conceptHint: lesson.topics[index % lesson.topics.length],
+        conceptHint: lesson.topics[afterBaseIndex % lesson.topics.length],
       });
       const rq: RenderableQuestion = {
         id: gen.id,
@@ -225,16 +277,13 @@ export function PokerTheoryPlayer() {
         correctAnswer: gen.correctAnswer,
         explanations: gen.explanations,
       };
-      setExtraAiQuestions((prev) => {
-        const next = [...prev, rq];
-        setIndex(baseQuestions.length + prev.length);
-        return next;
-      });
-      setAnswers((prev) => {
-        const next = [...prev, { selected: null, checked: false }];
-        saveAttempt(lesson.lessonId, round, next);
-        return next;
-      });
+      const basePos = quizView.findIndex(
+        (v) => v.kind === "base" && v.baseIndex === afterBaseIndex,
+      );
+      const groupCount = bonus.filter((b) => b.after === afterBaseIndex).length;
+      setBonus((prev) => [...prev, { id: gen.id, q: rq, after: afterBaseIndex }]);
+      setBonusAnswers((prev) => ({ ...prev, [gen.id]: { selected: null, checked: false } }));
+      if (basePos >= 0) setIndex(basePos + groupCount + 1);
     } catch (err) {
       setAiError(err instanceof Error ? err.message : "Could not generate question.");
     } finally {
@@ -279,15 +328,17 @@ export function PokerTheoryPlayer() {
   function retry() {
     if (!lesson) return;
     const newRound = round + 1;
-    const fresh = freshAnswers(total);
-    setExtraAiQuestions([]);
+    const freshSet = freshAnswers(total);
+    setBonus([]);
+    setBonusAnswers({});
     setRound(newRound);
-    setAnswers(fresh);
+    setAnswers(freshSet);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, newRound, fresh);
+    saveAttempt(lesson.lessonId, newRound, freshSet);
+    setRunId((n) => n + 1);
   }
 
   function restart() {
@@ -298,16 +349,18 @@ export function PokerTheoryPlayer() {
       )
     )
       return;
-    const fresh = freshAnswers(total);
-    setExtraAiQuestions([]);
-    setAnswers(fresh);
+    const freshSet = freshAnswers(total);
+    setBonus([]);
+    setBonusAnswers({});
+    setAnswers(freshSet);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, round, fresh);
-    // A restart is a clean run — the clock starts over too.
+    saveAttempt(lesson.lessonId, round, freshSet);
+    // A restart is a clean run — the clock and tutor chat start over too.
     timer.reset();
+    setRunId((n) => n + 1);
   }
 
   function beginPlacement() {
@@ -428,7 +481,11 @@ export function PokerTheoryPlayer() {
         )}
         <div className="mt-3 flex items-center gap-3">
           <div className="flex-1">
-            <ProgressBar current={index + 1} total={activeTotal} label="Question" />
+            <ProgressBar
+              current={isPlacementPhase ? index + 1 : (currentItem?.baseIndex ?? 0) + 1}
+              total={isPlacementPhase ? placementTotal : baseQuestions.length}
+              label="Question"
+            />
           </div>
           <span
             className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums text-secondary"
@@ -448,8 +505,15 @@ export function PokerTheoryPlayer() {
         getOptionState={getOptionState}
         locked={checked}
         badge={
-          isPlacementPhase ? undefined : (
-            <DifficultyBadge index={index} questionNumber={index + 1} />
+          isPlacementPhase ? undefined : currentItem?.kind === "bonus" ? (
+            <span className="inline-flex items-center rounded-full bg-fuchsia-500/15 px-2.5 py-1 text-xs font-semibold text-fuchsia-600 dark:text-fuchsia-400">
+              AI bonus practice
+            </span>
+          ) : (
+            <DifficultyBadge
+              index={currentItem?.baseIndex ?? 0}
+              questionNumber={(currentItem?.baseIndex ?? 0) + 1}
+            />
           )
         }
         footer={
@@ -472,6 +536,7 @@ export function PokerTheoryPlayer() {
       {!isPlacementPhase && current && (
         <>
           <QuestionTutorChat
+            key={tutorKey}
             lessonTitle={lesson.title}
             questionText={current.question}
             options={current.options}
@@ -494,7 +559,7 @@ export function PokerTheoryPlayer() {
             >
               {aiLoading ? "Generating…" : "Generate AI bonus question"}
             </button>
-            {index >= baseQuestions.length && (
+            {currentItem?.kind === "bonus" && (
               <span className="self-center text-xs text-muted">
                 AI practice — not counted toward lesson pass
               </span>
@@ -530,7 +595,7 @@ export function PokerTheoryPlayer() {
           >
             {isPlacementPhase ? "Finish placement" : "Finish lesson"}
           </button>
-        ) : isLastBase ? (
+        ) : isOnLastBase ? (
           <button type="button" className="pp-btn-primary" onClick={finishQuiz}>
             Finish lesson
           </button>

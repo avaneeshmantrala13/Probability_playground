@@ -116,6 +116,7 @@ export function PracticeSession() {
       />
 
       <QuestionTutorChat
+        key={current.id ?? index}
         lessonTitle={bank.title}
         questionText={current.question}
         options={current.options}

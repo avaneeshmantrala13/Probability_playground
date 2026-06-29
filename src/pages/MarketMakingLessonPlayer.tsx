@@ -33,6 +33,19 @@ function freshAnswers(count: number): AttemptAnswer[] {
   return Array.from({ length: count }, () => ({ selected: null, checked: false }));
 }
 
+/** An ephemeral AI bonus question, anchored right after a base question. */
+interface BonusQuestion {
+  id: string;
+  q: RenderableQuestion;
+  /** Index of the base question this bonus was generated from. */
+  after: number;
+}
+
+/** A single navigable item: either a graded base question or a bonus practice one. */
+type ViewItem =
+  | { kind: "base"; q: RenderableQuestion; baseIndex: number }
+  | { kind: "bonus"; q: RenderableQuestion; id: string; baseIndex: number };
+
 export function MarketMakingLessonPlayer() {
   const { lessonId = "" } = useParams();
   const lesson = getMarketMakingLesson(lessonId);
@@ -52,7 +65,12 @@ export function MarketMakingLessonPlayer() {
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [showIntroModal, setShowIntroModal] = useState(false);
   const [earnedBefore, setEarnedBefore] = useState<Set<string>>(() => new Set());
-  const [extraAiQuestions, setExtraAiQuestions] = useState<RenderableQuestion[]>([]);
+  // Bonus AI questions are ephemeral practice: inserted right after the base
+  // question they were generated from, never persisted, and never graded.
+  const [bonus, setBonus] = useState<BonusQuestion[]>([]);
+  const [bonusAnswers, setBonusAnswers] = useState<Record<string, AttemptAnswer>>({});
+  // Bumped on restart/retry so the per-question tutor chat fully resets.
+  const [runId, setRunId] = useState(0);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
   const hydratedFor = useRef<string | null>(null);
@@ -61,6 +79,10 @@ export function MarketMakingLessonPlayer() {
     if (!lesson || loading) return;
     if (!isMarketMakingLessonUnlocked(lesson.lessonId, progress)) return;
     if (hydratedFor.current === lesson.lessonId) return;
+
+    // Bonus questions are ephemeral — never restored across reloads/re-entry.
+    setBonus([]);
+    setBonusAnswers({});
 
     const attempt = progress.activeAttempt;
     if (
@@ -91,22 +113,28 @@ export function MarketMakingLessonPlayer() {
     hydratedFor.current = lesson.lessonId;
   }, [lesson, loading, progress, baseQuestionCount, alreadyMastered, setPosition, saveAttempt]);
 
-  useEffect(() => {
-    if (!lesson || hydratedFor.current !== lesson.lessonId) return;
-    setPosition(lesson.lessonId, index);
-  }, [index, lesson, setPosition]);
-
   const baseQuestions = useMemo(
     () => (lesson ? buildMarketMakingAttemptQuestions(lesson, round) : []),
     [lesson, round],
   );
 
-  const questions = useMemo(
-    () => [...baseQuestions, ...extraAiQuestions],
-    [baseQuestions, extraAiQuestions],
-  );
+  const view = useMemo<ViewItem[]>(() => {
+    const out: ViewItem[] = [];
+    baseQuestions.forEach((q, i) => {
+      out.push({ kind: "base", q, baseIndex: i });
+      for (const b of bonus) {
+        if (b.after === i) out.push({ kind: "bonus", q: b.q, id: b.id, baseIndex: i });
+      }
+    });
+    return out;
+  }, [baseQuestions, bonus]);
 
-  const questionCount = questions.length;
+  const questionCount = view.length;
+
+  useEffect(() => {
+    if (!lesson || hydratedFor.current !== lesson.lessonId) return;
+    setPosition(lesson.lessonId, view[index]?.baseIndex ?? 0);
+  }, [index, lesson, view, setPosition]);
 
   if (!lesson) return <Navigate to="/market-making/lessons" replace />;
   if (loading) return <LoadingScreen />;
@@ -114,22 +142,34 @@ export function MarketMakingLessonPlayer() {
     return <Navigate to="/market-making/lessons" replace />;
   }
 
-  const current = questions[index];
-  if (!current) return <LoadingScreen />;
+  const currentItem = view[index];
+  if (!currentItem) return <LoadingScreen />;
+  const current = currentItem.q;
 
-  const state = answers[index] ?? { selected: null, checked: false };
+  const state: AttemptAnswer =
+    currentItem.kind === "base"
+      ? answers[currentItem.baseIndex] ?? { selected: null, checked: false }
+      : bonusAnswers[currentItem.id] ?? { selected: null, checked: false };
   const { selected, checked } = state;
   const isRemediation = round > 0;
-
-  function commit(next: AttemptAnswer[]) {
-    setAnswers(next);
-    if (lesson) saveAttempt(lesson.lessonId, round, next);
-  }
+  const tutorKey =
+    currentItem.kind === "base"
+      ? `${runId}:b${currentItem.baseIndex}`
+      : `${runId}:x${currentItem.id}`;
 
   function update(patch: Partial<AttemptAnswer>) {
-    const next = [...answers];
-    next[index] = { ...next[index], ...patch };
-    commit(next);
+    if (currentItem.kind === "base") {
+      const next = [...answers];
+      next[currentItem.baseIndex] = { ...next[currentItem.baseIndex], ...patch };
+      setAnswers(next);
+      if (lesson) saveAttempt(lesson.lessonId, round, next);
+    } else {
+      const id = currentItem.id;
+      setBonusAnswers((prev) => ({
+        ...prev,
+        [id]: { ...(prev[id] ?? { selected: null, checked: false }), ...patch },
+      }));
+    }
   }
 
   function select(optionIndex: number) {
@@ -140,7 +180,8 @@ export function MarketMakingLessonPlayer() {
   function check() {
     if (selected === null) return;
     update({ checked: true });
-    if (selected === correctIndex) recordCorrectAnswer();
+    // Only graded base questions affect progress/stats — bonus is pure practice.
+    if (currentItem.kind === "base" && selected === correctIndex) recordCorrectAnswer();
   }
 
   const correctIndex = current.correctAnswer;
@@ -154,20 +195,21 @@ export function MarketMakingLessonPlayer() {
   }
 
   const isLast = index === questionCount - 1;
-  const isLastBase =
-    index === baseQuestions.length - 1 && index >= baseQuestionCount - 1;
+  const isOnLastBase =
+    currentItem.kind === "base" && currentItem.baseIndex === baseQuestions.length - 1;
 
   async function loadAiQuestion() {
     if (!lesson || aiLoading) return;
     setAiError(null);
     setAiLoading(true);
+    const afterBaseIndex = currentItem.baseIndex;
     try {
       const gen = await fetchGeneratedQuestion({
         lessonId: lesson.lessonId,
         lessonTitle: lesson.title,
         topics: lesson.topics,
         order: lesson.order,
-        conceptHint: lesson.topics[index % lesson.topics.length],
+        conceptHint: lesson.topics[afterBaseIndex % lesson.topics.length],
       });
       const rq: RenderableQuestion = {
         id: gen.id,
@@ -176,16 +218,13 @@ export function MarketMakingLessonPlayer() {
         correctAnswer: gen.correctAnswer,
         explanations: gen.explanations,
       };
-      setExtraAiQuestions((prev) => {
-        const next = [...prev, rq];
-        setIndex(baseQuestions.length + prev.length);
-        return next;
-      });
-      setAnswers((prev) => {
-        const next = [...prev, { selected: null, checked: false }];
-        saveAttempt(lesson.lessonId, round, next);
-        return next;
-      });
+      const basePos = view.findIndex(
+        (v) => v.kind === "base" && v.baseIndex === afterBaseIndex,
+      );
+      const groupCount = bonus.filter((b) => b.after === afterBaseIndex).length;
+      setBonus((prev) => [...prev, { id: gen.id, q: rq, after: afterBaseIndex }]);
+      setBonusAnswers((prev) => ({ ...prev, [gen.id]: { selected: null, checked: false } }));
+      if (basePos >= 0) setIndex(basePos + groupCount + 1);
     } catch (err) {
       setAiError(err instanceof Error ? err.message : "Could not generate question.");
     } finally {
@@ -212,7 +251,8 @@ export function MarketMakingLessonPlayer() {
     if (!lesson) return;
     const newRound = round + 1;
     const fresh = freshAnswers(baseQuestionCount);
-    setExtraAiQuestions([]);
+    setBonus([]);
+    setBonusAnswers({});
     setRound(newRound);
     setAnswers(fresh);
     setIndex(0);
@@ -220,6 +260,7 @@ export function MarketMakingLessonPlayer() {
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
     saveAttempt(lesson.lessonId, newRound, fresh);
+    setRunId((n) => n + 1);
   }
 
   function restart() {
@@ -231,15 +272,17 @@ export function MarketMakingLessonPlayer() {
     )
       return;
     const fresh = freshAnswers(baseQuestionCount);
-    setExtraAiQuestions([]);
+    setBonus([]);
+    setBonusAnswers({});
     setAnswers(fresh);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
     saveAttempt(lesson.lessonId, round, fresh);
-    // A restart is a clean run — the clock starts over too.
+    // A restart is a clean run — the clock and tutor chat start over too.
     timer.reset();
+    setRunId((n) => n + 1);
   }
 
   if (phase === "results" && result) {
@@ -347,7 +390,11 @@ export function MarketMakingLessonPlayer() {
         )}
         <div className="mt-3 flex items-center gap-3">
           <div className="flex-1">
-            <ProgressBar current={index + 1} total={questionCount} label="Question" />
+            <ProgressBar
+              current={currentItem.baseIndex + 1}
+              total={baseQuestions.length}
+              label="Question"
+            />
           </div>
           <span
             className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums text-secondary"
@@ -366,7 +413,18 @@ export function MarketMakingLessonPlayer() {
         onSelect={select}
         getOptionState={getOptionState}
         locked={checked}
-        badge={<DifficultyBadge index={index} questionNumber={index + 1} />}
+        badge={
+          currentItem.kind === "bonus" ? (
+            <span className="inline-flex items-center rounded-full bg-fuchsia-500/15 px-2.5 py-1 text-xs font-semibold text-fuchsia-600 dark:text-fuchsia-400">
+              AI bonus practice
+            </span>
+          ) : (
+            <DifficultyBadge
+              index={currentItem.baseIndex}
+              questionNumber={currentItem.baseIndex + 1}
+            />
+          )
+        }
         footer={
           checked && selected !== null ? (
             <FeedbackPanel
@@ -385,6 +443,7 @@ export function MarketMakingLessonPlayer() {
       />
 
       <QuestionTutorChat
+        key={tutorKey}
         lessonTitle={lesson.title}
         questionText={current.question}
         options={current.options}
@@ -407,7 +466,7 @@ export function MarketMakingLessonPlayer() {
         >
           {aiLoading ? "Generating…" : "Generate AI bonus question"}
         </button>
-        {index >= baseQuestions.length && (
+        {currentItem.kind === "bonus" && (
           <span className="self-center text-xs text-muted">
             AI practice — not counted toward lesson pass
           </span>
@@ -433,11 +492,7 @@ export function MarketMakingLessonPlayer() {
           >
             Check answer
           </button>
-        ) : isLast ? (
-          <button type="button" className="pp-btn-primary" onClick={finish}>
-            Finish lesson
-          </button>
-        ) : isLastBase ? (
+        ) : isLast || isOnLastBase ? (
           <button type="button" className="pp-btn-primary" onClick={finish}>
             Finish lesson
           </button>
