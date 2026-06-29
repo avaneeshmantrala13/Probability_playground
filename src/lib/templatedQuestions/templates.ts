@@ -32,6 +32,12 @@ function money(x: number): string {
   return x < 0 ? `-$${-x}` : `$${x}`;
 }
 
+/** Format an integer number of cents as a dollar string (exact, 2 decimals). */
+function centsToMoney(c: number): string {
+  const s = (Math.abs(c) / 100).toFixed(2);
+  return c < 0 ? `-$${s}` : `$${s}`;
+}
+
 // ---------------------------------------------------------------------------
 // Templates. Each computes the correct answer (and plausible wrong answers)
 // entirely in code, so the answer key is correct by construction.
@@ -275,6 +281,52 @@ function evCoin(rng: RNG): BuiltQuestion {
   };
 }
 
+function expectedValueGame(rng: RNG): BuiltQuestion {
+  // Denominators that divide 100 keep every probability and EV exact to the cent.
+  const d = rng.pick([4, 5, 10, 20, 25, 50]);
+  const a = rng.int(1, d - 1);
+  const win = rng.pick([20, 30, 40, 50, 60, 100]);
+  const lose = -rng.pick([5, 10, 15, 20, 25]);
+  const scale = 100 / d; // integer, since d divides 100
+
+  const term1C = a * win * scale; // cents contributed by the win outcome
+  const term2C = (d - a) * lose * scale; // cents contributed by the loss outcome
+  const evC = term1C + term2C;
+  const pWin = (a / d).toFixed(2);
+  const pLose = ((d - a) / d).toFixed(2);
+
+  return {
+    question: `A trade pays ${money(win)} with probability ${pWin} and ${money(lose)} with probability ${pLose}. What is the expected value of one trade?`,
+    concept: "expected value",
+    correct: {
+      text: centsToMoney(evC),
+      why: `E = ${pWin}×(${money(win)}) + ${pLose}×(${money(lose)}) = ${centsToMoney(term1C)} + (${centsToMoney(term2C)}) = ${centsToMoney(evC)}. The game is ${evC < 0 ? "unfavorable" : "favorable"} on average.`,
+    },
+    distractors: [
+      {
+        text: centsToMoney(term1C),
+        why: `This counts only the winning outcome; the ${pLose} chance of ${money(lose)} must be included.`,
+      },
+      {
+        text: centsToMoney((win + lose) * 50),
+        why: `That is a plain average of the two payoffs; you must weight each by its probability.`,
+      },
+      {
+        text: centsToMoney((a * win + a * lose) * scale),
+        why: `The losing outcome has probability ${pLose}, not ${pWin}.`,
+      },
+      {
+        text: centsToMoney(-evC),
+        why: `Sign slip — the win is positive and the loss is negative; recompute carefully.`,
+      },
+      {
+        text: centsToMoney(term2C),
+        why: `This counts only the losing outcome; the ${pWin} chance of ${money(win)} must be included.`,
+      },
+    ],
+  };
+}
+
 function combinations(rng: RNG): BuiltQuestion {
   const n = rng.int(5, 9);
   const k = rng.int(2, Math.min(4, n - 1));
@@ -426,6 +478,12 @@ export const TEMPLATES: Template[] = [
     lessons: ["lesson_1", "lesson_4"],
     keywords: ["expected value", "expectation", "random variable"],
     build: evCoin,
+  },
+  {
+    id: "ev-game",
+    lessons: ["lesson_1", "lesson_4", "lesson_11"],
+    keywords: ["expected value", "expectation", "random variable"],
+    build: expectedValueGame,
   },
   {
     id: "combinations",
