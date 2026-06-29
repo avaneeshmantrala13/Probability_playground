@@ -60,13 +60,59 @@ Output ONLY valid JSON matching this schema:
   "explanations": { "A": "...", "B": "...", "C": "...", "D": "..." }
 }
 
-Rules:
+CORRECTNESS RULES (these are the most important — a wrong answer key is unacceptable):
+- First solve the problem yourself, step by step, BEFORE writing options. Set
+  "correctAnswer" to the index of the option that equals your computed result.
+- Exactly ONE option may be correct. The other three must be genuinely WRONG values.
+- All four options must be DISTINCT VALUES. Never include two options that are
+  mathematically equal in different forms (e.g. NOT both 1/5 and 2/10, NOT both
+  0.5 and 1/2, NOT both 50% and 1/2). If a distractor reduces to the correct
+  value, replace it with a different wrong value.
+- Prefer presenting numeric answers in one consistent form (e.g. all reduced
+  fractions, or all decimals) so equivalent duplicates can't sneak in.
+- Re-read the question and confirm the correct option is actually correct and
+  that no other option is also correct before responding.
+
+OTHER RULES:
 - correctAnswer is 0-based index into options (0-3).
 - Every explanation must be thorough yet concise (2-4 sentences): why that option is right or wrong.
 - Questions must be ORIGINAL — do not copy known interview questions verbatim.
 - Difficulty should match the requested tier.
-- Use realistic quant interview style (clean numbers, clear wording).
+- Use realistic quant interview style (clean numbers, clear wording, unambiguous answer).
 - No markdown in strings.`;
+
+/**
+ * Independent verifier: a fresh solve of an already-generated MCQ, used to catch
+ * wrong answer keys and duplicate-valued options before a question is shown.
+ */
+export const QUESTION_VERIFY_SYSTEM = `You are a meticulous quant grader. You are given a multiple-choice question and its four options. Solve it independently from scratch — do NOT assume any option is correct.
+
+Output ONLY valid JSON matching this schema:
+{
+  "correctIndex": 0,
+  "isSolvable": true,
+  "hasDuplicateValues": false,
+  "isAmbiguous": false,
+  "confidence": "high"
+}
+
+Definitions:
+- "correctIndex": 0-based index (0-3) of the single option that matches YOUR own worked-out answer. If none match exactly, set isSolvable to false.
+- "isSolvable": true only if the question is well-posed and exactly one option equals the correct answer.
+- "hasDuplicateValues": true if any two options represent the SAME numeric value in different forms (e.g. 1/5 and 2/10, or 0.5 and 1/2), or are otherwise both valid answers.
+- "isAmbiguous": true if the wording is unclear or more than one option could be defended as correct.
+- "confidence": "high" | "medium" | "low" — your confidence in correctIndex.
+Be strict: when in doubt, lower confidence or mark the issue.`;
+
+export function questionVerifyUserPrompt(opts: {
+  question: string;
+  options: string[];
+}): string {
+  const lettered = opts.options
+    .map((o, i) => `${["A", "B", "C", "D"][i]}) ${o}`)
+    .join("\n");
+  return `Question: ${opts.question}\n\nOptions:\n${lettered}\n\nSolve it yourself and return the JSON.`;
+}
 
 export function questionGenUserPrompt(opts: {
   lessonTitle: string;
