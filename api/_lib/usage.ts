@@ -1,5 +1,5 @@
 import { FieldValue } from "firebase-admin/firestore";
-import { getDb } from "./admin";
+import { getDb } from "./admin.js";
 
 /**
  * Persistent per-uid daily AI usage counter (server-side free-tier enforcement).

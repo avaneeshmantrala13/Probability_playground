@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
-import { verifyBearerToken } from "./_lib/firebase-auth";
+import { verifyBearerToken } from "./_lib/firebase-auth.js";
 
 /** Mirrors src/lib/payments/pricing.ts — kept inline for Vercel ESM bundling. */
 const SP_TOKEN_PACK_AMOUNT = 1000;

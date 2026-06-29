@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifyBearerToken } from "./_lib/firebase-auth";
-import { checkRateLimit } from "./_lib/rate-limit";
-import { consumeDailyQuota } from "./_lib/usage";
+import { verifyBearerToken } from "./_lib/firebase-auth.js";
+import { checkRateLimit } from "./_lib/rate-limit.js";
+import { consumeQuotaSafe } from "./_lib/quota.js";
 
 /**
  * AI LIVE MOCK INTERVIEW — conversational quant interviewer.
@@ -235,7 +235,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // unit per interview by metering only the opening turn; feedback + follow-up
   // turns of an in-progress interview are not re-charged.
   if (mode === "interview" && messages.length === 0) {
-    const quota = await consumeDailyQuota(session.uid, "mock", { freeLimit: 1 });
+    const quota = await consumeQuotaSafe(session.uid, "mock", 1);
     if (!quota.ok) {
       return res.status(429).json({
         error: `Live mock interviews aren't included on the free plan. Upgrade at /pricing to run unlimited mocks.`,

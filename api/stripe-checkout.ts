@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
-import { verifyBearerToken } from "./_lib/firebase-auth";
+import { verifyBearerToken } from "./_lib/firebase-auth.js";
 
 /**
  * Creates a Stripe Checkout Session for a subscription tier or a one-time

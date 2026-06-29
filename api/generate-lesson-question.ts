@@ -1,9 +1,9 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifyBearerToken } from "./_lib/firebase-auth";
-import { chatCompletion } from "./_lib/openai";
-import { checkRateLimit } from "./_lib/rate-limit";
-import { consumeDailyQuota } from "./_lib/usage";
-import { QUESTION_GEN_SYSTEM, questionGenUserPrompt } from "./_lib/prompts";
+import { verifyBearerToken } from "./_lib/firebase-auth.js";
+import { chatCompletion } from "./_lib/openai.js";
+import { checkRateLimit } from "./_lib/rate-limit.js";
+import { consumeQuotaSafe } from "./_lib/quota.js";
+import { QUESTION_GEN_SYSTEM, questionGenUserPrompt } from "./_lib/prompts.js";
 
 // Free-tier daily cap for AI-generated lesson questions (server-side margin guard).
 const FREE_LESSON_GEN_PER_DAY = 10;
@@ -35,9 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Quota enforcement must never break generation: fail open on any error.
-    const quota = await consumeDailyQuota(session.uid, "lesson_gen", {
-      freeLimit: FREE_LESSON_GEN_PER_DAY,
-    }).catch(() => ({ ok: true as const, used: 0, limit: FREE_LESSON_GEN_PER_DAY }));
+    const quota = await consumeQuotaSafe(session.uid, "lesson_gen", FREE_LESSON_GEN_PER_DAY);
     if (!quota.ok) {
       return res.status(429).json({
         error: `You've reached today's free limit of ${quota.limit} AI-generated questions. Upgrade at /pricing for unlimited practice.`,

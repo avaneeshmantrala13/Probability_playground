@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifyBearerToken } from "./_lib/firebase-auth";
-import { checkRateLimit } from "./_lib/rate-limit";
-import { consumeDailyQuota } from "./_lib/usage";
+import { verifyBearerToken } from "./_lib/firebase-auth.js";
+import { checkRateLimit } from "./_lib/rate-limit.js";
+import { consumeQuotaSafe } from "./_lib/quota.js";
 
 // Core gameplay flavor — keep the free cap generous so the table never goes
 // quiet. On block we degrade to the client fallback line (no hard 429).
@@ -44,9 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ line: fallback || null });
   }
 
-  const quota = await consumeDailyQuota(session.uid, "poker_line", {
-    freeLimit: FREE_POKER_LINES_PER_DAY,
-  });
+  const quota = await consumeQuotaSafe(session.uid, "poker_line", FREE_POKER_LINES_PER_DAY);
   if (!quota.ok) {
     return res.status(200).json({ line: fallback || null });
   }

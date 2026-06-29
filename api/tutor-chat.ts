@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifyBearerToken } from "./_lib/firebase-auth";
-import { checkRateLimit } from "./_lib/rate-limit";
-import { consumeDailyQuota } from "./_lib/usage";
-import { QUANT_TUTOR_SYSTEM, tutorStateInstruction } from "./_lib/prompts";
+import { verifyBearerToken } from "./_lib/firebase-auth.js";
+import { checkRateLimit } from "./_lib/rate-limit.js";
+import { consumeQuotaSafe } from "./_lib/quota.js";
+import { QUANT_TUTOR_SYSTEM, tutorStateInstruction } from "./_lib/prompts.js";
 
 // Mirrors src/lib/billing/plans.ts FREE_LIMITS.aiTutorPerDay (api bundles separately).
 const FREE_TUTOR_PER_DAY = 5;
@@ -34,9 +34,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Quota enforcement must never break tutoring: fail open on any error.
-    const quota = await consumeDailyQuota(session.uid, "tutor", {
-      freeLimit: FREE_TUTOR_PER_DAY,
-    }).catch(() => ({ ok: true as const, used: 0, limit: FREE_TUTOR_PER_DAY }));
+    const quota = await consumeQuotaSafe(session.uid, "tutor", FREE_TUTOR_PER_DAY);
     if (!quota.ok) {
       return res.status(429).json({
         error: `You've hit today's free AI tutor limit (${quota.limit}/day). Upgrade at /pricing for unlimited tutoring.`,
