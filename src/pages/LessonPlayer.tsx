@@ -20,6 +20,7 @@ import type { OptionState } from "../components/lesson/OptionButton";
 import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
 import { fetchGeneratedQuestion } from "../lib/ai/client";
+import { generateLocalQuestion } from "../lib/templatedQuestions";
 import type { RenderableQuestion } from "../content/types";
 import { ChevronRightIcon, ClockIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
@@ -215,13 +216,24 @@ export function LessonPlayer() {
     setAiLoading(true);
     const afterBaseIndex = currentItem.baseIndex;
     try {
-      const gen = await fetchGeneratedQuestion({
-        lessonId: lesson.lessonId,
-        lessonTitle: lesson.title,
-        topics: lesson.topics,
-        order: lesson.order,
-        conceptHint: lesson.topics[afterBaseIndex % lesson.topics.length],
-      });
+      const conceptHint = lesson.topics[afterBaseIndex % lesson.topics.length];
+      // Prefer a code-computed question (answer key guaranteed correct); only
+      // fall back to the verified-LLM generator when no template covers this lesson.
+      const gen =
+        generateLocalQuestion({
+          lessonId: lesson.lessonId,
+          title: lesson.title,
+          topics: lesson.topics,
+          order: lesson.order,
+          conceptHint,
+        }) ??
+        (await fetchGeneratedQuestion({
+          lessonId: lesson.lessonId,
+          lessonTitle: lesson.title,
+          topics: lesson.topics,
+          order: lesson.order,
+          conceptHint,
+        }));
       const rq: RenderableQuestion = {
         id: gen.id,
         question: gen.question,

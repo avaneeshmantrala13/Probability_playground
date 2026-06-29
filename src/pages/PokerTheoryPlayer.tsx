@@ -20,6 +20,7 @@ import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { IntroModal } from "../components/lesson/IntroModal";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
 import { fetchGeneratedQuestion } from "../lib/ai/client";
+import { generateLocalQuestion } from "../lib/templatedQuestions";
 import type { OptionState } from "../components/lesson/OptionButton";
 import { CheckIcon, ChevronRightIcon, ClockIcon, TrophyIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
@@ -263,13 +264,22 @@ export function PokerTheoryPlayer() {
     setAiLoading(true);
     const afterBaseIndex = currentItem.baseIndex;
     try {
-      const gen = await fetchGeneratedQuestion({
-        lessonId: lesson.lessonId,
-        lessonTitle: lesson.title,
-        topics: lesson.topics,
-        order: lesson.order,
-        conceptHint: lesson.topics[afterBaseIndex % lesson.topics.length],
-      });
+      const conceptHint = lesson.topics[afterBaseIndex % lesson.topics.length];
+      const gen =
+        generateLocalQuestion({
+          lessonId: lesson.lessonId,
+          title: lesson.title,
+          topics: lesson.topics,
+          order: lesson.order,
+          conceptHint,
+        }) ??
+        (await fetchGeneratedQuestion({
+          lessonId: lesson.lessonId,
+          lessonTitle: lesson.title,
+          topics: lesson.topics,
+          order: lesson.order,
+          conceptHint,
+        }));
       const rq: RenderableQuestion = {
         id: gen.id,
         question: gen.question,
