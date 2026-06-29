@@ -22,9 +22,6 @@
     "api/tutor-chat.ts": {
       "maxDuration": 30
     },
-    "api/generate-lesson-question.ts": {
-      "maxDuration": 45
-    },
     "api/poker-bot-line.ts": {
       "maxDuration": 20
     }

@@ -44,25 +44,6 @@ async function readError(res: Response, fallback: string): Promise<string> {
   return text.trim().slice(0, 200) || `${fallback} (HTTP ${res.status}).`;
 }
 
-export async function fetchGeneratedQuestion(body: {
-  lessonId: string;
-  lessonTitle: string;
-  topics: string[];
-  order: number;
-  conceptHint?: string;
-}): Promise<GeneratedQuestion> {
-  const res = await fetch("/api/generate-lesson-question", {
-    method: "POST",
-    headers: await authHeaders(),
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    throw new Error(await readError(res, "Could not generate question."));
-  }
-  const data = (await res.json()) as { question: GeneratedQuestion };
-  return data.question;
-}
-
 /**
  * Ask the LLM to rephrase a question's wording for variety. Returns the reworded
  * stem, or null if the server declined (no key, quota, or any error). The CALLER
