@@ -93,6 +93,8 @@ interface ProgressContextValue {
   freePlayMinutesRemaining: number;
   /** True when the most recent save attempts all failed (progress at risk). */
   saveFailed: boolean;
+  /** Short reason for the most recent save failure (null when saving is OK). */
+  saveErrorReason: string | null;
   /** Manually retry persisting the latest progress to the server right now. */
   retrySave: () => void;
 }
@@ -109,6 +111,20 @@ const SAVE_ATTEMPT_BACKOFF_MS = [0, 700, 2000, 5000];
 // While a save is known-failed, retry the latest snapshot on this cadence so it
 // lands as soon as connectivity (or a fixed permission) recovers.
 const SAVE_RETRY_INTERVAL_MS = 12_000;
+
+/** Turn a Firestore/save error into a short, user- and dev-readable reason. */
+function describeSaveError(err: unknown): string {
+  const code = (err as { code?: string } | null)?.code;
+  if (code === "permission-denied") {
+    return "permission-denied (Firestore security rules rejected the write)";
+  }
+  if (code === "unavailable" || code === "deadline-exceeded") {
+    return "network unavailable — will retry";
+  }
+  if (code) return code;
+  const msg = (err as { message?: string } | null)?.message;
+  return msg ? msg.slice(0, 160) : "unknown error";
+}
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const { user, loading: authLoading } = useAuth();
@@ -128,8 +144,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   // Surfaced to the UI so a dropped write can never *silently* lose progress —
   // the user sees a warning and we keep retrying in the background.
   const [saveFailed, setSaveFailed] = useState(false);
+  // Human-readable reason for the most recent failure, shown in the banner and
+  // logged — turns "it won't save" into an actionable diagnosis (e.g. a
+  // permission-denied means a rules problem, vs. an offline/network blip).
+  const [saveErrorReason, setSaveErrorReason] = useState<string | null>(null);
   const saveFailedRef = useRef(false);
-  const setSaveFailedState = useCallback((failed: boolean) => {
+  const setSaveFailedState = useCallback((failed: boolean, reason?: string | null) => {
+    setSaveErrorReason(failed ? reason ?? null : null);
     if (saveFailedRef.current === failed) return;
     saveFailedRef.current = failed;
     setSaveFailed(failed);
@@ -142,6 +163,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const persistProgress = useCallback(
     (uid: string, snapshot: CourseProgress) => {
       void (async () => {
+        let lastReason: string | null = null;
         for (let attempt = 0; attempt < SAVE_ATTEMPT_BACKOFF_MS.length; attempt++) {
           if (attempt > 0) {
             await new Promise((r) => setTimeout(r, SAVE_ATTEMPT_BACKOFF_MS[attempt]));
@@ -153,13 +175,14 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
             setSaveFailedState(false);
             return;
           } catch (err) {
+            lastReason = describeSaveError(err);
             console.error(
-              `[progress] save attempt ${attempt + 1}/${SAVE_ATTEMPT_BACKOFF_MS.length} failed — progress not yet persisted:`,
+              `[progress] save attempt ${attempt + 1}/${SAVE_ATTEMPT_BACKOFF_MS.length} failed (${lastReason}) — progress not yet persisted:`,
               err,
             );
           }
         }
-        setSaveFailedState(true);
+        setSaveFailedState(true, lastReason);
       })();
     },
     [setSaveFailedState],
@@ -665,6 +688,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       quizLives: progress.quizLives ?? 0,
       freePlayMinutesRemaining: progress.freePlayMinutesRemaining ?? 0,
       saveFailed,
+      saveErrorReason,
       retrySave,
     }),
     [
@@ -690,6 +714,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       consumeQuizLife,
       tickFreePlayMinutes,
       saveFailed,
+      saveErrorReason,
       retrySave,
     ],
   );
