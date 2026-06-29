@@ -19,8 +19,7 @@ import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
 import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { IntroModal } from "../components/lesson/IntroModal";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
-import { fetchGeneratedQuestion } from "../lib/ai/client";
-import { generateLocalQuestion } from "../lib/templatedQuestions";
+import { getVerifiedBonusQuestion } from "../lib/practice/bonus";
 import type { OptionState } from "../components/lesson/OptionButton";
 import { CheckIcon, ChevronRightIcon, ClockIcon, TrophyIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
@@ -265,21 +264,15 @@ export function PokerTheoryPlayer() {
     const afterBaseIndex = currentItem.baseIndex;
     try {
       const conceptHint = lesson.topics[afterBaseIndex % lesson.topics.length];
-      const gen =
-        generateLocalQuestion({
-          lessonId: lesson.lessonId,
-          title: lesson.title,
-          topics: lesson.topics,
-          order: lesson.order,
-          conceptHint,
-        }) ??
-        (await fetchGeneratedQuestion({
-          lessonId: lesson.lessonId,
-          lessonTitle: lesson.title,
-          topics: lesson.topics,
-          order: lesson.order,
-          conceptHint,
-        }));
+      // Only trusted sources are served: a code-computed template (the LLM may
+      // reword it, with every number preserved) or a human-vetted bank question.
+      const gen = await getVerifiedBonusQuestion({
+        lessonId: lesson.lessonId,
+        title: lesson.title,
+        topics: lesson.topics,
+        order: lesson.order,
+        conceptHint,
+      });
       const rq: RenderableQuestion = {
         id: gen.id,
         question: gen.question,

@@ -63,6 +63,32 @@ export async function fetchGeneratedQuestion(body: {
   return data.question;
 }
 
+/**
+ * Ask the LLM to rephrase a question's wording for variety. Returns the reworded
+ * stem, or null if the server declined (no key, quota, or any error). The CALLER
+ * must verify the numbers are unchanged before using it — correctness is never
+ * delegated to this call.
+ */
+export async function rewordQuestionStem(stem: string): Promise<string | null> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 6000);
+  try {
+    const res = await fetch("/api/reword-question", {
+      method: "POST",
+      headers: await authHeaders(),
+      body: JSON.stringify({ stem }),
+      signal: controller.signal,
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { question: string | null };
+    return data.question ?? null;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 export async function sendTutorMessage(body: {
   lessonTitle: string;
   questionText: string;

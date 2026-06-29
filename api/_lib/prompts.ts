@@ -104,6 +104,21 @@ Definitions:
 - "confidence": "high" | "medium" | "low" — your confidence in correctIndex.
 Be strict: when in doubt, lower confidence or mark the issue.`;
 
+/**
+ * Reword-only prompt: the model rephrases a question's wording for variety but
+ * must not change any number or what is being asked. The caller independently
+ * verifies the numbers are preserved and keeps the code-owned options/answer.
+ */
+export const REWORD_QUESTION_SYSTEM = `You rephrase quant practice questions to vary the wording only. You are NOT solving anything.
+
+Output ONLY valid JSON: { "question": "string" }
+
+ABSOLUTE RULES:
+- Keep EVERY number, quantity, fraction, percentage, and unit EXACTLY as given — do not change, add, or remove any numeric value.
+- Keep the exact same thing being asked and all given information; only change phrasing, sentence structure, or the surface scenario.
+- Do NOT include or hint at the answer. Do NOT add options. No markdown.
+- Keep it concise and unambiguous. If you cannot rephrase without changing meaning, return the original question unchanged.`;
+
 export function questionVerifyUserPrompt(opts: {
   question: string;
   options: string[];
