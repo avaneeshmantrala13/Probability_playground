@@ -15,6 +15,192 @@
     "Because samples vary, every estimate carries uncertainty. The standard error measures how much an estimator would bounce around if you repeated the sampling. A confidence interval wraps a point estimate with a margin that reflects that uncertainty — for example, a 95% CI means that if you repeated the experiment many times, about 95% of the intervals would contain the true parameter.",
     "Estimation closes the loop from data to decisions: point estimates, confidence intervals, and bias corrections appear whenever quants infer parameters from samples. Stat 110's statistical inference thread and Green Book brain teasers both test whether you know what a 95% interval actually means—and whether dividing by n versus n−1 matters for unbiased variance. The challenges below stress interpretation and computation, not rote formula memorization."
   ],
+  "primer": [
+    {
+      "heading": "Estimators: a guess that is itself random",
+      "body": [
+        "A **parameter** is a fixed but unknown number about the population — the true mean `μ`, variance `σ²`, or a Sharpe ratio. An **estimator** is a recipe applied to a sample to guess it; the **estimate** is the number you get. The sample mean `x̄` estimates `μ`; the sample variance `s²` estimates `σ²`.",
+        "The key mental shift: because the sample is random, the estimator is a **random variable** with its own distribution. Re-draw the data and you get a different `x̄`. Everything else in this lesson — bias, standard error, confidence intervals — is just describing that distribution."
+      ],
+      "keyTerms": [
+        { "term": "Parameter (θ)", "definition": "A fixed, unknown population quantity, e.g. `μ` or `σ²`." },
+        { "term": "Estimator (θ̂)", "definition": "A function of the sample used to guess θ. It is itself random." },
+        { "term": "Sampling distribution", "definition": "The distribution of an estimator across all possible samples." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "The core idea",
+        "text": "`θ` is fixed; `θ̂` is random. Inference is the study of how the random estimate scatters around the fixed truth."
+      }
+    },
+    {
+      "heading": "Bias and Bessel's correction",
+      "body": [
+        "**Bias** is the systematic part of an estimator's error: `Bias(θ̂) = E[θ̂] − θ`. An estimator is **unbiased** when `E[θ̂] = θ` — right *on average*, even if any single estimate misses. The sample mean is unbiased: `E[x̄] = μ`.",
+        "Sample variance is the famous gotcha. Measuring deviations from `x̄` (not the unknown `μ`) understates spread, so dividing by `n` is biased *low*. Dividing by `n − 1` — **Bessel's correction** — fixes it, because estimating the mean already consumed one **degree of freedom**."
+      ],
+      "keyTerms": [
+        { "term": "Bias", "definition": "`E[θ̂] − θ`. Zero bias means correct on average." },
+        { "term": "Bessel's correction", "definition": "Dividing the sample variance by `n − 1` to make it unbiased for `σ²`." },
+        { "term": "Degrees of freedom", "definition": "Independent pieces of information left after estimating; using `x̄` costs one." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "s² = Σ(xᵢ − x̄)² / (n − 1),     E[s²] = σ²",
+        "caption": "The n − 1 divisor makes the sample variance unbiased."
+      },
+      "example": {
+        "prompt": "Why divide by `n − 1 = 2` for the sample `{4, 6, 8}` instead of 3?",
+        "steps": [
+          "`x̄ = 6`; squared deviations `4 + 0 + 4 = 8`.",
+          "Dividing by `n = 3` gives `2.67`, which is biased low.",
+          "Dividing by `n − 1 = 2` gives `4`, the unbiased estimate."
+        ],
+        "result": "s² = 4. The n − 1 divisor compensates for using x̄ in place of μ."
+      }
+    },
+    {
+      "heading": "Standard error and the √n law",
+      "body": [
+        "The **standard error (SE)** is the standard deviation of an estimator. For the sample mean, `Var(x̄) = σ²/n`, so `SE(x̄) = σ/√n`. More data means a tighter sampling distribution and a more precise estimate.",
+        "Note the punishing `√n`: precision improves with the *square root* of sample size, so **halving** your error costs **4×** the data. This single fact governs how long an A/B test must run and why a strategy needs years of returns before its Sharpe is trustworthy."
+      ],
+      "keyTerms": [
+        { "term": "Standard error", "definition": "The SD of an estimator; for the mean, `σ/√n`." },
+        { "term": "√n law", "definition": "Error shrinks like `1/√n`; 4× the data to halve the error." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "SE(x̄) = σ / √n",
+        "caption": "Standard error of the sample mean for known σ."
+      },
+      "example": {
+        "prompt": "`σ = 20`. How does SE change going from `n = 100` to `n = 400`?",
+        "steps": [
+          "`n = 100`: `SE = 20/√100 = 20/10 = 2`.",
+          "`n = 400`: `SE = 20/√400 = 20/20 = 1`.",
+          "4× the data halved the SE — exactly the `√n` law."
+        ],
+        "result": "SE drops from 2 to 1; quadrupling n halves the error."
+      }
+    },
+    {
+      "heading": "Confidence intervals",
+      "body": [
+        "A **confidence interval (CI)** wraps a point estimate in a margin that reflects sampling uncertainty: `x̄ ± z·SE`. The **critical value** `z` comes from the reference distribution — `1.96` for a 95% interval under normality, `2.58` for 99%.",
+        "Two practical notes. The half-width `z·SE` is the **margin of error**. And when `σ` is *unknown* (the usual case) you estimate it with `s` and swap the normal `z` for a **Student-t** critical value, which is slightly wider to pay for that extra uncertainty — they converge as `n` grows."
+      ],
+      "keyTerms": [
+        { "term": "Confidence interval", "definition": "`x̄ ± z·SE`, a range of plausible values for the parameter." },
+        { "term": "Margin of error", "definition": "The half-width `z·SE` of the interval." },
+        { "term": "z vs t", "definition": "Use z when σ is known/normal; use the wider Student-t when σ is estimated from a small sample." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "CI = x̄ ± z · (σ/√n),     z₉₅% = 1.96",
+        "caption": "A 95% confidence interval for the mean (known σ)."
+      },
+      "example": {
+        "prompt": "`x̄ = 50`, `σ = 8`, `n = 64`. Build a 95% CI for `μ`.",
+        "steps": [
+          "`SE = 8/√64 = 8/8 = 1`.",
+          "Margin = `1.96 × 1 = 1.96`.",
+          "CI = `50 ± 1.96 = [48.04, 51.96]`."
+        ],
+        "result": "[48.04, 51.96] — a tight interval because n is large."
+      }
+    },
+    {
+      "heading": "What 95% confidence really means",
+      "body": [
+        "The interview trap: a 95% CI does **not** say 'there is a 95% probability `μ` is in *this* interval'. Once computed, the interval is fixed and `μ` is fixed — `μ` is either in it or not. The 95% is a property of the **procedure**: across many repeated samples, about 95% of the intervals it builds would cover the true `μ`.",
+        "Get this phrasing right and you signal you understand the frequentist framework. (The Bayesian object that *does* support 'probability the parameter is in here' is a **credible interval**, built from a posterior — a different tool.)"
+      ],
+      "keyTerms": [
+        { "term": "Coverage", "definition": "The long-run fraction of CIs from a procedure that contain the true parameter." },
+        { "term": "Credible interval", "definition": "The Bayesian analogue that does allow a direct probability statement about θ." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Say it correctly",
+        "text": "95% describes the long-run hit rate of the method, NOT the probability that a single realized interval traps a fixed μ."
+      }
+    },
+    {
+      "heading": "Maximum likelihood estimation",
+      "body": [
+        "**Maximum likelihood estimation (MLE)** picks the parameter that makes the observed data **most probable** under the model: maximize the likelihood `L(θ) = Π f(xᵢ; θ)` (usually its log, which turns products into sums).",
+        "MLEs are the workhorse of quant modeling — fitting volatility models, logistic classifiers, and more. For a normal with known variance the MLE of the mean is exactly `x̄`; for the variance the MLE divides by `n` (so it is biased, and Bessel's `n − 1` is the unbiased correction). MLEs are **consistent** and **asymptotically efficient**, but not always unbiased — a trade-off interviewers like to probe."
+      ],
+      "keyTerms": [
+        { "term": "Likelihood", "definition": "`L(θ) = Π f(xᵢ; θ)`, the probability of the data viewed as a function of θ." },
+        { "term": "MLE", "definition": "The θ that maximizes the (log-)likelihood of the observed data." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "θ̂_MLE = argmax_θ  Σ log f(xᵢ; θ)",
+        "caption": "Maximize the log-likelihood; for the normal mean this gives x̄."
+      },
+      "example": {
+        "prompt": "Flip a coin 10 times, see 7 heads. What is the MLE of `p`?",
+        "steps": [
+          "Likelihood `L(p) = p⁷(1 − p)³`.",
+          "Maximize `log L`; setting the derivative to 0 gives `p = 7/10`.",
+          "The MLE is just the observed proportion."
+        ],
+        "result": "p̂ = 0.7 — MLE returns the sample frequency."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Estimators",
+      "title": "Your guess is random too",
+      "caption": "A parameter is a fixed but unknown number about the population, like the true mean. An estimator is a recipe you apply to a sample to guess it. The crucial idea is that because the sample is random, the estimate is random too. Re-draw the data and you get a different answer. Everything in estimation describes how that guess scatters around the truth.",
+      "bullets": [
+        "Parameter = fixed unknown truth (μ, σ²)",
+        "Estimator = sample recipe to guess it",
+        "The estimate is itself a random variable"
+      ]
+    },
+    {
+      "term": "Bias",
+      "title": "Right on average",
+      "caption": "Bias is the expected value of the estimator minus the true parameter. An estimator is unbiased when it is correct on average. The sample mean is unbiased. But sample variance is the classic gotcha: measuring spread around the sample mean understates it, so we divide by n minus one instead of n. That is Bessel's correction, and it pays back the one degree of freedom spent estimating the mean.",
+      "visual": { "kind": "formula", "expression": "s² = Σ(xᵢ − x̄)²/(n−1),  E[s²] = σ²" }
+    },
+    {
+      "term": "Standard error",
+      "title": "Precision costs data",
+      "caption": "The standard error is the standard deviation of an estimator. For the sample mean it is sigma over the square root of n. More data gives a tighter estimate. But notice the square root: precision only improves with the square root of sample size, so to cut your error in half you need four times the data. That single fact decides how long an experiment must run.",
+      "visual": { "kind": "formula", "expression": "SE(x̄) = σ/√n" }
+    },
+    {
+      "term": "Confidence intervals",
+      "title": "A guess with a margin",
+      "caption": "A confidence interval wraps the point estimate in a margin of error. It is the sample mean plus or minus a critical value times the standard error. For ninety-five percent confidence under normality, that critical value is one point nine six. When the standard deviation is unknown, you estimate it and use the slightly wider Student t value instead.",
+      "visual": { "kind": "formula", "expression": "CI = x̄ ± 1.96·(σ/√n)" }
+    },
+    {
+      "term": "Interpreting 95%",
+      "title": "The interview trap",
+      "caption": "Here is the trap. A ninety-five percent confidence interval does not mean there is a ninety-five percent chance the true mean is in this particular interval. Once computed, both the interval and the true mean are fixed. The ninety-five percent is a property of the procedure: across many repeated samples, about ninety-five percent of the intervals it builds would contain the true mean.",
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Coverage, not a single-interval probability",
+        "text": "95% is the long-run hit rate of the method, not the chance one fixed interval traps μ."
+      }
+    },
+    {
+      "term": "Maximum likelihood",
+      "title": "Make the data most probable",
+      "caption": "Maximum likelihood estimation picks the parameter value that makes the data you actually observed most probable under the model. You write the likelihood, take its logarithm to turn products into sums, and maximize. For a normal mean it returns the sample mean, and for a coin it returns the observed fraction of heads. It is consistent and efficient, though not always unbiased.",
+      "visual": { "kind": "formula", "expression": "θ̂_MLE = argmax_θ Σ log f(xᵢ; θ)" }
+    }
+  ],
   "questions": [
     {
       "id": "l8_q1",

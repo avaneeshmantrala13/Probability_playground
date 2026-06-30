@@ -15,6 +15,192 @@
     "Covariance captures whether two variables move together (positive), move in opposite directions (negative), or show no linear relationship (zero). Correlation rescales covariance to a number between -1 and 1. The law of large numbers (LLN) says that as you repeat independent trials, the sample average converges to the true expected value — the foundation of Monte Carlo methods and statistical estimation in quant interviews.",
     "Variance and the law of large numbers bridge classroom probability and real quant work: risk is spread, portfolios combine covariances, and Monte Carlo averages converge because sample means stabilize. Stat 110 pairs Var(X) computations with the LLN story—repeat independent trials and noise in the average shrinks. Interviewers love asking whether diversification lowers portfolio variance or why a simulation with 10 draws looks noisy but 10,000 draws does not."
   ],
+  "primer": [
+    {
+      "heading": "Variance: spread, two ways to compute it",
+      "body": [
+        "**Variance** is the expected squared deviation from the mean: `Var(X) = E[(X − μ)²]`. It is always `≥ 0`, and it is `0` only for a constant. The catch is units — variance is in *squared* units, which is why we often report its root.",
+        "Expanding the square gives the **computational formula** `Var(X) = E[X²] − (E[X])²`. This is the version you actually use in interviews: compute the first and second moments, then subtract the square of the mean."
+      ],
+      "keyTerms": [
+        { "term": "Variance", "definition": "`E[(X − μ)²]`, the average squared distance from the mean. Never negative." },
+        { "term": "Computational formula", "definition": "`Var(X) = E[X²] − (E[X])²`. Faster than working with deviations directly." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "Var(X) = E[(X − μ)²] = E[X²] − (E[X])²",
+        "caption": "Definition (left) and the shortcut used in practice (right)."
+      },
+      "example": {
+        "prompt": "A fair die shows `1…6`. Find `Var(X)`.",
+        "steps": [
+          "`E[X] = 3.5`.",
+          "`E[X²] = (1 + 4 + 9 + 16 + 25 + 36)/6 = 91/6 ≈ 15.17`.",
+          "`Var(X) = 91/6 − 3.5² = 15.17 − 12.25 = 35/12 ≈ 2.92`."
+        ],
+        "result": "Var(X) = 35/12 ≈ 2.92 — the moment formula beats listing deviations."
+      }
+    },
+    {
+      "heading": "Standard deviation and scaling",
+      "body": [
+        "**Standard deviation** `SD(X) = √Var(X)` restores the original units — a return in percent has an SD in percent, which is why desks quote risk this way. (Correlation, later, is the dimensionless one.)",
+        "Scaling follows a strict rule: `Var(aX + b) = a²·Var(X)`. Adding a constant `b` shifts the mean but never changes spread; multiplying by `a` scales SD by `|a|`. This is the algebra behind the famous **`√t` rule**: independent daily moves accumulate variance linearly, so volatility grows with the square root of horizon."
+      ],
+      "keyTerms": [
+        { "term": "Standard deviation", "definition": "`√Var(X)`; same units as X. In finance, the volatility." },
+        { "term": "Affine scaling", "definition": "`Var(aX + b) = a²Var(X)`. Shifts don't matter; scales square." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "Var(aX + b) = a²·Var(X)        σ_T = σ_daily · √T",
+        "caption": "Variance scales with a²; volatility scales with √horizon for independent increments."
+      },
+      "example": {
+        "prompt": "Daily volatility is `2%`. What is the annual volatility (252 trading days)?",
+        "steps": [
+          "Independent daily variances add: `Var_year = 252 · Var_day`.",
+          "So `σ_year = σ_day · √252`.",
+          "`2% × √252 ≈ 2% × 15.87 ≈ 31.7%`."
+        ],
+        "result": "≈ 31.7% annualized — volatility scales with √t, not t."
+      }
+    },
+    {
+      "heading": "Covariance: do they move together?",
+      "body": [
+        "**Covariance** measures *joint* movement: `Cov(X, Y) = E[(X − μₓ)(Y − μᵧ)] = E[XY] − E[X]E[Y]`. Positive means above-average X tends to come with above-average Y; negative means they offset; zero means no *linear* co-movement.",
+        "Two cautions interviewers probe. First, covariance has awkward units (units of X times units of Y), so its raw size is hard to read — that motivates correlation. Second, **independence implies zero covariance, but the converse is false**: `Y = X²` with symmetric `X` has `Cov = 0` yet the two are clearly dependent."
+      ],
+      "keyTerms": [
+        { "term": "Covariance", "definition": "`E[XY] − E[X]E[Y]`. Sign shows the direction of linear co-movement." },
+        { "term": "Uncorrelated ≠ independent", "definition": "Zero covariance rules out linear association only; nonlinear dependence can still exist." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "The classic trap",
+        "text": "Independent ⟹ Cov = 0, but Cov = 0 does NOT imply independent. Covariance sees only the linear part of a relationship."
+      },
+      "example": {
+        "prompt": "Find `Cov(X, Y)` if `E[XY] = 10`, `E[X] = 2`, `E[Y] = 4`.",
+        "steps": [
+          "Apply `Cov(X, Y) = E[XY] − E[X]E[Y]`.",
+          "`= 10 − (2)(4) = 10 − 8`."
+        ],
+        "result": "Cov(X, Y) = 2 > 0 → they tend to move together."
+      }
+    },
+    {
+      "heading": "Correlation: covariance, normalized",
+      "body": [
+        "**Correlation** rescales covariance by the two standard deviations: `ρ = Cov(X, Y) / (σₓ·σᵧ)`. The Cauchy–Schwarz inequality forces it into `[−1, 1]`, and it is **dimensionless**, so you can compare any two pairs of variables on the same scale.",
+        "`ρ = +1` means a perfect increasing line, `ρ = −1` a perfect decreasing line, and `ρ = 0` no linear relationship. Magnitude is what matters: `ρ = 0.9` between two strategies means they are nearly the same bet."
+      ],
+      "keyTerms": [
+        { "term": "Correlation (ρ)", "definition": "`Cov(X,Y)/(σₓσᵧ)`, bounded in `[−1, 1]` and unit-free." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "ρ(X, Y) = Cov(X, Y) / ( SD(X)·SD(Y) ),     −1 ≤ ρ ≤ 1",
+        "caption": "Correlation is normalized covariance."
+      },
+      "example": {
+        "prompt": "`Cov(X, Y) = 0.02`, `σₓ = 0.2`, `σᵧ = 0.2`. Find `ρ`.",
+        "steps": [
+          "`ρ = 0.02 / (0.2 × 0.2)`.",
+          "`= 0.02 / 0.04`."
+        ],
+        "result": "ρ = 0.5 — moderate positive linear co-movement."
+      }
+    },
+    {
+      "heading": "Variance of sums and portfolios",
+      "body": [
+        "For any two variables, `Var(X + Y) = Var(X) + Var(Y) + 2·Cov(X, Y)`. When `X` and `Y` are **independent**, the cross term vanishes and variances simply add — the principle behind **diversification**.",
+        "For an equal-weight portfolio of `n` assets each with variance `σ²` and pairwise correlation `ρ`, the portfolio variance is `σ²/n + (1 − 1/n)·ρσ²`. As `n → ∞` the first term dies but the `ρσ²` floor remains: you can diversify away idiosyncratic risk, never the common (market) factor."
+      ],
+      "keyTerms": [
+        { "term": "Variance of a sum", "definition": "`Var(X+Y) = Var(X)+Var(Y)+2Cov(X,Y)`. Independence drops the cross term." },
+        { "term": "Diversification floor", "definition": "With positive ρ, averaging many assets cuts idiosyncratic risk but leaves `ρσ²`." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "Var(X+Y) = Var(X) + Var(Y) + 2·Cov(X,Y)",
+        "caption": "The cross term is what diversification controls."
+      },
+      "example": {
+        "prompt": "Two independent assets, `Var = 4` and `Var = 9`. Variance of their sum?",
+        "steps": [
+          "Independence ⟹ `Cov = 0`.",
+          "`Var(X + Y) = 4 + 9 + 0`."
+        ],
+        "result": "Var(X + Y) = 13. Risk (SD) of the sum is √13 ≈ 3.6, less than 2 + 3 = 5."
+      }
+    },
+    {
+      "heading": "The law of large numbers",
+      "body": [
+        "Average `n` i.i.d. copies of `X` and the **sample mean** `X̄ₙ` has the same mean `μ` but variance `σ²/n`. As `n` grows, that variance collapses, so `X̄ₙ → μ` — this is the **law of large numbers (LLN)**.",
+        "It is the engine of **Monte Carlo**: estimate `E[payoff]` by averaging many simulated payoffs, and the error shrinks like `σ/√n` (the **standard error**). Don't confuse the LLN with the **central limit theorem**: the LLN says *where* the average lands (`μ`); the CLT says the rescaled error is approximately normal. To halve Monte Carlo error you need **4×** the simulations."
+      ],
+      "keyTerms": [
+        { "term": "Law of large numbers", "definition": "Sample mean of i.i.d. draws converges to the true mean `μ` as `n → ∞`." },
+        { "term": "Standard error", "definition": "`σ/√n`, the SD of the sample mean — the `√n` slow-down of Monte Carlo." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "Var(X̄ₙ) = σ²/n        SE(X̄ₙ) = σ/√n  →  0",
+        "caption": "More draws shrink the variance of the average like 1/n."
+      },
+      "example": {
+        "prompt": "A Monte Carlo with 100 paths has standard error `0.4`. How many paths for SE `0.1`?",
+        "steps": [
+          "`SE ∝ 1/√n`, so to cut SE by `4×` you need `16×` the paths.",
+          "`100 × 16 = 1600`."
+        ],
+        "result": "1600 paths — quartering the error costs 16× the work."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Variance",
+      "title": "Spread, and the shortcut to get it",
+      "caption": "Variance is the average squared distance from the mean. It is never negative, and it is zero only for a constant. In practice you rarely work with deviations directly. Instead use the computational formula: the expectation of X squared, minus the square of the expectation of X.",
+      "visual": { "kind": "formula", "expression": "Var(X) = E[X²] − (E[X])²" }
+    },
+    {
+      "term": "Standard deviation",
+      "title": "Back to real units",
+      "caption": "Standard deviation is the square root of variance, so it shares the units of the original variable. That is why desks quote risk as standard deviation. And scaling is clean: shifting by a constant changes nothing, but multiplying by a scales the variance by a squared. That square-root law is why annual volatility is daily volatility times the square root of the number of trading days.",
+      "visual": { "kind": "formula", "expression": "Var(aX+b) = a²Var(X)     σ_year = σ_day·√252" }
+    },
+    {
+      "term": "Covariance",
+      "title": "Do two variables move together?",
+      "caption": "Covariance measures joint movement: the expectation of the product minus the product of the expectations. Positive means they tend to rise together, negative means they offset. But beware the classic trap. Independence forces covariance to zero, yet zero covariance does not imply independence, because covariance only sees the linear part of a relationship.",
+      "visual": { "kind": "formula", "expression": "Cov(X,Y) = E[XY] − E[X]E[Y]" }
+    },
+    {
+      "term": "Correlation",
+      "title": "Covariance on a fixed scale",
+      "caption": "Correlation is covariance divided by the two standard deviations. That normalization makes it dimensionless and traps it between minus one and plus one. Plus one is a perfect upward line, minus one a perfect downward line, and zero means no linear relationship. It lets you compare any two pairs on the same scale.",
+      "visual": { "kind": "formula", "expression": "ρ = Cov(X,Y)/(σ_X·σ_Y),  −1 ≤ ρ ≤ 1" }
+    },
+    {
+      "term": "Portfolio variance",
+      "title": "Why diversification works",
+      "caption": "The variance of a sum is the sum of the variances plus twice the covariance. When assets are independent, that cross term disappears and risk simply adds, which is the whole idea behind diversification. Combine many imperfectly correlated assets and the idiosyncratic risk averages away, but the shared market risk remains as a floor.",
+      "visual": { "kind": "formula", "expression": "Var(X+Y) = Var(X)+Var(Y)+2Cov(X,Y)" }
+    },
+    {
+      "term": "Law of large numbers",
+      "title": "Averages settle down",
+      "caption": "Average many independent copies of a variable and the sample mean has variance sigma squared over n, which shrinks to zero. So the average converges to the true mean. This is the law of large numbers, and it is why Monte Carlo works. But the error only falls like one over the square root of n, so to halve your error you need four times the simulations.",
+      "visual": { "kind": "formula", "expression": "Var(X̄ₙ) = σ²/n     SE = σ/√n" }
+    }
+  ],
   "questions": [
     {
       "id": "l7_q1",
