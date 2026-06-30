@@ -755,7 +755,7 @@
       "explanations": {
         "A": "Correct. Set F(m)³ = m³ = 1/2 ⇒ m = (1/2)^(1/3) ≈ 0.794.",
         "B": "0.5 is the median of a single uniform; the max of three is typically larger.",
-        "C": "≈ 0.875 is close to E[max-ish] guesses but does not solve m³ = 1/2.",
+        "C": "≈ 0.875 splits the difference between E[max] = 3/4 and the support's top of 1, but the median solves m³ = 1/2, giving m ≈ 0.794.",
         "D": "≈ 0.17 would be near the cube root of a small number, not 1/2."
       },
       "remediation": [
