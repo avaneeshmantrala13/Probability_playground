@@ -20,6 +20,126 @@
     "In live interview games, quotes are shouted in compressed form: '47 at 49' or 'I'm 47 bid, 49 offer.' The moderator may call 'sold!' when someone hits a bid or 'done!' when someone lifts an offer. Your first job is to parse direction instantly — confusing buy and sell language is the most common early mistake.",
     "Jane Street-style dice and card games treat the quote as a standing limit order on both sides. You are not negotiating each trade from scratch; you publish prices and let the room choose which side to take. That discipline — always know your bid, always know your ask — is what separates practiced market makers from candidates who only compute fair value."
   ],
+  "primer": [
+    {
+      "heading": "A two-sided quote",
+      "body": [
+        "A market maker publishes **two** prices at once: a **bid** (the most you will pay to buy) and an **ask**, also called the **offer** (the least you will accept to sell). Together they are your **quote**.",
+        "Customers choose the side. You buy at your bid and sell at your ask — never the other way around. Knowing which price applies to which direction is the whole game in this lesson."
+      ],
+      "keyTerms": [
+        { "term": "Bid", "definition": "The price at which you will BUY. The lower, first number in a quote." },
+        { "term": "Ask / Offer", "definition": "The price at which you will SELL. The higher, second number." },
+        { "term": "Quote", "definition": "Your bid and ask stated together, e.g. `47 at 49`." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Who trades at which price",
+        "headers": ["Counterparty wants to", "They use your", "You end up"],
+        "rows": [["Sell to you", "Bid", "Long (you bought)"], ["Buy from you", "Ask", "Short (you sold)"]]
+      }
+    },
+    {
+      "heading": "Hit the bid, lift the offer",
+      "body": [
+        "Trading desks use precise verbs. A seller **hits** your bid — they sell to you at your buy price. A buyer **lifts** (or **takes**) your offer — they buy from you at your sell price.",
+        "Mixing these up is the fastest way to lose credibility in a mock trading game. Anchor on direction: hit = sold to you = you get longer; lift = bought from you = you get shorter."
+      ],
+      "keyTerms": [
+        { "term": "Hit", "definition": "A seller trades against your bid; you buy and get longer." },
+        { "term": "Lift / Take", "definition": "A buyer trades against your ask; you sell and get shorter." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Direction reflex",
+        "text": "Someone says 'sold!' → they sold to you → they hit your **bid**. Someone says 'take it!' → they bought from you → they lifted your **ask**."
+      }
+    },
+    {
+      "heading": "Reading a quote out loud",
+      "body": [
+        "Quotes are shouted in compressed form. `47 at 49` means bid `$47`, ask `$49`. 'I'm `$25` bid' states only your buy price; 'offer at `$63`' states only your sell price.",
+        "The convention is always **bid first, ask second**. When in doubt, restate it: 'I buy at 47, I sell at 49.'"
+      ],
+      "example": {
+        "prompt": "A classmate shouts 'I'm an offer at `$63`.' You want to buy one. What happens?",
+        "steps": ["'Offer' means their ask — their sell price of `$63`.", "You are buying, so you LIFT their offer.", "You trade at their ask, `$63`."],
+        "result": "You pay `$63` and have lifted their offer."
+      },
+      "visual": {
+        "kind": "steps",
+        "caption": "Decode any quote",
+        "items": ["First number = **bid** (you buy)", "Second number = **ask** (you sell)", "'Bid' alone = buy price only", "'Offer' / 'ask' alone = sell price only"]
+      }
+    },
+    {
+      "heading": "Valid vs crossed quotes",
+      "body": [
+        "In a normal market the bid is **strictly below** the ask. If you accidentally quote a bid above your ask — say `58 at 56` — the market is **crossed**, and anyone can buy from you at `$56` and sell back to you at `$58` for free.",
+        "Always sanity-check that your first number is lower than your second before you speak."
+      ],
+      "keyTerms": [
+        { "term": "Crossed market", "definition": "Bid above ask — an error that lets others arbitrage you. Fix it immediately." },
+        { "term": "Spread", "definition": "Ask − bid; the gap between your two prices." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Never cross yourself",
+        "text": "`58 at 56` is crossed: bid `$58` is above ask `$56`. You would lose `$2` on every round-trip. Re-quote with the bid below the ask."
+      }
+    },
+    {
+      "heading": "The round-trip earns the spread",
+      "body": [
+        "Your gross profit on a **round-trip** — buy at your bid, later sell at your ask of the same size — is exactly the spread. Buy at `$47`, sell at `$49`, keep `$2` per unit before fees.",
+        "This is why market makers want flow on *both* sides. One-sided fills leave you holding inventory and risk, not locked-in edge."
+      ],
+      "example": {
+        "prompt": "You quote `47 at 49`. A seller hits your bid; later a buyer lifts your ask, same size, fair value unchanged. Gross P&L per unit?",
+        "steps": ["Buy at your bid: `$47`.", "Sell at your ask: `$49`.", "Profit = `49 − 47 = $2`."],
+        "result": "+`$2` per unit — the full spread."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "round-trip P&L = ask − bid = spread",
+        "caption": "Captured only when you trade BOTH sides at your quoted prices."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Bid and ask",
+      "title": "Two prices at once",
+      "caption": "A market maker always shows two prices. The bid is the most you will pay to buy. The ask, also called the offer, is the least you will accept to sell. Customers pick the side. You buy at your bid and sell at your ask — never the reverse.",
+      "bullets": ["Bid is your buy price, the lower number", "Ask or offer is your sell price, the higher number", "The pair together is your quote"]
+    },
+    {
+      "term": "Hit and lift",
+      "title": "Who trades against which side",
+      "caption": "Desks use precise words. A seller hits your bid and sells to you, so you get longer. A buyer lifts your offer and buys from you, so you get shorter. Anchor on direction: hit means sold to you, lift means bought from you.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Hit the bid = you buy. Lift the offer = you sell." }
+    },
+    {
+      "term": "Reading a quote",
+      "title": "Bid first, ask second",
+      "caption": "Quotes are shouted in shorthand. Forty-seven at forty-nine means a bid of forty-seven and an ask of forty-nine. If someone says they are an offer at sixty-three, that is only their sell price, and you would lift it to buy one.",
+      "visual": { "kind": "steps", "items": ["First number is the bid, where you buy", "Second number is the ask, where you sell", "Offer alone is a sell price only"] }
+    },
+    {
+      "term": "Crossed market",
+      "title": "Keep the bid below the ask",
+      "caption": "In a normal market your bid sits below your ask. If you slip and quote a bid above your ask, the market is crossed, and anyone can buy cheap and sell back to you dear for free. Always check that your first number is lower than your second.",
+      "visual": { "kind": "callout", "tone": "warning", "text": "Fifty-eight bid, fifty-six offer is crossed. Re-quote with the bid below the ask." }
+    },
+    {
+      "term": "The round-trip",
+      "title": "Both sides earn the spread",
+      "caption": "Your profit on a round trip is the spread. Buy at your bid of forty-seven, later sell at your ask of forty-nine, and you keep two per unit. That is why you want flow on both sides — a one-sided fill leaves you holding inventory and risk instead of locked-in edge.",
+      "visual": { "kind": "formula", "expression": "round-trip P&L = ask − bid = spread" }
+    }
+  ],
   "questions": [
     {
       "id": "mm_ba_q1",
@@ -567,6 +687,61 @@
             "B": "Tight refers to small spread, not inverted quotes.",
             "C": "Wide also assumes bid < ask.",
             "D": "Fair describes value, not quote validity."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_ba_q7",
+      "kind": "challenge",
+      "concept": "net_pnl",
+      "question": "You quote 30 at 34. Two sellers hit your bid (you buy 2 at 30); then one buyer lifts your ask (you sell 1 at 34). Fair value is unchanged at 32. What is your total P&L (realized plus mark-to-market)?",
+      "options": [
+        "+6",
+        "+4",
+        "+2",
+        "+8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Cash flow = −60 (bought 2 at 30) + 34 (sold 1 at 34) = −26; you are long 1 unit marked at fair 32 = +32; total = −26 + 32 = +6.",
+        "B": "+4 counts only the matched round-trip (sell 34 − buy 30) and ignores the +2 mark-to-market gain on the unsold unit you bought at 30 with fair now 32.",
+        "C": "+2 counts only the mark-to-market on the open unit and forgets the spread captured on the round-tripped lot.",
+        "D": "+8 double-counts: it adds the full spread on top of a mark that already reflects part of it."
+      },
+      "remediation": [
+        {
+          "id": "mm_ba_q7_r1",
+          "question": "Buy 1 at 20, then sell 1 at 23. Fair value unchanged. Net P&L?",
+          "options": [
+            "+3",
+            "+1.5",
+            "0",
+            "+43"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — sell 23 minus buy 20 = +3, the round-trip spread.",
+            "B": "+1.5 halves the spread; a full round-trip captures all of it.",
+            "C": "0 ignores the captured spread.",
+            "D": "+43 sums the two prices instead of differencing them."
+          }
+        },
+        {
+          "id": "mm_ba_q7_r2",
+          "question": "You are long 1 unit bought at 30. Fair value is 32. Mark-to-market P&L?",
+          "options": [
+            "+2",
+            "−2",
+            "30",
+            "32"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — (32 − 30) × 1 = +2.",
+            "B": "−2 reverses the sign; fair is above your cost, so a long position gains.",
+            "C": "30 is your cost basis, not the P&L.",
+            "D": "32 is the current fair value, not the P&L."
           }
         }
       ]

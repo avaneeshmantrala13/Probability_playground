@@ -20,6 +20,119 @@
     "Larry Harris emphasizes that the spread compensates market makers for three costs: order-processing, inventory holding, and adverse selection. In interview dice games you feel all three at once: fills arrive fast, position swings quickly, and sharper classmates trade when your quote is stale.",
     "Calibration matters as much as width. A spread that looks tight on paper but sits far from fair value gets picked off; a wide spread centered on fair may earn less gross edge per trade but survive longer. Practice judging spread in units of uncertainty — widen when variance or information risk rises."
   ],
+  "primer": [
+    {
+      "heading": "Spread and midpoint",
+      "body": [
+        "The **spread** is the distance between your two prices: `spread = ask − bid`. The **midpoint** is their average, `(bid + ask) / 2`, and is usually where you believe fair value sits.",
+        "A quote of `48 at 52` has a spread of `$4` and a midpoint of `$50`. Width and center are the two dials every market maker turns."
+      ],
+      "keyTerms": [
+        { "term": "Spread", "definition": "Ask minus bid — the width of your quote, e.g. `$4` for `48 at 52`." },
+        { "term": "Midpoint", "definition": "(bid + ask) / 2 — the center of your quote, e.g. `$50`." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "spread = ask − bid        midpoint = (bid + ask) / 2",
+        "caption": "Width (spread) and center (midpoint) are set independently."
+      }
+    },
+    {
+      "heading": "Edge: full spread vs half-spread",
+      "body": [
+        "A complete **round-trip** — buy at the bid and sell at the ask — captures the **full spread**. A single one-sided fill captures only the **half-spread**: the distance from fair to the price you traded.",
+        "Quoting `48 at 52` around fair `$50`, selling once at `$52` earns `$2` (half the spread); buying once at `$48` also earns `$2` versus fair."
+      ],
+      "keyTerms": [
+        { "term": "Edge", "definition": "Profit relative to fair value, earned on average — not guaranteed on any single fill." },
+        { "term": "Half-spread", "definition": "Distance from fair to your bid or ask; the edge on one one-sided fill." }
+      ],
+      "example": {
+        "prompt": "Fair is `$20`. You quote `18 at 22`. A buyer lifts your ask once. How much edge versus fair did you earn?",
+        "steps": ["Ask `$22` minus fair `$20` = `$2`.", "That is half of the `$4` spread."],
+        "result": "+`$2` of edge on that single sell."
+      }
+    },
+    {
+      "heading": "The width trade-off",
+      "body": [
+        "A **tight** spread attracts flow but leaves a thin cushion if you are wrong about fair or the market moves. A **wide** spread protects you but trades less often.",
+        "Interview games reward quotes tight enough to trade yet wide enough to survive — calibrate to your uncertainty, not to a habit."
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Tight vs wide spreads",
+        "headers": ["Spread", "Flow", "Cushion", "Edge / round-trip"],
+        "rows": [["Tight", "High", "Thin", "Small"], ["Wide", "Low", "Thick", "Large"]]
+      }
+    },
+    {
+      "heading": "What the spread pays for",
+      "body": [
+        "Larry Harris frames the spread as compensation for three costs: **order-processing** (the work of quoting), **inventory** (holding risk while you wait to offload), and **adverse selection** (being picked off by better-informed traders).",
+        "**Adverse selection** is the big one in interviews: when someone knows more than you, they trade only on the side where your quote is wrong. The spread is partly your insurance premium against that."
+      ],
+      "keyTerms": [
+        { "term": "Adverse selection", "definition": "Informed traders take the side where your quote is mispriced, so you systematically trade at a loss to them." },
+        { "term": "Inventory cost", "definition": "The risk of holding a position whose fair value can move before you flatten." }
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "Three jobs of the spread",
+        "items": ["Cover **order-processing** effort", "Pay for **inventory** risk while you hold", "Insure against **adverse selection**"]
+      }
+    },
+    {
+      "heading": "Calibration: width follows uncertainty",
+      "body": [
+        "Keep the midpoint on fair value, then size the width to your uncertainty. When variance or information risk rises — a card about to flip, a volatile payoff — **widen**. When you are confident, **tighten**.",
+        "A spread that is tight but mis-centered gets picked off; a wide spread centered on fair earns less per trade but survives. Re-centering beats stubbornly holding a stale quote."
+      ],
+      "example": {
+        "prompt": "Fair is `$50`, but a hidden card flips in 10 seconds and could move fair by ±`$15`. You are `49 at 51`. What should you do?",
+        "steps": ["A `$2` spread is tiny next to a ±`$15` swing.", "Widen materially while keeping the center near `$50`."],
+        "result": "Quote something like `45 at 55` — wide enough to survive the reveal."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Rule of thumb",
+        "text": "Center on fair; widen with uncertainty; tighten with confidence. Width is measured in units of risk, not points."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Spread and midpoint",
+      "title": "Width and center",
+      "caption": "The spread is the distance between your bid and ask: ask minus bid. The midpoint is their average, and it is usually where you think fair value sits. Forty-eight at fifty-two has a spread of four and a midpoint of fifty. Width and center are two separate dials.",
+      "visual": { "kind": "formula", "expression": "spread = ask − bid,  midpoint = (bid + ask) / 2" }
+    },
+    {
+      "term": "Edge",
+      "title": "Full spread versus half-spread",
+      "caption": "A complete round trip, buying at the bid and selling at the ask, captures the full spread. A single one-sided fill captures only the half-spread, the distance from fair to the price you traded. Selling once at fifty-two when fair is fifty earns two, half of a four-wide spread.",
+      "bullets": ["Round-trip earns the full spread", "One-sided fill earns the half-spread", "Half-spread is the distance from fair to your price"]
+    },
+    {
+      "term": "The width trade-off",
+      "title": "Tight attracts, wide protects",
+      "caption": "A tight spread attracts flow but leaves a thin cushion when you are wrong. A wide spread protects you but trades less often. The art is quoting tight enough to trade yet wide enough to survive.",
+      "visual": { "kind": "table", "headers": ["Spread", "Flow", "Cushion"], "rows": [["Tight", "High", "Thin"], ["Wide", "Low", "Thick"]] }
+    },
+    {
+      "term": "Adverse selection",
+      "title": "What the spread pays for",
+      "caption": "Harris says the spread compensates for three costs: order processing, inventory risk, and adverse selection. The last one matters most in interviews. When someone knows more than you, they trade only on the side where your quote is wrong, so the spread is your premium against being picked off.",
+      "visual": { "kind": "steps", "items": ["Order-processing effort", "Inventory risk while you hold", "Adverse selection insurance"] }
+    },
+    {
+      "term": "Calibration",
+      "title": "Width follows uncertainty",
+      "caption": "Keep the midpoint on fair value, then size the width to your uncertainty. When variance or information risk rises, widen. When you are confident, tighten. A tight but mis-centered quote gets picked off, while a wide quote centered on fair earns less per trade but survives longer.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Center on fair, widen with uncertainty, tighten with confidence." }
+    }
+  ],
   "questions": [
     {
       "id": "mm_sp_q1",
@@ -567,6 +680,61 @@
             "B": "Reverses the trade-off.",
             "C": "Width matters.",
             "D": "Tight ≠ crossed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_sp_q7",
+      "kind": "challenge",
+      "concept": "adverse_selection_ev",
+      "question": "Each fill earns you the half-spread of $2 when the trader is uninformed, but an informed trader picks you off for a loss of $8. You quote a spread of $4. If 25% of incoming fills are informed, what is your expected edge per fill, and what does it imply?",
+      "options": [
+        "−$0.50 — negative, so you should widen the spread",
+        "+$2.00 — the half-spread, ignoring pick-off cost",
+        "−$6.00 — the loss minus the gain, unweighted",
+        "+$1.50 — counts only the uninformed edge"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 0.75 × (+$2) + 0.25 × (−$8) = $1.50 − $2.00 = −$0.50 per fill. A negative expectation means your spread is too tight for this much adverse selection — widen it.",
+        "B": "+$2.00 is just the half-spread; it ignores the 25% of fills that pick you off.",
+        "C": "−$6.00 subtracts the full $8 loss from the $2 gain without weighting by their probabilities.",
+        "D": "+$1.50 keeps only the 0.75 × $2 uninformed term and drops the informed-loss term entirely."
+      },
+      "remediation": [
+        {
+          "id": "mm_sp_q7_r1",
+          "question": "75% of fills earn +$2, 25% lose $6. Expected edge per fill?",
+          "options": [
+            "$0.00",
+            "+$2.00",
+            "−$4.00",
+            "+$1.50"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 0.75 × $2 + 0.25 × (−$6) = $1.50 − $1.50 = $0.00, exactly break-even.",
+            "B": "+$2.00 ignores the loss outcome.",
+            "C": "−$4.00 is $2 − $6 with no probability weighting.",
+            "D": "+$1.50 keeps only the winning term."
+          }
+        },
+        {
+          "id": "mm_sp_q7_r2",
+          "question": "Adverse selection is the risk that:",
+          "options": [
+            "Informed traders trade against you on the side where your quote is wrong",
+            "A market maker profits on every single fill",
+            "Spreads are always too wide",
+            "You never get any fills"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — better-informed flow systematically picks the side you have mispriced.",
+            "B": "Individual fills can lose; edge is a long-run average, not a per-fill guarantee.",
+            "C": "Width is a choice, not the definition of adverse selection.",
+            "D": "Getting filled is normal; the issue is who is on the other side."
           }
         }
       ]

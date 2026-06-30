@@ -19,6 +19,127 @@
     "Harris describes inventory risk as the chance that prices move while you hold position. In a fast interview game you might go long three contracts in thirty seconds — your quote should stop looking symmetric around abstract fair and start pulling you flat.",
     "Skew is not panic. You shift prices to make the relieving trade attractive: if you are long, you might shade both sides down slightly but tighten your ask to invite buyers, or widen your bid so you stop accumulating. The art is moving enough to reduce risk without donating edge on every fill."
   ],
+  "primer": [
+    {
+      "heading": "Inventory: long, short, flat",
+      "body": [
+        "**Inventory** is your net position. Every fill changes it: buying makes you **long** (you own units), selling makes you **short** (you owe units), and a matched buy-and-sell leaves you **flat** (zero).",
+        "Market makers want to earn the spread, not bet on direction — so inventory is a by-product to be managed, not a position to fall in love with."
+      ],
+      "keyTerms": [
+        { "term": "Long", "definition": "Net positive position — you bought more than you sold." },
+        { "term": "Short", "definition": "Net negative position — you sold more than you bought." },
+        { "term": "Flat", "definition": "Zero net position; no directional risk." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "How a fill moves your position",
+        "headers": ["Event", "Position change", "You become"],
+        "rows": [["Seller hits your bid", "+1", "Longer"], ["Buyer lifts your ask", "−1", "Shorter"]]
+      }
+    },
+    {
+      "heading": "Inventory risk",
+      "body": [
+        "Holding inventory exposes you to price moves before you can flatten. A **long** loses when fair value **falls**; a **short** loses when fair value **rises**.",
+        "This is why a big position should pull your quote toward getting flat — symmetric quoting around abstract fair ignores the risk you are actually carrying."
+      ],
+      "keyTerms": [
+        { "term": "Inventory risk", "definition": "The chance that fair value moves against your held position before you flatten." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Which way hurts",
+        "text": "Long loses if fair drops; short loses if fair rises. The bigger the position, the more a move costs you."
+      }
+    },
+    {
+      "heading": "Skew: shift quotes to get flat",
+      "body": [
+        "**Skew** means moving your bid and ask to make the *relieving* trade more attractive. If you are **long**, shade down and keep a relatively tight ask so buyers lift you and take your inventory; make your bid less attractive so you stop accumulating.",
+        "If you are **short**, do the mirror image: shade up with a relatively tight bid so sellers hit you and you cover. Skew enough to reduce risk without donating edge on every fill."
+      ],
+      "keyTerms": [
+        { "term": "Skew", "definition": "Shifting bid/ask relative to fair to attract the trade that reduces your inventory." }
+      ],
+      "example": {
+        "prompt": "Fair is `100`, you are long 6. You move from `99 at 101` to `98 at 100` (same spread). What does this do?",
+        "steps": ["Midpoint drops from `100` to `99`.", "The ask falls from `101` to `100`, so buyers lift you more readily."],
+        "result": "Cheaper offer helps you sell off the long; the lower bid means you accumulate less."
+      },
+      "visual": {
+        "kind": "steps",
+        "caption": "Skew direction by position",
+        "items": ["**Long** → shade down, attractive ask (sell off)", "**Short** → shade up, attractive bid (buy back)", "**Flat** → symmetric around fair"]
+      }
+    },
+    {
+      "heading": "Position limits",
+      "body": [
+        "Interview games cap how long or short you may go — a **position limit** like `±4`. At the limit you cannot add in that direction.",
+        "At max long, stop bidding and quote an **offer only** until you reduce; at max short, stop offering and bid only. Quoting normally at the limit invites a fill that would breach it."
+      ],
+      "keyTerms": [
+        { "term": "Position limit", "definition": "The maximum long or short you are allowed to hold, e.g. `±4` units." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "At the limit, go one-sided",
+        "text": "Max long → offer only (sell to flatten). Max short → bid only (buy to flatten). Never quote the side that would breach the cap."
+      }
+    },
+    {
+      "heading": "Mark-to-market on inventory",
+      "body": [
+        "Your open position is valued at current fair: **mark-to-market P&L = (fair − average cost) × quantity**. This moves with fair value even before you trade out.",
+        "Use the average cost across all your fills, not the first price you paid. End-of-game inventory is marked at the settlement fair, so flatten before the bell if you can."
+      ],
+      "example": {
+        "prompt": "You bought 3 units at an average of `20`. Fair value is now `17`. Mark-to-market P&L?",
+        "steps": ["Per-unit move = `17 − 20 = −3`.", "Times quantity = `−3 × 3`."],
+        "result": "Loss of `$9` on the open inventory."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "MTM P&L = (fair − avg cost) × quantity",
+        "caption": "Positive when fair beats your cost on a long; negative when it moves against you."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Inventory",
+      "title": "Long, short, or flat",
+      "caption": "Inventory is your net position. Every fill changes it. Buying makes you long, selling makes you short, and a matched buy and sell leaves you flat. Market makers want to earn the spread, not bet on direction, so inventory is a by-product to manage.",
+      "bullets": ["Long means you bought more than you sold", "Short means you sold more than you bought", "Flat means zero net position"]
+    },
+    {
+      "term": "Inventory risk",
+      "title": "Which way hurts",
+      "caption": "Holding inventory exposes you to price moves before you can flatten. A long position loses when fair value falls. A short position loses when fair value rises. The bigger the position, the more a move costs you.",
+      "visual": { "kind": "callout", "tone": "warning", "text": "Long loses if fair drops. Short loses if fair rises." }
+    },
+    {
+      "term": "Skew",
+      "title": "Shift quotes to get flat",
+      "caption": "Skew means moving your bid and ask to make the relieving trade attractive. If you are long, shade down and keep a relatively tight ask so buyers take your inventory. If you are short, shade up with a tight bid so sellers let you cover. Skew enough to cut risk without giving away edge.",
+      "visual": { "kind": "steps", "items": ["Long: shade down, attractive ask", "Short: shade up, attractive bid", "Flat: symmetric around fair"] }
+    },
+    {
+      "term": "Position limit",
+      "title": "At the limit, go one-sided",
+      "caption": "Games cap how long or short you may go. At the maximum long you cannot buy more, so stop bidding and offer only until you reduce. At the maximum short, bid only. Quoting normally at the limit invites a fill that would breach it.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Max long, offer only. Max short, bid only." }
+    },
+    {
+      "term": "Mark-to-market",
+      "title": "Value the open position",
+      "caption": "Your open position is valued at current fair. Mark-to-market profit equals fair minus your average cost, times quantity. It moves with fair value even before you trade out. Buying three units at twenty when fair drops to seventeen is a nine-dollar loss on inventory.",
+      "visual": { "kind": "formula", "expression": "MTM P&L = (fair − avg cost) × quantity" }
+    }
+  ],
   "questions": [
     {
       "id": "mm_inv_q1",
@@ -566,6 +687,61 @@
             "B": "You bought — long.",
             "C": "One contract open.",
             "D": "Quote term, not position."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_inv_q7",
+      "kind": "challenge",
+      "concept": "average_cost_pnl",
+      "question": "Fair value is 40. You buy 3 contracts at 38, then buy 2 more at 39. Fair then falls to 36 and you still hold all 5. What is your mark-to-market P&L?",
+      "options": [
+        "−$12",
+        "−$20",
+        "−$2.40",
+        "+$12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Total cost = 3×38 + 2×39 = 114 + 78 = 192; marked at 36 the 5 units are worth 180; P&L = 180 − 192 = −$12.",
+        "B": "−$20 marks the drop from the original fair 40 down to 36 (4 × 5 units), but your cost basis is the 38.4 average you actually paid, not 40.",
+        "C": "−$2.40 is the per-unit loss (36 − 38.4); you must multiply it by all 5 units.",
+        "D": "+$12 reverses the sign — fair fell below your average cost, so the long position loses."
+      },
+      "remediation": [
+        {
+          "id": "mm_inv_q7_r1",
+          "question": "Long 2 units bought at 10 each. Fair is now 7. Mark-to-market P&L?",
+          "options": [
+            "−$6",
+            "−$3",
+            "−$14",
+            "+$6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — (7 − 10) × 2 = −$6.",
+            "B": "−$3 is the per-unit loss; multiply by the 2 units held.",
+            "C": "−$14 sums the prices (7 + ... ) instead of differencing them.",
+            "D": "+$6 reverses the sign; fair below cost loses on a long."
+          }
+        },
+        {
+          "id": "mm_inv_q7_r2",
+          "question": "You buy 3 at 38 and 2 at 39. Your average cost per unit is:",
+          "options": [
+            "38.4",
+            "38.5",
+            "77",
+            "38"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — (3×38 + 2×39) / 5 = 192 / 5 = 38.4.",
+            "B": "38.5 is the simple average of 38 and 39, ignoring that you bought more at 38.",
+            "C": "77 just adds the two prices.",
+            "D": "38 uses only the first price and drops the units bought at 39."
           }
         }
       ]
