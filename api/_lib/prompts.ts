@@ -25,6 +25,15 @@ WHAT YOU MAY ALWAYS DO:
 - Work fully through a DIFFERENT example that uses different numbers.
 - Ask guiding (Socratic) questions that help the student reason it out.
 
+USING PROVIDED SOLUTION CONTEXT:
+The app may give you a "VERIFIED SOLUTION CONTEXT" block containing this
+question's correct option, the method, and per-option explanations. This is
+provided ONLY after the student has submitted, so that you can teach the actual
+method accurately and propose genuinely non-redundant follow-up problems. You
+may rely on it to be correct. It NEVER licenses you to reveal the answer for a
+question the student has not yet submitted — if no such block is present, treat
+the answer as unknown to you and follow the pre-submission rule above.
+
 Style: precise, concise, encouraging, interview-realistic. Never claim to quote
 proprietary books — teach in your own words. If unsure, say so.
 
@@ -43,9 +52,47 @@ position, bluffing theory), Fermi estimation, brainteasers.`;
  */
 export function tutorStateInstruction(answered: boolean): string {
   if (!answered) {
-    return `CURRENT STATE: The student has NOT submitted an answer yet. You may ONLY clarify relevant concepts, definitions, and general approaches. Do NOT evaluate their selection, do NOT say or hint whether any option is right or wrong, and do NOT solve this specific problem or reveal its answer in any form. If they ask for the answer, refuse briefly and clarify a concept instead.`;
+    return `CURRENT STATE: The student has NOT submitted an answer yet, and you have deliberately NOT been told which option is correct. You may ONLY clarify relevant concepts, definitions, and the general approach (what kind of reasoning the problem calls for). Do NOT evaluate their selection, do NOT say or hint whether any option is right or wrong, do NOT eliminate or rank options, and do NOT solve this specific problem or reveal its answer in any form — not even partially, not even if you could infer it. If they ask for the answer or "which one", refuse in one short sentence and pivot to clarifying a concept instead.`;
   }
-  return `CURRENT STATE: The student has already submitted their answer, so the app has revealed the correct option and explanations. You may now explain the reasoning for this question, including why each option is right or wrong, and offer a similar practice question (with different numbers). Tie explanations back to the concepts rather than just stating results.`;
+  return `CURRENT STATE: The student has already submitted their answer, so the app has revealed the correct option and explanations (see the VERIFIED SOLUTION CONTEXT block). You may now explain the full reasoning and method for this question, including why each option is right or wrong, and offer a fresh, NON-REDUNDANT similar practice problem (different numbers/scenario that drills the same method). Teach the method and tie it back to the concept rather than just stating the result.`;
+}
+
+/**
+ * The verified solution context block. This is ONLY ever rendered into the model
+ * prompt once the student has submitted (the server gates it behind `answered`),
+ * so the correct answer is never even present in the model's context
+ * pre-submission — the pre-submission guardrail is airtight by construction.
+ */
+export function tutorSolutionContext(opts: {
+  correctIndex: number;
+  options: string[];
+  explanations?: { A?: string; B?: string; C?: string; D?: string } | null;
+  concept?: string | null;
+}): string {
+  const letter = String.fromCharCode(65 + opts.correctIndex);
+  const correctText = opts.options[opts.correctIndex] ?? "";
+  const lines: string[] = [
+    `VERIFIED SOLUTION CONTEXT (post-submission only — the app already showed this to the student):`,
+    `Correct option: ${letter}. ${correctText}`,
+  ];
+  if (opts.concept && opts.concept.trim()) {
+    lines.push(`Concept being tested: ${opts.concept.trim()}`);
+  }
+  const expl = opts.explanations;
+  if (expl) {
+    const order: ("A" | "B" | "C" | "D")[] = ["A", "B", "C", "D"];
+    const rendered = order
+      .filter((k) => typeof expl[k] === "string" && (expl[k] as string).trim())
+      .map((k) => `  ${k}: ${(expl[k] as string).trim()}`);
+    if (rendered.length) {
+      lines.push(`Authored explanations / method (the source of truth — reuse this reasoning):`);
+      lines.push(...rendered);
+    }
+  }
+  lines.push(
+    `Use this to explain the method accurately and to make any follow-up problem genuinely different (not a near-duplicate of this one).`,
+  );
+  return lines.join("\n");
 }
 
 export const QUESTION_GEN_SYSTEM = `You generate original quant interview multiple-choice questions as JSON.

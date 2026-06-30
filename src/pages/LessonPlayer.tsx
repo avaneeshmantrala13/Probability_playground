@@ -242,7 +242,10 @@ export function LessonPlayer() {
     setAiLoading(true);
     const afterBaseIndex = currentItem.baseIndex;
     try {
-      const conceptHint = lesson.topics[afterBaseIndex % lesson.topics.length];
+      const topic = lesson.topics[afterBaseIndex % lesson.topics.length];
+      // Anchor the bonus to the CURRENT question's specific concept so it stays
+      // on-topic; fall back to the lesson topic only if the concept is missing.
+      const conceptHint = current.concept ?? topic;
       // Only trusted sources are served: a code-computed template (the LLM may
       // reword it, with every number preserved) or a human-vetted bank question.
       const gen = await getVerifiedBonusQuestion({
@@ -251,6 +254,7 @@ export function LessonPlayer() {
         topics: lesson.topics,
         order: lesson.order,
         conceptHint,
+        topic,
       });
       const rq: RenderableQuestion = {
         id: gen.id,
@@ -258,6 +262,7 @@ export function LessonPlayer() {
         options: gen.options,
         correctAnswer: gen.correctAnswer,
         explanations: gen.explanations,
+        concept: gen.concept,
       };
       // Anchor the bonus right after the current base question's group, and jump
       // the student straight to it (not to the end of the lesson).
@@ -491,6 +496,9 @@ export function LessonPlayer() {
                 lessonTitle: lesson.title,
                 questionText: current.question,
                 options: current.options,
+                correctIndex: current.correctAnswer,
+                explanations: current.explanations,
+                concept: current.concept,
               }}
             />
           ) : null
@@ -504,6 +512,9 @@ export function LessonPlayer() {
         options={current.options}
         selectedIndex={selected}
         answered={checked}
+        correctIndex={current.correctAnswer}
+        explanations={current.explanations}
+        concept={current.concept}
       />
 
       {aiError && (

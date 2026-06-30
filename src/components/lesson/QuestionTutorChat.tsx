@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { sendTutorMessage } from "../../lib/ai/client";
+import type { Explanations } from "../../content/types";
 
 interface TutorMessage {
   role: "user" | "assistant";
@@ -13,6 +14,13 @@ interface QuestionTutorChatProps {
   selectedIndex: number | null;
   /** True once the student has checked their answer for this question. */
   answered: boolean;
+  /**
+   * Solution context for the process-aware tutor. The server gates the answer/
+   * explanations behind `answered`, so passing these never leaks pre-submission.
+   */
+  correctIndex?: number | null;
+  explanations?: Explanations | null;
+  concept?: string | null;
 }
 
 export function QuestionTutorChat({
@@ -21,6 +29,9 @@ export function QuestionTutorChat({
   options,
   selectedIndex,
   answered,
+  correctIndex,
+  explanations,
+  concept,
 }: QuestionTutorChatProps) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -44,6 +55,9 @@ export function QuestionTutorChat({
         options,
         selectedIndex,
         answered,
+        correctIndex,
+        explanations,
+        concept,
         messages: history,
       });
       setMessages((m) => [...m, { role: "assistant", content: reply }]);
