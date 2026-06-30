@@ -520,19 +520,19 @@
       "id": "mm_fv_exp_q4",
       "kind": "challenge",
       "concept": "weighted_fair",
-      "question": "A biased coin pays $1 on heads. P(heads) = 0.6. You also receive a one-time $2 fee for quoting. What fair value (including the fee) should you use to center a two-sided market on the coin contract alone?",
+      "question": "A coin contract pays $1 if heads; P(heads) = 0.6. You also collect a flat $2 rebate just for making a market, paid no matter what trades. Where should you CENTER your two-sided quote on the coin contract?",
       "options": [
-        "2.6",
-        "0.6",
-        "1.0",
-        "3.0"
+        "$0.60",
+        "$2.60",
+        "$1.00",
+        "$3.00"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "Correct. Coin EV = 0.6×1 + 0.4×0 = 0.6; plus $2 fee → 2.6 total fair for your position in the bundled deal.",
-        "B": "0.6 is coin EV only — omits the certain $2 fee.",
-        "C": "1.0 assumes a fair coin.",
-        "D": "3.0 overstates — might add fee twice or use wrong probability."
+        "A": "Correct. The contract's fair value is 0.6 × $1 = $0.60, so you center your market there. A flat rebate is a sunk subsidy — it boosts your P&L but does not move where the contract trades.",
+        "B": "$2.60 adds the $2 rebate to the price. Quoting a $0.60 asset around $2.60 would get you instantly picked off — the rebate does not change fair value.",
+        "C": "$1.00 assumes a fair coin; this coin is worth $0.60 in expectation.",
+        "D": "$3.00 is far above fair value and would be picked off immediately."
       },
       "remediation": [
         {

@@ -611,12 +611,12 @@
             "Requires zero folds",
             "Is always -EV"
           ],
-          "correctAnswer": 0,
+          "correctAnswer": 1,
           "explanations": {
-            "A": "Correct — larger bets need lower fold % to break even (but risk more chips).",
-            "B": "Larger bets need fewer folds, not more.",
-            "C": "Some folds always needed for pure bluffs.",
-            "D": "Bluffs can be +EV with enough folds."
+            "A": "Wrong direction — breakeven fold % = bet/(bet + pot) increases with bet size, so bigger bets need MORE folds.",
+            "B": "Correct — bet/(bet + pot) rises as the bet grows (pot-sized = 50%, 2× pot ≈ 67%), so larger bluffs need villain to fold more often.",
+            "C": "Some folds are always needed for a pure bluff to break even.",
+            "D": "Bluffs can be +EV when villain folds more than the breakeven frequency."
           }
         }
       ]

@@ -137,10 +137,10 @@
         "Full house, sevens full of threes",
         "Pair of kings"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "explanations": {
-        "A": "K-K-7-7-3 uses kings and threes with a seven kicker.",
-        "B": "Correct — kings and threes with a seven kicker: K-K-3-3-7.",
+        "A": "Correct — your two highest pairs are kings and sevens (K♦ K♠ and 7♥ 7♦) with a queen kicker: K-K-7-7-Q. Sevens outrank threes for the second pair.",
+        "B": "Kings and threes ignores the higher pair: sevens (7♥ 7♦) beat threes, so the second pair is sevens, not threes.",
         "C": "Full house would need trips + pair; you have two pair only.",
         "D": "Two pair is better than one pair."
       },
@@ -446,11 +446,11 @@
             "Have high card only if board flush is best",
             "Automatically win"
           ],
-          "correctAnswer": 2,
+          "correctAnswer": 1,
           "explanations": {
             "A": "You don't hold a heart but board gives everyone a flush.",
-            "B": "Correct — you play the board flush; kickers may tie.",
-            "C": "High card only applies when the board isn't a completed flush.",
+            "B": "Correct — with five hearts on the board and none in your hand, you play the board's flush; the winner is decided by whether anyone holds a higher heart, otherwise it ties.",
+            "C": "Wrong — when the board itself is a five-card flush, you always use that flush; you are never reduced to just high card.",
             "D": "Ties split; no automatic win."
           }
         }
@@ -469,8 +469,8 @@
       ],
       "correctAnswer": 1,
       "explanations": {
-        "A": "You have eights full but they have kings full of eights.",
-        "B": "Correct — higher trips in full house wins: K-K-K-8-8 beats 8-8-8-K-K.",
+        "A": "You have eights full of kings (8-8-8-K-K), but the opponent makes kings full of fives (K-K-K-5-5), which is higher.",
+        "B": "Correct — higher trips win the full house: the opponent's K-K-K-5-5 beats your 8-8-8-K-K.",
         "C": "Different full houses don't split.",
         "D": "Trip eights became second best after board paired."
       },
@@ -572,17 +572,17 @@
       "concept": "counterfeited",
       "question": "You hold A♦ T♦. Board runs out A♠ T♠ T♣ 4♥ 4♦. Your best five-card hand is:",
       "options": [
-        "Full house, tens full of fours",
+        "Full house, tens full of aces",
         "Two pair, aces and tens",
         "Four of a kind, tens",
         "Full house, fours full of tens"
       ],
       "correctAnswer": 0,
       "explanations": {
-        "A": "Correct — T-T-T-4-4 (tens full of fours). Your ace is a kicker only; the board pairs counterfeited your two pair.",
-        "B": "Two pair was true on the turn, but the river paired the board — full house is best now.",
+        "A": "Correct — three tens with your pair of aces: T-T-T-A-A (tens full of aces). Pair the trips with the higher pair (aces), not the board's fours.",
+        "B": "Two pair was true on the turn, but with three tens plus a pair you now hold a full house — tens full of aces.",
         "C": "You only have three tens, not four.",
-        "D": "Fours full of tens would need four fours; you have two fours on board."
+        "D": "Fours full of tens would need three fours; you only have the two board fours."
       },
       "remediation": [
         {

@@ -62,23 +62,23 @@
       "concept": "expected_dice_game",
       "question": "You roll a fair die; you win $6 if it shows 6, otherwise you lose $1. What is the expected profit per roll?",
       "options": ["-$0.50", "$0", "$0.17", "$1"],
-      "correctAnswer": 1,
+      "correctAnswer": 2,
       "explanations": {
         "A": "Underestimates the win frequency — one-sixth of rolls pay +6.",
-        "B": "Correct. EV = (1/6)(6) + (5/6)(−1) = 1 − 5/6 = 0.",
-        "C": "Small positive EV would need a higher payoff or better loss structure.",
+        "B": "$0 is wrong — EV = (1/6)(6) + (5/6)(−1) = 1 − 5/6 = 1/6 ≈ $0.17, a small positive edge.",
+        "C": "Correct. EV = (1/6)(6) + (5/6)(−1) = 1 − 5/6 = 1/6 ≈ $0.17 per roll.",
         "D": "$1 EV would require much more favorable payouts."
       },
       "remediation": [
         {
           "id": "l11_q2_r1",
-          "question": "Win $12 on a six, lose $2 otherwise. EV per roll?",
-          "options": ["-$2", "$0", "$2", "$4"],
+          "question": "Win $16 on a six, lose $2 otherwise. EV per roll?",
+          "options": ["-$2", "$1", "$2", "$4"],
           "correctAnswer": 1,
           "explanations": {
-            "A": "The win on 6 offsets five losses of 2.",
-            "B": "Correct — (1/6)(12) + (5/6)(−2) = 2 − 10/6 = 0.",
-            "C": "Positive EV needs larger win or smaller loss.",
+            "A": "The win on a six (1/6 of the time) more than offsets the five losses of $2.",
+            "B": "Correct — (1/6)(16) + (5/6)(−2) = (16 − 10)/6 = $1.",
+            "C": "Slightly overstates it — the exact EV is $1.",
             "D": "Too high for this payoff structure."
           }
         },
@@ -185,13 +185,13 @@
       "id": "l11_q5",
       "kind": "challenge",
       "concept": "alliance_game",
-      "question": "A and B each pick 0 or 1 secretly. You see sum mod 2. If sum is 0, team wins $3. Entry fee $1. Should the team play?",
+      "question": "A and B each independently pick 0 or 1 uniformly at random (no communication or shared strategy). You see the sum mod 2. If it is 0, the team wins $3. Entry fee is $1. Should the team play?",
       "options": ["No — negative EV", "Yes — EV = $0.50", "Yes — EV = $1", "Yes — EV = $2"],
       "correctAnswer": 1,
       "explanations": {
-        "A": "They can coordinate: both pick same bit → sum 0 with prob 1/2.",
+        "A": "Even with independent random picks the sum is even half the time (both 0 or both 1), so the team wins with prob 1/2 — positive EV.",
         "B": "Correct. Win $3 with prob 1/2, pay $1 → EV = 1.5 − 1 = 0.5.",
-        "C": "Overstates EV — win only half the time.",
+        "C": "Overstates EV — the team wins only half the time.",
         "D": "Far too high."
       },
       "remediation": [

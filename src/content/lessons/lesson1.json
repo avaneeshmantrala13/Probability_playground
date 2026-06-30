@@ -471,7 +471,7 @@
       "correctAnswer": 2,
       "explanations": {
         "A": "6 is too low. The minimum sum is 2 and the distribution is centered above 6 because many pairs exceed it.",
-        "B": "6.5 is the average of a single die (3.5) doubled incorrectly. Sums of two dice are not 2 × E[die].",
+        "B": "6.5 is wrong. By linearity, E[S] = E[die₁] + E[die₂] = 3.5 + 3.5 = 7 (6.5 comes from mis-adding 3.5 + 3).",
         "C": "Correct. By symmetry, E[S] = 7. You can verify by pairing outcomes: (1,6) with (6,1), (2,5) with (5,2), etc., each pair averaging 7.",
         "D": "7.5 exceeds the maximum possible sum of 12 divided by sensible centers. The true mean is exactly 7."
       },
@@ -815,12 +815,12 @@
         "$5",
         "$25"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": 1,
       "explanations": {
-        "A": "Correct. E = 0.2 × 25 + 0.8 × (−5) = 5 − 4 = $0. This is a fair game.",
-        "B": "$1 might come from subtracting 5 − 4 in the wrong order or partial calculation.",
-        "C": "$5 uses only the win term 0.2 × 25 and ignores losses.",
-        "D": "$25 is the jackpot, not the weighted average across outcomes."
+        "A": "$0 is wrong. E = 0.2 × 25 + 0.8 × (−5) = 5 − 4 = $1 — recheck the subtraction.",
+        "B": "Correct. E = 0.2 × 25 + 0.8 × (−5) = 5 − 4 = $1, so the game is slightly favorable.",
+        "C": "$5 uses only the win term 0.2 × 25 and ignores the 0.8 × (−5) loss term.",
+        "D": "$25 is the jackpot, not the probability-weighted average across outcomes."
       }
     }
   ]

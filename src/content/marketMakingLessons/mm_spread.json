@@ -319,16 +319,16 @@
           "id": "mm_sp_q6_r1",
           "question": "A crossed quote means:",
           "options": [
-            "Bid ≥ ask",
+            "Bid > ask",
             "Bid < ask",
             "Spread is zero only",
             "Fair value is unknown"
           ],
           "correctAnswer": 0,
           "explanations": {
-            "A": "Correct — inverted or locked incorrectly.",
+            "A": "Correct — a crossed market is bid > ask (inverted). Bid = ask is a locked / zero-spread market, which is different.",
             "B": "That is normal.",
-            "C": "Crossed is bid ≥ ask, zero spread is bid = ask.",
+            "C": "A zero spread (bid = ask) is a locked market, not crossed; crossed means bid > ask.",
             "D": "Unrelated."
           }
         },
