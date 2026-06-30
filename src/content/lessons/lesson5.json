@@ -12,6 +12,162 @@
     "You'll work with bags of marbles and a deck of cards, paying close attention to whether a draw is made with replacement (probabilities stay the same) or without replacement (the totals shrink, so later probabilities change). For two draws without replacement, multiply the first probability by the updated second probability.",
     "Conditional probability is where intuition fails fastest in interviews: the sample space shrinks, and every count must be renormalized within that slice. Brainstellar-style card and urn puzzles exploit whether you treat draws as with or without replacement. Stat 110's mantra—P(A|B) = P(A ∩ B)/P(B)—sounds trivial until a problem hides B inside a story about 'given that the card is red' or 'knowing the first flip was tails.'"
   ],
+  "primer": [
+    {
+      "heading": "Given that…: the restricted sample space",
+      "body": [
+        "**Conditional probability** is the chance of an event once you already know something else happened. The new information **rules out** every outcome inconsistent with it, shrinking the sample space to a smaller slice.",
+        "Once you know a card is red, only 26 cards remain 'in play'. You measure everything inside that 26-card world, not the original 52."
+      ],
+      "keyTerms": [
+        { "term": "Restricted sample space", "definition": "The outcomes still possible after conditioning, e.g. the 26 red cards once you know the card is red." },
+        { "term": "Conditional probability P(A|B)", "definition": "The chance of A given that B has occurred." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Interview reflex",
+        "text": "Hear 'given', 'told that', or 'knowing'? Re-count both the favorable outcomes and the total **inside** the slice the condition allows."
+      },
+      "example": {
+        "prompt": "A card is drawn and you're told it's a face card (12 cards). What is P(it's a King)?",
+        "steps": [
+          "Condition on 'face card' → the world shrinks to the 12 face cards.",
+          "Kings among them: 4.",
+          "`P(King | face) = 4/12`."
+        ],
+        "result": "= 1/3 (not the unconditional 4/52)."
+      }
+    },
+    {
+      "heading": "The conditional probability formula",
+      "body": [
+        "Formally, `P(A|B) = P(A ∩ B) / P(B)`. With equally likely outcomes this is just **favorable-in-B over total-in-B** — counting inside the restricted space.",
+        "Conditioning is **not** symmetric: `P(A|B)` and `P(B|A)` are usually different because the denominators differ."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "P(A|B) = P(A ∩ B) / P(B)",
+        "caption": "Among the outcomes where B holds, the fraction that also have A."
+      },
+      "example": {
+        "prompt": "Draw one card; you're told it's a heart. What is P(ace | heart)?",
+        "steps": [
+          "Restricted space: the 13 hearts.",
+          "Aces among them: 1 (the ace of hearts).",
+          "`P(ace | heart) = 1/13`."
+        ],
+        "result": "= 1/13"
+      }
+    },
+    {
+      "heading": "With vs. without replacement",
+      "body": [
+        "If you **replace** what you drew, the pool resets and each draw has the **same** probabilities — draws are independent. If you **don't replace**, the totals shrink and later probabilities **depend** on what came before.",
+        "This single distinction decides most marble-and-card puzzles. Read the problem carefully for 'put it back' versus 'keep it out'."
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "You drew a red from 5 red of 10 marbles — what's P(next is red)?",
+        "headers": ["Next draw", "Red count", "Total", "P(red)"],
+        "rows": [
+          ["With replacement", "5", "10", "1/2"],
+          ["Without replacement", "4", "9", "4/9"]
+        ]
+      },
+      "example": {
+        "prompt": "Bag: 5 red, 3 blue, 2 green. You draw a green and keep it out. P(next is red)?",
+        "steps": [
+          "Removing a green doesn't touch the reds: still 5 red.",
+          "Total drops from 10 to 9.",
+          "`P(red) = 5/9`."
+        ],
+        "result": "= 5/9"
+      }
+    },
+    {
+      "heading": "Chaining draws: the multiplication rule",
+      "body": [
+        "For a sequence, multiply step by step, **updating** the pool after each draw: `P(A then B) = P(A) · P(B | A)`.",
+        "Each later factor uses the counts left after the earlier draws — the heart of 'without replacement' problems."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "P(both) = P(first)·P(second | first)",
+        "caption": "Multiply, updating the counts at each step."
+      },
+      "example": {
+        "prompt": "Bag: 3 red, 2 blue. Draw two without replacement. P(both red)?",
+        "steps": [
+          "First red: `3/5`.",
+          "Now 2 red of 4 remain → second red: `2/4`.",
+          "Multiply: `(3/5)(2/4) = 6/20`."
+        ],
+        "result": "P(both red) = 3/10"
+      }
+    },
+    {
+      "heading": "The 'at least one' complement trick",
+      "body": [
+        "'**At least one**' is almost always easier through its opposite: `P(at least one) = 1 − P(none)`. Computing 'none' is a single clean product; enumerating 'one, or two, or three…' is not.",
+        "This complement reflex is one of the most reliable interview shortcuts."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "success",
+        "title": "Reflex",
+        "text": "See 'at least one'? Compute `1 − P(none of them)` and you're usually done in one line."
+      },
+      "example": {
+        "prompt": "Bag: 3 red, 2 blue. Draw two without replacement. P(at least one red)?",
+        "steps": [
+          "The opposite is 'both blue': `(2/5)(1/4) = 1/10`.",
+          "Subtract from 1: `1 − 1/10`."
+        ],
+        "result": "P(at least one red) = 9/10"
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Restricted sample space",
+      "title": "New information rules things out",
+      "caption": "Conditional probability is the chance of something once you already know a fact. That fact rules out every outcome that disagrees with it, so the sample space shrinks. Knowing a card is red leaves only twenty-six cards in play.",
+      "visual": { "kind": "formula", "expression": "card is red ⇒ 26 cards remain" }
+    },
+    {
+      "term": "Conditional probability",
+      "title": "Count inside the slice",
+      "caption": "To get the probability of A given B, count the outcomes that have both A and B, then divide by all the outcomes where B holds. With equally likely outcomes it is just favorable over total, measured inside the restricted world.",
+      "visual": { "kind": "formula", "expression": "P(A|B) = P(A ∩ B) / P(B)" }
+    },
+    {
+      "term": "With vs. without replacement",
+      "title": "Do you put it back?",
+      "caption": "If you put the item back, the pool resets and every draw has the same odds. If you keep it out, the totals shrink and later draws depend on earlier ones. Spotting which case you're in solves most marble and card puzzles.",
+      "visual": {
+        "kind": "table",
+        "caption": "Drew a red from 5 red of 10",
+        "headers": ["", "P(next red)"],
+        "rows": [
+          ["Replace", "1/2"],
+          ["Keep out", "4/9"]
+        ]
+      }
+    },
+    {
+      "term": "Multiplication rule",
+      "title": "Chain the draws",
+      "caption": "For a sequence of draws, multiply the probabilities step by step, updating the counts after each one. The chance of two reds in a row is three fifths times two quarters, which is three tenths.",
+      "visual": { "kind": "formula", "expression": "P(both red) = (3/5)(2/4) = 3/10" }
+    },
+    {
+      "term": "At least one",
+      "title": "Flip to the complement",
+      "caption": "When a question asks for at least one, compute one minus the chance of none. Finding the chance that none occur is a single clean product, while listing every other case is slow and error-prone.",
+      "visual": { "kind": "formula", "expression": "P(at least one) = 1 − P(none)" }
+    }
+  ],
   "questions": [
     {
       "id": "l5_q1",

@@ -15,6 +15,174 @@
     "Indicator variables are the secret weapon. Let I_A = 1 if event A occurs and 0 otherwise. Then E[I_A] = P(A). By writing counts as sums of indicators, you can compute expectations without finding the full distribution — a technique that shows up constantly in interview problems about cards, dice, and trading scenarios.",
     "Random variables turn stories into numbers you can average, and linearity of expectation is the most under-rated interview weapon: it holds even when variables are dependent. Stat 110 drills this through indicator tricks and named distributions—Geometric waiting times, Binomial counts, fixed-point expectations in permutations. When a Green Book puzzle asks 'how many on average,' resist building the full PMF; decompose into indicators or apply E[aX + bY] = aE[X] + bE[Y] first."
   ],
+  "primer": [
+    {
+      "heading": "From outcomes to numbers",
+      "body": [
+        "A **random variable** is a number assigned to each outcome — 'number of sixes', 'total profit', 'flips until heads'. It lets you do arithmetic on randomness instead of juggling raw outcomes.",
+        "A **discrete** random variable takes countably many values. Its **probability mass function (PMF)** lists `P(X = k)` for each value. A valid PMF has nonnegative entries that sum to exactly 1."
+      ],
+      "keyTerms": [
+        { "term": "Random variable", "definition": "A function mapping each outcome to a number, e.g. `X = sum of two dice`." },
+        { "term": "PMF", "definition": "`P(X = k)` for every possible value k; entries are ≥ 0 and sum to 1." },
+        { "term": "Support", "definition": "The set of values a random variable can actually take." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "PMF for one fair die roll",
+        "headers": ["k", "1", "2", "3", "4", "5", "6"],
+        "rows": [["P(X=k)", "1/6", "1/6", "1/6", "1/6", "1/6", "1/6"]]
+      },
+      "example": {
+        "prompt": "Is `P(0)=0.3, P(1)=0.5, P(2)=0.2` a valid PMF?",
+        "steps": [
+          "Nonnegativity: all three entries are ≥ 0. ✓",
+          "Total mass: `0.3 + 0.5 + 0.2 = 1.0`. ✓"
+        ],
+        "result": "Yes — it is a valid PMF."
+      }
+    },
+    {
+      "heading": "Expected value: the center of mass",
+      "body": [
+        "The **expected value** `E[X]` is the probability-weighted average — the long-run mean if you repeated the experiment forever. Picture the PMF as weights on a ruler; `E[X]` is the balance point.",
+        "`E[X] = Σ k · P(X = k)`. It need not be a value X can actually take (a fair die's mean is 3.5)."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[X] = Σ k·P(X = k)",
+        "caption": "Probability-weighted average of the values."
+      },
+      "example": {
+        "prompt": "P(X=1)=0.3, P(X=2)=0.5, P(X=3)=0.2. Find E[X].",
+        "steps": [
+          "Weight each value by its probability: `1·0.3 + 2·0.5 + 3·0.2`.",
+          "`= 0.3 + 1.0 + 0.6`."
+        ],
+        "result": "E[X] = 1.9"
+      }
+    },
+    {
+      "heading": "Linearity of expectation",
+      "body": [
+        "The single most useful fact in the lesson: `E[aX + bY] = a·E[X] + b·E[Y]` — **always**, even when X and Y are dependent, correlated, or tangled together.",
+        "This lets you break a scary quantity into a sum of simple pieces and add their expectations. Compare with products: `E[XY] = E[X]·E[Y]` needs **independence** and is the classic trap."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "success",
+        "title": "Why linearity is magic",
+        "text": "`E[X₁ + … + Xₙ] = E[X₁] + … + E[Xₙ]` holds with **no** independence assumption. Decompose first, compute second."
+      },
+      "example": {
+        "prompt": "Sum of two dice, S = X₁ + X₂. Find E[S] without listing 36 outcomes.",
+        "steps": [
+          "Each die has mean `(1+2+3+4+5+6)/6 = 3.5`.",
+          "Linearity: `E[S] = 3.5 + 3.5`."
+        ],
+        "result": "E[S] = 7"
+      }
+    },
+    {
+      "heading": "Indicator variables: counting by expectation",
+      "body": [
+        "An **indicator** `Iₐ` equals 1 if event A happens and 0 otherwise. Its expectation is just the probability: `E[Iₐ] = P(A)`.",
+        "Write any **count** as a sum of indicators, then apply linearity. You get the expected count without ever finding the full distribution — even when the pieces are dependent."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[Iₐ] = P(A)        E[count] = Σ P(Aᵢ)",
+        "caption": "Turn 'how many on average' into a sum of probabilities."
+      },
+      "example": {
+        "prompt": "Roll a die 4 times. What is the expected number of sixes?",
+        "steps": [
+          "Let `Iⱼ = 1` if roll j is a six; `E[Iⱼ] = 1/6`.",
+          "Count `N = I₁ + I₂ + I₃ + I₄`.",
+          "Linearity: `E[N] = 4 · 1/6`."
+        ],
+        "result": "E[N] = 2/3"
+      }
+    },
+    {
+      "heading": "Bernoulli and Binomial counts",
+      "body": [
+        "A **Bernoulli(p)** trial is a single success/failure with mean `p`. A **Binomial(n, p)** counts successes in `n` independent Bernoulli trials.",
+        "Because a Binomial is a sum of n indicators, linearity gives its mean instantly: `E[X] = np`. No need for the `C(n,k)pᵏ(1−p)ⁿ⁻ᵏ` PMF just to get the average."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "X ~ Binomial(n, p)  ⇒  E[X] = np",
+        "caption": "Mean of a binomial: trials times success probability."
+      },
+      "example": {
+        "prompt": "8 independent bets, each wins with probability 0.55. Expected number of wins?",
+        "steps": [
+          "Each bet is Bernoulli(0.55) with mean 0.55.",
+          "Sum of 8 of them → `E[W] = 8 · 0.55`."
+        ],
+        "result": "E[W] = 4.4"
+      }
+    },
+    {
+      "heading": "Waiting times: the Geometric trick",
+      "body": [
+        "Flip a coin with success probability `p` until the **first** success. The number of trials `T` is **Geometric(p)**, and `E[T] = 1/p`.",
+        "The slick interview derivation uses a one-step recursion: you always spend 1 trial; with probability `1−p` you fail and start over. So `E = 1 + (1−p)E`, which solves to `E = 1/p`."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[T] = 1 + (1−p)·E[T]  ⇒  E[T] = 1/p",
+        "caption": "First-step analysis gives the geometric mean."
+      },
+      "example": {
+        "prompt": "Flip a fair coin until the first heads. Expected number of flips?",
+        "steps": [
+          "Success probability `p = 1/2`.",
+          "`E[T] = 1/p = 1/(1/2)`."
+        ],
+        "result": "E[T] = 2"
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Random variable",
+      "title": "Turning chance into numbers",
+      "caption": "A random variable is just a number attached to each outcome — how many sixes, your total profit, flips until heads. For a discrete one, the probability mass function lists the chance of each value, and those chances must add up to one.",
+      "visual": { "kind": "formula", "expression": "P(X=k) ≥ 0,   Σ P(X=k) = 1" }
+    },
+    {
+      "term": "Expected value",
+      "title": "The long-run average",
+      "caption": "Expected value is the probability-weighted average — the balance point of the distribution and the number you'd converge to over many repetitions. Multiply each value by its probability and add. It need not be a value you can actually roll.",
+      "visual": { "kind": "formula", "expression": "E[X] = Σ k·P(X=k)" }
+    },
+    {
+      "term": "Linearity of expectation",
+      "title": "Add first, ask questions later",
+      "caption": "The expectation of a sum is the sum of expectations, always, even when the variables are dependent. That is the most under-rated tool in interviews. Break a messy quantity into simple parts and just add their averages.",
+      "visual": { "kind": "formula", "expression": "E[aX + bY] = a·E[X] + b·E[Y]" }
+    },
+    {
+      "term": "Indicator variables",
+      "title": "Counting with zeros and ones",
+      "caption": "An indicator is one when an event happens and zero otherwise, so its average is exactly the event's probability. Write any count as a sum of indicators and add the probabilities — no full distribution required.",
+      "visual": { "kind": "formula", "expression": "E[Iₐ] = P(A)" }
+    },
+    {
+      "term": "Binomial mean",
+      "title": "Trials times probability",
+      "caption": "A binomial counts successes across n independent trials. Since it is a sum of indicators, its mean is simply n times p. Eight bets at fifty-five percent each gives four point four expected wins — no binomial formula needed.",
+      "visual": { "kind": "formula", "expression": "E[X] = np = 8 × 0.55 = 4.4" }
+    },
+    {
+      "term": "Geometric waiting time",
+      "title": "How long until the first success",
+      "caption": "Wait for the first success when each trial works with probability p, and on average it takes one over p trials. The quick argument: you always spend one trial, and with probability one minus p you fail and restart, which solves to one over p.",
+      "visual": { "kind": "formula", "expression": "E[T] = 1/p" }
+    }
+  ],
   "questions": [
     {
       "id": "l4_q1",
