@@ -1,0 +1,331 @@
+{
+  "lessonId": "lesson_17",
+  "track": "quant",
+  "title": "Kelly Criterion & Bet Sizing",
+  "questions": [
+    {
+      "id": "pr_l17_001",
+      "concept": "kelly_even_money",
+      "question": "Even-money bet, win probability 0.6. Kelly fraction?",
+      "options": [
+        "0.20",
+        "0.60",
+        "0.40",
+        "0.10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2·0.6 − 1 = 0.20.",
+        "B": "0.60 is p.",
+        "C": "0.40 doubles the edge.",
+        "D": "0.10 is half-Kelly."
+      }
+    },
+    {
+      "id": "pr_l17_002",
+      "concept": "kelly_even_money",
+      "question": "Even-money bet, win probability 0.65. Kelly fraction?",
+      "options": [
+        "0.30",
+        "0.65",
+        "0.35",
+        "0.15"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2·0.65 − 1 = 0.30.",
+        "B": "0.65 is p.",
+        "C": "0.35 is q.",
+        "D": "0.15 is half-Kelly."
+      }
+    },
+    {
+      "id": "pr_l17_003",
+      "concept": "no_edge",
+      "question": "Even-money bet, win probability 0.5. Kelly fraction?",
+      "options": [
+        "0",
+        "0.5",
+        "1",
+        "0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2·0.5 − 1 = 0; no edge, bet nothing.",
+        "B": "0.5 is p.",
+        "C": "1 ignores the absent edge.",
+        "D": "0.25 has no basis at zero edge."
+      }
+    },
+    {
+      "id": "pr_l17_004",
+      "concept": "log_growth",
+      "question": "Kelly maximizes:",
+      "options": [
+        "Expected log wealth (growth rate)",
+        "Expected wealth after one bet",
+        "Win probability",
+        "Variance"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Multiplicative compounding makes E[log wealth] the right objective.",
+        "B": "That recommends all-in and ruin.",
+        "C": "Sizing does not change win probability.",
+        "D": "Kelly is not about maximizing variance."
+      }
+    },
+    {
+      "id": "pr_l17_005",
+      "concept": "log_growth",
+      "question": "Why maximize expected log wealth?",
+      "options": [
+        "Wealth compounds multiplicatively",
+        "Logs are easier to type",
+        "Expected wealth can't be computed",
+        "Logs prevent all losses"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The long-run rate is the mean of log growth factors.",
+        "B": "Convenience is not the reason.",
+        "C": "Expected wealth is easy but reckless.",
+        "D": "Logs do not remove losses."
+      }
+    },
+    {
+      "id": "pr_l17_006",
+      "concept": "kelly_general",
+      "question": "Bet pays 2-to-1, win probability 0.4. Kelly fraction (bp − q)/b?",
+      "options": [
+        "0.10",
+        "0.20",
+        "0.40",
+        "0.30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (0.8 − 0.6)/2 = 0.10.",
+        "B": "0.20 is the edge before dividing by b.",
+        "C": "0.40 is p.",
+        "D": "0.30 is an arithmetic slip."
+      }
+    },
+    {
+      "id": "pr_l17_007",
+      "concept": "kelly_general",
+      "question": "Bet pays 2-to-1, win probability 0.5. Kelly fraction?",
+      "options": [
+        "0.25",
+        "0.50",
+        "0.20",
+        "0.10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (1 − 0.5)/2 = 0.25.",
+        "B": "0.50 is p.",
+        "C": "0.20 mishandles the odds.",
+        "D": "0.10 under-sizes."
+      }
+    },
+    {
+      "id": "pr_l17_008",
+      "concept": "kelly_general",
+      "question": "Bet pays 3-to-1, win probability 0.3. Kelly fraction?",
+      "options": [
+        "1/15",
+        "0.20",
+        "0.30",
+        "0.10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (0.9 − 0.7)/3 = 0.2/3 = 1/15 ≈ 0.067.",
+        "B": "0.20 is the edge numerator.",
+        "C": "0.30 is p.",
+        "D": "0.10 uses the wrong odds."
+      }
+    },
+    {
+      "id": "pr_l17_009",
+      "concept": "kelly_general",
+      "question": "f* = (bp − q)/b reduces, for b = 1, to:",
+      "options": [
+        "2p − 1",
+        "p",
+        "1 − p",
+        "p − 1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (p − q)/1 = 2p − 1.",
+        "B": "p alone over-bets.",
+        "C": "1 − p = q.",
+        "D": "p − 1 is negative."
+      }
+    },
+    {
+      "id": "pr_l17_010",
+      "concept": "edge_definition",
+      "question": "Even-money bet, p = 0.55. Edge?",
+      "options": [
+        "0.10",
+        "0.55",
+        "0.05",
+        "0.45"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. p − q = 0.55 − 0.45 = 0.10.",
+        "B": "0.55 is p.",
+        "C": "0.05 is p − 0.5, not the edge.",
+        "D": "0.45 is q."
+      }
+    },
+    {
+      "id": "pr_l17_011",
+      "concept": "edge_definition",
+      "question": "For even money, the Kelly fraction equals:",
+      "options": [
+        "The edge p − q",
+        "p",
+        "Half of p",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. f* = 2p − 1 = p − q.",
+        "B": "p over-bets.",
+        "C": "Half of p has no basis.",
+        "D": "All-in ignores edge size."
+      }
+    },
+    {
+      "id": "pr_l17_012",
+      "concept": "half_kelly",
+      "question": "Half-Kelly versus full Kelly mainly:",
+      "options": [
+        "Keeps ~3/4 of growth at ~half the volatility",
+        "Doubles growth",
+        "Eliminates losses",
+        "Is identical"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Flat growth peak plus rising variance makes fractional Kelly attractive.",
+        "B": "Betting less can't double growth.",
+        "C": "Losses still happen.",
+        "D": "It trades growth for less variance."
+      }
+    },
+    {
+      "id": "pr_l17_013",
+      "concept": "half_kelly",
+      "question": "Full Kelly is 0.3. Half-Kelly is:",
+      "options": [
+        "0.15",
+        "0.6",
+        "0.3",
+        "0.075"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Half of 0.3 is 0.15.",
+        "B": "0.6 is double Kelly.",
+        "C": "0.3 is full Kelly.",
+        "D": "0.075 is quarter-Kelly."
+      }
+    },
+    {
+      "id": "pr_l17_014",
+      "concept": "over_betting",
+      "question": "Betting more than Kelly (short of ruin) does what to long-run growth?",
+      "options": [
+        "Lowers it",
+        "Raises it",
+        "No change",
+        "Instant bankruptcy"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Kelly is the unique growth-maximizer.",
+        "B": "Over-betting can't beat the Kelly maximum.",
+        "C": "Growth falls once you leave f*.",
+        "D": "Modest over-betting lowers growth gradually."
+      }
+    },
+    {
+      "id": "pr_l17_015",
+      "concept": "over_betting",
+      "question": "The penalty for over- vs under-betting by the same amount is:",
+      "options": [
+        "Asymmetric (over-betting hurts more)",
+        "Symmetric",
+        "Zero",
+        "Only for negative edges"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The growth curve drops faster above the peak.",
+        "B": "It is not symmetric.",
+        "C": "Deviations reduce growth.",
+        "D": "It applies to any edge."
+      }
+    },
+    {
+      "id": "pr_l17_016",
+      "concept": "double_kelly",
+      "question": "Betting exactly twice the Kelly fraction gives long-run growth:",
+      "options": [
+        "≈ 0",
+        "Double Kelly's",
+        "The maximum",
+        "A small bonus"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Twice-Kelly drives growth to zero.",
+        "B": "Growth doesn't scale with bet size.",
+        "C": "The max is at f*.",
+        "D": "There is no bonus at 2f*."
+      }
+    },
+    {
+      "id": "pr_l17_017",
+      "concept": "double_kelly",
+      "question": "Beyond twice the Kelly fraction, long-run growth is:",
+      "options": [
+        "Negative (ruin looms)",
+        "Still positive",
+        "Maximal",
+        "Exactly zero"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Past 2f* growth turns negative.",
+        "B": "It is no longer positive.",
+        "C": "Maximum is at f*.",
+        "D": "Zero is exactly at 2f*, negative beyond."
+      }
+    },
+    {
+      "id": "pr_l17_018",
+      "concept": "log_growth",
+      "question": "The Kelly growth rate g(f) for per-unit outcome R is:",
+      "options": [
+        "E[ ln(1 + f·R) ]",
+        "E[ 1 + f·R ]",
+        "f·E[R]",
+        "ln(E[wealth])"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected log of the wealth multiplier.",
+        "B": "That is the linear expected multiplier.",
+        "C": "f·E[R] is the expected return, not geometric growth.",
+        "D": "ln(E[·]) ≠ E[ln(·)] by Jensen."
+      }
+    }
+  ]
+}

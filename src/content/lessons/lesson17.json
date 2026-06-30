@@ -1,0 +1,795 @@
+{
+  "lessonId": "lesson_17",
+  "order": 17,
+  "title": "Kelly Criterion & Bet Sizing",
+  "subtitle": "Growth-optimal fractions, log-utility, half-Kelly, and the cost of over-betting",
+  "topics": [
+    "The Kelly fraction",
+    "Log-growth optimization",
+    "Fractional / half-Kelly",
+    "Over-betting and ruin"
+  ],
+  "intro": [
+    "Knowing a bet is +EV is only half the job; the other half is sizing it. Bet too little and you leave growth on the table; bet too much and variance — or ruin — eats you alive. The Kelly criterion answers 'what fraction of bankroll?' by maximizing the long-run growth rate of wealth, and it is a staple of trading-desk and poker interviews for exactly that reason.",
+    "The key reframing: you do not maximize expected wealth (that recommends betting everything on any +EV edge and going broke the first time you lose). You maximize expected LOG wealth, because wealth compounds multiplicatively. The fraction that maximizes E[log(1 + f·outcome)] is the Kelly fraction, and it is what makes wealth grow fastest almost surely over many bets.",
+    "For an even-money bet the answer is gorgeous: f* = 2p − 1, i.e. bet your edge. For general odds b-to-1, f* = (bp − q)/b = edge ÷ odds. With no edge you bet nothing; with a large edge Kelly still keeps you well short of all-in.",
+    "Real desks bet fractional Kelly — often half-Kelly — because the growth curve is flat near the top while variance falls fast: half-Kelly keeps about three-quarters of the growth for half the volatility, and protects against the very real danger that your estimated edge is too high. Over-betting is punished sharply: at twice Kelly the long-run growth rate drops all the way back to zero. This lesson builds on expected value and logs (L1, L12)."
+  ],
+  "primer": [
+    {
+      "heading": "Size by maximizing log-growth",
+      "body": [
+        "Wealth compounds **multiplicatively**: after many bets your money is a product of growth factors, so the right objective is the **expected log return** per bet, not expected wealth.",
+        "Maximizing expected wealth says 'bet everything on any edge' — and one loss wipes you out. Maximizing $E[\\log(\\text{wealth})]$ instead gives the fraction that makes wealth grow fastest with probability 1 over the long run."
+      ],
+      "keyTerms": [
+        { "term": "Kelly fraction f*", "definition": "The bankroll fraction that maximizes expected log growth per bet." },
+        { "term": "Log utility", "definition": "Scoring outcomes by `log(wealth)` because returns compound multiplicatively." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "maximize  g(f) = E[ ln(1 + f·R) ]   (R = per-unit outcome)",
+        "caption": "Kelly maximizes the expected log growth rate, not expected wealth."
+      }
+    },
+    {
+      "heading": "The even-money Kelly fraction",
+      "body": [
+        "For a bet that pays **even money** (1:1) and wins with probability $p$ (so $q = 1-p$), the Kelly fraction is simply your **edge**: $f^* = p - q = 2p - 1$.",
+        "Win 55% of even-money bets? Bet 10% of bankroll. Win 60%? Bet 20%. No edge ($p=0.5$)? Bet nothing."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "even money:  f* = 2p − 1 = edge",
+        "caption": "Bet your edge on an even-money proposition."
+      },
+      "example": {
+        "prompt": "An even-money bet wins 60% of the time. Kelly fraction?",
+        "steps": [
+          "`f* = 2p − 1` with `p = 0.6`.",
+          "`= 1.2 − 1`."
+        ],
+        "result": "f* = 0.20 — risk 20% of bankroll per bet."
+      }
+    },
+    {
+      "heading": "General odds: edge ÷ odds",
+      "body": [
+        "When a winning bet pays $b$-to-1 (net), the Kelly fraction is $f^* = \\dfrac{bp - q}{b} = p - \\dfrac{q}{b}$. A handy reading: **edge divided by odds**, where edge is the EV per unit staked, $bp - q$.",
+        "This reduces to $2p-1$ when $b = 1$. Bigger payout odds let you size a given win-probability more aggressively per unit of edge."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "f* = (b·p − q) / b = p − q/b     (b = net payout odds)",
+        "caption": "General Kelly fraction for a b-to-1 bet."
+      },
+      "example": {
+        "prompt": "A bet pays 2-to-1 and wins with probability 0.4. Kelly fraction?",
+        "steps": [
+          "`b = 2`, `p = 0.4`, `q = 0.6`.",
+          "`f* = (2·0.4 − 0.6)/2 = (0.8 − 0.6)/2`."
+        ],
+        "result": "f* = 0.10"
+      }
+    },
+    {
+      "heading": "Fractional & half-Kelly",
+      "body": [
+        "The growth curve $g(f)$ is **flat near its peak**, so betting a bit under Kelly costs almost no growth but slashes variance. Desks routinely bet **half-Kelly**.",
+        "Rule of thumb: half-Kelly retains about **three-quarters** of the maximum growth rate for roughly **half** the volatility — and it cushions the very real risk that your edge estimate is too optimistic (over-estimating $p$ pushes full Kelly into dangerous over-betting)."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "success",
+        "title": "Why pros bet fractional Kelly",
+        "text": "Near the top the growth curve barely changes, but variance keeps rising. Half-Kelly ≈ 75% of the growth at ≈ half the risk, and it hedges a mis-estimated edge."
+      }
+    },
+    {
+      "heading": "Over-betting: the cost of greed",
+      "body": [
+        "Betting **more** than Kelly *lowers* your long-run growth and amplifies drawdowns. The damage is asymmetric: under-betting costs a little, over-betting costs a lot.",
+        "The sharp landmark: betting exactly **twice** the Kelly fraction drives the long-run growth rate all the way back to **zero** — you take maximum risk for no compounding benefit. Beyond that, growth goes negative and ruin becomes the destination."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "g(f*) = max ;   g(2f*) ≈ 0 ;   g(f) < 0 for f > 2f*",
+        "caption": "Double the Kelly fraction ⇒ zero long-run growth."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Log-growth",
+      "title": "Maximize log, not dollars",
+      "caption": "Wealth compounds multiplicatively, so the right thing to maximize is expected log growth, not expected wealth. Maximizing expected wealth tells you to bet everything on any edge, and a single loss wipes you out. Log utility gives the fraction that grows wealth fastest over the long run.",
+      "visual": { "kind": "formula", "expression": "maximize E[ ln(1 + f·R) ]" }
+    },
+    {
+      "term": "Even-money Kelly",
+      "title": "Bet your edge",
+      "caption": "For an even-money bet, the Kelly fraction is just your edge: two p minus one. Win sixty percent of the time and you risk twenty percent of your bankroll. With no edge, you bet nothing.",
+      "visual": { "kind": "formula", "expression": "f* = 2p − 1" }
+    },
+    {
+      "term": "General Kelly",
+      "title": "Edge divided by odds",
+      "caption": "When a win pays b to one, the Kelly fraction is b times p minus q, all over b — read it as edge divided by odds. With a payout of two to one and a forty percent win chance, that works out to ten percent of bankroll.",
+      "visual": { "kind": "formula", "expression": "f* = (b·p − q)/b" }
+    },
+    {
+      "term": "Half-Kelly",
+      "title": "Most of the growth, half the risk",
+      "caption": "Because the growth curve is flat near its peak, betting a little under Kelly barely costs growth but greatly reduces variance. Half-Kelly keeps about three quarters of the growth for roughly half the volatility, and it protects you when your estimated edge is too optimistic.",
+      "visual": { "kind": "callout", "tone": "success", "title": "Fractional Kelly", "text": "Flat top, falling variance — bet under the peak." }
+    },
+    {
+      "term": "Over-betting",
+      "title": "Double Kelly kills growth",
+      "caption": "Betting more than Kelly lowers your long-run growth and deepens drawdowns, and the penalty is steep. Bet exactly twice the Kelly fraction and your long-run growth rate falls all the way to zero — maximum risk for no compounding reward.",
+      "visual": { "kind": "formula", "expression": "g(2f*) ≈ 0" }
+    }
+  ],
+  "questions": [
+    {
+      "id": "l17_q1",
+      "kind": "standard",
+      "concept": "kelly_even_money",
+      "question": "An even-money (1:1) bet wins with probability 0.6. What fraction of bankroll does the Kelly criterion say to bet?",
+      "options": [
+        "0.20",
+        "0.60",
+        "0.40",
+        "0.10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For even money, f* = 2p − 1 = 2·0.6 − 1 = 0.20.",
+        "B": "0.60 is the win probability p, not the Kelly fraction.",
+        "C": "0.40 is q-related (or 2·0.2) — it doubles the edge incorrectly; the edge itself is 0.2.",
+        "D": "0.10 is half-Kelly here, not the full Kelly fraction."
+      },
+      "remediation": [
+        {
+          "id": "l17_q1_r1",
+          "question": "Even-money bet, win probability 0.55. Kelly fraction?",
+          "options": [
+            "0.10",
+            "0.55",
+            "0.45",
+            "0.20"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 2·0.55 − 1 = 0.10.",
+            "B": "0.55 is p, not the fraction.",
+            "C": "0.45 is q, the loss probability.",
+            "D": "0.20 doubles the correct edge."
+          }
+        },
+        {
+          "id": "l17_q1_r2",
+          "question": "Even-money bet, win probability 0.50. Kelly fraction?",
+          "options": [
+            "0",
+            "0.5",
+            "1",
+            "0.25"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 2·0.5 − 1 = 0; with no edge you bet nothing.",
+            "B": "0.5 is the win probability, not the fraction.",
+            "C": "1 (all-in) ignores that there is no edge to exploit.",
+            "D": "0.25 has no basis when the edge is 0."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q2",
+      "kind": "standard",
+      "concept": "log_growth",
+      "question": "The Kelly criterion chooses the bet fraction that maximizes:",
+      "options": [
+        "Expected logarithm of wealth (long-run growth rate)",
+        "Expected wealth after one bet",
+        "The probability of winning the next bet",
+        "The variance of returns"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Because wealth compounds multiplicatively, maximizing E[log wealth] maximizes the long-run growth rate.",
+        "B": "Maximizing one-step expected wealth says bet everything on any edge, which leads to ruin.",
+        "C": "Kelly does not change your win probability; it sizes the bet given that probability.",
+        "D": "Kelly does not maximize variance; if anything it controls it relative to growth."
+      },
+      "remediation": [
+        {
+          "id": "l17_q2_r1",
+          "question": "Why maximize expected LOG wealth instead of expected wealth?",
+          "options": [
+            "Wealth compounds multiplicatively, so log turns products into sums",
+            "Logs make the math harder on purpose",
+            "Expected wealth is impossible to compute",
+            "Logs guarantee you never lose"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Multiplicative compounding means the long-run rate is the average of log growth factors.",
+            "B": "Logs actually simplify multiplicative growth into additive terms.",
+            "C": "Expected wealth is easy to compute; it just gives a reckless answer.",
+            "D": "Logs do not eliminate losses; they optimize growth."
+          }
+        },
+        {
+          "id": "l17_q2_r2",
+          "question": "Maximizing one-step expected wealth on any +EV edge recommends:",
+          "options": [
+            "Betting your entire bankroll, risking ruin",
+            "Betting nothing",
+            "Betting exactly half-Kelly",
+            "Betting the Kelly fraction"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Linear expected wealth is maximized by going all-in on any positive edge — which busts you on the first loss.",
+            "B": "Betting nothing would not maximize expected wealth on a +EV bet.",
+            "C": "Half-Kelly comes from log utility, not from maximizing expected wealth.",
+            "D": "The Kelly fraction comes from log utility, not from maximizing expected wealth."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q3",
+      "kind": "standard",
+      "concept": "kelly_general",
+      "question": "A bet pays 2-to-1 (win 2 units per 1 staked) and wins with probability 0.4. What is the Kelly fraction f* = (bp − q)/b?",
+      "options": [
+        "0.10",
+        "0.20",
+        "0.40",
+        "0.30"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (2·0.4 − 0.6)/2 = (0.8 − 0.6)/2 = 0.2/2 = 0.10.",
+        "B": "0.20 = bp − q = 0.2 is the edge (numerator); you must still divide by b = 2.",
+        "C": "0.40 is the win probability p, not the fraction.",
+        "D": "0.30 mishandles the arithmetic; the correct value is 0.10."
+      },
+      "remediation": [
+        {
+          "id": "l17_q3_r1",
+          "question": "A bet pays 3-to-1 and wins with probability 0.5. Kelly fraction f* = (bp − q)/b?",
+          "options": [
+            "1/3",
+            "0.5",
+            "0.25",
+            "1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. (3·0.5 − 0.5)/3 = (1.5 − 0.5)/3 = 1/3.",
+            "B": "0.5 is p, not the fraction.",
+            "C": "0.25 ignores the 3-to-1 payout.",
+            "D": "1 (all-in) is far above Kelly."
+          }
+        },
+        {
+          "id": "l17_q3_r2",
+          "question": "The general Kelly fraction f* = (bp − q)/b reduces, for an even-money bet (b = 1), to:",
+          "options": [
+            "2p − 1",
+            "p",
+            "p − 1",
+            "1 − p"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. With b = 1, (p − q)/1 = p − (1 − p) = 2p − 1.",
+            "B": "p alone is the win probability, not the edge.",
+            "C": "p − 1 is negative for p < 1 and is not the fraction.",
+            "D": "1 − p = q is the loss probability."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q4",
+      "kind": "standard",
+      "concept": "edge_definition",
+      "question": "On an even-money bet you win 55% of the time. What is your edge, and (for even money) the Kelly fraction?",
+      "options": [
+        "0.10",
+        "0.55",
+        "0.05",
+        "0.45"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Edge = p − q = 0.55 − 0.45 = 0.10, and for even money the Kelly fraction equals the edge, 0.10.",
+        "B": "0.55 is p, the win probability, not the edge.",
+        "C": "0.05 = p − 0.5 measures distance from 50% but the edge over an even-money opponent is p − q = 0.10.",
+        "D": "0.45 is q, the loss probability."
+      },
+      "remediation": [
+        {
+          "id": "l17_q4_r1",
+          "question": "Even-money bet, p = 0.70. Edge?",
+          "options": [
+            "0.40",
+            "0.70",
+            "0.30",
+            "0.20"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. p − q = 0.70 − 0.30 = 0.40.",
+            "B": "0.70 is p.",
+            "C": "0.30 is q.",
+            "D": "0.20 = p − 0.5 doubled-down incorrectly; edge is p − q = 0.40."
+          }
+        },
+        {
+          "id": "l17_q4_r2",
+          "question": "For an even-money bet, the Kelly fraction equals:",
+          "options": [
+            "The edge p − q",
+            "The win probability p",
+            "Half the win probability",
+            "Always 1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. f* = 2p − 1 = p − q, exactly the edge.",
+            "B": "p alone over-bets relative to Kelly.",
+            "C": "Half of p has no basis.",
+            "D": "All-in ignores the size of the edge."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q5",
+      "kind": "standard",
+      "concept": "no_edge",
+      "question": "You face an even-money bet that you win exactly half the time (p = 0.5). What does Kelly recommend?",
+      "options": [
+        "Bet nothing (f* = 0)",
+        "Bet half your bankroll",
+        "Bet everything",
+        "Bet a small fixed amount anyway"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. With no edge, f* = 2·0.5 − 1 = 0; risking capital on a zero-edge bet only adds variance.",
+        "B": "Half the bankroll would be reckless with no edge.",
+        "C": "All-in on a fair bet is pure gambling with no growth benefit.",
+        "D": "Any positive stake on a zero-edge bet reduces long-run growth via variance."
+      },
+      "remediation": [
+        {
+          "id": "l17_q5_r1",
+          "question": "An even-money bet you LOSE more than half the time (p < 0.5) gives a Kelly fraction that is:",
+          "options": [
+            "Negative — i.e. don't take it (or bet the other side)",
+            "Still positive",
+            "Exactly 0.5",
+            "1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. f* = 2p − 1 < 0 when p < 0.5, meaning the bet is unfavorable — decline it.",
+            "B": "It is not positive when you lose more than half the time.",
+            "C": "0.5 has no basis here.",
+            "D": "Betting all-in on a losing proposition guarantees rapid ruin."
+          }
+        },
+        {
+          "id": "l17_q5_r2",
+          "question": "Betting a positive fraction on a zero-edge even-money bet affects long-run growth how?",
+          "options": [
+            "It lowers it (variance with no compensating drift)",
+            "It raises it",
+            "It leaves it unchanged",
+            "It guarantees a profit"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. With no edge, the variance drag on log-growth makes any stake harmful.",
+            "B": "There is no edge to raise growth.",
+            "C": "Variance still reduces the geometric growth rate.",
+            "D": "A fair bet guarantees nothing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q6",
+      "kind": "standard",
+      "concept": "half_kelly",
+      "question": "Compared with full Kelly, betting half-Kelly mainly does what?",
+      "options": [
+        "Keeps most of the growth (~3/4) while roughly halving volatility",
+        "Doubles the long-run growth rate",
+        "Guarantees you never lose money",
+        "Is identical to full Kelly in every way"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The growth curve is flat near its peak, so half-Kelly retains roughly three-quarters of the growth for about half the volatility — and hedges a mis-estimated edge.",
+        "B": "Betting less cannot double the growth rate; full Kelly already maximizes it.",
+        "C": "Half-Kelly still has losing streaks; it reduces, not eliminates, risk.",
+        "D": "It deliberately trades a little growth for much less variance, so it is not identical."
+      },
+      "remediation": [
+        {
+          "id": "l17_q6_r1",
+          "question": "The main practical reason desks bet fractional Kelly is:",
+          "options": [
+            "Lower variance and protection against an over-estimated edge",
+            "It increases the edge",
+            "It is required by regulators",
+            "It maximizes one-step expected wealth"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Fractional Kelly cuts volatility sharply and guards against optimistic edge estimates.",
+            "B": "Bet sizing does not change the underlying edge.",
+            "C": "It is a risk choice, not a regulatory rule.",
+            "D": "Maximizing one-step expected wealth would push toward all-in, the opposite."
+          }
+        },
+        {
+          "id": "l17_q6_r2",
+          "question": "If your full-Kelly fraction is 0.2, half-Kelly is:",
+          "options": [
+            "0.1",
+            "0.4",
+            "0.2",
+            "0.05"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Half of 0.2 is 0.1.",
+            "B": "0.4 is double Kelly, not half.",
+            "C": "0.2 is full Kelly.",
+            "D": "0.05 is quarter-Kelly."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q7",
+      "kind": "standard",
+      "concept": "over_betting",
+      "question": "Betting MORE than the Kelly fraction (but not yet ruinous) does what to long-run growth?",
+      "options": [
+        "Lowers it while increasing volatility",
+        "Raises it",
+        "Leaves it unchanged",
+        "Always causes immediate bankruptcy"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Kelly is the unique growth-maximizer, so any deviation — especially over-betting — reduces growth and adds variance.",
+        "B": "Over-betting cannot raise growth above the Kelly maximum.",
+        "C": "Growth changes (falls) once you leave the optimal fraction.",
+        "D": "Modest over-betting lowers growth gradually; immediate bankruptcy requires far more extreme sizing."
+      },
+      "remediation": [
+        {
+          "id": "l17_q7_r1",
+          "question": "The penalty for over-betting vs under-betting by the same amount is:",
+          "options": [
+            "Asymmetric — over-betting hurts more",
+            "Symmetric — equal in both directions",
+            "Zero — neither matters",
+            "Only relevant for negative edges"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The growth curve falls off faster above the peak, so over-betting is more damaging than equal under-betting.",
+            "B": "The penalty is not symmetric around the peak.",
+            "C": "Deviations from Kelly do reduce growth.",
+            "D": "The asymmetry applies to any edge, not just negative ones."
+          }
+        },
+        {
+          "id": "l17_q7_r2",
+          "question": "Which sizing maximizes long-run growth for a +EV bet?",
+          "options": [
+            "Exactly the Kelly fraction",
+            "Twice the Kelly fraction",
+            "The whole bankroll",
+            "Zero"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Kelly is by definition the growth-rate maximizer.",
+            "B": "Double Kelly drops growth to zero.",
+            "C": "All-in risks ruin.",
+            "D": "Zero forgoes the edge entirely."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q8",
+      "kind": "standard",
+      "concept": "double_kelly",
+      "question": "Betting exactly TWICE the Kelly fraction gives a long-run growth rate of approximately:",
+      "options": [
+        "Zero (no better than not betting)",
+        "Double the Kelly growth rate",
+        "The maximum possible growth",
+        "A small positive bonus over Kelly"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A classic Kelly result: at 2f* the long-run growth rate falls back to zero — maximum risk, no compounding gain.",
+        "B": "Growth does not scale with bet size; doubling the fraction destroys growth, not doubles it.",
+        "C": "The maximum growth is at f*, not 2f*.",
+        "D": "There is no bonus; 2f* is the break-even point for growth."
+      },
+      "remediation": [
+        {
+          "id": "l17_q8_r1",
+          "question": "At the Kelly fraction f*, the long-run growth rate is:",
+          "options": [
+            "Maximized",
+            "Zero",
+            "Negative",
+            "Minimized"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. f* is defined as the growth-maximizing fraction.",
+            "B": "Zero growth occurs at 2f*, not f*.",
+            "C": "Growth is positive (and maximal) at f* for a +EV bet.",
+            "D": "f* maximizes, not minimizes, growth."
+          }
+        },
+        {
+          "id": "l17_q8_r2",
+          "question": "Betting MORE than twice the Kelly fraction leads to a long-run growth rate that is:",
+          "options": [
+            "Negative (wealth declines, ruin looms)",
+            "Still positive",
+            "Exactly the Kelly maximum",
+            "Zero forever"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Beyond 2f* growth turns negative, so wealth shrinks toward ruin over time.",
+            "B": "Past the zero-growth point growth is negative, not positive.",
+            "C": "The maximum is at f*, far below 2f*.",
+            "D": "Growth is exactly zero only at 2f*; beyond it, growth is negative."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q9",
+      "kind": "challenge",
+      "concept": "kelly_general",
+      "question": "A bet pays 3-to-1 (win 3 per 1 staked) and wins with probability 0.3. What is the Kelly fraction?",
+      "options": [
+        "≈ 0.067 (1/15)",
+        "0.20",
+        "0.30",
+        "0.10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. f* = (bp − q)/b = (3·0.3 − 0.7)/3 = (0.9 − 0.7)/3 = 0.2/3 = 1/15 ≈ 0.067.",
+        "B": "0.20 = bp − q is the edge (numerator) before dividing by b = 3.",
+        "C": "0.30 is the win probability p.",
+        "D": "0.10 would be the edge divided by 2, but the odds here are 3."
+      },
+      "remediation": [
+        {
+          "id": "l17_q9_r1",
+          "question": "A bet pays 4-to-1 and wins with probability 0.3. Kelly fraction (bp − q)/b?",
+          "options": [
+            "0.125",
+            "0.5",
+            "0.30",
+            "0.2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. (4·0.3 − 0.7)/4 = (1.2 − 0.7)/4 = 0.5/4 = 0.125.",
+            "B": "0.5 = bp − q is the edge before dividing by b = 4.",
+            "C": "0.30 is p.",
+            "D": "0.2 uses the wrong odds."
+          }
+        },
+        {
+          "id": "l17_q9_r2",
+          "question": "In f* = (bp − q)/b, the numerator bp − q represents:",
+          "options": [
+            "The expected profit (edge) per unit staked",
+            "The probability of winning",
+            "The payout odds",
+            "The bankroll fraction directly"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. bp − q is the EV per unit staked — the edge — which you then divide by the odds b.",
+            "B": "The win probability is p, not bp − q.",
+            "C": "The odds are b, the divisor.",
+            "D": "The fraction is the whole expression, not just the numerator."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q10",
+      "kind": "challenge",
+      "concept": "kelly_general",
+      "question": "You can win with probability 0.5 on a bet that pays 2-to-1. What is the Kelly fraction?",
+      "options": [
+        "0.25",
+        "0.50",
+        "0.20",
+        "0.10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. f* = (bp − q)/b = (2·0.5 − 0.5)/2 = (1 − 0.5)/2 = 0.5/2 = 0.25.",
+        "B": "0.50 is the win probability p.",
+        "C": "0.20 uses the wrong odds or arithmetic.",
+        "D": "0.10 under-sizes; the favorable 2-to-1 payout with a coin-flip win warrants 0.25."
+      },
+      "remediation": [
+        {
+          "id": "l17_q10_r1",
+          "question": "Win probability 0.5, payout 5-to-1. Kelly fraction (bp − q)/b?",
+          "options": [
+            "0.40",
+            "0.50",
+            "0.20",
+            "0.10"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. (5·0.5 − 0.5)/5 = (2.5 − 0.5)/5 = 2/5 = 0.40.",
+            "B": "0.50 is p.",
+            "C": "0.20 mishandles the odds.",
+            "D": "0.10 under-sizes for such a favorable payout."
+          }
+        },
+        {
+          "id": "l17_q10_r2",
+          "question": "Holding win probability fixed, a larger payout b makes the Kelly fraction:",
+          "options": [
+            "Larger (you can size up a given edge)",
+            "Smaller",
+            "Unchanged",
+            "Negative"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. A bigger payout raises bp − q faster than the divisor b, increasing f* (up to a point), so a favorable price warrants more size.",
+            "B": "It does not shrink the optimal fraction for a fixed favorable p.",
+            "C": "The fraction does change with the odds.",
+            "D": "For a +EV bet the fraction stays positive."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q11",
+      "kind": "challenge",
+      "concept": "log_growth",
+      "question": "For an even-money bet with p = 0.6 (Kelly fraction 0.2), the long-run growth rate per bet is g = 0.6·ln(1.2) + 0.4·ln(0.8). This is approximately:",
+      "options": [
+        "≈ 2.0% per bet",
+        "≈ 20% per bet",
+        "≈ 10% per bet",
+        "0% per bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.6·0.1823 + 0.4·(−0.2231) ≈ 0.1094 − 0.0893 = 0.0201, about 2.0% growth per bet.",
+        "B": "≈ 20% confuses the bet fraction (0.2) with the growth rate.",
+        "C": "≈ 10% confuses the edge (0.1) with the growth rate.",
+        "D": "0% would be the growth at twice-Kelly (f = 0.4), not at the optimal 0.2."
+      },
+      "remediation": [
+        {
+          "id": "l17_q11_r1",
+          "question": "The Kelly growth rate g(f) for a bet with outcome R is:",
+          "options": [
+            "E[ ln(1 + f·R) ]",
+            "E[ 1 + f·R ]",
+            "f · E[R]",
+            "ln(E[wealth])"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The long-run growth rate is the expected log of the per-bet wealth multiplier.",
+            "B": "That is the expected multiplier (linear), not the log-growth rate.",
+            "C": "f·E[R] is the expected return, not the geometric growth rate.",
+            "D": "ln(E[wealth]) is not the same as E[ln(wealth)] (Jensen's inequality)."
+          }
+        },
+        {
+          "id": "l17_q11_r2",
+          "question": "The growth rate at the Kelly fraction is, compared with any other fraction:",
+          "options": [
+            "The highest possible",
+            "The lowest",
+            "Always zero",
+            "Always negative"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. By construction the Kelly fraction maximizes the growth rate.",
+            "B": "It is the maximum, not the minimum.",
+            "C": "It is positive for a +EV bet.",
+            "D": "It is positive, not negative, for a genuine edge."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l17_q12",
+      "kind": "challenge",
+      "concept": "over_betting",
+      "question": "Your Kelly fraction is 0.2 (even money, p = 0.6). If you instead bet 0.4 of bankroll each time (double Kelly), your long-run growth rate is approximately:",
+      "options": [
+        "About zero — you tread water despite max risk",
+        "About double the Kelly growth rate",
+        "Higher, since you bet more on a +EV edge",
+        "About 40% per bet"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. g(0.4) = 0.6·ln(1.4) + 0.4·ln(0.6) ≈ 0.2019 − 0.2043 ≈ 0 — twice-Kelly drives growth to roughly zero.",
+        "B": "Betting double does not double growth; it destroys it.",
+        "C": "Over-betting a +EV edge lowers growth; more size is not always better.",
+        "D": "≈ 40% confuses the bet fraction with the growth rate; the rate is ≈ 0."
+      },
+      "remediation": [
+        {
+          "id": "l17_q12_r1",
+          "question": "At what multiple of the Kelly fraction does the long-run growth rate return to zero?",
+          "options": [
+            "2× (double Kelly)",
+            "1× (Kelly itself)",
+            "0.5× (half Kelly)",
+            "10× Kelly"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Growth is zero at twice the Kelly fraction.",
+            "B": "At 1× Kelly growth is maximal, not zero.",
+            "C": "At half-Kelly growth is still strongly positive.",
+            "D": "By 10× Kelly growth is deeply negative, well past zero."
+          }
+        },
+        {
+          "id": "l17_q12_r2",
+          "question": "Over-betting (above Kelly) tends to produce:",
+          "options": [
+            "Lower growth and deeper drawdowns",
+            "Higher growth and shallower drawdowns",
+            "No change in either",
+            "Guaranteed profit"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Past the peak, growth falls and volatility (drawdowns) rises.",
+            "B": "Over-betting worsens both growth and drawdowns.",
+            "C": "Both change for the worse once you exceed Kelly.",
+            "D": "Nothing about over-betting guarantees profit."
+          }
+        }
+      ]
+    }
+  ]
+}
