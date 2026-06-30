@@ -1,0 +1,795 @@
+{
+  "lessonId": "lesson_13",
+  "order": 13,
+  "title": "Martingales & Optional Stopping",
+  "subtitle": "Fair games, the optional stopping theorem, and stopping-time EV puzzles",
+  "topics": [
+    "Martingale definition",
+    "Optional stopping theorem",
+    "Stopping-time expected values",
+    "When optional stopping fails"
+  ],
+  "intro": [
+    "A martingale is the mathematical model of a fair game: given everything you have seen so far, the expected value of your next position equals your current position. No information you hold lets you predict an edge. This one idea quietly powers option pricing (risk-neutral pricing is a martingale statement), gambler's-ruin answers, and a huge fraction of quant interview brain-teasers.",
+    "The headline tool is the Optional Stopping Theorem (OST): for a martingale and a 'nice' stopping time τ, the expected value at the stopping time equals where you started, E[X_τ] = X_0. That sentence collapses many seemingly hard expectation problems into a single equation. Want the probability a fair walk hits N before 0 from k? Set E[X_τ] = X_0 and solve: it is k/N.",
+    "Two moves recur. First, recognize or *construct* a martingale (the walk itself; or a 'compensated' process like S_n² − n that strips out predictable drift). Second, apply OST and read off either a hitting probability or an expected duration. Constructing the right martingale is the creative step interviewers are really testing.",
+    "Equally important is knowing when OST does NOT apply. The classic doubling ('martingale') betting system appears to guarantee a profit, but it requires unbounded bankroll and unbounded time — exactly the conditions OST forbids — so it does not beat a fair game in expectation. This lesson assumes you are fluent in expected value and conditional expectation (L1, L12)."
+  ],
+  "primer": [
+    {
+      "heading": "What a martingale is",
+      "body": [
+        "A sequence $X_0, X_1, X_2, \\dots$ is a **martingale** if, conditioned on the entire history up to time $n$, the expected next value equals the current value: $E[X_{n+1} \\mid \\text{history}] = X_n$.",
+        "In plain terms: it models a **fair game**. Your best forecast of tomorrow's wealth, given all you know today, is exactly today's wealth — no drift up (that would be a *submartingale*) and none down (*supermartingale*)."
+      ],
+      "keyTerms": [
+        { "term": "Martingale", "definition": "A process with `E[Xₙ₊₁ | history] = Xₙ` — a fair game with zero expected drift." },
+        { "term": "Fair increment", "definition": "Each step has conditional mean 0: `E[Xₙ₊₁ − Xₙ | history] = 0`." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[ Xₙ₊₁ | X₀, …, Xₙ ] = Xₙ",
+        "caption": "The defining property of a martingale (a fair game)."
+      }
+    },
+    {
+      "heading": "Fairness composes over time",
+      "body": [
+        "Because each step has zero expected drift, the expected value at any *fixed* future time stays put: $E[X_n] = X_0$ for every $n$. A fair game played a fixed number of times is still fair.",
+        "The classic example: a symmetric $\\pm 1$ random walk. Up and down are equally likely, so the expected position never moves off the start, no matter how many steps you take."
+      ],
+      "example": {
+        "prompt": "You start with $50 and make 100 fair $1 bets (win or lose $1, 50/50). Expected bankroll after the 100 bets?",
+        "steps": [
+          "Each bet has expected change `0` (a fair increment).",
+          "Expected wealth is unchanged at every step: `E[X₁₀₀] = X₀`."
+        ],
+        "result": "E[bankroll] = $50 — fairness does not erode with more fair bets."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Fixed-time fairness",
+        "text": "A fair game stopped at a fixed clock time is fair. The subtlety — and the power — comes from stopping at a *random* time you choose."
+      }
+    },
+    {
+      "heading": "The optional stopping theorem",
+      "body": [
+        "The big result: if $X$ is a martingale and $\\tau$ is a stopping time that is 'nice' (e.g. bounded, or the martingale's steps are bounded and $E[\\tau] < \\infty$), then $E[X_\\tau] = X_0$.",
+        "A **stopping time** is a rule for quitting that uses only the past — 'stop the first time I hit \\$100 or \\$0' is valid; 'stop one step before the peak' is not (it peeks at the future). OST says no valid quitting rule changes your expected wealth in a fair game."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[ X_τ ] = X₀     (X a martingale, τ a suitable stopping time)",
+        "caption": "Optional Stopping Theorem: a fair game stays fair even at a chosen stopping time."
+      },
+      "keyTerms": [
+        { "term": "Stopping time τ", "definition": "A quitting rule decidable from the past only — no looking ahead." }
+      ]
+    },
+    {
+      "heading": "Reading off hitting probabilities",
+      "body": [
+        "OST turns hitting-probability questions into one equation. For a symmetric walk started at $k$ with absorbing barriers at $0$ and $N$, the walk itself is a martingale, so $E[X_\\tau] = k$.",
+        "At the stop the walk is either $0$ or $N$, so $E[X_\\tau] = 0\\cdot(1-p) + N\\cdot p = Np$ where $p = P(\\text{hit } N \\text{ first})$. Setting $Np = k$ gives the famous $p = k/N$."
+      ],
+      "example": {
+        "prompt": "A fair walk starts at 3 with absorbing barriers at 0 and 10. P(reach 10 before 0)?",
+        "steps": [
+          "Walk is a martingale ⇒ `E[X_τ] = X₀ = 3`.",
+          "At the stop: `E[X_τ] = 10·p + 0·(1−p) = 10p`.",
+          "Solve `10p = 3`."
+        ],
+        "result": "p = 3/10 = 0.3 (and ruin probability = 0.7)."
+      }
+    },
+    {
+      "heading": "Expected duration & when OST fails",
+      "body": [
+        "For *durations*, the raw walk is not enough — build a **compensated martingale** that subtracts predictable drift. For a symmetric walk, $S_n^2 - n$ is a martingale, and applying OST yields the expected absorption time $a\\cdot b$ (with $a$, $b$ the distances to the two barriers).",
+        "Finally, respect the hypotheses. The **doubling system** (double your bet after each loss) seems to guarantee +\\$1, but it needs unbounded bankroll *and* unbounded time — OST's conditions fail, so it does **not** beat a fair game. There is no free lunch in a martingale."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "No free lunch",
+        "text": "If a 'sure-win' system seems to beat a fair game, it is quietly assuming infinite bankroll or infinite time. OST forbids exactly those, so expected profit is still 0."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Martingale",
+      "title": "The model of a fair game",
+      "caption": "A martingale is a fair game. Given everything you have seen so far, your best forecast of the next value is simply the current value. There is no upward drift and no downward drift, so no information you hold gives you an edge.",
+      "visual": { "kind": "formula", "expression": "E[Xₙ₊₁ | history] = Xₙ" }
+    },
+    {
+      "term": "Fixed-time fairness",
+      "title": "Fair stays fair over time",
+      "caption": "Because every step has zero expected drift, the expected value at any fixed future time equals the starting value. Making a hundred fair one-dollar bets leaves your expected bankroll exactly where it began.",
+      "visual": { "kind": "formula", "expression": "E[Xₙ] = X₀  for every fixed n" }
+    },
+    {
+      "term": "Optional stopping",
+      "title": "Even your quitting rule stays fair",
+      "caption": "The optional stopping theorem says that for a fair game and a sensible quitting rule, the expected value when you stop equals where you started. A stopping rule may only use the past, never a peek at the future.",
+      "visual": { "kind": "formula", "expression": "E[X_τ] = X₀" }
+    },
+    {
+      "term": "Hitting probabilities",
+      "title": "One equation, one answer",
+      "caption": "Optional stopping turns hitting questions into a single equation. For a fair walk starting at k between zero and N, the expected stopping value is N times the chance of reaching N. Set that equal to k and you get the famous answer, k over N.",
+      "visual": { "kind": "formula", "expression": "N·p = k  ⇒  p = k/N" }
+    },
+    {
+      "term": "No free lunch",
+      "title": "When the theorem does not apply",
+      "caption": "The doubling system looks like a guaranteed dollar, but it secretly needs unlimited money and unlimited time. Those are exactly the conditions the optional stopping theorem rules out, so a fair game can never be beaten in expectation.",
+      "visual": { "kind": "callout", "tone": "warning", "title": "No edge", "text": "Infinite bankroll or time hides behind every 'sure-win' system." }
+    }
+  ],
+  "questions": [
+    {
+      "id": "l13_q1",
+      "kind": "standard",
+      "concept": "martingale_definition",
+      "question": "A process X₀, X₁, … is a martingale when, conditioned on the full history up to time n, the expected next value E[Xₙ₊₁ | history] equals which quantity?",
+      "options": [
+        "The current value Xₙ",
+        "Zero",
+        "The starting value X₀",
+        "The largest value seen so far"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The defining property is E[Xₙ₊₁ | history] = Xₙ: your best forecast of the next value is the current value.",
+        "B": "Zero would only match if the current value were 0. The conditional mean of the next value is the current value, not 0 (the increment has mean 0).",
+        "C": "X₀ is the unconditional mean E[Xₙ] = X₀; the one-step conditional expectation equals the current value Xₙ, which generally differs from X₀.",
+        "D": "The running maximum is not a forecast of the next value; a martingale targets the current value, not the historical high."
+      },
+      "remediation": [
+        {
+          "id": "l13_q1_r1",
+          "question": "For a martingale, the expected one-step increment E[Xₙ₊₁ − Xₙ | history] equals:",
+          "options": [
+            "0",
+            "Xₙ",
+            "1",
+            "X₀"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Since E[Xₙ₊₁ | history] = Xₙ, subtracting Xₙ gives a conditional mean increment of 0.",
+            "B": "Xₙ is the expected next value, not the expected change.",
+            "C": "A nonzero constant drift of 1 would make it a submartingale, not a martingale.",
+            "D": "X₀ is the starting value, not the expected increment."
+          }
+        },
+        {
+          "id": "l13_q1_r2",
+          "question": "A process whose expected next value is strictly greater than the current value (positive drift) is called a:",
+          "options": [
+            "Submartingale",
+            "Martingale",
+            "Supermartingale",
+            "Stopping time"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Positive expected drift (E[Xₙ₊₁ | history] ≥ Xₙ) defines a submartingale.",
+            "B": "A martingale has exactly zero drift, not positive drift.",
+            "C": "A supermartingale drifts down (E[Xₙ₊₁ | history] ≤ Xₙ).",
+            "D": "A stopping time is a quitting rule, not a drift classification."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q2",
+      "kind": "standard",
+      "concept": "fair_game",
+      "question": "You bet $10 on a single fair coin flip: win $10 with probability 1/2, lose $10 otherwise. How does your expected bankroll change after this one bet?",
+      "options": [
+        "Increases by $10",
+        "Unchanged",
+        "Decreases by $10",
+        "Doubles"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "It does not rise; the +$10 outcome is exactly offset by the equally likely −$10 outcome.",
+        "B": "Correct. E[change] = 0.5·(+10) + 0.5·(−10) = 0, so expected bankroll is unchanged — a fair bet is a martingale step.",
+        "C": "It does not fall; the loss is balanced by an equally likely win of the same size.",
+        "D": "Doubling would require a guaranteed gain equal to the stake, but the outcome is symmetric around 0."
+      },
+      "remediation": [
+        {
+          "id": "l13_q2_r1",
+          "question": "A fair bet wins +$5 or loses −$5 with equal probability. The expected profit from one bet is:",
+          "options": [
+            "$0",
+            "$5",
+            "−$5",
+            "$2.50"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 0.5·5 + 0.5·(−5) = 0.",
+            "B": "$5 counts only the winning outcome.",
+            "C": "−$5 counts only the losing outcome.",
+            "D": "$2.50 halves the stake without accounting for the equally likely loss."
+          }
+        },
+        {
+          "id": "l13_q2_r2",
+          "question": "Which single bet is a fair (martingale) step?",
+          "options": [
+            "Win $8 w.p. 1/2, lose $8 w.p. 1/2",
+            "Win $8 w.p. 1/2, lose $4 w.p. 1/2",
+            "Win $10 w.p. 0.4, lose $5 w.p. 0.6",
+            "Always win $1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Expected change = 0.5·8 + 0.5·(−8) = 0, a fair increment.",
+            "B": "Expected change = 0.5·8 − 0.5·4 = +2, a positive drift (submartingale).",
+            "C": "Expected change = 0.4·10 − 0.6·5 = 4 − 3 = +1, not fair.",
+            "D": "A guaranteed +$1 is pure positive drift, not a fair game."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q3",
+      "kind": "standard",
+      "concept": "fixed_time_fairness",
+      "question": "You start with $50 and make 100 independent fair $1 bets (each ±$1 with equal probability). What is your expected bankroll afterward?",
+      "options": [
+        "$50",
+        "$0",
+        "$150",
+        "$5,000"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each bet has expected change 0, so the expected bankroll stays at the starting $50.",
+        "B": "$0 confuses the expected increment (0) with the expected bankroll (the start, $50).",
+        "C": "$150 = 50 + 100 adds the number of bets as if each guaranteed +$1, but each is fair (mean 0).",
+        "D": "$5,000 = 50 × 100 multiplies by the number of bets with no basis."
+      },
+      "remediation": [
+        {
+          "id": "l13_q3_r1",
+          "question": "Starting at $0, you make 20 fair ±$1 bets. Expected ending position?",
+          "options": [
+            "$0",
+            "$20",
+            "−$20",
+            "$10"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The expected value of a symmetric walk after any fixed number of steps is the start, $0.",
+            "B": "$20 assumes every bet wins.",
+            "C": "−$20 assumes every bet loses.",
+            "D": "$10 has no basis; the expected drift per step is 0."
+          }
+        },
+        {
+          "id": "l13_q3_r2",
+          "question": "A symmetric random walk has E[Sₙ] equal to:",
+          "options": [
+            "S₀ for every n",
+            "n",
+            "n·S₀",
+            "0 only at n = 0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. With zero drift, the expected position equals the start at every step.",
+            "B": "n is the step count, not the expected position.",
+            "C": "n·S₀ grows without justification; the walk has no drift.",
+            "D": "The expectation stays at S₀ for all n, not just n = 0."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q4",
+      "kind": "standard",
+      "concept": "optional_stopping_statement",
+      "question": "The Optional Stopping Theorem says that for a martingale X and a suitable stopping time τ, the quantity E[X_τ] equals:",
+      "options": [
+        "X₀",
+        "0",
+        "E[τ]",
+        "The barrier value"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Under its hypotheses, OST gives E[X_τ] = X₀ — stopping a fair game at a valid rule does not change expected value.",
+        "B": "0 would only hold if the process started at 0; in general the answer is the start X₀.",
+        "C": "E[τ] is the expected stopping time, a different quantity entirely.",
+        "D": "A single barrier value is one possible outcome, not the expected stopping value."
+      },
+      "remediation": [
+        {
+          "id": "l13_q4_r1",
+          "question": "Which quitting rule is a valid stopping time?",
+          "options": [
+            "Stop the first time the walk hits $100 or $0",
+            "Stop one step before the all-time peak",
+            "Stop at the highest point the walk will ever reach",
+            "Stop right before the next loss"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The hitting time of a level uses only the past and present, so it is a valid stopping time.",
+            "B": "Knowing the peak requires seeing the future, which is not allowed.",
+            "C": "The all-time maximum is only known in hindsight; this peeks ahead.",
+            "D": "Anticipating the next loss requires future information, so it is not a stopping time."
+          }
+        },
+        {
+          "id": "l13_q4_r2",
+          "question": "OST requires a 'nice' stopping time. A common sufficient condition is:",
+          "options": [
+            "τ is bounded (or the increments are bounded and E[τ] < ∞)",
+            "τ is exactly equal to X₀",
+            "The process drifts upward",
+            "The bets grow geometrically"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Boundedness of τ (or bounded steps with finite E[τ]) is the standard hypothesis that makes E[X_τ] = X₀ valid.",
+            "B": "τ and X₀ are unrelated quantities; there is no such requirement.",
+            "C": "Upward drift would mean it is not a martingale at all.",
+            "D": "Geometrically growing bets is the doubling system — precisely the case where OST fails."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q5",
+      "kind": "standard",
+      "concept": "ruin_probability_martingale",
+      "question": "A symmetric ±1 walk starts at 3 with absorbing barriers at 0 and 10. Using the walk as a martingale, what is the probability it reaches 10 before 0?",
+      "options": [
+        "0.3",
+        "0.7",
+        "0.5",
+        "0.03"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. OST: E[X_τ] = X₀ = 3 and E[X_τ] = 10p, so 10p = 3 ⇒ p = 0.3.",
+        "B": "0.7 is the probability of being ruined (hitting 0 first) — the complement of the question asked.",
+        "C": "0.5 ignores the starting position; a start of 3 out of 10 is closer to 0, so reaching 10 is less than even.",
+        "D": "0.03 = 3/100 divides by the square of the barrier; the formula is k/N = 3/10."
+      },
+      "remediation": [
+        {
+          "id": "l13_q5_r1",
+          "question": "A symmetric walk starts at 4 with barriers at 0 and 8. P(reach 8 before 0)?",
+          "options": [
+            "0.5",
+            "0.25",
+            "0.8",
+            "0.4"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. p = k/N = 4/8 = 0.5; starting exactly halfway makes each barrier equally likely.",
+            "B": "0.25 = 4/16 divides by the wrong total.",
+            "C": "0.8 = 4/5 uses the wrong barrier as the denominator.",
+            "D": "0.4 = 4/10 uses a barrier of 10, not 8."
+          }
+        },
+        {
+          "id": "l13_q5_r2",
+          "question": "For a fair walk from k with barriers 0 and N, the ruin probability (hitting 0 first) is:",
+          "options": [
+            "(N − k)/N",
+            "k/N",
+            "1/N",
+            "k/(N − k)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. P(reach N) = k/N, so P(ruin) = 1 − k/N = (N − k)/N.",
+            "B": "k/N is the probability of reaching N, not of ruin.",
+            "C": "1/N ignores the starting position k.",
+            "D": "k/(N − k) is not a probability and can exceed 1."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q6",
+      "kind": "standard",
+      "concept": "ruin_probability_martingale",
+      "question": "You start with $20 and make fair $1 bets, quitting when you reach $0 or $100. What is the probability you reach $100?",
+      "options": [
+        "0.2",
+        "0.8",
+        "0.5",
+        "0.05"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. p = k/N = 20/100 = 0.2 by the optional stopping argument E[X_τ] = X₀.",
+        "B": "0.8 is the probability of going broke first, the complement.",
+        "C": "0.5 ignores that $20 is much closer to $0 than to $100.",
+        "D": "0.05 = 1/20 inverts and misuses the starting bankroll."
+      },
+      "remediation": [
+        {
+          "id": "l13_q6_r1",
+          "question": "Start with $30, fair $1 bets, quit at $0 or $100. P(reach $100)?",
+          "options": [
+            "0.3",
+            "0.7",
+            "0.5",
+            "0.03"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. p = 30/100 = 0.3.",
+            "B": "0.7 is the ruin probability.",
+            "C": "0.5 ignores the starting bankroll.",
+            "D": "0.03 misplaces a decimal; the answer is 30/100 = 0.3."
+          }
+        },
+        {
+          "id": "l13_q6_r2",
+          "question": "Start with $90, fair $1 bets, quit at $0 or $100. P(ruin, i.e. reach $0)?",
+          "options": [
+            "0.1",
+            "0.9",
+            "0.5",
+            "0.01"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. P(reach 100) = 90/100 = 0.9, so P(ruin) = 0.1.",
+            "B": "0.9 is the probability of reaching $100, not ruin.",
+            "C": "0.5 ignores that $90 is very close to the $100 target.",
+            "D": "0.01 misplaces a decimal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q7",
+      "kind": "standard",
+      "concept": "no_free_lunch",
+      "question": "In a strictly fair game, what is the expected profit from any valid (past-only) stopping strategy?",
+      "options": [
+        "$0",
+        "Always positive",
+        "Always negative",
+        "Positive if you quit while ahead"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. OST gives E[X_τ] = X₀, so expected profit E[X_τ − X₀] = 0 for any valid stopping rule.",
+        "B": "A fair game cannot be turned positive in expectation by a legal quitting rule.",
+        "C": "Nor can it be made systematically negative; the expectation is exactly 0.",
+        "D": "'Quit while ahead' feels like an edge, but the rare large losses exactly offset the frequent small wins — expected profit remains 0."
+      },
+      "remediation": [
+        {
+          "id": "l13_q7_r1",
+          "question": "A gambler uses 'quit the first time I am up $1' in a fair game. Expected profit (ignoring practical limits)?",
+          "options": [
+            "$0",
+            "$1",
+            "−$1",
+            "Unbounded"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. By OST the expected value at the (valid) stopping time equals the start, so expected profit is $0; the chance of a deep drawdown that never recovers offsets the small target.",
+            "B": "$1 is the target, but reaching it is not guaranteed within finite resources.",
+            "C": "−$1 has no basis; the game is fair, not negative.",
+            "D": "The expectation is a finite $0, not unbounded."
+          }
+        },
+        {
+          "id": "l13_q7_r2",
+          "question": "Why does the doubling (double-after-loss) system NOT beat a fair game in expectation?",
+          "options": [
+            "It needs unbounded bankroll and time, so OST's hypotheses fail to give a guaranteed win",
+            "The coin is secretly biased against you",
+            "It violates the law of large numbers",
+            "Casinos forbid it"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The 'sure $1' relies on infinite bankroll and unlimited time; those are exactly the conditions under which optional stopping does not promise a free profit.",
+            "B": "The argument fails even for a perfectly fair coin; bias is not the issue.",
+            "C": "The law of large numbers is not what breaks; the resource assumptions are.",
+            "D": "Table limits are a practical detail, not the mathematical reason."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q8",
+      "kind": "standard",
+      "concept": "martingale_identification",
+      "question": "Which of the following processes is a martingale (a fair game with zero expected drift)?",
+      "options": [
+        "A symmetric ±1 random walk (up and down equally likely)",
+        "A ±1 walk that steps up with probability 0.6",
+        "The running maximum of a random walk",
+        "A sequence that increases by exactly 1 each step"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Equal up/down probabilities give each step conditional mean 0, the martingale property.",
+        "B": "Stepping up 60% of the time gives positive drift (a submartingale), not a martingale.",
+        "C": "The running maximum can only stay flat or rise, so it has nonnegative drift and is not a martingale.",
+        "D": "A deterministic +1 each step has constant positive drift, the opposite of a fair game."
+      },
+      "remediation": [
+        {
+          "id": "l13_q8_r1",
+          "question": "A ±1 walk steps down with probability 0.7 and up with 0.3. It is a:",
+          "options": [
+            "Supermartingale (downward drift)",
+            "Martingale",
+            "Submartingale (upward drift)",
+            "Stopping time"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Expected step = 0.3·(+1) + 0.7·(−1) = −0.4 < 0, so it drifts down: a supermartingale.",
+            "B": "A martingale needs zero drift; here the drift is negative.",
+            "C": "Upward drift would need the up-probability above 0.5.",
+            "D": "A stopping time is a rule, not a process."
+          }
+        },
+        {
+          "id": "l13_q8_r2",
+          "question": "Your wealth under repeated fair bets is a martingale. Your wealth under bets with a small house edge is a:",
+          "options": [
+            "Supermartingale",
+            "Martingale",
+            "Submartingale",
+            "Constant"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. A house edge means negative expected drift, so your wealth is a supermartingale (tends to decline).",
+            "B": "A martingale requires a perfectly fair game with no edge.",
+            "C": "A submartingale drifts up, which would favor the player, not the house.",
+            "D": "Wealth still fluctuates randomly, so it is not constant."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q9",
+      "kind": "challenge",
+      "concept": "expected_duration",
+      "question": "A symmetric ±1 walk starts at 3 with absorbing barriers at 0 and 10. Using the martingale Sₙ² − n, what is the expected number of steps until absorption?",
+      "options": [
+        "21",
+        "30",
+        "13",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Distances to the barriers are 3 (down to 0) and 7 (up to 10); expected duration = 3 × 7 = 21. (Equivalently, apply OST to Sₙ² − n: E[S_τ²] = E[τ] + S₀², and E[S_τ²] = 0.3·100 = 30, so E[τ] = 30 − 9 = 21.)",
+        "B": "30 = E[S_τ²] = 0.3·10², which is an intermediate quantity; you must subtract S₀² = 9.",
+        "C": "13 = 3 + 10 adds start and barrier rather than multiplying the two barrier distances.",
+        "D": "9 = S₀² is just the squared start, not the expected duration."
+      },
+      "remediation": [
+        {
+          "id": "l13_q9_r1",
+          "question": "A symmetric walk starts at 2 with barriers at 0 and 5. Expected steps to absorption (= product of distances to barriers)?",
+          "options": [
+            "6",
+            "10",
+            "7",
+            "4"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Distances are 2 (to 0) and 3 (to 5); 2 × 3 = 6.",
+            "B": "10 = 2 × 5 uses the barrier level instead of the up-distance 3.",
+            "C": "7 = 2 + 5 adds rather than multiplies.",
+            "D": "4 = 2² squares the start instead of multiplying the two distances."
+          }
+        },
+        {
+          "id": "l13_q9_r2",
+          "question": "For a symmetric walk starting at the midpoint of barriers 0 and 8, the expected duration is:",
+          "options": [
+            "16",
+            "8",
+            "4",
+            "32"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Midpoint is 4; distances are 4 and 4, so 4 × 4 = 16.",
+            "B": "8 is the barrier width, not the product of distances.",
+            "C": "4 is one distance, not the product.",
+            "D": "32 = 4 × 8 uses the full width instead of the half-distance."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q10",
+      "kind": "challenge",
+      "concept": "ruin_probability_martingale",
+      "question": "A fair ±1 walk starts at 0 and stops when it first hits +3 or −5. What is the probability it hits +3 before −5?",
+      "options": [
+        "5/8",
+        "3/8",
+        "1/2",
+        "5/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Shift so barriers are at 0 and 8 with the start at 5 (it is 5 above the lower barrier −5). P(hit upper) = 5/8 by the k/N rule.",
+        "B": "3/8 is the probability of hitting −5 first (the complement); the start is closer to the upper barrier in distance terms, so reaching +3 is more likely.",
+        "C": "1/2 ignores that the two barriers are at unequal distances (3 up vs 5 down).",
+        "D": "5/3 exceeds 1 and cannot be a probability."
+      },
+      "remediation": [
+        {
+          "id": "l13_q10_r1",
+          "question": "A fair walk starts at 0 and stops at +2 or −2. P(hit +2 first)?",
+          "options": [
+            "1/2",
+            "1/4",
+            "2/3",
+            "1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Symmetric barriers at equal distance give probability 1/2 each.",
+            "B": "1/4 has no basis for equal, symmetric barriers.",
+            "C": "2/3 would require asymmetric barriers.",
+            "D": "1 would mean it always hits +2, impossible for a symmetric walk."
+          }
+        },
+        {
+          "id": "l13_q10_r2",
+          "question": "A fair walk starts at 0 and stops at +1 or −4. P(hit +1 first)?",
+          "options": [
+            "4/5",
+            "1/5",
+            "1/4",
+            "1/2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Distance to the lower barrier is 4 and total width is 5, so P(hit upper) = 4/5.",
+            "B": "1/5 is the probability of hitting −4 first (the complement).",
+            "C": "1/4 misuses the distances; the rule is (distance to far/opposite barrier)/(total width).",
+            "D": "1/2 ignores the unequal barrier distances."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q11",
+      "kind": "challenge",
+      "concept": "expected_duration",
+      "question": "A fair ±1 walk starts at 0 and stops when it first hits +3 or −5. What is the expected number of steps until it stops?",
+      "options": [
+        "15",
+        "8",
+        "21",
+        "40"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. For a symmetric walk the expected duration is the product of the distances to the two barriers: 3 × 5 = 15.",
+        "B": "8 = 3 + 5 is the barrier width (sum), not the product.",
+        "C": "21 is the answer to a different problem (barriers 0 and 10 from a start of 3).",
+        "D": "40 = 8 × 5 multiplies the width by one distance instead of the two distances together."
+      },
+      "remediation": [
+        {
+          "id": "l13_q11_r1",
+          "question": "A fair walk starts at 0 with barriers at +4 and −1. Expected duration?",
+          "options": [
+            "4",
+            "5",
+            "3",
+            "16"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Distances are 4 and 1; 4 × 1 = 4.",
+            "B": "5 = 4 + 1 adds instead of multiplying.",
+            "C": "3 = 4 − 1 subtracts the distances.",
+            "D": "16 = 4² ignores the lower distance of 1."
+          }
+        },
+        {
+          "id": "l13_q11_r2",
+          "question": "The expected-duration formula 'product of distances to the two barriers' assumes the walk is:",
+          "options": [
+            "Symmetric (unbiased ±1 steps)",
+            "Strongly biased upward",
+            "Deterministic",
+            "Stopped at a fixed time"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The clean product formula a·b holds for the symmetric simple random walk.",
+            "B": "A biased walk has a different (exponential-type) duration formula.",
+            "C": "A deterministic process has no random duration.",
+            "D": "Fixed-time stopping is not absorption at a barrier."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l13_q12",
+      "kind": "challenge",
+      "concept": "building_martingale",
+      "question": "Your wealth Wₙ follows a martingale starting at $100. You decide to stop the first time wealth reaches at least $200. Assuming the stopping time satisfies OST's hypotheses, what must the expected stopping wealth E[W_τ] equal?",
+      "options": [
+        "$100",
+        "$200",
+        "$150",
+        "$0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. OST forces E[W_τ] = W₀ = $100. The chance of never reaching $200 (drifting toward 0) exactly balances the times you do, keeping the expected stopping wealth at the start.",
+        "B": "$200 is the target threshold, but reaching it is not certain; the expected stopping value is pinned to the start by OST.",
+        "C": "$150 is the midpoint of 100 and 200, which has no role here.",
+        "D": "$0 is one possible long-run outcome but not the expected stopping value."
+      },
+      "remediation": [
+        {
+          "id": "l13_q12_r1",
+          "question": "A martingale starts at X₀ = 7. For any valid stopping time τ, E[X_τ] equals:",
+          "options": [
+            "7",
+            "0",
+            "14",
+            "E[τ]"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. OST gives E[X_τ] = X₀ = 7.",
+            "B": "0 would require starting at 0.",
+            "C": "14 = 2·7 has no basis; stopping does not double the expectation.",
+            "D": "E[τ] is the expected stopping time, not the expected value of X."
+          }
+        },
+        {
+          "id": "l13_q12_r2",
+          "question": "Why can't you 'lock in' a profit by stopping a martingale the first time it exceeds your start?",
+          "options": [
+            "The positive-but-small gains are offset by rare paths that drift far below the start",
+            "Martingales always trend upward",
+            "Stopping times are illegal",
+            "The expectation becomes infinite"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. OST keeps E[X_τ] = X₀; frequent small wins are exactly balanced by occasional deep, slow-to-recover losses.",
+            "B": "Martingales have zero drift, not an upward trend.",
+            "C": "Hitting-time stopping rules are perfectly legal stopping times.",
+            "D": "The expectation stays finite and equal to the start, not infinite."
+          }
+        }
+      ]
+    }
+  ]
+}
