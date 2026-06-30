@@ -19,6 +19,125 @@
     "Bayesian updating in interview games is usually arithmetic, not notation: someone reveals a die face, shows a card suit, or announces one coin result. Fair value jumps to the conditional expectation given that clue — and stale quotes are an invitation to be picked off.",
     "Calibration under partial information means widening when residual uncertainty is still large. If one die shows 2, the sum's fair is 5.5 but still has variance from the hidden die — a tight quote around 5.5 ignores that you could still land anywhere from 3 to 8."
   ],
+  "primer": [
+    {
+      "heading": "Conditional expectation",
+      "body": [
+        "When a clue arrives, fair value becomes the **conditional expectation**: the average outcome given everything you know *now*, not what you knew at the start.",
+        "In interview games this is just arithmetic. Re-average over the outcomes that are still possible, weighting by their updated probabilities."
+      ],
+      "keyTerms": [
+        { "term": "Conditional expectation", "definition": "E[outcome | information] — the mean over the outcomes still consistent with what you have learned." },
+        { "term": "Prior / posterior", "definition": "Your fair value before the clue (prior) versus after updating on it (posterior)." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "new fair = E[payoff | clue]",
+        "caption": "Re-average over the outcomes that are still possible."
+      }
+    },
+    {
+      "heading": "Revealing one piece",
+      "body": [
+        "When part of a multi-piece bet is revealed, fix the known part and add the expectation of what is still hidden.",
+        "Two dice, payoff = sum: if one die shows `4`, fair = `4 + E[other die] = 4 + 3.5 = 7.5`. The known die is certain; the hidden die still contributes its `3.5` mean."
+      ],
+      "example": {
+        "prompt": "Two fair dice, payoff = sum. One die is revealed as `3`. What is the updated fair value?",
+        "steps": ["Known die contributes `3` with certainty.", "Hidden fair die contributes `E = 3.5`.", "New fair = `3 + 3.5`."],
+        "result": "Fair value = `6.5`."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "E[sum | one die = d] = d + 3.5",
+        "caption": "Fix the known piece; add the mean of the hidden piece."
+      }
+    },
+    {
+      "heading": "Bayesian updates from a clue",
+      "body": [
+        "A clue can change probabilities without revealing the outcome. Restrict to the outcomes consistent with the clue, then recompute.",
+        "A card pays `$10` if it is a heart. Unconditionally fair = `$2.50` (P = `1/4`). Told the card is **red**, only 26 cards remain and 13 are hearts, so P(heart | red) = `13/26 = 1/2` and fair jumps to `$5`."
+      ],
+      "keyTerms": [
+        { "term": "Bayesian update", "definition": "Recomputing a probability after conditioning on new evidence." }
+      ],
+      "example": {
+        "prompt": "Card pays `$10` if a heart. You learn it is red (heart or diamond). New fair value?",
+        "steps": ["Red cards: 26, of which 13 are hearts.", "P(heart | red) = `13/26 = 1/2`.", "Fair = `(1/2) × $10`."],
+        "result": "Fair value = `$5`."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Condition, then recompute",
+        "text": "A clue shrinks the set of possible outcomes. Re-derive the probability over what is left — don't keep using the prior."
+      }
+    },
+    {
+      "heading": "Stale quotes get picked off",
+      "body": [
+        "After a public clue, your old quote is **stale** — centered on the wrong fair. Sharp traders take the cheap side instantly.",
+        "If fair jumps from `7` to `9.5` (a die shows `6`) but you still quote `6 at 8`, your ask `8` is far below the new fair, so everyone lifts it. Reprice the instant news lands."
+      ],
+      "keyTerms": [
+        { "term": "Stale quote", "definition": "A quote that no longer reflects current information; an open invitation to be picked off." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Speed matters on public news",
+        "text": "When everyone sees the same clue, your edge is speed: recompute fair and re-quote before someone trades against the stale price."
+      }
+    },
+    {
+      "heading": "Residual uncertainty",
+      "body": [
+        "A clue rarely removes *all* uncertainty. Center on the new conditional fair, but keep the spread wide enough for the variance that remains.",
+        "If one die shows `2`, the sum's fair is `5.5`, yet the hidden die still ranges `1`–`6`, so the sum could land anywhere from `3` to `8`. A razor-tight quote around `5.5` ignores that spread of outcomes."
+      ],
+      "keyTerms": [
+        { "term": "Residual uncertainty", "definition": "The variation that remains after a partial clue; it should keep your spread from collapsing." }
+      ],
+      "example": {
+        "prompt": "One die shows `2`; payoff = sum of two dice. Where is fair, and how should you quote?",
+        "steps": ["New fair = `2 + 3.5 = 5.5`.", "Hidden die still spans `1`–`6`, so the sum spans `3`–`8`.", "Center on `5.5`, but keep a spread for that range."],
+        "result": "Quote around `5.5` with width sized to the remaining variance."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Conditional expectation",
+      "title": "Re-average on what you know",
+      "caption": "When a clue arrives, fair value becomes the conditional expectation: the average outcome given everything you know now, not what you knew at the start. In interview games this is just arithmetic. Re-average over the outcomes that are still possible.",
+      "visual": { "kind": "formula", "expression": "new fair = E[payoff | clue]" }
+    },
+    {
+      "term": "Revealing one piece",
+      "title": "Fix the known, add the hidden",
+      "caption": "When part of a multi-piece bet is revealed, fix the known part and add the expectation of what is still hidden. Two dice paying the sum: if one die shows four, fair is four plus three and a half, which is seven and a half. The known die is certain; the hidden die still contributes its mean.",
+      "visual": { "kind": "formula", "expression": "E[sum | one die = d] = d + 3.5" }
+    },
+    {
+      "term": "Bayesian update",
+      "title": "Condition, then recompute",
+      "caption": "A clue can change probabilities without revealing the outcome. A card pays ten if it is a heart, worth two dollars fifty before any clue. Told the card is red, only twenty-six cards remain and thirteen are hearts, so the chance is one half and fair jumps to five.",
+      "visual": { "kind": "callout", "tone": "info", "text": "A clue shrinks the set of outcomes. Re-derive the probability over what is left." }
+    },
+    {
+      "term": "Stale quote",
+      "title": "Reprice the instant news lands",
+      "caption": "After a public clue your old quote is stale, centered on the wrong fair. Sharp traders take the cheap side instantly. If fair jumps from seven to nine and a half but you still quote six at eight, everyone lifts your cheap ask. When all see the same clue, your edge is speed.",
+      "visual": { "kind": "callout", "tone": "warning", "text": "Recompute fair and re-quote before someone trades against the stale price." }
+    },
+    {
+      "term": "Residual uncertainty",
+      "title": "Keep a spread for what remains",
+      "caption": "A clue rarely removes all uncertainty. Center on the new conditional fair, but keep the spread wide enough for the variance that remains. If one die shows two, the sum's fair is five and a half, yet the hidden die still ranges one to six, so the sum could land anywhere from three to eight.",
+      "visual": { "kind": "formula", "expression": "fair = 2 + 3.5 = 5.5, range still 3 to 8" }
+    }
+  ],
   "questions": [
     {
       "id": "mm_pi_q1",
@@ -566,6 +685,61 @@
             "B": "1.0 is certain head.",
             "C": "0 is certain tail.",
             "D": "Two flips max is 2, not E."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_pi_q7",
+      "kind": "challenge",
+      "concept": "conditional_subset",
+      "question": "Two fair dice, payoff = sum. You learn the first die is EVEN (a 2, 4, or 6) but not its exact value; the second die stays hidden. What is the updated fair value?",
+      "options": [
+        "7.5",
+        "7",
+        "8.5",
+        "9.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[first die | even] = (2 + 4 + 6) / 3 = 4, plus the hidden die's 3.5, gives 4 + 3.5 = 7.5.",
+        "B": "7 ignores the clue entirely; conditioning on 'even' lifts the first die's mean from 3.5 to 4.",
+        "C": "8.5 uses 5 for the first die (5 + 3.5), but the average of the even faces is 4, not 5.",
+        "D": "9.5 uses the maximum even face 6 (6 + 3.5); you need the average of the even faces, not the largest."
+      },
+      "remediation": [
+        {
+          "id": "mm_pi_q7_r1",
+          "question": "A single fair die is known to be even. Its expected value is:",
+          "options": [
+            "4",
+            "3.5",
+            "6",
+            "3"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — (2 + 4 + 6) / 3 = 4.",
+            "B": "3.5 is the unconditional mean, before learning the die is even.",
+            "C": "6 is the largest even face, not the average of the even faces.",
+            "D": "3 ignores the even constraint and undercounts."
+          }
+        },
+        {
+          "id": "mm_pi_q7_r2",
+          "question": "One die shows 3, the other is hidden. Expected sum of the two dice?",
+          "options": [
+            "6.5",
+            "7",
+            "3",
+            "9.5"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 3 + 3.5 = 6.5.",
+            "B": "7 is the unconditional two-dice mean, ignoring the reveal.",
+            "C": "3 is just the known die, not the sum.",
+            "D": "9.5 would need the hidden die to be 6 for certain."
           }
         }
       ]

@@ -20,6 +20,133 @@
     "Before you widen or skew, you need a number to anchor on. In dice-sum games fair is 7; in 'product of two fair dice' games fair is 12.25. Card games specify payoffs per rank — your job is to turn those rules into an expected value, then quote around it.",
     "Brainstellar-style puzzles often hide fair value inside a story: 'You draw until you see a red face,' or 'Payoff equals the maximum of two rolls.' The market-making twist is that once you state fair, the room will test whether your bid and ask bracket it symmetrically unless inventory or information says otherwise."
   ],
+  "primer": [
+    {
+      "heading": "Fair value is expected value",
+      "body": [
+        "**Fair value** is the price at which a contract is a fair bet — neither buyer nor seller has an edge. For a payout game it is the **expected value (EV)**: the probability-weighted average outcome.",
+        "Compute fair first; quote second. Every bid and ask you state is an offset from this number."
+      ],
+      "keyTerms": [
+        { "term": "Fair value", "definition": "The break-even price of a contract; for a payout game, its expected value." },
+        { "term": "Expected value (EV)", "definition": "Σ outcome × probability — the long-run average payoff." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "fair value = E[payoff] = Σ xᵢ · P(xᵢ)",
+        "caption": "Center your quote here, then add a spread on each side."
+      }
+    },
+    {
+      "heading": "Weighted-average payoffs",
+      "body": [
+        "Most interview contracts pay a dollar amount with some probability. Multiply each payoff by its chance and sum.",
+        "A contract that pays `$10` on heads and `$0` on tails is worth `0.5 × $10 = $5`. A die that pays `$100` only on a six is worth `(1/6) × $100 ≈ $16.67`."
+      ],
+      "example": {
+        "prompt": "One card from a full deck pays `$10` if it is a heart, `$0` otherwise. Fair value?",
+        "steps": ["P(heart) = `13/52 = 1/4`.", "EV = `(1/4) × $10`."],
+        "result": "Fair value = `$2.50`."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Don't confuse payoff with EV",
+        "text": "The `$10` heart payoff is the prize, not the price. You only collect it a quarter of the time, so the contract is worth `$2.50`."
+      }
+    },
+    {
+      "heading": "Sums: linearity of expectation",
+      "body": [
+        "For a sum of random pieces, expectations simply add — even if the pieces are dependent. `E[A + B] = E[A] + E[B]`.",
+        "One fair die averages `3.5`, so two dice sum to `7` and three dice to `10.5`. No need to enumerate all the combinations."
+      ],
+      "keyTerms": [
+        { "term": "Linearity of expectation", "definition": "E[A + B] = E[A] + E[B], always — dependence does not matter for sums." }
+      ],
+      "example": {
+        "prompt": "Fair value of the sum of two fair six-sided dice?",
+        "steps": ["E[one die] = `(1+2+3+4+5+6)/6 = 3.5`.", "E[sum] = `3.5 + 3.5`."],
+        "result": "Fair value = `7`."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "E[die₁ + die₂] = 3.5 + 3.5 = 7",
+        "caption": "Add the per-die means; do not enumerate 36 outcomes."
+      }
+    },
+    {
+      "heading": "Products: independence",
+      "body": [
+        "For a **product** of *independent* pieces, expectations multiply: `E[A · B] = E[A] · E[B]`. This rule is only valid when the pieces are independent.",
+        "The product of two fair dice is worth `3.5 × 3.5 = 12.25` — far below the `36` maximum and unrelated to the sum's `7`."
+      ],
+      "keyTerms": [
+        { "term": "Independence", "definition": "Two outcomes are independent when one gives no information about the other." }
+      ],
+      "example": {
+        "prompt": "Fair value of the product of two independent fair dice?",
+        "steps": ["E[die] = `3.5` for each.", "E[product] = `3.5 × 3.5` by independence."],
+        "result": "Fair value = `12.25`."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Sum is not product",
+        "text": "Add for sums (`7`), multiply for independent products (`12.25`). Mixing the two rules is a classic interview slip."
+      }
+    },
+    {
+      "heading": "Center the quote on fair",
+      "body": [
+        "Once you have fair value, place your bid and ask symmetrically around it — unless inventory or information says otherwise. Fair `7` with spread `2` becomes `6 at 8`.",
+        "Center too high and informed sellers hit your rich bid; center too low and buyers lift your cheap ask. Mis-centering is how market makers bleed."
+      ],
+      "example": {
+        "prompt": "Fair value is `7`; you want a spread of `2` centered on fair. What is your quote?",
+        "steps": ["Half-spread = `1` on each side.", "Bid = `7 − 1 = 6`; ask = `7 + 1 = 8`."],
+        "result": "Quote `6 at 8` — midpoint `7`, spread `2`."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "success",
+        "title": "Workflow",
+        "text": "Compute fair → choose a spread → place bid and ask symmetrically around fair."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Fair value",
+      "title": "The price of a fair bet",
+      "caption": "Fair value is the price at which a contract is a fair bet, where neither side has an edge. For a payout game it equals the expected value, the probability-weighted average outcome. Always compute fair first, then quote around it.",
+      "visual": { "kind": "formula", "expression": "fair value = E[payoff] = Σ xᵢ · P(xᵢ)" }
+    },
+    {
+      "term": "Weighted average",
+      "title": "Payoff times probability",
+      "caption": "Most contracts pay a dollar amount with some chance. Multiply each payoff by its probability and add. A contract that pays ten dollars on heads is worth five, because you only collect half the time. The big prize is not the price.",
+      "bullets": ["Ten dollars on heads is worth five", "A six paying one hundred is worth about sixteen dollars sixty-seven", "Payoff is the prize, not the price"]
+    },
+    {
+      "term": "Linearity of expectation",
+      "title": "Sums simply add",
+      "caption": "For a sum of random pieces, expectations add, even when the pieces are dependent. One fair die averages three and a half, so two dice sum to seven and three dice to ten and a half. There is no need to list every combination.",
+      "visual": { "kind": "formula", "expression": "E[die₁ + die₂] = 3.5 + 3.5 = 7" }
+    },
+    {
+      "term": "Independence",
+      "title": "Products multiply",
+      "caption": "For a product of independent pieces, expectations multiply. The product of two fair dice is three and a half times three and a half, which is twelve and a quarter. Add for sums, multiply for independent products, and never mix the two rules.",
+      "visual": { "kind": "formula", "expression": "E[die₁ · die₂] = 3.5 × 3.5 = 12.25" }
+    },
+    {
+      "term": "Centering",
+      "title": "Quote around fair",
+      "caption": "Once you know fair value, place your bid and ask symmetrically around it unless inventory or information says otherwise. Fair seven with a spread of two becomes six at eight. Center too high and sellers hit your rich bid; center too low and buyers lift your cheap ask.",
+      "visual": { "kind": "callout", "tone": "success", "text": "Compute fair, choose a spread, place bid and ask symmetrically around fair." }
+    }
+  ],
   "questions": [
     {
       "id": "mm_fv_q1",
@@ -567,6 +694,61 @@
             "B": "2.0 omits coin EV.",
             "C": "0.6 omits fee.",
             "D": "1.6 is wrong sum."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_fv_q7",
+      "kind": "challenge",
+      "concept": "three_dice_sum",
+      "question": "You make a market on the sum of THREE fair six-sided dice. What fair value should center your quote?",
+      "options": [
+        "10.5",
+        "7",
+        "9",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By linearity, E[sum] = 3 × E[one die] = 3 × 3.5 = 10.5.",
+        "B": "7 is the expected sum of TWO dice, not three.",
+        "C": "9 multiplies 3 dice by 3 each; the mean of one die is 3.5, not 3, so the sum is 10.5.",
+        "D": "18 is the maximum possible sum (three sixes), not the average."
+      },
+      "remediation": [
+        {
+          "id": "mm_fv_q7_r1",
+          "question": "Sum of FOUR fair dice. Fair value?",
+          "options": [
+            "14",
+            "10.5",
+            "7",
+            "24"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 4 × 3.5 = 14.",
+            "B": "10.5 is the three-dice sum.",
+            "C": "7 is the two-dice sum.",
+            "D": "24 is the maximum (four sixes), not the mean."
+          }
+        },
+        {
+          "id": "mm_fv_q7_r2",
+          "question": "Expected value of a single fair die:",
+          "options": [
+            "3.5",
+            "3",
+            "4",
+            "6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — (1+2+3+4+5+6)/6 = 3.5.",
+            "B": "3 rounds down and undercounts the high faces.",
+            "C": "4 rounds up and overcounts.",
+            "D": "6 is the maximum face, not the average."
           }
         }
       ]

@@ -20,6 +20,129 @@
     "Capstone rounds compress everything: compute fair from a verbal spec, choose spread width given volatility and your confidence, update after public clues, and skew when fills pile on one side. Interviewers watch whether you speak your reasoning aloud while adjusting — silence with a wrong quote is worse than a slow correct one.",
     "Treat each scenario as a live game tick: state fair, state bid and ask, and when the moderator announces news, pause fills mentally, recompute conditional fair, then replace your quote entirely. The winners are rarely the fastest mental calculators alone — they are the ones who keep quotes coherent under pressure."
   ],
+  "primer": [
+    {
+      "heading": "The market-making workflow",
+      "body": [
+        "Every live game round follows the same loop: **compute fair value**, **choose a spread**, then **state a two-sided quote** centered on fair. Say it out loud and commit.",
+        "This order never changes. Skipping straight to a number — quoting before you have fair — is how candidates get picked off in the first ten seconds."
+      ],
+      "keyTerms": [
+        { "term": "Fair value", "definition": "The expected payoff; the center of your quote." },
+        { "term": "Two-sided quote", "definition": "A bid and an ask stated together, e.g. `6 at 8`." }
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "The loop, every round",
+        "items": ["**Compute fair** from the payoff rule", "**Choose a spread** for your uncertainty", "**Quote** bid and ask around fair", "**Update** when fair, inventory, or news changes"]
+      }
+    },
+    {
+      "heading": "Computing fair fast",
+      "body": [
+        "Interview payoffs reduce to a few patterns. Sums use linearity (two dice = `7`); independent products multiply (`3.5 × 3.5 = 12.25`); dollar payoffs are probability times prize (`$10` on red = `$5`).",
+        "Recognize the pattern, plug in the means, and you have fair before anyone else has finished enumerating."
+      ],
+      "example": {
+        "prompt": "Contract pays the product of two fair dice. What is fair value?",
+        "steps": ["Each die averages `3.5`.", "Product of independents: `3.5 × 3.5`."],
+        "result": "Fair value = `12.25`."
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "Pattern to fair value",
+        "headers": ["Payoff", "Rule", "Fair"],
+        "rows": [["Sum of two dice", "add means", "`7`"], ["Product of two dice", "multiply means", "`12.25`"], ["`$10` if red card", "prob × prize", "`$5`"]]
+      }
+    },
+    {
+      "heading": "Choose a spread, center on fair",
+      "body": [
+        "With fair in hand, pick a width and place the bid and ask symmetrically. Fair `12` with spread `2` is `11 at 13`.",
+        "Tighten when confident, widen when the payoff is volatile or a reveal is coming. Center matters more than width — a tight quote in the wrong place is a gift."
+      ],
+      "example": {
+        "prompt": "Fair is `12`; spread policy is `2`, centered. What is your quote?",
+        "steps": ["Half-spread `1` per side.", "Bid `12 − 1 = 11`, ask `12 + 1 = 13`."],
+        "result": "Quote `11 at 13`."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "bid = fair − spread/2,   ask = fair + spread/2",
+        "caption": "Symmetric quote around fair value."
+      }
+    },
+    {
+      "heading": "Flow is a signal",
+      "body": [
+        "Who trades against you carries information. If aggressive traders keep **lifting your ask**, your offer is probably below fair — raise your quotes. If they keep **hitting your bid**, your bid is too rich — lower them.",
+        "One fill is noise; repeated one-sided flow is a message. React without panicking."
+      ],
+      "keyTerms": [
+        { "term": "Order flow", "definition": "The pattern of who buys and sells against you; a clue about where fair really is." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Reading the room",
+        "headers": ["You keep getting", "Likely meaning", "Adjust"],
+        "rows": [["Ask lifted", "Offer below fair", "Raise quotes"], ["Bid hit", "Bid above fair", "Lower quotes"]]
+      }
+    },
+    {
+      "heading": "Update on news; manage inventory",
+      "body": [
+        "When the moderator reveals a clue, recompute the **conditional fair** and replace your quote — a stale quote is the easiest pick-off in the game.",
+        "Meanwhile watch your position. Fills pile up on one side, so **skew** toward getting flat, and near the bell prioritize flattening even if you give up a little edge."
+      ],
+      "keyTerms": [
+        { "term": "Conditional fair", "definition": "Fair value recomputed after a clue, e.g. one die shown = `d + 3.5`." },
+        { "term": "Flatten", "definition": "Reduce inventory toward zero to cut end-of-game risk." }
+      ],
+      "example": {
+        "prompt": "You quoted `6 at 8` on a two-dice sum (fair `7`). A die is revealed as `3`. Re-quote?",
+        "steps": ["New fair = `3 + 3.5 = 6.5`.", "Re-center the same spread around `6.5`."],
+        "result": "Quote about `5.5 at 7.5`."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Coherence beats speed",
+        "text": "Speak your reasoning, re-quote on every change, and keep bid below ask. A slightly slow correct quote beats a fast incoherent one."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "The workflow",
+      "title": "Fair, spread, quote",
+      "caption": "Every live round follows the same loop. Compute fair value, choose a spread, then state a two-sided quote centered on fair. Say it out loud and commit. The order never changes; quoting before you have fair is how you get picked off in the first ten seconds.",
+      "visual": { "kind": "steps", "items": ["Compute fair from the payoff", "Choose a spread for your uncertainty", "Quote bid and ask around fair"] }
+    },
+    {
+      "term": "Computing fair fast",
+      "title": "Recognize the pattern",
+      "caption": "Interview payoffs reduce to a few patterns. Sums add their means, so two dice are seven. Independent products multiply, so two dice are twelve and a quarter. Dollar payoffs are probability times prize, so ten dollars on red is five. Recognize the pattern and plug in.",
+      "visual": { "kind": "table", "headers": ["Payoff", "Rule", "Fair"], "rows": [["Two-dice sum", "add", "7"], ["Two-dice product", "multiply", "12.25"], ["Ten on red", "prob times prize", "5"]] }
+    },
+    {
+      "term": "Center on fair",
+      "title": "Pick a width, place it",
+      "caption": "With fair in hand, pick a width and place the bid and ask symmetrically. Fair twelve with a spread of two is eleven at thirteen. Tighten when confident, widen before a volatile reveal. Center matters more than width: a tight quote in the wrong place is a gift.",
+      "visual": { "kind": "formula", "expression": "bid = fair − spread/2,  ask = fair + spread/2" }
+    },
+    {
+      "term": "Flow is a signal",
+      "title": "Read the room",
+      "caption": "Who trades against you carries information. If traders keep lifting your ask, your offer is probably below fair, so raise your quotes. If they keep hitting your bid, your bid is too rich, so lower them. One fill is noise, but repeated one-sided flow is a message.",
+      "visual": { "kind": "table", "headers": ["You keep getting", "Meaning", "Adjust"], "rows": [["Ask lifted", "Offer below fair", "Raise"], ["Bid hit", "Bid above fair", "Lower"]] }
+    },
+    {
+      "term": "Update and flatten",
+      "title": "News reprices, position pulls",
+      "caption": "When the moderator reveals a clue, recompute the conditional fair and replace your quote, because a stale quote is the easiest pick-off in the game. Meanwhile watch your position. Skew toward getting flat, and near the bell prioritize flattening even if you give up a little edge.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Re-quote on every change, keep bid below ask, and flatten before the bell." }
+    }
+  ],
   "questions": [
     {
       "id": "mm_int_q1",
@@ -567,6 +690,61 @@
             "B": "3 is below 5, not above.",
             "C": "Center moved — quote is stale.",
             "D": "Not about crossing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mm_int_q7",
+      "kind": "challenge",
+      "concept": "integrated_signal_inventory",
+      "question": "Sum of two dice game, fair 7. You quote 6 at 8 and are flat. A buyer lifts your ask (you sell 1 at 8). The moderator then reveals one die = 5, so new fair = 8.5. You are now short 1. What is your mark-to-market P&L on the position, and what should you do?",
+      "options": [
+        "−$0.50; you are short into a higher fair — raise your quote and look to buy back",
+        "+$0.50; you sold high, so you are ahead",
+        "$0; the sale locked in edge regardless of the reveal",
+        "+$1.00; your ask 8 still beats the old fair 7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Short 1 sold at 8, new fair 8.5 → (8 − 8.5) × 1 = −$0.50. Fair rose against your short, so raise your quotes and buy to cover.",
+        "B": "+$0.50 reverses the sign: you sold at 8 but fair is now 8.5, so the short is underwater, not ahead.",
+        "C": "$0 ignores that the reveal moved fair to 8.5 after your sale; the open short must be re-marked to the new fair.",
+        "D": "+$1.00 marks against the stale old fair 7 (8 − 7); you must mark to the updated fair of 8.5."
+      },
+      "remediation": [
+        {
+          "id": "mm_int_q7_r1",
+          "question": "You are short 1 unit, sold at 8. Fair value is now 8.5. Mark-to-market P&L?",
+          "options": [
+            "−$0.50",
+            "+$0.50",
+            "$8.00",
+            "$8.50"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — for a short, (sale price − fair) × qty = (8 − 8.5) × 1 = −$0.50.",
+            "B": "+$0.50 flips the sign; fair above your sale price loses money on a short.",
+            "C": "$8.00 is your sale price, not the P&L.",
+            "D": "$8.50 is the current fair, not the P&L."
+          }
+        },
+        {
+          "id": "mm_int_q7_r2",
+          "question": "One die shows 5, the other is hidden. Expected sum of two dice?",
+          "options": [
+            "8.5",
+            "7",
+            "5",
+            "11"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct — 5 + 3.5 = 8.5.",
+            "B": "7 is the unconditional two-dice mean, ignoring the reveal.",
+            "C": "5 is just the known die, not the sum.",
+            "D": "11 would require the hidden die to be 6 for certain."
           }
         }
       ]
