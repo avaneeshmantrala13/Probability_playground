@@ -15,6 +15,182 @@
     "This capstone lesson collects original drills inspired by those interview styles (probability & markets guides, classic puzzle collections, and public practice sites). Nothing here is copied from proprietary question banks; the scenarios are written for Probability Playground.",
     "Treat each question like a live interview: state assumptions, show arithmetic, and sanity-check extremes. If you can pass this lesson, you are ready to pair our interactive content with the external resources hub for depth reading."
   ],
+  "primer": [
+    {
+      "heading": "Solve it like a live interview",
+      "body": [
+        "Firms grade your **process**, not just the number. Three moves carry most interviews: **translate** the word problem into a model (what are the outcomes and their probabilities or payoffs?), **pick a tool** quickly, and **sanity-check** the answer before you commit.",
+        "Narrate the whole way. State assumptions, compute out loud, and test extremes — does a probability land in `[0,1]`? Does a symmetric setup give a symmetric answer? Does a limiting case look right?"
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "The interview loop",
+        "items": [
+          "**Translate:** name the outcomes and their probabilities (or payoffs).",
+          "**Choose a tool:** EV, conditioning, symmetry, waiting time, or estimation.",
+          "**Compute** the clean quantity.",
+          "**Sanity-check:** bounds `[0,1]`, symmetry, and limiting cases."
+        ]
+      }
+    },
+    {
+      "heading": "Match the phrase to the tool",
+      "body": [
+        "Most drills map to one of a handful of tools. The speed skill is recognizing the **phrase** that signals each tool, so you reach for it without hesitation.",
+        "When two tools could work, pick the one with the **cleaner arithmetic** — usually the complement, symmetry, or linearity."
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "A fast tool-selection menu.",
+        "headers": ["The prompt says…", "Reach for…"],
+        "rows": [
+          ["'expected … per …', a payoff game", "Expected value Σ xᵢ·pᵢ"],
+          ["'given that…', new information arrives", "Conditioning / Bayes"],
+          ["interchangeable players or outcomes", "Symmetry"],
+          ["'how many tries until…'", "Geometric mean 1/p"],
+          ["'roughly how many…'", "Fermi estimate"]
+        ]
+      }
+    },
+    {
+      "heading": "Expected value is your edge",
+      "body": [
+        "A bet is worth taking only if its **expected value** is positive after costs. Multiply each payoff by its probability, sum, then subtract any entry fee.",
+        "Sanity-check the sign: a rare large win can outweigh frequent small losses, and vice-versa."
+      ],
+      "example": {
+        "prompt": "Roll a die: win `$6` on a six, lose `$1` otherwise. Is it worth playing?",
+        "steps": [
+          "Win branch: `(1/6)(+6) = 1`.",
+          "Lose branch: `(5/6)(−1) = −5/6`.",
+          "`EV = 1 − 5/6 = 1/6 ≈ $0.17` per roll."
+        ],
+        "result": "Positive edge → play. The rare `$6` win beats the frequent `$1` loss."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "EV = Σ xᵢ · pᵢ   (then subtract the entry fee)",
+        "caption": "Probability-weighted payoff, net of cost."
+      }
+    },
+    {
+      "heading": "Update when you learn something",
+      "body": [
+        "New information **shrinks the sample space** — recount inside the world consistent with what you were told. Two recurring flavors: **'at least one'** conditioning and **drawing without replacement**.",
+        "Without replacement, every draw changes the counts: after pulling one red from `2R, 1B`, the urn is `1R, 1B`, so the next red is `1/2`, not the original `2/3`."
+      ],
+      "example": {
+        "prompt": "Two fair coins; you're told at least one is Heads. P(both Heads)?",
+        "steps": [
+          "Condition on 'at least one H' → space is `{HH, HT, TH}`.",
+          "Only `HH` has two heads.",
+          "`P = 1/3`."
+        ],
+        "result": "= 1/3 (not 1/4 — that ignores the condition)."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "P(A | B) = P(A ∩ B) / P(B)",
+        "caption": "Renormalize within the event you were told occurred."
+      }
+    },
+    {
+      "heading": "Waiting times: divide by the probability",
+      "body": [
+        "'How many independent tries until the first success?' is a **geometric** waiting time, and its mean is simply **`1/p`**.",
+        "So the first heads takes `1/(1/2) = 2` flips on average, and the first six on a die takes `1/(1/6) = 6` rolls. Quick to state, quick to check."
+      ],
+      "example": {
+        "prompt": "Flip a fair coin until the first Heads. Expected number of flips?",
+        "steps": [
+          "Each flip succeeds with `p = 1/2`.",
+          "The geometric mean is `1/p`."
+        ],
+        "result": "= 2 flips"
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "E[trials until first success] = 1 / p",
+        "caption": "Mean of a Geometric(p) waiting time."
+      }
+    },
+    {
+      "heading": "Market-making intuition",
+      "body": [
+        "A market maker quotes a **bid** (buy price) and an **ask** (sell price) around an estimate of **fair value**. You earn the **spread**, but you face **adverse selection** — informed traders pick you off on the wrong side.",
+        "Two rules to internalize: buying **below** fair value (or selling **above** it) is `+EV`; and the **less certain** you are about fair value, the **wider** you should quote to protect against being picked off."
+      ],
+      "keyTerms": [
+        { "term": "Fair value", "definition": "Your best estimate of what the instrument is truly worth — for a die roll, `3.5`." },
+        { "term": "Spread", "definition": "Ask minus bid; the maker's gross compensation for providing liquidity." },
+        { "term": "Adverse selection", "definition": "The risk that whoever trades against you knows something you don't." }
+      ],
+      "example": {
+        "prompt": "Fair value of a die roll is `3.5`. A trader sells to you at your bid of `3`. Good trade?",
+        "steps": [
+          "You bought at `3`; fair value is `3.5`.",
+          "You paid `0.5` **below** fair value."
+        ],
+        "result": "+EV buy for the market maker."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Adverse selection",
+        "text": "Tight quotes while you are uncertain invite getting picked off on both sides. Quote width should scale with your uncertainty about fair value."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "The interview loop",
+      "title": "Solve it out loud",
+      "caption": "Firms grade how you think, not just your final number. Translate the story into outcomes and probabilities, pick a tool, then sanity-check against bounds and symmetry before you commit.",
+      "bullets": [
+        "Translate the words into a model",
+        "Pick a tool: EV, conditioning, symmetry, waiting time, estimate",
+        "Sanity-check bounds and symmetry"
+      ]
+    },
+    {
+      "term": "Tool selection",
+      "title": "Match the phrase to the tool",
+      "caption": "Most drills map to a handful of tools. Expected value for payoff games, conditioning when you learn something new, symmetry for interchangeable outcomes, and a simple one over p for waiting times.",
+      "visual": {
+        "kind": "steps",
+        "items": [
+          "Payoff game → expected value",
+          "New information → conditioning",
+          "Interchangeable outcomes → symmetry",
+          "Tries until success → 1/p"
+        ]
+      }
+    },
+    {
+      "term": "Expected value",
+      "title": "Find your edge",
+      "caption": "A bet is worth it only if the probability-weighted payoff beats the cost. Winning six dollars one time in six while losing a dollar the other five still nets a small positive edge of about seventeen cents a roll.",
+      "visual": { "kind": "formula", "expression": "EV = Σ xᵢ·pᵢ − fee = (1/6)(6) + (5/6)(−1) = 1/6" }
+    },
+    {
+      "term": "Updating",
+      "title": "Recount what's left",
+      "caption": "New information shrinks the sample space, so recount inside the world you were told about. Told at least one of two coins is heads, the chance both are heads is one third, not one quarter.",
+      "visual": { "kind": "formula", "expression": "P(A | B) = P(A ∩ B) / P(B)" }
+    },
+    {
+      "term": "Waiting times",
+      "title": "One over the probability",
+      "caption": "How many tries until the first success? On average, one divided by the success probability. The first heads takes two flips, and the first six on a die takes six rolls.",
+      "visual": { "kind": "formula", "expression": "E[trials until success] = 1 / p" }
+    },
+    {
+      "term": "Make a market",
+      "title": "Quote around fair value",
+      "caption": "Quote a bid and an ask around fair value. You earn the spread, but informed traders can pick you off, so when you are less certain about fair value, quote wider.",
+      "visual": { "kind": "formula", "expression": "buy below fair  /  sell above fair  =  +EV" }
+    }
+  ],
   "questions": [
     {
       "id": "l11_q1",
@@ -64,10 +240,10 @@
       "options": ["-$0.50", "$0", "$0.17", "$1"],
       "correctAnswer": 2,
       "explanations": {
-        "A": "Underestimates the win frequency — one-sixth of rolls pay +6.",
-        "B": "$0 is wrong — EV = (1/6)(6) + (5/6)(−1) = 1 − 5/6 = 1/6 ≈ $0.17, a small positive edge.",
+        "A": "−$0.50 treats the game as net-negative, but the one-in-six $6 win (+1) outweighs the 5/6 × $1 loss (−5/6), leaving a positive 1/6.",
+        "B": "$0 would be a fair game. Here EV = (1/6)(6) + (5/6)(−1) = 1 − 5/6 = 1/6 ≈ $0.17, a small positive edge.",
         "C": "Correct. EV = (1/6)(6) + (5/6)(−1) = 1 − 5/6 = 1/6 ≈ $0.17 per roll.",
-        "D": "$1 EV would require much more favorable payouts."
+        "D": "$1 would be the EV only with a far larger win (e.g. $16 on a six); the $6 payout gives just 1/6."
       },
       "remediation": [
         {
@@ -76,10 +252,10 @@
           "options": ["-$2", "$1", "$2", "$4"],
           "correctAnswer": 1,
           "explanations": {
-            "A": "The win on a six (1/6 of the time) more than offsets the five losses of $2.",
+            "A": "−$2 is the loss on a non-six only; the 1/6 chance of the $16 win pulls the average up to +$1.",
             "B": "Correct — (1/6)(16) + (5/6)(−2) = (16 − 10)/6 = $1.",
-            "C": "Slightly overstates it — the exact EV is $1.",
-            "D": "Too high for this payoff structure."
+            "C": "$2 double-counts the win; netting the five $2 losses against the $16 win gives (16 − 10)/6 = $1.",
+            "D": "$4 ignores the 5/6 chance of a $2 loss, which drags the EV down to $1."
           }
         },
         {
@@ -157,14 +333,14 @@
       "remediation": [
         {
           "id": "l11_q4_r1",
-          "question": "3 red, 2 blue. First draw red. P(second red)?",
+          "question": "An urn has 3 red, 2 blue. The first draw is red (no replacement). P(second red)?",
           "options": ["1/2", "2/5", "3/5", "3/4"],
-          "correctAnswer": 1,
+          "correctAnswer": 0,
           "explanations": {
-            "A": "Need to update counts: 2 red, 2 blue remain.",
-            "B": "Correct — 2 red out of 4 balls.",
-            "C": "3/5 is too high after removing a red.",
-            "D": "Not guaranteed."
+            "A": "Correct. After removing one red, 2 red and 2 blue remain, so P(second red) = 2/4 = 1/2.",
+            "B": "2/5 counts the 2 remaining reds but keeps the total at 5 — it forgets the drawn red also leaves the denominator.",
+            "C": "3/5 is the original P(first red); it ignores the update after a red is removed.",
+            "D": "3/4 overstates it: only 2 reds remain among 4 balls, not 3 of 4."
           }
         },
         {
@@ -201,10 +377,10 @@
           "options": ["$1", "$1.5", "$2", "$2.5"],
           "correctAnswer": 1,
           "explanations": {
-            "A": "0.5(5) − 1 = 1.5.",
-            "B": "Correct.",
-            "C": "Would need higher win or higher win prob.",
-            "D": "Too high."
+            "A": "$1 understates the win: 0.5($5) − $1 = $1.50, not $1.",
+            "B": "Correct — 0.5($5) − $1 = $2.50 − $1 = $1.50.",
+            "C": "$2 would need a higher payout or win probability; the arithmetic gives $1.50.",
+            "D": "$2.50 is the gross expected win 0.5($5) before subtracting the $1 fee."
           }
         },
         {
@@ -213,10 +389,10 @@
           "options": ["-$1", "$0", "$0.33", "$1"],
           "correctAnswer": 1,
           "explanations": {
-            "A": "EV is exactly 0 here.",
-            "B": "Correct — (1/3)(3) − 1 = 0.",
-            "C": "Slight mis-arithmetic.",
-            "D": "Too high."
+            "A": "−$1 would be the result if you won nothing; the (1/3)($3) expected win exactly cancels the fee.",
+            "B": "Correct — (1/3)($3) − $1 = $1 − $1 = $0.",
+            "C": "$0.33 looks like (1/3) of something but forgets the $3 payout cancels the whole $1 fee.",
+            "D": "$1 is the gross expected win before the fee; net EV is $0."
           }
         }
       ]
@@ -269,10 +445,10 @@
       "options": ["1", "1.5", "2", "4"],
       "correctAnswer": 2,
       "explanations": {
-        "A": "You often need more than one flip.",
-        "B": "Geometric(1/2) mean is 1/p = 2, not 1.5.",
-        "C": "Correct — expected waiting time for success prob 1/2 is 2 trials.",
-        "D": "4 would correspond to p = 1/4."
+        "A": "1 assumes the first flip is always Heads; on average you need 1/p = 2 flips.",
+        "B": "1.5 is a guess; the Geometric(1/2) mean is 1/p = 2, not 1.5.",
+        "C": "Correct — expected waiting time for success probability 1/2 is 1/p = 2 trials.",
+        "D": "4 = 1/p with p = 1/4; for a fair coin p = 1/2, giving 2."
       },
       "remediation": [
         {
@@ -281,10 +457,10 @@
           "options": ["3", "4", "6", "36"],
           "correctAnswer": 2,
           "explanations": {
-            "A": "Too low.",
-            "B": "Still below 1/(1/6).",
-            "C": "Correct — mean of Geometric(1/6) is 6.",
-            "D": "36 is variance-related scale, not mean."
+            "A": "3 undershoots; the mean is 1/(1/6) = 6.",
+            "B": "4 is still below 1/p = 6 — the waiting time for a 1/6 event is longer.",
+            "C": "Correct — mean of Geometric(1/6) is 1/p = 6 rolls.",
+            "D": "36 = 6² confuses the mean with a variance-style scale; the mean is 6."
           }
         },
         {
@@ -293,10 +469,10 @@
           "options": ["1/3", "1", "3", "9"],
           "correctAnswer": 2,
           "explanations": {
-            "A": "That is p, not mean.",
-            "B": "Too low for p=1/3.",
-            "C": "Correct — mean = 1/p = 3.",
-            "D": "Too high."
+            "A": "1/3 is the success probability p itself, not the mean 1/p.",
+            "B": "1 would be the mean only if success were certain each trial.",
+            "C": "Correct — mean = 1/p = 1/(1/3) = 3 trials.",
+            "D": "9 = 1/p² is a variance-style scale, not the mean 1/p = 3."
           }
         }
       ]
@@ -309,10 +485,10 @@
       "options": ["1/16", "1/17", "25/1024", "1/4"],
       "correctAnswer": 1,
       "explanations": {
-        "A": "1/16 treats draws as independent (13/52 × 13/52).",
+        "A": "1/16 = (13/52)² treats the draws as independent; without replacement the second draw has only 12 hearts in 51 cards.",
         "B": "Correct — (13/52)(12/51) = 156/2652 = 1/17.",
-        "C": "Wrong denominator arithmetic.",
-        "D": "1/4 is P(one card is heart), not both."
+        "C": "25/1024 is not a valid reduction here; the exact dependent product is (13/52)(12/51) = 1/17.",
+        "D": "1/4 is P(one card is a heart), not the probability that both are."
       },
       "remediation": [
         {
@@ -321,10 +497,10 @@
           "options": ["1/169", "1/221", "1/13", "2/52"],
           "correctAnswer": 1,
           "explanations": {
-            "A": "Independent approximation.",
-            "B": "Correct — (4/52)(3/51) = 1/221.",
-            "C": "Single-draw ace prob.",
-            "D": "Not quite — draws without replacement."
+            "A": "1/169 = (1/13)² treats the draws as independent; without replacement use (4/52)(3/51).",
+            "B": "Correct — (4/52)(3/51) = 12/2652 = 1/221.",
+            "C": "1/13 is the chance one card is an ace, not both.",
+            "D": "2/52 adds the ace counts instead of multiplying the two dependent draws."
           }
         },
         {
@@ -333,10 +509,10 @@
           "options": ["12/51", "13/52", "1/4", "12/52"],
           "correctAnswer": 0,
           "explanations": {
-            "A": "Correct — 12 hearts left in 51 cards.",
-            "B": "Ignores first heart removed.",
-            "C": "Unconditional approx.",
-            "D": "Wrong denominator."
+            "A": "Correct — one heart is gone, leaving 12 hearts in 51 cards.",
+            "B": "13/52 ignores that the first heart was removed from both counts.",
+            "C": "1/4 = 13/52 is the unconditional heart probability, before any draw.",
+            "D": "12/52 updates the numerator but forgets the deck now holds only 51 cards."
           }
         }
       ]
@@ -406,10 +582,10 @@
           "options": ["20", "40", "80", "160"],
           "correctAnswer": 1,
           "explanations": {
-            "A": "Too low.",
-            "B": "Correct — half of 80.",
-            "C": "That would need all heads.",
-            "D": "Double the flips."
+            "A": "20 is a quarter of the flips; expected heads is half, since p = 1/2.",
+            "B": "Correct — 80 × 1/2 = 40.",
+            "C": "80 would require every flip to land heads with certainty.",
+            "D": "160 doubles the flip count; expected heads is 80 × 1/2 = 40."
           }
         },
         {
@@ -418,10 +594,10 @@
           "options": ["100", "250", "500", "900"],
           "correctAnswer": 2,
           "explanations": {
-            "A": "Far too low.",
-            "B": "Still low.",
-            "C": "Correct — about half.",
-            "D": "Almost all heads is unlikely."
+            "A": "100 is a tenth of the flips; expected heads is half of 1000.",
+            "B": "250 is a quarter of the flips, not half.",
+            "C": "Correct — 1000 × 1/2 = 500.",
+            "D": "900 would require almost every flip to land heads, far above the 1/2 rate."
           }
         }
       ]
