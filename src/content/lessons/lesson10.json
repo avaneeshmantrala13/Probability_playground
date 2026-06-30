@@ -458,7 +458,7 @@
       "remediation": [
         {
           "id": "l10_q8_r1",
-          "question": "330 million × 365 ≈ 1.2 × 10⁸ × 10² ≈ order:",
+          "question": "330 million × 365 days ≈ 3.3×10⁸ × 3.65×10². With about 1 cup per person per day, the order of magnitude is:",
           "options": [
             "10¹¹ when including cups per day factor",
             "10²",

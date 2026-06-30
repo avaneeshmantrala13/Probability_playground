@@ -137,11 +137,11 @@
         "Button",
         "UTG"
       ],
-      "correctAnswer": 2,
+      "correctAnswer": 1,
       "explanations": {
-        "A": "SB acts near the end but before BB in preflop order.",
-        "B": "BB acts last only if no raise; with raises, button often acts last.",
-        "C": "Correct — in raised pots the button typically closes the action preflop.",
+        "A": "The small blind acts late, but the big blind acts after the SB preflop.",
+        "B": "Correct — preflop the blinds act last, so the big blind closes the action (and holds the option in an unraised pot).",
+        "C": "The button is last to act postflop, but preflop the blinds act after the button, so the big blind is last.",
         "D": "UTG acts first."
       },
       "remediation": [

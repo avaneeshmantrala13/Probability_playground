@@ -23,6 +23,7 @@ import { ProgressBar } from "../components/lesson/ProgressBar";
 import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
 import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { IntroModal } from "../components/lesson/IntroModal";
+import { PreLesson, hasPreLessonContent } from "../components/lesson/primer/PreLesson";
 import type { OptionState } from "../components/lesson/OptionButton";
 import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
@@ -125,7 +126,7 @@ export function MarketMakingLessonPlayer() {
       setIndex(0);
       setPosition(lesson.lessonId, 0);
       saveAttempt(lesson.lessonId, r, fresh, sel);
-      setPhase(r === 0 && lesson.intro && lesson.intro.length > 0 ? "intro" : "quiz");
+      setPhase(r === 0 && hasPreLessonContent(lesson) ? "intro" : "quiz");
     }
     setResult(null);
     hydratedFor.current = lesson.lessonId;
@@ -326,11 +327,13 @@ export function MarketMakingLessonPlayer() {
     );
   }
 
-  if (phase === "intro" && lesson.intro && lesson.intro.length > 0) {
+  if (phase === "intro" && hasPreLessonContent(lesson)) {
     return (
-      <IntroView
+      <PreLesson
         lesson={lesson}
-        onBegin={() => setPhase("quiz")}
+        backTo="/market-making/lessons"
+        backLabel="Market Making Lessons"
+        onStart={() => setPhase("quiz")}
         onPlacement={
           lesson.placementQuestions && lesson.placementQuestions.length > 0 && !alreadyMastered
             ? () => setPhase("placement")
@@ -408,13 +411,19 @@ export function MarketMakingLessonPlayer() {
             You&apos;ve already mastered this lesson — feel free to redo it any time.
           </p>
         )}
-        {lesson.intro && lesson.intro.length > 0 && (
+        {hasPreLessonContent(lesson) && (
           <button
             type="button"
-            onClick={() => setShowIntroModal(true)}
+            onClick={() =>
+              lesson.primer?.length || lesson.primerNarration?.length
+                ? setPhase("intro")
+                : setShowIntroModal(true)
+            }
             className="mt-2 text-sm font-medium text-accent hover:underline"
           >
-            Review lesson intro
+            {lesson.primer?.length || lesson.primerNarration?.length
+              ? "Review primer"
+              : "Review lesson intro"}
           </button>
         )}
         <div className="mt-3 flex items-center gap-3">
@@ -540,55 +549,6 @@ export function MarketMakingLessonPlayer() {
       {showIntroModal && (
         <IntroModal lesson={lesson} onClose={() => setShowIntroModal(false)} />
       )}
-    </div>
-  );
-}
-
-function IntroView({
-  lesson,
-  onBegin,
-  onPlacement,
-}: {
-  lesson: Lesson;
-  onBegin: () => void;
-  onPlacement?: () => void;
-}) {
-  return (
-    <div className="mx-auto max-w-2xl">
-      <div className="mb-5">
-        <Link
-          to="/market-making/lessons"
-          className="text-sm font-medium text-secondary hover:text-primary"
-        >
-          &larr; Market Making Lessons
-        </Link>
-      </div>
-
-      <div className="pp-card p-6 sm:p-8">
-        <span className="rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-secondary">
-          Lesson {lesson.order}
-        </span>
-        <h1 className="mt-3 text-2xl font-bold text-primary">{lesson.title}</h1>
-        {lesson.subtitle && <p className="mt-1 text-secondary">{lesson.subtitle}</p>}
-
-        <div className="mt-5 space-y-3 leading-relaxed text-secondary">
-          {lesson.intro?.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-        </div>
-
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <button type="button" className="pp-btn-primary" onClick={onBegin} autoFocus>
-            Begin lesson
-            <ChevronRightIcon size={16} />
-          </button>
-          {onPlacement && (
-            <button type="button" className="pp-btn-secondary" onClick={onPlacement}>
-              Skip ahead — placement quiz
-            </button>
-          )}
-        </div>
-      </div>
     </div>
   );
 }

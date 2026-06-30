@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { getLearnEntry } from "../content/learn";
 import { PrimerFlow } from "../components/lesson/primer/PrimerFlow";
+import { NarratedPrimer } from "../components/lesson/primer/NarratedPrimer";
 import { ChevronRightIcon } from "../components/icons";
 
 /** Standalone, browsable view of one lesson's concept primer. */
@@ -8,10 +10,12 @@ export function LearnLesson() {
   const { lessonId = "" } = useParams();
   const navigate = useNavigate();
   const entry = getLearnEntry(lessonId);
+  const [mode, setMode] = useState<"read" | "watch">("read");
 
   if (!entry) return <Navigate to="/learn" replace />;
   const { lesson, trackLabel, playerPath } = entry;
   const hasPrimer = (lesson.primer?.length ?? 0) > 0;
+  const hasNarration = (lesson.primerNarration?.length ?? 0) > 0;
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -30,9 +34,40 @@ export function LearnLesson() {
         </span>
         <h1 className="mt-3 text-2xl font-bold text-primary">{lesson.title}</h1>
         {lesson.subtitle && <p className="mt-1 text-secondary">{lesson.subtitle}</p>}
+
+        {hasNarration && (
+          <div className="mt-4 inline-flex rounded-xl border border-subtle bg-surface-muted/40 p-1">
+            <button
+              type="button"
+              onClick={() => setMode("watch")}
+              className={[
+                "rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors",
+                mode === "watch" ? "bg-accent/15 text-accent" : "text-secondary hover:text-primary",
+              ].join(" ")}
+            >
+              Watch concept primer
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode("read")}
+              className={[
+                "rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors",
+                mode === "read" ? "bg-accent/15 text-accent" : "text-secondary hover:text-primary",
+              ].join(" ")}
+            >
+              Read primer
+            </button>
+          </div>
+        )}
       </div>
 
-      {hasPrimer ? (
+      {mode === "watch" && hasNarration && lesson.primerNarration ? (
+        <NarratedPrimer
+          slides={lesson.primerNarration}
+          closeLabel={hasPrimer ? "Read the primer" : "Done"}
+          onClose={() => setMode("read")}
+        />
+      ) : hasPrimer ? (
         <PrimerFlow
           sections={lesson.primer ?? []}
           ctaLabel="Take the lesson"

@@ -136,14 +136,14 @@
           "question": "A bag has 3 red and 2 blue marbles. One red marble is drawn. Given this, P(red on next draw without replacement) is:",
           "options": [
             "3/5",
-            "2/4",
+            "2/3",
             "1/2",
             "2/5"
           ],
           "correctAnswer": 2,
           "explanations": {
             "A": "3/5 is the probability before any marble was removed.",
-            "B": "2/4 simplifies to 1/2 and is correct arithmetic, but 1/2 is the cleaner answer choice.",
+            "B": "2/3 isn't right — after removing one red, 2 of the 4 remaining marbles are red, so the probability is 2/4 = 1/2.",
             "C": "Correct. After removing one red, 2 red remain out of 4 total: 2/4 = 1/2.",
             "D": "2/5 would be P(blue), not P(red), after one red is removed."
           }
@@ -159,14 +159,14 @@
         "P(cloudy | rain)",
         "P(rain and cloudy) / P(cloudy)",
         "P(rain) P(cloudy | rain) / P(cloudy)",
-        "0.9"
+        "0.54"
       ],
       "correctAnswer": 0,
       "explanations": {
         "A": "Correct. P(cloudy | rain) = 0.9, but P(rain | cloudy) = P(rain ∩ cloudy)/P(cloudy) is typically much smaller because rain is rarer than cloudiness.",
         "B": "This fraction is exactly the definition of P(rain | cloudy).",
         "C": "This is Bayes' theorem applied correctly to compute P(rain | cloudy).",
-        "D": "0.9 equals P(cloudy | rain) by statement, not P(rain | cloudy)."
+        "D": "0.54 = P(rain ∩ cloudy)/P(cloudy) = 0.27/0.5, which IS P(rain | cloudy) — so it is equal, not the exception."
       },
       "remediation": [
         {
