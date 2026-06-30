@@ -11,7 +11,8 @@ import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { Home } from "./pages/Home";
 import { Lessons } from "./pages/Lessons";
-import { LessonPlayer } from "./pages/LessonPlayer";
+import { Learn } from "./pages/Learn";
+import { LearnLesson } from "./pages/LearnLesson";
 import { Settings } from "./pages/Settings";
 import { Playground } from "./pages/Playground";
 import { Badges } from "./pages/Badges";
@@ -26,9 +27,7 @@ import { MarketMaking } from "./pages/MarketMaking";
 import { LearnMode } from "./pages/MarketMaking/LearnMode";
 import { PlayMode } from "./pages/MarketMaking/PlayMode";
 import { MarketMakingLessons } from "./pages/MarketMakingLessons";
-import { MarketMakingLessonPlayer } from "./pages/MarketMakingLessonPlayer";
 import { PokerTheory } from "./pages/PokerTheory";
-import { PokerTheoryPlayer } from "./pages/PokerTheoryPlayer";
 import { MentalMathHub } from "./pages/MentalMath/Hub";
 import { MentalMathDrill } from "./pages/MentalMath/Drill";
 import { Pricing } from "./pages/Pricing";
@@ -44,6 +43,22 @@ const Practice = lazy(() =>
 );
 const PracticeSession = lazy(() =>
   import("./pages/PracticeSession").then((m) => ({ default: m.PracticeSession })),
+);
+// The lesson players now draw each attempt from the practice banks too, so they
+// are lazy-loaded to keep those large pools out of the initial bundle (they
+// only load once a learner actually opens a lesson).
+const LessonPlayer = lazy(() =>
+  import("./pages/LessonPlayer").then((m) => ({ default: m.LessonPlayer })),
+);
+const MarketMakingLessonPlayer = lazy(() =>
+  import("./pages/MarketMakingLessonPlayer").then((m) => ({
+    default: m.MarketMakingLessonPlayer,
+  })),
+);
+const PokerTheoryPlayer = lazy(() =>
+  import("./pages/PokerTheoryPlayer").then((m) => ({
+    default: m.PokerTheoryPlayer,
+  })),
 );
 import { AccentThemeApplier } from "./components/store/AccentThemeApplier";
 import { DailyRewardsGate } from "./components/dailyRewards/DailyRewardsGate";
@@ -77,16 +92,45 @@ export function App() {
         <Route path="/signup" element={user ? <Navigate to="/" replace /> : <Signup />} />
 
         <Route path="/" element={<Protected><Home /></Protected>} />
+        <Route path="/learn" element={<Protected><Learn /></Protected>} />
+        <Route path="/learn/:lessonId" element={<Protected><LearnLesson /></Protected>} />
         <Route path="/lessons" element={<Protected><Lessons /></Protected>} />
-        <Route path="/lessons/:lessonId" element={<Protected><LessonPlayer /></Protected>} />
+        <Route
+          path="/lessons/:lessonId"
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingScreen />}>
+                <LessonPlayer />
+              </Suspense>
+            </Protected>
+          }
+        />
         <Route path="/poker-theory" element={<Protected><PokerTheory /></Protected>} />
-        <Route path="/poker-theory/:lessonId" element={<Protected><PokerTheoryPlayer /></Protected>} />
+        <Route
+          path="/poker-theory/:lessonId"
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingScreen />}>
+                <PokerTheoryPlayer />
+              </Suspense>
+            </Protected>
+          }
+        />
         <Route path="/playground" element={<Protected><Playground /></Protected>} />
         <Route path="/market-making" element={<Protected><MarketMaking /></Protected>} />
         <Route path="/market-making/learn" element={<Protected><LearnMode /></Protected>} />
         <Route path="/market-making/play" element={<Protected><PlayMode /></Protected>} />
         <Route path="/market-making/lessons" element={<Protected><MarketMakingLessons /></Protected>} />
-        <Route path="/market-making/lessons/:lessonId" element={<Protected><MarketMakingLessonPlayer /></Protected>} />
+        <Route
+          path="/market-making/lessons/:lessonId"
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingScreen />}>
+                <MarketMakingLessonPlayer />
+              </Suspense>
+            </Protected>
+          }
+        />
         <Route path="/mental-math" element={<Protected><MentalMathHub /></Protected>} />
         <Route path="/mental-math/play/:difficulty" element={<Protected><MentalMathDrill /></Protected>} />
         <Route

@@ -15,11 +15,28 @@ export interface AttemptAnswer {
   checked: boolean;
 }
 
+/**
+ * The drawn identity of an attempt's question set. Persisted so a mid-attempt
+ * reload restores the SAME randomized questions, while a fresh restart draws a
+ * new set. See lib/attempt.ts for how this is produced/resolved.
+ */
+export interface AttemptSelection {
+  /** Seed that deterministically reproduces the draw. */
+  seed: number;
+  /** Ordered question ids that make up the attempt. */
+  questionIds: string[];
+}
+
 export interface ActiveAttempt {
   lessonId: string;
   /** 0 = primary questions, 1+ = remediation round. */
   round: number;
   answers: AttemptAnswer[];
+  /**
+   * Randomized question set for this attempt (optional for backward-compat with
+   * attempts saved before per-attempt randomization existed).
+   */
+  selection?: AttemptSelection;
 }
 
 export interface LessonMastery {

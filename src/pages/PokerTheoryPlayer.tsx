@@ -13,11 +13,17 @@ import {
   PASS_THRESHOLD,
   roundForPokerTheoryLesson,
 } from "../content/pokerTheory/mastery";
+import {
+  drawAttemptSelection,
+  resolveAttemptQuestions,
+  type AttemptSelection,
+} from "../lib/attempt";
 import { QuestionCard } from "../components/lesson/QuestionCard";
 import { ProgressBar } from "../components/lesson/ProgressBar";
 import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
 import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { IntroModal } from "../components/lesson/IntroModal";
+import { PreLesson, hasPreLessonContent } from "../components/lesson/primer/PreLesson";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
 import { getVerifiedBonusQuestion } from "../lib/practice/bonus";
 import type { OptionState } from "../components/lesson/OptionButton";
@@ -67,6 +73,7 @@ export function PokerTheoryPlayer() {
   const [round, setRound] = useState(0);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<AttemptAnswer[]>(() => freshAnswers(total));
+  const [selection, setSelection] = useState<AttemptSelection | null>(null);
   const [placementAnswers, setPlacementAnswers] = useState<AttemptAnswer[]>(() =>
     freshAnswers(placementTotal),
   );
@@ -94,31 +101,43 @@ export function PokerTheoryPlayer() {
     setBonusAnswers({});
 
     const attempt = progress.activeAttempt;
-    if (
+    const canResume =
       !alreadyMastered &&
-      attempt &&
+      !!attempt &&
       attempt.lessonId === lesson.lessonId &&
-      attempt.answers.length === total
-    ) {
-      setRound(attempt.round);
-      setAnswers(attempt.answers);
-      setIndex(
-        progress.currentLesson === lesson.lessonId
-          ? Math.min(Math.max(progress.currentQuestion, 0), total - 1)
-          : 0,
-      );
-      setPhase("quiz");
-    } else {
+      attempt.answers.length === total;
+
+    let resumed = false;
+    if (canResume && attempt) {
+      const resolvable =
+        attempt.selection && resolveAttemptQuestions(lesson, attempt.selection);
+      if (resolvable || !attempt.selection) {
+        setSelection(attempt.selection ?? null);
+        setRound(attempt.round);
+        setAnswers(attempt.answers);
+        setIndex(
+          progress.currentLesson === lesson.lessonId
+            ? Math.min(Math.max(progress.currentQuestion, 0), total - 1)
+            : 0,
+        );
+        setPhase("quiz");
+        resumed = true;
+      }
+    }
+
+    if (!resumed) {
       const r = roundForPokerTheoryLesson(lesson.lessonId, progress);
-      const fresh = freshAnswers(total);
+      const sel = drawAttemptSelection(lesson);
+      const fresh = freshAnswers(sel.questionIds.length);
+      setSelection(sel);
       setRound(r);
       setAnswers(fresh);
       setIndex(0);
       setPlacementAnswers(freshAnswers(placementTotal));
       setPosition(lesson.lessonId, 0);
-      saveAttempt(lesson.lessonId, r, fresh);
+      saveAttempt(lesson.lessonId, r, fresh, sel);
 
-      if (r === 0 && lesson.intro && lesson.intro.length > 0) {
+      if (r === 0 && hasPreLessonContent(lesson)) {
         setPhase("intro");
       } else if (r === 0 && hasPlacement) {
         setPhase("placement-offer");
@@ -140,10 +159,14 @@ export function PokerTheoryPlayer() {
     saveAttempt,
   ]);
 
-  const baseQuestions = useMemo(
-    () => (lesson ? buildPokerTheoryAttemptQuestions(lesson, round) : []),
-    [lesson, round],
-  );
+  const baseQuestions = useMemo(() => {
+    if (!lesson) return [];
+    if (selection) {
+      const resolved = resolveAttemptQuestions(lesson, selection);
+      if (resolved) return resolved;
+    }
+    return buildPokerTheoryAttemptQuestions(lesson, round);
+  }, [lesson, selection, round]);
 
   const quizView = useMemo<ViewItem[]>(() => {
     const out: ViewItem[] = [];
@@ -218,7 +241,7 @@ export function PokerTheoryPlayer() {
       const next = [...answers];
       next[currentItem.baseIndex] = { ...next[currentItem.baseIndex], ...patch };
       setAnswers(next);
-      if (lesson) saveAttempt(lesson.lessonId, round, next);
+      if (lesson) saveAttempt(lesson.lessonId, round, next, selection ?? undefined);
     } else {
       const id = currentItem.id;
       setBonusAnswers((prev) => ({
@@ -331,16 +354,18 @@ export function PokerTheoryPlayer() {
   function retry() {
     if (!lesson) return;
     const newRound = round + 1;
-    const freshSet = freshAnswers(total);
+    const sel = drawAttemptSelection(lesson);
+    const freshSet = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setRound(newRound);
     setAnswers(freshSet);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, newRound, freshSet);
+    saveAttempt(lesson.lessonId, newRound, freshSet, sel);
     setRunId((n) => n + 1);
   }
 
@@ -348,19 +373,21 @@ export function PokerTheoryPlayer() {
     if (!lesson) return;
     if (
       !window.confirm(
-        "Restart this lesson from the first question? Your current answers will be cleared.",
+        "Restart this lesson from the first question? You'll get a fresh, randomized set of questions.",
       )
     )
       return;
-    const freshSet = freshAnswers(total);
+    const sel = drawAttemptSelection(lesson);
+    const freshSet = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setAnswers(freshSet);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, round, freshSet);
+    saveAttempt(lesson.lessonId, round, freshSet, sel);
     // A restart is a clean run — the clock and tutor chat start over too.
     timer.reset();
     setRunId((n) => n + 1);
@@ -395,11 +422,13 @@ export function PokerTheoryPlayer() {
     );
   }
 
-  if (phase === "intro" && lesson.intro && lesson.intro.length > 0) {
+  if (phase === "intro" && hasPreLessonContent(lesson)) {
     return (
-      <IntroView
+      <PreLesson
         lesson={lesson}
-        onBegin={() => (hasPlacement ? setPhase("placement-offer") : setPhase("quiz"))}
+        backTo="/poker-theory"
+        backLabel="Poker Theory"
+        onStart={() => (hasPlacement ? setPhase("placement-offer") : setPhase("quiz"))}
       />
     );
   }
@@ -473,13 +502,19 @@ export function PokerTheoryPlayer() {
             You&apos;ve already mastered this lesson — feel free to redo it any time.
           </p>
         )}
-        {lesson.intro && lesson.intro.length > 0 && (
+        {hasPreLessonContent(lesson) && (
           <button
             type="button"
-            onClick={() => setShowIntroModal(true)}
+            onClick={() =>
+              lesson.primer?.length || lesson.primerNarration?.length
+                ? setPhase("intro")
+                : setShowIntroModal(true)
+            }
             className="mt-2 text-sm font-medium text-accent hover:underline"
           >
-            Review lesson intro
+            {lesson.primer?.length || lesson.primerNarration?.length
+              ? "Review primer"
+              : "Review lesson intro"}
           </button>
         )}
         <div className="mt-3 flex items-center gap-3">
@@ -617,42 +652,6 @@ export function PokerTheoryPlayer() {
       {showIntroModal && (
         <IntroModal lesson={lesson} onClose={() => setShowIntroModal(false)} />
       )}
-    </div>
-  );
-}
-
-function IntroView({ lesson, onBegin }: { lesson: Lesson; onBegin: () => void }) {
-  return (
-    <div className="mx-auto max-w-2xl">
-      <div className="mb-5">
-        <Link
-          to="/poker-theory"
-          className="text-sm font-medium text-secondary hover:text-primary"
-        >
-          &larr; Poker Theory
-        </Link>
-      </div>
-
-      <div className="pp-card p-6 sm:p-8">
-        <span className="rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-secondary">
-          Lesson {lesson.order}
-        </span>
-        <h1 className="mt-3 text-2xl font-bold text-primary">{lesson.title}</h1>
-        {lesson.subtitle && <p className="mt-1 text-secondary">{lesson.subtitle}</p>}
-
-        <div className="mt-5 space-y-3 leading-relaxed text-secondary">
-          {lesson.intro?.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-        </div>
-
-        <div className="mt-7">
-          <button type="button" className="pp-btn-primary" onClick={onBegin} autoFocus>
-            Continue
-            <ChevronRightIcon size={16} />
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

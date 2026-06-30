@@ -15,6 +15,128 @@
     "Understanding the flow of a hand — who acts when, what the blinds are, and when cards are revealed — is the foundation for every strategic concept that follows.",
     "Every hand you play sits inside a larger framework: Game Theory Optimal (GTO) strategies aim to be unexploitable by mixing correct frequencies, while exploitative play deviates when opponents leak chips through predictable folds, calls, or sizings. You do not need solver software to benefit — simply knowing that each street has a pot size, a stack-to-pot ratio (SPR), and an action order lets you ask the right question: am I getting the right price to continue, and does my position let me control the pot? Fundamentals are not just rules; they are the scaffolding for every pot-odds calculation and range decision that follows."
   ],
+  "primer": [
+    {
+      "heading": "How a hand unfolds",
+      "body": [
+        "Texas Hold'em deals each player two private **hole cards**, then reveals five shared **community cards** in stages. You make your best five-card hand from any combination of your two cards and the board.",
+        "Betting happens on four **streets**. Knowing the order cold is the foundation for everything else."
+      ],
+      "keyTerms": [
+        { "term": "Preflop", "definition": "Betting right after hole cards are dealt; no board yet." },
+        { "term": "Flop", "definition": "First 3 community cards, followed by a betting round." },
+        { "term": "Turn / River", "definition": "The 4th and 5th community cards, each with its own betting round." },
+        { "term": "Showdown", "definition": "If callers remain after the river, hands are revealed and the best one wins." }
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "The four betting streets, in order",
+        "items": ["**Preflop** — 2 hole cards", "**Flop** — 3 board cards", "**Turn** — 4th board card", "**River** — 5th board card, then showdown"]
+      }
+    },
+    {
+      "heading": "Blinds and stakes",
+      "body": [
+        "Two forced bets seed the pot each hand: the **small blind** (left of the dealer) and the **big blind** (one more seat left). A game is named by these two numbers.",
+        "In a `$1/$2` game the small blind posts `$1` and the big blind posts `$2`. Pros measure stacks in **big blinds** (bb), not dollars, so strategy transfers across stakes: a `$200` stack at `$1/$2` is `100bb`."
+      ],
+      "keyTerms": [
+        { "term": "Small blind (SB)", "definition": "Forced bet left of the dealer — the first number in the stakes, e.g. `$1`." },
+        { "term": "Big blind (BB)", "definition": "Forced bet one seat further, the second number, e.g. `$2`. Also the unit for measuring stacks." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Reading the stakes",
+        "headers": ["Game", "Small blind", "Big blind", "100bb stack"],
+        "rows": [["`$1/$2`", "`$1`", "`$2`", "`$200`"], ["`$2/$5`", "`$2`", "`$5`", "`$500`"]]
+      }
+    },
+    {
+      "heading": "Position: the button is power",
+      "body": [
+        "The **dealer button** rotates each hand. Whoever has it acts **last** on every postflop street, seeing what everyone else does before deciding.",
+        "Acting last is a permanent information edge: you control the size of the pot and bluff or value-bet with more certainty. 'In position' (IP) beats 'out of position' (OOP) — play more hands on the button, fewer from the blinds."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Why position wins money",
+        "text": "Postflop action starts with the first player left of the button and ends **on** the button. Last to act = most information = best decisions."
+      }
+    },
+    {
+      "heading": "Stack-to-pot ratio (SPR)",
+      "body": [
+        "**SPR** = effective stack ÷ pot size at the start of a street. It tells you how much room there is to maneuver — and how committed you are.",
+        "**High SPR** (say 10+) means deep play with many streets to come; implied odds and position matter. **Low SPR** (1–3) means you're close to committed — decisions collapse toward 'all-in or fold'."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "SPR = effective stack / pot",
+        "caption": "Effective stack = the smaller of the two stacks that can still be wagered."
+      },
+      "example": {
+        "prompt": "`$1/$2`, effective stacks `$200`, three players see a flop with `$18` in the pot. What is the SPR?",
+        "steps": ["Divide the effective stack by the pot.", "`200 / 18 ≈ 11`."],
+        "result": "SPR ≈ 11 — deep, so plan multiple streets rather than committing now."
+      }
+    },
+    {
+      "heading": "Pot odds: the price to continue",
+      "body": [
+        "**Pot odds** turn a call into a math problem: compare the chips you must put in to the total you can win. The breakeven equity is `call / (call + pot you'd win)`.",
+        "If your chance of making the best hand beats that breakeven number, calling is profitable in the long run. This single comparison underlies almost every drawing decision in poker."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "breakeven equity = call / (pot + call)",
+        "caption": "Call when your hand's equity exceeds this percentage."
+      },
+      "example": {
+        "prompt": "Villain bets `$10` into a `$20` pot, so there is `$30` to win. You must call `$10`. What equity do you need?",
+        "steps": ["You risk `$10` to win the `$30` already out there.", "Breakeven = `10 / (10 + 30) = 10/40`."],
+        "result": "You need ≥ 25% equity to call profitably (the pot lays you 3-to-1)."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "The streets",
+      "title": "How a hand unfolds",
+      "caption": "Texas Hold'em gives each player two private hole cards. Then five community cards arrive in stages — the flop, the turn, and the river — with a round of betting on each street. If callers remain after the river, it goes to showdown and the best five-card hand wins.",
+      "visual": { "kind": "steps", "items": ["Preflop — two hole cards", "Flop — three board cards", "Turn — fourth card", "River — fifth card, then showdown"] }
+    },
+    {
+      "term": "Small and big blinds",
+      "title": "Forced bets seed the pot",
+      "caption": "Two forced bets start every hand. The small blind sits left of the dealer; the big blind is one seat further. A one-two game means a small blind of one and a big blind of two. The big blind is also the unit pros use to measure stacks.",
+      "bullets": ["Small blind = first number", "Big blind = second number", "Stacks are counted in big blinds, not dollars"]
+    },
+    {
+      "term": "Stakes and stacks",
+      "title": "One-two stakes, 100 big blinds",
+      "caption": "Naming the stakes tells you the blinds. In one-two, a two hundred dollar stack is one hundred big blinds. Measuring in big blinds lets the same strategy work whether you play small or high stakes.",
+      "visual": { "kind": "table", "headers": ["Game", "SB", "BB", "100bb"], "rows": [["1/2", "1", "2", "200"], ["2/5", "2", "5", "500"]] }
+    },
+    {
+      "term": "Position",
+      "title": "The button acts last",
+      "caption": "The dealer button rotates each hand, and whoever holds it acts last after the flop. Acting last means you see everyone else's decisions first — a permanent information edge. Play more hands in position and fewer from the blinds.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Last to act = most information = best decisions." }
+    },
+    {
+      "term": "Stack-to-pot ratio",
+      "title": "SPR sizes the decision",
+      "caption": "Stack-to-pot ratio is the effective stack divided by the pot. A high ratio, around ten or more, means deep play with many streets to come. A low ratio, one to three, means you are nearly committed. Two hundred in stack over an eighteen-dollar pot is about eleven.",
+      "visual": { "kind": "formula", "expression": "SPR = effective stack / pot ≈ 11" }
+    },
+    {
+      "term": "Pot odds",
+      "title": "Are you getting the right price?",
+      "caption": "Pot odds compare the chips you must call to the total you can win. The breakeven equity is your call divided by the pot plus your call. Calling ten to win thirty means ten over forty, or twenty-five percent. If your hand wins more often than that, calling profits.",
+      "visual": { "kind": "formula", "expression": "breakeven = call / (pot + call) = 10/40 = 25%" }
+    }
+  ],
   "questions": [
     {
       "id": "pt_f1_q1",

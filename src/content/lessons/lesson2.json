@@ -16,6 +16,165 @@
     "Inclusion-exclusion handles overlapping categories: when you count elements in A or B, you add |A| and |B| but subtract |A ∩ B| so you do not double-count the overlap. This preview of a powerful principle shows up when counting hands with at least one ace or portfolios with both factor exposures.",
     "Combinatorics is the bookkeeping layer behind almost every probability puzzle in quant interviews—from counting poker hands to enumerating failure modes in a trading system. Stat 110 emphasizes choosing the right model: ordered versus unordered, with or without replacement, and when inclusion-exclusion beats brute force. Master these distinctions and a brain-teaser that looks intimidating often collapses to a single binomial coefficient or a short inclusion-exclusion calculation."
   ],
+  "primer": [
+    {
+      "heading": "Counting is probability's engine",
+      "body": [
+        "When outcomes are equally likely, every probability is a ratio of counts: `favorable / total`. So the real skill being tested is **counting without listing**.",
+        "Before computing anything, answer two questions about the selection. They determine which tool you reach for."
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "The two questions that pick your formula",
+        "items": [
+          "**Does order matter?** Ranked seats → permutations. A committee → combinations.",
+          "**Is repetition allowed?** No repeats → `n!` / `C(n,r)`. Identical items into bins → stars and bars."
+        ]
+      }
+    },
+    {
+      "heading": "Permutations: order matters",
+      "body": [
+        "A **permutation** is an ordered arrangement. Arranging all `n` distinct items uses `n!` (n factorial). Choosing and ordering only `r` of them uses `P(n,r) = n! / (n−r)!`.",
+        "Read `n!` as 'fill the first slot `n` ways, the next `n−1` ways, and so on'. `P(n,r)` just stops after `r` slots."
+      ],
+      "keyTerms": [
+        { "term": "Factorial n!", "definition": "`n × (n−1) × … × 1`. The number of orderings of n distinct items. `4! = 24`." },
+        { "term": "P(n, r)", "definition": "Ordered selections of r from n: `n! / (n−r)!`." }
+      ],
+      "example": {
+        "prompt": "From 6 stocks, how many ways to pick a 1st, 2nd, and 3rd favorite (no ties)?",
+        "steps": [
+          "Order matters (ranks are labeled), so use a permutation.",
+          "`P(6,3) = 6 × 5 × 4` — three descending factors."
+        ],
+        "result": "P(6,3) = 120"
+      }
+    },
+    {
+      "heading": "Combinations: order doesn't matter",
+      "body": [
+        "A **combination** is an unordered selection. To get it, count the ordered selections and then **divide out the orderings** you over-counted: `C(n,r) = P(n,r) / r! = n! / (r!·(n−r)!)`.",
+        "Symmetry tip: `C(n,r) = C(n, n−r)`. Choosing which `r` to include is the same as choosing which `n−r` to leave out."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "C(n, r) = n! / ( r! · (n − r)! )",
+        "caption": "The binomial coefficient — 'n choose r'."
+      },
+      "example": {
+        "prompt": "How many 2-stock portfolios from 5 candidates (order irrelevant)?",
+        "steps": [
+          "Order does not matter → combination.",
+          "`C(5,2) = (5 × 4) / (2 × 1)`."
+        ],
+        "result": "C(5,2) = 10"
+      }
+    },
+    {
+      "heading": "Stars and bars: identical items into bins",
+      "body": [
+        "Sometimes you distribute **identical** items among **distinct** bins — allocating identical lots across books, or splitting capital across desks. Order within a bin is meaningless, and bins can be empty.",
+        "Picture `n` identical stars and `k−1` bars that separate them into `k` groups. Any arrangement of stars and bars is one allocation, so the count is `C(n + k − 1, k − 1)`."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "ways = C(n + k − 1, k − 1)",
+        "caption": "Distribute n identical items into k distinct bins (empty bins allowed)."
+      },
+      "example": {
+        "prompt": "Split 10 identical lots across 4 books (a book may get zero).",
+        "steps": [
+          "`n = 10` stars, `k = 4` bins → `k − 1 = 3` bars.",
+          "`C(10 + 4 − 1, 4 − 1) = C(13, 3)`."
+        ],
+        "result": "C(13,3) = 286"
+      }
+    },
+    {
+      "heading": "Inclusion–exclusion: don't double-count",
+      "body": [
+        "To count elements in **A or B**, add `|A|` and `|B|`, then subtract the overlap `|A ∩ B|` you counted twice. For three sets, subtract all pairwise overlaps and **add back** the triple overlap (it was removed once too often).",
+        "The same algebra works for probabilities — replace counts with `P`."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "|A∪B∪C| = |A|+|B|+|C| − |A∩B| − |A∩C| − |B∩C| + |A∩B∩C|",
+        "caption": "Inclusion–exclusion for three sets."
+      },
+      "example": {
+        "prompt": "30 students: 18 know Python, 15 know R, 8 know both. How many know at least one?",
+        "steps": [
+          "Add the two groups, then subtract the double-counted overlap.",
+          "`18 + 15 − 8`."
+        ],
+        "result": "25 students know at least one language"
+      }
+    },
+    {
+      "heading": "Combinatorial probability & expected counts",
+      "body": [
+        "For equally likely hands, `P(event) = (favorable combinations) / (total combinations)`. Count both with the **same** model — usually combinations, since a hand is unordered.",
+        "For an **expected count**, skip the heavy counting: use **linearity of expectation**. Define an indicator for each item and add the probabilities — this works even when the items are dependent."
+      ],
+      "example": {
+        "prompt": "On average, how many aces are in a 5-card hand?",
+        "steps": [
+          "Let `Xᵢ = 1` if card i is an ace. Each card is an ace with probability `4/52`.",
+          "Linearity: `E[aces] = 5 × 4/52 = 20/52`."
+        ],
+        "result": "E[aces] = 5/13 ≈ 0.385"
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "success",
+        "title": "Why linearity is magic",
+        "text": "`E[X₁ + … + Xₙ] = E[X₁] + … + E[Xₙ]` **always** holds — no independence required. It turns scary counting into a one-line sum."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Order and repetition",
+      "title": "Two questions pick your tool",
+      "caption": "Counting is probability's engine. Before any formula, ask two things. Does order matter? And is repetition allowed? Those answers tell you whether to use permutations, combinations, or stars and bars.",
+      "bullets": [
+        "Order matters → permutations",
+        "Order doesn't → combinations",
+        "Identical items in bins → stars and bars"
+      ]
+    },
+    {
+      "term": "Permutations",
+      "title": "Ordered arrangements",
+      "caption": "When order matters, use permutations. Arranging all n items is n factorial. Picking and ranking r of them is n factorial over n minus r factorial. Ranking three of six stocks is six times five times four, which is one hundred twenty.",
+      "visual": { "kind": "formula", "expression": "P(n,r) = n! / (n−r)!     P(6,3) = 120" }
+    },
+    {
+      "term": "Combinations",
+      "title": "Unordered selections",
+      "caption": "When order does not matter, divide out the arrangements you over-counted. n choose r equals n factorial over r factorial times n minus r factorial. Choosing two stocks from five is C of five two, which is ten.",
+      "visual": { "kind": "formula", "expression": "C(n,r) = n! / ( r!·(n−r)! )     C(5,2) = 10" }
+    },
+    {
+      "term": "Stars and bars",
+      "title": "Identical items, distinct bins",
+      "caption": "To spread n identical items across k distinct bins, picture n stars and k minus one bars. The number of arrangements is n plus k minus one, choose k minus one. Ten identical lots across four books is C of thirteen, three, which is two hundred eighty-six.",
+      "visual": { "kind": "formula", "expression": "C(n+k−1, k−1)     C(13,3) = 286" }
+    },
+    {
+      "term": "Inclusion–exclusion",
+      "title": "Subtract the overlap",
+      "caption": "To count A or B, add them and subtract the overlap you counted twice. For three sets, subtract the pairwise overlaps and add back the triple overlap. Eighteen Python plus fifteen R minus eight who know both gives twenty-five.",
+      "visual": { "kind": "formula", "expression": "|A∪B| = |A| + |B| − |A∩B|" }
+    },
+    {
+      "term": "Expected counts",
+      "title": "Linearity beats brute force",
+      "caption": "For an expected count, use linearity of expectation. Make an indicator for each item, then add the probabilities — even when items are dependent. The expected number of aces in a five-card hand is five times four over fifty-two, which is five thirteenths.",
+      "visual": { "kind": "formula", "expression": "E[ΣXᵢ] = ΣE[Xᵢ]     E[aces] = 5·(4/52) = 5/13" }
+    }
+  ],
   "questions": [
     {
       "id": "l2_q1",
@@ -673,6 +832,116 @@
             "B": "People do not each get two seats; the factor 2 is internal order within the pair.",
             "C": "Complement counting subtracts once; the factor 2 is not about double subtraction.",
             "D": "The other people's permutations are already captured by (n−1)!."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l2_q13",
+      "kind": "challenge",
+      "concept": "stars_and_bars",
+      "question": "A trader must split 10 identical lots across 4 distinct books, and a book may receive zero lots. How many distinct allocations are possible?",
+      "options": [
+        "220",
+        "286",
+        "715",
+        "1,048,576"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "220 = C(12,3) is an off-by-one. With n = 10 identical lots and k = 4 books, stars and bars uses C(n+k−1, k−1) = C(13,3), not C(12,3).",
+        "B": "Correct. Lay out 10 identical lots (stars) and 3 dividers (bars) in a row; each arrangement is one allocation. That is C(10+4−1, 4−1) = C(13,3) = 286.",
+        "C": "715 = C(13,4) uses k bars instead of k−1. Four books are separated by only 3 dividers.",
+        "D": "1,048,576 = 4^10 treats the lots as distinct and independently assignable. Here the lots are identical, so their internal order must not be counted."
+      },
+      "remediation": [
+        {
+          "id": "l2_q13_r1",
+          "question": "Distribute 5 identical chips among 3 players, where a player may receive none. How many ways?",
+          "options": [
+            "15",
+            "21",
+            "35",
+            "243"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "15 = C(6,2) is an off-by-one; use C(n+k−1, k−1) with n = 5, k = 3, i.e. C(7,2).",
+            "B": "Correct. C(5+3−1, 3−1) = C(7,2) = 21.",
+            "C": "35 = C(7,3) uses k dividers instead of k−1.",
+            "D": "243 = 3^5 treats the chips as distinct, but they are identical."
+          }
+        },
+        {
+          "id": "l2_q13_r2",
+          "question": "To distribute n identical items into k distinct bins (empty bins allowed), the count is:",
+          "options": [
+            "C(n+k−1, k−1)",
+            "C(n, k)",
+            "n^k",
+            "C(n−1, k−1)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Stars and bars: n stars and k−1 bars in a row gives C(n+k−1, k−1).",
+            "B": "C(n,k) chooses k of n distinct items — no repetition and no bins.",
+            "C": "n^k counts assignments of distinct items/positions, not identical items into bins.",
+            "D": "C(n−1, k−1) is the count when every bin must receive at least one item; here empty bins are allowed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l2_q14",
+      "kind": "challenge",
+      "concept": "expected_count",
+      "question": "On average, how many aces are in a random 5-card poker hand? (Use linearity of expectation.)",
+      "options": [
+        "4/52 ≈ 0.077",
+        "5/13 ≈ 0.385",
+        "1",
+        "20/13 ≈ 1.54"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "4/52 is the probability that one specific card is an ace, but the hand has five cards. Multiply by 5.",
+        "B": "Correct. Let Xᵢ = 1 if card i is an ace. Each card is an ace with probability 4/52, so by linearity E[aces] = 5 × 4/52 = 20/52 = 5/13 ≈ 0.385. Linearity holds even though the five cards are dependent.",
+        "C": "1 is a guess; aces are rare (only 4 of 52 cards), so the expected count is well below 1.",
+        "D": "20/13 ≈ 1.54 forgets to reduce: 20/52 simplifies to 5/13, not 20/13."
+      },
+      "remediation": [
+        {
+          "id": "l2_q14_r1",
+          "question": "A fair die is rolled 12 times. What is the expected number of 6s?",
+          "options": [
+            "1",
+            "2",
+            "6",
+            "12"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "1 uses the wrong probability. Each roll is a 6 with probability 1/6, across 12 rolls.",
+            "B": "Correct. By linearity, E = 12 × 1/6 = 2.",
+            "C": "6 would be 12 × 1/2; a die shows a 6 with probability 1/6, not 1/2.",
+            "D": "12 is the number of rolls, not the expected count of 6s."
+          }
+        },
+        {
+          "id": "l2_q14_r2",
+          "question": "In 10 fair coin flips, the expected number of heads is:",
+          "options": [
+            "2.5",
+            "5",
+            "7.5",
+            "10"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "2.5 = 10 × 1/4; a fair coin is heads with probability 1/2, not 1/4.",
+            "B": "Correct. E = 10 × 1/2 = 5 by linearity of expectation.",
+            "C": "7.5 = 10 × 3/4 overstates the head probability.",
+            "D": "10 would require every flip to land heads with certainty."
           }
         }
       ]

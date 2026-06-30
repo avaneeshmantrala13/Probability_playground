@@ -13,11 +13,17 @@ import {
   PASS_THRESHOLD,
   roundForMarketMakingLesson,
 } from "../content/marketMakingLessons/mastery";
+import {
+  drawAttemptSelection,
+  resolveAttemptQuestions,
+  type AttemptSelection,
+} from "../lib/attempt";
 import { QuestionCard } from "../components/lesson/QuestionCard";
 import { ProgressBar } from "../components/lesson/ProgressBar";
 import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
 import { DifficultyBadge } from "../components/lesson/DifficultyBadge";
 import { IntroModal } from "../components/lesson/IntroModal";
+import { PreLesson, hasPreLessonContent } from "../components/lesson/primer/PreLesson";
 import type { OptionState } from "../components/lesson/OptionButton";
 import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
@@ -61,6 +67,7 @@ export function MarketMakingLessonPlayer() {
   const [answers, setAnswers] = useState<AttemptAnswer[]>(() =>
     freshAnswers(baseQuestionCount),
   );
+  const [selection, setSelection] = useState<AttemptSelection | null>(null);
   const [phase, setPhase] = useState<"intro" | "placement" | "quiz" | "results">("quiz");
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [showIntroModal, setShowIntroModal] = useState(false);
@@ -85,38 +92,54 @@ export function MarketMakingLessonPlayer() {
     setBonusAnswers({});
 
     const attempt = progress.activeAttempt;
-    if (
+    const canResume =
       !alreadyMastered &&
-      attempt &&
+      !!attempt &&
       attempt.lessonId === lesson.lessonId &&
-      attempt.answers.length >= baseQuestionCount
-    ) {
-      setRound(attempt.round);
-      setAnswers(attempt.answers);
-      setIndex(
-        progress.currentLesson === lesson.lessonId
-          ? Math.min(Math.max(progress.currentQuestion, 0), attempt.answers.length - 1)
-          : 0,
-      );
-      setPhase("quiz");
-    } else {
+      attempt.answers.length >= baseQuestionCount;
+
+    let resumed = false;
+    if (canResume && attempt) {
+      const resolvable =
+        attempt.selection && resolveAttemptQuestions(lesson, attempt.selection);
+      if (resolvable || !attempt.selection) {
+        setSelection(attempt.selection ?? null);
+        setRound(attempt.round);
+        setAnswers(attempt.answers);
+        setIndex(
+          progress.currentLesson === lesson.lessonId
+            ? Math.min(Math.max(progress.currentQuestion, 0), attempt.answers.length - 1)
+            : 0,
+        );
+        setPhase("quiz");
+        resumed = true;
+      }
+    }
+
+    if (!resumed) {
       const r = roundForMarketMakingLesson(lesson.lessonId, progress);
-      const fresh = freshAnswers(baseQuestionCount);
+      const sel = drawAttemptSelection(lesson);
+      const fresh = freshAnswers(sel.questionIds.length);
+      setSelection(sel);
       setRound(r);
       setAnswers(fresh);
       setIndex(0);
       setPosition(lesson.lessonId, 0);
-      saveAttempt(lesson.lessonId, r, fresh);
-      setPhase(r === 0 && lesson.intro && lesson.intro.length > 0 ? "intro" : "quiz");
+      saveAttempt(lesson.lessonId, r, fresh, sel);
+      setPhase(r === 0 && hasPreLessonContent(lesson) ? "intro" : "quiz");
     }
     setResult(null);
     hydratedFor.current = lesson.lessonId;
   }, [lesson, loading, progress, baseQuestionCount, alreadyMastered, setPosition, saveAttempt]);
 
-  const baseQuestions = useMemo(
-    () => (lesson ? buildMarketMakingAttemptQuestions(lesson, round) : []),
-    [lesson, round],
-  );
+  const baseQuestions = useMemo(() => {
+    if (!lesson) return [];
+    if (selection) {
+      const resolved = resolveAttemptQuestions(lesson, selection);
+      if (resolved) return resolved;
+    }
+    return buildMarketMakingAttemptQuestions(lesson, round);
+  }, [lesson, selection, round]);
 
   const view = useMemo<ViewItem[]>(() => {
     const out: ViewItem[] = [];
@@ -162,7 +185,7 @@ export function MarketMakingLessonPlayer() {
       const next = [...answers];
       next[currentItem.baseIndex] = { ...next[currentItem.baseIndex], ...patch };
       setAnswers(next);
-      if (lesson) saveAttempt(lesson.lessonId, round, next);
+      if (lesson) saveAttempt(lesson.lessonId, round, next, selection ?? undefined);
     } else {
       const id = currentItem.id;
       setBonusAnswers((prev) => ({
@@ -253,16 +276,18 @@ export function MarketMakingLessonPlayer() {
   function retry() {
     if (!lesson) return;
     const newRound = round + 1;
-    const fresh = freshAnswers(baseQuestionCount);
+    const sel = drawAttemptSelection(lesson);
+    const fresh = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setRound(newRound);
     setAnswers(fresh);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, newRound, fresh);
+    saveAttempt(lesson.lessonId, newRound, fresh, sel);
     setRunId((n) => n + 1);
   }
 
@@ -270,19 +295,21 @@ export function MarketMakingLessonPlayer() {
     if (!lesson) return;
     if (
       !window.confirm(
-        "Restart this lesson from the first question? Your current answers will be cleared.",
+        "Restart this lesson from the first question? You'll get a fresh, randomized set of questions.",
       )
     )
       return;
-    const fresh = freshAnswers(baseQuestionCount);
+    const sel = drawAttemptSelection(lesson);
+    const fresh = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setAnswers(fresh);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, round, fresh);
+    saveAttempt(lesson.lessonId, round, fresh, sel);
     // A restart is a clean run — the clock and tutor chat start over too.
     timer.reset();
     setRunId((n) => n + 1);
@@ -300,11 +327,13 @@ export function MarketMakingLessonPlayer() {
     );
   }
 
-  if (phase === "intro" && lesson.intro && lesson.intro.length > 0) {
+  if (phase === "intro" && hasPreLessonContent(lesson)) {
     return (
-      <IntroView
+      <PreLesson
         lesson={lesson}
-        onBegin={() => setPhase("quiz")}
+        backTo="/market-making/lessons"
+        backLabel="Market Making Lessons"
+        onStart={() => setPhase("quiz")}
         onPlacement={
           lesson.placementQuestions && lesson.placementQuestions.length > 0 && !alreadyMastered
             ? () => setPhase("placement")
@@ -382,13 +411,19 @@ export function MarketMakingLessonPlayer() {
             You&apos;ve already mastered this lesson — feel free to redo it any time.
           </p>
         )}
-        {lesson.intro && lesson.intro.length > 0 && (
+        {hasPreLessonContent(lesson) && (
           <button
             type="button"
-            onClick={() => setShowIntroModal(true)}
+            onClick={() =>
+              lesson.primer?.length || lesson.primerNarration?.length
+                ? setPhase("intro")
+                : setShowIntroModal(true)
+            }
             className="mt-2 text-sm font-medium text-accent hover:underline"
           >
-            Review lesson intro
+            {lesson.primer?.length || lesson.primerNarration?.length
+              ? "Review primer"
+              : "Review lesson intro"}
           </button>
         )}
         <div className="mt-3 flex items-center gap-3">
@@ -514,55 +549,6 @@ export function MarketMakingLessonPlayer() {
       {showIntroModal && (
         <IntroModal lesson={lesson} onClose={() => setShowIntroModal(false)} />
       )}
-    </div>
-  );
-}
-
-function IntroView({
-  lesson,
-  onBegin,
-  onPlacement,
-}: {
-  lesson: Lesson;
-  onBegin: () => void;
-  onPlacement?: () => void;
-}) {
-  return (
-    <div className="mx-auto max-w-2xl">
-      <div className="mb-5">
-        <Link
-          to="/market-making/lessons"
-          className="text-sm font-medium text-secondary hover:text-primary"
-        >
-          &larr; Market Making Lessons
-        </Link>
-      </div>
-
-      <div className="pp-card p-6 sm:p-8">
-        <span className="rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-secondary">
-          Lesson {lesson.order}
-        </span>
-        <h1 className="mt-3 text-2xl font-bold text-primary">{lesson.title}</h1>
-        {lesson.subtitle && <p className="mt-1 text-secondary">{lesson.subtitle}</p>}
-
-        <div className="mt-5 space-y-3 leading-relaxed text-secondary">
-          {lesson.intro?.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-        </div>
-
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <button type="button" className="pp-btn-primary" onClick={onBegin} autoFocus>
-            Begin lesson
-            <ChevronRightIcon size={16} />
-          </button>
-          {onPlacement && (
-            <button type="button" className="pp-btn-secondary" onClick={onPlacement}>
-              Skip ahead — placement quiz
-            </button>
-          )}
-        </div>
-      </div>
     </div>
   );
 }
