@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { Lesson } from "../../../content/types";
 import { ChevronRightIcon } from "../../icons";
-import { NarratedPrimer } from "./NarratedPrimer";
-import { PrimerFlow } from "./PrimerFlow";
+import { UnifiedPrimer } from "./UnifiedPrimer";
 
 /** True when a lesson has any pre-lesson learning content to show. */
 export function hasPreLessonContent(lesson: Lesson): boolean {
@@ -14,13 +13,17 @@ export function hasPreLessonContent(lesson: Lesson): boolean {
   );
 }
 
-type Stage = "overview" | "narration" | "reading";
+type Stage = "overview" | "primer";
 
 /**
- * The integrated, paced pre-lesson experience: an optional narrated concept
- * primer (the "AI video"), then a paced multi-page reading primer, ending with
- * a clear "Start questions" CTA. Falls back to the legacy `intro` paragraphs
- * when a lesson has no rich primer yet. Every step is skippable.
+ * The integrated, paced pre-lesson experience. From the overview the learner
+ * either starts a single, unified primer — narrated concept slides AND the
+ * reading / worked-example pages under ONE shared progress counter — or skips
+ * straight to the questions. There is no chaining into a separate "primer 1 of
+ * N" reading layer: the first primer already contains everything, every Skip
+ * control goes directly to the questions, and finishing the last page starts
+ * the questions too. Falls back to the legacy `intro` paragraphs when a lesson
+ * has no rich primer yet.
  */
 export function PreLesson({
   lesson,
@@ -37,8 +40,9 @@ export function PreLesson({
   onPlacement?: () => void;
   placementLabel?: string;
 }) {
-  const hasNarration = (lesson.primerNarration?.length ?? 0) > 0;
-  const hasPrimer = (lesson.primer?.length ?? 0) > 0;
+  const narration = lesson.primerNarration ?? [];
+  const sections = lesson.primer ?? [];
+  const hasUnifiedPrimer = narration.length > 0 || sections.length > 0;
   const [stage, setStage] = useState<Stage>("overview");
 
   const back = (
@@ -49,39 +53,24 @@ export function PreLesson({
     </div>
   );
 
-  if (stage === "narration" && lesson.primerNarration) {
+  if (stage === "primer" && hasUnifiedPrimer) {
     return (
       <div className="mx-auto max-w-2xl">
         {back}
-        <NarratedPrimer
-          slides={lesson.primerNarration}
-          closeLabel={hasPrimer ? "Read the primer" : "Start questions"}
-          onClose={() => (hasPrimer ? setStage("reading") : onStart())}
-        />
-      </div>
-    );
-  }
-
-  if (stage === "reading" && lesson.primer) {
-    return (
-      <div className="mx-auto max-w-2xl">
-        {back}
-        <PrimerFlow
-          sections={lesson.primer}
-          ctaLabel="Start questions"
-          onComplete={onStart}
-          onExit={onStart}
+        <UnifiedPrimer
+          narration={narration}
+          sections={sections}
+          onStart={onStart}
+          startLabel="Start questions"
         />
       </div>
     );
   }
 
   // Overview / landing.
-  const primaryAction = hasNarration
-    ? { label: "Watch concept primer", run: () => setStage("narration") }
-    : hasPrimer
-      ? { label: "Read the primer", run: () => setStage("reading") }
-      : { label: "Begin lesson", run: onStart };
+  const primaryAction = hasUnifiedPrimer
+    ? { label: "Start primer", run: () => setStage("primer") }
+    : { label: "Begin lesson", run: onStart };
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -112,7 +101,7 @@ export function PreLesson({
         )}
 
         {/* When there is no rich primer, show the legacy intro paragraphs. */}
-        {!hasPrimer && !hasNarration && lesson.intro && lesson.intro.length > 0 && (
+        {!hasUnifiedPrimer && lesson.intro && lesson.intro.length > 0 && (
           <div className="mt-5 space-y-3 leading-relaxed text-secondary">
             {lesson.intro.map((p, i) => (
               <p key={i}>{p}</p>
@@ -120,10 +109,11 @@ export function PreLesson({
           </div>
         )}
 
-        {(hasPrimer || hasNarration) && (
+        {hasUnifiedPrimer && (
           <p className="mt-5 leading-relaxed text-secondary">
-            Start with a paced concept primer that teaches the key terms and the
-            solving method, then move on to the questions whenever you&apos;re ready.
+            One paced primer walks you through the key terms, the solving method, and
+            worked examples — all in a single sequence. Jump to the questions whenever
+            you&apos;re ready.
           </p>
         )}
 
@@ -133,7 +123,7 @@ export function PreLesson({
             <ChevronRightIcon size={16} />
           </button>
 
-          {(hasPrimer || hasNarration) && (
+          {hasUnifiedPrimer && (
             <button type="button" className="pp-btn-secondary" onClick={onStart}>
               Skip to questions
             </button>
