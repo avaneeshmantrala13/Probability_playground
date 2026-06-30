@@ -15,6 +15,172 @@
     "A Nash equilibrium is a profile of strategies where no player can improve their payoff by unilaterally changing their move. Sometimes the equilibrium involves mixed strategies — randomizing over actions with specific probabilities so opponents cannot exploit a predictable pattern. Recognizing dominant strategies, prisoner's dilemmas, and zero-sum structure is essential for quick interview reasoning.",
     "Game theory models markets where your payoff depends on others' choices—auctions, bidding wars, and adversarial market making all fit. Quant interviews rarely ask you to solve a general game in full, but they do test Nash equilibrium, mixed strategies, and whether a game is zero-sum. Recognize when a dominant strategy exists, when randomization is optimal, and when bid shading beats bidding your true value."
   ],
+  "primer": [
+    {
+      "heading": "What a game actually is",
+      "body": [
+        "A **game** is any situation where your payoff depends not only on your own action but on what **other strategic players** do. To model one you list the **players**, each player's **strategies** (actions), and a **payoff** for every combination of choices.",
+        "The right question is never 'what do I want?' but 'what is my **best response** to what everyone else is likely to do?' An equilibrium is simply the point where everyone is best-responding at once."
+      ],
+      "keyTerms": [
+        { "term": "Strategy", "definition": "A complete plan of action for a player — here, usually one choice like `Tight` or `Wide`." },
+        { "term": "Payoff matrix", "definition": "A grid whose cell `(row, column)` lists the payoff to each player for that action pair." },
+        { "term": "Best response", "definition": "The action that maximizes your payoff given a fixed choice by the others." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Interview reflex",
+        "text": "Draw the payoff matrix: rows are your actions, columns the opponent's, each cell a pair `(you, them)`. Most 2×2 interview games are solved by inspection once it is on paper."
+      }
+    },
+    {
+      "heading": "Dominant and dominated strategies",
+      "body": [
+        "A **strictly dominant** strategy earns more than every alternative **no matter what** opponents do, so a rational player always plays it. A **dominated** strategy is the mirror image — something always beats it, so you can delete it.",
+        "Scan for dominance first. Iteratively deleting dominated strategies often collapses a game to a single outcome, and it is the fastest path to the answer."
+      ],
+      "example": {
+        "prompt": "You may quote `Tight` or `Wide`. If the rival quotes Tight you earn `4` vs `3`; if the rival quotes Wide you earn `2` vs `1`. Is either action dominant?",
+        "steps": [
+          "Column 'rival Tight': Tight gives `4 > 3`.",
+          "Column 'rival Wide': Tight gives `2 > 1`.",
+          "Tight wins in **every** column, so it strictly dominates Wide."
+        ],
+        "result": "Tight is strictly dominant — a rational maker always quotes Tight."
+      }
+    },
+    {
+      "heading": "Nash equilibrium",
+      "body": [
+        "A **Nash equilibrium** is a strategy profile where **no player can gain by unilaterally deviating** — everyone is simultaneously best-responding. It need not be fair, efficient, or unique.",
+        "The **prisoner's dilemma** is the canonical lesson: mutual defection is the unique Nash equilibrium even though both players would prefer mutual cooperation. Individually rational choices can be collectively worse."
+      ],
+      "keyTerms": [
+        { "term": "Nash equilibrium", "definition": "A profile in which each player's strategy is a best response to the others'." },
+        { "term": "Pareto efficient", "definition": "An outcome you cannot improve for one player without hurting another. Equilibria need not be Pareto efficient." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Prisoner's dilemma — each cell is (Row, Column). Defect dominates for both, so (Defect, Defect) is the only equilibrium.",
+        "headers": ["", "Cooperate", "Defect"],
+        "rows": [
+          ["Cooperate", "(3, 3)", "(0, 5)"],
+          ["Defect", "(5, 0)", "(1, 1)"]
+        ]
+      }
+    },
+    {
+      "heading": "Zero-sum games",
+      "body": [
+        "A game is **zero-sum** (more generally **constant-sum**) when payoffs always add to the same total: one player's gain is exactly another's loss. Trading one-on-one for fixed stakes, matching pennies, and heads-up poker are classic examples.",
+        "These games are **purely competitive** — there is no joint surplus to share, so the only question is how to avoid being exploited."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Minimax = Nash (von Neumann)",
+        "text": "In a finite two-player zero-sum game the minimax value equals the equilibrium value. Your equilibrium strategy guarantees that value no matter how cleverly the opponent plays."
+      }
+    },
+    {
+      "heading": "Mixed strategies and the indifference principle",
+      "body": [
+        "When no pure strategy is stable — like matching pennies — players **randomize**. A **mixed strategy** assigns a probability to each action. The equilibrium mix is pinned down by the **indifference principle**: you choose probabilities that make your **opponent indifferent** between their actions, so no pattern of yours can be exploited.",
+        "Mechanically: set the opponent's expected payoffs from each of their actions **equal**, then solve for your mixing probability."
+      ],
+      "example": {
+        "prompt": "Matching pennies: Row earns `+1` on a match and `−1` on a mismatch. What mix should Column play?",
+        "steps": [
+          "Let Column play Heads with probability `q`.",
+          "Row's `EV(Heads) = q(+1) + (1−q)(−1) = 2q − 1`.",
+          "Row's `EV(Tails) = q(−1) + (1−q)(+1) = 1 − 2q`.",
+          "Indifference: `2q − 1 = 1 − 2q` ⟹ `q = 1/2`."
+        ],
+        "result": "Column mixes 50/50; by symmetry so does Row. Each player's equilibrium payoff is `0`."
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "EV(action A) = EV(action B)  ⟹  solve for the opponent's mixing probability",
+        "caption": "The indifference condition that pins down a mixed equilibrium."
+      }
+    },
+    {
+      "heading": "Auctions and bid shading",
+      "body": [
+        "Auctions are games of incomplete information. In a **first-price sealed-bid** auction the high bidder wins and **pays their own bid**; in a **second-price (Vickrey)** auction the high bidder wins but **pays the runner-up's bid**.",
+        "The format dictates your incentive. In a second-price auction bidding your **true value** is dominant — your bid only decides whether you win, never how much you pay. In a first-price auction you must **shade** below value, trading a little win probability for positive surplus when you do win."
+      ],
+      "keyTerms": [
+        { "term": "First-price auction", "definition": "High bidder wins and pays exactly their own bid." },
+        { "term": "Second-price (Vickrey) auction", "definition": "High bidder wins but pays the second-highest bid; truthful bidding is dominant." },
+        { "term": "Bid shading", "definition": "Bidding below your true value to preserve surplus when you win." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "How the format changes the optimal bid.",
+        "headers": ["Format", "Winner pays", "Optimal bid"],
+        "rows": [
+          ["First-price", "Own bid", "Shade below value"],
+          ["Second-price", "Second-highest bid", "Bid true value (dominant)"]
+        ]
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Best response",
+      "title": "Everyone is reacting to everyone",
+      "caption": "A game is any situation where your payoff depends on what other strategic players do, not just your own choice. So the real question is never simply what you want — it is what your best response is to what everyone else is likely to do.",
+      "bullets": [
+        "List the players, their strategies, and payoffs",
+        "Find each player's best response",
+        "Equilibrium is everyone best-responding at once"
+      ]
+    },
+    {
+      "term": "Dominant strategy",
+      "title": "An action that always wins",
+      "caption": "A dominant strategy beats every alternative no matter what your opponent does, so a rational player always takes it. Scan for dominance first — deleting dominated actions is the quickest way to crack an interview game.",
+      "visual": {
+        "kind": "steps",
+        "items": [
+          "Dominant: best in **every** column",
+          "Dominated: something always beats it — delete it"
+        ]
+      }
+    },
+    {
+      "term": "Nash equilibrium",
+      "title": "No profitable solo deviation",
+      "caption": "At a Nash equilibrium nobody can do better by changing their move alone. In the prisoner's dilemma both players defect even though both would prefer to cooperate — individually rational, yet collectively worse.",
+      "visual": { "kind": "formula", "expression": "No player gains by deviating unilaterally" }
+    },
+    {
+      "term": "Zero-sum",
+      "title": "Your gain is their loss",
+      "caption": "In a zero-sum game the payoffs always add to the same total, so one trader's profit is exactly another's loss. These games are purely competitive — the only goal is to avoid being exploited.",
+      "visual": { "kind": "formula", "expression": "payoff(you) + payoff(them) = 0" }
+    },
+    {
+      "term": "Mixed strategy",
+      "title": "Randomize so you cannot be read",
+      "caption": "When no fixed choice is safe, you randomize. The trick is to mix with probabilities that make your opponent indifferent between their options, so no pattern of yours can be exploited. In matching pennies that means fifty-fifty.",
+      "visual": { "kind": "formula", "expression": "Set opponent's EV(H) = EV(T) → your mix = 1/2" }
+    },
+    {
+      "term": "Bid shading",
+      "title": "Why you bid below your value",
+      "caption": "In a second-price auction, bidding your true value is dominant because your bid only decides whether you win, not what you pay. In a first-price auction you shade below value, giving up a little win probability to keep some profit when you win.",
+      "visual": {
+        "kind": "steps",
+        "items": [
+          "Second-price: bid your true value",
+          "First-price: shade below value"
+        ]
+      }
+    }
+  ],
   "questions": [
     {
       "id": "l9_q1",

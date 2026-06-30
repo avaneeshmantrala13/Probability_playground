@@ -15,6 +15,174 @@
     "You'll also meet classic brain teasers: conditional probability traps, symmetry arguments, expected-value shortcuts, and combinatorial counting under constraints. The goal is not memorizing answers but recognizing patterns — when to use complement, when symmetry gives 1/2, and when to decompose a problem into independent sub-estimates.",
     "Brain teasers reward pattern recognition over brute force: symmetry cuts a problem in half, complements avoid messy casework, and Fermi estimates show structured thinking under time pressure. Green Book and Brainstellar-style puzzles often disguise a simple invariant—equal odds for two symmetric players, or an expected value that linearity resolves in one line. Treat these as fluency drills: state the trick aloud, then compute."
   ],
+  "primer": [
+    {
+      "heading": "Pattern, not brute force",
+      "body": [
+        "Brain teasers are rarely about heavy computation. They reward spotting the **invariant** — the symmetry, complement, or linearity that collapses the problem to a single line. State the trick out loud, then compute.",
+        "Four reflexes cover most quant puzzles. Learning to match the **phrasing** of a question to the right reflex is the real skill being tested."
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "The four reflexes",
+        "items": [
+          "Sees **'at least one'** → complement: `1 − P(none)`.",
+          "Two **interchangeable** outcomes → symmetry splits the probability.",
+          "Computing an **average count** → linearity of expectation.",
+          "No data but you need a number → **Fermi** decomposition."
+        ]
+      }
+    },
+    {
+      "heading": "The complement trick",
+      "body": [
+        "When an event is a messy union of cases, compute its **complement** and subtract from 1. The phrase **'at least one'** is the giveaway — its opposite is the single clean case **'none'**.",
+        "This turns multi-case bookkeeping into one short product."
+      ],
+      "example": {
+        "prompt": "Roll two fair dice. What is P(at least one six)?",
+        "steps": [
+          "Complement of 'at least one six' is 'no six on either die'.",
+          "`P(no six) = (5/6)² = 25/36`.",
+          "`P(at least one) = 1 − 25/36`."
+        ],
+        "result": "= 11/36"
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "P(at least one) = 1 − P(none)",
+        "caption": "The complement rule, the single most useful brain-teaser shortcut."
+      }
+    },
+    {
+      "heading": "Symmetry arguments",
+      "body": [
+        "If **swapping** two outcomes leaves the setup unchanged, those outcomes must have **equal probability**. Symmetry can hand you the answer with no arithmetic at all.",
+        "Watch for symmetry that is **broken** by a small asymmetry — like one player moving first. Then you only need to account for the single thing that breaks it."
+      ],
+      "example": {
+        "prompt": "Three fair coins. Compare P(exactly one head) and P(exactly one tail).",
+        "steps": [
+          "Relabel heads ↔ tails: the experiment is identical.",
+          "So `P(exactly one head) = P(exactly one tail)` by symmetry.",
+          "Each equals `C(3,1)·(1/2)³ = 3 × 1/8`."
+        ],
+        "result": "Both equal 3/8."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "When symmetry breaks",
+        "text": "In 'first heads wins, you flip first,' order breaks the symmetry. Solve the self-referential equation `p = 1/2 + (1/4)p` to get `p = 2/3`."
+      }
+    },
+    {
+      "heading": "Conditioning shrinks the sample space",
+      "body": [
+        "A condition **shrinks the sample space**. `P(A | B)` restricts attention to the world where B happened: count favorable outcomes **inside B**, then divide by the size of B.",
+        "The classic trap is answering the **unconditional** probability instead. 'Given a face card, P(king)?' is `4/12 = 1/3`, not the unconditional `4/52`."
+      ],
+      "example": {
+        "prompt": "Standard deck. What is P(King | face card)?",
+        "steps": [
+          "Condition on 'face card' → the sample space is the 12 face cards.",
+          "4 of those are kings.",
+          "`P = 4/12`."
+        ],
+        "result": "= 1/3"
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "P(A | B) = P(A ∩ B) / P(B)",
+        "caption": "Conditioning re-normalizes within the event you were told occurred."
+      }
+    },
+    {
+      "heading": "Linearity of expectation",
+      "body": [
+        "**Linearity of expectation** says `E[X + Y] = E[X] + E[Y]` — **always**, even when X and Y are dependent. Define an **indicator** for each piece and add the probabilities; you never need the joint distribution.",
+        "It turns intimidating averages into a one-line sum, which is exactly why interviewers love it."
+      ],
+      "example": {
+        "prompt": "Roll a fair die twice and add the faces. What is E[sum]?",
+        "steps": [
+          "`E[one die] = (1+2+3+4+5+6)/6 = 3.5`.",
+          "Linearity: `E[sum] = 3.5 + 3.5`."
+        ],
+        "result": "= 7"
+      },
+      "visual": {
+        "kind": "formula",
+        "expression": "E[X₁ + … + Xₙ] = E[X₁] + … + E[Xₙ]",
+        "caption": "No independence required — linearity always holds."
+      }
+    },
+    {
+      "heading": "Fermi estimation",
+      "body": [
+        "With no data, **decompose** the unknown into factors you *can* guess, multiply them, and track **units** so they cancel. Aim for the right **order of magnitude** — within a factor of about ten.",
+        "Multiplying powers of ten just **adds exponents**, which keeps the whole thing mental."
+      ],
+      "example": {
+        "prompt": "Roughly how many cups of coffee are drunk in the U.S. per year?",
+        "steps": [
+          "Population `≈ 3.3×10⁸`.",
+          "`× 365 days ≈ 3.65×10²`.",
+          "`× ~1 cup per person per day`."
+        ],
+        "result": "≈ 1.2×10¹¹ → order of magnitude 10¹¹ (about 100 billion cups)."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "success",
+        "title": "Order-of-magnitude rule",
+        "text": "`10ᵃ × 10ᵇ = 10ᵃ⁺ᵇ`. Round each factor to one significant figure, add the exponents, and you land within a factor of ten."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Pattern over brute force",
+      "title": "Find the trick first",
+      "caption": "Brain teasers rarely need heavy computation. They reward spotting the invariant — a symmetry, a complement, or linearity — that collapses the problem to one line. State the trick aloud, then compute.",
+      "bullets": [
+        "At least one → use the complement",
+        "Interchangeable outcomes → use symmetry",
+        "An average → use linearity of expectation",
+        "No data → decompose and estimate"
+      ]
+    },
+    {
+      "term": "Complement",
+      "title": "Flip 'at least one'",
+      "caption": "When a question says at least one, compute the opposite — the chance of none — and subtract from one. For two dice, no six on either is five-sixths squared, so at least one six is one minus that, eleven thirty-sixths.",
+      "visual": { "kind": "formula", "expression": "P(at least one) = 1 − P(none) = 1 − (5/6)² = 11/36" }
+    },
+    {
+      "term": "Symmetry",
+      "title": "Swap and see what changes",
+      "caption": "If swapping two outcomes leaves the setup unchanged, they must be equally likely. For three coins, heads and tails are interchangeable, so exactly one head and exactly one tail share the same probability of three eighths.",
+      "visual": { "kind": "formula", "expression": "P(one head) = P(one tail) = C(3,1)·(1/2)³ = 3/8" }
+    },
+    {
+      "term": "Conditioning",
+      "title": "Shrink the sample space",
+      "caption": "New information shrinks the world to the cases consistent with it, so recount inside that smaller world. Given a face card, only twelve cards remain and four are kings, so the chance of a king is one third — not four fifty-seconds.",
+      "visual": { "kind": "formula", "expression": "P(King | face) = 4/12 = 1/3" }
+    },
+    {
+      "term": "Linearity of expectation",
+      "title": "Add the averages",
+      "caption": "The expected value of a sum is the sum of the expected values, even when the pieces are dependent. Two dice each average three and a half, so the sum averages seven — no joint distribution required.",
+      "visual": { "kind": "formula", "expression": "E[X + Y] = E[X] + E[Y] = 3.5 + 3.5 = 7" }
+    },
+    {
+      "term": "Fermi estimation",
+      "title": "Decompose, multiply, check units",
+      "caption": "With no data, break the unknown into factors you can guess and multiply them, tracking units as you go. Aim for the right power of ten — for annual U.S. coffee that is hundreds of millions of people times a cup a day times a year, landing near a hundred billion cups.",
+      "visual": { "kind": "formula", "expression": "10ᵃ × 10ᵇ = 10ᵃ⁺ᵇ   →   ~10¹¹ cups/year" }
+    }
+  ],
   "questions": [
     {
       "id": "l10_q1",
