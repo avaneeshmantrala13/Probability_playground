@@ -1,0 +1,331 @@
+{
+  "lessonId": "lesson_18",
+  "track": "quant",
+  "title": "Adverse Selection & Information",
+  "questions": [
+    {
+      "id": "pr_l18_001",
+      "concept": "winners_curse",
+      "question": "In a common-value auction, the winner is usually the bidder who:",
+      "options": [
+        "Most overestimated the value",
+        "Most underestimated it",
+        "Was exactly right",
+        "Bid last"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The biggest positive error tends to win — the winner's curse.",
+        "B": "Underestimators bid low and lose.",
+        "C": "Exact estimates rarely win systematically.",
+        "D": "Bid timing is not the cause."
+      }
+    },
+    {
+      "id": "pr_l18_002",
+      "concept": "winners_curse",
+      "question": "To avoid the winner's curse you should bid:",
+      "options": [
+        "Below your naive estimate",
+        "Above your estimate",
+        "Exactly your estimate",
+        "At random"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Condition on winning and shade down.",
+        "B": "That worsens overpayment.",
+        "C": "Ignores the information in winning.",
+        "D": "Not a principled fix."
+      }
+    },
+    {
+      "id": "pr_l18_003",
+      "concept": "winners_curse",
+      "question": "With more competing bidders, you should shade your bid:",
+      "options": [
+        "More",
+        "Less",
+        "Not at all",
+        "Above estimate"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Beating more rivals is stronger evidence of over-estimation.",
+        "B": "Fewer adjustments worsen the curse.",
+        "C": "No shading leaves you exposed.",
+        "D": "The opposite of the fix."
+      }
+    },
+    {
+      "id": "pr_l18_004",
+      "concept": "winners_curse",
+      "question": "V ~ Uniform(0, 100). Given a sale occurs only when V ≤ 60, E[V | V ≤ 60] is:",
+      "options": [
+        "30",
+        "60",
+        "50",
+        "45"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Uniform(0, 60) has mean 30.",
+        "B": "60 is the cutoff.",
+        "C": "50 is the unconditional mean.",
+        "D": "45 is 1.5×30, a different quantity."
+      }
+    },
+    {
+      "id": "pr_l18_005",
+      "concept": "winners_curse",
+      "question": "Company V ~ Uniform(0, 100), worth 1.5V to you; owner sells iff b ≥ V. For any b > 0, expected profit is:",
+      "options": [
+        "−0.25b (always a loss)",
+        "+0.5b",
+        "0",
+        "+0.25b"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1.5·(b/2) − b = 0.75b − b = −0.25b.",
+        "B": "Sign and magnitude both wrong.",
+        "C": "Zero would need value to equal price.",
+        "D": "Profit is negative, not positive."
+      }
+    },
+    {
+      "id": "pr_l18_006",
+      "concept": "winners_curse",
+      "question": "In that acquisition problem, the optimal bid is:",
+      "options": [
+        "$0",
+        "$50",
+        "$60",
+        "$100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Every positive bid loses, so don't transact.",
+        "B": "$50 loses $12.50 in expectation.",
+        "C": "$60 loses $15.",
+        "D": "$100 loses $25."
+      }
+    },
+    {
+      "id": "pr_l18_007",
+      "concept": "adverse_selection",
+      "question": "An informed trader trades with a market maker when:",
+      "options": [
+        "The quote is mispriced in the trader's favor",
+        "At random",
+        "Only when the quote is fair",
+        "Never"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. They lift cheap offers and hit rich bids.",
+        "B": "Informed flow is not random.",
+        "C": "A fair quote offers no edge.",
+        "D": "They do trade — that's the cost."
+      }
+    },
+    {
+      "id": "pr_l18_008",
+      "concept": "adverse_selection",
+      "question": "Uninformed (noise) flow is, for the maker:",
+      "options": [
+        "Roughly symmetric and profitable on average",
+        "Always a loss",
+        "One-directional and toxic",
+        "Identical to informed flow"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The maker earns the spread on balanced noise flow.",
+        "B": "Noise flow is the profitable part.",
+        "C": "Toxicity describes informed flow.",
+        "D": "They have opposite profitability."
+      }
+    },
+    {
+      "id": "pr_l18_009",
+      "concept": "adverse_selection",
+      "question": "'Toxic' order flow is flow that is:",
+      "options": [
+        "Disproportionately informed and adverse to the maker",
+        "Always retail",
+        "Always profitable for the maker",
+        "Random and harmless"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. It moves price against the maker after the fill.",
+        "B": "Retail flow is often benign.",
+        "C": "Toxic flow is costly.",
+        "D": "It is informative and harmful."
+      }
+    },
+    {
+      "id": "pr_l18_010",
+      "concept": "spread_components",
+      "question": "The three classic components of a market maker's spread are:",
+      "options": [
+        "Order-processing, inventory risk, adverse selection",
+        "Dividends, coupons, splits",
+        "Slippage, leverage, margin",
+        "Gamma, vega, theta"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The standard microstructure decomposition.",
+        "B": "Corporate-action terms.",
+        "C": "Execution/financing terms.",
+        "D": "Option Greeks."
+      }
+    },
+    {
+      "id": "pr_l18_011",
+      "concept": "spread_components",
+      "question": "Expected losses to better-informed traders are captured by the spread's:",
+      "options": [
+        "Adverse-selection component",
+        "Inventory component",
+        "Processing component",
+        "Tax component"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. That is precisely adverse selection.",
+        "B": "Inventory risk is position-carrying.",
+        "C": "Processing is overhead.",
+        "D": "Taxes are not in the decomposition."
+      }
+    },
+    {
+      "id": "pr_l18_012",
+      "concept": "spread_components",
+      "question": "As the fraction of informed flow rises, optimal spreads:",
+      "options": [
+        "Widen",
+        "Narrow",
+        "Stay fixed",
+        "Go to zero"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Higher adverse-selection cost demands a wider quote.",
+        "B": "Narrowing into toxicity loses money.",
+        "C": "Fixed spreads ignore toxicity.",
+        "D": "Zero is fatal against the informed."
+      }
+    },
+    {
+      "id": "pr_l18_013",
+      "concept": "conditioning_on_fill",
+      "question": "Your ask gets lifted (someone buys from you). Fair value is probably:",
+      "options": [
+        "Above your ask",
+        "Below your ask",
+        "Exactly your ask",
+        "Unknowable"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Informed buyers lift cheap offers.",
+        "B": "A lift points above, not below.",
+        "C": "It suggests value exceeds the ask.",
+        "D": "The fill is informative."
+      }
+    },
+    {
+      "id": "pr_l18_014",
+      "concept": "conditioning_on_fill",
+      "question": "Your bid gets hit (someone sells to you). Fair value is probably:",
+      "options": [
+        "Below your bid",
+        "Above your bid",
+        "Exactly your bid",
+        "Unrelated"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Informed sellers hit rich bids.",
+        "B": "A hit points below, not above.",
+        "C": "It suggests value under the bid.",
+        "D": "The fill is informative."
+      }
+    },
+    {
+      "id": "pr_l18_015",
+      "concept": "conditioning_on_fill",
+      "question": "Right after a fill, a disciplined maker moves the mid:",
+      "options": [
+        "Toward the side that just traded",
+        "Away from that side",
+        "Never moves it",
+        "Randomly"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Lifted offer → mid up; hit bid → mid down.",
+        "B": "Moving away ignores the signal.",
+        "C": "Ignoring discards information.",
+        "D": "The update is directional."
+      }
+    },
+    {
+      "id": "pr_l18_016",
+      "concept": "spread_sizing",
+      "question": "10% of buyers are informed; each informed buy means value is $1 above mid. Minimum half-spread for adverse selection?",
+      "options": [
+        "$0.10",
+        "$1.00",
+        "$0.01",
+        "$0.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.10 × $1 = $0.10 expected cost.",
+        "B": "$1 is the informed loss, not the expected cost.",
+        "C": "$0.01 understates the $1 loss size.",
+        "D": "$0.50 assumes 50% informed."
+      }
+    },
+    {
+      "id": "pr_l18_017",
+      "concept": "spread_sizing",
+      "question": "20% of buyers informed, each costing $2. Break-even half-spread?",
+      "options": [
+        "$0.40",
+        "$2.00",
+        "$0.20",
+        "$0.04"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.20 × $2 = $0.40.",
+        "B": "$2 ignores the 20% weighting.",
+        "C": "$0.20 forgets the $2 loss size.",
+        "D": "$0.04 uses the wrong loss size."
+      }
+    },
+    {
+      "id": "pr_l18_018",
+      "concept": "asymmetric_information",
+      "question": "A knowing seller offers you an envelope (worth $0 or $100, 50/50) for $40. You should:",
+      "options": [
+        "Decline — conditional value is ≈ $0",
+        "Buy — EV is $50",
+        "Buy — EV is $100",
+        "Be indifferent"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. They sell at $40 only when it's worth $0; the offer is information.",
+        "B": "$50 ignores the seller's selection.",
+        "C": "$100 is the outcome they'd never sell cheaply.",
+        "D": "It's a losing buy, not a wash."
+      }
+    }
+  ]
+}
