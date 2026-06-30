@@ -1,4 +1,5 @@
 import type { GeneratedQuestion } from "../ai/client";
+import type { Method } from "./method";
 
 /** Tiny RNG facade so templates read cleanly. Backed by Math.random. */
 export interface RNG {
@@ -38,6 +39,12 @@ export interface BuiltQuestion {
 
 export interface Template {
   id: string;
+  /**
+   * The SOLUTION METHOD this template exercises. Selection prefers a template
+   * whose method matches the current question's method, so a counting-outcomes
+   * question never yields an event-probability bonus and vice versa.
+   */
+  method: Method;
   /** Lesson ids this template is appropriate for. */
   lessons: string[];
   /** Lowercase substrings matched against lesson title/topics/conceptHint. */
