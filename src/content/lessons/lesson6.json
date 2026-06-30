@@ -15,6 +15,183 @@
     "You'll also read the shape of a distribution from its histogram — symmetric, uniform, or skewed — and see how outliers (values far from the rest) pull the mean toward themselves much more than the median, which is why the median is often the more resistant measure of center.",
     "Before you simulate or estimate, you must read a dataset's shape: center, spread, skew, and outliers tell you which summary statistics lie. Quant interviews rarely ask you to compute a median by hand, but they do ask whether the mean or median is pulled more by a fat tail, or whether a histogram looks symmetric versus right-skewed. That vocabulary connects directly to downstream modeling—log returns, PnL tails, and robust risk metrics all start here."
   ],
+  "primer": [
+    {
+      "heading": "Center: mean, median, mode",
+      "body": [
+        "There are three ways to name the 'typical' value. The **mean** `x̄ = (Σxᵢ)/n` is the balance point. The **median** is the middle value once sorted — the 50th percentile. The **mode** is the most frequent value.",
+        "They are not interchangeable. The mean is the number that minimizes total **squared** distance; the median minimizes total **absolute** distance. On a desk you reach for the median when a series is skewed or has fat tails, because a single monster print should not redefine 'typical'."
+      ],
+      "keyTerms": [
+        { "term": "Mean (x̄)", "definition": "Sum of values over count, `(Σxᵢ)/n`. The balance point of the data." },
+        { "term": "Median", "definition": "The middle value of sorted data (50th percentile). For an even count, average the two middle values." },
+        { "term": "Mode", "definition": "The value that occurs most frequently. A distribution can have more than one." }
+      ],
+      "example": {
+        "prompt": "Daily PnL (in thousands): `2, 3, 4, 5, 36`. Compare the mean and median.",
+        "steps": [
+          "Mean = `(2 + 3 + 4 + 5 + 36) / 5 = 50 / 5 = 10`.",
+          "Sorted, the middle (3rd of 5) value is `4`, so median = `4`.",
+          "One large day (`36`) dragged the mean to `10`, but the median stayed at `4`."
+        ],
+        "result": "Mean = 10, median = 4 → the median better describes a typical day here."
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Interview reflex",
+        "text": "Mean minimizes squared error; median minimizes absolute error. When they disagree a lot, the data is skewed — and the gap itself is a signal."
+      }
+    },
+    {
+      "heading": "Spread: range, variance, standard deviation",
+      "body": [
+        "Center is only half the story — you also need **dispersion**. The **range** (`max − min`) is the crudest measure and depends entirely on the two extremes. **Variance** averages the squared deviations from the mean; **standard deviation** is its square root, so it carries the *same units* as the data.",
+        "That unit-matching is why traders quote risk as standard deviation: the **volatility** of a return series in percent is itself in percent. The robust cousin, the **interquartile range** (`IQR = Q3 − Q1`), ignores the tails entirely."
+      ],
+      "keyTerms": [
+        { "term": "Range", "definition": "`max − min`. Simple but fragile — one outlier sets it." },
+        { "term": "Variance (s²)", "definition": "Average squared deviation from the mean. Sample version divides by `n − 1`." },
+        { "term": "Standard deviation (s)", "definition": "`√variance`; same units as the data. In finance, the volatility." },
+        { "term": "IQR", "definition": "`Q3 − Q1`, the spread of the middle 50% — a robust measure of dispersion." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "s² = (1/(n−1)) · Σ(xᵢ − x̄)²        s = √(s²)",
+        "caption": "Sample variance and standard deviation. (Population variance divides by n.)"
+      },
+      "example": {
+        "prompt": "Find the sample standard deviation of `2, 4, 6`.",
+        "steps": [
+          "Mean = `12/3 = 4`. Deviations: `−2, 0, 2`.",
+          "Squared deviations: `4, 0, 4`, summing to `8`.",
+          "Sample variance = `8 / (3 − 1) = 4`; standard deviation = `√4 = 2`."
+        ],
+        "result": "s = 2 — the typical distance of a value from the mean."
+      }
+    },
+    {
+      "heading": "Shape: skew and the mean–median gap",
+      "body": [
+        "The **shape** of a distribution tells you which summary to trust. A **symmetric** distribution has mean ≈ median. **Right-skew** (a long tail toward large values) pulls the mean *above* the median; **left-skew** pulls it *below*.",
+        "Quant returns are rarely symmetric: equity returns are mildly left-skewed, while many option-selling strategies are right-skewed in PnL. Beyond skew, **fat tails** (high kurtosis) mean extreme moves happen far more often than a normal curve predicts — the reason risk models that assume normality blow up."
+      ],
+      "keyTerms": [
+        { "term": "Skewness", "definition": "Asymmetry of a distribution. Right-skew has the long tail on the high side." },
+        { "term": "Kurtosis / fat tails", "definition": "How heavy the tails are. Fat tails make extreme outcomes more likely than the normal model says." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Skew direction and where the mean sits relative to the median",
+        "headers": ["Shape", "Long tail", "Mean vs median"],
+        "rows": [
+          ["Symmetric", "none", "mean ≈ median"],
+          ["Right-skewed", "toward large values", "mean > median"],
+          ["Left-skewed", "toward small values", "mean < median"]
+        ]
+      },
+      "example": {
+        "prompt": "Payouts: `1, 1, 2, 2, 2, 3, 50`. Is this skewed, and which way?",
+        "steps": [
+          "Median is the 4th of 7 sorted values: `2`.",
+          "Mean = `61 / 7 ≈ 8.7`, far above the median.",
+          "Mean > median and the tail stretches toward the large `50` → right-skewed."
+        ],
+        "result": "Right-skewed: report the median as 'typical' and flag the tail separately."
+      }
+    },
+    {
+      "heading": "Outliers and robustness",
+      "body": [
+        "An **outlier** is a value far from the rest — a fat-finger trade, a stale quote, a data error. The mean has a **breakdown point of 0**: a single extreme value can drag it anywhere. The median's breakdown point is **50%** — you must corrupt half the data before it moves much.",
+        "A common rule flags points outside the **1.5 × IQR fences**: below `Q1 − 1.5·IQR` or above `Q3 + 1.5·IQR`. Practitioners then **winsorize** (cap) or **trim** (drop) those points before estimating, so one bad tick doesn't poison the volatility estimate."
+      ],
+      "keyTerms": [
+        { "term": "Outlier", "definition": "A value far from the bulk of the data, often beyond the 1.5 × IQR fences." },
+        { "term": "Breakdown point", "definition": "The fraction of data you can corrupt before an estimator becomes useless. Mean: 0%. Median: 50%." },
+        { "term": "Winsorize / trim", "definition": "Cap or remove extreme values to make an estimate robust." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "lower fence = Q1 − 1.5·IQR        upper fence = Q3 + 1.5·IQR",
+        "caption": "Tukey's 1.5 × IQR rule for flagging outliers."
+      },
+      "example": {
+        "prompt": "For `2, 4, 6, 8, 10, 12, 14, 16`, is a new value of `40` an outlier?",
+        "steps": [
+          "Lower half `2,4,6,8` → Q1 = `(4+6)/2 = 5`. Upper half `10,12,14,16` → Q3 = `(12+14)/2 = 13`.",
+          "IQR = `13 − 5 = 8`; upper fence = `13 + 1.5·8 = 25`.",
+          "Since `40 > 25`, it lies beyond the fence."
+        ],
+        "result": "Yes — 40 is flagged as an outlier and would distort the mean far more than the median."
+      }
+    },
+    {
+      "heading": "Percentiles, quantiles, and risk",
+      "body": [
+        "A **percentile** is the value below which a given fraction of the data falls: the 90th percentile is the level that 90% of observations sit under. **Quartiles** are the 25th, 50th, and 75th percentiles, and a **boxplot** draws exactly those plus the fences from the previous page.",
+        "Percentiles are how risk desks speak. **Value at Risk (VaR)** at 95% is essentially the 5th percentile of the PnL distribution — the loss you only exceed 5% of the time. Reading a distribution by its quantiles, not just its mean, is the whole game."
+      ],
+      "keyTerms": [
+        { "term": "Percentile / quantile", "definition": "The value below which a stated fraction of the data lies. The 50th percentile is the median." },
+        { "term": "Value at Risk (VaR)", "definition": "A loss quantile; 95% VaR is the 5th-percentile loss you exceed only 5% of the time." }
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "Reading a distribution like a quant",
+        "items": [
+          "Sort the data, then locate the quartiles `Q1`, `Q2` (median), `Q3`.",
+          "`IQR = Q3 − Q1` summarizes the spread of the central half.",
+          "A low percentile (e.g. the 5th) of PnL is your tail-risk / VaR estimate."
+        ]
+      },
+      "example": {
+        "prompt": "From 100 sorted daily PnL numbers, where is the 95% VaR?",
+        "steps": [
+          "Sort all 100 outcomes from worst to best.",
+          "The 5th-worst value is the 5th percentile.",
+          "That loss level is the 95% VaR — exceeded on only about 5 of 100 days."
+        ],
+        "result": "VaR is a percentile, not a mean — center tells you nothing about the tail."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Measures of center",
+      "title": "Three ways to say 'typical'",
+      "caption": "There are three measures of center. The mean is the balance point: add the values and divide by how many there are. The median is the middle value once you sort the data. The mode is the value that shows up most often. When data is skewed, the median is the honest one.",
+      "bullets": [
+        "Mean = balance point (sum over count)",
+        "Median = middle of sorted data",
+        "Mode = most frequent value"
+      ]
+    },
+    {
+      "term": "Spread",
+      "title": "How wide is the data?",
+      "caption": "Center is only half the story. Spread tells you how wide the data is. The range is just the largest minus the smallest. Variance is the average squared distance from the mean, and standard deviation is its square root, so it lives in the same units as the data. On a trading desk, that standard deviation is what we call volatility.",
+      "visual": { "kind": "formula", "expression": "s² = Σ(xᵢ − x̄)² / (n−1)     s = √(s²)" }
+    },
+    {
+      "term": "Skew",
+      "title": "Which way does the tail point?",
+      "caption": "The shape of a distribution decides which summary to trust. If it is symmetric, the mean and median agree. If it is right-skewed, with a long tail toward large values, the mean gets pulled above the median. Left-skew pulls it below. The gap between the mean and median is itself a quick read on skew.",
+      "visual": { "kind": "formula", "expression": "right-skew → mean > median     left-skew → mean < median" }
+    },
+    {
+      "term": "Outliers",
+      "title": "One bad print, two reactions",
+      "caption": "An outlier is a value far from the rest, like a fat-finger trade. The mean has a breakdown point of zero: a single extreme value can drag it anywhere. The median barely moves until you corrupt half the data. A common rule flags anything beyond one and a half times the interquartile range past the quartiles.",
+      "visual": { "kind": "formula", "expression": "fences: Q1 − 1.5·IQR   and   Q3 + 1.5·IQR" }
+    },
+    {
+      "term": "Percentiles and VaR",
+      "title": "Risk lives in the tails",
+      "caption": "Percentiles are how risk desks talk. A percentile is the value below which a fraction of the data falls. Quartiles cut the data into quarters. And value at risk is just a low percentile of profit and loss: the ninety-five percent value at risk is the loss you only beat five percent of the time. Read the tail, not just the center.",
+      "visual": { "kind": "formula", "expression": "IQR = Q3 − Q1     95% VaR ≈ 5th percentile of PnL" }
+    }
+  ],
   "questions": [
     {
       "id": "l6_q1",
