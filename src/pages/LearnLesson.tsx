@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { getLearnEntry } from "../content/learn";
 import { PrimerFlow } from "../components/lesson/primer/PrimerFlow";
 import { NarratedPrimer } from "../components/lesson/primer/NarratedPrimer";
+import { useEntitlement, UpsellCard, lessonRequiresPro } from "../lib/billing";
 import { ChevronRightIcon } from "../components/icons";
 
 /** Standalone, browsable view of one lesson's concept primer. */
@@ -10,9 +11,28 @@ export function LearnLesson() {
   const { lessonId = "" } = useParams();
   const navigate = useNavigate();
   const entry = getLearnEntry(lessonId);
+  const { isAtLeast } = useEntitlement();
   const [mode, setMode] = useState<"read" | "watch">("read");
 
   if (!entry) return <Navigate to="/learn" replace />;
+  // Advanced quant primers (lessons 12–18) are Pro-only.
+  if (lessonRequiresPro(lessonId) && !isAtLeast("pro")) {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="mb-5">
+          <Link to="/learn" className="text-sm font-medium text-secondary hover:text-primary">
+            &larr; Learn library
+          </Link>
+        </div>
+        <UpsellCard
+          feature="all_lessons"
+          suggestedPlan="pro"
+          title="This primer is part of Pro"
+          description="Lessons 12–18 cover advanced quant topics. Upgrade to Pro to read their primers and take the lessons."
+        />
+      </div>
+    );
+  }
   const { lesson, trackLabel, playerPath } = entry;
   const hasPrimer = (lesson.primer?.length ?? 0) > 0;
   const hasNarration = (lesson.primerNarration?.length ?? 0) > 0;

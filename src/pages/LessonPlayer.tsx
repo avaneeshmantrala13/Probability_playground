@@ -26,6 +26,7 @@ import { PlacementQuiz } from "../components/lesson/PlacementQuiz";
 import { QuestionTutorChat } from "../components/lesson/QuestionTutorChat";
 import { getVerifiedBonusQuestion } from "../lib/practice/bonus";
 import type { RenderableQuestion } from "../content/types";
+import { useEntitlement, UpsellCard, lessonRequiresPro } from "../lib/billing";
 import { ChevronRightIcon, ClockIcon } from "../components/icons";
 import { LoadingScreen } from "../components/layout/LoadingScreen";
 import { useLessonTimer } from "../hooks/useLessonTimer";
@@ -54,6 +55,9 @@ export function LessonPlayer() {
   const lesson = getLesson(lessonId);
   const { progress, loading, setPosition, saveAttempt, completeAttempt, recordCorrectAnswer } =
     useProgress();
+  const { isAtLeast } = useEntitlement();
+  // Advanced quant lessons (12–18) are Pro-only; free users see an upsell.
+  const proLocked = lessonRequiresPro(lessonId) && !isAtLeast("pro");
   // A lesson that's already mastered can be redone/reviewed. The timer still
   // counts up so a faster redo can improve the recorded best time and badges.
   const alreadyMastered = Boolean(progress.lessonMastery[lessonId]?.passed);
@@ -86,6 +90,7 @@ export function LessonPlayer() {
   // Resume / initialize the attempt once progress has loaded.
   useEffect(() => {
     if (!lesson || loading) return;
+    if (proLocked) return;
     if (!isLessonUnlocked(lesson.lessonId, progress)) return;
     if (hydratedFor.current === lesson.lessonId) return;
 
@@ -174,6 +179,23 @@ export function LessonPlayer() {
 
   if (!lesson) return <Navigate to="/lessons" replace />;
   if (loading) return <LoadingScreen />;
+  if (proLocked) {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="mb-5">
+          <Link to="/lessons" className="text-sm font-medium text-secondary hover:text-primary">
+            &larr; All lessons
+          </Link>
+        </div>
+        <UpsellCard
+          feature="all_lessons"
+          suggestedPlan="pro"
+          title="This advanced lesson is part of Pro"
+          description="Lessons 12–18 cover advanced quant topics — conditional expectation, martingales, Markov chains, gambler's ruin, order statistics, Kelly sizing, and adverse selection. Upgrade to Pro to unlock the full advanced track."
+        />
+      </div>
+    );
+  }
   if (!isLessonUnlocked(lesson.lessonId, progress)) {
     return <Navigate to="/lessons" replace />;
   }

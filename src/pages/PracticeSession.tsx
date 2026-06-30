@@ -10,12 +10,16 @@ import {
   getPracticeBank,
   type PracticeQuestion,
 } from "../content/practice";
+import { useEntitlement, UpsellCard, lessonRequiresPro } from "../lib/billing";
 
 const ROUND_SIZE = 15;
 
 export function PracticeSession() {
   const { lessonId = "" } = useParams();
   const bank = getPracticeBank(lessonId);
+  const { isAtLeast } = useEntitlement();
+  // Advanced quant drills (lessons 12–18) are Pro-only.
+  const proLocked = lessonRequiresPro(lessonId) && !isAtLeast("pro");
 
   const [round, setRound] = useState(0);
   const questions = useMemo<PracticeQuestion[]>(
@@ -61,6 +65,24 @@ export function PracticeSession() {
     setSelected(null);
     setChecked(false);
   };
+
+  if (proLocked) {
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-8">
+        <Link to="/practice" className="text-sm text-muted hover:text-primary">
+          ← Practice
+        </Link>
+        <div className="mt-6">
+          <UpsellCard
+            feature="all_lessons"
+            suggestedPlan="pro"
+            title="Advanced practice is part of Pro"
+            description="This drill set belongs to the advanced quant block (lessons 12–18). Upgrade to Pro to unlock it."
+          />
+        </div>
+      </div>
+    );
+  }
 
   if (!bank || questions.length === 0) {
     return (

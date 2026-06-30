@@ -4,12 +4,14 @@ import { LESSONS, TOTAL_LESSONS } from "../content";
 import type { Lesson } from "../content/types";
 import { useProgress } from "../context/ProgressContext";
 import { isLessonUnlocked } from "../lib/mastery";
+import { useEntitlement, lessonRequiresPro } from "../lib/billing";
 import { ProgressBar } from "../components/lesson/ProgressBar";
 import { IntroModal } from "../components/lesson/IntroModal";
 import { BookIcon, CheckIcon, ChevronRightIcon, LockIcon } from "../components/icons";
 
 export function Lessons() {
   const { progress } = useProgress();
+  const { isAtLeast } = useEntitlement();
   const completedCount = progress.completedLessons.length;
   const [introLesson, setIntroLesson] = useState<Lesson | null>(null);
 
@@ -36,7 +38,10 @@ export function Lessons() {
         {LESSONS.map((lesson) => {
           const completed = progress.completedLessons.includes(lesson.lessonId);
           const mastery = progress.lessonMastery[lesson.lessonId];
-          const unlocked = isLessonUnlocked(lesson.lessonId, progress);
+          // Advanced quant lessons (12–18) require Pro; this gate sits on top of
+          // the normal sequential-mastery unlock.
+          const proLocked = lessonRequiresPro(lesson.lessonId) && !isAtLeast("pro");
+          const unlocked = isLessonUnlocked(lesson.lessonId, progress) && !proLocked;
 
           const inner = (
             <>
@@ -55,8 +60,15 @@ export function Lessons() {
                     <BookIcon size={20} />
                   )}
                 </span>
-                <span className="rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-secondary">
-                  Lesson {lesson.order}
+                <span className="flex items-center gap-1.5">
+                  {proLocked && (
+                    <span className="rounded-full bg-accent/15 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-accent">
+                      Pro
+                    </span>
+                  )}
+                  <span className="rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-secondary">
+                    Lesson {lesson.order}
+                  </span>
                 </span>
               </div>
               <h2 className="mt-4 text-lg font-semibold text-primary">{lesson.title}</h2>
@@ -72,11 +84,11 @@ export function Lessons() {
                 <span
                   className={[
                     "inline-flex items-center gap-1 font-medium",
-                    unlocked ? "text-accent" : "text-muted",
+                    unlocked ? "text-accent" : proLocked ? "text-accent" : "text-muted",
                   ].join(" ")}
                 >
-                  {!unlocked ? "Locked" : completed ? "Review" : "Start"}
-                  {unlocked && <ChevronRightIcon size={16} />}
+                  {proLocked ? "Unlock with Pro" : !unlocked ? "Locked" : completed ? "Review" : "Start"}
+                  {(unlocked || proLocked) && <ChevronRightIcon size={16} />}
                 </span>
               </div>
               {unlocked && lesson.intro && lesson.intro.length > 0 && (
@@ -94,6 +106,19 @@ export function Lessons() {
               )}
             </>
           );
+
+          if (proLocked) {
+            return (
+              <Link
+                key={lesson.lessonId}
+                to="/pricing"
+                className="pp-card group flex flex-col p-5 transition-colors hover:border-accent/60"
+                title="Upgrade to Pro to unlock the advanced track"
+              >
+                {inner}
+              </Link>
+            );
+          }
 
           if (!unlocked) {
             return (
