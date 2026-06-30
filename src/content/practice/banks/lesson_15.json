@@ -1,0 +1,331 @@
+{
+  "lessonId": "lesson_15",
+  "track": "quant",
+  "title": "Random Walks & Gambler's Ruin",
+  "questions": [
+    {
+      "id": "pr_l15_001",
+      "concept": "random_walk_definition",
+      "question": "A symmetric ±1 walk starts at 0. Expected position after 64 steps?",
+      "options": [
+        "0",
+        "64",
+        "32",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Zero-drift steps keep the expected position at 0.",
+        "B": "64 is the step count.",
+        "C": "32 has no basis; steps cancel in expectation.",
+        "D": "8 = √64 is the rough standard deviation, not the mean."
+      }
+    },
+    {
+      "id": "pr_l15_002",
+      "concept": "random_walk_definition",
+      "question": "Expected size of one step of a symmetric ±1 walk:",
+      "options": [
+        "0",
+        "+1",
+        "−1",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. ½·(+1) + ½·(−1) = 0.",
+        "B": "+1 is only the up value.",
+        "C": "−1 is only the down value.",
+        "D": "0.5 is a probability, not the expected step."
+      }
+    },
+    {
+      "id": "pr_l15_003",
+      "concept": "symmetric_ruin",
+      "question": "Symmetric walk from 2, barriers 0 and 10. P(reach 10 first)?",
+      "options": [
+        "0.2",
+        "0.8",
+        "0.5",
+        "0.1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. k/N = 2/10 = 0.2.",
+        "B": "0.8 is the ruin probability.",
+        "C": "0.5 ignores the start.",
+        "D": "0.1 ignores k."
+      }
+    },
+    {
+      "id": "pr_l15_004",
+      "concept": "symmetric_ruin",
+      "question": "Start $30, fair $1 bets, quit at $0 or $100. P(reach $100)?",
+      "options": [
+        "0.3",
+        "0.7",
+        "0.5",
+        "0.03"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 30/100 = 0.3.",
+        "B": "0.7 is the ruin probability.",
+        "C": "0.5 ignores the start.",
+        "D": "0.03 misplaces a decimal."
+      }
+    },
+    {
+      "id": "pr_l15_005",
+      "concept": "symmetric_ruin",
+      "question": "Start $1, target $5, fair $1 bets. P(ruin)?",
+      "options": [
+        "4/5",
+        "1/5",
+        "1/2",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(reach 5) = 1/5, so ruin = 4/5.",
+        "B": "1/5 is the success probability.",
+        "C": "1/2 ignores the start.",
+        "D": "1/4 uses the wrong target."
+      }
+    },
+    {
+      "id": "pr_l15_006",
+      "concept": "expected_duration",
+      "question": "Symmetric walk from 4, barriers 0 and 10. Expected steps to absorption?",
+      "options": [
+        "24",
+        "40",
+        "10",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. k(N−k) = 4·6 = 24.",
+        "B": "40 = 4·10 uses N instead of (N−k).",
+        "C": "10 is the width.",
+        "D": "6 = N − k, only one factor."
+      }
+    },
+    {
+      "id": "pr_l15_007",
+      "concept": "expected_duration",
+      "question": "Symmetric walk from 1, barriers 0 and 2. Expected steps to absorption?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. k(N−k) = 1·1 = 1 (it absorbs in one step).",
+        "B": "2 = 1·2 uses N instead of (N−k).",
+        "C": "3 = 1 + 2 adds instead of multiplying.",
+        "D": "0.5 has no basis."
+      }
+    },
+    {
+      "id": "pr_l15_008",
+      "concept": "biased_drift",
+      "question": "Walk steps +1 w.p. 0.6, −1 w.p. 0.4. Expected position after 25 steps from 0?",
+      "options": [
+        "+5",
+        "+15",
+        "0",
+        "+25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Drift 0.2 × 25 = +5.",
+        "B": "+15 = 25·0.6 counts only up-steps.",
+        "C": "0 is the symmetric answer.",
+        "D": "+25 assumes all steps up."
+      }
+    },
+    {
+      "id": "pr_l15_009",
+      "concept": "biased_drift",
+      "question": "The drift (expected step) of a ±1 walk with up-probability p:",
+      "options": [
+        "p − q",
+        "p + q",
+        "p·q",
+        "1 − p"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. p·(+1) + q·(−1) = p − q.",
+        "B": "p + q = 1, not the drift.",
+        "C": "p·q relates to variance.",
+        "D": "1 − p = q is the down-probability, not the drift."
+      }
+    },
+    {
+      "id": "pr_l15_010",
+      "concept": "biased_ruin_concept",
+      "question": "In an unfavorable game (p < 1/2), the ratio r = q/p satisfies:",
+      "options": [
+        "r > 1",
+        "r < 1",
+        "r = 1",
+        "r = 0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. q > p gives r > 1, driving near-certain ruin for large N.",
+        "B": "r < 1 is the favorable case.",
+        "C": "r = 1 is fair.",
+        "D": "r = 0 needs q = 0."
+      }
+    },
+    {
+      "id": "pr_l15_011",
+      "concept": "biased_ruin_concept",
+      "question": "Versus a fair game, an unfavorable game makes the chance of ruin:",
+      "options": [
+        "Higher",
+        "Lower",
+        "Unchanged",
+        "Zero"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Negative drift increases ruin probability.",
+        "B": "A disadvantage cannot lower ruin.",
+        "C": "Bias changes it from the symmetric value.",
+        "D": "Ruin is not impossible; it is likely."
+      }
+    },
+    {
+      "id": "pr_l15_012",
+      "concept": "biased_ruin",
+      "question": "p = 1/3 (r = 2), start 1, barriers 0 and 3. P(reach 3 first)?",
+      "options": [
+        "1/7",
+        "6/7",
+        "1/3",
+        "1/8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (1 − 2)/(1 − 8) = 1/7.",
+        "B": "6/7 is the ruin probability.",
+        "C": "1/3 is the symmetric answer.",
+        "D": "1/8 misuses the up-probability."
+      }
+    },
+    {
+      "id": "pr_l15_013",
+      "concept": "biased_ruin",
+      "question": "p = 2/3 (r = 1/2), start 1, barriers 0 and 3. P(reach 3 first)?",
+      "options": [
+        "4/7",
+        "3/7",
+        "1/3",
+        "7/8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (1 − 1/2)/(1 − 1/8) = (1/2)/(7/8) = 4/7.",
+        "B": "3/7 is the ruin probability.",
+        "C": "1/3 is the symmetric answer.",
+        "D": "7/8 is the denominator alone."
+      }
+    },
+    {
+      "id": "pr_l15_014",
+      "concept": "biased_ruin",
+      "question": "If each bet wins with probability 0.4, the ruin ratio r = q/p is:",
+      "options": [
+        "1.5",
+        "0.67",
+        "0.4",
+        "0.6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.6/0.4 = 1.5.",
+        "B": "0.67 = p/q inverts the ratio.",
+        "C": "0.4 is p.",
+        "D": "0.6 is q, not q/p."
+      }
+    },
+    {
+      "id": "pr_l15_015",
+      "concept": "recurrence",
+      "question": "A symmetric 1-D random walk on the integers returns to its start with probability:",
+      "options": [
+        "1 (recurrent)",
+        "1/2",
+        "0",
+        "1/e"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The 1-D symmetric walk is recurrent.",
+        "B": "1/2 understates certain return.",
+        "C": "0 would mean it never returns.",
+        "D": "1/e has no role here."
+      }
+    },
+    {
+      "id": "pr_l15_016",
+      "concept": "recurrence",
+      "question": "A biased 1-D walk (p ≠ 1/2) on the unbounded line is:",
+      "options": [
+        "Transient (may never return)",
+        "Recurrent with probability 1",
+        "Always at 0",
+        "Strictly periodic"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Nonzero drift makes it transient.",
+        "B": "Certain return is the symmetric case.",
+        "C": "It drifts away from 0.",
+        "D": "Parity does not imply recurrence."
+      }
+    },
+    {
+      "id": "pr_l15_017",
+      "concept": "bet_sizing_strategy",
+      "question": "Facing a negative edge and trying to double your money, the strategy that maximizes success probability is:",
+      "options": [
+        "Bold play (few large bets)",
+        "Timid play (many small bets)",
+        "It doesn't matter",
+        "Never play"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Bold play minimizes exposure to the negative drift.",
+        "B": "Many small bets let the edge grind you down.",
+        "C": "In a subfair game bet size matters a lot.",
+        "D": "Not playing guarantees failure to reach the goal."
+      }
+    },
+    {
+      "id": "pr_l15_018",
+      "concept": "biased_duration",
+      "question": "Walk with drift 0.2/step. Expected steps to advance net +10:",
+      "options": [
+        "50",
+        "10",
+        "25",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. distance/drift = 10/0.2 = 50.",
+        "B": "10 assumes drift 1.",
+        "C": "25 = 10/0.4 uses the wrong rate.",
+        "D": "2 = 10·0.2 multiplies instead of dividing."
+      }
+    }
+  ]
+}
