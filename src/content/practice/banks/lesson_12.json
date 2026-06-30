@@ -1,0 +1,331 @@
+{
+  "lessonId": "lesson_12",
+  "track": "quant",
+  "title": "Conditional Expectation",
+  "questions": [
+    {
+      "id": "pr_l12_001",
+      "concept": "conditional_expectation_definition",
+      "question": "A fair die shows X. Given the roll is even, E[X | even] = ?",
+      "options": [
+        "4",
+        "3.5",
+        "3",
+        "5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Even faces {2, 4, 6} average to (2 + 4 + 6)/3 = 4.",
+        "B": "3.5 is the unconditional mean over all six faces.",
+        "C": "3 = (2 + 4)/2 drops the face 6.",
+        "D": "5 = (4 + 6)/2 drops the face 2."
+      }
+    },
+    {
+      "id": "pr_l12_002",
+      "concept": "conditional_expectation_definition",
+      "question": "A fair die shows X. Given X > 4, E[X | X > 4] = ?",
+      "options": [
+        "5",
+        "5.5",
+        "4.5",
+        "6"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 takes only the smaller qualifying face; the event {X > 4} is {5, 6}.",
+        "B": "Correct. {5, 6} averages to (5 + 6)/2 = 5.5.",
+        "C": "4.5 wrongly includes the face 4, which does not satisfy X > 4.",
+        "D": "6 takes only the maximum rather than the mean of {5, 6}."
+      }
+    },
+    {
+      "id": "pr_l12_003",
+      "concept": "conditional_expectation_definition",
+      "question": "Two fair dice are rolled. Given the first die shows 2, the expected sum is:",
+      "options": [
+        "5.5",
+        "7",
+        "4",
+        "5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 2 + E[second die] = 2 + 3.5 = 5.5.",
+        "B": "7 is the unconditional expected sum.",
+        "C": "4 = 2 + 2 uses 2 for the second die instead of its mean 3.5.",
+        "D": "5 = 2 + 3 uses 3 instead of 3.5 for the second die."
+      }
+    },
+    {
+      "id": "pr_l12_004",
+      "concept": "law_total_expectation",
+      "question": "Supplier A (prob 0.7) delivers parts averaging 4 defects; supplier B (prob 0.3) averages 9 defects. Expected defects?",
+      "options": [
+        "5.5",
+        "6.5",
+        "7.5",
+        "13"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.7·4 + 0.3·9 = 2.8 + 2.7 = 5.5.",
+        "B": "6.5 = (4 + 9)/2 is the unweighted average; supplier A is more likely.",
+        "C": "7.5 = 0.3·4 + 0.7·9 swaps the two supplier probabilities.",
+        "D": "13 = 4 + 9 sums the branch means instead of averaging them."
+      }
+    },
+    {
+      "id": "pr_l12_005",
+      "concept": "law_total_expectation",
+      "question": "With probability 0.25 you draw from urn A (mean $8) and with 0.75 from urn B (mean $4). Expected draw?",
+      "options": [
+        "$5",
+        "$6",
+        "$4",
+        "$8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.25·8 + 0.75·4 = 2 + 3 = $5.",
+        "B": "$6 = (8 + 4)/2 is the unweighted average; urn B is three times as likely.",
+        "C": "$4 uses only urn B.",
+        "D": "$8 uses only urn A."
+      }
+    },
+    {
+      "id": "pr_l12_006",
+      "concept": "tower_property",
+      "question": "The tower property states that E[E[X | Y]] equals:",
+      "options": [
+        "E[X]",
+        "E[Y]",
+        "Var(X)",
+        "0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Averaging the conditional mean over Y recovers the unconditional E[X].",
+        "B": "E[Y] averages the wrong variable.",
+        "C": "Var(X) is a spread, not a mean.",
+        "D": "It equals E[X], which is generally nonzero."
+      }
+    },
+    {
+      "id": "pr_l12_007",
+      "concept": "first_step_analysis",
+      "question": "Expected number of fair-coin flips until the first head:",
+      "options": [
+        "2",
+        "1",
+        "1.5",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E = 1 + ½E ⇒ E = 2 (geometric mean 1/p with p = 1/2).",
+        "B": "1 assumes the first flip is always a head.",
+        "C": "1.5 stops the recursion early instead of solving it.",
+        "D": "4 is the wait for a two-symbol pattern, not a single head."
+      }
+    },
+    {
+      "id": "pr_l12_008",
+      "concept": "first_step_analysis",
+      "question": "Expected number of fair-coin flips to first see two heads in a row (HH):",
+      "options": [
+        "6",
+        "4",
+        "2",
+        "8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Solving E₁ = 1 + ½E₀ and E₀ = 1 + ½E₁ + ½E₀ gives E₀ = 6.",
+        "B": "4 is the wait for HT; HH is longer because a tail resets progress.",
+        "C": "2 is the wait for a single head.",
+        "D": "8 over-counts the recursion."
+      }
+    },
+    {
+      "id": "pr_l12_009",
+      "concept": "first_step_analysis",
+      "question": "Expected number of fair die rolls until the first 6:",
+      "options": [
+        "6",
+        "3",
+        "5",
+        "36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Geometric wait with p = 1/6 has mean 1/p = 6.",
+        "B": "3 is roughly half of 6 with no justification.",
+        "C": "5 counts only the expected failures before the 6, not total rolls.",
+        "D": "36 = 6² over-counts."
+      }
+    },
+    {
+      "id": "pr_l12_010",
+      "concept": "walds_identity",
+      "question": "Random number of trades with E[N] = 12; each averages $7 PnL (independent). Expected total PnL:",
+      "options": [
+        "$84",
+        "$19",
+        "$12",
+        "$7"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[N]·E[X] = 12 × 7 = $84.",
+        "B": "$19 = 12 + 7 adds count and size instead of multiplying.",
+        "C": "$12 is only the expected trade count.",
+        "D": "$7 is only one trade's mean PnL."
+      }
+    },
+    {
+      "id": "pr_l12_011",
+      "concept": "walds_identity",
+      "question": "Claims per month: E[N] = 4; each claim averages $500 (independent). Expected total claims paid:",
+      "options": [
+        "$2000",
+        "$504",
+        "$500",
+        "$125"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 4 × $500 = $2000.",
+        "B": "$504 = 4 + 500 adds rather than multiplies.",
+        "C": "$500 is one claim's mean.",
+        "D": "$125 = 500/4 divides instead of multiplying."
+      }
+    },
+    {
+      "id": "pr_l12_012",
+      "concept": "random_sums",
+      "question": "Roll a fair die; flip that many fair coins; win $1 per head. Expected winnings:",
+      "options": [
+        "$1.75",
+        "$3.50",
+        "$3.00",
+        "$0.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected flips 3.5 × head rate 0.5 × $1 = $1.75.",
+        "B": "$3.50 assumes every flip is a head.",
+        "C": "$3.00 uses 3 instead of the die's mean 3.5.",
+        "D": "$0.50 is the per-flip head probability, not scaled by expected flips."
+      }
+    },
+    {
+      "id": "pr_l12_013",
+      "concept": "conditional_ev_tree",
+      "question": "If a fair coin lands heads (prob 1/2) you roll a die and win its value; else win $0. Expected payout:",
+      "options": [
+        "$1.75",
+        "$3.50",
+        "$0.50",
+        "$0.875"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (1/2)·3.5 + (1/2)·0 = $1.75.",
+        "B": "$3.50 forgets the 1/2 gate.",
+        "C": "$0.50 is just the probability with no payoff.",
+        "D": "$0.875 = (1/4)·3.5 uses probability 1/4 instead of 1/2."
+      }
+    },
+    {
+      "id": "pr_l12_014",
+      "concept": "conditional_ev_tree",
+      "question": "A lottery pays $50 with probability 0.04 and $0 otherwise. Expected payout:",
+      "options": [
+        "$2",
+        "$50",
+        "$0.04",
+        "$12.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.04·50 = $2.",
+        "B": "$50 is the prize, not its expected value.",
+        "C": "$0.04 is the win probability with no prize attached.",
+        "D": "$12.50 = 50/4 uses probability 0.25 instead of 0.04."
+      }
+    },
+    {
+      "id": "pr_l12_015",
+      "concept": "conditional_expectation_definition",
+      "question": "X and Y are independent fair dice. Given X + Y = 7, E[X | X + Y = 7] = ?",
+      "options": [
+        "3.5",
+        "7",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The six pairs give X uniform on {1,…,6}; by symmetry E[X] = 7/2 = 3.5.",
+        "B": "7 is the conditioned sum, not E[X].",
+        "C": "3 drops one equally likely value.",
+        "D": "4 over-weights the larger values."
+      }
+    },
+    {
+      "id": "pr_l12_016",
+      "concept": "law_total_expectation",
+      "question": "A fair coin: heads (1/2) pays $10; tails (1/2) you roll a die for dollars. Expected payout:",
+      "options": [
+        "$6.75",
+        "$10",
+        "$3.50",
+        "$13.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. (1/2)·10 + (1/2)·3.5 = 5 + 1.75 = $6.75.",
+        "B": "$10 uses only the heads branch.",
+        "C": "$3.50 uses only the tails (die) branch.",
+        "D": "$13.50 = 10 + 3.5 adds the branch values instead of averaging."
+      }
+    },
+    {
+      "id": "pr_l12_017",
+      "concept": "conditional_expectation_definition",
+      "question": "Cards are equally likely. Given a drawn card is a face card (J, Q, K), its 'value' counts J=11, Q=12, K=13. Expected value given face card:",
+      "options": [
+        "12",
+        "11",
+        "13",
+        "10"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. {11, 12, 13} are equally likely among face cards, averaging 12.",
+        "B": "11 takes only the smallest face value.",
+        "C": "13 takes only the largest face value.",
+        "D": "10 is the value of a ten, which is not a face card here."
+      }
+    },
+    {
+      "id": "pr_l12_018",
+      "concept": "walds_identity",
+      "question": "Wald's identity is E[ΣXᵢ] = E[N]·E[X]. If E[N] = 10 and E[X] = 0 (a fair game), the expected total is:",
+      "options": [
+        "0",
+        "10",
+        "Undefined",
+        "Depends on N's variance"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 10 × 0 = 0; a random number of fair bets still has zero expected total.",
+        "B": "10 is E[N], but it must be multiplied by E[X] = 0.",
+        "C": "The expectation is perfectly well defined and equals 0.",
+        "D": "The mean of the total depends only on E[N] and E[X], not on N's variance."
+      }
+    }
+  ]
+}

@@ -1,0 +1,820 @@
+{
+  "lessonId": "lesson_12",
+  "order": 12,
+  "title": "Conditional Expectation",
+  "subtitle": "E[X|Y], the tower property, decision trees, and random sums",
+  "topics": [
+    "Conditional expectation",
+    "Tower property",
+    "Conditional EV in trees",
+    "Random sums & Wald's identity"
+  ],
+  "intro": [
+    "Conditional expectation is the single most reused tool on a trading desk and in a quant interview. Almost every multi-stage problem—pricing a path-dependent payoff, valuing a game with restarts, sizing a position after partial information arrives—reduces to 'average over the thing you don't know, conditioning on the thing you do.'",
+    "The workhorse identity is the tower property (law of total expectation): E[X] = E[E[X|Y]]. You compute E[X|Y=y] inside each branch where the world is simpler, then average those branch values weighted by P(Y=y). This is exactly how you solve a problem 'one step at a time' without ever writing the full distribution of X.",
+    "First-step analysis applies the same idea to processes that can restart: condition on the first move, write the answer in terms of itself, and solve the resulting equation. It is how you get 'expected flips to the first head = 2' or 'expected flips to HH = 6' without summing an infinite series.",
+    "Finally, when you add up a random number of random terms—N trades, each with random PnL—Wald's identity gives E[ΣXᵢ] = E[N]·E[X] whenever N is a stopping time independent of future terms. This lesson assumes you already own linearity of expectation (L1–L11) and pushes into the conditional reasoning that interviewers actually grade."
+  ],
+  "primer": [
+    {
+      "heading": "Conditioning narrows the world",
+      "body": [
+        "A **conditional expectation** $E[X \\mid Y=y]$ is just an ordinary expected value computed inside the slice of outcomes where $Y=y$. You throw away every outcome that contradicts the condition and re-average what remains.",
+        "The interview reflex: when extra information lands ('the first card was a heart', 'the machine was type A'), do not recompute from scratch—restrict to the matching outcomes and take their mean."
+      ],
+      "keyTerms": [
+        { "term": "Conditional expectation E[X|Y=y]", "definition": "The mean of X restricted to outcomes where Y equals y." },
+        { "term": "E[X|Y]", "definition": "A random variable: it equals `E[X|Y=y]` on the event `{Y=y}`, so it varies with Y." }
+      ],
+      "example": {
+        "prompt": "A fair die shows X. Given the roll is even, what is E[X | even]?",
+        "steps": [
+          "Restrict to the even faces `{2, 4, 6}` — discard the odd outcomes.",
+          "Average the survivors: `(2 + 4 + 6) / 3`."
+        ],
+        "result": "E[X | even] = 4 (vs. the unconditional 3.5)"
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Conditioning is re-weighting",
+        "text": "Conditioning on `{Y=y}` zeroes out the probability of every other outcome and rescales the rest to sum to 1. The mean of what's left is `E[X|Y=y]`."
+      }
+    },
+    {
+      "heading": "The tower property",
+      "body": [
+        "The **law of total expectation** (the *tower property*) says you can compute $E[X]$ in two stages: first the conditional mean in each branch, then the average of those branch means.",
+        "Read $E[X] = \\sum_y E[X \\mid Y=y]\\,P(Y=y)$ as 'EV = probability-weighted average of branch EVs'. The inner object $E[X|Y]$ is random; averaging it over $Y$ collapses it back to the single number $E[X]$."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[X] = E[ E[X | Y] ] = Σ_y E[X | Y=y] · P(Y=y)",
+        "caption": "The tower property / law of total expectation."
+      },
+      "example": {
+        "prompt": "Machine A (prob 0.6) makes items averaging 10g; machine B (prob 0.4) averages 15g. Mean weight of a random item?",
+        "steps": [
+          "Branch means: `E[W|A]=10`, `E[W|B]=15`.",
+          "Weight by branch probabilities: `0.6·10 + 0.4·15`."
+        ],
+        "result": "E[W] = 6 + 6 = 12g"
+      }
+    },
+    {
+      "heading": "First-step analysis for restarts",
+      "body": [
+        "When a process can **reset**, condition on the first step and write the unknown expectation in terms of itself. The equation that results is usually one line of algebra.",
+        "Example logic for flips-to-first-head: `E = 1 + (1/2)·0 + (1/2)·E`. The `1` is the flip you just spent; with probability 1/2 you are done (add 0 more), otherwise you are back where you started (add another `E`)."
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "Solving E = 1 + ½·E",
+        "items": [
+          "Set up: `E = 1 + (1/2)E` (½ chance you must start over).",
+          "Collect: `E − (1/2)E = 1` → `(1/2)E = 1`.",
+          "Solve: `E = 2` expected flips to the first head."
+        ]
+      },
+      "keyTerms": [
+        { "term": "First-step analysis", "definition": "Condition on the first transition, then solve a self-referential equation for the expectation." }
+      ]
+    },
+    {
+      "heading": "Conditional EV in decision trees",
+      "body": [
+        "A **probability tree** is conditional expectation drawn out. Each leaf carries a payoff; each edge a conditional probability. The value at a node is the probability-weighted average of its children — fold the tree from the leaves back to the root.",
+        "Gating matters: a payoff that only fires inside a branch must be multiplied by the probability of reaching that branch."
+      ],
+      "example": {
+        "prompt": "Draw a card. If it's a heart (prob 1/4), roll a die and win its value; otherwise win $0. Expected winnings?",
+        "steps": [
+          "Heart branch value: `E[die] = 3.5`, reached with prob `1/4`.",
+          "Non-heart branch value: `0`, reached with prob `3/4`.",
+          "Fold: `(1/4)·3.5 + (3/4)·0`."
+        ],
+        "result": "E[win] = 0.875"
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Don't forget the gate",
+        "text": "A `$3.50` payoff that only happens 1/4 of the time is worth `0.25 × 3.5 = $0.875`, not `$3.50`. Multiply every leaf by the probability of reaching it."
+      }
+    },
+    {
+      "heading": "Random sums & Wald's identity",
+      "body": [
+        "Often you add a **random number** of random terms: N trades each with PnL Xᵢ, N claims each of random size. When the count N is a stopping time independent of the future terms and the Xᵢ share a common mean, the expected total factors cleanly.",
+        "**Wald's identity:** $E\\!\\left[\\sum_{i=1}^{N} X_i\\right] = E[N]\\cdot E[X]$. It is *not* enough to plug in a 'typical' N — you must use $E[N]$, and the terms must be iid with N independent of which terms appear."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[ Σ_{i=1}^{N} Xᵢ ] = E[N] · E[X]",
+        "caption": "Wald's identity for a random sum (N a stopping time, Xᵢ iid, mean E[X])."
+      },
+      "example": {
+        "prompt": "A desk does a random number of fills per minute with E[N]=8; each fill's PnL averages $25. Expected PnL per minute?",
+        "steps": [
+          "Identify `E[N] = 8` and `E[X] = 25`.",
+          "Wald: multiply, do not add — `8 × 25`."
+        ],
+        "result": "E[total] = $200"
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Conditional expectation",
+      "title": "Average inside the slice",
+      "caption": "A conditional expectation is just an ordinary average computed after you throw away every outcome that contradicts what you were told. Given that a die came up even, you average two, four, and six, which is four, not the usual three point five.",
+      "visual": { "kind": "formula", "expression": "E[X | even] = (2+4+6)/3 = 4" }
+    },
+    {
+      "term": "Tower property",
+      "title": "Average the branch averages",
+      "caption": "The tower property lets you compute an expectation in two stages. First find the mean inside each branch, then average those branch means weighted by how likely each branch is. The inner conditional expectation is random; averaging it over the conditioning variable gives you the plain expectation back.",
+      "visual": { "kind": "formula", "expression": "E[X] = Σ E[X|Y=y]·P(Y=y)" }
+    },
+    {
+      "term": "First-step analysis",
+      "title": "Condition, then solve for itself",
+      "caption": "When a process can restart, condition on the very first move and write the answer in terms of itself. For flips until the first head, you spend one flip, and half the time you must start over, so E equals one plus one half E, which solves to two.",
+      "visual": { "kind": "formula", "expression": "E = 1 + ½·E  ⇒  E = 2" }
+    },
+    {
+      "term": "Decision trees",
+      "title": "Fold the tree, mind the gate",
+      "caption": "A probability tree is conditional expectation drawn out. Fold values from the leaves back to the root, and never forget the gate: a payoff that only fires inside one branch must be multiplied by the chance of reaching that branch.",
+      "visual": { "kind": "formula", "expression": "(1/4)·3.5 + (3/4)·0 = 0.875" }
+    },
+    {
+      "term": "Wald's identity",
+      "title": "Multiply the counts and the size",
+      "caption": "To add up a random number of random terms, multiply the expected count by the expected size of one term. Eight expected fills, each averaging twenty five dollars, gives two hundred dollars — you multiply, you do not add.",
+      "visual": { "kind": "formula", "expression": "E[ΣXᵢ] = E[N]·E[X] = 8·25 = 200" }
+    }
+  ],
+  "questions": [
+    {
+      "id": "l12_q1",
+      "kind": "standard",
+      "concept": "conditional_expectation_definition",
+      "question": "A fair six-sided die shows X. Given that the roll is even, what is E[X | even]?",
+      "options": [
+        "3",
+        "3.5",
+        "4",
+        "5"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3 = (2 + 4)/2 drops the face 6. Conditioning on 'even' keeps all three even faces {2, 4, 6}, not just two.",
+        "B": "3.5 is the unconditional mean of all six faces. The condition 'even' removes the odd faces, which raises the average.",
+        "C": "Correct. Restrict to the even faces {2, 4, 6} and average: (2 + 4 + 6)/3 = 4.",
+        "D": "5 = (4 + 6)/2 drops the face 2. All three even faces qualify, so 2 must be included in the average."
+      },
+      "remediation": [
+        {
+          "id": "l12_q1_r1",
+          "question": "A fair die shows X. Given the roll is odd, what is E[X | odd]?",
+          "options": [
+            "2",
+            "3",
+            "3.5",
+            "4"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "2 = (1 + 3)/2 drops the face 5. The odd faces are {1, 3, 5}, all three of which count.",
+            "B": "Correct. Odd faces {1, 3, 5} average to (1 + 3 + 5)/3 = 3.",
+            "C": "3.5 is the unconditional mean over all six faces, ignoring the 'odd' condition.",
+            "D": "4 = (3 + 5)/2 drops the face 1. Include every odd face in the average."
+          }
+        },
+        {
+          "id": "l12_q1_r2",
+          "question": "A fair die shows X. Given that X is at most 4, what is E[X | X ≤ 4]?",
+          "options": [
+            "2",
+            "2.5",
+            "3",
+            "3.5"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "2 = (1 + 3)/2 uses only two of the qualifying faces. The event {X ≤ 4} contains {1, 2, 3, 4}.",
+            "B": "Correct. Average {1, 2, 3, 4}: (1 + 2 + 3 + 4)/4 = 10/4 = 2.5.",
+            "C": "3 would be the average of {2, 3, 4} — it drops the face 1, which satisfies X ≤ 4.",
+            "D": "3.5 is the unconditional mean of all six faces, not the mean restricted to X ≤ 4."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q2",
+      "kind": "standard",
+      "concept": "conditional_expectation_definition",
+      "question": "Two fair dice are rolled. Given that the first die shows 3, what is the expected value of the sum?",
+      "options": [
+        "6.5",
+        "7",
+        "3.5",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The first die is fixed at 3; the second still averages 3.5, so E[sum | die₁=3] = 3 + 3.5 = 6.5.",
+        "B": "7 is the unconditional E[sum]. Conditioning on the first die being a below-average 3 lowers the expected sum.",
+        "C": "3.5 is only the expected value of the second die. You must add the known first die, which contributes 3.",
+        "D": "6 = 3 + 3 uses 3 for the second die instead of its mean 3.5. The unknown second die averages 3.5."
+      },
+      "remediation": [
+        {
+          "id": "l12_q2_r1",
+          "question": "Two fair dice are rolled. Given that the first die shows 5, what is the expected sum?",
+          "options": [
+            "7",
+            "8",
+            "8.5",
+            "10"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "7 is the unconditional mean of the sum, ignoring that the first die is a high 5.",
+            "B": "8 = 5 + 3 uses 3 for the second die instead of its mean 3.5.",
+            "C": "Correct. E[sum | die₁=5] = 5 + 3.5 = 8.5.",
+            "D": "10 = 5 + 5 assumes the second die also shows 5; it is unknown and averages 3.5."
+          }
+        },
+        {
+          "id": "l12_q2_r2",
+          "question": "You flip two fair coins and score +1 per head. Given the first coin is heads, what is the expected total score?",
+          "options": [
+            "1",
+            "1.5",
+            "2",
+            "0.5"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "1 counts only the known head and forgets the second coin's expected contribution of 0.5.",
+            "B": "Correct. The first head contributes 1; the second coin adds E = 0.5, so total = 1.5.",
+            "C": "2 assumes the second coin is also heads for certain; it averages 0.5.",
+            "D": "0.5 is only the second coin's expected score and omits the known first head."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q3",
+      "kind": "standard",
+      "concept": "tower_property",
+      "question": "By the tower property (law of total expectation), the quantity E[ E[X | Y] ] equals which of the following?",
+      "options": [
+        "E[X]",
+        "E[Y]",
+        "E[X | Y]",
+        "Var(X)"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Averaging the conditional mean E[X|Y] over the distribution of Y recovers the plain unconditional mean E[X].",
+        "B": "E[Y] averages the wrong variable. The tower property averages out Y to leave information about X, not Y.",
+        "C": "E[X|Y] is itself a random variable (it varies with Y). Taking its expectation collapses it to a single number, E[X].",
+        "D": "Var(X) is a spread, not a mean. The tower property is a statement about expectations, not variances."
+      },
+      "remediation": [
+        {
+          "id": "l12_q3_r1",
+          "question": "Which statement correctly expresses the law of total expectation over a partition into events B₁, B₂?",
+          "options": [
+            "E[X] = E[X|B₁]·P(B₁) + E[X|B₂]·P(B₂)",
+            "E[X] = E[X|B₁] + E[X|B₂]",
+            "E[X] = E[X|B₁]·E[X|B₂]",
+            "E[X] = P(B₁) + P(B₂)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Each branch mean is weighted by the probability of that branch, and the weighted values are summed.",
+            "B": "Adding the branch means without weighting ignores how likely each branch is.",
+            "C": "Multiplying branch means has no probabilistic justification here; the law uses a weighted sum.",
+            "D": "P(B₁) + P(B₂) = 1 for a partition and says nothing about X."
+          }
+        },
+        {
+          "id": "l12_q3_r2",
+          "question": "E[X | Y] is best described as:",
+          "options": [
+            "A fixed number",
+            "A random variable that depends on Y",
+            "Always equal to E[X]",
+            "The variance of X given Y"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "It is not a fixed number; its value changes depending on which value Y takes.",
+            "B": "Correct. E[X|Y] takes the value E[X|Y=y] on the event {Y=y}, so it is a function of Y and hence random.",
+            "C": "It equals E[X] only after you average it over Y; for a particular Y it generally differs.",
+            "D": "That describes a conditional variance, a different object entirely."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q4",
+      "kind": "standard",
+      "concept": "law_total_expectation",
+      "question": "Machine A (probability 0.6) produces items averaging 10 grams; machine B (probability 0.4) produces items averaging 15 grams. What is the expected weight of a randomly chosen item?",
+      "options": [
+        "12",
+        "12.5",
+        "13",
+        "25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By total expectation, 0.6·10 + 0.4·15 = 6 + 6 = 12 grams.",
+        "B": "12.5 is the unweighted average (10 + 15)/2; it ignores that machine A is more likely (0.6 vs 0.4).",
+        "C": "13 = 0.4·10 + 0.6·15 swaps the two machine probabilities.",
+        "D": "25 = 10 + 15 adds the two branch means instead of taking a probability-weighted average."
+      },
+      "remediation": [
+        {
+          "id": "l12_q4_r1",
+          "question": "A coin is fair with probability 0.7 and double-headed (always heads) with probability 0.3. In one flip, P(heads)?",
+          "options": [
+            "0.5",
+            "0.65",
+            "0.85",
+            "1.0"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "0.5 uses only the fair-coin branch and ignores the double-headed coin.",
+            "B": "Correct. 0.7·0.5 + 0.3·1.0 = 0.35 + 0.30 = 0.65.",
+            "C": "0.85 = 0.7·1.0 + 0.3·0.5 swaps which coin is fair.",
+            "D": "1.0 would require every coin to be double-headed, but 70% are fair."
+          }
+        },
+        {
+          "id": "l12_q4_r2",
+          "question": "Route 1 (prob 0.5) takes 20 min on average; route 2 (prob 0.5) takes 30 min. Expected commute?",
+          "options": [
+            "20",
+            "25",
+            "30",
+            "50"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "20 uses only route 1 and ignores the equally likely route 2.",
+            "B": "Correct. 0.5·20 + 0.5·30 = 25 minutes.",
+            "C": "30 uses only route 2.",
+            "D": "50 = 20 + 30 sums the branch means rather than averaging them."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q5",
+      "kind": "standard",
+      "concept": "first_step_analysis",
+      "question": "You flip a fair coin until the first head appears. What is the expected number of flips?",
+      "options": [
+        "1",
+        "1.5",
+        "2",
+        "4"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "1 assumes the first flip is always a head. Half the time you flip tails and must continue.",
+        "B": "1.5 stops the recursion early (just one possible extra flip) instead of solving E = 1 + ½·E.",
+        "C": "Correct. First-step analysis: E = 1 + (1/2)·0 + (1/2)·E ⇒ (1/2)E = 1 ⇒ E = 2.",
+        "D": "4 is the expected wait for a two-flip pattern, not for a single head (whose mean is 1/p = 2)."
+      },
+      "remediation": [
+        {
+          "id": "l12_q5_r1",
+          "question": "You roll a fair die until the first 6. What is the expected number of rolls?",
+          "options": [
+            "3",
+            "5",
+            "6",
+            "36"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "3 is roughly half of 6; the mean of a geometric wait is 1/p, not p·something smaller.",
+            "B": "5 = (1−p)/p = 5 counts only the expected number of failures before the 6, not total rolls.",
+            "C": "Correct. The wait is geometric with p = 1/6, so E = 1/p = 6 rolls.",
+            "D": "36 = 6² over-counts; the expected wait is 1/p = 6."
+          }
+        },
+        {
+          "id": "l12_q5_r2",
+          "question": "A success has probability p each independent trial. The expected number of trials to the first success is:",
+          "options": [
+            "p",
+            "1 − p",
+            "1/p",
+            "p²"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "p is the per-trial success probability, not the expected wait.",
+            "B": "1 − p is the failure probability per trial, not a count of trials.",
+            "C": "Correct. The geometric waiting time has mean 1/p.",
+            "D": "p² is the chance of two successes in a row, unrelated to the expected wait."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q6",
+      "kind": "standard",
+      "concept": "walds_identity",
+      "question": "A desk gets a random number of fills per minute with E[N] = 8, and each fill's PnL is independent with mean $25 (N independent of the PnLs). What is the expected total PnL per minute?",
+      "options": [
+        "$200",
+        "$25",
+        "$8",
+        "$33"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Wald's identity: E[total] = E[N]·E[X] = 8 × 25 = $200.",
+        "B": "$25 is the mean of a single fill; you must scale by the expected number of fills.",
+        "C": "$8 is only the expected count of fills, with no dollar size attached.",
+        "D": "$33 = 8 + 25 adds the count and the size. Wald multiplies them."
+      },
+      "remediation": [
+        {
+          "id": "l12_q6_r1",
+          "question": "A store sees on average 50 customers a day, each spending $12 on average (independent). Expected daily revenue?",
+          "options": [
+            "$62",
+            "$600",
+            "$50",
+            "$12"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "$62 = 50 + 12 adds count and spend instead of multiplying.",
+            "B": "Correct. E[N]·E[X] = 50 × 12 = $600.",
+            "C": "$50 is only the expected customer count.",
+            "D": "$12 is only one customer's average spend."
+          }
+        },
+        {
+          "id": "l12_q6_r2",
+          "question": "Wald's identity E[ΣXᵢ] = E[N]·E[X] requires which condition?",
+          "options": [
+            "The Xᵢ must be perfectly correlated",
+            "N must equal E[X]",
+            "N is a stopping time independent of the future Xᵢ, with the Xᵢ sharing mean E[X]",
+            "Each Xᵢ must be at least 1"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "Wald does not require correlation; it requires a common mean and independence of N from the future terms.",
+            "B": "N and E[X] are unrelated quantities; there is no such requirement.",
+            "C": "Correct. The terms share a mean E[X] and N is a stopping time independent of which future terms appear.",
+            "D": "There is no positivity requirement on the Xᵢ."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q7",
+      "kind": "standard",
+      "concept": "law_total_expectation",
+      "question": "You pick a coin at random: with probability 0.5 a fair coin (E[heads in 10 flips] = 5) and with probability 0.5 a biased coin with p = 0.8 (E[heads] = 8). You flip the chosen coin 10 times. What is the expected number of heads?",
+      "options": [
+        "5",
+        "6.5",
+        "8",
+        "13"
+      ],
+      "correctAnswer": 1,
+      "explanations": {
+        "A": "5 conditions only on the fair coin and ignores the equally likely biased coin.",
+        "B": "Correct. Total expectation: 0.5·5 + 0.5·8 = 2.5 + 4 = 6.5 heads.",
+        "C": "8 conditions only on the biased coin.",
+        "D": "13 = 5 + 8 sums the two conditional means instead of averaging them."
+      },
+      "remediation": [
+        {
+          "id": "l12_q7_r1",
+          "question": "A bag has two dice: a normal d6 (mean 3.5) and a d8 (faces 1–8, mean 4.5). Pick one at random (50/50) and roll it. Expected roll?",
+          "options": [
+            "3.5",
+            "4",
+            "4.5",
+            "8"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "3.5 uses only the d6 branch.",
+            "B": "Correct. 0.5·3.5 + 0.5·4.5 = 4.",
+            "C": "4.5 uses only the d8 branch.",
+            "D": "8 is the top face of the d8, not an expected value."
+          }
+        },
+        {
+          "id": "l12_q7_r2",
+          "question": "With probability 1/3 you draw from urn X (mean payout $9) and with 2/3 from urn Y (mean payout $3). Expected payout?",
+          "options": [
+            "$3",
+            "$5",
+            "$6",
+            "$9"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "$3 uses only urn Y and ignores urn X.",
+            "B": "Correct. (1/3)·9 + (2/3)·3 = 3 + 2 = $5.",
+            "C": "$6 = (9 + 3)/2 is the unweighted average; urn Y is twice as likely.",
+            "D": "$9 uses only urn X."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q8",
+      "kind": "standard",
+      "concept": "conditional_expectation_definition",
+      "question": "A fair die shows X. Given that the roll is greater than 3, what is E[X | X > 3]?",
+      "options": [
+        "3.5",
+        "4.5",
+        "5",
+        "6"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "3.5 is the unconditional mean of all six faces, ignoring the condition X > 3.",
+        "B": "4.5 = (3 + 4 + 5 + 6)/4 mistakenly includes 3, but the event {X > 3} is strictly {4, 5, 6}.",
+        "C": "Correct. The qualifying faces are {4, 5, 6}, averaging (4 + 5 + 6)/3 = 5.",
+        "D": "6 takes only the maximum qualifying face instead of the mean of {4, 5, 6}."
+      },
+      "remediation": [
+        {
+          "id": "l12_q8_r1",
+          "question": "A fair die shows X. Given X ≥ 4, what is E[X | X ≥ 4]?",
+          "options": [
+            "4",
+            "4.5",
+            "5",
+            "5.5"
+          ],
+          "correctAnswer": 2,
+          "explanations": {
+            "A": "4 takes only the smallest qualifying face, not the average.",
+            "B": "4.5 = (3+4+5+6)/4 wrongly includes 3; the event is {4, 5, 6}.",
+            "C": "Correct. {4, 5, 6} averages to 5.",
+            "D": "5.5 = (5 + 6)/2 drops the qualifying face 4."
+          }
+        },
+        {
+          "id": "l12_q8_r2",
+          "question": "A fair die shows X. Given X < 3, what is E[X | X < 3]?",
+          "options": [
+            "1",
+            "1.5",
+            "2",
+            "3"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "1 takes only the smallest qualifying face. The event {X < 3} is {1, 2}.",
+            "B": "Correct. {1, 2} averages to (1 + 2)/2 = 1.5.",
+            "C": "2 would include the face 3, but the condition is strict (X < 3).",
+            "D": "3 is excluded by the strict inequality and is not the mean of {1, 2} anyway."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q9",
+      "kind": "challenge",
+      "concept": "first_step_analysis",
+      "question": "Flipping a fair coin, what is the expected number of flips to first see two heads in a row (HH)?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "correctAnswer": 2,
+      "explanations": {
+        "A": "2 is the expected wait for a single head and ignores that a tail wipes out partial progress toward HH.",
+        "B": "4 is the expected wait for the pattern HT; HH takes longer because a tail after one head resets you, whereas HT does not.",
+        "C": "Correct. Let E₀ be from scratch and E₁ after one head: E₁ = 1 + ½E₀, E₀ = 1 + ½E₁ + ½E₀. Solving gives E₀ = 6.",
+        "D": "8 over-counts; the correct recursion yields 6, not 2/p with p = 1/4."
+      },
+      "remediation": [
+        {
+          "id": "l12_q9_r1",
+          "question": "Using first-step analysis, set E₁ = expected additional flips to HH after just getting one head. Which equation is right?",
+          "options": [
+            "E₁ = 1 + ½·0 + ½·E₀",
+            "E₁ = ½·E₀",
+            "E₁ = 1 + E₀",
+            "E₁ = 0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. One more flip: with prob ½ it's a head (done, 0 more) and with prob ½ a tail sends you back to scratch (E₀).",
+            "B": "This omits the flip you actually spend (the leading 1) and the chance of finishing.",
+            "C": "This ignores the ½ chance the next flip completes HH immediately.",
+            "D": "You are not done yet after only one head, so the expectation is not 0."
+          }
+        },
+        {
+          "id": "l12_q9_r2",
+          "question": "What is the expected number of fair-coin flips to first see the pattern HT (a head immediately followed by a tail)?",
+          "options": [
+            "3",
+            "4",
+            "6",
+            "2"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "3 under-counts; once you have a head you keep that progress, but the wait still works out to 4.",
+            "B": "Correct. Wait for the first head (mean 2), then wait for the first tail (mean 2): 2 + 2 = 4.",
+            "C": "6 is the wait for HH, which is longer because a tail resets progress; HT does not reset once you have a head.",
+            "D": "2 is the wait for a single head, not the two-symbol pattern HT."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q10",
+      "kind": "challenge",
+      "concept": "conditional_ev_tree",
+      "question": "Draw one card from a standard deck. If it is a heart (probability 1/4), you roll a fair die and win that many dollars; otherwise you win $0. What is the expected payout?",
+      "options": [
+        "$0.875",
+        "$3.50",
+        "$0.25",
+        "$1.75"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The heart branch is worth E[die] = 3.5 and is reached with prob 1/4: (1/4)·3.5 + (3/4)·0 = 0.875.",
+        "B": "$3.50 is the value inside the heart branch but forgets the 1/4 gate to reach it.",
+        "C": "$0.25 is just P(heart); it omits the die payoff entirely.",
+        "D": "$1.75 = (1/2)·3.5 uses probability 1/2 for hearts, but hearts are 13/52 = 1/4."
+      },
+      "remediation": [
+        {
+          "id": "l12_q10_r1",
+          "question": "With probability 1/3 you roll a die and win its value; otherwise you win $0. Expected payout?",
+          "options": [
+            "$3.50",
+            "$1.17",
+            "$0.33",
+            "$1.75"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "$3.50 ignores the 1/3 gate; it is only the value inside the rolling branch.",
+            "B": "Correct. (1/3)·3.5 = 3.5/3 ≈ $1.17.",
+            "C": "$0.33 is just the probability 1/3 with no payoff attached.",
+            "D": "$1.75 = (1/2)·3.5 uses the wrong branch probability."
+          }
+        },
+        {
+          "id": "l12_q10_r2",
+          "question": "A scratch ticket wins $20 with probability 0.1 and $0 otherwise. Expected payout?",
+          "options": [
+            "$20",
+            "$2",
+            "$0.10",
+            "$10"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "$20 is the prize, not its expected value; it pays out only 10% of the time.",
+            "B": "Correct. 0.1·20 + 0.9·0 = $2.",
+            "C": "$0.10 is the win probability, not multiplied by the $20 prize.",
+            "D": "$10 = 20/2 uses probability 0.5 instead of 0.1."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q11",
+      "kind": "challenge",
+      "concept": "random_sums",
+      "question": "You roll one fair die; its value tells you how many fair coins to flip. You win $2 per head. What is the expected winnings?",
+      "options": [
+        "$3.50",
+        "$7.00",
+        "$1.75",
+        "$3.00"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected flips = E[die] = 3.5; expected heads = 3.5·(1/2) = 1.75; winnings = 1.75·$2 = $3.50.",
+        "B": "$7.00 = 3.5·$2 assumes every flip is a head, dropping the 1/2 head probability.",
+        "C": "$1.75 is the expected number of heads but forgets to multiply by the $2-per-head payout.",
+        "D": "$3.00 uses 3 (a guess for the die) instead of its true mean 3.5."
+      },
+      "remediation": [
+        {
+          "id": "l12_q11_r1",
+          "question": "You roll a fair die; that many fair coins are flipped. What is the expected number of heads?",
+          "options": [
+            "1.75",
+            "3.5",
+            "3",
+            "0.5"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. E[N]·E[per-flip heads] = 3.5·(1/2) = 1.75.",
+            "B": "3.5 is the expected number of flips, not heads; multiply by the 1/2 head rate.",
+            "C": "3 uses 3 instead of the die's mean 3.5.",
+            "D": "0.5 is the per-flip head probability, not scaled by the expected number of flips."
+          }
+        },
+        {
+          "id": "l12_q11_r2",
+          "question": "A random N with E[N] = 4 coins are flipped, winning $5 per head. Expected winnings?",
+          "options": [
+            "$20",
+            "$10",
+            "$2",
+            "$5"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "$20 = 4·$5 assumes every flip is a head, ignoring the 1/2 head rate.",
+            "B": "Correct. Expected heads = 4·(1/2) = 2; winnings = 2·$5 = $10.",
+            "C": "$2 is the expected number of heads but omits the $5 payout.",
+            "D": "$5 is the payout for a single head, not scaled by expected heads."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l12_q12",
+      "kind": "challenge",
+      "concept": "conditional_expectation_definition",
+      "question": "X and Y are independent fair dice. Given that X + Y = 7, what is E[X | X + Y = 7]?",
+      "options": [
+        "3.5",
+        "7",
+        "3",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The pairs summing to 7 are (1,6),(2,5),(3,4),(4,3),(5,2),(6,1); X is then uniform on {1,…,6}, so E[X] = 3.5. By symmetry E[X] = E[Y] and they sum to 7, giving 3.5 each.",
+        "B": "7 is the conditioned sum X + Y, not E[X]. Each die contributes half on average.",
+        "C": "3 drops one of the six equally likely X-values; all of {1,…,6} occur among the summing pairs.",
+        "D": "4 would over-weight the larger X-values; the six outcomes are symmetric around 3.5."
+      },
+      "remediation": [
+        {
+          "id": "l12_q12_r1",
+          "question": "X and Y are independent fair dice. Given X + Y = 7, what is E[Y | X + Y = 7]?",
+          "options": [
+            "3",
+            "3.5",
+            "4",
+            "7"
+          ],
+          "correctAnswer": 1,
+          "explanations": {
+            "A": "3 drops one equally likely Y-value; all of {1,…,6} appear among the pairs summing to 7.",
+            "B": "Correct. By the same symmetry, Y is uniform on {1,…,6} given the sum is 7, so E[Y] = 3.5.",
+            "C": "4 over-weights the larger values; the distribution is symmetric around 3.5.",
+            "D": "7 is the total sum, not E[Y]."
+          }
+        },
+        {
+          "id": "l12_q12_r2",
+          "question": "X and Y are independent fair dice. Given X + Y = 4, what is E[X | X + Y = 4]?",
+          "options": [
+            "2",
+            "2.5",
+            "3",
+            "4"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Pairs summing to 4: (1,3),(2,2),(3,1). X takes values {1,2,3} equally, averaging 2.",
+            "B": "2.5 = (1+2+3+4)/... wrongly includes a value of 4, which cannot occur when X+Y=4 with Y ≥ 1.",
+            "C": "3 takes only the largest X-value rather than the mean of {1, 2, 3}.",
+            "D": "4 is the conditioned sum, not E[X]."
+          }
+        }
+      ]
+    }
+  ]
+}
