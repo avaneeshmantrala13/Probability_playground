@@ -76,6 +76,9 @@ function buildPool(lesson: Lesson): PoolItem[] {
         options: q.options,
         correctAnswer: q.correctAnswer,
         explanations: q.explanations,
+        // Additive passthrough so the current question's concept reaches the
+        // tutor and bonus-question features. Does not affect the draw/seed logic.
+        concept: q.concept,
       },
       concept: q.concept,
       kind: q.kind === "challenge" ? "challenge" : "standard",
@@ -95,6 +98,7 @@ function buildPool(lesson: Lesson): PoolItem[] {
           options: q.options,
           correctAnswer: q.correctAnswer,
           explanations: q.explanations,
+          concept: q.concept,
         },
         concept: q.concept,
         kind: "standard",

@@ -436,6 +436,117 @@ function medianTemplate(rng: RNG): BuiltQuestion {
   };
 }
 
+// ---------------------------------------------------------------------------
+// Market-making templates. Prices are plain integer ticks (matching the curated
+// MM bank style), and every answer is pure integer arithmetic — correct by
+// construction. Generation guarantees the mid is an exact integer (even spread).
+// ---------------------------------------------------------------------------
+
+/** A bid/ask quote with an EVEN spread so the midpoint is an exact integer. */
+function makeQuote(rng: RNG): { bid: number; ask: number; spread: number; mid: number } {
+  const bid = rng.int(20, 90);
+  const spread = rng.pick([2, 4, 6, 8]); // even ⇒ mid is a whole number
+  const ask = bid + spread;
+  return { bid, ask, spread, mid: bid + spread / 2 };
+}
+
+function mmFairValue(rng: RNG): BuiltQuestion {
+  const { bid, ask, spread, mid } = makeQuote(rng);
+  // bid < mid < ask < sum, all distinct for any bid>0, spread>0.
+  return {
+    question: `A market is quoted ${bid} bid / ${ask} offer. With no other information, what is the fair value (the mid price)?`,
+    concept: "fair value (mid price)",
+    correct: {
+      text: `${mid}`,
+      why: `With no signal favoring either side, fair value is the midpoint: (${bid} + ${ask}) / 2 = ${mid}.`,
+    },
+    distractors: [
+      { text: `${bid}`, why: `${bid} is the bid (where you buy from sellers), not the midpoint of the market.` },
+      { text: `${ask}`, why: `${ask} is the offer (where you sell to buyers), not the midpoint of the market.` },
+      { text: `${bid + ask}`, why: `${bid + ask} is the sum of bid and offer; the mid is their average, so divide by 2.` },
+      { text: `${spread}`, why: `${spread} is the spread (offer − bid), not the fair value.` },
+    ],
+  };
+}
+
+function mmSpread(rng: RNG): BuiltQuestion {
+  const { bid, ask, spread, mid } = makeQuote(rng);
+  // spread is small (≤8) while bid≥20, so spread differs from bid/ask/sum/mid.
+  return {
+    question: `You quote ${bid} bid / ${ask} offer. What is your spread?`,
+    concept: "bid-ask spread",
+    correct: {
+      text: `${spread}`,
+      why: `The spread is the distance between your quotes: offer − bid = ${ask} − ${bid} = ${spread}.`,
+    },
+    distractors: [
+      { text: `${bid + ask}`, why: `${bid + ask} adds the two prices; the spread is their difference, not their sum.` },
+      { text: `${bid}`, why: `${bid} is the bid price itself, not the width between bid and offer.` },
+      { text: `${ask}`, why: `${ask} is the offer price itself, not the width between bid and offer.` },
+      { text: `${mid}`, why: `${mid} is the mid price; the spread is offer − bid, not the midpoint.` },
+    ],
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Poker pot-odds templates. Pure arithmetic / exact rationals, unambiguous by
+// the standard definitions, so the answer key is correct by construction.
+// ---------------------------------------------------------------------------
+
+function pokerPotSize(rng: RNG): BuiltQuestion {
+  // "Pot before the bet" P and the bet B. Pot you can win if you call = P + 2B.
+  const bet = rng.pick([10, 20, 25, 50, 100]);
+  const pot = bet * rng.int(2, 6); // a clean, realistic pot relative to the bet
+  const winnable = pot + 2 * bet;
+  return {
+    question: `The pot is $${pot} and your opponent bets $${bet}. If you call $${bet}, how big is the pot you can win?`,
+    concept: "pot odds (pot size)",
+    correct: {
+      text: `$${winnable}`,
+      why: `Add it all up: the $${pot} pot + your opponent's $${bet} bet + your $${bet} call = $${winnable}.`,
+    },
+    distractors: [
+      { text: `$${pot + bet}`, why: `$${pot + bet} counts the bet but forgets to add your own $${bet} call.` },
+      { text: `$${pot}`, why: `$${pot} is the pot before the bet; it ignores both the $${bet} bet and your $${bet} call.` },
+      { text: `$${bet}`, why: `$${bet} is only the size of your call, not the whole pot you stand to win.` },
+      { text: `$${pot + 3 * bet}`, why: `That over-counts the call; only one $${bet} call is added, giving $${winnable}.` },
+    ],
+  };
+}
+
+function pokerBreakEvenEquity(rng: RNG): BuiltQuestion {
+  // Required equity to call = call / (final pot after the call) = B / (P + 2B).
+  // Constraints B≠P and P≠2B keep all four options distinct (see distractor notes).
+  const bet = rng.pick([10, 20, 25, 50]);
+  let pot = bet * rng.int(2, 6);
+  if (pot === bet) pot += bet; // enforce P ≠ B (P is already a multiple ≥ 2·bet)
+  if (pot === 2 * bet) pot += bet; // enforce P ≠ 2B
+  const total = pot + 2 * bet;
+  const correct = new Frac(bet, total);
+  return {
+    question: `The pot is $${pot} and your opponent bets $${bet}. You must call $${bet} to continue. What is the minimum equity (win probability) you need for calling to break even?`,
+    concept: "pot odds (break-even equity)",
+    correct: {
+      text: correct.toString(),
+      why: `You risk $${bet} to win a final pot of $${pot} + $${bet} + $${bet} = $${total}, so you need to win at least ${bet}/${total} = ${correct.toString()} of the time.`,
+    },
+    distractors: [
+      {
+        text: new Frac(bet, pot + bet).toString(),
+        why: `This uses the pot before your call ($${pot + bet}) as the denominator; break-even equity uses the final pot $${total} that includes your own call.`,
+      },
+      {
+        text: new Frac(bet, pot).toString(),
+        why: `This divides by the original pot $${pot}, ignoring the $${bet} bet and your $${bet} call that are also in the final pot.`,
+      },
+      {
+        text: new Frac(pot, total).toString(),
+        why: `This flips the ratio — equity needed is the call $${bet} over the final pot $${total}, not the pot over the total.`,
+      },
+    ],
+  };
+}
+
 export const TEMPLATES: Template[] = [
   {
     id: "single-draw",
@@ -508,5 +619,29 @@ export const TEMPLATES: Template[] = [
     lessons: ["lesson_6"],
     keywords: ["median"],
     build: medianTemplate,
+  },
+  {
+    id: "mm-fair-value",
+    lessons: ["mm_fair_value", "mm_bid_ask", "mm_interview"],
+    keywords: ["fair value", "fair_value", "mid price", "midpoint", "fair price"],
+    build: mmFairValue,
+  },
+  {
+    id: "mm-spread",
+    lessons: ["mm_spread", "mm_bid_ask", "mm_interview"],
+    keywords: ["spread", "bid-ask", "bid/ask", "bid ask"],
+    build: mmSpread,
+  },
+  {
+    id: "poker-pot-size",
+    lessons: ["pt_pot_odds"],
+    keywords: ["pot odds", "pot_odds", "pot size", "pot-odds"],
+    build: pokerPotSize,
+  },
+  {
+    id: "poker-break-even-equity",
+    lessons: ["pt_pot_odds"],
+    keywords: ["pot odds", "pot_odds", "equity", "break-even", "breakeven", "break even"],
+    build: pokerBreakEvenEquity,
   },
 ];

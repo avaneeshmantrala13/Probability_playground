@@ -7,7 +7,14 @@ export interface BonusQuestionOpts {
   title?: string;
   topics?: string[];
   order?: number;
+  /**
+   * The CURRENT question's concept tag. Used to keep the bonus topically
+   * relevant: template selection keys off it, and the curated-bank fallback is
+   * filtered to the closest-matching concept rather than a pure random shuffle.
+   */
   conceptHint?: string;
+  /** The current question's lesson topic (extra signal for template matching). */
+  topic?: string;
 }
 
 /** Numeric value of an option (fraction/decimal/percent/money), else null. */
@@ -46,6 +53,58 @@ function sameNumbers(a: string, b: string): boolean {
   const x = numericTokens(a);
   const y = numericTokens(b);
   return x.length === y.length && x.every((v, i) => v === y[i]);
+}
+
+/** Normalize a concept/topic tag into a set of comparable word tokens. */
+function conceptTokens(raw: string): Set<string> {
+  return new Set(
+    raw
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .split(" ")
+      .filter((w) => w.length > 1),
+  );
+}
+
+/**
+ * Relevance score between a target concept and a candidate concept: the number
+ * of shared word tokens, with an exact-string match boosted so it always wins.
+ * 0 means no overlap.
+ */
+function conceptScore(target: Set<string>, candidate: string): number {
+  if (target.size === 0) return 0;
+  const norm = candidate.toLowerCase().trim();
+  const cand = conceptTokens(candidate);
+  let shared = 0;
+  for (const t of target) if (cand.has(t)) shared++;
+  // Exact normalized equality is the strongest possible signal.
+  const exact = norm === [...target].join(" ") ? 100 : 0;
+  return shared + exact;
+}
+
+/**
+ * Pick the curated questions most topically relevant to `conceptHint`. Returns
+ * the highest-scoring well-formed questions; if nothing overlaps (or no hint was
+ * given) it falls back to the full set so a bonus is still available.
+ */
+function selectRelevant<T extends { concept?: string; options: string[]; correctAnswer: number }>(
+  questions: T[],
+  conceptHint: string | undefined,
+): T[] {
+  const wellFormed = questions.filter((q) => isWellFormed(q));
+  if (!conceptHint || !conceptHint.trim()) return wellFormed;
+
+  const target = conceptTokens(conceptHint);
+  if (target.size === 0) return wellFormed;
+
+  let best = 0;
+  const scored = wellFormed.map((q) => {
+    const s = conceptScore(target, q.concept ?? "");
+    if (s > best) best = s;
+    return { q, s };
+  });
+  if (best <= 0) return wellFormed; // no overlap anywhere — keep full pool
+  return scored.filter((x) => x.s === best).map((x) => x.q);
 }
 
 /** Structurally sound MCQ: valid index, 4 distinct option texts, no equal values. */
@@ -96,7 +155,11 @@ export async function getVerifiedBonusQuestion(
   const { getPracticeBank } = await import("../../content/practice");
   const bank = getPracticeBank(opts.lessonId);
   if (bank && bank.questions.length) {
-    const shuffled = [...bank.questions].sort(() => Math.random() - 0.5);
+    // Filter to the questions whose concept best matches the current question's
+    // concept, then shuffle WITHIN that relevant subset for variety. This keeps
+    // the bonus on the same specific topic instead of a random same-lesson pull.
+    const relevant = selectRelevant(bank.questions, opts.conceptHint);
+    const shuffled = [...relevant].sort(() => Math.random() - 0.5);
     for (const q of shuffled) {
       if (!isWellFormed(q)) continue;
       return {

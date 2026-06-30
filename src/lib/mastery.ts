@@ -95,6 +95,7 @@ export function buildAttemptQuestions(
       options: q.options,
       correctAnswer: q.correctAnswer,
       explanations: q.explanations,
+      concept: q.concept,
     }));
   }
 
@@ -109,6 +110,7 @@ export function buildAttemptQuestions(
         options: q.options,
         correctAnswer: q.correctAnswer,
         explanations: q.explanations,
+        concept: q.concept,
       };
     }
     return {
@@ -118,6 +120,8 @@ export function buildAttemptQuestions(
       options: variant.options,
       correctAnswer: variant.correctAnswer,
       explanations: inheritExplanations(q, variant),
+      // A remediation variant tests the same concept as its parent.
+      concept: q.concept,
     };
   });
 }
