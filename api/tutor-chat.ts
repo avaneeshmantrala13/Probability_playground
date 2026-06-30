@@ -2,7 +2,11 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { verifyBearerToken } from "./_lib/firebase-auth.js";
 import { checkRateLimit } from "./_lib/rate-limit.js";
 import { consumeQuotaSafe } from "./_lib/quota.js";
-import { QUANT_TUTOR_SYSTEM, tutorStateInstruction } from "./_lib/prompts.js";
+import {
+  QUANT_TUTOR_SYSTEM,
+  tutorStateInstruction,
+  tutorSolutionContext,
+} from "./_lib/prompts.js";
 
 // Mirrors src/lib/billing/plans.ts FREE_LIMITS.aiTutorPerDay (api bundles separately).
 const FREE_TUTOR_PER_DAY = 5;
@@ -55,12 +59,38 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Defaults to false (most restrictive) so a missing flag never leaks answers.
     const answered = body.answered === true;
 
+    // Solution context the client sends. It is parsed here but, CRITICALLY, only
+    // injected into the model prompt when `answered` is true — see below. This
+    // makes the pre-submission answer-leak guardrail airtight: when the student
+    // has not submitted, the correct option / explanations are never even placed
+    // in the model's context, so no prompt-injection can extract them.
+    const concept = typeof body.concept === "string" ? body.concept : "";
+    const correctIndex =
+      typeof body.correctIndex === "number" &&
+      body.correctIndex >= 0 &&
+      body.correctIndex < options.length
+        ? body.correctIndex
+        : null;
+    const rawExpl = body.explanations;
+    const explanations =
+      rawExpl && typeof rawExpl === "object"
+        ? {
+            A: typeof rawExpl.A === "string" ? rawExpl.A : "",
+            B: typeof rawExpl.B === "string" ? rawExpl.B : "",
+            C: typeof rawExpl.C === "string" ? rawExpl.C : "",
+            D: typeof rawExpl.D === "string" ? rawExpl.D : "",
+          }
+        : null;
+
     if (!questionText || options.length < 2) {
       return res.status(400).json({ error: "Missing question context" });
     }
 
     const contextBlock = [
       `Current lesson: ${lessonTitle}`,
+      // The concept tag is safe to share pre-submission: it names the topic
+      // without revealing the answer.
+      concept ? `Concept: ${concept}` : "",
       `Question: ${questionText}`,
       `Options:`,
       ...options.map((o, i) => `${String.fromCharCode(65 + i)}. ${o}`),
@@ -71,6 +101,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ]
       .filter(Boolean)
       .join("\n");
+
+    // GATE: build the verified solution block ONLY after submission. Pre-submission
+    // this stays an empty string, so the answer is absent from the prompt entirely.
+    const solutionBlock =
+      answered && correctIndex != null
+        ? tutorSolutionContext({ correctIndex, options, explanations, concept })
+        : "";
 
     const apiKey = process.env.OPENAI_API_KEY?.trim();
     if (!apiKey) {
@@ -96,6 +133,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             role: "system",
             content: `Problem context:\n${contextBlock}`,
           },
+          // Present only post-submission (empty string otherwise → filtered out).
+          ...(solutionBlock ? [{ role: "system" as const, content: solutionBlock }] : []),
           ...messages
             .filter(
               (m: { role?: string; content?: string }) =>

@@ -149,6 +149,13 @@ export interface RenderableQuestion {
   options: string[];
   correctAnswer: number;
   explanations: Explanations;
+  /**
+   * Concept tag of the source question, carried through so downstream features
+   * (e.g. topically-relevant bonus questions and the process-aware tutor) can
+   * key off the specific concept the learner is on. Optional/additive: rendering
+   * never depends on it.
+   */
+  concept?: string;
 }
 
 export const OPTION_LETTERS = ["A", "B", "C", "D"] as const;

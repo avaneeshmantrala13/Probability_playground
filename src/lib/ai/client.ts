@@ -78,6 +78,16 @@ export async function sendTutorMessage(body: {
   selectedIndex?: number | null;
   /** True once the student has submitted/checked their answer for this question. */
   answered: boolean;
+  /**
+   * Solution context the client already has (questions render client-side).
+   * The SERVER only injects the answer/explanations into the model once the
+   * student has submitted (answered=true), so this can never leak pre-submission.
+   */
+  correctIndex?: number | null;
+  /** Authored explanations keyed by option letter (the method/reasoning). */
+  explanations?: { A: string; B: string; C: string; D: string } | null;
+  /** The current question's concept tag. */
+  concept?: string | null;
   messages: { role: "user" | "assistant"; content: string }[];
 }): Promise<string> {
   const res = await fetch("/api/tutor-chat", {

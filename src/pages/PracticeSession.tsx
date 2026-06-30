@@ -109,6 +109,9 @@ export function PracticeSession() {
                 lessonTitle: bank.title,
                 questionText: current.question,
                 options: current.options,
+                correctIndex: current.correctAnswer,
+                explanations: current.explanations,
+                concept: current.concept,
               }}
             />
           ) : null
@@ -122,6 +125,9 @@ export function PracticeSession() {
         options={current.options}
         selectedIndex={selected}
         answered={checked}
+        correctIndex={current.correctAnswer}
+        explanations={current.explanations}
+        concept={current.concept}
       />
 
       <div className="mt-5 flex justify-end gap-3">

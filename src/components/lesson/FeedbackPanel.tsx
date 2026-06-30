@@ -9,6 +9,14 @@ export interface FeedbackAiContext {
   lessonTitle: string;
   questionText: string;
   options: string[];
+  /**
+   * Solution context. The feedback panel only renders post-answer, so the tutor
+   * is allowed full method explanations here; this richer context makes the
+   * "go deeper" answers method-aware and grounded in the authored reasoning.
+   */
+  correctIndex?: number | null;
+  explanations?: Explanations | null;
+  concept?: string | null;
 }
 
 interface FeedbackPanelProps {
@@ -151,6 +159,9 @@ function ExplanationBody({
         // The feedback panel only renders after the answer is checked, so the
         // tutor is allowed to discuss why options are right/wrong here.
         answered: true,
+        correctIndex: aiContext.correctIndex ?? null,
+        explanations: aiContext.explanations ?? null,
+        concept: aiContext.concept ?? null,
         messages: [{ role: "user", content: ask }],
       });
       setAiText(reply);

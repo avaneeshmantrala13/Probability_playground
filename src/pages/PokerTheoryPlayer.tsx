@@ -193,6 +193,7 @@ export function PokerTheoryPlayer() {
         options: q.options,
         correctAnswer: q.correctAnswer,
         explanations: q.explanations,
+        concept: q.concept,
       })) ?? [],
     [lesson],
   );
@@ -286,7 +287,10 @@ export function PokerTheoryPlayer() {
     setAiLoading(true);
     const afterBaseIndex = currentItem.baseIndex;
     try {
-      const conceptHint = lesson.topics[afterBaseIndex % lesson.topics.length];
+      const topic = lesson.topics[afterBaseIndex % lesson.topics.length];
+      // Anchor the bonus to the CURRENT question's specific concept so it stays
+      // on-topic; fall back to the lesson topic only if the concept is missing.
+      const conceptHint = currentItem.q.concept ?? topic;
       // Only trusted sources are served: a code-computed template (the LLM may
       // reword it, with every number preserved) or a human-vetted bank question.
       const gen = await getVerifiedBonusQuestion({
@@ -295,6 +299,7 @@ export function PokerTheoryPlayer() {
         topics: lesson.topics,
         order: lesson.order,
         conceptHint,
+        topic,
       });
       const rq: RenderableQuestion = {
         id: gen.id,
@@ -302,6 +307,7 @@ export function PokerTheoryPlayer() {
         options: gen.options,
         correctAnswer: gen.correctAnswer,
         explanations: gen.explanations,
+        concept: gen.concept,
       };
       const basePos = quizView.findIndex(
         (v) => v.kind === "base" && v.baseIndex === afterBaseIndex,
@@ -565,6 +571,9 @@ export function PokerTheoryPlayer() {
                 lessonTitle: lesson.title,
                 questionText: current.question,
                 options: current.options,
+                correctIndex: current.correctAnswer,
+                explanations: current.explanations,
+                concept: current.concept,
               }}
             />
           ) : null
@@ -580,6 +589,9 @@ export function PokerTheoryPlayer() {
             options={current.options}
             selectedIndex={selected}
             answered={checked}
+            correctIndex={current.correctAnswer}
+            explanations={current.explanations}
+            concept={current.concept}
           />
 
           {aiError && (

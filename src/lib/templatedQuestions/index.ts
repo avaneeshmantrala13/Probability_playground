@@ -15,21 +15,29 @@ export function generateLocalQuestion(opts: {
   topics?: string[];
   order?: number;
   conceptHint?: string;
+  topic?: string;
 }): GeneratedQuestion | null {
-  const hay = [opts.title ?? "", ...(opts.topics ?? []), opts.conceptHint ?? ""]
+  const hay = [opts.title ?? "", ...(opts.topics ?? []), opts.topic ?? "", opts.conceptHint ?? ""]
     .join(" ")
     .toLowerCase();
+  // The current question's concept/topic is the strongest relevance signal.
+  const conceptHay = [opts.conceptHint ?? "", opts.topic ?? ""].join(" ").toLowerCase();
 
   const matches = TEMPLATES.filter(
     (t) => t.lessons.includes(opts.lessonId) || t.keywords.some((k) => hay.includes(k)),
   );
   if (matches.length === 0) return null;
 
+  // Prefer templates whose keywords match the CURRENT concept/topic so the bonus
+  // is about the specific thing the learner is on, not just any lesson template.
+  const conceptMatches = matches.filter((t) => t.keywords.some((k) => conceptHay.includes(k)));
+  const pickFrom = conceptMatches.length > 0 ? conceptMatches : matches;
+
   const rng = makeRng();
   // Try a few picks so the rare "couldn't find 3 distinct distractors" case
   // doesn't bubble up as a failure.
   for (let i = 0; i < 8; i++) {
-    const tpl = rng.pick(matches);
+    const tpl = rng.pick(pickFrom);
     const q = assemble(opts.lessonId, tpl.build(rng), rng);
     if (q) return q;
   }
