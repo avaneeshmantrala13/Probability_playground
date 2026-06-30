@@ -20,6 +20,7 @@ import {
   verifyLessonPersisted,
   type ActiveAttempt,
   type AttemptAnswer,
+  type AttemptSelection,
   type CosmeticCategory,
   type CourseProgress,
   type LessonMastery,
@@ -46,8 +47,13 @@ interface ProgressContextValue {
   update: (updater: (prev: CourseProgress) => CourseProgress) => void;
   /** Remember the student's exact position for resume. */
   setPosition: (lessonId: string, questionIndex: number) => void;
-  /** Persist the in-progress attempt's answers for exact resume. */
-  saveAttempt: (lessonId: string, round: number, answers: AttemptAnswer[]) => void;
+  /** Persist the in-progress attempt's answers (and drawn set) for exact resume. */
+  saveAttempt: (
+    lessonId: string,
+    round: number,
+    answers: AttemptAnswer[],
+    selection?: AttemptSelection,
+  ) => void;
   /** Clear the active attempt (e.g. on finishing/restarting a lesson). */
   clearActiveAttempt: () => void;
   /** Score a finished lesson, update mastery/unlocks, and record the attempt. */
@@ -360,8 +366,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   );
 
   const saveAttempt = useCallback(
-    (lessonId: string, round: number, answers: AttemptAnswer[]) => {
-      const attempt: ActiveAttempt = { lessonId, round, answers };
+    (
+      lessonId: string,
+      round: number,
+      answers: AttemptAnswer[],
+      selection?: AttemptSelection,
+    ) => {
+      const attempt: ActiveAttempt = { lessonId, round, answers, selection };
       update((prev) => ({ ...prev, activeAttempt: attempt }));
     },
     [update],

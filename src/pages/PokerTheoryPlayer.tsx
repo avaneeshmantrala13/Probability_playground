@@ -13,6 +13,11 @@ import {
   PASS_THRESHOLD,
   roundForPokerTheoryLesson,
 } from "../content/pokerTheory/mastery";
+import {
+  drawAttemptSelection,
+  resolveAttemptQuestions,
+  type AttemptSelection,
+} from "../lib/attempt";
 import { QuestionCard } from "../components/lesson/QuestionCard";
 import { ProgressBar } from "../components/lesson/ProgressBar";
 import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
@@ -67,6 +72,7 @@ export function PokerTheoryPlayer() {
   const [round, setRound] = useState(0);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<AttemptAnswer[]>(() => freshAnswers(total));
+  const [selection, setSelection] = useState<AttemptSelection | null>(null);
   const [placementAnswers, setPlacementAnswers] = useState<AttemptAnswer[]>(() =>
     freshAnswers(placementTotal),
   );
@@ -94,29 +100,41 @@ export function PokerTheoryPlayer() {
     setBonusAnswers({});
 
     const attempt = progress.activeAttempt;
-    if (
+    const canResume =
       !alreadyMastered &&
-      attempt &&
+      !!attempt &&
       attempt.lessonId === lesson.lessonId &&
-      attempt.answers.length === total
-    ) {
-      setRound(attempt.round);
-      setAnswers(attempt.answers);
-      setIndex(
-        progress.currentLesson === lesson.lessonId
-          ? Math.min(Math.max(progress.currentQuestion, 0), total - 1)
-          : 0,
-      );
-      setPhase("quiz");
-    } else {
+      attempt.answers.length === total;
+
+    let resumed = false;
+    if (canResume && attempt) {
+      const resolvable =
+        attempt.selection && resolveAttemptQuestions(lesson, attempt.selection);
+      if (resolvable || !attempt.selection) {
+        setSelection(attempt.selection ?? null);
+        setRound(attempt.round);
+        setAnswers(attempt.answers);
+        setIndex(
+          progress.currentLesson === lesson.lessonId
+            ? Math.min(Math.max(progress.currentQuestion, 0), total - 1)
+            : 0,
+        );
+        setPhase("quiz");
+        resumed = true;
+      }
+    }
+
+    if (!resumed) {
       const r = roundForPokerTheoryLesson(lesson.lessonId, progress);
-      const fresh = freshAnswers(total);
+      const sel = drawAttemptSelection(lesson);
+      const fresh = freshAnswers(sel.questionIds.length);
+      setSelection(sel);
       setRound(r);
       setAnswers(fresh);
       setIndex(0);
       setPlacementAnswers(freshAnswers(placementTotal));
       setPosition(lesson.lessonId, 0);
-      saveAttempt(lesson.lessonId, r, fresh);
+      saveAttempt(lesson.lessonId, r, fresh, sel);
 
       if (r === 0 && lesson.intro && lesson.intro.length > 0) {
         setPhase("intro");
@@ -140,10 +158,14 @@ export function PokerTheoryPlayer() {
     saveAttempt,
   ]);
 
-  const baseQuestions = useMemo(
-    () => (lesson ? buildPokerTheoryAttemptQuestions(lesson, round) : []),
-    [lesson, round],
-  );
+  const baseQuestions = useMemo(() => {
+    if (!lesson) return [];
+    if (selection) {
+      const resolved = resolveAttemptQuestions(lesson, selection);
+      if (resolved) return resolved;
+    }
+    return buildPokerTheoryAttemptQuestions(lesson, round);
+  }, [lesson, selection, round]);
 
   const quizView = useMemo<ViewItem[]>(() => {
     const out: ViewItem[] = [];
@@ -218,7 +240,7 @@ export function PokerTheoryPlayer() {
       const next = [...answers];
       next[currentItem.baseIndex] = { ...next[currentItem.baseIndex], ...patch };
       setAnswers(next);
-      if (lesson) saveAttempt(lesson.lessonId, round, next);
+      if (lesson) saveAttempt(lesson.lessonId, round, next, selection ?? undefined);
     } else {
       const id = currentItem.id;
       setBonusAnswers((prev) => ({
@@ -331,16 +353,18 @@ export function PokerTheoryPlayer() {
   function retry() {
     if (!lesson) return;
     const newRound = round + 1;
-    const freshSet = freshAnswers(total);
+    const sel = drawAttemptSelection(lesson);
+    const freshSet = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setRound(newRound);
     setAnswers(freshSet);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, newRound, freshSet);
+    saveAttempt(lesson.lessonId, newRound, freshSet, sel);
     setRunId((n) => n + 1);
   }
 
@@ -348,19 +372,21 @@ export function PokerTheoryPlayer() {
     if (!lesson) return;
     if (
       !window.confirm(
-        "Restart this lesson from the first question? Your current answers will be cleared.",
+        "Restart this lesson from the first question? You'll get a fresh, randomized set of questions.",
       )
     )
       return;
-    const freshSet = freshAnswers(total);
+    const sel = drawAttemptSelection(lesson);
+    const freshSet = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setAnswers(freshSet);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, round, freshSet);
+    saveAttempt(lesson.lessonId, round, freshSet, sel);
     // A restart is a clean run — the clock and tutor chat start over too.
     timer.reset();
     setRunId((n) => n + 1);

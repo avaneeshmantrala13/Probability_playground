@@ -10,6 +10,11 @@ import {
   PASS_THRESHOLD,
   roundForLesson,
 } from "../lib/mastery";
+import {
+  drawAttemptSelection,
+  resolveAttemptQuestions,
+  type AttemptSelection,
+} from "../lib/attempt";
 import { QuestionCard } from "../components/lesson/QuestionCard";
 import { ProgressBar } from "../components/lesson/ProgressBar";
 import { FeedbackPanel } from "../components/lesson/FeedbackPanel";
@@ -61,6 +66,9 @@ export function LessonPlayer() {
   const [answers, setAnswers] = useState<AttemptAnswer[]>(() =>
     freshAnswers(baseQuestionCount),
   );
+  // The randomized question set drawn for the current attempt (null falls back
+  // to the authored order, e.g. for legacy in-progress attempts).
+  const [selection, setSelection] = useState<AttemptSelection | null>(null);
   const [phase, setPhase] = useState<"intro" | "placement" | "quiz" | "results">("quiz");
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [showIntroModal, setShowIntroModal] = useState(false);
@@ -86,31 +94,46 @@ export function LessonPlayer() {
     setBonusAnswers({});
 
     const attempt = progress.activeAttempt;
-    if (
-      // A mastered lesson is being redone/reviewed: always start clean so the
-      // previous (checked) answers don't reveal the solutions on re-entry.
+    // A mastered lesson is being redone/reviewed: always start clean so the
+    // previous (checked) answers don't reveal the solutions on re-entry.
+    const canResume =
       !alreadyMastered &&
-      attempt &&
+      !!attempt &&
       attempt.lessonId === lesson.lessonId &&
-      attempt.answers.length >= baseQuestionCount
-    ) {
-      setRound(attempt.round);
-      setAnswers(attempt.answers);
-      setIndex(
-        progress.currentLesson === lesson.lessonId
-          ? Math.min(Math.max(progress.currentQuestion, 0), attempt.answers.length - 1)
-          : 0,
-      );
-      // Returning mid-attempt resumes straight at the saved question.
-      setPhase("quiz");
-    } else {
+      attempt.answers.length >= baseQuestionCount;
+
+    let resumed = false;
+    if (canResume && attempt) {
+      // Restore the SAME randomized set if one was saved and still resolves;
+      // otherwise resume a legacy (pre-randomization) attempt on authored order.
+      const resolvable =
+        attempt.selection && resolveAttemptQuestions(lesson, attempt.selection);
+      if (resolvable || !attempt.selection) {
+        setSelection(attempt.selection ?? null);
+        setRound(attempt.round);
+        setAnswers(attempt.answers);
+        setIndex(
+          progress.currentLesson === lesson.lessonId
+            ? Math.min(Math.max(progress.currentQuestion, 0), attempt.answers.length - 1)
+            : 0,
+        );
+        // Returning mid-attempt resumes straight at the saved question.
+        setPhase("quiz");
+        resumed = true;
+      }
+    }
+
+    if (!resumed) {
+      // A fresh attempt draws a NEW randomized, difficulty-ramped set.
       const r = roundForLesson(lesson.lessonId, progress);
-      const fresh = freshAnswers(baseQuestionCount);
+      const sel = drawAttemptSelection(lesson);
+      const fresh = freshAnswers(sel.questionIds.length);
+      setSelection(sel);
       setRound(r);
       setAnswers(fresh);
       setIndex(0);
       setPosition(lesson.lessonId, 0);
-      saveAttempt(lesson.lessonId, r, fresh);
+      saveAttempt(lesson.lessonId, r, fresh, sel);
       // Show the overview only when starting the primary round fresh.
       setPhase(r === 0 && lesson.intro && lesson.intro.length > 0 ? "intro" : "quiz");
     }
@@ -118,10 +141,14 @@ export function LessonPlayer() {
     hydratedFor.current = lesson.lessonId;
   }, [lesson, loading, progress, baseQuestionCount, alreadyMastered, setPosition, saveAttempt]);
 
-  const baseQuestions = useMemo(
-    () => (lesson ? buildAttemptQuestions(lesson, round) : []),
-    [lesson, round],
-  );
+  const baseQuestions = useMemo(() => {
+    if (!lesson) return [];
+    if (selection) {
+      const resolved = resolveAttemptQuestions(lesson, selection);
+      if (resolved) return resolved;
+    }
+    return buildAttemptQuestions(lesson, round);
+  }, [lesson, selection, round]);
 
   // The navigable order: each base question, immediately followed by any bonus
   // questions generated from it. Bonus questions never reorder the base set.
@@ -173,7 +200,7 @@ export function LessonPlayer() {
       const next = [...answers];
       next[currentItem.baseIndex] = { ...next[currentItem.baseIndex], ...patch };
       setAnswers(next);
-      if (lesson) saveAttempt(lesson.lessonId, round, next);
+      if (lesson) saveAttempt(lesson.lessonId, round, next, selection ?? undefined);
     } else {
       const id = currentItem.id;
       setBonusAnswers((prev) => ({
@@ -270,16 +297,19 @@ export function LessonPlayer() {
   function retry() {
     if (!lesson) return;
     const newRound = round + 1;
-    const fresh = freshAnswers(baseQuestionCount);
+    // A remediation retry draws a fresh random set on the same concepts.
+    const sel = drawAttemptSelection(lesson);
+    const fresh = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setRound(newRound);
     setAnswers(fresh);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, newRound, fresh);
+    saveAttempt(lesson.lessonId, newRound, fresh, sel);
     setRunId((n) => n + 1);
   }
 
@@ -287,19 +317,22 @@ export function LessonPlayer() {
     if (!lesson) return;
     if (
       !window.confirm(
-        "Restart this lesson from the first question? Your current answers will be cleared.",
+        "Restart this lesson from the first question? You'll get a fresh, randomized set of questions.",
       )
     )
       return;
-    const fresh = freshAnswers(baseQuestionCount);
+    // A restart draws a NEW randomized set so the lesson can't be memorized.
+    const sel = drawAttemptSelection(lesson);
+    const fresh = freshAnswers(sel.questionIds.length);
     setBonus([]);
     setBonusAnswers({});
+    setSelection(sel);
     setAnswers(fresh);
     setIndex(0);
     setResult(null);
     setPhase("quiz");
     setPosition(lesson.lessonId, 0);
-    saveAttempt(lesson.lessonId, round, fresh);
+    saveAttempt(lesson.lessonId, round, fresh, sel);
     // A restart is a clean run — the clock and tutor chat start over too.
     timer.reset();
     setRunId((n) => n + 1);
