@@ -15,6 +15,130 @@
     "Range advantage means your range hits a given board better than your opponent's on average. Nut advantage is who holds the strongest possible hands more often. These ideas drive c-bet frequency, bet sizing, and defense.",
     "Range thinking replaces 'I put him on ace-king' with 'his line is consistent with AK, AQ, pocket jacks, and some bluffs.' Polarized ranges on the river contain nuts and air — few medium hands bet large. Capped ranges cannot contain the nuts (e.g., a caller who just called three streets rarely has the absolute best hand). Range advantage on a flop like K♠ 7♦ 2♣ favors the preflop raiser; nut advantage asks who holds KK, AK, and 77 more often. Exploitative adjustments widen bluffs when opponents overfold and tighten when they hero-call too much."
   ],
+  "primer": [
+    {
+      "heading": "From one hand to a range",
+      "body": [
+        "Beginners ask 'what does he have?' Strong players ask 'what **can** he have?' A **range** is every hand consistent with an opponent's actions so far.",
+        "Each action — a preflop raise, a flop call, a turn check — **narrows** that range by removing the hands that would not play that way."
+      ],
+      "keyTerms": [
+        { "term": "Range", "definition": "The full set of hands an opponent can hold given the actions they have taken." },
+        { "term": "Combo", "definition": "A specific two-card combination — e.g. A♠K♠ is one of the 16 ways to hold A-K." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Range, not one hand",
+        "text": "Replace 'I put him on A-K' with 'his line fits A-K, A-Q, JJ, and a few bluffs'."
+      }
+    },
+    {
+      "heading": "Counting combos",
+      "body": [
+        "Ranges are weighted by **combinations**. Before any cards are removed, a specific **pair** has **6** combos, a **suited** hand has **4**, and an **offsuit** hand has **12** — so any unpaired hand has **16** combos total.",
+        "Counting combos turns 'he might have a flush' into 'he has 4 nut-flush combos, but I block one of them' — which is how you actually quantify value and bluffs."
+      ],
+      "keyTerms": [
+        { "term": "Blocker", "definition": "A card in your own hand that removes combos from the opponent's range — e.g. holding the A♠ removes nut-flush combos." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Combinations before card removal",
+        "headers": ["Hand type", "Example", "Combos"],
+        "rows": [
+          ["Pair", "AA", "6"],
+          ["Suited", "AKs", "4"],
+          ["Offsuit", "AKo", "12"],
+          ["Any unpaired", "AK total", "16"]
+        ]
+      }
+    },
+    {
+      "heading": "Polarized vs merged",
+      "body": [
+        "A **polarized** range has two poles: very strong hands and bluffs, with few medium hands. Big bets and overbets are usually polarized.",
+        "A **merged** range bets a continuous band — strong, medium, and thin value — at smaller sizes. The bet **size** tells you which range you are likely facing."
+      ],
+      "keyTerms": [
+        { "term": "Polarized", "definition": "A betting range of nuts-or-bluffs with little in the middle." },
+        { "term": "Merged", "definition": "A betting range that includes strong, medium, and some weak hands together." }
+      ],
+      "visual": {
+        "kind": "bars",
+        "caption": "Hand strength in a polarized betting range",
+        "items": [
+          { "label": "Strong value", "value": 45 },
+          { "label": "Medium", "value": 10 },
+          { "label": "Bluffs", "value": 45 }
+        ]
+      }
+    },
+    {
+      "heading": "Range advantage and nut advantage",
+      "body": [
+        "**Range advantage** means your whole range hits a board better than your opponent's on average. On `K♠ 7♦ 2♣`, the preflop raiser holds more kings and overpairs, so they have range advantage.",
+        "**Nut advantage** asks who holds the very strongest hands (sets, top two) more often. Range advantage drives how **often** you bet; nut advantage drives how **big**."
+      ],
+      "keyTerms": [
+        { "term": "Range advantage", "definition": "Holding more strong hands across your whole range on a given board." },
+        { "term": "Nut advantage", "definition": "Holding the strongest possible hands (the nuts) more often than your opponent." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Two different edges",
+        "text": "Range advantage → bet often. Nut advantage → bet big."
+      }
+    },
+    {
+      "heading": "Capped ranges and balance",
+      "body": [
+        "A **capped** range cannot hold the nuts — a player who just calls three streets rarely slow-played a monster, so their strength is bounded. Capped ranges invite **overbets** and bluffs.",
+        "Against thinking opponents, keep a **balanced** ratio of value and bluffs so no single response is profitable for them. Against weak players, deviate: bluff more vs over-folders, value-bet more vs calling stations."
+      ],
+      "keyTerms": [
+        { "term": "Capped", "definition": "A range with a ceiling on strength — it cannot contain the very best hands." },
+        { "term": "Balanced", "definition": "Mixing value and bluffs so that no single counter-strategy beats you." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "success",
+        "title": "Exploit the cap",
+        "text": "If villain's line caps them below the nuts, apply big pressure — they cannot have the hand to fight back."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Range thinking",
+      "title": "What can they have",
+      "caption": "Beginners ask what hand an opponent has. Strong players ask what hands they can have. A range is every holding consistent with their actions, and each bet, call, or check narrows it by removing hands that would not play that way.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Range, not one hand." }
+    },
+    {
+      "term": "Combos",
+      "title": "Counting combinations",
+      "caption": "Ranges are weighted by combinations. A specific pair has six combos, a suited hand has four, and an offsuit hand has twelve, so any unpaired hand has sixteen. Counting combos lets you quantify how many bluffs and value hands an opponent really holds.",
+      "visual": { "kind": "table", "headers": ["Hand", "Combos"], "rows": [["Pair", "6"], ["Suited", "4"], ["Offsuit", "12"]] }
+    },
+    {
+      "term": "Polarized vs merged",
+      "title": "Two shapes of a betting range",
+      "caption": "A polarized range is nuts or bluffs with little in between, and it shows up with big bets and overbets. A merged range bets strong, medium, and thin value together at smaller sizes. The bet size tells you which one you are up against."
+    },
+    {
+      "term": "Range advantage",
+      "title": "Whose range hits the board",
+      "caption": "Range advantage means your whole range connects with a board better on average — the preflop raiser usually owns high, dry boards. Nut advantage asks who holds the very best hands more often. Range advantage tells you how often to bet; nut advantage tells you how big.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Bet often versus bet big." }
+    },
+    {
+      "term": "Capped ranges",
+      "title": "Bounded strength invites pressure",
+      "caption": "A capped range cannot hold the nuts — someone who just calls street after street rarely hid a monster. That ceiling invites overbets and bluffs. Against good players keep your value and bluffs balanced; against weak ones, lean into their mistakes."
+    }
+  ],
   "questions": [
     {
       "id": "pt_rng_q1",

@@ -15,6 +15,132 @@
     "Bluffing is not random aggression — it is a calculated use of fold equity, blockers, and opponent tendencies. This lesson teaches when to fire, when to give up, and how semi-bluffs differ from pure air.",
     "Bluffing is not chaos — it is ratio math tied to bet sizing. A half-pot bluff needs to work only ~33% of the time to break even (risking 1 to win 2). Solver outputs pair value bets with bluffs at ratios that make opponents indifferent with MDF. Semi-bluffs add equity when called — flush draws and open-enders are the best bluff candidates because they win when opponents fold and improve when called. Blockers matter: holding the A♠ on a three-spade board reduces combos of nut flushes in villain's range, making bluffs more credible."
   ],
+  "primer": [
+    {
+      "heading": "Two kinds of bluff",
+      "body": [
+        "A bluff wins when a **better hand folds**. A **pure bluff** has almost no chance to win if called — its entire value is **fold equity**. A **semi-bluff** bets a draw, so it wins now when they fold *and* later when it hits.",
+        "Semi-bluffs are the workhorse of aggression: flush draws and open-enders make the best bluffing hands because they have a backup plan."
+      ],
+      "keyTerms": [
+        { "term": "Pure bluff", "definition": "A bet with little or no equity if called; it profits only when opponents fold." },
+        { "term": "Semi-bluff", "definition": "A bet with a draw — fold equity now plus the chance to improve if called." },
+        { "term": "Fold equity", "definition": "The value gained from the probability that an opponent folds to your bet." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Two ways to win",
+        "text": "Pure bluff: they fold. Semi-bluff: they fold **or** you hit. Two chances beat one."
+      }
+    },
+    {
+      "heading": "The breakeven of a bluff",
+      "body": [
+        "A pure bluff is a price problem. Risking a bet to win the current pot, the **breakeven fold frequency** is `bet / (bet + pot)`.",
+        "Bet `$40` into `$80` and you risk `$40` to win `$120` total — you need folds just **33%** of the time. Bigger bets need more folds; smaller bets need fewer."
+      ],
+      "keyTerms": [
+        { "term": "Breakeven fold frequency", "definition": "How often a bluff must succeed (a fold) to break even: `bet / (bet + pot)`." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "breakeven fold % = bet / (pot + bet)",
+        "caption": "Half-pot bluff breaks even at 33% folds; pot-sized at 50%."
+      },
+      "example": {
+        "prompt": "You bet `$40` into an `$80` pot as a pure bluff. How often must villain fold to break even?",
+        "steps": [
+          "You risk `$40` to win the `$80` already in the pot.",
+          "Breakeven folds = `40 / (40 + 80) = 40/120`."
+        ],
+        "result": "≈33% — if villain folds more than a third of the time, the bluff profits."
+      }
+    },
+    {
+      "heading": "Board texture and the story",
+      "body": [
+        "Bluffs need a believable **story**: your line should represent hands you would genuinely bet for value. **Dry** boards (like `K♠ 7♦ 2♣`) miss most calling ranges and make great c-bet bluffs.",
+        "**Wet** boards and **scare cards** that complete draws can boost a bluff *if you can represent them* — but multiway pots and **calling stations** gut your fold equity."
+      ],
+      "keyTerms": [
+        { "term": "Calling station", "definition": "A player who calls far too often; bluff them less and value-bet them more." },
+        { "term": "Polarization", "definition": "Betting only strong hands and bluffs, so your big bets stay credible either way." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "When bluffs fail",
+        "text": "Multiway pots and calling stations crush fold equity — bet for value instead."
+      }
+    },
+    {
+      "heading": "Blockers make bluffs credible",
+      "body": [
+        "**Blockers** are cards in your hand that remove your opponent's strongest combos. Holding the `A♠` on a three-spade board means villain holds the nut flush far less often, so your bluff gets through more.",
+        "Pick bluffs that **block** the value hands villain needs to continue — and pick your give-ups from hands that unblock them."
+      ],
+      "keyTerms": [
+        { "term": "Blocker", "definition": "A card you hold that reduces the number of strong combos the opponent can have." }
+      ],
+      "example": {
+        "prompt": "River `Q♠ J♠ 7♠ 3♥ 2♣`. Bluff with `A♠ 5♦` or with `8♣ 4♦`?",
+        "steps": [
+          "Villain calls a big bet mostly with spade flushes.",
+          "`A♠` removes every nut-flush combo from villain's range.",
+          "`8♣ 4♦` blocks nothing relevant on this board."
+        ],
+        "result": "Bluff `A♠ 5♦` — the ace blocker makes the story far more credible."
+      }
+    },
+    {
+      "heading": "When to fire and when to give up",
+      "body": [
+        "Aggression is **selective**, not constant. Fire when you have fold equity, a credible story, and ideally blockers or a draw. **Give up** when the story breaks, the board favors villain, or fold equity is gone.",
+        "A bluff that gets raised is usually dead — re-evaluate rather than reflexively firing again. Saving the next bet is part of the EV."
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "A quick checklist before you fire",
+        "items": [
+          "Can I represent a real value hand here?",
+          "Does villain fold often enough (vs the breakeven %)?",
+          "Do I hold blockers or draw equity?",
+          "If raised, do I have a plan to fold?"
+        ]
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Pure vs semi-bluff",
+      "title": "Two kinds of bluff",
+      "caption": "A bluff wins when a better hand folds. A pure bluff has almost no chance if called — its whole value is fold equity. A semi-bluff bets a draw, so it wins now if they fold and later if it hits. Two ways to win beats one.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Fold now, or hit later." }
+    },
+    {
+      "term": "Bluff breakeven",
+      "title": "How often it must work",
+      "caption": "A pure bluff is a price problem. The breakeven fold frequency is the bet divided by the bet plus the pot. Betting forty into eighty, you risk forty to win one hundred twenty, so you need folds only a third of the time. Bigger bets need more folds.",
+      "visual": { "kind": "formula", "expression": "breakeven fold % = bet / (pot + bet)" }
+    },
+    {
+      "term": "Story",
+      "title": "Tell a believable story",
+      "caption": "Bluffs need a story — your betting should represent hands you would actually bet for value. Dry boards miss most calling ranges and make great bluffs. But multiway pots and calling stations destroy your fold equity, so bet for value against them instead."
+    },
+    {
+      "term": "Blockers",
+      "title": "Block the hands they need",
+      "caption": "Blockers are cards in your hand that remove an opponent's strongest combinations. Holding the ace of spades on a three-spade board means they hold the nut flush far less often, so your bluff gets through more. Choose bluffs that block their calls.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Hold the ace, kill the nut flush." }
+    },
+    {
+      "term": "When to give up",
+      "title": "Aggression is selective",
+      "caption": "Fire when you have fold equity, a believable story, and ideally blockers or a draw. Give up when the story breaks or the board helps your opponent. A bluff that gets raised is usually finished — saving that next bet is part of the profit."
+    }
+  ],
   "questions": [
     {
       "id": "pt_bl_q1",

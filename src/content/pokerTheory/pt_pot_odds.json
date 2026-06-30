@@ -15,6 +15,170 @@
     "Implied odds adjust for future chips you may win when you hit your draw. This lesson connects raw math to Hold'em decisions — flush draws, gutshots, and river calls.",
     "Pot odds and minimum defense frequency (MDF) are two sides of the same coin: pot odds tell the caller what equity they need; MDF tells the defender how often they must continue so a bluff cannot auto-profit. On the river, a half-pot bet requires roughly 25% equity to call but also implies the defender should continue about 67% of the time to prevent pure bluffs from printing money. GTO players balance value and bluffs at each sizing; exploitative players attack when opponents fold too much or call too light. The math is simple — the discipline is applying it under pressure."
   ],
+  "primer": [
+    {
+      "heading": "Pot odds: the price to continue",
+      "body": [
+        "**Pot odds** compare what you must call to what you can win. Call `$10` into a `$40` pot (the pot after the bet) and you are getting **4-to-1** — you risk one to win four.",
+        "Convert that ratio to a percentage so you can compare it against your chance of winning. The **breakeven equity** is `call / (call + total pot)`."
+      ],
+      "keyTerms": [
+        { "term": "Pot odds", "definition": "The ratio of the call price to the total pot you stand to win." },
+        { "term": "Breakeven equity", "definition": "The minimum win probability that makes a call exactly break even in the long run." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "breakeven equity = call / (pot + call)",
+        "caption": "Call when your hand's equity exceeds this percentage."
+      },
+      "example": {
+        "prompt": "Villain bets `$20` into an `$80` pot. You must call `$20`. What equity do you need?",
+        "steps": [
+          "The pot you can win is `$80 + $20 = $100`; you call `$20`.",
+          "Breakeven = `20 / (20 + 100) = 20/120 ≈ 0.167`."
+        ],
+        "result": "You need ≥ ~17% equity to call — the pot lays you 5-to-1."
+      }
+    },
+    {
+      "heading": "Counting outs (rules of 2 and 4)",
+      "body": [
+        "An **out** is a card that completes your hand. A flush draw has **9 outs** (13 of a suit minus the 4 you can already see).",
+        "Shortcut: on the flop, multiply outs by **4** for your chance to hit by the river; with one card to come, multiply by **2**. Nine outs ≈ 36% by the river, ≈ 18% on the turn."
+      ],
+      "keyTerms": [
+        { "term": "Out", "definition": "A remaining card that improves your hand to a likely winner." },
+        { "term": "Equity", "definition": "Your share of the pot — the probability your hand wins by showdown." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Common draws via the rule of 4 (flop to river)",
+        "headers": ["Draw", "Outs", "≈ Equity by river"],
+        "rows": [
+          ["Gutshot", "4", "16%"],
+          ["Open-ended straight", "8", "32%"],
+          ["Flush draw", "9", "36%"],
+          ["Flush + straight combo", "15", "~60%"]
+        ]
+      }
+    },
+    {
+      "heading": "The decision: equity vs breakeven",
+      "body": [
+        "Here is the whole game: if your **equity** beats the **breakeven** number, call; if not, fold. Pot odds give the threshold, outs give your equity.",
+        "Pair them up: a flush draw (≈36%) against a half-pot bet that needs ~25% to call is an easy continue."
+      ],
+      "example": {
+        "prompt": "Pot `$100`, villain bets `$100` (pot-sized). You hold a flush draw on the flop. Call?",
+        "steps": [
+          "Pot-sized bet → breakeven = `100 / (100 + 200) ≈ 33%`.",
+          "Flush draw equity ≈ 36% by the river (9 outs × 4).",
+          "36% > 33% breakeven."
+        ],
+        "result": "Ahead of the price using the rule of 4; with implied odds it is a clear call."
+      }
+    },
+    {
+      "heading": "Expected value",
+      "body": [
+        "**Expected value (EV)** sums each outcome times its probability. A call can lose most individual times yet still be +EV across thousands of similar spots.",
+        "EV of a call = `equity × (pot won) − (1 − equity) × (call)`. When that number is positive, the call makes money long-term."
+      ],
+      "keyTerms": [
+        { "term": "Expected value (EV)", "definition": "The probability-weighted average result of a decision over the long run." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "EV(call) = equity × (pot won) − (1 − equity) × call",
+        "caption": "Positive EV means the play profits if repeated."
+      },
+      "example": {
+        "prompt": "You call `$10` to win the `$30` already in the pot, holding 40% equity. EV?",
+        "steps": [
+          "Win 40% of the time: `0.40 × $30 = $12`.",
+          "Lose 60% of the time: `0.60 × $10 = $6`.",
+          "EV = `$12 − $6 = +$6`."
+        ],
+        "result": "+`$6` per call — clearly profitable."
+      }
+    },
+    {
+      "heading": "Implied and reverse implied odds",
+      "body": [
+        "**Implied odds** count chips you expect to win on **later** streets when you hit. They justify calls that raw pot odds reject — like **set-mining** a small pair, which flops a set only ~12% but can win a whole stack.",
+        "**Reverse implied odds** are the mirror: hands that win small and lose big, like a non-nut flush that pays off the nut flush. Deep stacks magnify both effects."
+      ],
+      "keyTerms": [
+        { "term": "Implied odds", "definition": "Extra chips you can win on future streets if you complete your hand." },
+        { "term": "Reverse implied odds", "definition": "The risk of losing additional chips when you make a strong-looking but second-best hand." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Set-mining",
+        "text": "A pocket pair flops a set ≈12% (about 1 in 8). It needs deep stacks so the rare hit pays for the many misses."
+      }
+    },
+    {
+      "heading": "MDF: the defender's mirror",
+      "body": [
+        "Pot odds tell the **caller** what equity they need. **Minimum defense frequency (MDF)** tells the **defender** how often to continue so a pure bluff cannot auto-profit.",
+        "MDF = `pot / (pot + bet)`. Fold more often than this against a pure bluffer and they print money betting any two cards."
+      ],
+      "keyTerms": [
+        { "term": "Minimum defense frequency (MDF)", "definition": "The smallest fraction of your range you must continue with to stop bluffs from being automatically profitable." }
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "MDF = pot / (pot + bet)",
+        "caption": "Half-pot bet → 100/150 ≈ 67% must continue."
+      },
+      "example": {
+        "prompt": "River pot is `$100`. Villain bets `$50` (half pot). What is the MDF?",
+        "steps": [
+          "MDF = `pot / (pot + bet) = 100 / (100 + 50)`.",
+          "`100 / 150 ≈ 0.667`."
+        ],
+        "result": "Continue with ≈67% of your range to deny auto-profit bluffs."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Pot odds",
+      "title": "The price to continue",
+      "caption": "Pot odds compare the chips you must call to the total you can win. Calling ten into a forty-dollar pot gives you four to one. Turn that ratio into a percentage — your breakeven equity is the call divided by the pot plus the call.",
+      "visual": { "kind": "formula", "expression": "breakeven = call / (pot + call)" }
+    },
+    {
+      "term": "Outs",
+      "title": "Counting your outs",
+      "caption": "An out is a card that completes your hand. A flush draw has nine outs. On the flop, multiply outs by four for your chance to get there by the river; with one card left, multiply by two. Nine outs is about thirty-six percent by the river.",
+      "visual": { "kind": "table", "headers": ["Draw", "Outs", "Equity"], "rows": [["Gutshot", "4", "16%"], ["Open-ender", "8", "32%"], ["Flush", "9", "36%"]] }
+    },
+    {
+      "term": "The decision",
+      "title": "Equity versus breakeven",
+      "caption": "Here is the whole game: if your equity beats the breakeven number, call; if it does not, fold. A flush draw is about thirty-six percent, so against a half-pot bet that needs twenty-five percent, you call."
+    },
+    {
+      "term": "Expected value",
+      "title": "EV over the long run",
+      "caption": "Expected value sums each outcome times its probability. A call can lose most of the time and still make money over thousands of spots. Multiply your equity by the pot, subtract your call times the chance you miss, and if that is positive, it profits.",
+      "visual": { "kind": "formula", "expression": "EV = equity × pot − (1 − equity) × call" }
+    },
+    {
+      "term": "Implied odds",
+      "title": "Chips you win later",
+      "caption": "Implied odds count the chips you expect to win on later streets when you hit. They justify set-mining a small pair, which flops a set only about one in eight times but can win a whole stack. Reverse implied odds are the opposite — hands that win small and lose big."
+    },
+    {
+      "term": "Minimum defense frequency",
+      "title": "The defender's mirror",
+      "caption": "Pot odds tell the caller what equity they need. Minimum defense frequency tells the defender how often to keep going so a pure bluff cannot auto-profit. It is the pot divided by the pot plus the bet — about sixty-seven percent against a half-pot bet.",
+      "visual": { "kind": "formula", "expression": "MDF = pot / (pot + bet) ≈ 67%" }
+    }
+  ],
   "questions": [
     {
       "id": "pt_po_q1",
