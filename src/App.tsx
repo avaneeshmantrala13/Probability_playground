@@ -11,6 +11,8 @@ import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { Home } from "./pages/Home";
 import { Lessons } from "./pages/Lessons";
+import { Learn } from "./pages/Learn";
+import { LearnLesson } from "./pages/LearnLesson";
 import { Settings } from "./pages/Settings";
 import { Playground } from "./pages/Playground";
 import { Badges } from "./pages/Badges";
@@ -90,6 +92,8 @@ export function App() {
         <Route path="/signup" element={user ? <Navigate to="/" replace /> : <Signup />} />
 
         <Route path="/" element={<Protected><Home /></Protected>} />
+        <Route path="/learn" element={<Protected><Learn /></Protected>} />
+        <Route path="/learn/:lessonId" element={<Protected><LearnLesson /></Protected>} />
         <Route path="/lessons" element={<Protected><Lessons /></Protected>} />
         <Route
           path="/lessons/:lessonId"
