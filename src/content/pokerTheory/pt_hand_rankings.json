@@ -15,6 +15,135 @@
     "Misreading hand strength is one of the costliest beginner mistakes. This lesson trains you to rank hands quickly, spot counterfeited pairs, and recognize when the board alone is the best hand for everyone.",
     "Hand rankings are not just a memorization chart — they determine whether you are value betting, bluff-catching, or folding to aggression. In solver-backed play, nut hands (the best possible holding on a board) get bet and raised aggressively, while second-best made hands face reverse implied odds and thin value decisions. Kickers break ties on paired boards; playing the board splits pots. Recognizing when your full house loses to a higher boat, or when your flush is dominated, is the difference between a +EV call and a stack-dumping mistake."
   ],
+  "primer": [
+    {
+      "heading": "The ranking ladder",
+      "body": [
+        "Every showdown reduces to one question: whose best **five-card hand** is highest? Hold'em uses a fixed ten-rung ladder, from **high card** at the bottom up to the **royal flush** at the top.",
+        "You build your five from any mix of your two hole cards and the five board cards. Memorize the order cold — every value bet, bluff-catch, and fold depends on reading it instantly."
+      ],
+      "keyTerms": [
+        { "term": "Made hand", "definition": "A completed five-card hand (a pair or better), as opposed to a draw still hoping to improve." },
+        { "term": "The nuts", "definition": "The best possible hand on a given board — by definition it cannot be beaten." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Strongest to weakest",
+        "headers": ["Rank", "Hand", "Example"],
+        "rows": [
+          ["1 (best)", "Royal flush", "`A♠ K♠ Q♠ J♠ T♠`"],
+          ["2", "Straight flush", "`9♥ 8♥ 7♥ 6♥ 5♥`"],
+          ["3", "Four of a kind", "`Q Q Q Q 7`"],
+          ["4", "Full house", "`K K K 7 7`"],
+          ["5", "Flush", "`A♠ J♠ 8♠ 5♠ 2♠`"],
+          ["6", "Straight", "`T 9 8 7 6`"],
+          ["7", "Three of a kind", "`8 8 8 K 4`"],
+          ["8", "Two pair", "`K K 7 7 Q`"],
+          ["9", "One pair", "`A A 9 5 2`"],
+          ["10 (worst)", "High card", "`A K 9 5 2`"]
+        ]
+      }
+    },
+    {
+      "heading": "Rarer hands win",
+      "body": [
+        "The ladder is not arbitrary — it is sorted by **rarity**. The harder a hand is to make, the higher it ranks. A pair appears constantly; four of a kind almost never does, so quads win.",
+        "This is why a flush beats a straight: with 13 cards per suit, completing five of one suit is harder than finding five consecutive ranks. When you forget the order, ask which holding is **less likely**."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "The rarity rule",
+        "text": "If you are unsure which hand wins, the **less likely** holding is the stronger one. Rank is just the inverse of frequency."
+      }
+    },
+    {
+      "heading": "Kickers break ties",
+      "body": [
+        "When two players hold the **same rank** of hand, the **kicker** — the highest unused side card — decides it. Compare cards top-down until they differ.",
+        "Pair of aces with a king kicker beats pair of aces with a queen kicker. On paired boards especially, the kicker is often the whole ballgame."
+      ],
+      "keyTerms": [
+        { "term": "Kicker", "definition": "A side card that is not part of the made hand itself, used to break ties between equal-ranked hands." }
+      ],
+      "example": {
+        "prompt": "You hold A♦ J♦, villain holds A♠ T♠, board A♥ 8♣ 5♦ 2♠ K♣. Who wins?",
+        "steps": [
+          "Both make exactly a pair of aces using the A♥ on the board.",
+          "Neither completes a straight, flush, or second pair — so compare kickers.",
+          "Your best five is A-A-K-J-8; villain's is A-A-K-T-8.",
+          "The first three cards tie (A-A-K). Your jack beats his ten."
+        ],
+        "result": "You win — the jack kicker outranks the ten."
+      }
+    },
+    {
+      "heading": "Playing the board",
+      "body": [
+        "You may use **zero, one, or two** hole cards. Sometimes the five community cards are already the best hand you can make — you 'play the board'.",
+        "When the board is the best five-card hand for everyone still in, the pot is **split**. A lone high hole card does not help if it cannot improve on the board."
+      ],
+      "keyTerms": [
+        { "term": "Playing the board", "definition": "Using zero hole cards because the five community cards already form your best five-card hand." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Watch for split pots",
+        "text": "If the board makes a straight or flush that no hole card can beat, every remaining player ties and **chops** the pot."
+      }
+    },
+    {
+      "heading": "Counterfeiting and the nuts",
+      "body": [
+        "Strong hands are **relative**. A full house is huge — unless a bigger full house is out there. When the board pairs, your trips or two pair can be **counterfeited**: overtaken by a higher version of the same hand.",
+        "Always ask what the **nuts** are on this board and how close you are to them. Second-best hands on scary boards win small pots and lose big ones — the essence of reverse implied odds."
+      ],
+      "keyTerms": [
+        { "term": "Counterfeit", "definition": "When a board card pairs and devalues your hand — e.g. a board pair hands everyone a higher full house." },
+        { "term": "Nut flush", "definition": "The ace-high flush — the best possible flush whenever three or more of a suit appear on the board." }
+      ],
+      "example": {
+        "prompt": "You hold 8♦ 8♠ on board 8♥ K♣ K♦ 5♠ 5♥. An opponent holds A♠ K♠. Who wins?",
+        "steps": [
+          "Your best five: three 8s plus the board's kings — 8-8-8-K-K, eights full of kings.",
+          "Opponent uses the board's K-K plus their K♠ for three kings, then 5-5 — K-K-K-5-5, kings full of fives.",
+          "Compare the trips that anchor each full house: kings beat eights."
+        ],
+        "result": "Opponent wins — kings full beats eights full, even though your hand is 'full' too."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "The ranking ladder",
+      "title": "What beats what",
+      "caption": "Every showdown asks one thing: whose best five-card hand is highest? Hold'em sorts hands on a fixed ladder, from high card at the bottom up to the royal flush at the top. Learn the order until it is automatic.",
+      "visual": { "kind": "steps", "items": ["High card, one pair, two pair", "Trips, straight, flush", "Full house, four of a kind", "Straight flush, royal flush"] }
+    },
+    {
+      "term": "Rarity",
+      "title": "Rarer hands win",
+      "caption": "The order is not arbitrary — it tracks how rare each hand is. Pairs show up all the time, four of a kind almost never, so four of a kind wins. When you forget which is stronger, just ask which hand is harder to make.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Less likely means stronger." }
+    },
+    {
+      "term": "Kickers",
+      "title": "Side cards settle ties",
+      "caption": "When two players make the same hand, the kicker decides it. A pair of aces with a king kicker beats a pair of aces with a queen. Compare the cards from the top down until they differ."
+    },
+    {
+      "term": "Playing the board",
+      "title": "Sometimes the board wins",
+      "caption": "You can use zero, one, or two of your hole cards. If the five community cards are already the best hand, everyone plays the board and the pot is split. A single high card does not help unless it actually improves on the board."
+    },
+    {
+      "term": "Counterfeiting and the nuts",
+      "title": "Strength is relative",
+      "caption": "A full house is only as good as the bigger full houses it might be facing. When the board pairs, your hand can be counterfeited and overtaken. Always ask what the best possible hand is, and how close yours is to it.",
+      "visual": { "kind": "callout", "tone": "warning", "text": "Eights full loses to kings full." }
+    }
+  ],
   "questions": [
     {
       "id": "pt_hr_q1",

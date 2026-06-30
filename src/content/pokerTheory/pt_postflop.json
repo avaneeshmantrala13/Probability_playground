@@ -15,6 +15,132 @@
     "Every postflop bet is either for value (wanting calls from worse) or as a bluff (wanting folds from better). Mixed strategies use both — and the best players choose sizes and frequencies that keep opponents guessing while exploiting board and range factors.",
     "Postflop strategy balances range advantage, board texture, and bet sizing. On dry flops like K♠ 7♥ 2♦, the preflop raiser can c-bet small with high frequency because the board misses most calling ranges. Wet flops like J♠ T♠ 9♣ demand selective c-betting and larger sizes with strong hands and draws. Double-barreling (betting turn after flop c-bet) works best when scare cards favor your range or when you hold equity. GTO mixes value and bluffs at each frequency; exploitative players fire extra barrels when opponents fold too much to pressure."
   ],
+  "primer": [
+    {
+      "heading": "The continuation bet",
+      "body": [
+        "The **continuation bet** (c-bet) is the preflop raiser betting the flop. It leans on two edges at once: the **initiative** from raising and the **range advantage** of holding more strong hands.",
+        "Opponents who flat-called preflop miss most flops, so a well-chosen c-bet wins many pots immediately."
+      ],
+      "keyTerms": [
+        { "term": "Continuation bet (c-bet)", "definition": "A flop bet by the player who raised preflop, continuing their story." },
+        { "term": "Range advantage", "definition": "Holding more strong hands across your range on a given board." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Why c-bets work",
+        "text": "Preflop initiative + range advantage + a caller who usually missed = frequent uncontested pots."
+      }
+    },
+    {
+      "heading": "Board texture: dry vs wet",
+      "body": [
+        "**Dry** boards are uncoordinated — like `K♠ 7♦ 2♣` (rainbow, no draws). They favor the raiser and allow small, high-frequency c-bets.",
+        "**Wet** boards are connected — like `J♠ T♠ 9♣` (straights and flush draws everywhere). They hit the caller's range too, demanding selective, often larger bets."
+      ],
+      "keyTerms": [
+        { "term": "Dry board", "definition": "An uncoordinated flop with few draws; favors the preflop aggressor." },
+        { "term": "Wet board", "definition": "A coordinated flop with many draws; connects with more hands." },
+        { "term": "Scare card", "definition": "A turn or river card that completes likely draws and shifts equity." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Reading texture",
+        "headers": ["Flop", "Texture", "C-bet plan"],
+        "rows": [
+          ["`K♠ 7♦ 2♣`", "Dry", "Small, high frequency"],
+          ["`A♣ 8♦ 3♠`", "Dry", "Small, high frequency"],
+          ["`J♠ T♠ 9♣`", "Wet", "Selective, larger"]
+        ]
+      }
+    },
+    {
+      "heading": "Value or bluff: the only two reasons to bet",
+      "body": [
+        "Every bet is either for **value** (you want calls from worse hands) or a **bluff** (you want folds from better hands). Naming your reason before betting prevents spew.",
+        "Medium hands often prefer to **check** — they don't want calls from better or folds from worse, so they realize their equity cheaply via **pot control**."
+      ],
+      "keyTerms": [
+        { "term": "Value bet", "definition": "A bet aiming to get called by weaker hands." },
+        { "term": "Bluff", "definition": "A bet aiming to fold out stronger hands." },
+        { "term": "Pot control", "definition": "Keeping the pot small with medium-strength hands by checking instead of betting." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Ask before you bet",
+        "text": "Worse hands call? → value. Better hands fold? → bluff. Neither? → check."
+      }
+    },
+    {
+      "heading": "Sizing and frequency",
+      "body": [
+        "Texture sets the size. On dry boards a **small** c-bet (≈25–33% pot) does the job — little can profitably call. On wet boards, bet **bigger** with value and strong draws to charge the many draws.",
+        "Frequency follows too: c-bet your whole range often on boards you smash; slow down and check more on boards that favor the caller."
+      ],
+      "visual": {
+        "kind": "bars",
+        "caption": "Typical c-bet size by texture (% of pot)",
+        "items": [
+          { "label": "Dry (K-7-2)", "value": 30 },
+          { "label": "Semi-wet", "value": 50 },
+          { "label": "Wet (J-T-9ss)", "value": 75 }
+        ]
+      }
+    },
+    {
+      "heading": "Barreling and scare cards",
+      "body": [
+        "A **double barrel** is a second bet on the turn after a flop c-bet; a **triple barrel** continues on the river. Barrels work best when a **scare card** improves your range or hurts the caller's.",
+        "A blank turn that changes nothing usually means **less** fold equity than the flop — pick your second barrels on cards that genuinely shift the story."
+      ],
+      "keyTerms": [
+        { "term": "Double barrel", "definition": "Betting the turn after c-betting the flop." },
+        { "term": "Triple barrel", "definition": "Continuing the aggression with a third bet on the river." }
+      ],
+      "example": {
+        "prompt": "You c-bet `J♠ T♠ 4♠` and get called. The turn is another spade and you hold no spade. Barrel again?",
+        "steps": [
+          "The flush draw just **completed** — many callers now hold a made flush.",
+          "Your fold equity drops; you cannot credibly represent the flush without a spade.",
+          "A blank, or a card that favors *your* range, would be a far better barreling card."
+        ],
+        "result": "Usually check or give up — the completing card kills fold equity for a no-spade bluff."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Continuation bet",
+      "title": "Betting the flop you raised",
+      "caption": "A continuation bet is the preflop raiser betting the flop. It uses two edges at once: the initiative from raising, and the range advantage of holding more strong hands. Since callers miss most flops, a good continuation bet wins a lot of pots right away.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Initiative plus range advantage." }
+    },
+    {
+      "term": "Board texture",
+      "title": "Dry boards versus wet",
+      "caption": "Dry boards are uncoordinated, like king-seven-two rainbow — they favor the raiser and allow small, frequent bets. Wet boards are connected, with straights and flush draws everywhere — they hit the caller too, so you bet more selectively and often larger.",
+      "visual": { "kind": "table", "headers": ["Flop", "Texture"], "rows": [["K-7-2", "Dry"], ["J-T-9", "Wet"]] }
+    },
+    {
+      "term": "Value or bluff",
+      "title": "Name your reason to bet",
+      "caption": "Every bet is either for value, wanting calls from worse hands, or a bluff, wanting folds from better hands. Name the reason before you bet. Medium hands usually prefer to check and control the pot, realizing their equity cheaply.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Value, bluff, or check." }
+    },
+    {
+      "term": "Sizing",
+      "title": "Texture sets the size",
+      "caption": "Texture decides how big to bet. On dry boards a small bet around a third of the pot is plenty, because little can call. On wet boards, bet bigger with your value and strong draws to charge the many draws that are out there.",
+      "visual": { "kind": "bars", "items": [{ "label": "Dry", "value": 30 }, { "label": "Wet", "value": 75 }] }
+    },
+    {
+      "term": "Barreling",
+      "title": "Second and third barrels",
+      "caption": "A double barrel is a second bet on the turn; a triple barrel continues on the river. Barrels work best when a scare card helps your range or hurts the caller's. A blank turn that changes nothing usually means less fold equity, so choose your barrels carefully."
+    }
+  ],
   "questions": [
     {
       "id": "pt_pf_q1",

@@ -15,6 +15,129 @@
     "The blinds are unique: they post forced bets but act last preflop and first postflop. Understanding seat names and action order prevents costly mistakes before you ever look at your cards.",
     "Position is leverage. In GTO preflop charts, the button opens roughly twice as wide as under-the-gun because every postflop street you act last — controlling pot size, floating with equity, and stealing dead money on later streets. Out of position (OOP), you pay an information tax: you bet without knowing whether opponents will raise, and you check without knowing whether a free card costs you the pot. Exploitative players widen steals on the cutoff and button against tight blinds, while solver models defend the big blind wider than most live players because pot odds and closing action justify it."
   ],
+  "primer": [
+    {
+      "heading": "The seats, named by action",
+      "body": [
+        "Seats are named by **when they act**, moving clockwise from the **dealer button**. At a full table: under the gun (**UTG**), middle position, the **cutoff** (CO), the **button** (BTN), then the **small blind** and **big blind**.",
+        "The button is the best seat; the blinds and UTG are the worst. Each hand the button rotates one seat left, so position is temporary — squeeze value out of it while you hold it."
+      ],
+      "keyTerms": [
+        { "term": "Under the gun (UTG)", "definition": "First to act preflop — the tightest opening seat because everyone acts behind you." },
+        { "term": "Cutoff (CO)", "definition": "The seat to the right of the button; the second-best position and a prime stealing seat." },
+        { "term": "Button (BTN)", "definition": "The dealer seat; acts last on every postflop street — the most profitable position at the table." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "Seat map and when each acts",
+        "headers": ["Seat", "Position", "Postflop order"],
+        "rows": [
+          ["UTG", "Early", "Early"],
+          ["MP", "Middle", "Middle"],
+          ["CO", "Late", "Late"],
+          ["BTN", "Latest", "Last"],
+          ["SB / BB", "Blinds", "First"]
+        ]
+      }
+    },
+    {
+      "heading": "The order flips after the flop",
+      "body": [
+        "**Preflop** the blinds have already posted, so action starts at UTG and the **big blind acts last** (holding the option in an unraised pot).",
+        "**Postflop** the order flips: the blinds act **first** and the button acts **last**. That flip is exactly why the button is so strong — every street after the flop it sees all other actions before deciding."
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "Who closes the action",
+        "items": ["**Preflop** — the big blind acts last", "**Postflop** — the button acts last", "Blinds: last preflop, first postflop"]
+      }
+    },
+    {
+      "heading": "Position is information",
+      "body": [
+        "Acting last is a permanent information edge. **In position** (IP) you watch opponents check or bet before you decide; **out of position** (OOP) you commit chips blind to their response.",
+        "In position you control the pot size, realize your equity more often, and bluff or value-bet with more certainty. Out of position you pay an 'information tax' on every street."
+      ],
+      "keyTerms": [
+        { "term": "In position (IP)", "definition": "Acting after your opponent on a street — you decide with more information." },
+        { "term": "Out of position (OOP)", "definition": "Acting before your opponent — you must commit chips without seeing their action." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Why position prints money",
+        "text": "Last to act = most information = best decisions. Play more hands in position, fewer out of position."
+      }
+    },
+    {
+      "heading": "Open ranges widen by seat",
+      "body": [
+        "Because players still to act can wake up with a big hand, **early position opens tight**. The button, with only the two blinds behind it, opens roughly **twice as wide**.",
+        "More players behind means more ways to be dominated, 3-bet, or squeezed. Fewer players behind means more dead money to steal."
+      ],
+      "visual": {
+        "kind": "bars",
+        "caption": "Roughly how wide each seat opens (% of hands, 6-max)",
+        "items": [
+          { "label": "UTG", "value": 15 },
+          { "label": "MP", "value": 19 },
+          { "label": "CO", "value": 27 },
+          { "label": "BTN", "value": 45 }
+        ]
+      }
+    },
+    {
+      "heading": "Steals, squeezes, and defending the blind",
+      "body": [
+        "From late position you can **steal** — open-raise hoping the blinds fold their dead money. A **squeeze** is a re-raise after an open and one or more callers, leveraging fold equity against several weak ranges at once.",
+        "The big blind **defends** wider than anyone, because part of the call is already posted and it closes the action — pot odds justify continuing with many hands."
+      ],
+      "keyTerms": [
+        { "term": "Steal", "definition": "A late-position open-raise aimed at winning the blinds uncontested." },
+        { "term": "Squeeze", "definition": "A re-raise after an opener and at least one caller, attacking the dead money in the middle." },
+        { "term": "Defend (BB)", "definition": "Calling or 3-betting from the big blind to avoid over-folding the blind you already posted." }
+      ],
+      "example": {
+        "prompt": "Six-max `$1/$2`. Folded to you on the button; the blinds fold about 70% to a `$5` open. Why is stealing profitable?",
+        "steps": [
+          "You risk `$5` to win the `$3` of blinds outright whenever they fold (~70% here).",
+          "On the ~30% you get called, you still act last on every postflop street.",
+          "Fold equity now plus the positional edge later makes a wide button open +EV."
+        ],
+        "result": "Wide button steals print money from fold equity and position combined."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "The seats",
+      "title": "Named by when they act",
+      "caption": "Seats are named by action order, moving clockwise from the dealer button. Under the gun acts first, then middle position, the cutoff, the button, and finally the small and big blinds. The button is the best seat, and it rotates one seat every hand.",
+      "visual": { "kind": "table", "headers": ["Seat", "Role"], "rows": [["UTG", "Early"], ["CO", "Late"], ["BTN", "Latest"], ["SB/BB", "Blinds"]] }
+    },
+    {
+      "term": "Action order",
+      "title": "The order flips after the flop",
+      "caption": "Before the flop the blinds act last because they have already posted, so the big blind closes the action. After the flop the order flips: the blinds act first and the button acts last. That flip is what makes the button so powerful."
+    },
+    {
+      "term": "In position",
+      "title": "Acting last is information",
+      "caption": "Acting last is a permanent information edge. In position, you watch opponents check or bet before you decide. Out of position, you commit chips blind to their response. Play more hands in position and fewer out of position.",
+      "visual": { "kind": "callout", "tone": "info", "text": "Last to act means best decisions." }
+    },
+    {
+      "term": "Opening ranges",
+      "title": "Early tight, late wide",
+      "caption": "Because players behind you can wake up with a strong hand, you open tight from early position. On the button, with only two blinds left to act, you open about twice as wide. More players behind means more danger; fewer means more dead money to take.",
+      "visual": { "kind": "bars", "items": [{ "label": "UTG", "value": 15 }, { "label": "CO", "value": 27 }, { "label": "BTN", "value": 45 }] }
+    },
+    {
+      "term": "Steals and squeezes",
+      "title": "Attacking dead money",
+      "caption": "From late position you can steal by raising to win the blinds when everyone folds. A squeeze re-raises after an opener and a caller to attack their dead money. And the big blind defends wider than anyone, because part of the call is already posted."
+    }
+  ],
   "questions": [
     {
       "id": "pt_pos_q1",
