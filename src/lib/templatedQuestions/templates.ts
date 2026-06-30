@@ -437,6 +437,149 @@ function medianTemplate(rng: RNG): BuiltQuestion {
 }
 
 // ---------------------------------------------------------------------------
+// Counting-outcomes templates (METHOD = counting outcomes via the product rule).
+// Each counts the SIZE of a sample space — the answer is a plain integer, not a
+// probability — mirroring "How many outcomes when you flip k coins?" (2^k).
+// Distractors are ordered so the first three are always mutually distinct and
+// distinct from the answer, guaranteeing a well-formed 4-option MCQ.
+// ---------------------------------------------------------------------------
+
+function countCoins(rng: RNG): BuiltQuestion {
+  // k=4 is excluded so 2·k (=8) never collides with 2^(k-1) (=8).
+  const k = rng.pick([3, 5, 6, 7, 8]);
+  const correct = Math.pow(2, k);
+
+  return {
+    question: `A fair coin is flipped ${k} times and the ordered sequence of results is recorded. How many possible outcomes are there?`,
+    concept: "counting outcomes (product rule)",
+    correct: {
+      text: `${correct}`,
+      why: `Each flip has 2 outcomes and the flips are independent, so by the product rule there are 2^${k} = ${correct} outcomes.`,
+    },
+    distractors: [
+      {
+        text: `${Math.pow(2, k - 1)}`,
+        why: `That is 2^${k - 1}, which counts only ${k - 1} flips — one coin short.`,
+      },
+      {
+        text: `${Math.pow(2, k + 1)}`,
+        why: `That is 2^${k + 1}, one flip too many; there are only ${k} coins.`,
+      },
+      {
+        text: `${2 * k}`,
+        why: `That adds 2 once per flip (2 × ${k}); independent choices multiply, so it is 2^${k}, not 2·${k}.`,
+      },
+      {
+        text: `${k * k}`,
+        why: `That is ${k}², which is neither the number of flips nor the per-flip outcomes; use 2^${k}.`,
+      },
+    ],
+  };
+}
+
+function countDice(rng: RNG): BuiltQuestion {
+  const n = rng.pick([2, 3]);
+  const m = n === 2 ? rng.pick([4, 6, 8, 10, 12, 20]) : rng.pick([4, 6, 8]);
+  const correct = Math.pow(m, n);
+  const dieWord = m === 6 ? "six-sided" : `${m}-sided`;
+
+  return {
+    question: `You roll ${n} fair ${dieWord} dice and record the ordered result. How many possible outcomes are there?`,
+    concept: "counting outcomes (product rule)",
+    correct: {
+      text: `${correct}`,
+      why: `Each die has ${m} faces and the rolls are independent, so by the product rule there are ${m}^${n} = ${correct} outcomes.`,
+    },
+    distractors: [
+      {
+        text: `${Math.pow(m, n - 1)}`,
+        why: `That is ${m}^${n - 1}, which counts only ${n - 1} dice — one die short.`,
+      },
+      {
+        text: `${Math.pow(m, n + 1)}`,
+        why: `That is ${m}^${n + 1}, one die too many; there are only ${n} dice.`,
+      },
+      {
+        text: `${m * n}`,
+        why: `That multiplies faces by the number of dice (${m} × ${n}); independent rolls give ${m}^${n}, not ${m}·${n}.`,
+      },
+      {
+        text: `${Math.pow(n, m)}`,
+        why: `That swaps the base and exponent (${n}^${m}); it should be faces-to-the-power-of-dice, ${m}^${n}.`,
+      },
+    ],
+  };
+}
+
+function countStrings(rng: RNG): BuiltQuestion {
+  const a = rng.pick([3, 4, 5]);
+  const L = rng.pick([2, 3]);
+  const correct = Math.pow(a, L);
+
+  return {
+    question: `How many different strings of length ${L} can be formed from an alphabet of ${a} symbols (repeats allowed)?`,
+    concept: "counting outcomes (product rule)",
+    correct: {
+      text: `${correct}`,
+      why: `Each of the ${L} positions can independently be any of ${a} symbols, so by the product rule there are ${a}^${L} = ${correct} strings.`,
+    },
+    distractors: [
+      {
+        text: `${Math.pow(a, L - 1)}`,
+        why: `That is ${a}^${L - 1}, which fills only ${L - 1} positions — one position short.`,
+      },
+      {
+        text: `${Math.pow(a, L + 1)}`,
+        why: `That is ${a}^${L + 1}, one position too many; the strings have length ${L}.`,
+      },
+      {
+        text: `${Math.pow(a + 1, L)}`,
+        why: `That uses ${a + 1} symbols, one too many; the alphabet has ${a} symbols, giving ${a}^${L}.`,
+      },
+      {
+        text: `${a * L}`,
+        why: `That multiplies symbols by length (${a} × ${L}); independent positions give ${a}^${L}, not ${a}·${L}.`,
+      },
+    ],
+  };
+}
+
+function countProductRule(rng: RNG): BuiltQuestion {
+  // Three distinct stage sizes; the three two-factor products are always
+  // mutually distinct and below the full product, so the first three distractors
+  // are guaranteed well-formed.
+  const [c1, c2, c3] = rng.shuffle([2, 3, 4, 5, 6]).slice(0, 3).sort((x, y) => x - y);
+  const correct = c1 * c2 * c3;
+
+  return {
+    question: `A diner lets you build a meal by choosing 1 of ${c1} appetizers, 1 of ${c2} mains, and 1 of ${c3} desserts. How many different meals are possible?`,
+    concept: "counting outcomes (product rule)",
+    correct: {
+      text: `${correct}`,
+      why: `By the product rule, multiply the choices at each stage: ${c1} × ${c2} × ${c3} = ${correct}.`,
+    },
+    distractors: [
+      {
+        text: `${c2 * c3}`,
+        why: `That multiplies only the mains and desserts (${c2} × ${c3}); you must also include the ${c1} appetizers.`,
+      },
+      {
+        text: `${c1 * c3}`,
+        why: `That multiplies only the appetizers and desserts (${c1} × ${c3}); you must also include the ${c2} mains.`,
+      },
+      {
+        text: `${c1 * c2}`,
+        why: `That multiplies only the appetizers and mains (${c1} × ${c2}); you must also include the ${c3} desserts.`,
+      },
+      {
+        text: `${c1 + c2 + c3}`,
+        why: `That adds the choices (${c1} + ${c2} + ${c3}); independent stages multiply, giving ${correct}.`,
+      },
+    ],
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Market-making templates. Prices are plain integer ticks (matching the curated
 // MM bank style), and every answer is pure integer arithmetic — correct by
 // construction. Generation guarantees the mid is an exact integer (even spread).
@@ -548,98 +691,178 @@ function pokerBreakEvenEquity(rng: RNG): BuiltQuestion {
 }
 
 export const TEMPLATES: Template[] = [
+  // --- Counting outcomes (product rule): answer is an integer COUNT, not a
+  //     probability. These mirror the coin-flip "how many outcomes" question. ---
+  {
+    id: "count-coins",
+    method: "counting-outcomes",
+    lessons: ["lesson_1"],
+    keywords: [
+      "sample space",
+      "counting outcomes",
+      "possible outcomes",
+      "how many outcomes",
+      "number of outcomes",
+      "multiplication rule",
+      "product rule",
+      "counting principle",
+    ],
+    build: countCoins,
+  },
+  {
+    id: "count-dice",
+    method: "counting-outcomes",
+    lessons: ["lesson_1"],
+    keywords: [
+      "sample space",
+      "counting outcomes",
+      "possible outcomes",
+      "how many outcomes",
+      "number of outcomes",
+      "multiplication rule",
+      "product rule",
+      "counting principle",
+    ],
+    build: countDice,
+  },
+  {
+    id: "count-strings",
+    method: "counting-outcomes",
+    lessons: ["lesson_1", "lesson_2"],
+    keywords: [
+      "counting outcomes",
+      "possible outcomes",
+      "how many outcomes",
+      "number of outcomes",
+      "multiplication rule",
+      "product rule",
+      "counting principle",
+    ],
+    build: countStrings,
+  },
+  {
+    id: "count-product-rule",
+    method: "counting-outcomes",
+    lessons: ["lesson_1", "lesson_2"],
+    keywords: [
+      "counting outcomes",
+      "possible outcomes",
+      "how many outcomes",
+      "number of outcomes",
+      "multiplication rule",
+      "product rule",
+      "counting principle",
+    ],
+    build: countProductRule,
+  },
   {
     id: "single-draw",
+    method: "event-probability",
     lessons: ["lesson_1", "lesson_5"],
-    keywords: ["sample space", "probability axiom", "equally likely"],
+    keywords: ["probability axiom", "equally likely", "single draw"],
     build: singleDraw,
   },
   {
     id: "complement",
+    method: "complement",
     lessons: ["lesson_1"],
-    keywords: ["complement", "probability axiom"],
+    keywords: ["complement"],
     build: complementDraw,
   },
   {
     id: "dice-sum",
+    method: "event-probability",
     lessons: ["lesson_1"],
-    keywords: ["counting principle", "sample space"],
+    keywords: ["dice sum", "sum of two dice", "equally likely", "counting for probability"],
     build: diceSum,
   },
   {
     id: "independent-and",
+    method: "event-probability",
     lessons: ["lesson_1", "lesson_4"],
-    keywords: ["independent", "multiplication"],
+    keywords: ["independent", "joint probability"],
     build: independentAnd,
   },
   {
     id: "without-replacement",
+    method: "conditional-probability",
     lessons: ["lesson_3", "lesson_5"],
     keywords: ["conditional", "without replacement", "restricted sample"],
     build: withoutReplacement,
   },
   {
     id: "conditional-die",
+    method: "conditional-probability",
     lessons: ["lesson_3", "lesson_5"],
     keywords: ["conditional", "restricted sample", "bayes"],
     build: conditionalDie,
   },
   {
     id: "ev-coin",
+    method: "expected-value",
     lessons: ["lesson_1", "lesson_4"],
     keywords: ["expected value", "expectation", "random variable"],
     build: evCoin,
   },
   {
     id: "ev-game",
+    method: "expected-value",
     lessons: ["lesson_1", "lesson_4", "lesson_11"],
     keywords: ["expected value", "expectation", "random variable"],
     build: expectedValueGame,
   },
   {
     id: "combinations",
+    method: "combinations",
     lessons: ["lesson_2"],
-    keywords: ["combination", "counting for probability"],
+    keywords: ["combination", "choose", "committee", "selection"],
     build: combinations,
   },
   {
     id: "permutations",
+    method: "permutations",
     lessons: ["lesson_2"],
-    keywords: ["permutation"],
+    keywords: ["permutation", "arrangement", "factorial"],
     build: permutations,
   },
   {
     id: "mean",
+    method: "mean",
     lessons: ["lesson_6"],
-    keywords: ["mean"],
+    keywords: ["mean", "average"],
     build: meanTemplate,
   },
   {
     id: "median",
+    method: "median",
     lessons: ["lesson_6"],
     keywords: ["median"],
     build: medianTemplate,
   },
   {
     id: "mm-fair-value",
+    method: "fair-value",
     lessons: ["mm_fair_value", "mm_bid_ask", "mm_interview"],
     keywords: ["fair value", "fair_value", "mid price", "midpoint", "fair price"],
     build: mmFairValue,
   },
   {
     id: "mm-spread",
+    method: "spread",
     lessons: ["mm_spread", "mm_bid_ask", "mm_interview"],
     keywords: ["spread", "bid-ask", "bid/ask", "bid ask"],
     build: mmSpread,
   },
   {
     id: "poker-pot-size",
+    method: "pot-odds",
     lessons: ["pt_pot_odds"],
     keywords: ["pot odds", "pot_odds", "pot size", "pot-odds"],
     build: pokerPotSize,
   },
   {
     id: "poker-break-even-equity",
+    method: "pot-odds",
     lessons: ["pt_pot_odds"],
     keywords: ["pot odds", "pot_odds", "equity", "break-even", "breakeven", "break even"],
     build: pokerBreakEvenEquity,
