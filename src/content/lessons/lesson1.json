@@ -16,6 +16,148 @@
     "This lesson builds that foundation with concrete examples drawn from dice, coins, and simple trading games. Master sample spaces and axioms here, and the combinatorics in the next lesson will feel like bookkeeping rather than magic.",
     "Every quant interview opens with the same contract: name the sample space, respect the axioms, then translate a story into a single number—often an expected value. Harvard Stat 110 and classic puzzle collections train you to do this without simulation: list outcomes or use complements, check that probabilities sum to one, and only then compute EV as a weighted average. The two challenge questions below mirror that rhythm—simple setup, disciplined counting, one clean answer."
   ],
+  "primer": [
+    {
+      "heading": "The language of uncertainty",
+      "body": [
+        "Every probability problem starts the same way: list what **can** happen, then attach numbers to it. The complete list of possible outcomes is the **sample space** `S`; any subset of it is an **event**.",
+        "Interviewers love this discipline because it turns a vague story into something you can count. Before reaching for a formula, name the sample space and the event you actually care about."
+      ],
+      "keyTerms": [
+        { "term": "Sample space (S)", "definition": "The set of all possible outcomes. One coin flip: `{H, T}`." },
+        { "term": "Outcome", "definition": "A single element of `S`, e.g. rolling a `4`." },
+        { "term": "Event", "definition": "Any subset of `S`, e.g. 'roll odd' = `{1, 3, 5}`." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Interview reflex",
+        "text": "When you are stuck, write out `S`. Half of 'hard' probability questions become obvious once the outcomes are on paper."
+      }
+    },
+    {
+      "heading": "The three axioms",
+      "body": [
+        "All of probability is built on three rules (due to Kolmogorov). They look obvious, but every valid answer must respect them.",
+        "From these you instantly get useful facts: a probability can never exceed 1, an impossible event has probability 0, and the parts of a partition must sum to 1."
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "The Kolmogorov axioms",
+        "items": [
+          "**Non-negativity:** `0 ≤ P(A) ≤ 1` for every event A.",
+          "**Normalization:** `P(S) = 1` — something always happens.",
+          "**Additivity:** if A and B are disjoint, `P(A ∪ B) = P(A) + P(B)`."
+        ]
+      }
+    },
+    {
+      "heading": "Complements and unions",
+      "body": [
+        "Two rules do most of the heavy lifting. The **complement rule** is the single most useful interview shortcut: when 'at least one' is hard, compute the opposite and subtract from 1.",
+        "When events overlap you cannot simply add them — you would double-count the overlap. **Inclusion–exclusion** corrects for that."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "P(Aᶜ) = 1 − P(A)        P(A ∪ B) = P(A) + P(B) − P(A ∩ B)",
+        "caption": "Complement rule (left) and inclusion–exclusion for two events (right)."
+      },
+      "example": {
+        "prompt": "A stock finishes the day up with probability 0.42. What is the chance it does **not** finish up?",
+        "steps": [
+          "'Not up' is the complement of 'up'.",
+          "Apply the complement rule: `P(not up) = 1 − 0.42`."
+        ],
+        "result": "P(not up) = 0.58"
+      }
+    },
+    {
+      "heading": "Counting equally likely outcomes",
+      "body": [
+        "When every outcome is equally likely, probability is just **favorable ÷ total**. The whole skill is counting each side correctly.",
+        "For a sequence of independent choices, multiply the number of options at each step — the **multiplication rule**."
+      ],
+      "example": {
+        "prompt": "A fair die is rolled once. What is P(odd)?",
+        "steps": [
+          "Sample space `{1,2,3,4,5,6}` has 6 equally likely outcomes.",
+          "Favorable odds `{1,3,5}` — that is 3 outcomes.",
+          "Probability = favorable / total = 3 / 6."
+        ],
+        "result": "P(odd) = 1/2"
+      },
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Multiplication rule",
+        "text": "Pick 1 of 3 appetizers, then 1 of 4 entrées → `3 × 4 = 12` meals. Independent stages multiply."
+      }
+    },
+    {
+      "heading": "Expected value: the trader's number",
+      "body": [
+        "**Expected value** (EV) is the probability-weighted average of a random payoff — the long-run average if you played forever. Traders use it to decide whether a bet is worth taking.",
+        "Compute it as `E[X] = Σ xᵢ · pᵢ`: multiply each outcome by its probability and sum. Positive EV makes money on average; negative EV bleeds it."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[X] = Σ xᵢ · P(X = xᵢ)",
+        "caption": "Expected value of a discrete random variable."
+      },
+      "example": {
+        "prompt": "A game pays +50 with probability 0.10, and −10 otherwise. Should you play?",
+        "steps": [
+          "Loss probability = `1 − 0.10 = 0.90`.",
+          "`E = 0.10 × 50 + 0.90 × (−10)`.",
+          "`E = 5 − 9 = −4`."
+        ],
+        "result": "EV = −4 per play → decline it. Frequent small losses outweigh the rare big win."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Sample space",
+      "title": "Name what can happen",
+      "caption": "Probability is the language of uncertainty. Every problem begins by writing the sample space — the complete list of possible outcomes. An event is just any subset of that list.",
+      "bullets": [
+        "Sample space S = all possible outcomes",
+        "Event = a subset of S you care about",
+        "Write S first; the answer often appears"
+      ]
+    },
+    {
+      "term": "The axioms",
+      "title": "Three rules that never break",
+      "caption": "Three axioms govern every probability. Probabilities live between zero and one. The whole sample space has probability one. And for disjoint events, probabilities simply add.",
+      "visual": {
+        "kind": "steps",
+        "items": [
+          "`0 ≤ P(A) ≤ 1`",
+          "`P(S) = 1`",
+          "Disjoint A, B: `P(A ∪ B) = P(A) + P(B)`"
+        ]
+      }
+    },
+    {
+      "term": "Complement rule",
+      "title": "When 'at least one' is hard, flip it",
+      "caption": "The complement rule is your best friend in interviews. The probability that something does not happen is one minus the probability that it does. If up is forty-two percent, not up is fifty-eight percent.",
+      "visual": { "kind": "formula", "expression": "P(not A) = 1 − P(A)" }
+    },
+    {
+      "term": "Equally likely outcomes",
+      "title": "Favorable over total",
+      "caption": "When outcomes are equally likely, probability is favorable outcomes divided by total outcomes. Rolling an odd number on a die is three favorable faces out of six, which is one half.",
+      "visual": { "kind": "formula", "expression": "P(event) = favorable / total = 3 / 6 = 1/2" }
+    },
+    {
+      "term": "Expected value",
+      "title": "The one number traders trust",
+      "caption": "Expected value is the probability-weighted average payoff. Multiply each outcome by its probability and add. A positive expected value bet wins over the long run; a negative one loses. That single number decides whether a strategy is worth the risk.",
+      "visual": { "kind": "formula", "expression": "E[X] = Σ xᵢ · pᵢ" }
+    }
+  ],
   "questions": [
     {
       "id": "l1_q1",
@@ -406,19 +548,19 @@
       "id": "l1_q8",
       "kind": "standard",
       "concept": "expected_value_game",
-      "question": "A quant interview game: you win $50 with probability 0.08 and lose $10 with probability 0.92. What is the expected dollar return?",
+      "question": "A quant interview game: you win $50 with probability 0.10 and lose $10 with probability 0.90. What is the expected dollar return?",
       "options": [
         "−$6.00",
         "−$4.00",
         "$0.00",
         "$4.00"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": 1,
       "explanations": {
-        "A": "Correct. E = 0.08 × 50 + 0.92 × (−10) = 4 − 9.2 = −$6.00. The game is unfavorable on average.",
-        "B": "−$4.00 might come from using 0.10 instead of 0.08 for the win probability, or from arithmetic slips.",
-        "C": "$0 would suggest a fair game. The frequent $10 losses outweigh the rare $50 wins.",
-        "D": "+$4 treats the win as more likely or larger than it is, ignoring the 92% loss rate."
+        "A": "−$6.00 over-weights the loss branch. Compute each term: 0.10 × 50 = 5 and 0.90 × (−10) = −9, summing to −4, not −6.",
+        "B": "Correct. E = 0.10 × 50 + 0.90 × (−10) = 5 − 9 = −$4.00. The game is unfavorable on average, so a disciplined trader declines it.",
+        "C": "$0 would be a fair game, but the frequent $10 losses outweigh the rare $50 wins by $4 on average.",
+        "D": "+$4 flips the sign of the answer. The win term (5) is smaller than the loss term (9), so the EV is negative."
       },
       "remediation": [
         {
