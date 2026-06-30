@@ -7,7 +7,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "src", "content");
 
 const TRACKS = [
-  { dir: join(root, "lessons"), minLessons: 6, maxLessons: 15, minQ: 10, maxQ: 14 },
+  { dir: join(root, "lessons"), minLessons: 6, maxLessons: 20, minQ: 10, maxQ: 14 },
   {
     dir: join(root, "pokerTheory"),
     minLessons: 1,

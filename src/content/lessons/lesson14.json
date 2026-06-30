@@ -1,0 +1,799 @@
+{
+  "lessonId": "lesson_14",
+  "order": 14,
+  "title": "Markov Chains",
+  "subtitle": "States, transition matrices, stationary distributions, and hitting times",
+  "topics": [
+    "Transition matrices",
+    "The Markov property",
+    "Stationary distributions",
+    "Hitting & absorption times"
+  ],
+  "intro": [
+    "A Markov chain is the simplest useful model of a system that evolves randomly through a set of states: weather, a limit-order book regime, a credit rating, a board-game token. Its defining promise is memorylessness — given the present state, the future is independent of the past. That single assumption makes otherwise messy dynamics computable.",
+    "All the dynamics live in a transition matrix P, whose entry P[i][j] is the probability of moving from state i to state j in one step. Each row is a probability distribution, so each row sums to 1. Multi-step behavior is just matrix powers: the probability of going from i to j in n steps is the (i,j) entry of Pⁿ, which you can also get by summing over intermediate paths.",
+    "Two long-run questions dominate interviews. First, the stationary distribution π — the state probabilities that no longer change, solving π = πP. For an ergodic chain it is also the long-run fraction of time spent in each state, and you usually find it fastest from balance equations rather than matrix algebra. Second, hitting and absorption: how likely, and how long, until the chain reaches a target or gets absorbed.",
+    "Hitting questions are solved by first-step analysis — condition on the first move and write a system of equations in the unknown expectations or probabilities (exactly the technique from L12–L13, now on a labeled state space). This lesson assumes you are comfortable with conditional expectation and the gambler's-ruin flavor of reasoning."
+  ],
+  "primer": [
+    {
+      "heading": "States and the transition matrix",
+      "body": [
+        "A Markov chain lives on a finite set of **states**. The **transition matrix** $P$ records one-step move probabilities: $P_{ij} = P(\\text{next} = j \\mid \\text{now} = i)$.",
+        "Because from any state you must go *somewhere*, every **row sums to 1** — each row is a probability distribution over destinations. (Such a matrix is called row-stochastic.)"
+      ],
+      "keyTerms": [
+        { "term": "Transition matrix P", "definition": "`P[i][j]` = probability of moving from state i to state j in one step." },
+        { "term": "Row-stochastic", "definition": "Every row is a probability distribution, so each row of P sums to 1." }
+      ],
+      "visual": {
+        "kind": "table",
+        "caption": "A 2-state weather chain (rows sum to 1).",
+        "headers": ["From \\ To", "Sunny", "Rainy"],
+        "rows": [
+          ["Sunny", "0.8", "0.2"],
+          ["Rainy", "0.4", "0.6"]
+        ]
+      }
+    },
+    {
+      "heading": "The Markov property (memorylessness)",
+      "body": [
+        "The **Markov property**: given the present state, the future is independent of the past. Tomorrow's distribution depends only on *today's* state — not on how you arrived there.",
+        "This is what makes the chain tractable: you never need the full history, just the current state. It is the discrete-state cousin of the memorylessness you have seen in geometric waiting times."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "P(Xₙ₊₁ = j | Xₙ = i, Xₙ₋₁, …, X₀) = P(Xₙ₊₁ = j | Xₙ = i)",
+        "caption": "Only the current state matters for the next step."
+      }
+    },
+    {
+      "heading": "Multi-step transitions",
+      "body": [
+        "To move two steps, sum over the intermediate state: $P^{(2)}_{ij} = \\sum_k P_{ik}P_{kj}$ — this is exactly the matrix product $P^2$. The $n$-step probabilities are the entries of $P^n$.",
+        "In practice you rarely multiply matrices by hand; you enumerate the few intermediate paths and add their probabilities."
+      ],
+      "example": {
+        "prompt": "Weather chain above. It is Sunny today. P(Sunny in two days)?",
+        "steps": [
+          "Path S→S→S: `0.8 × 0.8 = 0.64`.",
+          "Path S→R→S: `0.2 × 0.4 = 0.08`.",
+          "Add the two ways to be Sunny in two days: `0.64 + 0.08`."
+        ],
+        "result": "P(Sunny in 2 days | Sunny) = 0.72"
+      }
+    },
+    {
+      "heading": "Stationary distribution",
+      "body": [
+        "A **stationary distribution** $\\pi$ is a state distribution that the chain reproduces: $\\pi = \\pi P$. Once the chain's distribution equals $\\pi$, it stays $\\pi$ forever. For an ergodic chain it is also the **long-run fraction of time** spent in each state.",
+        "The fast way to find it for 2 states is a **balance equation**: in steady state the probability flow out of a state equals the flow in. For the weather chain, $\\pi_S\\cdot 0.2 = \\pi_R\\cdot 0.4$."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "π = πP ,   Σ πᵢ = 1     (balance: flow out = flow in)",
+        "caption": "Defining equations of the stationary distribution."
+      },
+      "example": {
+        "prompt": "Find the stationary fraction of Sunny days for the weather chain.",
+        "steps": [
+          "Balance: `π_S·0.2 = π_R·0.4` ⇒ `π_S = 2·π_R`.",
+          "Normalize: `π_S + π_R = 1` ⇒ `2π_R + π_R = 1`.",
+          "Solve: `π_R = 1/3`, so `π_S = 2/3`."
+        ],
+        "result": "Long-run P(Sunny) = 2/3"
+      }
+    },
+    {
+      "heading": "Hitting & absorption times",
+      "body": [
+        "An **absorbing state** is one you never leave: $P_{ii} = 1$. Two interview staples: the **probability** of being absorbed at a particular target, and the **expected time** to absorption.",
+        "Both come from **first-step analysis**: let $h_i$ be the unknown (probability or expected time) from state $i$, condition on the first move, and solve the resulting linear system. For expected times each equation gains a `+1` for the step you take."
+      ],
+      "visual": {
+        "kind": "steps",
+        "caption": "First-step analysis for expected time to absorption",
+        "items": [
+          "Define `hᵢ` = expected steps to absorption from state i; set `hᵢ = 0` for absorbing states.",
+          "Write `hᵢ = 1 + Σⱼ Pᵢⱼ·hⱼ` for each transient state (the `+1` is the step taken).",
+          "Solve the linear system for the `hᵢ`."
+        ]
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Transition matrix",
+      "title": "Every row is a distribution",
+      "caption": "A Markov chain moves between states, and all its dynamics live in a transition matrix. The entry in row i, column j is the chance of going from state i to state j in one step. Because you always go somewhere, every row sums to one.",
+      "visual": { "kind": "formula", "expression": "Pᵢⱼ = P(next = j | now = i),  Σⱼ Pᵢⱼ = 1" }
+    },
+    {
+      "term": "Markov property",
+      "title": "The present is all you need",
+      "caption": "The Markov property says the future depends only on the present state, not on the path that got you there. Given today's weather, yesterday's weather tells you nothing extra about tomorrow.",
+      "visual": { "kind": "formula", "expression": "future ⟂ past | present" }
+    },
+    {
+      "term": "Multi-step transitions",
+      "title": "Add up the paths",
+      "caption": "To find a two-step probability, sum over the intermediate state. From sunny, the chance of sunny in two days is the sunny-sunny-sunny path plus the sunny-rainy-sunny path. That is exactly the matrix P squared.",
+      "visual": { "kind": "formula", "expression": "0.8·0.8 + 0.2·0.4 = 0.72" }
+    },
+    {
+      "term": "Stationary distribution",
+      "title": "The distribution that stays put",
+      "caption": "The stationary distribution is the one the chain reproduces: pi equals pi times P. In steady state the flow out of each state balances the flow in. For the weather chain that long-run sunny fraction works out to two thirds.",
+      "visual": { "kind": "formula", "expression": "π = πP ,  π_S = 2/3" }
+    },
+    {
+      "term": "Hitting times",
+      "title": "Condition on the first step",
+      "caption": "To find how long until the chain is absorbed, use first-step analysis. Let h sub i be the expected steps from state i, set it to zero at absorbing states, and write each transient equation as one plus the weighted average of where you land. Then solve the system.",
+      "visual": { "kind": "formula", "expression": "hᵢ = 1 + Σⱼ Pᵢⱼ·hⱼ" }
+    }
+  ],
+  "questions": [
+    {
+      "id": "l14_q1",
+      "kind": "standard",
+      "concept": "transition_matrix",
+      "question": "In a Markov chain's transition matrix P, what must be true of every row?",
+      "options": [
+        "Its entries sum to 1",
+        "Its entries sum to 0",
+        "Its entries are all equal",
+        "It sums to the number of states"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. From any state the chain must go somewhere, so each row is a probability distribution over destinations and sums to 1.",
+        "B": "Summing to 0 is impossible for nonnegative probabilities that describe a certain next move.",
+        "C": "Entries need not be equal; transitions can be lopsided (e.g. 0.9 and 0.1).",
+        "D": "Columns and totals are not constrained to the state count; only each row sums to 1."
+      },
+      "remediation": [
+        {
+          "id": "l14_q1_r1",
+          "question": "A transition matrix row reads [0.5, 0.2, ?]. What is the missing entry?",
+          "options": [
+            "0.3",
+            "0.7",
+            "0.5",
+            "1.0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The row must sum to 1, so the missing entry is 1 − 0.5 − 0.2 = 0.3.",
+            "B": "0.7 would make the row sum to 1.4, exceeding 1.",
+            "C": "0.5 repeats the first entry and makes the row sum to 1.2.",
+            "D": "1.0 would make the row sum to 1.7, which is invalid."
+          }
+        },
+        {
+          "id": "l14_q1_r2",
+          "question": "Which matrix could be a valid 2-state transition matrix?",
+          "options": [
+            "[[0.7, 0.3], [0.4, 0.6]]",
+            "[[0.7, 0.4], [0.3, 0.6]]",
+            "[[0.5, 0.5], [0.5, 0.6]]",
+            "[[1.0, 0.2], [0, 0.8]]"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Both rows sum to 1 (0.7+0.3 and 0.4+0.6).",
+            "B": "Row 1 sums to 1.1, which is invalid.",
+            "C": "Row 2 sums to 1.1, which is invalid.",
+            "D": "Row 1 sums to 1.2, which is invalid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q2",
+      "kind": "standard",
+      "concept": "markov_property",
+      "question": "The Markov property states that the distribution of the next state depends on:",
+      "options": [
+        "Only the current state",
+        "The entire history of states",
+        "Only the initial state",
+        "The number of steps taken so far"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Memorylessness means the present state alone determines the next-step distribution; the path taken to get here is irrelevant.",
+        "B": "Using the full history is exactly what the Markov property removes.",
+        "C": "The initial state matters only through its influence on the current state, not directly.",
+        "D": "For a time-homogeneous chain the step count does not change transition probabilities."
+      },
+      "remediation": [
+        {
+          "id": "l14_q2_r1",
+          "question": "It is rainy today; yesterday was sunny. For a Markov weather chain, tomorrow's distribution depends on:",
+          "options": [
+            "Today being rainy only",
+            "Both today and yesterday",
+            "Yesterday only",
+            "The whole week"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Only the current state (rainy today) drives tomorrow's distribution.",
+            "B": "Yesterday adds no information once today is known.",
+            "C": "Yesterday alone is irrelevant given today's state.",
+            "D": "The full week is unnecessary under the Markov property."
+          }
+        },
+        {
+          "id": "l14_q2_r2",
+          "question": "Memorylessness in a Markov chain means:",
+          "options": [
+            "Given the present, the future is independent of the past",
+            "The chain forgets its current state",
+            "All states are equally likely",
+            "The chain never repeats a state"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. That conditional independence of future and past given the present is the Markov property.",
+            "B": "The chain certainly uses its current state; it forgets only the earlier path.",
+            "C": "States need not be equally likely.",
+            "D": "Chains can and do revisit states."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q3",
+      "kind": "standard",
+      "concept": "one_step_transition",
+      "question": "Weather chain: P(Sunny→Sunny)=0.8, P(Sunny→Rainy)=0.2, P(Rainy→Sunny)=0.4, P(Rainy→Rainy)=0.6. It is Sunny today. What is P(Rainy tomorrow)?",
+      "options": [
+        "0.2",
+        "0.8",
+        "0.4",
+        "0.6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Read the Sunny row's Rainy entry directly: P(Sunny→Rainy) = 0.2.",
+        "B": "0.8 is P(Sunny→Sunny), the chance it stays sunny.",
+        "C": "0.4 is P(Rainy→Sunny), the wrong starting row.",
+        "D": "0.6 is P(Rainy→Rainy), again the wrong starting row."
+      },
+      "remediation": [
+        {
+          "id": "l14_q3_r1",
+          "question": "Same chain. It is Rainy today. P(Sunny tomorrow)?",
+          "options": [
+            "0.4",
+            "0.6",
+            "0.2",
+            "0.8"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The Rainy row's Sunny entry is 0.4.",
+            "B": "0.6 is P(Rainy→Rainy).",
+            "C": "0.2 is from the Sunny row, not the Rainy row.",
+            "D": "0.8 is from the Sunny row."
+          }
+        },
+        {
+          "id": "l14_q3_r2",
+          "question": "Same chain. It is Sunny today. P(Sunny tomorrow)?",
+          "options": [
+            "0.8",
+            "0.2",
+            "0.4",
+            "0.6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The Sunny row's Sunny entry is 0.8.",
+            "B": "0.2 is the chance of turning rainy.",
+            "C": "0.4 is from the Rainy row.",
+            "D": "0.6 is from the Rainy row."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q4",
+      "kind": "standard",
+      "concept": "two_step_transition",
+      "question": "Same weather chain (S→S 0.8, S→R 0.2, R→S 0.4, R→R 0.6). It is Sunny today. What is P(Sunny in two days)?",
+      "options": [
+        "0.72",
+        "0.64",
+        "0.80",
+        "0.28"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sum the two paths: S→S→S (0.8·0.8 = 0.64) plus S→R→S (0.2·0.4 = 0.08) = 0.72.",
+        "B": "0.64 counts only the all-sunny path S→S→S and forgets the S→R→S route.",
+        "C": "0.80 is the one-step P(Sunny→Sunny), not the two-step probability.",
+        "D": "0.28 is P(Rainy in two days), the complement."
+      },
+      "remediation": [
+        {
+          "id": "l14_q4_r1",
+          "question": "Same chain, Sunny today. P(Rainy in two days)?",
+          "options": [
+            "0.28",
+            "0.72",
+            "0.20",
+            "0.36"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. S→S→R (0.8·0.2 = 0.16) plus S→R→R (0.2·0.6 = 0.12) = 0.28.",
+            "B": "0.72 is P(Sunny in two days), the complement.",
+            "C": "0.20 is the one-step chance of rain.",
+            "D": "0.36 = 0.6·0.6 uses only one path with the wrong starting row."
+          }
+        },
+        {
+          "id": "l14_q4_r2",
+          "question": "Two-step probability P²ᵢⱼ is computed by:",
+          "options": [
+            "Summing Pᵢₖ·Pₖⱼ over all intermediate states k",
+            "Adding Pᵢⱼ to itself",
+            "Squaring the single entry Pᵢⱼ",
+            "Taking the larger of the one-step paths"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. You sum the products over every intermediate state — the matrix product.",
+            "B": "Doubling one entry ignores all the routes through other states.",
+            "C": "Squaring a single entry omits paths through other intermediate states.",
+            "D": "You add path probabilities, not take a maximum."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q5",
+      "kind": "standard",
+      "concept": "markov_property",
+      "question": "For the weather chain, it has been Rainy for the last five days straight. What is P(Sunny tomorrow)?",
+      "options": [
+        "0.4",
+        "Lower than 0.4 because of the streak",
+        "Higher than 0.4 because rain is 'due' to end",
+        "Cannot be determined without the full history"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. By the Markov property only today's state matters; today is Rainy, so P(Sunny tomorrow) = P(Rainy→Sunny) = 0.4, regardless of the streak.",
+        "B": "A long streak does not lower the transition probability; the chain is memoryless.",
+        "C": "There is no 'due' effect; tomorrow depends only on today's state.",
+        "D": "The history is irrelevant — today's state fully determines tomorrow's distribution."
+      },
+      "remediation": [
+        {
+          "id": "l14_q5_r1",
+          "question": "A memoryless chain has been in state A for 10 steps. The probability the next step leaves A is:",
+          "options": [
+            "Whatever P(A→not A) is, unchanged by the streak",
+            "Higher than usual",
+            "Lower than usual",
+            "Exactly 1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Memorylessness means the streak length does not alter transition probabilities.",
+            "B": "The chain does not 'build up' a tendency to leave.",
+            "C": "Nor does it become more likely to stay.",
+            "D": "Leaving is not certain unless P(A→not A) = 1."
+          }
+        },
+        {
+          "id": "l14_q5_r2",
+          "question": "The 'gambler's fallacy' (a result is 'due') contradicts which property of a Markov chain?",
+          "options": [
+            "Memorylessness",
+            "Row-stochasticity",
+            "Having a stationary distribution",
+            "Finiteness of the state space"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Memorylessness says past outcomes do not make a future outcome 'due'.",
+            "B": "Row-stochasticity is about rows summing to 1, unrelated to the fallacy.",
+            "C": "Having a stationary distribution does not address streak-based intuition.",
+            "D": "The size of the state space is irrelevant to the fallacy."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q6",
+      "kind": "standard",
+      "concept": "stationary_definition",
+      "question": "Using the row-vector convention, a stationary distribution π of a chain with transition matrix P satisfies which equation?",
+      "options": [
+        "πP = π",
+        "πP = 0",
+        "Pπ = 0",
+        "π = P"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A stationary distribution reproduces itself under one step: πP = π (with the entries of π summing to 1).",
+        "B": "πP = 0 would force all probabilities to 0, not a distribution.",
+        "C": "Pπ = 0 mixes conventions and again forces the zero vector.",
+        "D": "π = P equates a vector with a matrix, which is not even well-formed."
+      },
+      "remediation": [
+        {
+          "id": "l14_q6_r1",
+          "question": "Besides πP = π, a stationary distribution must satisfy:",
+          "options": [
+            "Σ πᵢ = 1 with πᵢ ≥ 0",
+            "Σ πᵢ = 0",
+            "Each πᵢ = 1",
+            "πᵢ = Pᵢᵢ"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. π is a probability distribution: nonnegative entries summing to 1.",
+            "B": "Summing to 0 contradicts being a distribution.",
+            "C": "Each entry being 1 would sum to more than 1.",
+            "D": "Stationary probabilities are not the diagonal entries of P."
+          }
+        },
+        {
+          "id": "l14_q6_r2",
+          "question": "For an ergodic chain, the stationary probability πᵢ also equals:",
+          "options": [
+            "The long-run fraction of time spent in state i",
+            "The number of states divided by i",
+            "The first-step transition Pᵢᵢ",
+            "The expected return time times 2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. For an ergodic chain πᵢ is the long-run fraction of time in state i.",
+            "B": "That expression is meaningless for probabilities.",
+            "C": "πᵢ is generally not a single transition entry.",
+            "D": "In fact πᵢ equals 1/(expected return time), not twice it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q7",
+      "kind": "standard",
+      "concept": "stationary_compute",
+      "question": "For the weather chain (S→R = 0.2, R→S = 0.4), what is the long-run fraction of Sunny days?",
+      "options": [
+        "2/3",
+        "1/3",
+        "1/2",
+        "4/5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Balance: π_S·0.2 = π_R·0.4 ⇒ π_S = 2π_R; with π_S + π_R = 1 this gives π_S = 2/3.",
+        "B": "1/3 is the long-run fraction of Rainy days, π_R.",
+        "C": "1/2 ignores that the chain favors Sunny (it leaves Sunny only 20% of the time).",
+        "D": "4/5 = 0.8 is the one-step P(Sunny→Sunny), not the stationary probability."
+      },
+      "remediation": [
+        {
+          "id": "l14_q7_r1",
+          "question": "Two-state chain: P(A→B) = 0.5, P(B→A) = 0.5. Stationary π_A?",
+          "options": [
+            "1/2",
+            "1/3",
+            "2/3",
+            "1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Symmetric switching rates give equal stationary probabilities, π_A = 1/2.",
+            "B": "1/3 would require asymmetric rates.",
+            "C": "2/3 would require asymmetric rates the other way.",
+            "D": "1 would mean the chain never leaves A."
+          }
+        },
+        {
+          "id": "l14_q7_r2",
+          "question": "Chain: P(A→B) = 0.3, P(B→A) = 0.6. Stationary π_A?",
+          "options": [
+            "2/3",
+            "1/3",
+            "1/2",
+            "0.3"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Balance: π_A·0.3 = π_B·0.6 ⇒ π_A = 2π_B ⇒ π_A = 2/3.",
+            "B": "1/3 is π_B, the fraction in state B.",
+            "C": "1/2 ignores the unequal switching rates.",
+            "D": "0.3 is a transition probability, not the stationary value."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q8",
+      "kind": "standard",
+      "concept": "absorbing_state",
+      "question": "A state i is called absorbing when:",
+      "options": [
+        "P(i→i) = 1",
+        "P(i→i) = 0",
+        "P(i→i) = 0.5",
+        "Every other state leads to i"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. An absorbing state is one you never leave, so the self-transition probability is 1.",
+        "B": "P(i→i) = 0 means you always leave i — the opposite of absorbing.",
+        "C": "A 0.5 self-loop still allows leaving, so it is not absorbing.",
+        "D": "Other states leading into i describes accessibility, not absorption."
+      },
+      "remediation": [
+        {
+          "id": "l14_q8_r1",
+          "question": "Once a chain enters an absorbing state, it:",
+          "options": [
+            "Stays there forever",
+            "Leaves on the next step",
+            "Returns to the start",
+            "Becomes uniform over all states"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. With P(i→i) = 1 the chain remains in the absorbing state for all future steps.",
+            "B": "It cannot leave; the self-loop has probability 1.",
+            "C": "There is no return to the start once absorbed.",
+            "D": "It does not spread out; it is stuck in one state."
+          }
+        },
+        {
+          "id": "l14_q8_r2",
+          "question": "In the absorbing row of a transition matrix, the entries are:",
+          "options": [
+            "1 on the diagonal, 0 elsewhere",
+            "All equal",
+            "0 on the diagonal, 1 elsewhere",
+            "All 0.5"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The state transitions to itself with probability 1, so the row is 1 on its own entry and 0 for every other state.",
+            "B": "Equal entries would allow leaving the state.",
+            "C": "That describes a state that always leaves, the opposite of absorbing.",
+            "D": "0.5 entries permit leaving and do not sum correctly for absorption."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q9",
+      "kind": "challenge",
+      "concept": "expected_hitting_time",
+      "question": "From state A the chain stays at A with probability 0.5 and moves to absorbing state B with probability 0.5. Starting at A, what is the expected number of steps to reach B?",
+      "options": [
+        "2",
+        "1",
+        "0.5",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. First-step analysis: h = 1 + 0.5·h ⇒ 0.5h = 1 ⇒ h = 2 (a geometric wait with p = 0.5).",
+        "B": "1 assumes B is reached on the very first step, ignoring the 50% chance of staying.",
+        "C": "0.5 is the per-step move probability, not the expected wait.",
+        "D": "4 over-counts; 1/p = 1/0.5 = 2, not 4."
+      },
+      "remediation": [
+        {
+          "id": "l14_q9_r1",
+          "question": "From A you move to absorbing B with probability 0.25 each step (else stay at A). Expected steps to B?",
+          "options": [
+            "4",
+            "2",
+            "0.25",
+            "1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. h = 1 + 0.75h ⇒ 0.25h = 1 ⇒ h = 4 (= 1/p).",
+            "B": "2 = 1/0.5 uses the wrong move probability.",
+            "C": "0.25 is the per-step probability, not the wait.",
+            "D": "1 assumes absorption on the first step."
+          }
+        },
+        {
+          "id": "l14_q9_r2",
+          "question": "First-step analysis for expected hitting time gives the equation:",
+          "options": [
+            "hᵢ = 1 + Σⱼ Pᵢⱼ·hⱼ (with hⱼ = 0 at the target)",
+            "hᵢ = Σⱼ Pᵢⱼ·hⱼ (no +1)",
+            "hᵢ = Pᵢᵢ",
+            "hᵢ = 1 − Pᵢᵢ"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The +1 counts the step taken; the sum averages the expected times from the next states (0 at the target).",
+            "B": "Dropping the +1 forgets the step you just spent.",
+            "C": "A single self-transition entry is not the expected hitting time.",
+            "D": "That formula has no basis for hitting times."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q10",
+      "kind": "challenge",
+      "concept": "stationary_compute",
+      "question": "A machine is Working or Broken with P(Working→Broken) = 0.1 and P(Broken→Working) = 0.5. What long-run fraction of time is it Working?",
+      "options": [
+        "5/6",
+        "1/6",
+        "1/2",
+        "0.9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Balance: π_W·0.1 = π_B·0.5 ⇒ π_W = 5π_B; with π_W + π_B = 1 this gives π_W = 5/6.",
+        "B": "1/6 is the long-run fraction of time Broken, π_B.",
+        "C": "1/2 ignores that repairs (0.5) are much faster than breakdowns (0.1).",
+        "D": "0.9 = 1 − 0.1 is just the one-step chance of staying Working, not the stationary fraction."
+      },
+      "remediation": [
+        {
+          "id": "l14_q10_r1",
+          "question": "P(Working→Broken) = 0.2, P(Broken→Working) = 0.2. Long-run fraction Working?",
+          "options": [
+            "1/2",
+            "1/5",
+            "4/5",
+            "0.8"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Equal switching rates give π_W = 1/2.",
+            "B": "1/5 would need asymmetric rates.",
+            "C": "4/5 would need asymmetric rates.",
+            "D": "0.8 is a one-step staying probability, not the stationary value."
+          }
+        },
+        {
+          "id": "l14_q10_r2",
+          "question": "P(On→Off) = 0.4, P(Off→On) = 0.1. Long-run fraction On?",
+          "options": [
+            "1/5",
+            "4/5",
+            "1/2",
+            "0.6"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Balance: π_On·0.4 = π_Off·0.1 ⇒ π_Off = 4π_On ⇒ π_On = 1/5.",
+            "B": "4/5 is the fraction Off.",
+            "C": "1/2 ignores the unequal rates.",
+            "D": "0.6 = 1 − 0.4 is a staying probability, not stationary."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q11",
+      "kind": "challenge",
+      "concept": "absorption_probability",
+      "question": "States 0, 1, 2, 3 with 0 and 3 absorbing; from 1 or 2 the chain steps left or right with probability 1/2 each. Starting at state 1, what is the probability of being absorbed at 3?",
+      "options": [
+        "1/3",
+        "2/3",
+        "1/2",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. This is symmetric gambler's ruin with N = 3 and start k = 1, so P(absorbed at 3) = k/N = 1/3.",
+        "B": "2/3 is the probability of absorption at 0 (the complement) — closer barrier is 0, so reaching 3 is less likely.",
+        "C": "1/2 ignores that state 1 is nearer to barrier 0 than to barrier 3.",
+        "D": "1/4 misuses the barrier count; the formula is k/N = 1/3."
+      },
+      "remediation": [
+        {
+          "id": "l14_q11_r1",
+          "question": "Same chain (0 and 3 absorbing, symmetric). Starting at state 2, P(absorbed at 3)?",
+          "options": [
+            "2/3",
+            "1/3",
+            "1/2",
+            "3/4"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. k/N = 2/3; state 2 is closer to barrier 3.",
+            "B": "1/3 is the probability of absorption at 0.",
+            "C": "1/2 ignores the asymmetric distances.",
+            "D": "3/4 misuses the formula."
+          }
+        },
+        {
+          "id": "l14_q11_r2",
+          "question": "In symmetric gambler's ruin with barriers 0 and N, the probability of absorption at N from state k is:",
+          "options": [
+            "k/N",
+            "N/k",
+            "1/N",
+            "(N−k)/N"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The symmetric absorption probability at the upper barrier is k/N.",
+            "B": "N/k can exceed 1 and is not a probability.",
+            "C": "1/N ignores the start k.",
+            "D": "(N−k)/N is the probability of absorption at 0, the complement."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l14_q12",
+      "kind": "challenge",
+      "concept": "two_step_transition",
+      "question": "Weather chain (S→S 0.8, S→R 0.2, R→S 0.4, R→R 0.6). It is Sunny today. What is the probability it is Rainy the day after tomorrow (two days from now)?",
+      "options": [
+        "0.28",
+        "0.20",
+        "0.72",
+        "0.12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Paths to Rainy in two days: S→S→R (0.8·0.2 = 0.16) and S→R→R (0.2·0.6 = 0.12), summing to 0.28.",
+        "B": "0.20 is the one-step chance of rain tomorrow, not two days out.",
+        "C": "0.72 is P(Sunny in two days), the complement.",
+        "D": "0.12 is only the S→R→R path and omits the S→S→R route."
+      },
+      "remediation": [
+        {
+          "id": "l14_q12_r1",
+          "question": "Chain with P(A→A)=0.5, P(A→B)=0.5, P(B→A)=0.5, P(B→B)=0.5. Start at A. P(at B in two steps)?",
+          "options": [
+            "0.5",
+            "0.25",
+            "0.75",
+            "1.0"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. A→A→B (0.5·0.5=0.25) plus A→B→B (0.5·0.5=0.25) = 0.5.",
+            "B": "0.25 counts only one of the two paths.",
+            "C": "0.75 over-counts; only two equal paths of 0.25 each contribute.",
+            "D": "1.0 would require certain arrival at B."
+          }
+        },
+        {
+          "id": "l14_q12_r2",
+          "question": "To get P(state in 2 steps), you should:",
+          "options": [
+            "Sum the probabilities of all 2-step paths ending there",
+            "Use only the single most likely path",
+            "Multiply the start probability by 2",
+            "Take the one-step probability"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Add up every two-step path that ends in the target state.",
+            "B": "Ignoring other paths undercounts the probability.",
+            "C": "Doubling the start probability has no basis.",
+            "D": "The one-step probability answers a different question."
+          }
+        }
+      ]
+    }
+  ]
+}

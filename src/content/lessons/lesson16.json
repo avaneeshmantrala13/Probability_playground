@@ -1,0 +1,799 @@
+{
+  "lessonId": "lesson_16",
+  "order": 16,
+  "title": "Order Statistics",
+  "subtitle": "Distributions of min and max, uniform spacings, and the k-th order statistic",
+  "topics": [
+    "Min and max distributions",
+    "E[min] and E[max]",
+    "Uniform spacings",
+    "k-th order statistic"
+  ],
+  "intro": [
+    "Order statistics are what you get when you sort a sample: the smallest value, the largest, the median, the k-th smallest. They are everywhere in trading and interviews — the best of several quotes, the worst-case drawdown, the winning (lowest) bid, the time of the first of several arrivals. Knowing their distributions on sight is a genuine edge.",
+    "The trick that unlocks the extremes is the CDF. The maximum is at most x exactly when every sample is at most x, so P(max ≤ x) = F(x)ⁿ. The minimum exceeds x exactly when every sample exceeds x, so P(min > x) = (1 − F(x))ⁿ. From these two one-liners you can get any min/max probability, density, or quantile.",
+    "For n i.i.d. Uniform(0,1) draws the answers are beautifully clean: the k-th smallest has expectation k/(n+1). So E[min] = 1/(n+1), E[max] = n/(n+1), and the n points cut the interval into n+1 gaps each averaging 1/(n+1) — the uniform-spacings result. Symmetry makes the median land at 1/2.",
+    "Two more facts pay off constantly: the minimum of n i.i.d. Exponentials is again Exponential with the rates added (so E[min] = 1/(nλ)), and the expected range E[max − min] of n uniforms is (n−1)/(n+1). This lesson assumes fluency with CDFs, expectation, and independence (L1, L12)."
+  ],
+  "primer": [
+    {
+      "heading": "What order statistics are",
+      "body": [
+        "Take a sample $X_1,\\dots,X_n$ and sort it ascending. The result are the **order statistics**: $X_{(1)} \\le X_{(2)} \\le \\dots \\le X_{(n)}$. So $X_{(1)}$ is the **minimum**, $X_{(n)}$ the **maximum**, and the middle one the **median**.",
+        "Sorting destroys the labels but exposes structure: extremes, spreads, ranks. Most desk questions are secretly about one specific order statistic."
+      ],
+      "keyTerms": [
+        { "term": "X₍₁₎ (minimum)", "definition": "The smallest of the n samples." },
+        { "term": "X₍ₙ₎ (maximum)", "definition": "The largest of the n samples." },
+        { "term": "k-th order statistic X₍ₖ₎", "definition": "The k-th smallest value once the sample is sorted." }
+      ]
+    },
+    {
+      "heading": "The max via its CDF",
+      "body": [
+        "The maximum is at most $x$ **iff every** sample is at most $x$. By independence, $P(\\max \\le x) = F(x)^n$, where $F$ is the common CDF.",
+        "This single identity gives you the whole distribution of the max — differentiate for the density, invert for quantiles."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "P(max ≤ x) = F(x)ⁿ",
+        "caption": "All n samples must fall below x."
+      },
+      "example": {
+        "prompt": "Three i.i.d. Uniform(0,1) draws. P(max ≤ 0.5)?",
+        "steps": [
+          "For U(0,1), `F(0.5) = 0.5`.",
+          "`P(max ≤ 0.5) = F(0.5)³ = 0.5³`."
+        ],
+        "result": "P(max ≤ 0.5) = 0.125"
+      }
+    },
+    {
+      "heading": "The min via its survival",
+      "body": [
+        "The minimum **exceeds** $x$ iff **every** sample exceeds $x$: $P(\\min > x) = (1 - F(x))^n$. Subtract from 1 to get the CDF of the min.",
+        "A famous special case: for $n$ i.i.d. Exponential($\\lambda$) variables, the minimum is Exponential($n\\lambda$) — the rates add. So the first of $n$ independent arrivals comes $n\\times$ faster: $E[\\min] = 1/(n\\lambda)$."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "P(min > x) = (1 − F(x))ⁿ ;   min of n Exp(λ) ~ Exp(nλ)",
+        "caption": "All n samples must exceed x; exponentials' rates add at the minimum."
+      },
+      "example": {
+        "prompt": "Two i.i.d. Uniform(0,1) draws. P(min > 0.5)?",
+        "steps": [
+          "Both must exceed 0.5: `(1 − 0.5)²`.",
+          "`= 0.5² = 0.25`."
+        ],
+        "result": "P(min > 0.5) = 0.25"
+      }
+    },
+    {
+      "heading": "Uniform order statistics & spacings",
+      "body": [
+        "For $n$ i.i.d. Uniform(0,1) samples the k-th order statistic has a clean mean: $E[X_{(k)}] = \\dfrac{k}{n+1}$. Hence $E[\\min] = 1/(n+1)$ and $E[\\max] = n/(n+1)$.",
+        "Equivalently, $n$ uniform points split $[0,1]$ into $n+1$ **spacings**, each with expected length $1/(n+1)$ by symmetry. The median of an odd sample sits at $1/2$."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[X₍ₖ₎] = k/(n+1)     E[min]=1/(n+1),  E[max]=n/(n+1)",
+        "caption": "Uniform order statistics are equally spaced in expectation."
+      },
+      "example": {
+        "prompt": "Five i.i.d. Uniform(0,1) draws. E[2nd smallest]?",
+        "steps": [
+          "Use `E[X₍ₖ₎] = k/(n+1)` with `k=2`, `n=5`.",
+          "`= 2/6`."
+        ],
+        "result": "E[X₍₂₎] = 1/3"
+      }
+    },
+    {
+      "heading": "Range, extremes, and large n",
+      "body": [
+        "The **range** is $X_{(n)} - X_{(1)}$. For $n$ uniforms, $E[\\text{range}] = E[\\max] - E[\\min] = \\dfrac{n-1}{n+1}$, which approaches 1 as the sample grows.",
+        "As $n \\to \\infty$ the max of uniforms creeps toward 1 (the support's top) and the min toward 0 — extremes push to the edges, slowly, at rate $1/(n+1)$."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Best-of-n intuition",
+        "text": "Each extra sample nudges the expected max up by a shrinking `1/(n+1)` step. Diminishing returns: going from 1 to 2 quotes helps far more than 100 to 101."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Order statistics",
+      "title": "Sort, then read off ranks",
+      "caption": "Order statistics are what you get when you sort a sample. The smallest is the minimum, the largest is the maximum, the middle one is the median, and the k-th smallest is the k-th order statistic. Most desk questions are secretly about one of these.",
+      "visual": { "kind": "formula", "expression": "X₍₁₎ ≤ X₍₂₎ ≤ … ≤ X₍ₙ₎" }
+    },
+    {
+      "term": "Max via CDF",
+      "title": "Everyone below the line",
+      "caption": "The maximum is at most x exactly when every sample is at most x. By independence that probability is the common CDF raised to the n. From this one identity you get the entire distribution of the max.",
+      "visual": { "kind": "formula", "expression": "P(max ≤ x) = F(x)ⁿ" }
+    },
+    {
+      "term": "Min via survival",
+      "title": "Everyone above the line",
+      "caption": "The minimum exceeds x exactly when every sample exceeds x, giving one minus the CDF, all raised to the n. A beautiful special case: the minimum of n exponentials is again exponential with the rates added, so the first arrival comes n times faster.",
+      "visual": { "kind": "formula", "expression": "P(min > x) = (1 − F(x))ⁿ" }
+    },
+    {
+      "term": "Uniform spacings",
+      "title": "Equally spaced on average",
+      "caption": "For n uniform points on the unit interval, the k-th smallest has expected value k over n plus one. So the points split the interval into n plus one gaps, each averaging one over n plus one, and the median of an odd sample lands right at one half.",
+      "visual": { "kind": "formula", "expression": "E[X₍ₖ₎] = k/(n+1)" }
+    },
+    {
+      "term": "Range & large n",
+      "title": "Extremes drift to the edges",
+      "caption": "The expected range of n uniforms is n minus one over n plus one, approaching one as the sample grows. Each extra sample nudges the expected maximum up by a shrinking step, so going from one quote to two helps far more than a hundred to a hundred and one.",
+      "visual": { "kind": "formula", "expression": "E[range] = (n−1)/(n+1)" }
+    }
+  ],
+  "questions": [
+    {
+      "id": "l16_q1",
+      "kind": "standard",
+      "concept": "order_stat_definition",
+      "question": "After sorting a sample in ascending order, the first order statistic X₍₁₎ is the:",
+      "options": [
+        "Minimum",
+        "Maximum",
+        "Median",
+        "Mean"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Sorting ascending puts the smallest value first, so X₍₁₎ is the minimum.",
+        "B": "The maximum is the last order statistic, X₍ₙ₎.",
+        "C": "The median is a middle order statistic, not the first.",
+        "D": "The mean is an average, not one of the sorted sample values."
+      },
+      "remediation": [
+        {
+          "id": "l16_q1_r1",
+          "question": "In a sorted sample of size n, the maximum is which order statistic?",
+          "options": [
+            "X₍ₙ₎",
+            "X₍₁₎",
+            "X₍₀₎",
+            "X₍ₙ₋₁₎"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The largest value is the n-th (last) order statistic.",
+            "B": "X₍₁₎ is the minimum.",
+            "C": "Order statistics are indexed from 1, so there is no X₍₀₎.",
+            "D": "X₍ₙ₋₁₎ is the second-largest, not the maximum."
+          }
+        },
+        {
+          "id": "l16_q1_r2",
+          "question": "Sample {7, 2, 9, 4}. What is X₍₂₎ (the 2nd order statistic)?",
+          "options": [
+            "4",
+            "2",
+            "7",
+            "9"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Sorted: 2, 4, 7, 9; the 2nd smallest is 4.",
+            "B": "2 is X₍₁₎, the minimum.",
+            "C": "7 is X₍₃₎.",
+            "D": "9 is X₍₄₎, the maximum."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q2",
+      "kind": "standard",
+      "concept": "max_distribution",
+      "question": "Two i.i.d. Uniform(0,1) draws. What is P(max ≤ 0.5)?",
+      "options": [
+        "0.25",
+        "0.5",
+        "0.75",
+        "0.125"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Both must be ≤ 0.5: P = F(0.5)² = 0.5² = 0.25.",
+        "B": "0.5 is the probability a single draw is ≤ 0.5, not both.",
+        "C": "0.75 = 1 − 0.25 is the probability the max exceeds 0.5.",
+        "D": "0.125 = 0.5³ uses three draws, not two."
+      },
+      "remediation": [
+        {
+          "id": "l16_q2_r1",
+          "question": "Three i.i.d. Uniform(0,1) draws. P(max ≤ 0.5)?",
+          "options": [
+            "0.125",
+            "0.25",
+            "0.5",
+            "0.375"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 0.5³ = 0.125.",
+            "B": "0.25 = 0.5² uses two draws.",
+            "C": "0.5 is for a single draw.",
+            "D": "0.375 = 3·0.125 incorrectly multiplies by n."
+          }
+        },
+        {
+          "id": "l16_q2_r2",
+          "question": "n i.i.d. Uniform(0,1). P(max ≤ x) equals:",
+          "options": [
+            "xⁿ",
+            "n·x",
+            "1 − xⁿ",
+            "x/n"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. All n must be ≤ x, and F(x) = x for U(0,1), giving xⁿ.",
+            "B": "n·x can exceed 1 and is not a probability for the max.",
+            "C": "1 − xⁿ is P(max > x), the complement.",
+            "D": "x/n has no basis here."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q3",
+      "kind": "standard",
+      "concept": "min_distribution",
+      "question": "Two i.i.d. Uniform(0,1) draws. What is P(min > 0.5)?",
+      "options": [
+        "0.25",
+        "0.5",
+        "0.75",
+        "0.0625"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Both must exceed 0.5: (1 − 0.5)² = 0.5² = 0.25.",
+        "B": "0.5 is the chance a single draw exceeds 0.5.",
+        "C": "0.75 = 1 − 0.25 is P(min ≤ 0.5).",
+        "D": "0.0625 = 0.5⁴ uses four draws."
+      },
+      "remediation": [
+        {
+          "id": "l16_q3_r1",
+          "question": "Three i.i.d. Uniform(0,1) draws. P(min > 0.5)?",
+          "options": [
+            "0.125",
+            "0.25",
+            "0.5",
+            "0.875"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. (1 − 0.5)³ = 0.125.",
+            "B": "0.25 = 0.5² uses two draws.",
+            "C": "0.5 is for a single draw.",
+            "D": "0.875 = 1 − 0.125 is P(min ≤ 0.5)."
+          }
+        },
+        {
+          "id": "l16_q3_r2",
+          "question": "n i.i.d. Uniform(0,1). P(min > x) equals:",
+          "options": [
+            "(1 − x)ⁿ",
+            "xⁿ",
+            "1 − xⁿ",
+            "n(1 − x)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. All n must exceed x, each with probability (1 − x).",
+            "B": "xⁿ is P(max ≤ x), a different event.",
+            "C": "1 − xⁿ is P(max > x).",
+            "D": "n(1 − x) can exceed 1 and is not this probability."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q4",
+      "kind": "standard",
+      "concept": "expected_max_uniform",
+      "question": "For three i.i.d. Uniform(0,1) samples, what is E[max]?",
+      "options": [
+        "3/4",
+        "1/2",
+        "1/4",
+        "2/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[max] = n/(n+1) = 3/4.",
+        "B": "1/2 is the mean of a single uniform, not the max of three.",
+        "C": "1/4 is E[min] = 1/(n+1), not E[max].",
+        "D": "2/3 = n/(n+1) with n = 2, the wrong sample size."
+      },
+      "remediation": [
+        {
+          "id": "l16_q4_r1",
+          "question": "For four i.i.d. Uniform(0,1) samples, E[max]?",
+          "options": [
+            "4/5",
+            "3/4",
+            "1/5",
+            "1/2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. n/(n+1) = 4/5.",
+            "B": "3/4 uses n = 3.",
+            "C": "1/5 is E[min] for n = 4.",
+            "D": "1/2 is a single-sample mean."
+          }
+        },
+        {
+          "id": "l16_q4_r2",
+          "question": "For n i.i.d. Uniform(0,1), E[max] equals:",
+          "options": [
+            "n/(n+1)",
+            "1/(n+1)",
+            "1/2",
+            "n/2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The max is the n-th order statistic, E[X₍ₙ₎] = n/(n+1).",
+            "B": "1/(n+1) is E[min].",
+            "C": "1/2 is the single-sample mean.",
+            "D": "n/2 exceeds 1 for n ≥ 2 and cannot be a uniform mean."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q5",
+      "kind": "standard",
+      "concept": "expected_min_uniform",
+      "question": "For three i.i.d. Uniform(0,1) samples, what is E[min]?",
+      "options": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "1/3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[min] = 1/(n+1) = 1/4.",
+        "B": "1/2 is the single-sample mean.",
+        "C": "3/4 is E[max], not E[min].",
+        "D": "1/3 = 1/n forgets the +1 in the denominator."
+      },
+      "remediation": [
+        {
+          "id": "l16_q5_r1",
+          "question": "For four i.i.d. Uniform(0,1) samples, E[min]?",
+          "options": [
+            "1/5",
+            "1/4",
+            "4/5",
+            "1/2"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 1/(n+1) = 1/5.",
+            "B": "1/4 = 1/n forgets the +1.",
+            "C": "4/5 is E[max].",
+            "D": "1/2 is a single-sample mean."
+          }
+        },
+        {
+          "id": "l16_q5_r2",
+          "question": "Among n i.i.d. Uniform(0,1) samples, the expected minimum gets ___ as n grows.",
+          "options": [
+            "Smaller (toward 0)",
+            "Larger (toward 1)",
+            "Stays at 1/2",
+            "Stays at 1/n exactly forever with no limit"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. E[min] = 1/(n+1) → 0 as n grows; more samples push the smallest toward 0.",
+            "B": "The minimum moves toward 0, not 1.",
+            "C": "It does not stay fixed at 1/2.",
+            "D": "It is 1/(n+1), and it does tend to a limit of 0."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q6",
+      "kind": "standard",
+      "concept": "max_discrete",
+      "question": "Two fair dice are rolled. What is P(the larger of the two equals 6)?",
+      "options": [
+        "11/36",
+        "1/6",
+        "1/36",
+        "25/36"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. max = 6 means at least one die shows 6: 1 − (5/6)² = 1 − 25/36 = 11/36.",
+        "B": "1/6 is the chance a single die shows 6, not the max of two.",
+        "C": "1/36 is P(both dice show 6), only one of the favorable cases.",
+        "D": "25/36 = (5/6)² is P(neither die is a 6), the complement."
+      },
+      "remediation": [
+        {
+          "id": "l16_q6_r1",
+          "question": "Two fair dice. P(the smaller of the two equals 1)?",
+          "options": [
+            "11/36",
+            "1/6",
+            "1/36",
+            "25/36"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. min = 1 means at least one die is 1: 1 − (5/6)² = 11/36.",
+            "B": "1/6 is for a single die showing 1.",
+            "C": "1/36 is P(both are 1).",
+            "D": "25/36 is P(neither die is a 1)."
+          }
+        },
+        {
+          "id": "l16_q6_r2",
+          "question": "Two fair dice. P(max ≤ 4)?",
+          "options": [
+            "16/36",
+            "4/6",
+            "1/9",
+            "20/36"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Both dice ≤ 4: (4/6)² = 16/36.",
+            "B": "4/6 is for a single die.",
+            "C": "1/9 = (1/3)² is wrong; each die is ≤ 4 with probability 4/6.",
+            "D": "20/36 = 1 − 16/36 is P(max > 4)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q7",
+      "kind": "standard",
+      "concept": "uniform_spacings",
+      "question": "Four points are dropped independently and uniformly on the interval [0,1], cutting it into pieces. What is the expected length of each piece?",
+      "options": [
+        "1/5",
+        "1/4",
+        "1/3",
+        "1/6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. n = 4 points create n + 1 = 5 spacings, each with expected length 1/(n+1) = 1/5 by symmetry.",
+        "B": "1/4 = 1/n forgets that n points make n + 1 gaps.",
+        "C": "1/3 would be for 2 points (3 gaps).",
+        "D": "1/6 would be for 5 points (6 gaps)."
+      },
+      "remediation": [
+        {
+          "id": "l16_q7_r1",
+          "question": "Two uniform points split [0,1] into how many pieces, each of what expected length?",
+          "options": [
+            "3 pieces, 1/3 each",
+            "2 pieces, 1/2 each",
+            "3 pieces, 1/2 each",
+            "2 pieces, 1/3 each"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. n = 2 points make 3 gaps, each averaging 1/(n+1) = 1/3.",
+            "B": "Two points create 3 pieces, not 2.",
+            "C": "Three pieces cannot each average 1/2 (they'd sum to 1.5).",
+            "D": "Two points create 3 pieces, not 2."
+          }
+        },
+        {
+          "id": "l16_q7_r2",
+          "question": "n uniform points on [0,1] create n+1 spacings. Each has expected length:",
+          "options": [
+            "1/(n+1)",
+            "1/n",
+            "1/(n−1)",
+            "n/(n+1)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. By symmetry the n+1 gaps share the unit length equally in expectation.",
+            "B": "1/n would only be right if there were n gaps.",
+            "C": "1/(n−1) over-counts the gap size.",
+            "D": "n/(n+1) is E[max], not a single spacing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q8",
+      "kind": "standard",
+      "concept": "kth_order_statistic",
+      "question": "For five i.i.d. Uniform(0,1) samples, what is E[X₍₂₎] (the second smallest)?",
+      "options": [
+        "1/3",
+        "2/5",
+        "1/6",
+        "1/2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X₍ₖ₎] = k/(n+1) = 2/6 = 1/3.",
+        "B": "2/5 = k/n forgets the +1 in the denominator.",
+        "C": "1/6 = 1/(n+1) is E[min], the first order statistic.",
+        "D": "1/2 is the single-sample mean / the median for large symmetric samples, not X₍₂₎ here."
+      },
+      "remediation": [
+        {
+          "id": "l16_q8_r1",
+          "question": "For six i.i.d. Uniform(0,1) samples, E[X₍₃₎] (third smallest)?",
+          "options": [
+            "3/7",
+            "1/2",
+            "3/6",
+            "1/7"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. k/(n+1) = 3/7.",
+            "B": "1/2 ignores the formula.",
+            "C": "3/6 = k/n forgets the +1.",
+            "D": "1/7 is E[min] for n = 6."
+          }
+        },
+        {
+          "id": "l16_q8_r2",
+          "question": "For n i.i.d. Uniform(0,1), E[X₍ₖ₎] equals:",
+          "options": [
+            "k/(n+1)",
+            "k/n",
+            "(k−1)/n",
+            "n/(k+1)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The k-th uniform order statistic has mean k/(n+1).",
+            "B": "k/n omits the +1 and is slightly off.",
+            "C": "(k−1)/n is not the correct mean.",
+            "D": "n/(k+1) inverts the roles of k and n."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q9",
+      "kind": "challenge",
+      "concept": "min_exponential",
+      "question": "Three independent Exponential(rate λ = 1) variables. What is E[min]?",
+      "options": [
+        "1/3",
+        "1",
+        "3",
+        "1/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The min of n i.i.d. Exp(λ) is Exp(nλ); here Exp(3), so E[min] = 1/3.",
+        "B": "1 is E of a single Exp(1); the minimum of three arrives sooner.",
+        "C": "3 = nλ is the rate of the min, not its mean (mean = 1/rate).",
+        "D": "1/9 = 1/n² has no basis; the min has mean 1/(nλ) = 1/3."
+      },
+      "remediation": [
+        {
+          "id": "l16_q9_r1",
+          "question": "Two independent Exp(λ = 2). The minimum is distributed as:",
+          "options": [
+            "Exp(4)",
+            "Exp(2)",
+            "Exp(1)",
+            "Exp(0.5)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Rates add: 2 + 2 = 4, so min ~ Exp(4).",
+            "B": "Exp(2) is a single component, not the minimum of two.",
+            "C": "Exp(1) would halve the rate instead of adding.",
+            "D": "Exp(0.5) inverts the rate."
+          }
+        },
+        {
+          "id": "l16_q9_r2",
+          "question": "For n i.i.d. Exp(λ), E[min] equals:",
+          "options": [
+            "1/(nλ)",
+            "n/λ",
+            "1/λ",
+            "λ/n"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. min ~ Exp(nλ), so its mean is 1/(nλ).",
+            "B": "n/λ is far too large; the min is the fastest arrival.",
+            "C": "1/λ is the mean of a single component.",
+            "D": "λ/n is a rate-like quantity, not the mean."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q10",
+      "kind": "challenge",
+      "concept": "range",
+      "question": "For three i.i.d. Uniform(0,1) samples, what is the expected range E[max − min]?",
+      "options": [
+        "1/2",
+        "3/4",
+        "1/4",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[range] = E[max] − E[min] = 3/4 − 1/4 = 1/2 (= (n−1)/(n+1) with n = 3).",
+        "B": "3/4 is E[max] alone, not the range.",
+        "C": "1/4 is E[min] alone.",
+        "D": "1 is the full interval width, the limiting range as n → ∞, not the value at n = 3."
+      },
+      "remediation": [
+        {
+          "id": "l16_q10_r1",
+          "question": "For four i.i.d. Uniform(0,1), E[range] = E[max] − E[min] equals:",
+          "options": [
+            "3/5",
+            "4/5",
+            "1/5",
+            "1"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 4/5 − 1/5 = 3/5 (= (n−1)/(n+1)).",
+            "B": "4/5 is E[max].",
+            "C": "1/5 is E[min].",
+            "D": "1 is the limiting range, not the value at n = 4."
+          }
+        },
+        {
+          "id": "l16_q10_r2",
+          "question": "As n → ∞, the expected range of n Uniform(0,1) samples approaches:",
+          "options": [
+            "1",
+            "1/2",
+            "0",
+            "n/(n+1)"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. (n−1)/(n+1) → 1; the extremes stretch to fill [0,1].",
+            "B": "1/2 is the n = 3 value, not the limit.",
+            "C": "0 would mean the sample collapses, the opposite of what happens.",
+            "D": "n/(n+1) is E[max], whose limit is also 1 but is not the range expression."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q11",
+      "kind": "challenge",
+      "concept": "median_order_statistic",
+      "question": "Nine i.i.d. Uniform(0,1) samples. What is the expected value of the sample median (the 5th smallest)?",
+      "options": [
+        "1/2",
+        "5/9",
+        "4/9",
+        "1/9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. E[X₍₅₎] = k/(n+1) = 5/10 = 1/2 — the median sits at the center by symmetry.",
+        "B": "5/9 = k/n forgets the +1 in the denominator.",
+        "C": "4/9 uses the wrong rank or denominator.",
+        "D": "1/9 is roughly E[min], not the median."
+      },
+      "remediation": [
+        {
+          "id": "l16_q11_r1",
+          "question": "Seven i.i.d. Uniform(0,1) samples. E[median] (4th smallest)?",
+          "options": [
+            "1/2",
+            "4/7",
+            "3/7",
+            "1/8"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 4/(7+1) = 4/8 = 1/2.",
+            "B": "4/7 = k/n forgets the +1.",
+            "C": "3/7 uses the wrong rank.",
+            "D": "1/8 is E[min] for n = 7."
+          }
+        },
+        {
+          "id": "l16_q11_r2",
+          "question": "Why is the expected median of an odd uniform sample exactly 1/2?",
+          "options": [
+            "By symmetry of Uniform(0,1) about 1/2; the central rank maps to k/(n+1) = 1/2",
+            "Because the mean of a uniform is 1/2 and the median equals the mean here",
+            "Because the median is always the average of max and min",
+            "Because 1/2 maximizes the density"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The uniform is symmetric about 1/2, and the central order statistic k = (n+1)/2 gives k/(n+1) = 1/2.",
+            "B": "The mean coincidence is a consequence of symmetry, not the defining reason for the order statistic.",
+            "C": "The median is not generally the midrange (max+min)/2.",
+            "D": "The uniform density is flat, so no point maximizes it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l16_q12",
+      "kind": "challenge",
+      "concept": "max_quantile",
+      "question": "Three i.i.d. Uniform(0,1) samples. What is the median of the maximum (the value m with P(max ≤ m) = 1/2)?",
+      "options": [
+        "≈ 0.79 (the cube root of 1/2)",
+        "0.5",
+        "≈ 0.875",
+        "≈ 0.17"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Set F(m)³ = m³ = 1/2 ⇒ m = (1/2)^(1/3) ≈ 0.794.",
+        "B": "0.5 is the median of a single uniform; the max of three is typically larger.",
+        "C": "≈ 0.875 is close to E[max-ish] guesses but does not solve m³ = 1/2.",
+        "D": "≈ 0.17 would be near the cube root of a small number, not 1/2."
+      },
+      "remediation": [
+        {
+          "id": "l16_q12_r1",
+          "question": "Two i.i.d. Uniform(0,1). Median of the max (P(max ≤ m) = 1/2)?",
+          "options": [
+            "≈ 0.71 (√(1/2))",
+            "0.5",
+            "0.25",
+            "≈ 0.79"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. m² = 1/2 ⇒ m = √0.5 ≈ 0.707.",
+            "B": "0.5 is a single-uniform median.",
+            "C": "0.25 = 0.5² solves the wrong equation.",
+            "D": "≈ 0.79 is the cube-root answer for n = 3, not n = 2."
+          }
+        },
+        {
+          "id": "l16_q12_r2",
+          "question": "To find a quantile m of the max of n Uniform(0,1) with P(max ≤ m) = q, you solve:",
+          "options": [
+            "mⁿ = q",
+            "n·m = q",
+            "m = q/n",
+            "(1 − m)ⁿ = q"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. P(max ≤ m) = mⁿ, so set mⁿ = q and take the n-th root.",
+            "B": "n·m = q is not the max's CDF.",
+            "C": "m = q/n ignores the power n.",
+            "D": "(1 − m)ⁿ = q is the min's survival equation, not the max."
+          }
+        }
+      ]
+    }
+  ]
+}

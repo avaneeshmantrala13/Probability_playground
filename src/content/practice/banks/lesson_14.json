@@ -1,0 +1,331 @@
+{
+  "lessonId": "lesson_14",
+  "track": "quant",
+  "title": "Markov Chains",
+  "questions": [
+    {
+      "id": "pr_l14_001",
+      "concept": "transition_matrix",
+      "question": "Each row of a Markov transition matrix sums to:",
+      "options": [
+        "1",
+        "0",
+        "the number of states",
+        "0.5"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Each row is a probability distribution over next states.",
+        "B": "Summing to 0 is impossible for a valid distribution.",
+        "C": "Only each row sums to 1, not to the state count.",
+        "D": "There is no fixed 0.5 constraint."
+      }
+    },
+    {
+      "id": "pr_l14_002",
+      "concept": "transition_matrix",
+      "question": "A row reads [0.2, 0.5, ?]. The missing entry is:",
+      "options": [
+        "0.3",
+        "0.7",
+        "0.5",
+        "0.2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 1 − 0.2 − 0.5 = 0.3.",
+        "B": "0.7 would push the row sum to 1.4.",
+        "C": "0.5 would push the row sum to 1.2.",
+        "D": "0.2 would push the row sum to 0.9 (not 1)."
+      }
+    },
+    {
+      "id": "pr_l14_003",
+      "concept": "markov_property",
+      "question": "The Markov property says the next state depends on:",
+      "options": [
+        "Only the current state",
+        "The full history",
+        "Only the initial state",
+        "The step number"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Memorylessness: the present alone determines the next-step distribution.",
+        "B": "The full history is exactly what is discarded.",
+        "C": "The initial state matters only via the current state.",
+        "D": "Time-homogeneous transitions do not change with the step number."
+      }
+    },
+    {
+      "id": "pr_l14_004",
+      "concept": "markov_property",
+      "question": "A memoryless chain has stayed in state A for 8 steps. The chance it leaves next step is:",
+      "options": [
+        "P(A→not A), unchanged by the streak",
+        "Higher than usual",
+        "Lower than usual",
+        "Exactly 0"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The streak does not alter transition probabilities.",
+        "B": "No build-up toward leaving occurs.",
+        "C": "Nor a build-up toward staying.",
+        "D": "Leaving is not impossible unless that probability is 0 to begin with."
+      }
+    },
+    {
+      "id": "pr_l14_005",
+      "concept": "one_step_transition",
+      "question": "Weather chain (S→S 0.8, S→R 0.2, R→S 0.4, R→R 0.6). Rainy today; P(Rainy tomorrow)?",
+      "options": [
+        "0.6",
+        "0.4",
+        "0.2",
+        "0.8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The Rainy row's Rainy entry is 0.6.",
+        "B": "0.4 is P(Rainy→Sunny).",
+        "C": "0.2 is from the Sunny row.",
+        "D": "0.8 is from the Sunny row."
+      }
+    },
+    {
+      "id": "pr_l14_006",
+      "concept": "two_step_transition",
+      "question": "Same weather chain, Sunny today. P(Sunny in two days)?",
+      "options": [
+        "0.72",
+        "0.64",
+        "0.80",
+        "0.28"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.8·0.8 + 0.2·0.4 = 0.64 + 0.08 = 0.72.",
+        "B": "0.64 counts only the all-sunny path.",
+        "C": "0.80 is the one-step probability.",
+        "D": "0.28 is P(Rainy in two days)."
+      }
+    },
+    {
+      "id": "pr_l14_007",
+      "concept": "two_step_transition",
+      "question": "Same chain, Sunny today. P(Rainy in two days)?",
+      "options": [
+        "0.28",
+        "0.72",
+        "0.20",
+        "0.12"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.8·0.2 + 0.2·0.6 = 0.16 + 0.12 = 0.28.",
+        "B": "0.72 is the complement (Sunny in two days).",
+        "C": "0.20 is the one-step rain chance.",
+        "D": "0.12 is only the S→R→R path."
+      }
+    },
+    {
+      "id": "pr_l14_008",
+      "concept": "stationary_definition",
+      "question": "A stationary distribution π (row-vector convention) satisfies:",
+      "options": [
+        "πP = π",
+        "πP = 0",
+        "π = P",
+        "Pπ = π with π a row vector"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. π reproduces itself under one step.",
+        "B": "πP = 0 forces the zero vector.",
+        "C": "A vector cannot equal a matrix.",
+        "D": "With a row vector and row-stochastic P, the correct product is πP, not Pπ."
+      }
+    },
+    {
+      "id": "pr_l14_009",
+      "concept": "stationary_compute",
+      "question": "Weather chain (S→R 0.2, R→S 0.4). Long-run fraction Sunny?",
+      "options": [
+        "2/3",
+        "1/3",
+        "1/2",
+        "0.8"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. π_S·0.2 = π_R·0.4 ⇒ π_S = 2/3.",
+        "B": "1/3 is the Rainy fraction.",
+        "C": "1/2 ignores the unequal rates.",
+        "D": "0.8 is a one-step probability."
+      }
+    },
+    {
+      "id": "pr_l14_010",
+      "concept": "stationary_compute",
+      "question": "Chain with P(A→B) = 0.25, P(B→A) = 0.75. Stationary π_A?",
+      "options": [
+        "3/4",
+        "1/4",
+        "1/2",
+        "0.25"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. π_A·0.25 = π_B·0.75 ⇒ π_A = 3π_B ⇒ π_A = 3/4.",
+        "B": "1/4 is π_B.",
+        "C": "1/2 ignores the rates.",
+        "D": "0.25 is a transition probability."
+      }
+    },
+    {
+      "id": "pr_l14_011",
+      "concept": "stationary_compute",
+      "question": "Machine: P(Working→Broken)=0.1, P(Broken→Working)=0.4. Long-run fraction Working?",
+      "options": [
+        "4/5",
+        "1/5",
+        "1/2",
+        "0.9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. π_W·0.1 = π_B·0.4 ⇒ π_W = 4π_B ⇒ π_W = 4/5.",
+        "B": "1/5 is the Broken fraction.",
+        "C": "1/2 ignores the rates.",
+        "D": "0.9 is a one-step staying probability."
+      }
+    },
+    {
+      "id": "pr_l14_012",
+      "concept": "absorbing_state",
+      "question": "A state i is absorbing when P(i→i) equals:",
+      "options": [
+        "1",
+        "0",
+        "0.5",
+        "the row average"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. You never leave an absorbing state.",
+        "B": "P(i→i)=0 means you always leave.",
+        "C": "0.5 still allows leaving.",
+        "D": "Absorption is about a self-loop of 1, not a row average."
+      }
+    },
+    {
+      "id": "pr_l14_013",
+      "concept": "expected_hitting_time",
+      "question": "From A, move to absorbing B with probability 0.5 each step (else stay). Expected steps to B?",
+      "options": [
+        "2",
+        "1",
+        "0.5",
+        "4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. h = 1 + 0.5h ⇒ h = 2.",
+        "B": "1 assumes first-step absorption.",
+        "C": "0.5 is the move probability.",
+        "D": "4 over-counts; 1/p = 2."
+      }
+    },
+    {
+      "id": "pr_l14_014",
+      "concept": "expected_hitting_time",
+      "question": "From A, move to absorbing B with probability 0.2 each step. Expected steps to B?",
+      "options": [
+        "5",
+        "2",
+        "0.2",
+        "1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. h = 1 + 0.8h ⇒ 0.2h = 1 ⇒ h = 5.",
+        "B": "2 uses the wrong move probability.",
+        "C": "0.2 is the per-step probability.",
+        "D": "1 assumes first-step absorption."
+      }
+    },
+    {
+      "id": "pr_l14_015",
+      "concept": "absorption_probability",
+      "question": "States 0,1,2,3 (0 and 3 absorbing, symmetric steps). From state 1, P(absorbed at 3)?",
+      "options": [
+        "1/3",
+        "2/3",
+        "1/2",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Symmetric gambler's ruin: k/N = 1/3.",
+        "B": "2/3 is absorption at 0.",
+        "C": "1/2 ignores the asymmetric distances.",
+        "D": "1/4 misuses the formula."
+      }
+    },
+    {
+      "id": "pr_l14_016",
+      "concept": "absorption_probability",
+      "question": "Same chain (0 and 3 absorbing). From state 2, P(absorbed at 3)?",
+      "options": [
+        "2/3",
+        "1/3",
+        "1/2",
+        "3/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. k/N = 2/3.",
+        "B": "1/3 is absorption at 0.",
+        "C": "1/2 ignores asymmetric distances.",
+        "D": "3/4 misuses the formula."
+      }
+    },
+    {
+      "id": "pr_l14_017",
+      "concept": "markov_property",
+      "question": "The gambler's fallacy ('a result is due') contradicts which chain property?",
+      "options": [
+        "Memorylessness",
+        "Row-stochasticity",
+        "Finiteness",
+        "Having a stationary distribution"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Memorylessness means the past does not make a future outcome 'due'.",
+        "B": "Rows summing to 1 is unrelated to the fallacy.",
+        "C": "Finiteness of states is irrelevant here.",
+        "D": "Existence of a stationary distribution does not address streak intuition."
+      }
+    },
+    {
+      "id": "pr_l14_018",
+      "concept": "stationary_definition",
+      "question": "For an ergodic chain, πᵢ equals:",
+      "options": [
+        "The long-run fraction of time in state i",
+        "The diagonal entry Pᵢᵢ",
+        "1 over the number of states always",
+        "The largest entry of row i"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. πᵢ is the long-run time fraction in state i.",
+        "B": "πᵢ is generally not the self-transition entry.",
+        "C": "Uniform stationary holds only for special (doubly-stochastic) chains.",
+        "D": "It is not simply the largest transition in the row."
+      }
+    }
+  ]
+}

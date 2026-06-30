@@ -1,0 +1,331 @@
+{
+  "lessonId": "lesson_13",
+  "track": "quant",
+  "title": "Martingales & Optional Stopping",
+  "questions": [
+    {
+      "id": "pr_l13_001",
+      "concept": "martingale_definition",
+      "question": "A martingale satisfies E[Xₙ₊₁ | history] = ?",
+      "options": [
+        "Xₙ",
+        "0",
+        "X₀",
+        "n"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The expected next value equals the current value.",
+        "B": "0 holds only if the current value is 0.",
+        "C": "X₀ is the unconditional mean, not the one-step conditional expectation.",
+        "D": "n is the time index, unrelated to the conditional mean."
+      }
+    },
+    {
+      "id": "pr_l13_002",
+      "concept": "martingale_definition",
+      "question": "For a martingale, the expected one-step increment E[Xₙ₊₁ − Xₙ | history] is:",
+      "options": [
+        "0",
+        "Xₙ",
+        "1",
+        "−1"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Zero drift is the defining feature.",
+        "B": "Xₙ is the expected next value, not the change.",
+        "C": "A drift of +1 makes it a submartingale.",
+        "D": "A drift of −1 makes it a supermartingale."
+      }
+    },
+    {
+      "id": "pr_l13_003",
+      "concept": "martingale_identification",
+      "question": "Which is a martingale?",
+      "options": [
+        "Symmetric ±1 random walk",
+        "±1 walk with up-probability 0.55",
+        "Running maximum of a walk",
+        "Wealth in a game with a house edge"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Equal up/down probabilities give zero drift.",
+        "B": "Up-probability 0.55 gives positive drift (submartingale).",
+        "C": "The running maximum never decreases, so it has upward drift.",
+        "D": "A house edge gives negative drift (supermartingale)."
+      }
+    },
+    {
+      "id": "pr_l13_004",
+      "concept": "fair_game",
+      "question": "A bet wins +$6 or loses −$6 with equal probability. Expected profit per bet:",
+      "options": [
+        "$0",
+        "$6",
+        "−$6",
+        "$3"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 0.5·6 + 0.5·(−6) = 0.",
+        "B": "$6 counts only the win.",
+        "C": "−$6 counts only the loss.",
+        "D": "$3 halves the stake without accounting for the loss."
+      }
+    },
+    {
+      "id": "pr_l13_005",
+      "concept": "fixed_time_fairness",
+      "question": "Start at $40 and make 50 fair ±$1 bets. Expected ending bankroll:",
+      "options": [
+        "$40",
+        "$0",
+        "$90",
+        "$2000"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Zero-drift steps leave the expectation at the start, $40.",
+        "B": "$0 confuses expected increment with expected bankroll.",
+        "C": "$90 = 40 + 50 assumes every bet wins.",
+        "D": "$2000 = 40 × 50 has no basis."
+      }
+    },
+    {
+      "id": "pr_l13_006",
+      "concept": "optional_stopping_statement",
+      "question": "By the Optional Stopping Theorem, for a martingale X and a suitable τ, E[X_τ] equals:",
+      "options": [
+        "X₀",
+        "0",
+        "E[τ]",
+        "the upper barrier"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Stopping a fair game at a valid rule preserves the starting expectation.",
+        "B": "0 only if the start is 0.",
+        "C": "E[τ] is the expected stopping time.",
+        "D": "A barrier is an outcome, not the expected stopping value."
+      }
+    },
+    {
+      "id": "pr_l13_007",
+      "concept": "optional_stopping_statement",
+      "question": "Which is a valid stopping time?",
+      "options": [
+        "First time the walk hits 0 or 100",
+        "One step before the all-time high",
+        "The moment of the eventual maximum",
+        "Just before the next loss"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A hitting time uses only past/present information.",
+        "B": "Knowing the all-time high requires the future.",
+        "C": "The eventual maximum is only known in hindsight.",
+        "D": "Anticipating the next loss peeks ahead."
+      }
+    },
+    {
+      "id": "pr_l13_008",
+      "concept": "ruin_probability_martingale",
+      "question": "Fair walk from 2, barriers at 0 and 10. P(reach 10 first)?",
+      "options": [
+        "0.2",
+        "0.8",
+        "0.5",
+        "0.02"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. p = k/N = 2/10 = 0.2.",
+        "B": "0.8 is the ruin probability.",
+        "C": "0.5 ignores the starting position.",
+        "D": "0.02 divides by 100 instead of 10."
+      }
+    },
+    {
+      "id": "pr_l13_009",
+      "concept": "ruin_probability_martingale",
+      "question": "Fair walk from 7, barriers at 0 and 10. P(ruin = reach 0 first)?",
+      "options": [
+        "0.3",
+        "0.7",
+        "0.5",
+        "0.07"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. P(reach 10) = 7/10 = 0.7, so P(ruin) = 0.3.",
+        "B": "0.7 is the probability of reaching 10, not ruin.",
+        "C": "0.5 ignores the starting bankroll.",
+        "D": "0.07 misplaces a decimal."
+      }
+    },
+    {
+      "id": "pr_l13_010",
+      "concept": "ruin_probability_martingale",
+      "question": "Start $25, fair $1 bets, quit at $0 or $100. P(reach $100)?",
+      "options": [
+        "0.25",
+        "0.75",
+        "0.5",
+        "0.025"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. 25/100 = 0.25.",
+        "B": "0.75 is the ruin probability.",
+        "C": "0.5 ignores the starting bankroll.",
+        "D": "0.025 misplaces a decimal."
+      }
+    },
+    {
+      "id": "pr_l13_011",
+      "concept": "ruin_probability_martingale",
+      "question": "Fair walk starts at 0, stops at +1 or −4. P(hit +1 first)?",
+      "options": [
+        "4/5",
+        "1/5",
+        "1/2",
+        "1/4"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Distance to lower barrier 4 over width 5 gives 4/5.",
+        "B": "1/5 is the complement (hit −4 first).",
+        "C": "1/2 ignores the unequal distances.",
+        "D": "1/4 misuses the distances."
+      }
+    },
+    {
+      "id": "pr_l13_012",
+      "concept": "expected_duration",
+      "question": "Symmetric walk from 3, barriers 0 and 10. Expected steps to absorption?",
+      "options": [
+        "21",
+        "30",
+        "13",
+        "9"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Distances 3 and 7; 3 × 7 = 21.",
+        "B": "30 = E[S_τ²] before subtracting S₀².",
+        "C": "13 = 3 + 10 adds instead of multiplying distances.",
+        "D": "9 = 3² is the squared start, not the duration."
+      }
+    },
+    {
+      "id": "pr_l13_013",
+      "concept": "expected_duration",
+      "question": "Symmetric walk from 0, barriers +3 and −5. Expected duration?",
+      "options": [
+        "15",
+        "8",
+        "40",
+        "2"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Product of distances 3 × 5 = 15.",
+        "B": "8 = 3 + 5 is the width (sum).",
+        "C": "40 = 8 × 5 uses width times one distance.",
+        "D": "2 = 5 − 3 subtracts the distances."
+      }
+    },
+    {
+      "id": "pr_l13_014",
+      "concept": "expected_duration",
+      "question": "Symmetric walk starting at the midpoint of barriers 0 and 6. Expected duration?",
+      "options": [
+        "9",
+        "6",
+        "3",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Midpoint 3; distances 3 and 3; 3 × 3 = 9.",
+        "B": "6 is the width, not the product.",
+        "C": "3 is one distance only.",
+        "D": "18 = 3 × 6 uses width instead of half-distance."
+      }
+    },
+    {
+      "id": "pr_l13_015",
+      "concept": "no_free_lunch",
+      "question": "Expected profit from any valid stopping strategy in a strictly fair game:",
+      "options": [
+        "$0",
+        "Always positive",
+        "Always negative",
+        "Positive if you quit while ahead"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. OST gives E[X_τ] = X₀, so expected profit is 0.",
+        "B": "A fair game cannot be made positive in expectation.",
+        "C": "Nor systematically negative.",
+        "D": "Quitting while ahead is offset by rare deep losses; expectation stays 0."
+      }
+    },
+    {
+      "id": "pr_l13_016",
+      "concept": "no_free_lunch",
+      "question": "The doubling betting system fails to beat a fair game because it requires:",
+      "options": [
+        "Unbounded bankroll and time (OST hypotheses fail)",
+        "A biased coin",
+        "Breaking the law of large numbers",
+        "A casino with no table limit only"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The 'sure win' needs infinite money and time, which is exactly what OST rules out.",
+        "B": "It fails even with a perfectly fair coin.",
+        "C": "The law of large numbers is not the issue.",
+        "D": "Table limits are a practical detail, not the core reason."
+      }
+    },
+    {
+      "id": "pr_l13_017",
+      "concept": "fair_game",
+      "question": "Wealth under bets with a small house edge is best described as a:",
+      "options": [
+        "Supermartingale",
+        "Martingale",
+        "Submartingale",
+        "Constant process"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A house edge gives negative drift, a supermartingale.",
+        "B": "A martingale needs a perfectly fair game.",
+        "C": "A submartingale drifts up, favoring the player.",
+        "D": "Wealth fluctuates, so it is not constant."
+      }
+    },
+    {
+      "id": "pr_l13_018",
+      "concept": "optional_stopping_statement",
+      "question": "A martingale starts at X₀ = 12. For any valid stopping time τ, E[X_τ] = ?",
+      "options": [
+        "12",
+        "0",
+        "24",
+        "6"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. OST gives E[X_τ] = X₀ = 12.",
+        "B": "0 would require starting at 0.",
+        "C": "24 = 2·12 has no basis.",
+        "D": "6 = 12/2 has no basis."
+      }
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "lessonId": "lesson_18",
+  "order": 18,
+  "title": "Adverse Selection & Information",
+  "subtitle": "The winner's curse, informed flow, and why market makers widen",
+  "topics": [
+    "Winner's curse",
+    "Adverse selection",
+    "Conditioning on the trade",
+    "Why spreads widen"
+  ],
+  "intro": [
+    "The deepest idea in trading is also the simplest to state: the very fact that someone is willing to trade with you is information. If a counterparty is eager to sell to you at your price, ask what they might know that you don't. Markets are not random draws — they are filled with agents who choose when and whether to transact, and that selection biases every fill you get.",
+    "The winner's curse is the cleanest illustration. In a common-value auction (an oil lease, an acquisition, a block of shares all worth the same unknown amount), the winner is the bidder who most overestimated the value. Winning is bad news about your own estimate. The fix is to condition on winning: shade your bid below your raw estimate, and shade it more when there are more rivals.",
+    "On a trading desk this shows up as adverse selection. A market maker quoting a two-sided market gets to trade with everyone — including informed traders who only lift the offer when it is too cheap and only hit the bid when it is too rich. The uninformed flow is roughly symmetric and profitable; the informed flow is one-directional and costly. Getting filled is, on average, mild bad news.",
+    "That is exactly why market makers widen the bid-ask spread: the spread must cover order-processing costs, inventory risk, AND the expected loss to better-informed counterparties. The more toxic (informed) the flow, the wider the quote. This capstone lesson ties conditional expectation (L12) to real market microstructure — the reasoning desks test constantly."
+  ],
+  "primer": [
+    {
+      "heading": "Trading is not a random draw",
+      "body": [
+        "Every fill is **selected**: a counterparty chose to trade with you at your price. That choice carries information. The core discipline is to ask, *what does it mean that this trade happened at all?*",
+        "Formally, you must reason with the **conditional** expectation $E[\\text{value} \\mid \\text{the trade occurred}]$, which is generally **not** the unconditional $E[\\text{value}]$."
+      ],
+      "keyTerms": [
+        { "term": "Adverse selection", "definition": "The tendency to transact precisely when the counterparty knows something you don't, biasing fills against you." },
+        { "term": "Informed flow", "definition": "Orders from traders with superior information; one-directional and costly to the other side." }
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "The counterparty question",
+        "text": "If someone is happy to take your price, ask why. Eagerness to trade against you is rarely good news."
+      }
+    },
+    {
+      "heading": "The winner's curse",
+      "body": [
+        "In a **common-value auction** the item is worth the same (unknown) amount to everyone; bidders only differ in their **estimates**. The highest bidder usually has the highest *error*, so winning means you probably **overpaid**.",
+        "The remedy is to **condition on winning**: assume that if you win, your estimate was on the high side, and **shade your bid down**. With more competitors, winning is even stronger evidence of over-estimation, so shade more."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "info",
+        "title": "Winning is bad news",
+        "text": "Condition on the event 'I won'. Among many noisy estimates of a common value, the winner is the one who most overestimated — so bid below your raw estimate."
+      },
+      "example": {
+        "prompt": "A company's value V is Uniform(0, 100); it is worth 1.5V to you. The owner sells only if your bid b ≥ V. Given a sale at bid b, what is E[V]?",
+        "steps": [
+          "A sale means `V ≤ b`, so condition on that range.",
+          "`V | (V ≤ b)` is Uniform(0, b), with mean `b/2`."
+        ],
+        "result": "E[V | sale] = b/2 — far below the prior mean 50, the heart of the curse."
+      }
+    },
+    {
+      "heading": "Conditioning on the fill",
+      "body": [
+        "Apply the same logic to a quote. If you post an **ask** (offer) and get **lifted** (someone buys from you), that is evidence the true value is **above** your ask — informed buyers lift cheap offers. Symmetrically, getting your **bid hit** suggests the value is below your bid.",
+        "So immediately after a fill, your best estimate of fair value moves **against** your position. A disciplined maker updates the mid toward the side that just traded."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "E[V | your ask was lifted] > ask        E[V | your bid was hit] < bid",
+        "caption": "The trade itself shifts your fair-value estimate against you."
+      }
+    },
+    {
+      "heading": "Why spreads exist and widen",
+      "body": [
+        "A market maker's **bid-ask spread** must cover three things: **order-processing** costs, **inventory risk** (holding an unwanted position), and **adverse selection** (expected losses to informed traders).",
+        "The adverse-selection piece scales with how **toxic** the flow is. If a fraction $\\alpha$ of trades are informed and each costs the maker $\\Delta$ on average, the half-spread must be at least $\\alpha\\,\\Delta$ just to break even against information."
+      ],
+      "visual": {
+        "kind": "formula",
+        "expression": "half-spread ≥ order-processing + inventory + α·Δ  (adverse selection)",
+        "caption": "More informed flow (bigger α) ⇒ wider quotes."
+      },
+      "example": {
+        "prompt": "10% of buyers are informed; each informed buy means the asset is really worth $1 above mid. Minimum half-spread to break even on adverse selection?",
+        "steps": [
+          "Expected loss to informed buyers per trade = `α·Δ = 0.10 × $1`.",
+          "The ask's half-spread must cover that expected loss."
+        ],
+        "result": "half-spread ≥ $0.10"
+      }
+    },
+    {
+      "heading": "Toxicity, widening, and pulling quotes",
+      "body": [
+        "When informed activity spikes — around news, before a print, when a large directional order is working — the flow becomes more **toxic**, and makers respond by **widening** or **pulling** quotes. This is not unfairness; it is survival.",
+        "The same instinct protects you everywhere: in negotiations, RFQs, and auctions, treat enthusiastic counterparties as a signal and price the information you are missing into your number."
+      ],
+      "visual": {
+        "kind": "callout",
+        "tone": "warning",
+        "title": "Widen before you bleed",
+        "text": "Tight quotes are cheap to noise traders but a gift to the informed. As toxicity rises, a wider spread is the maker's only defense."
+      }
+    }
+  ],
+  "primerNarration": [
+    {
+      "term": "Selection",
+      "title": "The trade is information",
+      "caption": "Trading is never a random draw. A counterparty chose to deal with you at your price, and that choice carries information. The discipline is to reason with the expected value conditioned on the trade happening, which is usually not the same as the unconditional value.",
+      "visual": { "kind": "formula", "expression": "E[value | trade occurred] ≠ E[value]" }
+    },
+    {
+      "term": "Winner's curse",
+      "title": "Winning is bad news",
+      "caption": "In a common-value auction everyone is estimating the same unknown number. The winner is usually the one who overestimated the most, so winning means you probably overpaid. The fix is to condition on winning and shade your bid below your raw estimate.",
+      "visual": { "kind": "callout", "tone": "info", "title": "Shade your bid", "text": "More rivals means shade more." }
+    },
+    {
+      "term": "Conditioning on the fill",
+      "title": "The fill moves fair value against you",
+      "caption": "If you post an offer and someone buys from you, that suggests the true value is above your offer. If your bid gets hit, the value is probably below your bid. So right after a trade, your best estimate of fair value moves against your new position.",
+      "visual": { "kind": "formula", "expression": "ask lifted ⇒ E[V] > ask" }
+    },
+    {
+      "term": "Spread components",
+      "title": "Three costs in the spread",
+      "caption": "A market maker's spread has to cover three things: order-processing costs, the risk of holding unwanted inventory, and adverse selection — the expected losses to better-informed traders. The more informed the flow, the larger that last piece becomes.",
+      "visual": { "kind": "formula", "expression": "spread = processing + inventory + adverse selection" }
+    },
+    {
+      "term": "Toxicity",
+      "title": "Widen before you bleed",
+      "caption": "When informed activity spikes — around news or a large working order — the flow turns toxic and makers widen or pull their quotes. That is not unfairness; it is survival. Treat eager counterparties everywhere as a signal and price in what you might be missing.",
+      "visual": { "kind": "callout", "tone": "warning", "title": "Toxic flow", "text": "Tight quotes are a gift to the informed." }
+    }
+  ],
+  "questions": [
+    {
+      "id": "l18_q1",
+      "kind": "standard",
+      "concept": "winners_curse",
+      "question": "In a common-value auction (the item is worth the same unknown amount to all bidders), the winner is typically the bidder who:",
+      "options": [
+        "Most overestimated the value",
+        "Most underestimated the value",
+        "Estimated the value exactly",
+        "Bid completely at random"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The highest bid usually comes from the largest positive estimation error, so winning signals you likely overpaid — the winner's curse.",
+        "B": "An underestimator would bid low and tend to lose, not win.",
+        "C": "Exact estimates are unlikely and would not systematically win the auction.",
+        "D": "Random bidding does not explain the systematic over-estimation of the winner."
+      },
+      "remediation": [
+        {
+          "id": "l18_q1_r1",
+          "question": "The winner's curse arises specifically in which kind of auction?",
+          "options": [
+            "Common-value (same unknown value to all)",
+            "Private-value (each bidder has their own true value)",
+            "Charity auctions only",
+            "Any auction with one bidder"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. It is a common-value phenomenon: bidders share the same unknown value and differ only in estimates.",
+            "B": "With purely private values there is no common truth to over-estimate.",
+            "C": "It is not specific to charity auctions.",
+            "D": "A single bidder faces no competition-driven curse."
+          }
+        },
+        {
+          "id": "l18_q1_r2",
+          "question": "Winning a common-value auction is evidence that your estimate was:",
+          "options": [
+            "On the high side",
+            "On the low side",
+            "Exactly right",
+            "Irrelevant"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. To outbid everyone you probably had the most optimistic (highest) estimate.",
+            "B": "A low estimate would not win.",
+            "C": "Being exactly right is not what winning implies.",
+            "D": "Your estimate is precisely what drove the winning bid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q2",
+      "kind": "standard",
+      "concept": "adverse_selection",
+      "question": "A market maker posts a two-sided quote. An informed trader (who knows fair value) will choose to trade when:",
+      "options": [
+        "The maker's quote is mispriced in the informed trader's favor",
+        "At completely random times",
+        "Only when the quote is exactly fair",
+        "Never, because they have information"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Informed traders lift offers that are too cheap and hit bids that are too rich, so the maker is selected against precisely when wrong.",
+        "B": "Informed traders are not random; they transact when it pays.",
+        "C": "A perfectly fair quote offers the informed no edge, so it is not when they prefer to trade.",
+        "D": "They certainly trade — that is exactly how their information is monetized against the maker."
+      },
+      "remediation": [
+        {
+          "id": "l18_q2_r1",
+          "question": "Compared with informed flow, uninformed ('noise') flow is, for the market maker:",
+          "options": [
+            "Roughly symmetric and on average profitable",
+            "Always a loss",
+            "One-directional and toxic",
+            "Identical to informed flow"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Noise traders buy and sell roughly symmetrically, letting the maker earn the spread on average.",
+            "B": "Noise flow is the profitable part, not a loss.",
+            "C": "One-directional toxicity describes informed flow, not noise.",
+            "D": "Noise and informed flow have opposite profitability for the maker."
+          }
+        },
+        {
+          "id": "l18_q2_r2",
+          "question": "Adverse selection means the maker tends to transact:",
+          "options": [
+            "Exactly when the counterparty knows more",
+            "Only with other market makers",
+            "At a guaranteed profit each time",
+            "Only at the mid-price"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The fills you get are biased toward moments when the counterparty is better informed.",
+            "B": "Adverse selection is about informed counterparties, not specifically other makers.",
+            "C": "There is no guaranteed profit; that is the whole problem.",
+            "D": "Trades occur at the bid or ask, not only the mid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q3",
+      "kind": "standard",
+      "concept": "spread_components",
+      "question": "The single biggest reason a market maker widens the bid-ask spread when facing smart counterparties is to:",
+      "options": [
+        "Compensate for adverse selection (losses to informed traders)",
+        "Punish customers for no reason",
+        "Reduce trading volume as a hobby",
+        "Comply with a law requiring wide spreads"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A wider spread offsets the expected loss to better-informed traders; the more toxic the flow, the wider the quote.",
+        "B": "Widening is a defensive economic response, not arbitrary punishment.",
+        "C": "Reducing volume is a side effect, not the purpose.",
+        "D": "No law mandates wide spreads; it is a risk decision."
+      },
+      "remediation": [
+        {
+          "id": "l18_q3_r1",
+          "question": "A market maker's spread must cover which set of costs?",
+          "options": [
+            "Order-processing, inventory risk, and adverse selection",
+            "Only exchange fees",
+            "Only income taxes",
+            "Nothing — spreads are pure profit"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The classic decomposition: processing costs, inventory risk, and adverse-selection losses.",
+            "B": "Exchange fees are only one small piece.",
+            "C": "Taxes are not the microstructure rationale for the spread.",
+            "D": "The spread compensates real costs and risks, not pure profit."
+          }
+        },
+        {
+          "id": "l18_q3_r2",
+          "question": "As the fraction of informed (toxic) order flow rises, optimal spreads should:",
+          "options": [
+            "Widen",
+            "Narrow",
+            "Stay fixed",
+            "Go to zero"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. More informed flow raises expected adverse-selection cost, requiring a wider spread.",
+            "B": "Narrowing into toxic flow increases losses.",
+            "C": "A fixed spread ignores changing toxicity.",
+            "D": "A zero spread would be fatal against informed traders."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q4",
+      "kind": "standard",
+      "concept": "conditioning_on_fill",
+      "question": "You post an ask (offer) on an asset of uncertain value and immediately get lifted (someone buys from you). What should you infer about the fair value?",
+      "options": [
+        "It is probably higher than your ask",
+        "It is probably lower than your ask",
+        "It is exactly your ask",
+        "Nothing — the fill carries no information"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Informed buyers lift offers that are too cheap, so a fill is evidence the value sits above your ask; update your mid upward.",
+        "B": "A buyer lifting your offer signals value above, not below, the ask.",
+        "C": "The fill suggests the value exceeds the ask, not that it equals it.",
+        "D": "The fill is exactly the kind of selection that carries information."
+      },
+      "remediation": [
+        {
+          "id": "l18_q4_r1",
+          "question": "Your resting bid gets hit (someone sells to you). This suggests fair value is:",
+          "options": [
+            "Below your bid",
+            "Above your bid",
+            "Exactly your bid",
+            "Unrelated to the trade"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Informed sellers hit bids that are too high, so the value likely sits below your bid.",
+            "B": "A seller hitting your bid points to value below, not above.",
+            "C": "The trade suggests value under the bid, not equal to it.",
+            "D": "The fill is informative, not unrelated."
+          }
+        },
+        {
+          "id": "l18_q4_r2",
+          "question": "Immediately after a fill, a disciplined market maker moves the mid-price:",
+          "options": [
+            "Toward the side that just traded",
+            "Away from the side that just traded",
+            "Never moves it",
+            "Randomly"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. A lifted offer nudges the mid up; a hit bid nudges it down — toward the trading side.",
+            "B": "Moving away ignores the information in the fill.",
+            "C": "Ignoring the fill discards real signal.",
+            "D": "The update is directional, not random."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q5",
+      "kind": "standard",
+      "concept": "winners_curse",
+      "question": "To protect against the winner's curse in a common-value auction, a bidder should:",
+      "options": [
+        "Bid below their naive estimate of value",
+        "Bid above their estimate to be safe",
+        "Bid exactly their estimate",
+        "Bid a random amount"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Conditioning on winning means assuming your estimate is high, so shade the bid downward.",
+        "B": "Bidding above your estimate worsens the over-payment.",
+        "C": "Bidding your raw estimate ignores that winning itself signals over-estimation.",
+        "D": "Random bidding is not a principled defense."
+      },
+      "remediation": [
+        {
+          "id": "l18_q5_r1",
+          "question": "With MORE competing bidders in a common-value auction, you should shade your bid:",
+          "options": [
+            "More (bid even lower)",
+            "Less",
+            "Not at all",
+            "Above your estimate"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Beating more rivals is stronger evidence of over-estimation, so shade more aggressively.",
+            "B": "Fewer adjustments with more rivals worsens the curse.",
+            "C": "No shading leaves you fully exposed to the curse.",
+            "D": "Bidding above your estimate is the opposite of the fix."
+          }
+        },
+        {
+          "id": "l18_q5_r2",
+          "question": "The winner's curse fix 'shade your bid' is an application of:",
+          "options": [
+            "Conditioning on the event that you win",
+            "Ignoring all information",
+            "Maximizing variance",
+            "The law of large numbers only"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. You compute E[value | I win], which is below your unconditional estimate, and bid accordingly.",
+            "B": "It uses information, not ignores it.",
+            "C": "It is about expected value, not maximizing variance.",
+            "D": "It is conditional expectation, not merely the law of large numbers."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q6",
+      "kind": "standard",
+      "concept": "spread_components",
+      "question": "Which list correctly names the three classic components of a market maker's bid-ask spread?",
+      "options": [
+        "Order-processing costs, inventory risk, and adverse selection",
+        "Dividends, coupons, and splits",
+        "Slippage, leverage, and margin",
+        "Volatility, gamma, and theta"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. The microstructure decomposition is processing costs + inventory risk + adverse selection.",
+        "B": "Dividends, coupons, and splits are corporate-action concepts, not spread components.",
+        "C": "Slippage, leverage, and margin are execution/financing terms, not the spread decomposition.",
+        "D": "Greeks describe option sensitivities, not the bid-ask spread."
+      },
+      "remediation": [
+        {
+          "id": "l18_q6_r1",
+          "question": "The cost of holding an unwanted position after a fill is the spread's:",
+          "options": [
+            "Inventory-risk component",
+            "Adverse-selection component",
+            "Order-processing component",
+            "Dividend component"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Inventory risk is the cost/risk of carrying the position the maker did not want.",
+            "B": "Adverse selection is about informed counterparties, not carrying inventory.",
+            "C": "Order-processing covers transaction/clearing overhead.",
+            "D": "Dividends are not a spread component."
+          }
+        },
+        {
+          "id": "l18_q6_r2",
+          "question": "Expected losses to better-informed traders are captured by the spread's:",
+          "options": [
+            "Adverse-selection component",
+            "Inventory component",
+            "Processing component",
+            "Tax component"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Adverse selection is exactly the expected cost of trading against the informed.",
+            "B": "Inventory risk concerns position-carrying, not information.",
+            "C": "Processing is overhead, not information loss.",
+            "D": "Taxes are not part of the standard decomposition."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q7",
+      "kind": "standard",
+      "concept": "asymmetric_information",
+      "question": "An envelope holds a prize worth either $0 or $100 (50/50). A seller who KNOWS the contents offers to sell it to you for $40. Should you buy?",
+      "options": [
+        "No — conditional on the offer, the prize is almost surely $0",
+        "Yes — the expected value is $50, above $40",
+        "Yes — the expected value is $100",
+        "It doesn't matter; you break even"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. A knowing seller offers to sell at $40 only when the prize is $0 (they keep the $100), so E[value | offered] ≈ $0 — decline.",
+        "B": "$50 is the unconditional mean; it ignores that the seller's willingness to sell is information.",
+        "C": "$100 is the good outcome the seller would never sell to you cheaply.",
+        "D": "You do not break even; conditioning on the offer makes it a losing buy."
+      },
+      "remediation": [
+        {
+          "id": "l18_q7_r1",
+          "question": "An informed seller is willing to sell you an asset at price P. This willingness suggests the true value is:",
+          "options": [
+            "At or below P",
+            "Well above P",
+            "Exactly the unconditional mean",
+            "Unknowable from the offer"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. A knowledgeable seller parts with it only when it is worth no more than P to them.",
+            "B": "If it were well above P, the informed seller would hold it.",
+            "C": "The offer shifts the estimate below the unconditional mean.",
+            "D": "The offer itself is informative."
+          }
+        },
+        {
+          "id": "l18_q7_r2",
+          "question": "This 'lemons' effect is an example of:",
+          "options": [
+            "Adverse selection from asymmetric information",
+            "The law of large numbers",
+            "Pure inventory risk",
+            "A risk-free arbitrage"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The better-informed party self-selects into trades that hurt the uninformed buyer.",
+            "B": "It is not about averaging many trials.",
+            "C": "It concerns information, not carrying inventory.",
+            "D": "There is no risk-free profit here — quite the opposite."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q8",
+      "kind": "standard",
+      "concept": "adverse_selection",
+      "question": "Your resting bid keeps getting filled an instant before the price falls further. The most likely explanation is that you are trading against:",
+      "options": [
+        "Informed sellers (adverse selection / toxic flow)",
+        "Only random noise traders",
+        "Nobody — it's coincidence every time",
+        "Your own duplicate orders"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Systematically being filled right before adverse moves is the signature of informed, toxic flow picking you off.",
+        "B": "Pure noise would not consistently precede downward moves.",
+        "C": "A persistent pattern is not coincidence; it is selection.",
+        "D": "Self-trading does not explain prices moving against you afterward."
+      },
+      "remediation": [
+        {
+          "id": "l18_q8_r1",
+          "question": "A maker who is repeatedly run over by informed flow should:",
+          "options": [
+            "Widen or pull quotes",
+            "Tighten quotes aggressively",
+            "Double the size offered",
+            "Ignore it"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Widening or pulling reduces exposure to toxic flow.",
+            "B": "Tightening into toxicity increases losses.",
+            "C": "More size magnifies the adverse-selection loss.",
+            "D": "Ignoring a persistent loss is not viable."
+          }
+        },
+        {
+          "id": "l18_q8_r2",
+          "question": "'Toxic' order flow refers to flow that is:",
+          "options": [
+            "Disproportionately informed and adverse to the maker",
+            "Always from retail traders",
+            "Always profitable for the maker",
+            "Random and harmless"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Toxic flow carries information that moves the price against the maker after the fill.",
+            "B": "Retail flow is often the opposite — relatively benign.",
+            "C": "Toxic flow is costly, not profitable.",
+            "D": "It is informative and harmful, not random."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q9",
+      "kind": "challenge",
+      "concept": "winners_curse",
+      "question": "A company's value V is Uniform(0, 100). It is worth 1.5V to you. The owner accepts your bid b only if b ≥ V. Given that your bid of 60 is accepted, what is E[V]?",
+      "options": [
+        "30",
+        "60",
+        "50",
+        "45"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Acceptance means V ≤ 60, so V | (V ≤ 60) is Uniform(0, 60) with mean 60/2 = 30.",
+        "B": "60 is your bid, not the conditional expected value of V.",
+        "C": "50 is the unconditional mean of V, ignoring that acceptance reveals V ≤ 60.",
+        "D": "45 is 1.5 × 30 (your value of the company), not E[V] itself."
+      },
+      "remediation": [
+        {
+          "id": "l18_q9_r1",
+          "question": "V is Uniform(0, 100). Given a sale occurs only when V ≤ 80, what is E[V | V ≤ 80]?",
+          "options": [
+            "40",
+            "80",
+            "50",
+            "100"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. V | (V ≤ 80) is Uniform(0, 80) with mean 40.",
+            "B": "80 is the cutoff, not the conditional mean.",
+            "C": "50 is the unconditional mean.",
+            "D": "100 is the top of the range."
+          }
+        },
+        {
+          "id": "l18_q9_r2",
+          "question": "If X is Uniform(0, b), then E[X] equals:",
+          "options": [
+            "b/2",
+            "b",
+            "b/3",
+            "2b"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. The mean of a uniform on (0, b) is the midpoint b/2.",
+            "B": "b is the upper endpoint, not the mean.",
+            "C": "b/3 is not the uniform mean.",
+            "D": "2b exceeds the support entirely."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q10",
+      "kind": "challenge",
+      "concept": "winners_curse",
+      "question": "Same setup: V ~ Uniform(0, 100), worth 1.5V to you, owner accepts iff b ≥ V. For ANY bid b > 0, your expected profit is 1.5·(b/2) − b. What is the optimal bid?",
+      "options": [
+        "$0 (never bid — every positive bid loses money)",
+        "$60",
+        "$50",
+        "$100"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected profit = 0.75b − b = −0.25b < 0 for every b > 0, so the only non-losing choice is to bid 0 (not transact).",
+        "B": "$60 gives expected profit 0.75·60 − 60 = −15, a loss.",
+        "C": "$50 gives 0.75·50 − 50 = −12.5, also a loss.",
+        "D": "$100 gives 0.75·100 − 100 = −25, the largest loss."
+      },
+      "remediation": [
+        {
+          "id": "l18_q10_r1",
+          "question": "With bid b = 60 accepted, E[V] = 30 and your value is 1.5·30 = 45. Your profit on a $60 purchase is:",
+          "options": [
+            "−$15",
+            "+$15",
+            "$0",
+            "+$45"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. You pay 60 for something worth 45 to you: 45 − 60 = −$15.",
+            "B": "+$15 flips the sign; you overpaid.",
+            "C": "$0 would require value to equal price, but 45 < 60.",
+            "D": "+$45 is your value of the asset, not the profit net of the $60 paid."
+          }
+        },
+        {
+          "id": "l18_q10_r2",
+          "question": "The reason a naive bidder loses here is that they used:",
+          "options": [
+            "The unconditional E[V] = 50 instead of E[V | accepted]",
+            "Too low an estimate of V",
+            "The wrong multiplier (it should be 0.5×)",
+            "A random bid"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Ignoring that acceptance reveals V ≤ b (so E[V | accepted] = b/2) is exactly the winner's-curse mistake.",
+            "B": "The error is over-valuing via the wrong conditioning, not under-estimating.",
+            "C": "The 1.5× synergy is given and correct; the flaw is the conditioning.",
+            "D": "The bid is deliberate, not random."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q11",
+      "kind": "challenge",
+      "concept": "spread_sizing",
+      "question": "A market maker faces buy flow that is 10% informed. Each informed buyer knows the asset is worth $1 above the current mid; uninformed buyers carry no information. What is the minimum half-spread (above mid) the maker needs just to break even on adverse selection?",
+      "options": [
+        "$0.10",
+        "$1.00",
+        "$0.01",
+        "$0.50"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. Expected adverse-selection loss per buy = 0.10 × $1 = $0.10, so the ask must sit at least $0.10 above mid to cover it.",
+        "B": "$1.00 is the loss to an informed buyer, but only 10% of buyers are informed, so the expected cost is one-tenth of that.",
+        "C": "$0.01 = 0.10 × $0.10 understates the informed loss (which is $1, not $0.10).",
+        "D": "$0.50 assumes half the flow is informed, but only 10% is."
+      },
+      "remediation": [
+        {
+          "id": "l18_q11_r1",
+          "question": "If 20% of buyers are informed and each costs the maker $2, the break-even half-spread is:",
+          "options": [
+            "$0.40",
+            "$2.00",
+            "$0.20",
+            "$0.04"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. 0.20 × $2 = $0.40 expected adverse-selection cost.",
+            "B": "$2 is the per-informed-trade loss, not the expected cost across all flow.",
+            "C": "$0.20 forgets to multiply by the $2 loss size.",
+            "D": "$0.04 = 0.20 × $0.20 uses the wrong loss size."
+          }
+        },
+        {
+          "id": "l18_q11_r2",
+          "question": "If the fraction of informed flow rises from 10% to 30% (loss $1 each), the required half-spread:",
+          "options": [
+            "Triples (from $0.10 to $0.30)",
+            "Stays at $0.10",
+            "Falls to $0.03",
+            "Drops to zero"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Expected cost = α·Δ scales with α: 0.30 × $1 = $0.30, three times the $0.10.",
+            "B": "It cannot stay fixed when toxicity triples.",
+            "C": "$0.03 moves the wrong direction (down).",
+            "D": "Zero would mean ignoring a rising adverse-selection cost."
+          }
+        }
+      ]
+    },
+    {
+      "id": "l18_q12",
+      "kind": "challenge",
+      "concept": "conditioning_on_fill",
+      "question": "You quote a fair-value mid of 100 with a tight market. Within seconds your entire offer is swept by an aggressive buyer. The BEST immediate response is to:",
+      "options": [
+        "Revise fair value upward and re-quote higher (and possibly wider)",
+        "Keep the same mid and re-post the identical offer",
+        "Lower your mid because you just sold",
+        "Assume the buyer was uninformed and ignore it"
+      ],
+      "correctAnswer": 0,
+      "explanations": {
+        "A": "Correct. An aggressive sweep of your offer is strong evidence value is above 100; update the mid up and widen against likely informed flow.",
+        "B": "Re-posting the same offer invites the informed buyer to keep lifting you at a stale price.",
+        "C": "Selling does not mean value fell; a lift signals value rose, so lowering the mid is backwards.",
+        "D": "An aggressive sweep is exactly the profile of informed flow; ignoring it is dangerous."
+      },
+      "remediation": [
+        {
+          "id": "l18_q12_r1",
+          "question": "A large, aggressive order that sweeps multiple price levels most likely reflects:",
+          "options": [
+            "Informed urgency (the trader expects the price to move)",
+            "A patient, uninformed investor",
+            "A market maker providing liquidity",
+            "No information at all"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. Sweeping urgency signals the trader expects an imminent move — classic informed behavior.",
+            "B": "Patient investors work orders passively, not by sweeping.",
+            "C": "Sweeping takes liquidity; it does not provide it.",
+            "D": "Aggression is itself a strong signal."
+          }
+        },
+        {
+          "id": "l18_q12_r2",
+          "question": "After being swept on your offer, holding your quote unchanged exposes you to:",
+          "options": [
+            "Repeatedly selling cheap to an informed buyer (more adverse selection)",
+            "A guaranteed rebound to your price",
+            "Lower inventory risk",
+            "Higher profits with certainty"
+          ],
+          "correctAnswer": 0,
+          "explanations": {
+            "A": "Correct. A stale, too-low offer keeps getting lifted by the informed trader, compounding losses.",
+            "B": "Nothing guarantees a rebound after informed buying.",
+            "C": "Your short inventory and risk grow, not shrink.",
+            "D": "Standing still into informed flow loses money, not gains."
+          }
+        }
+      ]
+    }
+  ]
+}
