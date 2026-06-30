@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useProgress } from "../../context/ProgressContext";
+import { useAuth } from "../../context/AuthContext";
 import {
   effectivePlan,
   hasEntitlement,
@@ -13,9 +14,11 @@ import {
   PLAN_NAMES,
   formatUsd,
   getPlan,
+  type EntitlementLevel,
   type Feature,
   type PlanId,
 } from "./plans";
+import { isCompAccessEmail } from "./compAccess";
 
 /**
  * Reads the user's effective plan from ProgressContext. The `plan` /
@@ -25,8 +28,13 @@ import {
  */
 export function useEntitlement() {
   const { progress } = useProgress();
+  const { user } = useAuth();
   const planLike = progress as unknown as PlanProgressLike;
-  const plan = effectivePlan(planLike);
+  // Comped owner accounts always resolve to the top tier so every paid page is
+  // viewable without billing. All other users go through the normal plan logic.
+  const plan: EntitlementLevel = isCompAccessEmail(user?.email)
+    ? "interview_prep"
+    : effectivePlan(planLike);
   return {
     /** The plan currently in effect (expiry-aware). */
     plan,

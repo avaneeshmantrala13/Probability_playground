@@ -1,5 +1,6 @@
 import { FieldValue } from "firebase-admin/firestore";
 import { getDb } from "./admin.js";
+import { isCompAccessEmail } from "./comp.js";
 
 /**
  * Persistent per-uid daily AI usage counter (server-side free-tier enforcement).
@@ -103,16 +104,22 @@ export async function consumeDailyQuota(
   const field = `${dayKey(new Date(now), clampOffset(opts.tzOffsetMinutes))}:${feature}`;
   const usageRef = db.collection("aiUsage").doc(uid);
   const progressRef = db.collection("courseProgress").doc(uid);
+  const userRef = db.collection("users").doc(uid);
 
   try {
     return await db.runTransaction(async (tx) => {
-      const [progressSnap, usageSnap] = await Promise.all([
+      const [progressSnap, usageSnap, userSnap] = await Promise.all([
         tx.get(progressRef),
         tx.get(usageRef),
+        tx.get(userRef),
       ]);
 
       const progress = progressSnap.exists ? progressSnap.data() ?? {} : {};
-      const plan = effectivePlan(progress.plan, progress.planExpiresAt, now);
+      // Comped owner accounts are treated as the top paid tier (unlimited-ish).
+      const comp = userSnap.exists && isCompAccessEmail(userSnap.data()?.email);
+      const plan = comp
+        ? "interview_prep"
+        : effectivePlan(progress.plan, progress.planExpiresAt, now);
       const limit = plan === "free" ? opts.freeLimit : (opts.paidCap ?? PAID_SAFETY_CAP);
 
       const usageData = usageSnap.exists ? usageSnap.data() ?? {} : {};
