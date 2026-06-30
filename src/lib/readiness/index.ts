@@ -59,6 +59,13 @@ export const LESSON_COMPETENCY_MAP: Record<string, Competency[]> = {
   lesson_9: ["pokerTheory", "expectedValue"], // Game Theory & Strategic Thinking
   lesson_10: ["brainteasers", "estimation"], // Brain Teasers & Quant Estimation
   lesson_11: ["probability", "brainteasers", "expectedValue"], // Firm-Style Drills
+  lesson_12: ["expectedValue", "probability"], // Conditional Expectation
+  lesson_13: ["expectedValue", "probability"], // Martingales & Optional Stopping
+  lesson_14: ["probability"], // Markov Chains
+  lesson_15: ["probability", "expectedValue"], // Random Walks & Gambler's Ruin
+  lesson_16: ["statistics", "probability"], // Order Statistics
+  lesson_17: ["expectedValue"], // Kelly Criterion & Bet Sizing
+  lesson_18: ["marketMaking", "expectedValue"], // Adverse Selection & Information
 
   // ----- Market-making course (/market-making/lessons) -----
   mm_bid_ask: ["marketMaking"],

@@ -40,6 +40,13 @@ const PRACTICE_BANK_IDS = new Set<string>([
   "lesson_9",
   "lesson_10",
   "lesson_11",
+  "lesson_12",
+  "lesson_13",
+  "lesson_14",
+  "lesson_15",
+  "lesson_16",
+  "lesson_17",
+  "lesson_18",
   "mm_bid_ask",
   "mm_spread",
   "mm_fair_value",
@@ -92,6 +99,16 @@ const LEARNING_BACKBONE: LearningUnit[] = [
   { kind: "marketMaking", lessonId: "mm_interview", competency: "marketMaking", phase: "practice" },
   { kind: "pokerTheory", lessonId: "pt_position", competency: "pokerTheory", phase: "practice" },
   { kind: "pokerTheory", lessonId: "pt_bluffing", competency: "pokerTheory", phase: "practice" },
+
+  // Advanced quant track (order 12-18): deeper, interview-grade material that
+  // unlocks after the core lessons via the same sequential-mastery gate.
+  { kind: "lesson", lessonId: "lesson_12", competency: "expectedValue", phase: "practice" },
+  { kind: "lesson", lessonId: "lesson_13", competency: "expectedValue", phase: "practice" },
+  { kind: "lesson", lessonId: "lesson_14", competency: "probability", phase: "practice" },
+  { kind: "lesson", lessonId: "lesson_15", competency: "probability", phase: "practice" },
+  { kind: "lesson", lessonId: "lesson_16", competency: "statistics", phase: "practice" },
+  { kind: "lesson", lessonId: "lesson_17", competency: "expectedValue", phase: "practice" },
+  { kind: "lesson", lessonId: "lesson_18", competency: "marketMaking", phase: "practice" },
 ];
 
 /** Firms used to rotate general (non-firm-focused) mock interviews, by style. */
