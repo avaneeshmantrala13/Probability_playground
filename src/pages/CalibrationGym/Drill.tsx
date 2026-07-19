@@ -79,7 +79,7 @@ export function Drill() {
     setHi("");
     setConfidence(0.9);
     try {
-      const url = fam ? `/api/gym/problem?family=${fam}` : "/api/gym/problem";
+      const url = fam ? `/api/gym?family=${fam}` : "/api/gym";
       const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) {
         setError(await errorMessage(res, "Could not load a problem."));
@@ -118,7 +118,7 @@ export function Drill() {
         body.intervalHi = parseFloat(hi);
         body.confidence = confidence;
       }
-      const res = await fetch("/api/gym/attempt", {
+      const res = await fetch("/api/gym", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

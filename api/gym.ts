@@ -1,14 +1,64 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifyBearerToken } from "../_lib/firebase-auth";
-import { getDb } from "../_lib/admin";
-import { buildFromSeed } from "../../src/lib/calibrationGym/math/problems";
+import { verifyBearerToken } from "./_lib/firebase-auth";
+import { getDb } from "./_lib/admin";
+import {
+  generateProblem,
+  toPublic,
+  buildFromSeed,
+} from "../src/lib/calibrationGym/math/problems";
+import type { Family } from "../src/lib/calibrationGym/math/problems/types";
 import {
   scoreInstance,
   type ForecastSubmission,
-} from "../../src/lib/calibrationGym/scoreInstance";
+} from "../src/lib/calibrationGym/scoreInstance";
 
 /**
- * POST /api/gym/attempt
+ * Consolidated Calibration Gym endpoint (single serverless function to stay
+ * under the Vercel Hobby 12-function limit). Routes by HTTP method:
+ *
+ *   GET  /api/gym?family=coin-flip|bayes  → generate a fresh problem with the
+ *        ground truth withheld (see toPublic). No auth required.
+ *   POST /api/gym  → rebuild the exact instance from its seed (truth lives only
+ *        on the server), score the forecast, persist the attempt to Firestore
+ *        under `calibrationAttempts/{uid}/attempts/{id}`, and return the scored
+ *        result together with the now-revealed truth. Requires a Firebase token.
+ */
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method === "GET") return handleProblem(req, res);
+  if (req.method === "POST") return handleAttempt(req, res);
+
+  res.setHeader("Allow", "GET, POST");
+  return res.status(405).json({ error: "Method not allowed" });
+}
+
+/**
+ * Returns a freshly generated Calibration Gym problem with the ground truth
+ * withheld. The deterministic `seed` travels with the payload so the POST
+ * branch can rebuild the exact instance server-side and score the forecast —
+ * the answer is never sent to the browser here.
+ */
+async function handleProblem(req: VercelRequest, res: VercelResponse) {
+  try {
+    const familyParam = Array.isArray(req.query.family)
+      ? req.query.family[0]
+      : req.query.family;
+    const family: Family | undefined =
+      familyParam === "coin-flip" || familyParam === "bayes"
+        ? (familyParam as Family)
+        : undefined;
+
+    const inst = generateProblem({ family });
+    // Never cache: each request must yield a fresh problem.
+    res.setHeader("Cache-Control", "no-store");
+    return res.status(200).json(toPublic(inst));
+  } catch (err) {
+    console.error("gym/problem API error:", err);
+    const message = err instanceof Error ? err.message : "Internal server error";
+    return res.status(500).json({ error: message });
+  }
+}
+
+/**
  * Body: { seed, forecastProb?, intervalLo?, intervalHi?, confidence? }
  *
  * Rebuilds the exact problem instance from its seed (ground truth lives only on
@@ -17,12 +67,7 @@ import {
  * `calibrationAttempts/{uid}/attempts/{id}` via the Admin SDK, and returns the
  * scored result together with the now-revealed truth.
  */
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
-    return res.status(405).json({ error: "Method not allowed" });
-  }
-
+async function handleAttempt(req: VercelRequest, res: VercelResponse) {
   // Firestore (Admin) must be configured for us to authenticate and persist.
   const db = getDb();
   if (!db) {

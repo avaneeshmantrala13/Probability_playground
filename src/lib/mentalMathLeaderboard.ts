@@ -43,7 +43,7 @@ export async function fetchMentalMathLeaderboard(): Promise<MentalMathLeaderboar
   if (!user) throw new Error("Not signed in");
 
   const token = await user.getIdToken();
-  const res = await fetch("/api/mental-math-leaderboard", {
+  const res = await fetch("/api/leaderboard?board=mental-math", {
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -73,7 +73,7 @@ export async function syncMentalMathLeaderboardEntry(
   _username: string,
   _scores: MentalMathBestScores,
 ): Promise<void> {
-  // no-op: /api/mental-math-leaderboard reads courseProgress directly
+  // no-op: /api/leaderboard?board=mental-math reads courseProgress directly
 }
 
 export function valueForMentalMathSort(

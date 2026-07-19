@@ -13,9 +13,6 @@
     "api/leaderboard.ts": {
       "maxDuration": 30
     },
-    "api/mental-math-leaderboard.ts": {
-      "maxDuration": 30
-    },
     "api/admin-reset-progress.ts": {
       "maxDuration": 30
     },
@@ -25,10 +22,7 @@
     "api/poker-bot-line.ts": {
       "maxDuration": 20
     },
-    "api/gym/problem.ts": {
-      "maxDuration": 10
-    },
-    "api/gym/attempt.ts": {
+    "api/gym.ts": {
       "maxDuration": 15
     }
   },
