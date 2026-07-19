@@ -1,6 +1,4 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifyBearerToken } from "./_lib/firebase-auth";
-import { getDb } from "./_lib/admin";
 import {
   generateProblem,
   toPublic,
@@ -22,6 +20,13 @@ import {
  *        on the server), score the forecast, persist the attempt to Firestore
  *        under `calibrationAttempts/{uid}/attempts/{id}`, and return the scored
  *        result together with the now-revealed truth. Requires a Firebase token.
+ *
+ * firebase-admin (auth + firestore) is imported lazily inside the POST branch,
+ * never at module scope. Statically importing it here pulled firebase-admin into
+ * the function's cold-start load graph and crashed the whole function on Vercel
+ * (FUNCTION_INVOCATION_FAILED) — including the auth-free GET path, which is why
+ * the drill reported "Could not load a problem." See api/_lib/quota.ts for the
+ * same pattern and prior incident.
  */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === "GET") return handleProblem(req, res);
@@ -68,6 +73,12 @@ async function handleProblem(req: VercelRequest, res: VercelResponse) {
  * scored result together with the now-revealed truth.
  */
 async function handleAttempt(req: VercelRequest, res: VercelResponse) {
+  // Load firebase-admin lazily (never at module scope): keeps the auth-free GET
+  // path out of firebase-admin's load graph so a cold-start init failure can't
+  // take down problem generation. Mirrors api/_lib/quota.ts.
+  const { getDb } = await import("./_lib/admin.js");
+  const { verifyBearerToken } = await import("./_lib/firebase-auth.js");
+
   // Firestore (Admin) must be configured for us to authenticate and persist.
   const db = getDb();
   if (!db) {
