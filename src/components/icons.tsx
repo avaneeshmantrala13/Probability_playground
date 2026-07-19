@@ -277,3 +277,12 @@ export const LibraryIcon = (p: IconProps) => (
     <path d="M8 7h8M8 11h6" />
   </svg>
 );
+
+// Speedometer/gauge — used for the Calibration Gym nav entry.
+export const GaugeIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M3.5 16a9 9 0 1 1 17 0" />
+    <path d="M12 14l4-4" />
+    <circle cx="12" cy="14" r="1.4" fill="currentColor" stroke="none" />
+  </svg>
+);

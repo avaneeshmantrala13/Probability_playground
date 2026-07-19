@@ -204,6 +204,15 @@ service cloud.firestore {
       allow read, write: if isOwner(uid);
     }
 
+    // Calibration Gym attempts are written ONLY by the server (Admin SDK, which
+    // bypasses these rules) after it scores a forecast against the withheld
+    // ground truth. Owners may read their own history; clients never write
+    // (so a user can't fabricate a score or reveal an answer client-side).
+    match /calibrationAttempts/{uid}/attempts/{attemptId} {
+      allow read: if isOwner(uid);
+      allow write: if false;
+    }
+
     // Token purchases are written only by the Stripe webhook (Admin SDK).
     match /tokenPurchases/{sessionId} {
       allow read: if isSignedIn() && resource.data.uid == request.auth.uid;

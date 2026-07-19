@@ -7,6 +7,7 @@ import {
   CrownIcon,
   DiamondIcon,
   DiceIcon,
+  GaugeIcon,
   GraduationCapIcon,
   HeartIcon,
   HomeIcon,
@@ -87,6 +88,14 @@ export const NAV_ITEMS: NavItem[] = [
     matchPrefix: true,
     iconClassName: "text-indigo-500",
     activeClassName: "bg-indigo-500/15 text-primary ring-1 ring-indigo-500/25",
+  },
+  {
+    to: "/calibration-gym",
+    label: "Calibration Gym",
+    icon: GaugeIcon,
+    matchPrefix: true,
+    iconClassName: "text-blue-500",
+    activeClassName: "bg-blue-500/15 text-primary ring-1 ring-blue-500/25",
   },
   {
     to: "/readiness",

@@ -11,13 +11,15 @@
     "validate:content": "node scripts/validate-content.mjs",
     "verify:answers": "node scripts/verify-answers.mjs",
     "verify": "node scripts/validate-content.mjs && node scripts/verify-answers.mjs",
-    "merge:expansions": "node scripts/merge-lesson-expansions.mjs"
+    "merge:expansions": "node scripts/merge-lesson-expansions.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "@vercel/node": "^3.2.0",
     "@stripe/stripe-js": "^4.1.0",
     "firebase": "^10.12.2",
     "firebase-admin": "^12.2.0",
+    "fraction.js": "^4.3.7",
     "pokersolver": "^2.1.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -33,6 +35,7 @@
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vitest": "^2.1.4"
   }
 }

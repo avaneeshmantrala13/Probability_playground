@@ -24,6 +24,12 @@
     },
     "api/poker-bot-line.ts": {
       "maxDuration": 20
+    },
+    "api/gym/problem.ts": {
+      "maxDuration": 10
+    },
+    "api/gym/attempt.ts": {
+      "maxDuration": 15
     }
   },
   "rewrites": [

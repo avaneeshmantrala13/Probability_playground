@@ -60,6 +60,11 @@ const PokerTheoryPlayer = lazy(() =>
     default: m.PokerTheoryPlayer,
   })),
 );
+// The Calibration Gym is a self-contained section with its own nested routes;
+// lazy-load it so its drill/scoring code stays out of the initial bundle.
+const CalibrationGym = lazy(() =>
+  import("./pages/CalibrationGym").then((m) => ({ default: m.CalibrationGym })),
+);
 import { AccentThemeApplier } from "./components/store/AccentThemeApplier";
 import { DailyRewardsGate } from "./components/dailyRewards/DailyRewardsGate";
 
@@ -149,6 +154,16 @@ export function App() {
             <Protected>
               <Suspense fallback={<LoadingScreen />}>
                 <PracticeSession />
+              </Suspense>
+            </Protected>
+          }
+        />
+        <Route
+          path="/calibration-gym/*"
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingScreen />}>
+                <CalibrationGym />
               </Suspense>
             </Protected>
           }
